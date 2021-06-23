@@ -1,0 +1,91 @@
+La capacité qu'offre Python de vous permettre
+ d'utiliser les opérations de broadcasting et plus généralement la grande flexibilité
+de la librairie numpy de python est, selon moi, à la fois une force et
+une faiblesse de ce langage. Je pense que c'est une force en raison
+ de la grande expressivité de ce langage. Je pense que c'est une force car la grande
+ flexibilité du langage vous permet
+ d'effectuer bien des opérations avec juste une seule ligne de code. Mais c'est aussi une faiblesse parce
+ qu'avec le broadcasting et cette grande flexibilité vous pouvez parfois introduire
+ des bugs vraiment subtiles ou des bugs étranges si vous
+n'êtes pas familier avec la complexité du broadcasting et avec la
+manière dont le broadcasting fonctionne. Par exemple, si vous prenez un vecteur 
+colonne et l'ajoutez à un vecteur ligne, vous vous attendez à obtenir 
+une erreur de compatibilité
+de dimensions ou une erreur de type etc Mais vous pourriez en fait obtenir une matrice 
+comme somme d'un vecteur ligne et d'un vecteur colonne. Donc, il y a une logique interne
+ à ces effets étranges de Python mais si vous n’êtes pas familier avec 
+Python, j’ai vu certains élèves avoir des bugs étranges et difficiles à trouver. Donc dans cette vidéo, je veux partager 
+avec vous quelques conseils et astuces qui m'ont été très utiles pour éliminer ou simplifier et éliminer tous les bugs 
+étranges dans mon propre code. Et j’espère qu’avec ces astuces, vous pourrez également écrire beaucoup plus 
+facilement du code python et numpy sans bug. Pour illustrer un des effets les moins
+ intuitifs de Python-Numpy, en particulier comment construire des 
+vecteurs en Python-Numpy, permettez-moi 
+de faire une démonstration rapide. Définissons a = np.random.randn(5), cela crée un vecteur de cinq variables aléatoires gaussiennes dans le tableau a. Et nous allons donc print(a)
+ et il s’avère que la forme de a quand vous faites cela,
+ c’est cette structure (5,) C'est appelé un tableau
+ de rang 1 en Python et ce n’est ni un vecteur ligne, 
+ni un vecteur colonne. Et cela l’amène à avoir des effets 
+légèrement non intuitifs. Ainsi, par exemple, si j’affiche la transposée
+ de a, ça ressemble exactement à a. Donc a et transposée de a 
+se ressemblent exactement. Et si j’affiche le produit scalaire entre a 
+et transposée de a... vous pourriez penser que a fois transposée de a est 
+peut-être le produit dyadique, 
+qui va vous donner une matrice. Mais si je fais ça,
+ je vais en fait avoir un nombre. Donc je vous recommande, lorsque vous codez
+ des réseaux de neurones, de ne pas utiliser ces structures de données où la forme 
+est (5,) ou (n,), ces tableaux de rang 1. A la place, 
+si vous définissez a comme ceci (5, 1), cela force a à être un vecteur colonne
+ de dimensions (5,1). Avant, la transposée de a 
+et a étaient la même chose, maintenant, la transposée de a 
+est un vecteur ligne. Remarquez une différence subtile. Dans cette structure de données, 
+il y a deux crochets lorsque 
+nous affichons la transposée de a. Alors qu’auparavant,
+ il n'y avait qu'un crochet. Donc, cette différence montre que 
+ceci est vraiment une matrice de 1 par 5, et pas 
+un des ces tableaux de rang 1. Et si vous affichez, disons, le produit 
+entre a et transposée de a, cela vous donne le produit dyadique
+ d’un vecteur, OK ? Et le produit dyadique d’un vecteur 
+vous donne une matrice. Alors, regardons plus en détails
+ce que nous avons vu juste ici. La première commande que nous avons 
+lancée, tout à l’heure, était celle ci. Et cela a créé une structure de données où a.shape était cette chose bizarre (5,) qui est appelée tableau de rang 1. Et c'est une structure 
+de données très bizarre. Il ne se comporte ni comme un vecteur
+ ligne, ni comme un vecteur colonne, ce qui rend certains de 
+ses effets peu intuitifs. Donc ce que je vais recommander, c’est que
+ lorsque vous ferez vos exercices de programmation, lorsque vous 
+implémenterez la régression logistique ou des réseaux de neurones, que vous
+ n'utilisiez pas ces tableaux de rang 1. Au lieu de cela, à chaque fois que
+ vous créez un tableau, vous faites attention à ce que 
+ce soit un vecteur colonne, et alors cela crée un vecteur (5,1), ou 
+à ce que ce soit un vecteur ligne, alors le comportement de vos vecteurs 
+sera plus facile à comprendre. Donc dans ce cas, 
+a.shape va être égal à (5,1). Et cela se comporte beaucoup comme un...
+ en fait, c’est un vecteur colonne. Et c’est pourquoi vous pouvez le considérer 
+comme une matrice (5,1), un vecteur colonne. Et ici a.shape va être (1,5), et a se comporte toujours
+ comme un vecteur ligne. Donc quand vous avez besoin d’un vecteur,
+ je conseille d'utiliser ceci ou cela, mais pas un tableau de rang 1. Une autre chose que
+ je fais beaucoup dans mon code
+ est que si je ne suis pas entièrement sûr de la dimension de l’un de mes vecteurs, 
+je rajoute une instruction d’assertion comme ça, pour m’assurer, dans ce cas, 
+que c’est un vecteur (5,1). c'est à dire un vecteur colonne. Ces assertions ne coûtent
+ rien en temps de calcul et elles aident également à servir
+ de documentation dans votre code. Alors n’hésitez pas à ajouter des instructions 
+d’assertion comme ça chaque fois que ça vous semble utile. Et puis enfin, si vous vous retrouvez 
+quand même avec un tableau de rang 1, Vous pouvez changer sa forme, 
+a = a.reshape par avoir un tableau, 
+disons de (5,1) ou de (1,5) pour qu’il se comporte de façon consistante comme
+ un vecteur colonne ou un vecteur ligne. Donc j’ai parfois vu des étudiants
+ se retrouver avec des bugs difficiles à trouver, à cause des effets peu
+ intuitifs des tableaux de rang 1. En éliminant les tableaux de rang 1 
+dans mon ancien code, je pense que
+ mon code est devenu plus simple. Et je n’ai pas trouvé ça restrictif 
+en terme de ce que je pouvais exprimer en code. Je n'utilise simplement plus
+ de tableau de rang 1. Pour récapituler, pour simplifier votre code, 
+n'utilisez pas de tableaux de rang 1. Utilisez toujours soit 
+des matrice de n par 1, c'est à dire des vecteurs colonnes, ou des matrices
+ de 1 par n, c'est à dire des vecteurs ligne. N’hésitez pas à mettre
+ un grand nombre d'assertions, pour vérifier les dimensions 
+de vos matrices et tableaux. Et aussi, n'hésitez pas à utiliser l’opération
+ reshape pour vous assurer que vos matrices et vecteurs 
+sont de la bonne dimension. Maintenant, J’espère que cette série de suggestions 
+vous aide à éliminer une cause de bugs de votre code Python et vous aident
+ à faire l'exercice de programmation.

@@ -1,0 +1,234 @@
+<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:w10="urn:schemas-microsoft-com:office:word" xmlns:m="http://schemas.microsoft.com/office/omml/2004/12/core" xmlns:ve="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:o12="http://schemas.microsoft.com/office/2004/7/core" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:wp="http://schemas.openxmlformats.org/drawingml/2006/3/wordprocessingDrawing" xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/3/main" xmlns="http://www.w3.org/TR/REC-html40">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <head>
+    <style>style</style>
+  </head>
+  <body>
+    <div class="Section1">
+      <p>
+        <b>
+          <u>
+            <span style="font-size:20.0pt">Neural Network Representation</span>
+          </u>
+        </b>
+      </p>
+      <p>
+(SPEECH)        <br/>
+You        <br/>
+      </p>
+      <p>
+(DESCRIPTION)        <br/>
+Text, deep learning dot AI. One hidden layer neural network. Neural network representation        <br/>
+      </p>
+      <p>
+(SPEECH)        <br/>
+see me draw a few pictures of neural networks.        <br/>
+      </p>
+      <p>
+In this video, we'll talk about exactly what those pictures means.        <br/>
+      </p>
+      <p>
+In other words, exactly what those neural networks that we've been drawing represent.        <br/>
+      </p>
+      <p>
+And we'll start with focusing on the case of neural networks with what was called a single hidden layer.        <br/>
+      </p>
+      <p>
+Here's        <br/>
+      </p>
+      <p>
+(DESCRIPTION)        <br/>
+Diagram of a network. At left, a column of three input features, x 1, x 2, and x 3. Next column to the right, four vertically stacked circles representing nodes. Arrows show that each node takes all three of the input features as its own input. To the right of the column of four nodes, a single node, which takes as its input the four outputs of the four stacked nodes. The output of that single node is the label y hat        <br/>
+      </p>
+      <p>
+(SPEECH)        <br/>
+a picture of a neural network.        <br/>
+      </p>
+      <p>
+Let's give different parts of these pictures some names.        <br/>
+      </p>
+      <p>
+We have the input features, x1, x2, x3 stacked up vertically.        <br/>
+      </p>
+      <p>
+And this is called the input layer of the neural network.        <br/>
+      </p>
+      <p>
+So maybe not surprisingly, this contains the inputs to the neural network.        <br/>
+      </p>
+      <p>
+Then there's another layer of circles.        <br/>
+      </p>
+      <p>
+And        <br/>
+      </p>
+      <p>
+(DESCRIPTION)        <br/>
+Indicating column of four nodes        <br/>
+      </p>
+      <p>
+(SPEECH)        <br/>
+this is called a hidden layer of the neural network.        <br/>
+      </p>
+      <p>
+I'll come back in a second to say what the word hidden means.        <br/>
+      </p>
+      <p>
+But the final layer here is formed by, in this case, just one node.        <br/>
+      </p>
+      <p>
+And this single-node layer is called the output layer, and is responsible for generating the predicted value y hat.        <br/>
+      </p>
+      <p>
+In a neural network that you train with supervised learning, the training set contains values of the inputs x as well as the target outputs y.        <br/>
+      </p>
+      <p>
+So the term hidden layer refers to the fact that in the training set, the true values for these nodes in the middle are not observed.        <br/>
+      </p>
+      <p>
+That is, you don't see what they should be in the training set.        <br/>
+      </p>
+      <p>
+You see what the inputs are.        <br/>
+      </p>
+      <p>
+You see what the output should be.        <br/>
+      </p>
+      <p>
+But the things in the hidden layer are not seen in the training set.        <br/>
+      </p>
+      <p>
+So that kind of explains the name hidden layer; just because you don't see it in the training set.        <br/>
+      </p>
+      <p>
+Let's introduce a bit more notation.        <br/>
+      </p>
+      <p>
+Whereas previously, we were using the vector X to denote the input features and alternative notation for the values of the input features will be A superscript square bracket 0.        <br/>
+      </p>
+      <p>
+And the term A also stands for activations, and it refers to the values that different layers of the neural network are passing on to the subsequent layers.        <br/>
+      </p>
+      <p>
+So the input layer passes on the value x to the hidden layer, so we're going to call that activations of the input layer A super script 0.        <br/>
+      </p>
+      <p>
+The next layer, the hidden layer, will in turn generate some set of activations, which I'm going to write as A superscript square bracket 1.        <br/>
+      </p>
+      <p>
+So        <br/>
+      </p>
+      <p>
+(DESCRIPTION)        <br/>
+Filling in the activation values for the four individual nodes of the hidden layer        <br/>
+      </p>
+      <p>
+(SPEECH)        <br/>
+in particular, this first unit or this first node, we generate a value A superscript square bracket 1 subscript 1.        <br/>
+      </p>
+      <p>
+This second node we generate a value.        <br/>
+      </p>
+      <p>
+Now we have a subscript 2 and so on.        <br/>
+      </p>
+      <p>
+And so, A superscript square bracket 1, this is a four dimensional vector you want in Python because the 4x1 matrix, or a 4 column vector, which looks like this.        <br/>
+      </p>
+      <p>
+And        <br/>
+      </p>
+      <p>
+(DESCRIPTION)        <br/>
+Rectangular matrix notation        <br/>
+      </p>
+      <p>
+(SPEECH)        <br/>
+it's four dimensional, because in this case we have four nodes, or four units, or four hidden units in this hidden layer.        <br/>
+      </p>
+      <p>
+And then finally, the open layer regenerates some value A2, which is just a real number.        <br/>
+      </p>
+      <p>
+And so y hat is going to take on the value of A2.        <br/>
+      </p>
+      <p>
+So this is analogous to how in logistic regression we have y hat equals a and in logistic regression which we only had that one output layer, so we don't use the superscript square brackets.        <br/>
+      </p>
+      <p>
+But with our neural network, we now going to use the superscript square bracket to explicitly indicate which layer it came from.        <br/>
+      </p>
+      <p>
+One funny thing about notational conventions in neural networks is that this network that you've seen here is called a two layer neural network.        <br/>
+      </p>
+      <p>
+And the reason is that when we count layers in neural networks, we don't count the input layer.        <br/>
+      </p>
+      <p>
+So the hidden layer is layer one and the output layer is layer two.        <br/>
+      </p>
+      <p>
+In our notational convention, we're calling the input layer layer zero, so technically maybe there are three layers in this neural network.        <br/>
+      </p>
+      <p>
+Because there's the input layer, the hidden layer, and the output layer.        <br/>
+      </p>
+      <p>
+But in conventional usage, if you read research papers and elsewhere in the course, you see people refer to this particular neural network as a two layer neural network, because we don't count the input layer as an official layer.        <br/>
+      </p>
+      <p>
+Finally, something that we'll get to later is that the hidden layer and the output layers will have parameters associated with them.        <br/>
+      </p>
+      <p>
+So the hidden layer will have associated with it parameters w and b.        <br/>
+      </p>
+      <p>
+And I'm going to write superscripts square bracket 1 to indicate that these are parameters associated with layer one with the hidden layer.        <br/>
+      </p>
+      <p>
+We'll see later that w will be a 4 by 3 matrix and b will be a 4 by 1 vector in this example.        <br/>
+      </p>
+      <p>
+Where the first coordinate four comes from the fact that we have four nodes of our hidden units and a layer, and three comes from the fact that we have three input features.        <br/>
+      </p>
+      <p>
+We'll talk later about the dimensions of these matrices.        <br/>
+      </p>
+      <p>
+And it might make more sense at that time.        <br/>
+      </p>
+      <p>
+But in some of the output layers has associated with it also, parameters w superscript square bracket 2 and b superscript square bracket 2.        <br/>
+      </p>
+      <p>
+And it turns out the dimensions of these are 1 by 4 and 1 by 1.        <br/>
+      </p>
+      <p>
+And        <br/>
+      </p>
+      <p>
+(DESCRIPTION)        <br/>
+W is 1 by 4, B is 1 by 1        <br/>
+      </p>
+      <p>
+(SPEECH)        <br/>
+these 1 by 4 is because the hidden layer has four hidden units, the output layer has just one unit.        <br/>
+      </p>
+      <p>
+But we will go over the dimension of these matrices and vectors in a later video.        <br/>
+      </p>
+      <p>
+So you've just seen what a two layered neural network looks like.        <br/>
+      </p>
+      <p>
+That is a neural network with one hidden layer.        <br/>
+      </p>
+      <p>
+In the next video, let's go deeper into exactly what this neural network is computing.        <br/>
+      </p>
+      <p>
+That is how this neural network inputs x and goes all the way to computing its output y hat.        <br/>
+      </p>
+    </div>
+  </body>
+</html>

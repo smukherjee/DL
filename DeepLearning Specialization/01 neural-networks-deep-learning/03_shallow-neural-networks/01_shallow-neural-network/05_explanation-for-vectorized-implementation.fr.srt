@@ -1,0 +1,478 @@
+1
+00:00:00,000 --> 00:00:01,530
+Dans la précédente vidéo,
+
+2
+00:00:01,530 --> 00:00:06,885
+nous avons vu comment, 
+avec vos exemples d'apprentissage empilés
+ horizontalement dans la matrice X,
+
+3
+00:00:06,885 --> 00:00:11,158
+vous pouvez avoir une implémentation
+ vectorisée de la propagation directe
+ dans votre réseau de neurones.
+
+4
+00:00:11,158 --> 00:00:14,760
+Nous allons donner un peu plus de
+ justifications pour montrer que les équations
+ que nous avons écrites
+
+5
+00:00:14,760 --> 00:00:19,775
+sont une application correcte de la vectorisation
+ sur de multiples exemples.
+
+6
+00:00:19,775 --> 00:00:25,590
+Donc refaisons une partie du calcul de la 
+propagation directe pour quelques exemples.
+
+7
+00:00:25,590 --> 00:00:27,645
+Disons que pour le premier 
+exemple d'apprentissage,
+
+8
+00:00:27,645 --> 00:00:29,130
+vous calculez
+
+9
+00:00:29,130 --> 00:00:38,970
+ceci : w[1] * x(1) + b[1], puis pour
+ le deuxième exemple d'apprentissage,
+
+10
+00:00:38,970 --> 00:00:49,310
+vous calculez w[1] * x(2) + b[1]
+
+11
+00:00:49,310 --> 00:00:50,900
+alors pour le troisième 
+exemple d'apprentissage :
+
+12
+00:00:50,900 --> 00:00:56,064
+vous calculez w[1] * x(3) + b[1]
+
+13
+00:00:56,064 --> 00:01:00,930
+Donc, juste pour simplifier l’explication
+ sur cette diapositive, je vais ignorer b.
+
+14
+00:01:00,930 --> 00:01:08,395
+Alors disons juste que, pour simplifier un
+ peu cette justification, b est égal à zéro.
+
+15
+00:01:08,395 --> 00:01:11,140
+Mais l’argument que nous allons
+ utiliser sera aussi valable
+
+16
+00:01:11,140 --> 00:01:14,320
+avec un tout petit changement si b est non nul.
+
+17
+00:01:14,320 --> 00:01:17,610
+Cela simplifie juste un peu 
+la description de cette diapositive.
+
+18
+00:01:17,610 --> 00:01:21,110
+Maintenant, w1 va être une matrice, OK ?
+
+19
+00:01:21,110 --> 00:01:25,625
+J’ai donc un certain nombre 
+de lignes dans cette matrice.
+
+20
+00:01:25,625 --> 00:01:28,296
+Donc, si vous regardez ce calcul x(1),
+
+21
+00:01:28,296 --> 00:01:30,070
+ce que vous avez est que
+
+22
+00:01:30,070 --> 00:01:40,021
+w[1] fois x(1) vous donne un vecteur
+ colonne que je vais dessiner comme ça.
+
+23
+00:01:40,021 --> 00:01:47,420
+Et de la même façon, 
+si vous regardez ce vecteur x(2),
+
+24
+00:01:47,420 --> 00:01:54,730
+vous avez
+
+25
+00:01:54,730 --> 00:02:00,460
+w[1]*x(2) qui vous donne
+ un autre vecteur colonne, ok ?
+
+26
+00:02:00,460 --> 00:02:03,250
+Et cela vous donne ce z[1](2).
+
+27
+00:02:03,250 --> 00:02:06,730
+Et enfin, si vous regardez x(3),
+
+28
+00:02:06,730 --> 00:02:12,315
+vous avez w[1] fois x(3),
+
+29
+00:02:12,315 --> 00:02:19,530
+qui vous donne un troisième 
+vecteur colonne, qui est ce z[1](3).
+
+30
+00:02:19,530 --> 00:02:25,250
+Alors maintenant, si vous considérez
+ le set d'apprentissage X majuscule,
+
+31
+00:02:25,250 --> 00:02:31,475
+que nous formons en empilant ensemble
+ tous nos exemples d'apprentissage.
+
+32
+00:02:31,475 --> 00:02:37,010
+Donc la matrice X majuscule 
+est formée en prenant le vecteur x(1) et
+
+33
+00:02:37,010 --> 00:02:43,430
+en l'empilant avec x(2) et puis aussi x(3).
+
+34
+00:02:43,430 --> 00:02:46,250
+Ca c’est si nous avons seulement
+ trois exemples d'apprentissage.
+
+35
+00:02:46,250 --> 00:02:50,371
+Si vous en avez plus, vous continuez à 
+les empiler horizontalement comme ça.
+
+36
+00:02:50,371 --> 00:02:57,790
+Mais si vous prenez cette matrice X et que vous
+ la multipliez par W, vous vous retrouvez avec,
+
+37
+00:02:57,790 --> 00:03:00,190
+si vous repensez à comment fonctionne
+ la multiplication des matrices,
+
+38
+00:03:00,190 --> 00:03:02,680
+vous vous retrouvez avec
+ la première colonne qui contient
+
+39
+00:03:02,680 --> 00:03:06,313
+ces mêmes valeurs que j’avais 
+dessinées là-haut en violet.
+
+40
+00:03:06,313 --> 00:03:10,930
+La deuxième colonne sera 
+ces quatre mêmes valeurs.
+
+41
+00:03:10,930 --> 00:03:16,612
+Et la troisième colonne sera 
+ces valeurs oranges,
+
+42
+00:03:16,612 --> 00:03:19,480
+quelles que soient finalement ces valeurs.
+
+43
+00:03:19,480 --> 00:03:27,740
+Mais bien sûr, c’est juste égal à
+ z[1](1) exprimé en
+
+44
+00:03:27,740 --> 00:03:37,185
+un vecteur colonne suivi de z[1](2) 
+en un vecteur colonne, suivi de z[1](3),
+
+45
+00:03:37,185 --> 00:03:39,273
+également exprimé comme un vecteur colonne.
+
+46
+00:03:39,273 --> 00:03:41,100
+Et ça c’est si vous avez 
+trois exemples d'apprentissage.
+
+47
+00:03:41,100 --> 00:03:44,255
+Si vous avez plus d’exemples, 
+alors il y aura plus de colonnes.
+
+48
+00:03:44,255 --> 00:03:51,220
+Et donc, c’est juste 
+notre matrice Z[1] majuscule.
+
+49
+00:03:51,220 --> 00:03:55,230
+Alors j’espère que cela donne une justification
+ de pourquoi nous avions
+
+50
+00:03:55,230 --> 00:04:02,830
+auparavant w[1] fois x(i) égal à z[1](i)
+
+51
+00:04:02,830 --> 00:04:08,310
+lorsque nous regardons 
+un seul exemple à la fois.
+
+52
+00:04:08,310 --> 00:04:12,565
+Lorsqu'on a pris les différents 
+exemples d'apprentissage et qu'on les a 
+empilés dans les différentes colonnes,
+
+53
+00:04:12,565 --> 00:04:15,250
+alors le résultat est que vous vous retrouvez
+
+54
+00:04:15,250 --> 00:04:18,725
+avec les z aussi empilés en colonnes.
+
+55
+00:04:18,725 --> 00:04:24,565
+Et je ne le montre pas, mais vous pouvez vous
+ convaincre qu’avec le broadcasting de Python,
+
+56
+00:04:24,565 --> 00:04:26,245
+si vous ajoutez
+
+57
+00:04:26,245 --> 00:04:30,534
+ces valeurs de b, 
+les résultats sont toujours corrects.
+
+58
+00:04:30,534 --> 00:04:34,540
+Et ce qui se passe en fait, c’est que,
+ avec le broadcasting de Python,
+
+59
+00:04:34,540 --> 00:04:41,790
+vous ajoutez b[i] individuellement à chacune
+ des colonnes de cette matrice.
+
+60
+00:04:41,790 --> 00:04:48,220
+Donc sur cette diapositive,
+ j’ai seulement justifié que
+
+61
+00:04:48,220 --> 00:04:51,980
+Z[1] = W[1] * X + b[1]
+
+62
+00:04:51,980 --> 00:04:54,020
+est une vectorisation correcte de
+
+63
+00:04:54,020 --> 00:04:57,493
+la première étape des quatre étapes que 
+nous avions dans la diapositive précédente,
+
+64
+00:04:57,493 --> 00:04:59,990
+mais une analyse similaire vous permet
+
+65
+00:04:59,990 --> 00:05:02,660
+de montrer que les autres étapes
+ fonctionnent également en utilisant une logique
+
+66
+00:05:02,660 --> 00:05:08,105
+très similaire où, si vous empilez les entrées 
+en colonnes, alors, après l’équation,
+
+67
+00:05:08,105 --> 00:05:11,510
+vous obtenez les sorties correspondantes 
+également empilées en colonnes.
+
+68
+00:05:11,510 --> 00:05:14,970
+Enfin, récapitulons juste tout ce dont
+ nous avons parlé dans cette vidéo.
+
+69
+00:05:14,970 --> 00:05:16,520
+Si ceci est votre réseau de neurones,
+
+70
+00:05:16,520 --> 00:05:21,693
+Nous avons dit que ceci est ce que
+ vous devez faire pour implémenter 
+la propagation vers l'avant,
+
+71
+00:05:21,693 --> 00:05:27,693
+un exemple d'apprentissage à la fois en
+ allant de i = 1 à i = m. Et puis nous avons dit,
+
+72
+00:05:27,693 --> 00:05:34,100
+si nous empilons les exemples d'apprentissage
+ en colonnes comme ceci, et
+ pour chacune des valeurs z[1],
+
+73
+00:05:34,100 --> 00:05:38,265
+a[1], z[2], a[2], nous les empilons
+ en colonnes comme ceci.
+
+74
+00:05:38,265 --> 00:05:43,820
+Voilà un exemple pour A[1],
+ mais c'est pareil pour Z[1],
+
+75
+00:05:43,820 --> 00:05:46,975
+A[1], Z[2] et A[2].
+
+76
+00:05:46,975 --> 00:05:51,090
+Ce que nous montrons sur 
+la diapositive précédente était que
+
+77
+00:05:51,090 --> 00:05:58,785
+cette ligne vous permet de vectoriser cela 
+sur tous les m exemples en même temps.
+
+78
+00:05:58,785 --> 00:06:00,555
+Et, avec un raisonnement semblable,
+
+79
+00:06:00,555 --> 00:06:03,880
+vous pouvez montrer que
+ toutes les autres lignes sont
+
+80
+00:06:03,880 --> 00:06:08,811
+des vectorisations correctes 
+de chacune de ces lignes de code.
+
+81
+00:06:08,811 --> 00:06:10,675
+Et juste pour rappel,
+
+82
+00:06:10,675 --> 00:06:18,960
+puisque X est aussi égal à A[0]
+ car n’oubliez pas que
+
+83
+00:06:18,960 --> 00:06:27,980
+le vecteur de caractéristiques d’entrée x
+ est égal à a[0], alors x(i) est égal a[0](i).
+
+84
+00:06:27,980 --> 00:06:30,870
+Il y a donc une certaine symétrie dans
+
+85
+00:06:30,870 --> 00:06:34,110
+ces équations, puisque cette première
+ équation peut également être
+
+86
+00:06:34,110 --> 00:06:41,790
+écrite Z[1] = W[1]A[0] + b[1]
+
+87
+00:06:41,790 --> 00:06:45,680
+Et donc, vous voyez que cette paire 
+d’équations et cette paire d'équations
+
+88
+00:06:45,680 --> 00:06:51,805
+se ressemblent beaucoup, simplement
+ tous les indices ont été avancés de 1.
+
+89
+00:06:51,805 --> 00:06:55,880
+Ceci montre un peu que les différentes
+ couches d’un réseau de neurones font
+
+90
+00:06:55,880 --> 00:07:00,585
+à peu près la même chose, elles font
+ le même type de calculs encore et encore.
+
+91
+00:07:00,585 --> 00:07:04,220
+Ici nous avons un réseau de neurones 
+à deux couches, mais nous aurons
+
+92
+00:07:04,220 --> 00:07:08,475
+un réseau de neurones beaucoup plus profond
+ dans les vidéos de la semaine prochaine.
+
+93
+00:07:08,475 --> 00:07:11,670
+Vous verrez que même les réseaux de
+ neurones encore plus profonds font en fait
+
+94
+00:07:11,670 --> 00:07:16,215
+ces deux étapes et les font juste 
+plus de fois que vous voyez ici.
+
+95
+00:07:16,215 --> 00:07:21,255
+Voilà donc comment vous pouvez
+ vectoriser votre réseau de neurones
+ pour de multiples exemples d'apprentissage.
+
+96
+00:07:21,255 --> 00:07:25,590
+Ensuite, nous avons jusqu'à présent
+ utilisé les fonctions sigmoïdes dans 
+tous nos réseaux de neurones.
+
+97
+00:07:25,590 --> 00:07:27,925
+Il s’avère que ce n’est en fait
+ pas le meilleur choix.
+
+98
+00:07:27,925 --> 00:07:29,675
+Dans la vidéo suivante, nous allons plonger un peu plus loin
+
+99
+00:07:29,675 --> 00:07:32,450
+dans la façon dont vous pouvez utiliser
+les différentes fonctions d'activation,
+
+100
+00:07:32,450 --> 00:07:37,190
+comme on les appelle, et la fonction sigmoïde 
+n'est qu'un des choix possibles.

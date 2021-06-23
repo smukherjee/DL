@@ -1,0 +1,561 @@
+1
+00:00:00,860 --> 00:00:05,760
+Nous avons vu comment la vectorisation 
+vous permet d’accélérer votre code
+ de manière significative.
+
+2
+00:00:05,760 --> 00:00:08,160
+Dans cette vidéo, nous allons parler de
+ comment vous pouvez vectoriser
+
+3
+00:00:08,160 --> 00:00:10,545
+l'implémentation de la régression logistique,
+
+4
+00:00:10,545 --> 00:00:12,960
+pour pouvoir traiter 
+un ensemble d'apprentissage complet,
+
+5
+00:00:12,960 --> 00:00:15,930
+c'est à dire implémenter une unique 
+itération de descente de gradient pour
+
+6
+00:00:15,930 --> 00:00:22,330
+un ensemble d'apprentissage entier
+ sans utiliser une seule boucle FOR explicite.
+
+7
+00:00:22,330 --> 00:00:24,039
+Je suis très enthousiasmé
+ par cette technique,
+
+8
+00:00:24,039 --> 00:00:26,670
+et lorsque nous parlerons de
+ réseaux de neurones plus tard
+
+9
+00:00:26,670 --> 00:00:30,050
+nous n'utiliserons aucune boucle FOR explicite.
+
+10
+00:00:30,050 --> 00:00:35,965
+Allons-y. Examinons d’abord l'étape de 
+ propagation directe de la régression logistique.
+
+11
+00:00:35,965 --> 00:00:37,860
+Donc, si vous avez m exemples d'apprentissage,
+
+12
+00:00:37,860 --> 00:00:40,605
+pour faire une prédiction
+ sur le premier exemple,
+
+13
+00:00:40,605 --> 00:00:42,105
+vous devez calculer ceci,
+
+14
+00:00:42,105 --> 00:00:45,480
+calculer z, 
+en utilisant cette formule familière,
+
+15
+00:00:45,480 --> 00:00:47,370
+puis calculer les activations,
+
+16
+00:00:47,370 --> 00:00:49,485
+vous calculez ŷ pour le premier exemple.
+
+17
+00:00:49,485 --> 00:00:52,705
+Puis pour faire une prédiction sur
+ le deuxième exemple d'apprentissage,
+
+18
+00:00:52,705 --> 00:00:54,405
+vous devez calculer ceci.
+
+19
+00:00:54,405 --> 00:00:57,085
+Puis, pour faire une prédiction 
+sur le troisième exemple,
+
+20
+00:00:57,085 --> 00:00:59,045
+vous devez calculer ça et ainsi de suite.
+
+21
+00:00:59,045 --> 00:01:01,020
+Et vous devez faire ça m fois,
+
+22
+00:01:01,020 --> 00:01:03,855
+si vous avez m exemples d'apprentissage.
+
+23
+00:01:03,855 --> 00:01:08,250
+Donc, il s’avère que pour réaliser 
+l'étape de la propagation directe,
+
+24
+00:01:08,250 --> 00:01:13,435
+c’est-à-dire pour calculer ces prédictions 
+sur nos m exemples d'apprentissage,
+
+25
+00:01:13,435 --> 00:01:14,865
+il existe un moyen de le faire
+
+26
+00:01:14,865 --> 00:01:17,925
+sans avoir besoin d’une boucle FOR explicite.
+
+27
+00:01:17,925 --> 00:01:20,450
+Nous allons voir comment
+ vous pouvez faire ça.
+
+28
+00:01:20,450 --> 00:01:26,455
+Tout d’abord, rappelez vous que nous
+ avons défini une matrice grand X
+ constituant vos entrées d'apprentissage
+
+29
+00:01:26,455 --> 00:01:30,895
+rangées en colonnes comme ceci.
+
+30
+00:01:30,895 --> 00:01:33,810
+C’est donc une matrice,
+
+31
+00:01:33,810 --> 00:01:38,425
+c’est une matrice nx par m.
+
+32
+00:01:38,425 --> 00:01:41,885
+Alors, j’ai écrit ceci comme
+ une "shape" en Python numpy,
+
+33
+00:01:41,885 --> 00:01:50,350
+Cela signifie simplement que X est
+ une matrice de dimensions nx par m
+
+34
+00:01:50,350 --> 00:01:54,670
+Je veux premièrement vous montrer 
+comment vous pouvez calculer z1, z2,
+
+35
+00:01:54,670 --> 00:01:56,512
+z3 et ainsi de suite,
+
+36
+00:01:56,512 --> 00:01:58,665
+en une seule étape,
+
+37
+00:01:58,665 --> 00:02:01,195
+en fait, avec une seule ligne de code.
+
+38
+00:02:01,195 --> 00:02:06,930
+Donc, je vais construire
+
+39
+00:02:06,930 --> 00:02:13,100
+une matrice 1 par m, c’est-à-dire un vecteur
+ simple, dans laquelle je vais calculer z1,
+
+40
+00:02:13,100 --> 00:02:15,405
+z2 et ainsi de suite,
+
+41
+00:02:15,405 --> 00:02:18,480
+jusqu'à zm, tous en même temps.
+
+42
+00:02:18,480 --> 00:02:22,175
+Il s’avère que ceci peut s'écrire
+
+43
+00:02:22,175 --> 00:02:29,225
+Transposée de w fois la matrice grand X 
+plus ce vecteur [b, b, ..., b]
+
+44
+00:02:29,225 --> 00:02:31,040
+[b, b, ..., b] et ainsi de suite... b
+
+45
+00:02:31,040 --> 00:02:33,315
+b où ceci,
+
+46
+00:02:33,315 --> 00:02:34,480
+ce vecteur [b, b, ..., b]
+
+47
+00:02:34,480 --> 00:02:38,980
+est un vecteur 1 par m,
+
+48
+00:02:38,980 --> 00:02:46,725
+ou une matrice 1 par m, ou 
+un vecteur ligne de dimension m.
+
+49
+00:02:46,725 --> 00:02:50,495
+Donc si vous êtes à l'aise avec 
+la multiplication de matrices,
+
+50
+00:02:50,495 --> 00:02:56,300
+vous pouvez voir que W transpose x1,
+
+51
+00:02:56,300 --> 00:02:58,760
+x2 et ainsi de suite jusqu'à xm,
+
+52
+00:02:58,760 --> 00:03:05,755
+que la transposée de W peut
+ être un vecteur ligne.
+
+53
+00:03:05,755 --> 00:03:10,655
+Donc la transposée de W sera 
+un vecteur ligne comme ça.
+
+54
+00:03:10,655 --> 00:03:18,614
+Et donc ce premier terme sera égal
+ à W transpose fois x1,
+
+55
+00:03:18,614 --> 00:03:22,970
+W transpose fois x2, et ainsi de suite, 
+trois petits points,
+
+56
+00:03:22,970 --> 00:03:29,840
+W transpose fois xm, 
+puis lorsque vous ajoutez ce second terme
+
+57
+00:03:29,840 --> 00:03:30,960
+b, b, b et ainsi de suite
+
+58
+00:03:30,960 --> 00:03:33,565
+vous vous retrouvez à
+ ajouter b à chaque élément.
+
+59
+00:03:33,565 --> 00:03:37,650
+Si vous vous retrouvez avec
+ un autre vecteur 1 par m,
+
+60
+00:03:37,650 --> 00:03:38,955
+avec ceci comme premier élément,
+
+61
+00:03:38,955 --> 00:03:40,590
+ceci comme deuxième élément,
+ et ainsi de suite
+
+62
+00:03:40,590 --> 00:03:42,810
+et ceci est le m-ième élément.
+
+63
+00:03:42,810 --> 00:03:45,605
+Et si vous vous référez
+ aux définitions ci-dessus,
+
+64
+00:03:45,605 --> 00:03:51,250
+ce premier élément est exactement
+ la définition de z1,
+
+65
+00:03:51,250 --> 00:03:57,305
+le deuxième élément est exactement 
+la définition de z2 et ainsi de suite.
+
+66
+00:03:57,305 --> 00:04:00,035
+De la même façon que X était
+ ce que vous obteniez
+
+67
+00:04:00,035 --> 00:04:02,870
+lorsque vous avez pris 
+vos exemples d'apprentissage et
+
+68
+00:04:02,870 --> 00:04:07,400
+et les avez empilés l'un près de l'autre, 
+empilés horizontalement,
+
+69
+00:04:07,400 --> 00:04:11,069
+Je vais définir grand Z égal à ceci,
+
+70
+00:04:11,069 --> 00:04:16,385
+où vous prenez tous les z minuscules 
+et les empilez horizontalement.
+
+71
+00:04:16,385 --> 00:04:21,080
+Donc, quand vous juxtaposez les x correspondant
+ aux différents exemples d'apprentissage,
+
+72
+00:04:21,080 --> 00:04:24,350
+vous obtenez cette variable grand X et
+
+73
+00:04:24,350 --> 00:04:27,420
+de la même manière, lorsque vous prenez
+ ces variables z minuscule,
+
+74
+00:04:27,420 --> 00:04:28,805
+et que vous les empilez horizontalement,
+
+75
+00:04:28,805 --> 00:04:34,050
+vous obtenez cette variable grand Z.
+
+76
+00:04:34,050 --> 00:04:37,400
+Et il s’avère que pour implémenter ça,
+
+77
+00:04:37,400 --> 00:04:45,773
+la commande numpy est
+ grand Z égal à np.dot(w.T,X)
+
+78
+00:04:45,773 --> 00:04:51,095
+c'est la transposée w de X, puis + b
+
+79
+00:04:51,095 --> 00:04:53,645
+Maintenant, il y a une subtilité en Python,
+
+80
+00:04:53,645 --> 00:04:59,405
+qui est que ici, b est un nombre réel ou,
+ si vous voulez, une matrice 1 x 1,
+
+81
+00:04:59,405 --> 00:05:01,330
+c'est juste un nombre réel normal.
+
+82
+00:05:01,330 --> 00:05:06,230
+Mais, lorsque vous ajoutez
+ ce vecteur à ce nombre réel,
+
+83
+00:05:06,230 --> 00:05:13,235
+Python prend automatiquement ce nombre réel b
+ et l'étend  pour en faire ce vecteur de 1 par m.
+
+84
+00:05:13,235 --> 00:05:16,490
+Si cette opération vous semble 
+un peu mystérieuse,
+
+85
+00:05:16,490 --> 00:05:20,120
+cela s'appelle le "broadcasting" en Python,
+
+86
+00:05:20,120 --> 00:05:22,210
+et il ne faut pas
+ vous en inquiéter pour l’instant,
+
+87
+00:05:22,210 --> 00:05:25,760
+nous allons en parler un peu plus 
+dans la prochaine vidéo.
+
+88
+00:05:25,760 --> 00:05:29,180
+Mais ce qu'il faut retenir est qu’avec une seule 
+ligne de code, avec cette ligne de code,
+
+89
+00:05:29,180 --> 00:05:33,290
+vous pouvez calculer grand Z et grand Z sera
+
+90
+00:05:33,290 --> 00:05:37,698
+une matrice 1 par m qui contiendra 
+tous les z minuscule.
+
+91
+00:05:37,698 --> 00:05:41,200
+De petit z1 jusqu'à petit zm.
+
+92
+00:05:41,200 --> 00:05:46,255
+Donc voilà pour z, 
+qu'en est il de ces valeurs a ?
+
+93
+00:05:46,255 --> 00:05:48,260
+Ce que nous allons faire ensuite,
+
+94
+00:05:48,260 --> 00:05:52,685
+est de trouver un moyen de calculer a1,
+
+95
+00:05:52,685 --> 00:05:57,220
+a2 et ainsi de suite jusqu'à am,
+
+96
+00:05:57,220 --> 00:05:58,700
+tous en même temps,
+
+97
+00:05:58,700 --> 00:06:03,350
+et, de même qu'en juxtaposant
+les x minuscules, on a obtenu
+
+98
+00:06:03,350 --> 00:06:08,870
+grand X et 
+grand Z en empilant horizontalement les petits z,
+
+99
+00:06:08,870 --> 00:06:10,810
+l'empilement des a minuscules,
+
+100
+00:06:10,810 --> 00:06:12,470
+va nous donner une nouvelle variable,
+
+101
+00:06:12,470 --> 00:06:15,200
+que nous allons définir comme grand A.
+
+102
+00:06:15,200 --> 00:06:18,075
+Dans l'exercice de programmation,
+
+103
+00:06:18,075 --> 00:06:22,790
+vous voyez comment implémenter une 
+fonction sigmoïde à partir d'un vecteur,
+
+104
+00:06:22,790 --> 00:06:24,480
+pour que la fonction sigmoïde
+
+105
+00:06:24,480 --> 00:06:32,380
+prenne comme variable d'entrée ce grand Z et
+ calcule très efficacement la sortie grand A.
+
+106
+00:06:32,380 --> 00:06:36,620
+Donc, vous verrez les détails de cela
+ dans l’exercice de programmation.
+
+107
+00:06:36,620 --> 00:06:38,110
+Donc juste pour résumer,
+
+108
+00:06:38,110 --> 00:06:42,655
+ce que nous avons vu sur cette diapositive 
+est qu’au lieu de devoir boucler sur
+
+109
+00:06:42,655 --> 00:06:47,515
+m exemples d'apprentissage pour
+ calculer z minuscule et a minuscule,
+
+110
+00:06:47,515 --> 00:06:52,090
+un par un, vous pouvez implémenter
+ cette seule ligne de code,
+
+111
+00:06:52,090 --> 00:06:54,290
+pour calculer tous les z en même temps.
+
+112
+00:06:54,290 --> 00:06:57,100
+Et puis, cette ligne de code,
+
+113
+00:06:57,100 --> 00:06:59,260
+avec l’implémentation appropriée de
+
+114
+00:06:59,260 --> 00:07:04,115
+sigma minuscule pour calculer tous 
+les a minuscules en même temps.
+
+115
+00:07:04,115 --> 00:07:05,965
+Donc, voilà comment implémenter
+
+116
+00:07:05,965 --> 00:07:07,948
+une implémentation vectorisée de
+
+117
+00:07:07,948 --> 00:07:11,560
+la propagation directe pour tous les m exemples
+ d'apprentissage en même temps.
+
+118
+00:07:11,560 --> 00:07:13,985
+Donc pour résumer, vous venez de voir 
+comment vous pouvez utiliser
+
+119
+00:07:13,985 --> 00:07:18,100
+la vectorisation pour calculer très 
+efficacement toutes les activations,
+
+120
+00:07:18,100 --> 00:07:21,700
+tous les a minuscules en même temps.
+
+121
+00:07:21,700 --> 00:07:24,860
+Ensuite, il s’avère, vous pouvez également
+ utiliser la vectorisation pour
+
+122
+00:07:24,860 --> 00:07:27,910
+calculer efficacement la propagation inverse,
+
+123
+00:07:27,910 --> 00:07:29,650
+pour calculer les gradients.
+
+124
+00:07:29,650 --> 00:07:32,000
+Nous allons voir comment vous pouvez 
+faire ça dans la prochaine vidéo.

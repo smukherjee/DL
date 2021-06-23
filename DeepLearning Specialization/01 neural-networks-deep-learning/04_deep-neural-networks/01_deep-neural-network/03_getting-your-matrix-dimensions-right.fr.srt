@@ -1,0 +1,641 @@
+1
+00:00:00,028 --> 00:00:04,605
+Quand j’implémente un réseau 
+de neurones profond, l’un des outils 
+de débogage que j’utilise souvent pour
+
+2
+00:00:04,605 --> 00:00:08,118
+vérifier que mon code est correct est
+ de prendre un bout de papier, et
+
+3
+00:00:08,118 --> 00:00:11,727
+de simplement vérifier les dimensions des
+ matrices avec lesquelles je travaille.
+
+4
+00:00:11,727 --> 00:00:15,895
+Alors laissez-moi vous montrer comment
+ faire cela, car j’espère que cela vous facilitera
+
+5
+00:00:15,895 --> 00:00:18,275
+l'implémentation de vos réseaux profonds.
+
+6
+00:00:18,275 --> 00:00:23,174
+Donc grand L est égal à 5, on peux compter
+ rapidement, sans compter la couche d’entrée,
+
+7
+00:00:23,174 --> 00:00:27,390
+il y a cinq couches ici, donc quatre couches 
+cachées et une couche de sortie.
+
+8
+00:00:27,390 --> 00:00:34,878
+Et donc, si vous implémentez
+ une propagation directe,
+
+9
+00:00:34,878 --> 00:00:41,408
+la première étape sera z1 = w1*x + b1, 
+avec x la caractéristique d'entrée
+
+10
+00:00:41,408 --> 00:00:48,144
+Nous allons ignorer le termes de biais b pour
+ l’instant et nous concentrer sur le paramètres w.
+
+11
+00:00:48,144 --> 00:00:54,501
+Cette première couche cachée a trois 
+unités cachées, ça c’est la couche 0,
+
+12
+00:00:54,501 --> 00:00:59,517
+couche 1, couche 2, couche 3,
+ couche 4 et couche 5.
+
+13
+00:00:59,517 --> 00:01:05,741
+Donc, en utilisant la notation que nous avions
+ dans la vidéo précédente, nous avons n1,
+
+14
+00:01:05,741 --> 00:01:11,265
+qui est le nombre d’unités cachées
+ dans la couche 1, est égal à 3.
+
+15
+00:01:11,265 --> 00:01:16,202
+Et ici, nous avons n2 égal à 5,
+
+16
+00:01:16,202 --> 00:01:23,018
+n3 est égal à 4, n4 est égal à 2,
+ et n5 est égal à 1.
+
+17
+00:01:23,018 --> 00:01:27,715
+Et jusqu'à maintenant nous avons seulement
+ vu des réseaux neuronaux avec une seule 
+unité de sortie, mais plus tard
+
+18
+00:01:27,715 --> 00:01:32,497
+dans d'autres cours, nous parlerons de réseaux
+ de neurones avec plusieurs unités de sortie.
+
+19
+00:01:32,497 --> 00:01:36,989
+Et enfin, pour la couche d’entrée,
+
+20
+00:01:36,989 --> 00:01:40,443
+Nous avons également n0 = nx = 2.
+
+21
+00:01:40,443 --> 00:01:45,860
+Alors maintenant, réfléchissons
+ aux dimensions de z, w et x.
+
+22
+00:01:45,860 --> 00:01:49,120
+z est le vecteur d’activations pour
+
+23
+00:01:49,120 --> 00:01:54,244
+cette première couche cachée, 
+donc z va être 3 par 1,
+
+24
+00:01:54,244 --> 00:01:58,675
+ça va être un vecteur de dimension 3.
+
+25
+00:01:58,675 --> 00:02:03,093
+Donc je vais l'écrire comme
+ un vecteur de dimension n1 par 1,
+
+26
+00:02:03,093 --> 00:02:08,546
+une matrice de dimension n1 par 1, 
+ok, donc 3 par 1 dans ce cas.
+
+27
+00:02:08,546 --> 00:02:12,319
+Maintenant pour les caractéristiques d’entrée x, 
+nous avons deux caractéristiques d’entrée.
+
+28
+00:02:12,319 --> 00:02:18,622
+x est donc dans cet exemple 2 par 1, mais
+ plus généralement, il serait n0 par 1.
+
+29
+00:02:18,622 --> 00:02:24,082
+Donc pour la matrice W1, nous avons besoin 
+de quelque chose qui
+
+30
+00:02:24,082 --> 00:02:30,181
+nous donne un vecteur n1 par 1 quand nous 
+lui multiplions un vecteur n0 par 1, ok ?
+
+31
+00:02:30,181 --> 00:02:34,747
+Ainsi vous avez en quelque sorte 
+un vecteur à trois dimensions égal à
+
+32
+00:02:34,747 --> 00:02:38,600
+quelque chose fois 
+un vecteur à deux dimensions.
+
+33
+00:02:38,600 --> 00:02:42,993
+Et donc, par les règles de
+ multiplication des matrices,
+
+34
+00:02:42,993 --> 00:02:46,041
+ceci doit être une matrice de 3 par 2.
+
+35
+00:02:46,041 --> 00:02:51,138
+En effet, une matrice de 3 par 2
+ fois une matrice de 2 par 1, ou
+
+36
+00:02:51,138 --> 00:02:56,249
+fois un vecteur de 2 par 1, 
+vous donne un vecteur de 3 par 1.
+
+37
+00:02:56,249 --> 00:03:02,771
+Et, plus généralement, cela va être
+ une matrice de dimensions n1 par n0.
+
+38
+00:03:02,771 --> 00:03:07,167
+Donc, ce que nous avons vu ici est que
+
+39
+00:03:07,167 --> 00:03:12,665
+les dimensions de W1 doivent être n1 par n0.
+
+40
+00:03:12,665 --> 00:03:20,191
+Et plus généralement, les dimensions 
+de WL doivent être nL par n(L-1).
+
+41
+00:03:20,191 --> 00:03:26,021
+Ainsi, par exemple, les dimensions de W2,
+
+42
+00:03:26,021 --> 00:03:31,508
+ici, devront être 5 par 3,
+
+43
+00:03:31,508 --> 00:03:35,119
+c'est à dire n2 par n1.
+
+44
+00:03:35,119 --> 00:03:40,036
+Parce que nous allons calculer
+
+45
+00:03:40,036 --> 00:03:45,132
+z2 comme W2 fois a1 et, encore une fois,
+
+46
+00:03:45,132 --> 00:03:50,059
+nous allons ignorer le biais pour l’instant.
+
+47
+00:03:50,059 --> 00:03:54,584
+cela va être 3 par 1,
+
+48
+00:03:54,584 --> 00:03:59,432
+et nous avons besoin que ceci
+ soit 5 par 1 et donc
+
+49
+00:03:59,432 --> 00:04:03,169
+cela devra être 5 par 3.
+
+50
+00:04:03,169 --> 00:04:10,273
+Et de même, W3 est vraiment
+ (dimension de la couche suivante,
+
+51
+00:04:10,273 --> 00:04:15,501
+virgule, dimension de la couche précédente),
+
+52
+00:04:15,501 --> 00:04:19,266
+donc cela va être 4 par 5,
+
+53
+00:04:22,055 --> 00:04:27,489
+W4 va être 2 par 4, et
+
+54
+00:04:27,489 --> 00:04:34,405
+W5 va être 1 par 2, OK ?
+
+55
+00:04:34,405 --> 00:04:38,730
+Donc, la formule générale à vérifier lorsque
+
+56
+00:04:38,730 --> 00:04:43,416
+vous implémentez
+ la matrice pour la couche L,
+
+57
+00:04:43,416 --> 00:04:48,475
+est que la dimension de cette matrice 
+doit être nL par n(L-1).
+
+58
+00:04:48,475 --> 00:04:55,362
+Maintenant regardons la dimension
+ de ce vecteur b.
+
+59
+00:04:55,362 --> 00:05:01,017
+Cela va être un vecteur de 3 par 1, 
+donc pour l'additionner, il faut un autre
+
+60
+00:05:01,017 --> 00:05:06,008
+vecteur 3 par 1 afin d’obtenir 
+un vecteur 3 par 1 en sortie.
+
+61
+00:05:06,008 --> 00:05:11,287
+Ou dans cet exemple, il faut l'ajouter à cela,
+ cela qui est 5 par 1,
+
+62
+00:05:11,287 --> 00:05:14,823
+donc ça va être un autre vecteur de 5 par 1,
+
+63
+00:05:14,823 --> 00:05:19,122
+pour pouvoir additionner 
+ces deux choses que j’ai encadrées
+
+64
+00:05:19,122 --> 00:05:22,767
+ce qui donnera également 
+un vecteur de 5 par 1.
+
+65
+00:05:22,767 --> 00:05:30,090
+Donc, la règle plus générale est que
+ dans l’exemple à gauche,
+
+66
+00:05:30,090 --> 00:05:35,470
+b1 est n1 par 1, c’est-à-dire 3 par 1,
+
+67
+00:05:35,470 --> 00:05:41,156
+et dans le deuxième exemple,
+ ceci est n2 par 1.
+
+68
+00:05:41,156 --> 00:05:45,891
+Et donc le cas plus général est que
+
+69
+00:05:45,891 --> 00:05:50,637
+bL doit être de dimensions nL par 1.
+
+70
+00:05:50,637 --> 00:05:56,402
+Donc ces deux équations peuvent vous
+ permettre de vérifier que les dimensions
+
+71
+00:05:56,402 --> 00:06:02,091
+de vos matrices W, ainsi que vos vecteurs b,
+ ont les bonnes dimensions.
+
+72
+00:06:02,091 --> 00:06:06,206
+Et bien sûr, si vous implémentez 
+la rétro propagation,
+
+73
+00:06:06,206 --> 00:06:10,657
+alors les dimensions de dW devraient
+ être les mêmes que les dimensions de W.
+
+74
+00:06:10,657 --> 00:06:16,373
+dW doit donc avoir
+ la même dimension que W,
+
+75
+00:06:16,373 --> 00:06:22,276
+et db doit avoir la même dimension que b.
+
+76
+00:06:22,276 --> 00:06:28,399
+Maintenant l’autre jeu de quantités dont
+ les dimensions sont à vérifier sont ces z,
+
+77
+00:06:28,399 --> 00:06:33,658
+x, ainsi que a[L],
+ dont nous n'avons pas trop parlé ici.
+
+78
+00:06:33,658 --> 00:06:39,856
+Mais parce que le z[L] est égal à g(a[L]),
+ appliqué élément par élément,
+
+79
+00:06:39,856 --> 00:06:46,914
+alors z et a doivent avoir la même dimension 
+dans ces types de réseaux.
+
+80
+00:06:46,914 --> 00:06:51,582
+Maintenant nous allons voir ce qui arrive quand
+ vous avez une implémentation vectorisée qui
+
+81
+00:06:51,582 --> 00:06:53,258
+prend en compte 
+plusieurs exemples à la fois.
+
+82
+00:06:53,258 --> 00:06:56,092
+Même pour une implémentation vectorisée,
+
+83
+00:06:56,092 --> 00:07:00,687
+bien sûr, les dimensions de W, b, dw 
+et db resteront les mêmes.
+
+84
+00:07:00,687 --> 00:07:04,929
+Mais les dimensions de Z, A, comme de X
+
+85
+00:07:04,929 --> 00:07:09,771
+vont changer un peu 
+dans votre implémentation vectorisée.
+
+86
+00:07:09,771 --> 00:07:13,420
+Donc, précédemment,
+
+87
+00:07:13,420 --> 00:07:18,372
+Nous avions z1 = W1*x + b1
+
+88
+00:07:18,372 --> 00:07:23,845
+où ceci était n1 par 1,
+
+89
+00:07:23,845 --> 00:07:28,276
+et ceci était n1 par n0,
+
+90
+00:07:28,276 --> 00:07:35,846
+x était n0 par 1, 
+et b était n1 par 1.
+
+91
+00:07:35,846 --> 00:07:40,979
+Maintenant, dans une implémentation
+
+92
+00:07:40,979 --> 00:07:46,398
+vectorisée, vous aurez
+
+93
+00:07:46,398 --> 00:07:53,536
+Z1 = W1*X + b1.
+
+94
+00:07:53,536 --> 00:07:58,023
+Où maintenant 
+Z1 est obtenu en prenant les z1
+
+95
+00:07:58,023 --> 00:08:03,575
+pour les exemples individuels,
+ donc il y a z[1](1), z[1](2),
+
+96
+00:08:03,575 --> 00:08:10,207
+jusqu'à z[1](m) et en les empilant 
+comme ceci et cela vous donne Z1.
+
+97
+00:08:10,207 --> 00:08:15,042
+Ainsi, la dimension de Z1,
+ au lieu d’être n1 par 1,
+
+98
+00:08:15,042 --> 00:08:20,285
+se retrouve à être n1 par m et 
+m est la taille du set d'apprentissage.
+
+99
+00:08:20,285 --> 00:08:26,140
+Les dimensions de W1 restent les mêmes,
+ c'est toujours n1 par n0.
+
+100
+00:08:26,140 --> 00:08:29,201
+Et X, au lieu d’être n0 par 1, est maintenant
+
+101
+00:08:29,201 --> 00:08:33,431
+tous vos exemples d'apprentissage 
+empilés horizontalement.
+
+102
+00:08:33,431 --> 00:08:38,565
+C’est donc maintenant n0 par m. 
+Et vous pouvez remarquer que
+ lorsque vous prenez
+
+103
+00:08:38,565 --> 00:08:43,833
+une matrice n1 par n0 et que vous la
+ multipliez par une matrice n0 par m,
+
+104
+00:08:43,833 --> 00:08:50,160
+ça vous donne effectivement une matrice
+ de dimensions n1 par m, comme attendu.
+
+105
+00:08:50,160 --> 00:08:55,030
+Maintenant, le détail final est que b1
+ est toujours n1 par 1, mais
+
+106
+00:08:55,030 --> 00:09:01,147
+lorsque vous prenez ceci et l'ajoutez à b,
+ puis par l’intermédiaire 
+du broadcasting de Python,
+
+107
+00:09:01,147 --> 00:09:08,218
+cela va être dupliqué et changé en une matrice
+ n1 par m, puis ajouté élément par élément.
+
+108
+00:09:08,218 --> 00:09:14,977
+Ainsi, sur la diapositive précédente,
+ nous avons parlé des dimensions de
+ W, b, dW et db.
+
+109
+00:09:14,977 --> 00:09:21,143
+Ici, ce que nous voyons est que,
+ tandis que z[L] comme
+
+110
+00:09:21,143 --> 00:09:26,922
+a[L] sont de dimension nL par 1,
+
+111
+00:09:26,922 --> 00:09:34,650
+Nous avons maintenant Z[L] et A[L]
+ qui sont nL par m.
+
+112
+00:09:34,650 --> 00:09:40,410
+avec un cas particulier 
+quand L est égal à 0,
+
+113
+00:09:40,410 --> 00:09:45,188
+dans ce cas A[0] est juste égal à
+
+114
+00:09:45,188 --> 00:09:49,543
+votre set d'apprentissage,
+ les caractéristiques d’entrée X,
+
+115
+00:09:49,543 --> 00:09:54,616
+qui va être égal à n0 par m comme prévu.
+
+116
+00:09:54,616 --> 00:10:01,259
+Et bien sûr quand vous implémentez cela
+ en rétro-propagation,
+
+117
+00:10:01,259 --> 00:10:06,749
+nous verrons plus tard que 
+vous calculez dZ ainsi que dA.
+
+118
+00:10:06,749 --> 00:10:11,327
+Et ceux-ci auront bien sûr
+
+119
+00:10:11,327 --> 00:10:15,736
+les mêmes dimensions que Z et A.
+
+120
+00:10:15,736 --> 00:10:19,467
+Alors j’espère que ce petit exercice a aidé
+ à clarifier les dimensions des
+
+121
+00:10:19,467 --> 00:10:21,685
+différentes matrices 
+avec lesquelles vous allez travailler.
+
+122
+00:10:21,685 --> 00:10:25,947
+Lorsque vous implémentez la rétro-propagation
+ pour un réseau de neurones profond, le fait de
+
+123
+00:10:25,947 --> 00:10:30,350
+vérifier votre code et de vous assurer 
+que les dimensions de toutes les matrices 
+sont compatibles,
+
+124
+00:10:30,350 --> 00:10:31,825
+devrait vous aider
+
+125
+00:10:31,825 --> 00:10:35,908
+à éliminer un certain nombre 
+de bugs éventuels.
+
+126
+00:10:35,908 --> 00:10:40,325
+J’espère donc que l’exercice de déterminer 
+les dimensions des matrices avec lesquelles
+
+127
+00:10:40,325 --> 00:10:41,979
+vous allez travailler a été utile.
+
+128
+00:10:41,979 --> 00:10:44,788
+Lorsque vous implémentez un réseau 
+neuronal profond, si vous faites attention
+
+129
+00:10:44,788 --> 00:10:48,241
+aux dimensions des différentes matrices
+ et vecteurs que vous manipulez,
+
+130
+00:10:48,241 --> 00:10:52,162
+ça devrait vous aider à éliminer
+ certaines causes d’éventuels bugs,
+
+131
+00:10:52,162 --> 00:10:54,467
+cela m’aide certainement 
+à obtenir un code juste.
+
+132
+00:10:54,467 --> 00:10:58,882
+Pour la suite, nous avons vu maintenant 
+une partie de la mécanique de la façon de faire
+
+133
+00:10:58,882 --> 00:11:01,227
+la propagation directe 
+dans un réseau de neurones.
+
+134
+00:11:01,227 --> 00:11:04,163
+Mais pourquoi les réseaux de neurones
+ profonds sont ils si efficaces, et
+
+135
+00:11:04,163 --> 00:11:07,243
+pourquoi font-ils mieux que
+ les représentations peu profondes ?
+
+136
+00:11:07,243 --> 00:11:09,939
+Nous allons passer quelques minutes 
+dans la prochaine vidéo à en discuter.

@@ -1,0 +1,117 @@
+Dans la dernière vidéo, vous avez vu
+ à quoi ressemble un réseau de neurones 
+à une seule couche cachée. Dans cette vidéo, nous verrons
+ les détails du calcul des sorties du réseau de neurones. Vous verrez que c'est comme 
+pour la régression logistique, mais répété plusieurs fois. Voici à quoi ressemble
+ un réseau de neurones à deux couches. Regardons plus précisément ce que calcule
+ exactement ce réseau neuronal. Nous avons déjà dit que
+ la régression logistique, ce cercle de la régression logistique, représente deux étapes de calcul. D’abord, vous calculez z 
+comme ceci et ensuite, vous calculez l’activation, 
+qui est la fonction sigmoïde en z. Un réseau de neurones fait simplement
+ cela beaucoup plus de fois. Pour commencer, concentrons nous sur 
+un seul nœud dans la couche cachée. Regardons le premier nœud 
+dans la couche cachée. Donc j’ai grisé les autres
+ nœuds pour l’instant. De la même façon que pour 
+la régression logistique sur la gauche, ce nœud dans la couche cachée
+ effectue deux étapes de calcul. La première étape, c'est à dire
+ la moitié gauche de ce nœud, calcule z égal à 
+ transposée de w fois x + b, et la notation que nous allons utiliser est, ces quantités sont toutes associées à
+ la première couche cachée, c’est pourquoi nous avons des exposants entre crochets ici. Ceci est le premier nœud 
+de la couche cachée. C’est pourquoi nous avons
+ l’indice 1 là en bas. Alors tout d’abord, il fait cela, et puis la deuxième étape est de calculer 
+a[1]1 = sigmoïde( z[1]1), comme ceci. Donc pour z et a, la convention de notation
+ est que dans a[l]i, l'exposant l entre crochets ici désigne le numéro de la couche, et l’indice i ici correspond au nœud dans cette couche. Donc le nœud que nous regardons est 
+dans la couche 1, et c'est le nœud 1 de cette couche cachée. On a donc 1 en exposant et 1 en indice. Donc ce petit cercle, ce premier nœud du réseau de neurones, représente le fait d'effectuer 
+ces deux étapes de calcul. Maintenant, regardons le deuxième nœud dans la couche cachée du réseau neuronal. De la même façon que pour l’unité 
+de régression logistique sur la gauche, ce petit cercle représente
+ deux étapes de calcul. La première étape est de calculer z, c'est toujours la couche 1, mais maintenant c'est 
+le deuxième nœud, égal à w[1]2.T * x + b[1]2 et puis
+ a[1]2 égal à sigmoïde de z[1]2. N'hésitez pas à mettre la vidéo
+ en pause pour vérifier que les indices et les exposants sont conformes à ce que nous avons
+ écrit ci-dessus en violet. Nous avons détaillé les deux premières 
+unités cachées du réseau de neurones, les unités cachées trois et quatre représentent
+ également des calculs similaires. Alors maintenant, je vais prendre
+ cette paire d’équations, et... cette paire d’équations, et nous allons les copier 
+sur la diapositive suivante. Donc, voici notre réseau neuronal, et voici la première équation et la seconde équation que 
+nous avons trouvée précédemment pour la première et
+ la deuxième unités cachées. Si vous écrivez les équations 
+correspondantes pour la troisième et la quatrième unités cachées, 
+vous obtenez ceci. Laissez moi vous montrer
+ que cette notation est claire. Ceci est le vecteur w[1] 1, c'est un vecteur, 
+transposé, fois x, OK ? Cet exposant T représente 
+la transposition du vecteur. C’est la transposition du vecteur. Comme vous avez dû le deviner, quand vous implémentez un
+ réseau de neurones, faire cela avec une boucle for 
+sera peu performant. Donc, ce que nous allons faire est prendre ces quatre équations
+ et les vectoriser. Nous allons donc commencer par montrer 
+comment calculer z comme un vecteur, vous pouvez le faire comme ceci : Nous allons prendre ces w et 
+les empiler dans une matrice. Alors vous avez transposée de w[1] 1, c'est un vecteur ligne, la transposée d'un vecteur colonne
+ vous donne un vecteur ligne. Puis transposée de w [1] 2, transposée de
+ w [1] 3, transposée de w [1] 4. Et en empilant ces quatre vecteurs, vous obtenez une matrice. Une autre façon de voir cela est que nous
+ avons quatre unités de régression logistique et chacune de ces unités
+de régression logistique a un vecteur de paramètre w correspondant. En empilant ces quatre vecteurs, vous obtenez cette matrice 
+de dimensions 4 par 3. Donc, si vous prenez cette matrice
+et que vous la multipliez par
+ vos caractéristiques d’entrée, x1, x2, x3, vous vous retrouvez avec, 
+par les règles de multiplication des matrices, transposée de w [1] 1 fois x, 
+transposée de w [1] 2 fois x, transposée de w [1] 3 fois x, 
+transposée de w [1] 4 fois x, et n'oublions pas les b. Donc, nous ajoutons à ce vecteur
+ b [1] 1, b [1] 2, b [1] 3, b [1] 4. Ce qui nous donne ça, on ajoute b [1] 1, b [1] 2, b [1] 3, b [1] 4. Donc, vous voyez que chacune
+ des quatre lignes de ce résultat correspond exactement
+ à chacune de ces quatre lignes, chacune de ces quatre quantités 
+que nous avions précédemment. En d’autres termes, nous avons montré
+ que cette chose est égale à z [1] 1, z [1] 2, z [1] 3, z [1] 4, 
+comme ils sont définis ici. Et ça ne devrait pas vous étonner, 
+nous allons appeler ce vecteur Z[1], qui est construit en empilant ces z individuels
+ en un vecteur colonne. Pour la vectorisation, une règle qui 
+peut vous aider à vous y retrouver est que lorsque nous avons différents 
+nœuds dans la couche, nous allons les empiler verticalement. C’est pourquoi, quand on avait
+ z [1] 1 à z [1] 4, ils correspondaient à quatre nœuds 
+différents dans la couche cachée, et donc nous avons empilé ces quatre nombres 
+verticalement pour former le vecteur Z [1]. Pour ajouter une notation de plus, cette matrice (4,3) ici, qu'on a obtenue
+ en empilant les petits w, w[1]1, w[1] 2 et ainsi de suite, nous allons appeler 
+cette matrice W [1] en majuscule. De la même manière, ce vecteur va 
+devenir b exposant 1 entre crochets. C'est un vecteur de dimensions 4 par 1. Alors maintenant, nous avons calculé Z
+ avec cette notation matricielle. La dernière chose que nous devons faire
+ est de calculer aussi ces valeurs de a et comme vous vous y attendez, 
+nous allons définir A[1] comme simplement l'empilement de ces valeurs d’activation, de a [1] 1 à a[1] 4.
+Nous prenons simplement ces quatre valeurs et nous les 
+empilons dans un vecteur appelé A[1], qui va être égal à sigmoïde de (Z[1]), où on utilise une implémentation de la fonction sigmoïde qui prend 
+ les quatre éléments de Z, et applique la fonction sigmoïde 
+élément par élément. Donc, juste pour résumer. Nous avons vu que Z [1] est égal à 
+W [1] fois le vecteur x plus le vecteur b [1], et A [1] est la sigmoïde de Z [1]. Nous allons recopier ça sur la diapositive
+ suivante. On voit que pour la première couche du réseau
+ neuronal, étant donnée une entrée x, nous avons Z [1] est égal à 
+W [1] * x + b [1], et A [1] est la sigmoïde de Z [1]. Les dimensions de ça sont 4 par 1, égal à, cette matrice est de 4 par 3 multipliée par
+un vecteur 3 par 1, plus un vecteur b de 4 par 1, et ceci est 4 par 1, 
+de la même dimension que Z. Souvenez vous que nous avons
+ dit que x est égal à a [0], et que ŷ est aussi égal à a[2]. Donc si vous voulez, vous pouvez
+ prendre ce x et le remplacer par a[0], car a[0] est, si vous voulez, 
+simplement un alias pour le 
+vecteur des caractéristiques d’entrée x. Par le même raisonnement, vous pouvez trouver que la 
+représentation de la couche suivante peut aussi être écrite de la même façon. A la couche de sortie sont associés les paramètres W_ [2] et b_ [2]. Donc, W [2] dans ce cas
+ va être une matrice (1,4) et b [2] est juste un nombre réel (1,1), et donc z [2] va être un nombre réel et 
+s'écrit comme une matrice (1,1). C'est une matrice (1, 4) fois a
+ qui était (4, 1), plus b[2], (1,1), donc ça vous donne juste un nombre réel. Et si vous voyez cette dernière
+ unité de sortie comme comme étant analogue à une régression
+ logistique, avec les paramètres W et b, W y joue le rôle de transposée de W[2], ou W[2] vaut transposée de W 
+et b est égal à b[2]. Si nous cachons la partie gauche de ce réseau 
+et que nous l'ignorons pour l’instant, cette dernière unité de sortie ressemble
+ beaucoup à une régression logistique, sauf qu’au lieu d’appeler 
+les paramètres W et b, nous les appelons W [2] et b [2], avec des dimensions (1, 4) et (1, 1). Donc juste pour résumer, pour implémenter une sortie, ou une
+ prédiction, en régression logistique, on calcule Z égal à 
+ transposée de W fois x plus b, et a ou ŷ est égal A, qui est égal à la sigmoïde de Z. Quand vous avez un réseau de neurones
+ avec une couche cachée, pour calculer la sortie, 
+vous devez implémenter simplement ces quatre équations. Vous pouvez considérer cela comme
+ une implémentation vectorisée du calcul, d'abord de ces quatre unités de
+ régression logistique de la couche cachée, ce que fait ceci, puis la régression logistique dans la couche
+ de sortie, ce que fait cela. J’espère que cette description était logique, l'important est que pour calculer
+ la sortie de ce réseau de neurones, vous n'avez besoin
+ que de ces quatre lignes de code. Vous avez vu comment, étant donné un
+ unique vecteur de caractéristiques d’entrée x, vous pouvez, avec quatre lignes de code, calculer la sortie de ce réseau de neurones, Comme nous l'avons fait
+ pour la régression logistique, nous voulons aussi vectoriser
+ sur de multiples exemples d'apprentissage. En empilant les différents exemples 
+d'apprentissage dans les différentes colonnes d'une matrice, avec seulement 
+de légères modifications, vous pourrez aussi, comme nous l'avons
+ vu dans la régression logistique, calculer la sortie de ce réseau de neurones, à partir non plus d’un seul exemple, mais sur l'ensemble du set
+d'entrainement d'un coup. Nous allons voir les détails 
+de cela dans la prochaine vidéo.

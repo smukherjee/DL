@@ -1,0 +1,851 @@
+1
+00:00:00,000 --> 00:00:04,740
+Dans la dernière vidéo, vous avez vu
+ à quoi ressemble un réseau de neurones 
+à une seule couche cachée.
+
+2
+00:00:04,740 --> 00:00:07,020
+Dans cette vidéo, nous verrons
+ les détails du calcul
+
+3
+00:00:07,020 --> 00:00:10,140
+des sorties du réseau de neurones.
+
+4
+00:00:10,140 --> 00:00:13,530
+Vous verrez que c'est comme 
+pour la régression logistique,
+
+5
+00:00:13,530 --> 00:00:15,585
+mais répété plusieurs fois.
+
+6
+00:00:15,585 --> 00:00:19,725
+Voici à quoi ressemble
+ un réseau de neurones à deux couches.
+
+7
+00:00:19,725 --> 00:00:23,850
+Regardons plus précisément ce que calcule
+ exactement ce réseau neuronal.
+
+8
+00:00:23,850 --> 00:00:26,985
+Nous avons déjà dit que
+ la régression logistique,
+
+9
+00:00:26,985 --> 00:00:28,980
+ce cercle de la régression logistique,
+
+10
+00:00:28,980 --> 00:00:31,515
+représente deux étapes de calcul.
+
+11
+00:00:31,515 --> 00:00:33,825
+D’abord, vous calculez z 
+comme ceci et ensuite,
+
+12
+00:00:33,825 --> 00:00:37,290
+vous calculez l’activation, 
+qui est la fonction sigmoïde en z.
+
+13
+00:00:37,290 --> 00:00:40,715
+Un réseau de neurones fait simplement
+ cela beaucoup plus de fois.
+
+14
+00:00:40,715 --> 00:00:44,460
+Pour commencer, concentrons nous sur 
+un seul nœud dans la couche cachée.
+
+15
+00:00:44,460 --> 00:00:46,385
+Regardons le premier nœud 
+dans la couche cachée.
+
+16
+00:00:46,385 --> 00:00:48,095
+Donc j’ai grisé les autres
+ nœuds pour l’instant.
+
+17
+00:00:48,095 --> 00:00:50,810
+De la même façon que pour 
+la régression logistique sur la gauche,
+
+18
+00:00:50,810 --> 00:00:54,470
+ce nœud dans la couche cachée
+ effectue deux étapes de calcul.
+
+19
+00:00:54,470 --> 00:00:57,905
+La première étape, c'est à dire
+ la moitié gauche de ce nœud,
+
+20
+00:00:57,905 --> 00:01:02,570
+calcule z égal à 
+ transposée de w fois x + b,
+
+21
+00:01:02,570 --> 00:01:05,060
+et la notation que nous allons utiliser est,
+
+22
+00:01:05,060 --> 00:01:08,300
+ces quantités sont toutes associées à
+ la première couche cachée, c’est pourquoi
+
+23
+00:01:08,300 --> 00:01:10,720
+nous avons des exposants entre crochets ici.
+
+24
+00:01:10,720 --> 00:01:13,610
+Ceci est le premier nœud 
+de la couche cachée.
+
+25
+00:01:13,610 --> 00:01:16,700
+C’est pourquoi nous avons
+ l’indice 1 là en bas.
+
+26
+00:01:16,700 --> 00:01:18,005
+Alors tout d’abord, il fait cela,
+
+27
+00:01:18,005 --> 00:01:19,130
+et puis la deuxième étape
+
+28
+00:01:19,130 --> 00:01:24,605
+est de calculer 
+a[1]1 = sigmoïde( z[1]1), comme ceci.
+
+29
+00:01:24,605 --> 00:01:26,030
+Donc pour z et a,
+
+30
+00:01:26,030 --> 00:01:29,690
+la convention de notation
+ est que dans a[l]i,
+
+31
+00:01:29,690 --> 00:01:32,270
+l'exposant l entre crochets ici
+
+32
+00:01:32,270 --> 00:01:33,635
+désigne le numéro de la couche,
+
+33
+00:01:33,635 --> 00:01:35,060
+et l’indice i ici
+
+34
+00:01:35,060 --> 00:01:37,830
+correspond au nœud dans cette couche.
+
+35
+00:01:37,830 --> 00:01:40,115
+Donc le nœud que nous regardons est 
+dans la couche 1,
+
+36
+00:01:40,115 --> 00:01:42,035
+et c'est le nœud 1 de cette couche cachée.
+
+37
+00:01:42,035 --> 00:01:45,965
+On a donc 1 en exposant et 1 en indice.
+
+38
+00:01:45,965 --> 00:01:47,375
+Donc ce petit cercle,
+
+39
+00:01:47,375 --> 00:01:49,385
+ce premier nœud du réseau de neurones,
+
+40
+00:01:49,385 --> 00:01:52,640
+représente le fait d'effectuer 
+ces deux étapes de calcul.
+
+41
+00:01:52,640 --> 00:01:55,190
+Maintenant, regardons le deuxième nœud 
+
+42
+00:01:55,190 --> 00:01:58,340
+dans la couche cachée du réseau neuronal.
+
+43
+00:01:58,340 --> 00:02:01,370
+De la même façon que pour l’unité 
+de régression logistique sur la gauche,
+
+44
+00:02:01,370 --> 00:02:04,850
+ce petit cercle représente
+ deux étapes de calcul.
+
+45
+00:02:04,850 --> 00:02:07,550
+La première étape est de calculer z,
+
+46
+00:02:07,550 --> 00:02:08,735
+c'est toujours la couche 1,
+
+47
+00:02:08,735 --> 00:02:12,395
+mais maintenant c'est 
+le deuxième nœud, égal à
+
+48
+00:02:12,395 --> 00:02:19,190
+w[1]2.T * x + b[1]2 et puis
+ a[1]2 égal à sigmoïde de z[1]2.
+
+49
+00:02:19,190 --> 00:02:21,200
+N'hésitez pas à mettre la vidéo
+ en pause pour
+
+50
+00:02:21,200 --> 00:02:23,840
+vérifier que les indices et les exposants
+
+51
+00:02:23,840 --> 00:02:28,430
+sont conformes à ce que nous avons
+ écrit ci-dessus en violet.
+
+52
+00:02:28,430 --> 00:02:32,845
+Nous avons détaillé les deux premières 
+unités cachées du réseau de neurones,
+
+53
+00:02:32,845 --> 00:02:36,940
+les unités cachées trois et quatre représentent
+ également des calculs similaires.
+
+54
+00:02:36,940 --> 00:02:40,205
+Alors maintenant, je vais prendre
+ cette paire d’équations,
+
+55
+00:02:40,205 --> 00:02:42,320
+et... cette paire d’équations,
+
+56
+00:02:42,320 --> 00:02:44,210
+et nous allons les copier 
+sur la diapositive suivante.
+
+57
+00:02:44,210 --> 00:02:45,380
+Donc, voici notre réseau neuronal,
+
+58
+00:02:45,380 --> 00:02:46,550
+et voici la première équation
+
+59
+00:02:46,550 --> 00:02:49,550
+et la seconde équation que 
+nous avons trouvée précédemment
+
+60
+00:02:49,550 --> 00:02:54,155
+pour la première et
+ la deuxième unités cachées.
+
+61
+00:02:54,155 --> 00:02:57,650
+Si vous écrivez les équations 
+correspondantes pour la troisième et
+
+62
+00:02:57,650 --> 00:03:01,475
+la quatrième unités cachées, 
+vous obtenez ceci.
+
+63
+00:03:01,475 --> 00:03:03,635
+Laissez moi vous montrer
+ que cette notation est claire.
+
+64
+00:03:03,635 --> 00:03:06,680
+Ceci est le vecteur w[1] 1,
+
+65
+00:03:06,680 --> 00:03:09,335
+c'est un vecteur, 
+transposé, fois x, OK ?
+
+66
+00:03:09,335 --> 00:03:12,050
+Cet exposant T représente 
+la transposition du vecteur.
+
+67
+00:03:12,050 --> 00:03:13,535
+C’est la transposition du vecteur.
+
+68
+00:03:13,535 --> 00:03:15,085
+Comme vous avez dû le deviner,
+
+69
+00:03:15,085 --> 00:03:17,195
+quand vous implémentez un
+ réseau de neurones,
+
+70
+00:03:17,195 --> 00:03:20,285
+faire cela avec une boucle for 
+sera peu performant.
+
+71
+00:03:20,285 --> 00:03:21,530
+Donc, ce que nous allons faire
+
+72
+00:03:21,530 --> 00:03:25,220
+est prendre ces quatre équations
+ et les vectoriser.
+
+73
+00:03:25,220 --> 00:03:29,050
+Nous allons donc commencer par montrer 
+comment calculer z comme un vecteur,
+
+74
+00:03:29,050 --> 00:03:30,935
+vous pouvez le faire comme ceci :
+
+75
+00:03:30,935 --> 00:03:34,910
+Nous allons prendre ces w et 
+les empiler dans une matrice.
+
+76
+00:03:34,910 --> 00:03:37,980
+Alors vous avez transposée de w[1] 1,
+
+77
+00:03:37,980 --> 00:03:39,450
+c'est un vecteur ligne,
+
+78
+00:03:39,450 --> 00:03:42,500
+la transposée d'un vecteur colonne
+ vous donne un vecteur ligne.
+
+79
+00:03:42,500 --> 00:03:48,980
+Puis transposée de w [1] 2, transposée de
+ w [1] 3, transposée de w [1] 4.
+
+80
+00:03:48,980 --> 00:03:53,150
+Et en empilant ces quatre vecteurs,
+
+81
+00:03:53,150 --> 00:03:54,575
+vous obtenez une matrice.
+
+82
+00:03:54,575 --> 00:03:58,985
+Une autre façon de voir cela est que nous
+ avons quatre unités de régression logistique
+
+83
+00:03:58,985 --> 00:04:01,190
+et chacune de ces unités
+de régression logistique
+
+84
+00:04:01,190 --> 00:04:03,290
+a un vecteur de paramètre w correspondant.
+
+85
+00:04:03,290 --> 00:04:06,080
+En empilant ces quatre vecteurs,
+
+86
+00:04:06,080 --> 00:04:08,930
+vous obtenez cette matrice 
+de dimensions 4 par 3.
+
+87
+00:04:08,930 --> 00:04:14,180
+Donc, si vous prenez cette matrice
+et que vous la multipliez par
+ vos caractéristiques d’entrée,
+
+88
+00:04:14,180 --> 00:04:18,650
+x1, x2, x3, vous vous retrouvez avec, 
+par les règles de multiplication des matrices,
+
+89
+00:04:18,650 --> 00:04:20,870
+transposée de w [1] 1 fois x, 
+transposée de w [1] 2 fois x,
+
+90
+00:04:20,870 --> 00:04:28,775
+transposée de w [1] 3 fois x, 
+transposée de w [1] 4 fois x,
+
+91
+00:04:28,775 --> 00:04:31,010
+et n'oublions pas les b.
+
+92
+00:04:31,010 --> 00:04:39,450
+Donc, nous ajoutons à ce vecteur
+ b [1] 1, b [1] 2, b [1] 3, b [1] 4.
+
+93
+00:04:39,450 --> 00:04:40,860
+Ce qui nous donne ça,
+
+94
+00:04:40,860 --> 00:04:46,500
+on ajoute b [1] 1, b [1] 2, b [1] 3, b [1] 4.
+
+95
+00:04:46,500 --> 00:04:48,950
+Donc, vous voyez que chacune
+ des quatre lignes de
+
+96
+00:04:48,950 --> 00:04:53,195
+ce résultat correspond exactement
+ à chacune de ces quatre lignes,
+
+97
+00:04:53,195 --> 00:04:55,610
+chacune de ces quatre quantités 
+que nous avions précédemment.
+
+98
+00:04:55,610 --> 00:04:59,870
+En d’autres termes, nous avons montré
+ que cette chose est égale à z [1] 1,
+
+99
+00:04:59,870 --> 00:05:05,695
+z [1] 2, z [1] 3, z [1] 4, 
+comme ils sont définis ici.
+
+100
+00:05:05,695 --> 00:05:09,830
+Et ça ne devrait pas vous étonner, 
+nous allons appeler ce vecteur Z[1],
+
+101
+00:05:09,830 --> 00:05:15,095
+qui est construit en empilant ces z individuels
+ en un vecteur colonne.
+
+102
+00:05:15,095 --> 00:05:20,300
+Pour la vectorisation, une règle qui 
+peut vous aider à vous y retrouver est que
+
+103
+00:05:20,300 --> 00:05:22,450
+lorsque nous avons différents 
+nœuds dans la couche, 
+
+104
+00:05:22,450 --> 00:05:23,965
+nous allons les empiler verticalement.
+
+105
+00:05:23,965 --> 00:05:27,100
+C’est pourquoi, quand on avait
+ z [1] 1 à z [1] 4,
+
+106
+00:05:27,100 --> 00:05:30,430
+ils correspondaient à quatre nœuds 
+différents dans la couche cachée, et
+
+107
+00:05:30,430 --> 00:05:35,540
+donc nous avons empilé ces quatre nombres 
+verticalement pour former le vecteur Z [1].
+
+108
+00:05:35,540 --> 00:05:37,410
+Pour ajouter une notation de plus,
+
+109
+00:05:37,410 --> 00:05:44,210
+cette matrice (4,3) ici, qu'on a obtenue
+ en empilant les petits w, w[1]1,
+
+110
+00:05:44,210 --> 00:05:48,260
+w[1] 2 et ainsi de suite, nous allons appeler 
+cette matrice W [1] en majuscule.
+
+111
+00:05:48,260 --> 00:05:52,625
+De la même manière, ce vecteur va 
+devenir b exposant 1 entre crochets.
+
+112
+00:05:52,625 --> 00:05:54,590
+C'est un vecteur de dimensions 4 par 1.
+
+113
+00:05:54,590 --> 00:05:59,600
+Alors maintenant, nous avons calculé Z
+ avec cette notation matricielle.
+
+114
+00:05:59,600 --> 00:06:03,300
+La dernière chose que nous devons faire
+ est de calculer aussi ces valeurs de a et
+
+115
+00:06:03,300 --> 00:06:08,120
+comme vous vous y attendez, 
+nous allons définir A[1]
+
+116
+00:06:08,120 --> 00:06:09,710
+comme simplement l'empilement de
+
+117
+00:06:09,710 --> 00:06:11,330
+ces valeurs d’activation, 
+
+118
+00:06:11,330 --> 00:06:13,175
+de a [1] 1 à a[1] 4.
+Nous prenons simplement
+
+119
+00:06:13,175 --> 00:06:18,260
+ces quatre valeurs et nous les 
+empilons dans un vecteur appelé A[1],
+
+120
+00:06:18,260 --> 00:06:21,050
+qui va être égal à sigmoïde de (Z[1]),
+
+121
+00:06:21,050 --> 00:06:23,360
+où on utilise une implémentation de
+
+122
+00:06:23,360 --> 00:06:26,900
+la fonction sigmoïde qui prend 
+ les quatre éléments de Z,
+
+123
+00:06:26,900 --> 00:06:30,460
+et applique la fonction sigmoïde 
+élément par élément.
+
+124
+00:06:30,460 --> 00:06:31,950
+Donc, juste pour résumer.
+
+125
+00:06:31,950 --> 00:06:38,820
+Nous avons vu que Z [1] est égal à 
+W [1] fois le vecteur x plus le vecteur b [1],
+
+126
+00:06:38,820 --> 00:06:42,000
+et A [1] est la sigmoïde de Z [1].
+
+127
+00:06:42,000 --> 00:06:44,055
+Nous allons recopier ça sur la diapositive
+ suivante. On voit que
+
+128
+00:06:44,055 --> 00:06:48,050
+pour la première couche du réseau
+ neuronal, étant donnée une entrée x,
+
+129
+00:06:48,050 --> 00:06:52,070
+nous avons Z [1] est égal à 
+W [1] * x + b [1],
+
+130
+00:06:52,070 --> 00:06:55,740
+et A [1] est la sigmoïde de Z [1].
+
+131
+00:06:55,740 --> 00:06:59,060
+Les dimensions de ça sont 4 par 1, égal à,
+
+132
+00:06:59,060 --> 00:07:05,255
+cette matrice est de 4 par 3 multipliée par
+un vecteur 3 par 1, plus un vecteur b de 4 par 1,
+
+133
+00:07:05,255 --> 00:07:08,480
+et ceci est 4 par 1, 
+de la même dimension que Z.
+
+134
+00:07:08,480 --> 00:07:12,890
+Souvenez vous que nous avons
+ dit que x est égal à a [0],
+
+135
+00:07:12,890 --> 00:07:16,535
+et que ŷ est aussi égal à a[2].
+
+136
+00:07:16,535 --> 00:07:21,060
+Donc si vous voulez, vous pouvez
+ prendre ce x et le remplacer par a[0],
+
+137
+00:07:21,060 --> 00:07:25,460
+car a[0] est, si vous voulez, 
+simplement un alias pour le 
+vecteur des caractéristiques d’entrée x.
+
+138
+00:07:25,460 --> 00:07:27,230
+Par le même raisonnement,
+
+139
+00:07:27,230 --> 00:07:31,580
+vous pouvez trouver que la 
+représentation de la couche suivante
+
+140
+00:07:31,580 --> 00:07:36,125
+peut aussi être écrite de la même façon. 
+
+141
+00:07:36,125 --> 00:07:37,945
+A la couche de sortie sont associés
+
+142
+00:07:37,945 --> 00:07:40,890
+les paramètres W_ [2] et b_ [2].
+
+143
+00:07:40,890 --> 00:07:44,600
+Donc, W [2] dans ce cas
+ va être une matrice (1,4) et
+
+144
+00:07:44,600 --> 00:07:47,240
+b [2] est juste un nombre réel (1,1), et
+
+145
+00:07:47,240 --> 00:07:52,130
+donc z [2] va être un nombre réel et 
+s'écrit comme une matrice (1,1).
+
+146
+00:07:52,130 --> 00:07:56,090
+C'est une matrice (1, 4) fois a
+ qui était (4, 1),
+
+147
+00:07:56,090 --> 00:07:57,770
+plus b[2], (1,1),
+
+148
+00:07:57,770 --> 00:07:59,805
+donc ça vous donne juste un nombre réel.
+
+149
+00:07:59,805 --> 00:08:02,900
+Et si vous voyez cette dernière
+ unité de sortie comme
+
+150
+00:08:02,900 --> 00:08:07,295
+comme étant analogue à une régression
+ logistique, avec les paramètres W et b,
+
+151
+00:08:07,295 --> 00:08:12,560
+W y joue le rôle de transposée de W[2],
+
+152
+00:08:12,560 --> 00:08:16,790
+ou W[2] vaut transposée de W 
+et b est égal à b[2].
+
+153
+00:08:16,790 --> 00:08:21,840
+Si nous cachons la partie gauche de ce réseau 
+et que nous l'ignorons pour l’instant,
+
+154
+00:08:21,840 --> 00:08:26,300
+cette dernière unité de sortie ressemble
+ beaucoup à une régression logistique,
+
+155
+00:08:26,300 --> 00:08:29,375
+sauf qu’au lieu d’appeler 
+les paramètres W et b,
+
+156
+00:08:29,375 --> 00:08:32,700
+nous les appelons W [2] et b [2],
+
+157
+00:08:32,700 --> 00:08:35,535
+avec des dimensions (1, 4) et (1, 1).
+
+158
+00:08:35,535 --> 00:08:37,365
+Donc juste pour résumer,
+
+159
+00:08:37,365 --> 00:08:41,690
+pour implémenter une sortie, ou une
+ prédiction, en régression logistique,
+
+160
+00:08:41,690 --> 00:08:44,945
+on calcule Z égal à 
+ transposée de W fois x plus b,
+
+161
+00:08:44,945 --> 00:08:48,200
+et a ou ŷ est égal A,
+
+162
+00:08:48,200 --> 00:08:50,705
+qui est égal à la sigmoïde de Z.
+
+163
+00:08:50,705 --> 00:08:54,330
+Quand vous avez un réseau de neurones
+ avec une couche cachée,
+
+164
+00:08:54,330 --> 00:08:55,530
+pour calculer la sortie, 
+vous devez implémenter
+
+165
+00:08:55,530 --> 00:08:59,085
+simplement ces quatre équations.
+
+166
+00:08:59,085 --> 00:09:03,020
+Vous pouvez considérer cela comme
+ une implémentation vectorisée du calcul,
+
+167
+00:09:03,020 --> 00:09:08,015
+d'abord de ces quatre unités de
+ régression logistique de la couche cachée,
+
+168
+00:09:08,015 --> 00:09:09,350
+ce que fait ceci,
+
+169
+00:09:09,350 --> 00:09:13,730
+puis la régression logistique dans la couche
+ de sortie, ce que fait cela.
+
+170
+00:09:13,730 --> 00:09:15,680
+J’espère que cette description était logique,
+
+171
+00:09:15,680 --> 00:09:19,240
+l'important est que pour calculer
+ la sortie de ce réseau de neurones,
+
+172
+00:09:19,240 --> 00:09:21,785
+vous n'avez besoin
+ que de ces quatre lignes de code.
+
+173
+00:09:21,785 --> 00:09:25,280
+Vous avez vu comment, étant donné un
+ unique vecteur de caractéristiques d’entrée x,
+
+174
+00:09:25,280 --> 00:09:27,755
+vous pouvez, avec quatre lignes de code,
+
+175
+00:09:27,755 --> 00:09:30,185
+calculer la sortie de ce réseau de neurones,
+
+176
+00:09:30,185 --> 00:09:32,600
+Comme nous l'avons fait
+ pour la régression logistique, 
+
+177
+00:09:32,600 --> 00:09:36,635
+nous voulons aussi vectoriser
+ sur de multiples exemples d'apprentissage.
+
+178
+00:09:36,635 --> 00:09:41,690
+En empilant les différents exemples 
+d'apprentissage dans les différentes colonnes
+
+179
+00:09:41,690 --> 00:09:44,615
+d'une matrice, avec seulement 
+de légères modifications,
+
+180
+00:09:44,615 --> 00:09:46,610
+vous pourrez aussi, comme nous l'avons
+ vu dans la régression logistique,
+
+181
+00:09:46,610 --> 00:09:50,170
+calculer la sortie de ce réseau de neurones,
+
+182
+00:09:50,170 --> 00:09:52,030
+à partir non plus d’un seul exemple,
+
+183
+00:09:52,030 --> 00:09:55,010
+mais sur l'ensemble du set
+d'entrainement d'un coup.
+
+184
+00:09:55,010 --> 00:09:57,940
+Nous allons voir les détails 
+de cela dans la prochaine vidéo.

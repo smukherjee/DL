@@ -1,0 +1,609 @@
+1
+00:00:00,000 --> 00:00:04,530
+Dans cette vidéo, je vais vous aider
+ à acquérir une compréhension intuitive 
+
+2
+00:00:04,530 --> 00:00:07,065
+de l'analyse et des dérivées.
+
+3
+00:00:07,065 --> 00:00:11,820
+Vous vous dites peut-être que vous n'avez 
+pas fait d'analyse depuis vos études,
+
+4
+00:00:11,820 --> 00:00:13,515
+et selon quand vous avez obtenu
+ votre diplôme,
+
+5
+00:00:13,515 --> 00:00:15,885
+ça peut remonter à pas mal de temps.
+
+6
+00:00:15,885 --> 00:00:18,930
+Si c'est ce que vous pensez,
+ ne vous inquiétez pas,
+
+7
+00:00:18,930 --> 00:00:22,350
+vous n'avez pas besoin d'une compréhension
+ profonde de l'analyse pour
+
+8
+00:00:22,350 --> 00:00:26,070
+l'appliquer aux réseaux de neurones et
+ à l'apprentissage profond très efficacement.
+
+9
+00:00:26,070 --> 00:00:29,940
+Donc, si vous regardez cette vidéo ou l'une 
+des suivantes et que vous vous demandez,
+
+10
+00:00:29,940 --> 00:00:31,500
+mais est-ce que tout ça est bien pour moi,
+
+11
+00:00:31,500 --> 00:00:33,510
+cette analyse semble vraiment compliquée,
+
+12
+00:00:33,510 --> 00:00:35,880
+je vous recommande de 
+
+13
+00:00:35,880 --> 00:00:38,270
+regarder les vidéos et si vous pouvez faire 
+
+14
+00:00:38,270 --> 00:00:41,299
+les devoirs et les exercices de
+ programmation avec succès,
+
+15
+00:00:41,299 --> 00:00:43,325
+alors vous pouvez appliquer
+ l'apprentissage profond.
+
+16
+00:00:43,325 --> 00:00:46,115
+En fait, vous verrez plus tard dans la
+ quatrième semaine
+
+17
+00:00:46,115 --> 00:00:49,400
+que nous définirons quelques types de
+ fonctions qui vous permettront 
+
+18
+00:00:49,400 --> 00:00:53,030
+d'encapsuler tout ce qui touche à l'analyse,
+
+19
+00:00:53,030 --> 00:00:56,750
+que ces fonctions nommées fonctions
+ directes et rétro-fonctions que vous avez
+ vues auparavant, 
+
+20
+00:00:56,750 --> 00:01:01,239
+qui vous permettrons de mettre tout ce
+ que vous avez besoin de savoir sur
+ l'analyse dans ces fonctions,
+
+21
+00:01:01,239 --> 00:01:04,055
+de sorte que vous n'aurez plus besoin
+ de vous en soucier au-delà de cela.
+
+22
+00:01:04,055 --> 00:01:08,210
+Mais je pense que dans cette exploration
+ de l'apprentissage profond nous
+ devons cette semaine
+
+23
+00:01:08,210 --> 00:01:12,980
+ouvrir la boîte et examiner d'un peu plus
+ près certains détails de l'analyse.
+
+24
+00:01:12,980 --> 00:01:16,070
+Mais réellement, vous n'avez besoin que 
+d'une compréhension intuitive de cela
+
+25
+00:01:16,070 --> 00:01:19,535
+pour construire et appliquer ces
+ algorithmes avec succès.
+
+26
+00:01:19,535 --> 00:01:25,570
+Finalement, si vous faites partie de ce
+ petit groupe de gens experts en analyse,
+
+27
+00:01:25,570 --> 00:01:27,950
+si vous êtes vraiment familier de l'analyse
+ et des dérivées,
+
+28
+00:01:27,950 --> 00:01:30,410
+vous pouvez probablement sauter cette vidéo.
+
+29
+00:01:30,410 --> 00:01:32,450
+Mais pour les autres, allons-y et
+
+30
+00:01:32,450 --> 00:01:35,710
+tentons d'acquérir une compréhension
+ intuitive de la dérivée.
+
+31
+00:01:35,710 --> 00:01:39,500
+J'ai tracé la fonction f(a) = 3a.
+
+32
+00:01:39,500 --> 00:01:41,195
+C'est juste une ligne droite.
+
+33
+00:01:41,195 --> 00:01:43,380
+Pour construire notre intuition
+ sur les dérivées,
+
+34
+00:01:43,380 --> 00:01:45,230
+examinons certains points de cette fonction.
+
+35
+00:01:45,230 --> 00:01:48,090
+Disons que a est égal à 2.
+
+36
+00:01:48,090 --> 00:01:49,990
+Dans ce cas, f(a) 
+
+37
+00:01:49,990 --> 00:01:52,850
+qui est égal à trois fois a, est égale à six.
+
+38
+00:01:52,850 --> 00:01:55,225
+Donc, si a = 2, 
+
+39
+00:01:55,225 --> 00:01:58,055
+alors f(a) sera égal à 6.
+
+40
+00:01:58,055 --> 00:02:01,550
+Disons que nous changeons 
+la valeur de a juste un petit peu.
+
+41
+00:02:01,550 --> 00:02:03,660
+Je vais juste décaler a un tout petit peu,
+
+42
+00:02:03,660 --> 00:02:06,750
+de sorte qu'il vaut maintenant 2.001.
+
+43
+00:02:06,750 --> 00:02:10,485
+C'est comme si je lui donnais un tout
+ petit coup de pouce vers la droite.
+
+44
+00:02:10,485 --> 00:02:13,770
+Donc, maintenant il vaut 2.001.
+
+45
+00:02:13,770 --> 00:02:15,375
+Ce graphe n'est pas à l'échelle,
+
+46
+00:02:15,375 --> 00:02:20,910
+2.001, cette différence est trop petite
+ pour apparaître sur ce graphe,
+
+47
+00:02:20,910 --> 00:02:22,380
+donnons juste une pichenette
+ vers la droite.
+
+48
+00:02:22,380 --> 00:02:23,790
+Maintenant f(a) 
+
+49
+00:02:23,790 --> 00:02:25,800
+est égale à trois fois ceci.
+
+50
+00:02:25,800 --> 00:02:29,960
+Donc 6.003, que nous dessinons ici.
+
+51
+00:02:29,960 --> 00:02:33,340
+Ce n’est pas à l’échelle, voici 6.003.
+
+52
+00:02:33,340 --> 00:02:37,890
+Bien, si vous observez ce petit
+ triangle ici, que je trace en vert,
+
+53
+00:02:37,890 --> 00:02:42,640
+ce que nous constatons est que si je
+ décale a de 0.001 vers la droite,
+
+54
+00:02:42,640 --> 00:02:47,540
+alors f(a) monte de 0.003.
+
+55
+00:02:47,540 --> 00:02:48,980
+La quantité par laquelle f(a) 
+
+56
+00:02:48,980 --> 00:02:54,215
+a augmenté vaut trois fois la quantité
+ par laquelle j'ai décalé a vers la droite.
+
+57
+00:02:54,215 --> 00:02:56,135
+Donc nous dirons que 
+
+58
+00:02:56,135 --> 00:03:01,755
+la pente, ou la dérivée, de la fonction f(a)
+
+59
+00:03:01,755 --> 00:03:06,735
+pour a égal 2 ou quand a vaut 2,
+ la pente vaut 3.
+
+60
+00:03:06,735 --> 00:03:09,170
+Le terme dérivée fondamentalement
+ veut dire pente,
+
+61
+00:03:09,170 --> 00:03:12,075
+c'est juste que dérivée sonne
+ comme un terme
+
+62
+00:03:12,075 --> 00:03:16,910
+plus effrayant, plus intimidant, alors que
+ pente est une manière plus conviviale
+ de décrire le concept de dérivée.
+
+63
+00:03:16,910 --> 00:03:18,320
+Donc, lorsque vous entendez dérivée, 
+
+64
+00:03:18,320 --> 00:03:20,450
+pensez juste à la pente de la fonction.
+
+65
+00:03:20,450 --> 00:03:24,605
+Plus formellement, la pente
+ est définie comme la hauteur
+
+66
+00:03:24,605 --> 00:03:29,330
+divisée par la largeur de ce petit triangle 
+que nous avons en vert.
+
+67
+00:03:29,330 --> 00:03:34,005
+Donc, c'est 0.003 sur 0.001,
+
+68
+00:03:34,005 --> 00:03:37,760
+et le fait que la pente soit égale à 3
+ ou que la dérivée vaille 3
+
+69
+00:03:37,760 --> 00:03:43,550
+représente juste le fait que lorsque vous
+ décalez a vers la droite par 0.001,
+ par une très petite quantité, 
+
+70
+00:03:43,550 --> 00:03:49,665
+la valeur de f(a) augmente de trois fois
+ la quantité par laquelle vous l'avez décalé
+
+71
+00:03:49,665 --> 00:03:52,265
+que vous avez décalé a sur l'axe horizontal.
+
+72
+00:03:52,265 --> 00:03:54,290
+Donc, c'est tout pour la définition
+ de la pente de la ligne.
+
+73
+00:03:54,290 --> 00:03:57,035
+Maintenant examinons cette fonction
+ en un point différent.
+
+74
+00:03:57,035 --> 00:03:59,990
+Disons que a est maintenant égal à 5.
+
+75
+00:03:59,990 --> 00:04:01,430
+Dans ce cas, f(a),
+
+76
+00:04:01,430 --> 00:04:03,380
+trois fois a, est égal à 15.
+
+77
+00:04:03,380 --> 00:04:04,625
+Donc, de nouveau
+
+78
+00:04:04,625 --> 00:04:06,245
+donnons à a une pichenette vers la droite.
+
+79
+00:04:06,245 --> 00:04:09,425
+Une toute petite pichenette,
+ il vaut maintenant 5.001.
+
+80
+00:04:09,425 --> 00:04:11,420
+f(a) vaut trois fois ceci, 
+
+81
+00:04:11,420 --> 00:04:14,935
+donc f(a) vaut 15.003.
+
+82
+00:04:14,935 --> 00:04:18,570
+Donc cette fois aussi, lorsque
+ je décale a vers la droite,
+
+83
+00:04:18,570 --> 00:04:21,090
+je donne une pichenette à a de 0.001,
+
+84
+00:04:21,090 --> 00:04:23,325
+f(a) augmente de trois fois cette valeur.
+
+85
+00:04:23,325 --> 00:04:28,260
+Donc la pente, de nouveau,
+ lorsque a vaut 5 est égale à 3.
+
+86
+00:04:28,260 --> 00:04:29,910
+Donc, nous écrivons ceci comme
+
+87
+00:04:29,910 --> 00:04:33,255
+la pente de la fonction f est égale à 3,
+
+88
+00:04:33,255 --> 00:04:36,435
+Nous disons d f(a) / da, 
+
+89
+00:04:36,435 --> 00:04:38,895
+ce qui signifie juste
+
+90
+00:04:38,895 --> 00:04:41,400
+que la pente de la fonction f(a)
+
+91
+00:04:41,400 --> 00:04:43,305
+lorsque vous décalez la variable a 
+
+92
+00:04:43,305 --> 00:04:47,715
+d'une très petite valeur, est égale à 3.
+
+93
+00:04:47,715 --> 00:04:52,250
+Une autre façon de formuler
+ une dérivée est la suivante,
+
+94
+00:04:52,250 --> 00:04:54,140
+vous pouvez aussi l'écrire comme
+
+95
+00:04:54,140 --> 00:04:57,965
+d/da de f(a)
+
+96
+00:04:57,965 --> 00:05:03,060
+Donc, que vous placiez f(a) en haut ou
+ que vous l'écriviez ici en bas
+ n'a pas d'importance.
+
+97
+00:05:03,060 --> 00:05:05,100
+Tout ce que cette équation signifie est que
+
+98
+00:05:05,100 --> 00:05:08,145
+si je décale a un petit peu vers la droite,
+
+99
+00:05:08,145 --> 00:05:14,465
+je m'attends à voir f(a) augmenter de 
+trois fois la valeur dont j'ai décalé a.
+
+100
+00:05:14,465 --> 00:05:18,615
+Maintenant, dans cette vidéo, 
+j'ai expliqué les dérivées en parlant
+
+101
+00:05:18,615 --> 00:05:25,430
+de ce qui se passe si vous décalez
+ la variable a de 0.001.
+
+102
+00:05:25,430 --> 00:05:29,000
+Si vous voulez la définition mathématique
+ formelle de la dérivée,
+
+103
+00:05:29,000 --> 00:05:34,320
+les dérivées sont définies par des valeurs 
+encore plus petites de décalage de a
+ vers la droite.
+
+104
+00:05:34,320 --> 00:05:35,955
+Ce n'est pas 0.001,
+
+105
+00:05:35,955 --> 00:05:38,235
+ce n'est pas 0.000001,
+
+106
+00:05:38,235 --> 00:05:42,315
+Ce n’est pas 0.00000000, 
+et ainsi de suite, 1.
+
+107
+00:05:42,315 --> 00:05:44,250
+c'est encore plus petit que cela,
+
+108
+00:05:44,250 --> 00:05:47,015
+et la définition formelle de la dérivée dit
+
+109
+00:05:47,015 --> 00:05:50,840
+que lorsque que vous décalez a 
+vers la droite d'une quantité infinitésimale,
+
+110
+00:05:50,840 --> 00:05:53,900
+fondamentalement une quantité
+ infiniment petite,
+
+111
+00:05:53,900 --> 00:05:58,970
+si vous faites cela, f(a) augmentera de
+ trois fois la valeur de cette toute petite 
+
+112
+00:05:58,970 --> 00:06:01,160
+quantité dont vous avez décalé
+ a vers la droite.
+
+113
+00:06:01,160 --> 00:06:04,640
+Ceci est donc la définition formelle
+ de la dérivée.
+
+114
+00:06:04,640 --> 00:06:07,490
+Mais pour acquérir notre
+ compréhension intuitive,
+
+115
+00:06:07,490 --> 00:06:12,695
+nous allons juste parler de décaler a vers
+ la droite de cette toute petite quantité, 0.001.
+
+116
+00:06:12,695 --> 00:06:18,130
+Même si 0.001 n'est pas vraiment
+ infiniment petit.
+
+117
+00:06:18,130 --> 00:06:21,590
+Maintenant une propriété
+ de la dérivée est que
+
+118
+00:06:21,590 --> 00:06:24,480
+où que vous mesuriez la pente
+ de cette fonction, 
+
+119
+00:06:24,480 --> 00:06:25,730
+elle est égale à 3.
+
+120
+00:06:25,730 --> 00:06:28,820
+Que a soit égal à 2, qu'il soit égal à 5,
+
+121
+00:06:28,820 --> 00:06:31,655
+la pente de la fonction est égale à 3.
+
+122
+00:06:31,655 --> 00:06:34,365
+Ce qui veut dire que
+ quelle que soit la valeur de a,
+
+123
+00:06:34,365 --> 00:06:36,915
+si vous l'augmentez de 0.001,
+
+124
+00:06:36,915 --> 00:06:40,305
+la valeur de f(a) augmente de 3 fois autant.
+
+125
+00:06:40,305 --> 00:06:42,635
+Donc, cette fonction a la même pente partout.
+
+126
+00:06:42,635 --> 00:06:44,150
+Une manière de le voir est de
+
+127
+00:06:44,150 --> 00:06:47,090
+où que vous dessiniez ce petit triangle, 
+
+128
+00:06:47,090 --> 00:06:49,690
+la hauteur divisée par la largeur 
+
+129
+00:06:49,690 --> 00:06:52,460
+donnera toujours un rapport de 3 à 1.
+
+130
+00:06:52,460 --> 00:06:55,250
+Donc j'espère que ceci vous donne
+ une idée de ce qu'est la pente
+
+131
+00:06:55,250 --> 00:06:58,100
+ou la dérivée d'une fonction
+ pour une ligne droite,
+
+132
+00:06:58,100 --> 00:07:02,075
+où dans cet exemple la pente
+ de la fonction valait 3 partout.
+
+133
+00:07:02,075 --> 00:07:06,110
+Dans la prochaine vidéo nous verrons
+ un exemple un peu plus complexe,
+
+134
+00:07:06,110 --> 00:07:10,200
+où la pente de la fonction pourra être
+ différente en différents points de la fonction.

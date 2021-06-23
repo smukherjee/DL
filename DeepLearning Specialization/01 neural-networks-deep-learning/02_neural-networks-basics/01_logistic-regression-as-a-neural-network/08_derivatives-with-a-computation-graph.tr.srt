@@ -1,0 +1,811 @@
+1
+00:00:00,510 --> 00:00:01,280
+Son videoda,
+
+2
+00:00:01,280 --> 00:00:06,130
+Bır hesaplama grafiği kullanarak,
+ bir fonksiyonu hesaplama örneği üzerinde çalıştık.
+
+3
+00:00:06,130 --> 00:00:09,311
+Şimdi, bu hesaplama grafiğinin temiz 
+bir versiyonunu ele alalım.
+
+4
+00:00:09,311 --> 00:00:13,990
+Ve bu j fonksiyonun türev hesaplamalarını 
+çözmek için size hesaplama grafiğini
+
+5
+00:00:13,990 --> 00:00:15,252
+nasıl kullanacağınızı gösterelim.
+
+6
+00:00:15,252 --> 00:00:17,292
+Burada gördüğünüz bir hesaplama grafiği
+
+7
+00:00:17,292 --> 00:00:22,280
+j'nin v'ye göre türevini almak istediğinizi 
+var sayalım.
+
+8
+00:00:23,440 --> 00:00:24,126
+Peki bu nedir?
+
+9
+00:00:24,126 --> 00:00:27,800
+Şunu ifade eder, eğer bu v değerini alsaydık ve
+
+10
+00:00:27,800 --> 00:00:32,360
+değerini biraz değiştirseydik, 
+J'nin değeri ne kadar değişirdi?
+
+11
+00:00:32,360 --> 00:00:37,553
+j, v'nin 3 katı olarak tanımlanmıştır.
+
+12
+00:00:37,553 --> 00:00:42,895
+Ve şu anda, v = 11.
+
+13
+00:00:42,895 --> 00:00:48,348
+Eğer, v'yi çok az arttırarak 11.001 yaptığımızda,
+
+14
+00:00:48,348 --> 00:00:52,524
+v'nin 3 katı ve şu anki değeri 33 olan j,
+
+15
+00:00:52,524 --> 00:00:56,130
+33.003'e artacaktır.
+
+16
+00:00:56,130 --> 00:00:59,123
+Burada, v'yi 0.001 arttırdık.
+
+17
+00:00:59,123 --> 00:01:03,640
+Ve bunun net sonucu, 
+j'nin bunun 3 katı kadar artmasıdır.
+
+18
+00:01:03,640 --> 00:01:08,099
+Bu yüzden, j'nin v'ye göre türevi 3'e eşittir.
+
+19
+00:01:08,099 --> 00:01:12,590
+Çünkü, j'deki artış, v'deki artışın 3 katıdır.
+
+20
+00:01:12,590 --> 00:01:18,221
+Aslında, bu örnek önceki videoda gördüğümüz
+
+21
+00:01:18,221 --> 00:01:24,670
+f(a) = 3a örneğine oldukça benzer.
+
+22
+00:01:24,670 --> 00:01:30,765
+Daha sonra, bu df(a)/da türevini daha özensiz ve
+
+23
+00:01:30,765 --> 00:01:36,740
+basit olan df/da = 3 olarak gösterdik.
+
+24
+00:01:36,740 --> 00:01:41,829
+Oradakinin aksine, burada elimizde j = 3v var,
+
+25
+00:01:41,829 --> 00:01:44,825
+bu yüzden dj/dv = 3.
+
+26
+00:01:44,825 --> 00:01:51,713
+burada, j önceki örnekteki f rolünü,
+
+27
+00:01:51,713 --> 00:01:58,323
+v ise a'nın rolünü almaktadır.
+
+28
+00:01:58,323 --> 00:02:03,595
+Geri yayılım terminolojisinde gördüğümüz şudur.
+
+29
+00:02:03,595 --> 00:02:09,617
+Eğer bu son çıkış değişkeninin türevini hesaplamak isterseniz,
+
+30
+00:02:09,617 --> 00:02:13,475
+genellikle en çok önemsenen değişkendir,
+
+31
+00:02:13,475 --> 00:02:18,790
+v'ye göre türevini aldıktan sonra bir adım geri yayılım yaparız.
+
+32
+00:02:18,790 --> 00:02:22,240
+Bunu bir adım geriye gitme olarak adlandırırız.
+
+33
+00:02:22,240 --> 00:02:24,280
+Şimdi başka bir örneğe bakalım.
+
+34
+00:02:24,280 --> 00:02:28,180
+dj/da nedir?
+
+35
+00:02:28,180 --> 00:02:33,670
+Başka deyişle, eğer a'nın değerini arttırırsak, 
+j'nin değeri nasıl etkilenir?
+
+36
+00:02:35,420 --> 00:02:39,965
+Örnek üzerinden gidersek, a = 5'dir.
+
+37
+00:02:39,965 --> 00:02:42,850
+a'yi 5.001'e arttıralım.
+
+38
+00:02:42,850 --> 00:02:48,790
+Bunun net etkisi şöyledir, v = a + u ve değeri 11'di.
+
+39
+00:02:48,790 --> 00:02:52,359
+bu değer 11.001'e artar.
+
+40
+00:02:52,359 --> 00:02:57,224
+Ve yukarıda görüldüğü gibi,
+
+41
+00:02:57,224 --> 00:03:01,672
+J değeri 33.003'e artar.
+
+42
+00:03:01,672 --> 00:03:07,591
+Gördüğümüz şudur, a'yı 0.001 arttırırsanız j 0.003 artar.
+
+43
+00:03:07,591 --> 00:03:11,751
+a'yı arttırmaktan kastettiğim, 
+yeni değeri alıp
+
+44
+00:03:11,751 --> 00:03:14,100
+5'in yerine koymanız gerekir.
+
+45
+00:03:14,100 --> 00:03:17,954
+Sonra, a'daki değişim hesaplama grafiğinin sağına doğru yayılacak
+
+46
+00:03:17,954 --> 00:03:19,832
+böylece j değerini 33.003 yaparak sonuçlanacak.
+
+47
+00:03:19,832 --> 00:03:28,110
+j'deki artış a'dakinin 3 katı.
+
+48
+00:03:28,110 --> 00:03:31,520
+Bu yüzden, türev 3'dür.
+
+49
+00:03:31,520 --> 00:03:37,400
+Bunu biraz daha irdelersek şunu diyebiliriz:
+Eğer a'yı değiştirirsek
+
+50
+00:03:37,400 --> 00:03:38,910
+bu v'yi değiştirir.
+
+51
+00:03:40,130 --> 00:03:43,967
+Ve v'yi değiştirerek, j'yi değiştirmiş oluruz.
+
+52
+00:03:43,967 --> 00:03:49,554
+a'nın değerini biraz itelediğimizden dolayı
+
+53
+00:03:49,554 --> 00:03:54,313
+J arttığında değerinde olan net değişim şöyledir,
+
+54
+00:03:57,699 --> 00:04:02,561
+İlk olarak, a'yı değiştirerek, v'yi arttırdık
+
+55
+00:04:02,561 --> 00:04:05,850
+Peki, v ne kadar arttı?
+
+56
+00:04:05,850 --> 00:04:11,709
+v'nin artışı dv/da tarafından belirlenir.
+
+57
+00:04:11,709 --> 00:04:19,802
+Ve sonra, v'deki değişimde j'nin değerinin
+ artmasına ayrıca sebep olur
+
+58
+00:04:19,802 --> 00:04:27,064
+Cebir'de buna zincir kuralı denir. 
+eğer a v'yi etkilerse, oda j'yi etkiler
+
+59
+00:04:27,064 --> 00:04:32,023
+a değiştiğinde j'deki değişim miktarı da,
+
+60
+00:04:32,023 --> 00:04:36,866
+a değiştiğinde v'deki değişim ile
+
+61
+00:04:36,866 --> 00:04:42,165
+v değiştiğinde, j'deki değişimin ÇARPIMIDIR.
+
+62
+00:04:42,165 --> 00:04:46,225
+Tekrar, buna Cebir'de zincir kuralı denir.
+
+63
+00:04:46,225 --> 00:04:52,140
+Bu hesaplamadan gördüğümüz, eğer a 0.001 artarsa
+
+64
+00:04:52,140 --> 00:04:55,250
+v aynı miktarda değişir.
+
+65
+00:04:55,250 --> 00:04:59,650
+Böylece dv/da = 1
+
+66
+00:04:59,650 --> 00:05:07,774
+Aslında, daha önce hesapladıklarımızı yerine koyarsak.
+
+67
+00:05:07,774 --> 00:05:11,700
+dv/dJ = 3 ve dv/da = 1.
+
+68
+00:05:11,700 --> 00:05:14,160
+Bu ikisinin çarpımı, 3 çarpı 1
+
+69
+00:05:14,160 --> 00:05:18,350
+bize doğru değer olan dJ/da = 3'ü verir.
+
+70
+00:05:18,350 --> 00:05:24,963
+Bu küçük görsel bize, dj/dv yi hesaplayarak,
+
+71
+00:05:24,963 --> 00:05:30,183
+"bu değişkene göre türevidir", dj/da'i hesaplamaya
+
+72
+00:05:30,183 --> 00:05:34,030
+nasıl yardımcı olduğunu gösterir.
+
+73
+00:05:34,030 --> 00:05:37,270
+Buda, geri doğru hesaplamanın diğer bir adımıdır.
+
+74
+00:05:39,900 --> 00:05:44,115
+Size bir adet daha yeni simgesel kural tanıtmak istiyorum.
+
+75
+00:05:44,115 --> 00:05:50,005
+Geri yayılım metodunu uygulamak için kod yazdığınızda,
+
+76
+00:05:50,005 --> 00:05:54,675
+genellikle sizin için önemli olan bir son çıkış değişkeni olacak.
+
+77
+00:05:54,675 --> 00:06:01,065
+bir son çıkış değişkeni, sizin için önemli olan veya iyilemek istediğiniz.
+
+78
+00:06:01,065 --> 00:06:04,100
+Bu örnekte, çıkış değişkeni j'dir.
+
+79
+00:06:04,100 --> 00:06:07,460
+Hesaplama grafiğindeki son düğüm.
+
+80
+00:06:07,460 --> 00:06:11,870
+Bir çok hesaplama yapılarak, bu çıkış değişkeninin
+
+81
+00:06:11,870 --> 00:06:13,343
+türevi hesaplanmaya çalışılacak.
+
+82
+00:06:13,343 --> 00:06:17,100
+Bu çıkış değişkeninin diğer değişkenlere göre d'si (türevi).
+
+83
+00:06:17,100 --> 00:06:23,319
+buna dvar deriz.
+
+84
+00:06:23,319 --> 00:06:27,909
+Bu son çıkış değişkeninin türevini almak için 
+çok fazla hesaplama yapılacak
+
+85
+00:06:27,909 --> 00:06:32,164
+örnekteki J için bu, farklı ara değişkenler olan
+
+86
+00:06:32,164 --> 00:06:34,520
+a, b, c, u yada v.
+
+87
+00:06:34,520 --> 00:06:41,280
+Bunu bir yazılımda uyguladığınızda, 
+bu değişkeni ne olarak adlandırırsınız?
+
+88
+00:06:41,280 --> 00:06:44,208
+Python'da yapabileceğiniz bir şey,
+
+89
+00:06:44,208 --> 00:06:50,280
+buna, dFinalOurputVar/dvar gibi 
+çok uzun bir değişken ismi verebilirsiniz.
+
+90
+00:06:50,280 --> 00:06:51,766
+Ama bu uzun bir değişken ismi.
+
+91
+00:06:51,766 --> 00:06:55,018
+Sanırım, buna djdvar diyebilirsiniz.
+
+92
+00:06:55,018 --> 00:06:58,929
+her zaman dj yani bu son çıkış değişkeninin
+
+93
+00:06:58,929 --> 00:07:03,173
+türevlerini aldığımızdan, yeni bir notasyon sunacağım.
+
+94
+00:07:03,173 --> 00:07:09,635
+Yazdığınız kodda bu şeyi hesaplarken
+
+95
+00:07:09,635 --> 00:07:16,936
+dvar değişken ismini kullanacağız, bu niceliği göstermek için.
+
+96
+00:07:16,936 --> 00:07:21,459
+Yani kodda olan dvar, j gibi, önemsediğiniz
+
+97
+00:07:21,459 --> 00:07:25,444
+çıkış değişkeninin türevini temsil edecek.
+
+98
+00:07:25,444 --> 00:07:29,938
+Bazen kodunuzda hesapladığınız, farklı ara niceliklere göre
+
+99
+00:07:29,938 --> 00:07:31,795
+olan yitim "l"
+
+100
+00:07:31,795 --> 00:07:38,380
+Örneğin bu kısmında, bu değeri simgelemek için 
+kodumuzda dv kullanırız.
+
+101
+00:07:38,380 --> 00:07:42,453
+Yani dv 3'e eşit olur.
+
+102
+00:07:42,453 --> 00:07:46,635
+Kodunuzda bunu "da" olarak gösterirsiniz.
+
+103
+00:07:46,635 --> 00:07:51,185
+ve değerinin 3 olduğunu daha önce bulmuştuk.
+
+104
+00:07:51,185 --> 00:07:58,018
+Böylece, bu hesaplama grafiği ile 
+geri yayılımı kısmen yapmış olduk.
+
+105
+00:07:58,018 --> 00:08:02,130
+Bu örneğin kalan kısmına sonraki slaytta devam edelim.
+
+106
+00:08:02,130 --> 00:08:06,293
+Temizlenmiş hesaplama grafiği ile devam edelim.
+
+107
+00:08:06,293 --> 00:08:09,846
+Kısaca tekrar edersek, şuana kadar yaptığımız
+
+108
+00:08:09,846 --> 00:08:14,743
+buraya geriye doğru gittik ve dv = 3 bulduk.
+
+109
+00:08:14,743 --> 00:08:18,783
+tekrar, dv'nin anlamı sadece değişken ismi,
+
+110
+00:08:18,783 --> 00:08:20,844
+kodun içinde gerçekte dj/dv
+
+111
+00:08:20,844 --> 00:08:24,303
+da = 3 olduğunu bulduk
+
+112
+00:08:24,303 --> 00:08:30,470
+tekrar, da kodunuzdaki değişken ismi, 
+gerçekte dj/da.
+
+113
+00:08:32,332 --> 00:08:39,410
+Ve bu iki ayrıta geriye doğru 
+nasıl gideceğimizi gördük.
+
+114
+00:08:39,410 --> 00:08:41,262
+Şimdi, türevleri hesaplamaya devam edelim.
+
+115
+00:08:41,262 --> 00:08:44,129
+u'nun değerine bakalım.
+
+116
+00:08:44,129 --> 00:08:47,473
+dj/du kaçtır?
+
+117
+00:08:47,473 --> 00:08:52,153
+daha önce yaptığımıza benzer bir hesaplama ile,
+
+118
+00:08:52,153 --> 00:08:54,430
+u=6 ile başlarız
+
+119
+00:08:54,430 --> 00:08:57,913
+Eğer, u'yu 6.001 e arttırırsak, sonra v,
+
+120
+00:08:57,913 --> 00:09:02,700
+değeri 11'den 11.001'e artar.
+
+121
+00:09:02,700 --> 00:09:07,978
+Ve j ise 33'ten 33.003'e gider.
+
+122
+00:09:07,978 --> 00:09:12,190
+j'deki artış 3x olduğundan, türev 3'tür.
+
+123
+00:09:12,190 --> 00:09:16,760
+Ve u'nun analizi, a için yaptığımıza çok benzer.
+
+124
+00:09:16,760 --> 00:09:23,884
+Aslında bu dJ/dv çarpı dv/du olarak hesaplanır,
+
+125
+00:09:23,884 --> 00:09:30,186
+bu zaten hesapladığımız gibi 3.
+
+126
+00:09:30,186 --> 00:09:33,800
+ve bu değerinde 1 olması gerekir.
+
+127
+00:09:33,800 --> 00:09:36,950
+Böylece, geri yayılımda 1 adım daha ilerledik.
+
+128
+00:09:36,950 --> 00:09:42,920
+du'nun 3'e eşit olduğunu hesapladık.
+
+129
+00:09:42,920 --> 00:09:47,240
+ve du tabii ki dj/du
+
+130
+00:09:47,240 --> 00:09:51,570
+Şimdi, detaylı olarak son bir örnek 
+üzerinden daha gidelim.
+
+131
+00:09:51,570 --> 00:09:54,137
+Peki dj/db kaçtır?
+
+132
+00:09:54,137 --> 00:09:57,255
+Burada, b'nin değerini 
+değiştirebildiğimizi hayal edin.
+
+133
+00:09:57,255 --> 00:10:01,585
+Ve b ile ufak bir oynama yapmak istiyorsunuz.
+ Bunun sonucunda
+
+134
+00:10:01,585 --> 00:10:04,040
+j'nin değerini en iyileyecek veya en küçükleyeceksiniz.
+
+135
+00:10:04,040 --> 00:10:05,340
+Peki, b'yi biraz değiştirdiğimizde
+
+136
+00:10:05,340 --> 00:10:10,860
+bu j fonksiyonunun türevi veya eğimi nedir?
+
+137
+00:10:11,880 --> 00:10:15,257
+Daha önce öğrendiğimiz zincir kuralını kullanarak,
+
+138
+00:10:15,257 --> 00:10:18,416
+bunu iki şeyin çarpımı olarak yazabiliriz.
+
+139
+00:10:18,416 --> 00:10:24,720
+dJ/du çarpı du/db.
+
+140
+00:10:24,720 --> 00:10:30,390
+Bunun nedeni, eğer b'de ufak bir değişiklik yaparsanız
+
+141
+00:10:30,390 --> 00:10:34,275
+b=3'den 3.001 olsun.
+
+142
+00:10:34,275 --> 00:10:38,041
+bu değişiklik j'yi etkilediği gibi u'yu da etkileyecek.
+
+143
+00:10:38,041 --> 00:10:40,120
+bu durum u'yu ne kadar etkiler.
+
+144
+00:10:40,120 --> 00:10:44,100
+u, b çarpı c olarak tanımlanmıştır.
+
+145
+00:10:44,100 --> 00:10:48,073
+b = 3 iken 6 olan değer
+
+146
+00:10:48,073 --> 00:10:53,238
+şimdi 6.002 oldu.
+
+147
+00:10:53,238 --> 00:10:59,560
+çünkü örneğimizde c=2.
+
+148
+00:10:59,560 --> 00:11:05,150
+Bu bize du/db = 2 olduğunu söyler.
+
+149
+00:11:05,150 --> 00:11:10,490
+Çünkü b'yi 0.001 arttırdığımızda
+u iki kat artar.
+
+150
+00:11:10,490 --> 00:11:15,360
+Bu yüzden. du/db 2'dir.
+
+151
+00:11:15,360 --> 00:11:21,430
+Ve şimdi, u'nun b arttıkça, artışının
+ iki katı kadar artacağını biliyoruz.
+
+152
+00:11:21,430 --> 00:11:24,460
+Peki, dj/du kaçtır?
+
+153
+00:11:24,460 --> 00:11:27,447
+Bunu zaten hesaplamıştık ve 3'e eşitti.
+
+154
+00:11:27,447 --> 00:11:32,850
+Bu ikisini çarparak, dJ/db = 6 olduğunu buluruz.
+
+155
+00:11:32,850 --> 00:11:36,274
+Burada, argümanın ikinci kısmı için akıl yürütürsek,
+
+156
+00:11:36,274 --> 00:11:43,370
+u'yu 0.002 arttırmak istersek, 
+bu durum j'yi nasıl etkiler.
+
+157
+00:11:43,370 --> 00:11:48,746
+dj/du = 3 olduğundan, bu bize derki
+
+158
+00:11:48,746 --> 00:11:54,310
+u 0.002 artarsa, j bunun 3 katı kadar artar.
+
+159
+00:11:54,310 --> 00:11:59,943
+Bu yüzden j, 0.006 artmalı.
+
+160
+00:11:59,943 --> 00:12:05,670
+Bunu sağlayan unsur, dj/du = 3'tür.
+
+161
+00:12:05,670 --> 00:12:09,351
+Ve eğer matematiği detaylıca incelerseniz.
+
+162
+00:12:09,351 --> 00:12:13,891
+şunu bulacaksınız, eğer b'nin 
+değeri 3.001 olursa
+
+163
+00:12:13,891 --> 00:12:20,190
+u 6.002 olur, v ise 11.002 olur.
+
+164
+00:12:20,190 --> 00:12:24,064
+yani bu a + u böylece 5 + u
+
+165
+00:12:24,064 --> 00:12:28,450
+Ve j ise, 3 çarpı v'ye eşit olduğundan,
+
+166
+00:12:28,450 --> 00:12:33,101
+değeri 33.006 olarak sonuçlanır.
+
+167
+00:12:33,101 --> 00:12:37,695
+Bu durum, dJ/db = 6'yı nasıl bulduğunuzu gösterir.
+
+168
+00:12:37,695 --> 00:12:43,738
+burayı doldurmak için, geriye doğru gittiğimizde,
+db = 6 olur.
+
+169
+00:12:43,738 --> 00:12:50,347
+ve db, dJ/db için Python kodu değişken ismi.
+
+170
+00:12:50,347 --> 00:12:53,565
+Ve son örnek üzerinden ayrıntılı bir şekilde gitmeyeceğim.
+
+171
+00:12:53,565 --> 00:13:00,423
+Ayrıca dc'ide hesaplamak istersek,
+
+172
+00:13:00,423 --> 00:13:05,748
+dj/du çarpı du/dc olduğu ortaya çıktı.
+
+173
+00:13:05,748 --> 00:13:09,987
+bunun sonucu 3 çarpı 3, 9'dur.
+
+174
+00:13:09,987 --> 00:13:11,950
+detayına girmeyeceğim.
+
+175
+00:13:11,950 --> 00:13:18,720
+Bu son adımdan, dc'yi elde etme imkanımız var ve 9'a eşit.
+
+176
+00:13:20,060 --> 00:13:24,634
+Bu videonun bu örneğinin önemli çıkarımları şöyledir,
+
+177
+00:13:24,634 --> 00:13:29,347
+tüm bu türevleri hesaplarken, izlenecek en verimli yol
+
+178
+00:13:29,347 --> 00:13:34,221
+kırmızı yolu takip ederek, 
+sağdan sola doğru hesaplama.
+
+179
+00:13:34,221 --> 00:13:37,780
+Özellikle, önce v'ye göre türevi hesaplayacağız.
+
+180
+00:13:37,780 --> 00:13:40,530
+Ve sonra bunu kullanarak,
+
+181
+00:13:40,530 --> 00:13:45,410
+a'ya ve u'ya göre türevleri hesaplayacağız.
+
+182
+00:13:45,410 --> 00:13:48,070
+Ve sonra, u'ya göre türevi,
+
+183
+00:13:48,070 --> 00:13:52,020
+Örneğin buradaki ve buradaki ifadeler,
+
+184
+00:13:52,020 --> 00:13:55,430
+bu ifade, sırası ile b'ye göre türevi ve
+
+185
+00:13:55,430 --> 00:13:57,610
+c'ye göre türevi hesaplarken bize yardımcı olacak.
+
+186
+00:13:57,610 --> 00:14:02,370
+Bu bir hesaplama grafiğiydi ve
+ ileri doğru veya soldan sağa hesaplar ile
+
+187
+00:14:02,370 --> 00:14:07,620
+iyilemek istediğimiz yitim fonksiyonunu 
+ örneğin j gibi
+
+188
+00:14:07,620 --> 00:14:12,940
+Ve geri doğru veya sağdan sola hesapmalar 
+ile türevleri nasıl hesaplayacağımızı göstermektedir.
+
+189
+00:14:12,940 --> 00:14:15,422
+Eğer, cebir veya zincir kuralı ile ilgili bilginiz az ise,
+
+190
+00:14:15,422 --> 00:14:18,382
+Biliyorum bazıları çok detaylıydı ve hızlı geçtik.
+
+191
+00:14:18,382 --> 00:14:21,500
+Ancak tüm bu detayları takip edemediyseniz, endişe etmeyin.
+
+192
+00:14:21,500 --> 00:14:22,567
+Bir sonraki videoda,
+
+193
+00:14:22,567 --> 00:14:26,251
+bunun üzerinden 
+lojistik regresyon'u işlerken tekrar geçeceğiz.
+
+194
+00:14:26,251 --> 00:14:30,337
+Ve size lojistik regresyon modelinin 
+türev hesaplamalarını uygulamanız için
+
+195
+00:14:30,337 --> 00:14:33,780
+tam olarak ne yapmanız gerektiğini göstereceğim.

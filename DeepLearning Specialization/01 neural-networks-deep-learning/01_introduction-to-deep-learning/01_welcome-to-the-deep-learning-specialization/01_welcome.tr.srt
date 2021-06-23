@@ -1,0 +1,452 @@
+1
+00:00:00,000 --> 00:00:02,395
+Merhaba, hoş geldiniz.
+
+2
+00:00:02,395 --> 00:00:03,810
+Muhtemelen bildiğiniz gibi
+
+3
+00:00:03,810 --> 00:00:05,640
+Derin öğrenme, İnternette arama ve
+
+4
+00:00:05,640 --> 00:00:09,325
+reklamcılık gibi geleneksel
+internet işlerini değiştirdi.
+
+5
+00:00:09,325 --> 00:00:11,160
+Ayrıca derin öğrenme,
+
+6
+00:00:11,160 --> 00:00:15,085
+insanların yeni iş ve yeni ürünler
+oluşturmasına da yardımcı olur.
+
+7
+00:00:15,085 --> 00:00:17,205
+Daha iyi bir sağlık hizmetinden tutun da,
+
+8
+00:00:17,205 --> 00:00:19,410
+X-ray görüntülerini okumakta, kişiselleştirilmiş eğitimden,
+
+9
+00:00:19,410 --> 00:00:22,935
+hassas tarıma ve hatta sürücüsüz araçlar ve dahasına kadar,
+
+10
+00:00:22,935 --> 00:00:28,320
+derin öğrenme gerçekten iyi olmaya başladı.
+
+11
+00:00:28,320 --> 00:00:30,790
+Eğer derin öğrenme araçlarını öğrenmek ve,
+
+12
+00:00:30,790 --> 00:00:33,495
+bu araçlarla harika şeyler yapmak istiyorsanız,
+
+13
+00:00:33,495 --> 00:00:35,675
+bunu yapmanızda yardımcı olmak istiyorum.
+
+14
+00:00:35,675 --> 00:00:38,725
+Coursera'daki özelleşme olarak adlandırdığımız
+
+15
+00:00:38,725 --> 00:00:41,190
+tüm dersleri bitirdiğinizde, derin öğrenmeyi
+
+16
+00:00:41,190 --> 00:00:44,455
+güvenle öz geçmişinize ekleyebileceksiniz.
+
+17
+00:00:44,455 --> 00:00:45,615
+önümüzdeki on yılda,
+
+18
+00:00:45,615 --> 00:00:50,430
+Bence hepimiz yapay zekanın gücüyle harika bir dünya,
+
+19
+00:00:50,430 --> 00:00:52,004
+harika bir toplum yaratma fırsatına sahibiz,
+
+20
+00:00:52,004 --> 00:00:57,364
+ve umuyorum ki, yapay zeka ile güçlü toplumun
+için önemli bir rol oynayacaksınız.
+
+21
+00:00:57,364 --> 00:01:00,782
+Haydi başlayalım.
+
+22
+00:01:00,782 --> 00:01:03,690
+Yapay zekanın yeni elektrik olduğunu düşünüyorum.
+
+23
+00:01:03,690 --> 00:01:05,485
+100 yıl öncesinden itibaren,
+
+24
+00:01:05,485 --> 00:01:10,055
+Toplumumuzun elektrik ile tanışması,
+her büyük sanayiyi,
+
+25
+00:01:10,055 --> 00:01:12,430
+taşımacılık, üretim, sağlık, iletişim
+
+26
+00:01:12,430 --> 00:01:15,430
+ve daha birçok alanı dönüştürdü.
+
+27
+00:01:15,430 --> 00:01:18,280
+Ve günümüzde, yapay zekanın da
+böylesine büyük bir dönüşüm
+
+28
+00:01:18,280 --> 00:01:22,225
+için şaşırtıcı şekilde net bir yol görebiliyoruz.
+
+29
+00:01:22,225 --> 00:01:25,090
+Ve tabi ki, yapay zekanın hızla yükselen ve
+
+30
+00:01:25,090 --> 00:01:29,530
+birçok gelişmeye yön veren kısmı derin öğrenmedir.
+
+31
+00:01:29,530 --> 00:01:31,630
+Bugünlerde, derin öğrenme teknoloji dünyasında
+
+32
+00:01:31,630 --> 00:01:34,920
+en çok rağbet gören özelliklerden biri.
+
+33
+00:01:34,920 --> 00:01:37,795
+Bu ders ve sonrakiler ile birlikte,
+
+34
+00:01:37,795 --> 00:01:40,900
+bu yetenekleri kazanmanız ve geliştirmenizde
+size yardımcı olmak istiyorum.
+
+35
+00:01:40,900 --> 00:01:43,870
+İşte Coursera'da özelleşme olarak adlandırdığımız
+
+36
+00:01:43,870 --> 00:01:47,290
+bu ders serilerinde öğrenecekleriniz:
+
+37
+00:01:47,290 --> 00:01:48,775
+İlk derste,
+
+38
+00:01:48,775 --> 00:01:51,925
+sinir ağlarının temellerini öğreneceksiniz,
+
+39
+00:01:51,925 --> 00:01:54,555
+sinir ağları ve derin öğrenmeyi göreceksiniz.
+
+40
+00:01:54,555 --> 00:01:56,650
+Şu an izlemekte olduğunuz bu video
+
+41
+00:01:56,650 --> 00:01:59,895
+toplamda dört hafta sürecek ilk dersin bir parçası
+
+42
+00:01:59,895 --> 00:02:05,450
+Özelleşme içindeki beş dersin her biri
+iki ile dört hafta arasında sürecek.
+
+43
+00:02:05,450 --> 00:02:08,490
+aslında çoğu dört haftadan daha kısa olacak şekilde
+
+44
+00:02:08,490 --> 00:02:09,685
+Bu ilk derste,
+
+45
+00:02:09,685 --> 00:02:12,340
+derin sinir ağlarını içeren
+yeni bir ağı nasıl kuracağınızı ve
+
+46
+00:02:12,340 --> 00:02:15,520
+bunu veri ile nasıl eğiteceğinizi öğreneceksiniz.
+
+47
+00:02:15,520 --> 00:02:16,840
+Bu dersin sonunda,
+
+48
+00:02:16,840 --> 00:02:21,445
+bir şeyleri tanıyan bir derin sinir ağı kurabileceksiniz, tahmin edin neyi?
+
+49
+00:02:21,445 --> 00:02:23,710
+Kedileri, bazı sebepler yüzünden,
+
+50
+00:02:23,710 --> 00:02:27,370
+derin öğrenme çevrelerinde kediler çok moda.
+
+51
+00:02:27,370 --> 00:02:30,020
+ve bu yüzden, ilk ders süresince bu geleneği sürdüreceğiz.
+
+52
+00:02:30,020 --> 00:02:32,700
+Kedi tanıyıcı yapacağız.
+
+53
+00:02:32,700 --> 00:02:35,395
+Ardından ikinci derste,
+
+54
+00:02:35,395 --> 00:02:38,420
+derin öğrenmenin pratik yönlerini öğreneceksiniz.
+
+55
+00:02:38,420 --> 00:02:40,810
+kurmayı öğrendiğiniz ağlarınızın,
+
+56
+00:02:40,810 --> 00:02:42,765
+nasıl daha iyi çalışacağını öğreneceksiniz.
+
+57
+00:02:42,765 --> 00:02:46,295
+hiper parametre ayarlamayı ve regülarizasyon methodlarını,
+
+58
+00:02:46,295 --> 00:02:49,060
+yanlılık (bias) ve değişinti (variance) tespitini ve,
+
+59
+00:02:49,060 --> 00:02:54,755
+Momentum, RMSProp, Adam gibi ileri
+optimizasyon algoritmalarını öğreneceksiniz.
+
+60
+00:02:54,755 --> 00:02:56,645
+Bazen bir sinir ağı kurarken fazlasıyla ayarlama ve
+
+61
+00:02:56,645 --> 00:02:59,925
+hatta biraz da kara büyü varmış gibi görünüyor.
+
+62
+00:02:59,925 --> 00:03:02,740
+Sadece üç hafta sürecek olan ikinci kurs,
+
+63
+00:03:02,740 --> 00:03:04,900
+bu kara büyünün bazılarını açığa çıkaracak.
+
+64
+00:03:04,900 --> 00:03:07,710
+Sadece iki hafta sürecek olan üçüncü kursta ise,
+
+65
+00:03:07,710 --> 00:03:10,930
+makine öğrenmesi projelerinin
+nasıl yapılandıracağını öğreneceksiniz.
+
+66
+00:03:10,930 --> 00:03:13,270
+Derin öğrenme çağında, bir makine öğrenmesi sistemini
+
+67
+00:03:13,270 --> 00:03:16,820
+yaratma stratejisinin değiştiğini gösterecek.
+
+68
+00:03:16,820 --> 00:03:20,785
+Örneğin, verileri eğitim, geçerleme ya da çapraz geçerleme
+
+69
+00:03:20,785 --> 00:03:26,095
+(dev) ve test seti olarak ayırma yöntemi
+
+70
+00:03:26,095 --> 00:03:29,005
+derin öğrenme ile birlikte değişti.
+
+71
+00:03:29,005 --> 00:03:31,860
+Böylece, yeni en iyi uygulamaların bunu yapıp yapmadığı ve
+
+72
+00:03:31,860 --> 00:03:36,215
+eğitim ve test setlerinizin farklı dağılımlardan gelip gelmediği,
+
+73
+00:03:36,215 --> 00:03:38,760
+bu derin öğrenme çağında çok daha fazla gerçekleşiyor.
+
+74
+00:03:38,760 --> 00:03:40,710
+Peki bunun nasıl üstesinden geleceğiz?
+
+75
+00:03:40,710 --> 00:03:44,700
+Eğer uçtan uca derin öğrenmeyi
+duyduysanız, üçüncü derste
+
+76
+00:03:44,700 --> 00:03:48,375
+bunun hakkında fazlasını ve, 
+ne zaman kullanılması gerektiğini
+
+77
+00:03:48,375 --> 00:03:51,690
+ve belki ne zaman kullanılmaması
+gerektiğini öğreneceksiniz.
+
+78
+00:03:51,690 --> 00:03:54,960
+Üçüncü dersin konusu nispeten eşsizdir.
+
+79
+00:03:54,960 --> 00:03:57,990
+Birçok derin öğrenme ürününde kullandığım,
+
+80
+00:03:57,990 --> 00:04:01,860
+yarattığım ve öğrendiğin
+çoğu şeyi sizlerle paylaşacağım.
+
+81
+00:04:01,860 --> 00:04:03,075
+Bildiğim kadarıyla,
+
+82
+00:04:03,075 --> 00:04:06,420
+bu konu çoğu üniversitedeki derin öğrenme
+
+83
+00:04:06,420 --> 00:04:10,650
+derslerinde öğretilmeyen bir konu.
+
+84
+00:04:10,650 --> 00:04:15,266
+Ama gerçekten derin öğrenme
+sisteminizin işe yaramasını umuyorum.
+
+85
+00:04:15,266 --> 00:04:16,755
+Sonraki derste,
+
+86
+00:04:16,755 --> 00:04:22,530
+genellikle CNN olarak kısaltılan evrişimli
+sinir ağları hakkında konuşacağız.
+
+87
+00:04:22,530 --> 00:04:28,670
+Evrişimli ağlar veya evrişimli sinir ağları
+genellikle görüntüler için kullanılır.
+
+88
+00:04:28,670 --> 00:04:31,440
+Bu modelleri nasıl kuracağınızı
+dördüncü derste öğreneceksiniz.
+
+89
+00:04:31,440 --> 00:04:33,435
+Son olarak, beşinci derste,
+
+90
+00:04:33,435 --> 00:04:36,300
+dizi modelleri ve bu modelleri doğal dil işleme ve
+
+91
+00:04:36,300 --> 00:04:40,080
+diğer problemlere nasıl uygulayacağını öğreneceksiniz.
+
+92
+00:04:40,080 --> 00:04:42,600
+Dizi modelleri, kısaltması RNN olan özyineli sinir ağları ve,
+
+93
+00:04:42,600 --> 00:04:47,465
+LSTM modelleri (long short term models)
+
+94
+00:04:47,465 --> 00:04:49,645
+gibi modelleri içerir.
+
+95
+00:04:49,645 --> 00:04:52,740
+Bu terimlerin anlamlarını
+beşinci derste öğrenecek ve,
+
+96
+00:04:52,740 --> 00:04:56,865
+bunları doğal dil işleme problemlerinde
+kullanabileceğinizi öğreneceksiniz.
+
+97
+00:04:56,865 --> 00:05:02,220
+Beşinci derste bu modelleri ve
+sıralı veriye uygulamayı öğreneceksiniz.
+
+98
+00:05:02,220 --> 00:05:05,670
+Örneğin, doğal dil sadece sıralı kelimelerdir,
+
+99
+00:05:05,670 --> 00:05:10,505
+ayrıca bu modeller konuşma tanımaya
+veya müzik yaratımına,
+
+100
+00:05:10,505 --> 00:05:14,140
+ve diğer problemlere nasıl
+uygulanabileceğini anlayacaksınız.
+
+101
+00:05:14,140 --> 00:05:15,735
+Bu dersler süresince,
+
+102
+00:05:15,735 --> 00:05:17,705
+derin öğrenme araçlarını öğreneceksiniz,
+
+103
+00:05:17,705 --> 00:05:20,100
+harika şeyler yapabilir hale geleceksiniz,
+
+104
+00:05:20,100 --> 00:05:24,810
+ve umuyorum ki, çoğunuz için
+kariyer basamağı da olacak.
+
+105
+00:05:24,810 --> 00:05:26,910
+Evet, haydi başlayalım.
+
+106
+00:05:26,910 --> 00:05:29,145
+Lütfen bir sonraki denetimli öğrenme için
+
+107
+00:05:29,145 --> 00:05:31,650
+derin öğrenme konuştuğumuz
+bir sonraki video ile devam edin.

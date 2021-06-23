@@ -1,0 +1,248 @@
+1
+00:00:00,000 --> 00:00:03,000
+Você me ouviu dizer que os cálculos
+de uma rede neural são organizados
+
+2
+00:00:03,000 --> 00:00:07,253
+em termos de um passe para frente
+ou uma etapa de propagação para frente,
+
+3
+00:00:07,253 --> 00:00:10,005
+na qual calculamos o resultado da rede neural,
+
+4
+00:00:10,005 --> 00:00:13,310
+seguidos de um passe para trás
+ou uma etapa de propagação para trás,
+
+5
+00:00:13,310 --> 00:00:16,137
+a qual usamos para calcular
+gradientes ou derivadas.
+
+6
+00:00:16,137 --> 00:00:21,540
+O gráfico (ou desenho) do cálculo explica
+por que isso é organizado assim.
+
+7
+00:00:21,540 --> 00:00:24,375
+Neste vídeo, veremos um exemplo.
+
+8
+00:00:24,375 --> 00:00:28,060
+Para desenhar como o cálculo ocorre,
+usaremos um exemplo
+
+9
+00:00:28,060 --> 00:00:34,260
+mais simples do que uma regressão logística
+ou do que uma rede neural inteira.
+
+10
+00:00:34,260 --> 00:00:37,200
+Digamos que estejamos tentando
+calcular uma função J,
+
+11
+00:00:37,200 --> 00:00:39,510
+que é uma função com três variáveis: a, b, c.
+
+12
+00:00:39,510 --> 00:00:44,900
+Digamos que essa função seja 
+3 vezes ( a + (b vezes c ) ).
+
+13
+00:00:44,900 --> 00:00:49,260
+O cálculo desta função, na verdade, tem três etapas.
+
+14
+00:00:49,260 --> 00:00:51,799
+A primeira é que você tem que calcular o que é 
+b multiplicado por c
+
+15
+00:00:51,799 --> 00:00:55,195
+e guardar o resultado
+ em uma variável chamada u.
+
+16
+00:00:55,195 --> 00:00:59,117
+Ou seja, u = bc.
+ A segunda, agora, você pode calcular: é V = a + u.
+
+17
+00:00:59,117 --> 00:01:06,060
+Então, digamos que isto seja V
+e, finalmente,
+
+18
+00:01:06,060 --> 00:01:09,380
+o resultado de J = 3V.
+
+19
+00:01:09,380 --> 00:01:15,555
+Então esta é a sua função J final,
+que você estava tentando calcular.
+
+20
+00:01:15,555 --> 00:01:20,970
+Podemos pegar estas três etapas
+e criar um desenho do cálculo.
+
+21
+00:01:20,970 --> 00:01:26,400
+Desenho suas três variáveis: a, b, c
+ aqui.
+
+22
+00:01:26,400 --> 00:01:31,825
+Então, a primeira coisa que fazemos é calcular
+ u = b * c
+
+23
+00:01:31,825 --> 00:01:35,015
+Vou por um retângulo em torno disso.
+
+24
+00:01:35,015 --> 00:01:39,030
+E as entradas para isso são 
+b, c
+
+25
+00:01:39,030 --> 00:01:41,505
+Podemos ter 
+V = a + u
+
+26
+00:01:41,505 --> 00:01:47,440
+Logo, as entradas para V são essas.
+
+27
+00:01:47,440 --> 00:01:56,645
+As entradas para V são:
+a variável u, que acabamos de calcular e
+a variável a.
+
+28
+00:01:56,645 --> 00:02:04,205
+E, finalmente, temos 
+J = 3V
+
+29
+00:02:04,205 --> 00:02:07,235
+Assim, num exemplo concreto, 
+para a = 5,
+
+30
+00:02:07,235 --> 00:02:10,040
+b = 3
+c = 2
+então u = bc seria 6,
+
+31
+00:02:10,040 --> 00:02:15,967
+pois, a + u seria 5 + 6 que dá 11,
+J é três vezes isso, então J = 33.
+
+32
+00:02:15,967 --> 00:02:22,310
+Espero que consiga verificar
+
+33
+00:02:22,310 --> 00:02:29,520
+que isso é 
+três vezes (cinco mais (três vezes dois)).
+[NT: lembre-se da precedência, em matemática]
+
+34
+00:02:29,520 --> 00:02:30,865
+E se você expandir isso,
+
+35
+00:02:30,865 --> 00:02:34,390
+você chega a 33, que é o valor de J.
+
+36
+00:02:34,390 --> 00:02:38,060
+Desta forma, o gráfico do cálculo se torna útil
+
+37
+00:02:38,060 --> 00:02:41,790
+quando há um resultado distinto
+ou alguma variável de saída especial,
+
+38
+00:02:41,790 --> 00:02:43,940
+como é, neste caso, J,
+
+39
+00:02:43,940 --> 00:02:46,215
+que você quer otimizar.
+
+40
+00:02:46,215 --> 00:02:48,755
+E no caso de uma regressão logística,
+
+41
+00:02:48,755 --> 00:02:53,260
+J, claro, é a função custo
+que estamos tentando minimizar.
+
+42
+00:02:53,260 --> 00:02:56,615
+E o que estamos vendo neste pequeno exemplo
+
+43
+00:02:56,615 --> 00:02:58,666
+é que passando
+da esquerda para a direita,
+
+44
+00:02:58,666 --> 00:03:01,075
+você pode calcular o valor de J.
+
+45
+00:03:01,075 --> 00:03:05,993
+E o que veremos nos próximos slides
+é que para calcular derivadas,
+
+46
+00:03:05,993 --> 00:03:10,010
+haverá uma passagem
+da esquerda para direita como essa,
+
+47
+00:03:10,010 --> 00:03:14,380
+indo em direção oposta às setas azuis.
+
+48
+00:03:14,380 --> 00:03:17,205
+Seria assim, mais natural para calcular as derivadas.
+
+49
+00:03:17,205 --> 00:03:20,015
+Então, recapitulando,
+o gráfico do cálculo organiza
+
+50
+00:03:20,015 --> 00:03:24,250
+com esta seta azul,
+ o cálculo da esquerda para a direita.
+
+51
+00:03:24,250 --> 00:03:26,510
+Já no próximo vídeo, veremos como podemos
+
+52
+00:03:26,510 --> 00:03:31,710
+calcular no sentido contrário, da direita para a esquerda,
+ as derivadas (setas vermelhas).
+
+53
+00:03:31,710 --> 00:03:33,000
+Vamos para o próximo vídeo.
+Tradução: Diogo dos Santos Farias | Revisão: Carlos Lage.

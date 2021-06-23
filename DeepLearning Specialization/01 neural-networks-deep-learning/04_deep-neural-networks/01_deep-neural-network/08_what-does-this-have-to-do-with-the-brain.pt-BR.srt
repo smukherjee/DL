@@ -1,0 +1,252 @@
+1
+00:00:00,000 --> 00:00:03,224
+Então o que aprendizagem profunda
+ tem a ver com o cérebro?
+
+2
+00:00:03,224 --> 00:00:06,918
+Correndo o risco de revelar a conclusão, 
+eu diria, não muito.
+
+3
+00:00:06,918 --> 00:00:11,539
+Mas vamos dar uma rápida olhada no porquê das pessoas 
+continuarem fazendo a analogia entre
+
+4
+00:00:11,539 --> 00:00:13,400
+aprendizagem profunda e o cérebro humano.
+
+5
+00:00:13,400 --> 00:00:17,624
+Quando você implementa uma rede neural,
+ isto é o que você faz, propaga para a frente e
+
+6
+00:00:17,624 --> 00:00:18,302
+para trás.
+
+7
+00:00:18,302 --> 00:00:22,774
+E acho que porque tem sido difícil 
+transmitir intuições sobre o que estas
+
+8
+00:00:22,774 --> 00:00:27,122
+equações estão fazendo realmente de importante,
+ de certa maneira, numa função muito complexa,
+
+9
+00:00:27,122 --> 00:00:30,857
+a analogia disto é que
+ o cérebro tornou-se, realmente,
+
+10
+00:00:30,857 --> 00:00:34,380
+uma explicação super simplificada 
+para o que está acontecendo.
+
+11
+00:00:34,380 --> 00:00:37,707
+Mas a simplicidade disto
+ o torna sedutor para
+
+12
+00:00:37,707 --> 00:00:41,898
+as pessoas que dizem publicamente, 
+bem como para a mídia relatar, e
+
+13
+00:00:41,898 --> 00:00:44,808
+isso certamente prende
+ a imaginação popular.
+
+14
+00:00:44,808 --> 00:00:49,214
+E há uma analogia muito tênue entre
+, vamos dizer,
+
+15
+00:00:49,214 --> 00:00:54,468
+uma unidade de regressão logística com
+ uma função de ativação sigmoide e
+
+16
+00:00:54,468 --> 00:00:58,427
+aqui temos um desenho de um único 
+neurônio no cérebro.
+
+17
+00:00:58,427 --> 00:01:02,326
+Neste desenho de um neurônio biológico,
+ este neurônio,
+
+18
+00:01:02,326 --> 00:01:07,941
+que é uma célula em seu cérebro, recebe 
+sinais elétricos de outros neurônios.
+
+19
+00:01:07,941 --> 00:01:12,056
+Talvez x₁, x₂, x₃, ou 
+talvez de outros neurônios, a₁, a₂, a₃.
+
+20
+00:01:12,056 --> 00:01:17,419
+Faça um cálculo simples na entrada,
+ e então se este neurônio é acionado, ele envia
+
+21
+00:01:17,419 --> 00:01:23,366
+um pulso de eletricidade para o axônio,
+ este fio longo, talvez para outros neurônios.
+
+22
+00:01:23,366 --> 00:01:28,181
+Portanto, há uma analogia simplista
+ entre uma única unidade de logística,
+
+23
+00:01:28,181 --> 00:01:31,365
+entre um único neurônio 
+em uma rede neural e
+
+24
+00:01:31,365 --> 00:01:34,809
+um neurônio biológico como
+ o mostrado à direita.
+
+25
+00:01:34,809 --> 00:01:39,356
+Mas acho que hoje, nem mesmo os 
+neurocientistas, quase não têm ideia do que
+
+26
+00:01:39,356 --> 00:01:41,441
+ao menos um único neurônio está fazendo.
+
+27
+00:01:41,441 --> 00:01:45,532
+Um único neurônio parece ser muito 
+mais complexo do que somos capazes
+
+28
+00:01:45,532 --> 00:01:48,141
+de caracterizar com a neurociência.
+
+29
+00:01:48,141 --> 00:01:52,719
+E enquanto algo do que está acontecendo é 
+um pouco como regressão logística,
+
+30
+00:01:52,719 --> 00:01:56,866
+há ainda muito sobre o que mesmo 
+um único neurônio faz, que ninguém,
+
+31
+00:01:56,866 --> 00:01:59,101
+que nenhum ser humano, hoje compreende.
+
+32
+00:01:59,101 --> 00:02:00,091
+Por exemplo,
+
+33
+00:02:00,091 --> 00:02:05,713
+exatamente como os neurônios no cérebro humano
+ aprendem, ainda é um processo muito misterioso.
+
+34
+00:02:05,713 --> 00:02:09,897
+E hoje é totalmente incerto se 
+o cérebro humano utiliza um algoritmo
+
+35
+00:02:09,897 --> 00:02:14,269
+que é algo como propagação para trás ou 
+gradiente descendente, ou se há algum
+
+36
+00:02:14,269 --> 00:02:18,277
+princípio de aprendizado fundamentalmente 
+diferente que o cérebro humano usa.
+
+37
+00:02:18,277 --> 00:02:23,515
+Então quando penso em aprendizagem profunda, penso nisso
+ como sendo muito bom para aprender
+
+38
+00:02:23,515 --> 00:02:28,679
+funções muito flexíveis, funções 
+muito complexas, para aprender os mapeamentos de x-para-y,
+
+39
+00:02:28,679 --> 00:02:32,614
+para aprender os mapeamentos de entrada-saída 
+em aprendizagem supervisionada.
+
+40
+00:02:32,614 --> 00:02:37,205
+E considerando que TI é como uma analogia
+ do cérebro, talvez tenha sido útil uma vez,
+
+41
+00:02:37,205 --> 00:02:41,960
+acho que a área mudou-se para o ponto 
+onde essa analogia está desmoronando.
+
+42
+00:02:41,960 --> 00:02:45,633
+E não costumo usar essa
+ analogia muito mais.
+
+43
+00:02:45,633 --> 00:02:48,809
+Então é isso para
+ redes neurais e o cérebro.
+
+44
+00:02:48,809 --> 00:02:52,554
+Eu realmente penso que talvez o olhar 
+do ponto de vista do computador tomou um pouco mais
+
+45
+00:02:52,554 --> 00:02:56,684
+de inspiração do cérebro humano do que
+ outras disciplinas que também aplicam
+
+46
+00:02:56,684 --> 00:02:57,333
+aprendizagem profunda.
+
+47
+00:02:57,333 --> 00:03:02,835
+Mas eu pessoalmente uso a analogia com o 
+cérebro humano menos que costumava.
+
+48
+00:03:02,835 --> 00:03:05,216
+Então é isso para este vídeo.
+
+49
+00:03:05,216 --> 00:03:08,423
+Você já sabe como implementar
+ propagação para frente e propagação para trás e
+
+50
+00:03:08,423 --> 00:03:11,182
+gradiente descendente mesmo para
+ redes neurais profundas.
+
+51
+00:03:11,182 --> 00:03:13,408
+Boa sorte com o exercício do problema,
+ e
+
+52
+00:03:13,408 --> 00:03:17,109
+estou ansioso para compartilhar mais dessas 
+ideias com você no segundo curso.
+[Tradução: Cassia Moreira Lopes | Revisão: Carlos Lage]

@@ -1,0 +1,46 @@
+Bienvenue. Cette semaine, vous apprendrez comment implémenter
+ un réseau de neurones. Avant d'aborder les détails techniques
+ plus en profondeur, je veux, dans cette vidéo, vous donner un bref aperçu de ce que 
+nous verrons dans les vidéos de cette semaine. Si vous ne suivez pas
+ tous les détails de cette vidéo, ne vous inquiétez pas, nous verrons
+ les détails techniques dans une autre vidéo. Mais pour l’instant, voici un bref aperçu
+ de la façon dont vous implémentez 
+un réseau de neurones. La semaine dernière, on a parlé 
+de la régression logistique et nous avons vu comment ce modèle 
+correspond à ce graphe de calculs, où vous entrez les caractéristiques x
+ et les paramètres W et b qui vous permettent de calculer z,
+ qui est ensuite utilisé pour calculer a, et nous utilisons de façon
+ interchangeable a et la sortie ŷ, puis vous pouvez 
+calculer la fonction de perte L. Un réseau de neurones ressemble à ça. Comme je l'avais déjà mentionné, on obtint un réseau de neurones en empilant
+ beaucoup de ces unités sigmoïdes. Alors qu’auparavant, ce nœud correspondait
+ à deux étapes de calculs, la première pour calculer la valeur z, la seconde pour calculer cette valeur a, dans ce réseau de neurones, cette pile de nœuds correspondra à 
+un calcul de z comme celui là, ainsi qu'à un calcul de a comme celui là. Puis ce nœud correspond à 
+un autre calcul de z et de a. Et donc la notation, dont nous
+ reparlerons, ressemblera à ça. D'abord nous mettons 
+en entrée les caractéristiques x, avec des paramètres W et b, et cela va nous permettre de calculer z[1]. Donc la nouvelle notation
+ qu'on introduit est cet exposant 1 entre crochets qui se réfère aux quantités associées à cette pile 
+de nœuds, qu'on appelle une couche. puis, ensuite, nous allons utiliser
+ l'exposant 2 entre crochets pour se référer aux quantités 
+associées à ce nœud, qui forme une autre couche 
+du réseau de neurones. Et ces exposants entre crochets que nous avons ici, ne doivent ne pas être confondus avec
+les exposants entre parenthèses que nous utilisons pour nous référer à 
+des exemples d'apprentissage particuliers. Donc x exposant i entre parenthèses
+ se réfère à l'exemple d'apprentissage i, alors que l'exposant entre crochet 1 ou 2
+ se réfère aux différentes couches; la couche 1 et la couche 2, 
+dans ce réseau de neurones. En continuant ainsi, après avoir calculé z[1], de la même 
+façon que pour la régression logistique, on aura un calcul de a[1], et c’est juste sigmoïde de z[1], et puis vous calculez z[2] à l’aide d’une autre 
+équation linéaire et vous calculez a[2]. Et a[2] est le résultat final du réseau de neurones 
+et sera également appelé ŷ. Je sais qu'il y a beaucoup de détails,
+ mais l'intuition clé qu'il faut retenir est que, comme
+ pour la régression logistique, on a ce calcul de z puis de a et dans ce réseau de neurones, on le fait simplement plusieurs fois. Ici on calcule z puis a et ici on calcule un autre z puis un autre a. et puis finalement, vous calculez la perte. Vous vous souvenez que 
+pour la régression logistique, on avait ces rétro-calculations
+pour calculer les dérivées, c'est à dire pour calculer da, dz et ainsi de suite. De la même façon, dans un réseau de neurones, 
+on fait un calcul vers l'arrière comme ceci : vous calculez da[2], dz[2] et cela vous permet de calculer dW[2], db[2] et ainsi de suite, dans un calcul de droite à gauche 
+illustré par les flèches rouges. Donc cela vous donne un bref
+ résumé de ce à quoi ressemble
+un réseau de neurones. Ca consiste essentiellement à prendre une 
+régression logistique et à la répéter deux fois. Je sais que ça fait beaucoup
+ de nouvelles notations, de détails, ne vous inquiétez
+ pas si vous n'avez pas tout suivi, nous reverrons ces détails
+ plus lentement dans quelques vidéos. Continuons sur la prochaine vidéo. Nous allons commencer à parler de
+ la représentation du réseau neuronal.

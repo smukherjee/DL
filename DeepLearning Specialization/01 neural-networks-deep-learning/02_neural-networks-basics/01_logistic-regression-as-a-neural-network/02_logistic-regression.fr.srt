@@ -1,0 +1,425 @@
+1
+00:00:00,000 --> 00:00:03,475
+Dans cette vidéo, nous allons voir
+ la régression logistique.
+
+2
+00:00:03,475 --> 00:00:07,080
+Il s’agit d’un algorithme d’apprentissage que
+ vous utilisez lorsque les étiquettes de sortie y,
+
+3
+00:00:07,080 --> 00:00:10,690
+dans un problème d’apprentissage supervisé,
+ sont soit zéro soit un,
+
+4
+00:00:10,690 --> 00:00:13,600
+donc, pour des problèmes
+ de classification binaire.
+
+5
+00:00:13,600 --> 00:00:18,350
+Étant donné un vecteur de caractéristiques
+ d'entrée x  correspondant peut être à
+
+6
+00:00:18,350 --> 00:00:23,150
+une image que vous souhaitez classer comme
+ une photo de chat ou pas une photo de chat,
+
+7
+00:00:23,150 --> 00:00:26,525
+vous voulez un algorithme qui puisse
+ fournir une prédiction,
+
+8
+00:00:26,525 --> 00:00:28,254
+que nous appellerons y_chapeau(ŷ)
+
+9
+00:00:28,254 --> 00:00:31,130
+qui est votre estimation de y.
+
+10
+00:00:31,130 --> 00:00:35,896
+Plus formellement, vous voulez que ŷ
+ soit la probabilité, ou la chance,
+
+11
+00:00:35,896 --> 00:00:40,630
+que y soit égal à 1 
+d'après les caractéristiques d’entrée y.
+
+12
+00:00:40,630 --> 00:00:43,880
+Donc en d’autres termes, si x est une image,
+
+13
+00:00:43,880 --> 00:00:45,530
+comme nous l’avons vu dans la dernière vidéo,
+
+14
+00:00:45,530 --> 00:00:47,300
+vous voulez que ŷ vous dise
+
+15
+00:00:47,300 --> 00:00:49,820
+quelle est la probabilité 
+qu’il s’agisse d’une photo de chat.
+
+16
+00:00:49,820 --> 00:00:53,420
+Donc x, comme nous l’avons dit
+ dans la vidéo précédente,
+
+17
+00:00:53,420 --> 00:00:56,960
+est un vecteur de dimension nx,
+
+18
+00:00:56,960 --> 00:01:02,000
+et donc, les paramètres de
+ la régression logistique seront
+
+19
+00:01:02,000 --> 00:01:07,745
+W qui est également un vecteur de dimension nx,
+
+20
+00:01:07,745 --> 00:01:11,670
+et b, qui est juste un nombre réel.
+
+21
+00:01:11,670 --> 00:01:16,055
+Étant donnés une entrée x
+ et les paramètres W et b,
+
+22
+00:01:16,055 --> 00:01:20,595
+comment générer la sortie ŷ ?
+
+23
+00:01:20,595 --> 00:01:22,970
+Eh bien, une chose que vous pourriez essayer,
+ mais qui ne fonctionne pas,
+
+24
+00:01:22,970 --> 00:01:27,590
+serait de définir ŷ comme 
+transposée de Wx plus b,
+
+25
+00:01:27,590 --> 00:01:33,045
+c'est à dire une fonction linéaire de l’entrée x.
+
+26
+00:01:33,045 --> 00:01:37,145
+Et en fait, c’est ce que vous utiliseriez,
+ si vous faisiez une régression linéaire.
+
+27
+00:01:37,145 --> 00:01:41,345
+Mais ce n’est pas un très bon algorithme
+ pour la classification binaire
+
+28
+00:01:41,345 --> 00:01:45,575
+parce que vous voulez que ŷ soit 
+la probabilité que y soit égal à un.
+
+29
+00:01:45,575 --> 00:01:50,480
+Donc ŷ devrait vraiment être entre zéro et un,
+
+30
+00:01:50,480 --> 00:01:54,697
+et c’est difficile à imposer parce que
+ la transposée de Wx + b
+
+31
+00:01:54,697 --> 00:01:58,475
+peut être beaucoup plus grand que 1
+ ou peut même être négatif,
+
+32
+00:01:58,475 --> 00:02:00,905
+ce qui n’a aucun sens pour une probabilité,
+
+33
+00:02:00,905 --> 00:02:03,620
+qui doit être entre zéro et un.
+
+34
+00:02:03,620 --> 00:02:07,670
+Donc en régression logistique,
+ notre sortie va plutôt être
+
+35
+00:02:07,670 --> 00:02:12,050
+ŷ égal à 
+la fonction sigmoïde appliquée à cette valeur.
+
+36
+00:02:12,050 --> 00:02:14,850
+Voilà à quoi ressemble la fonction sigmoïde.
+
+37
+00:02:14,850 --> 00:02:24,000
+Si je trace z sur l’axe horizontal alors 
+la fonction sigmoïde de z ressemble à ceci.
+
+38
+00:02:24,000 --> 00:02:28,050
+Donc, elle va de façon continue
+ de zéro jusqu'à un.
+
+39
+00:02:28,050 --> 00:02:30,120
+Je vais étiqueter mes axes,
+
+40
+00:02:30,120 --> 00:02:34,915
+Le zéro est ici, 
+et elle croise l’axe vertical en 0,5.
+
+41
+00:02:34,915 --> 00:02:41,305
+Donc, voilà à quoi ressemble la sigmoïde
+ de z et nous allons utiliser z pour
+ désigner cette quantité,
+
+42
+00:02:41,305 --> 00:02:43,020
+la transposée de Wx + b
+
+43
+00:02:43,020 --> 00:02:46,230
+Voici la formule pour la fonction sigmoïde.
+
+44
+00:02:46,230 --> 00:02:49,380
+Sigmoïde de z, où z est un nombre réel,
+
+45
+00:02:49,380 --> 00:02:52,510
+sigmoide(z) = 1/(1 + e(-z))
+
+46
+00:02:52,510 --> 00:02:54,695
+Alors, remarquez un certain nombre de choses.
+
+47
+00:02:54,695 --> 00:03:01,255
+Si z est très grand, alors
+ e(-z) sera proche de zéro.
+
+48
+00:03:01,255 --> 00:03:03,420
+Donc la sigmoïde de z sera
+
+49
+00:03:03,420 --> 00:03:07,255
+environ égal à 1/1 plus quelque chose
+ de très proche de zéro,
+
+50
+00:03:07,255 --> 00:03:11,280
+parce que e à la puissance d'un très grand 
+nombre négatif sera proche de zéro.
+
+51
+00:03:11,280 --> 00:03:13,505
+C’est donc proche de 1.
+
+52
+00:03:13,505 --> 00:03:16,255
+Et en effet, si vous regardez
+ le graphe sur la gauche,
+
+53
+00:03:16,255 --> 00:03:20,475
+Si z est très grand,
+ la sigmoïde de z est très proche de 1.
+
+54
+00:03:20,475 --> 00:03:24,105
+Au contraire, si z est très petit,
+
+55
+00:03:24,105 --> 00:03:28,970
+ou si c’est un très grand nombre négatif,
+
+56
+00:03:29,180 --> 00:03:39,640
+alors la sigmoïde de z devient 1 /1 + e(-z),
+
+57
+00:03:39,640 --> 00:03:42,565
+et cela devient, c’est un très grand nombre.
+
+58
+00:03:42,565 --> 00:03:47,944
+Ainsi, cela devient, imaginez,
+ 1 / 1 + un nombre qui est très,
+
+59
+00:03:47,944 --> 00:03:54,473
+très grand, et donc
+
+60
+00:03:54,473 --> 00:03:56,570
+ceci est proche de zéro.
+
+61
+00:03:56,570 --> 00:04:00,325
+Et en effet, vous voyez que quand z
+ devient un très grand nombre négatif,
+
+62
+00:04:00,325 --> 00:04:03,505
+sigmoïde de z est très proche de zéro.
+
+63
+00:04:03,505 --> 00:04:06,070
+Lorsque vous implémentez
+ une régression logistique,
+
+64
+00:04:06,070 --> 00:04:10,350
+votre travail consiste à essayer d’apprendre 
+les paramètres W et b afin que
+
+65
+00:04:10,350 --> 00:04:15,220
+ŷ devienne une bonne estimation 
+de la probabilité que y soit égal à 1.
+
+66
+00:04:15,220 --> 00:04:18,955
+Avant de passer à la suite,
+ juste une autre remarque sur la notation.
+
+67
+00:04:18,955 --> 00:04:20,830
+Quand nous programmons 
+des réseaux de neurones,
+
+68
+00:04:20,830 --> 00:04:26,855
+Nous allons généralement garder
+ le paramètre W et le paramètre b séparés,
+
+69
+00:04:26,855 --> 00:04:30,000
+où ici, b correspond à un intercepteur.
+
+70
+00:04:30,000 --> 00:04:31,295
+Dans certains autres cours,
+
+71
+00:04:31,295 --> 00:04:35,110
+vous pouvez avoir vu une notation 
+qui gère cela différemment.
+
+72
+00:04:35,110 --> 00:04:42,205
+Dans certaines conventions, vous
+ définissez une caractéristique supplémentaire 
+appelée x0 qui est égale à 1.
+
+73
+00:04:42,205 --> 00:04:47,250
+Donc x est dans R nx + 1.
+
+74
+00:04:47,250 --> 00:04:53,865
+Et puis vous définissez ŷ comme étant égal
+ à sigma de la transposée de thêta x.
+
+75
+00:04:53,865 --> 00:04:56,685
+Dans cette convention de notation alternative,
+
+76
+00:04:56,685 --> 00:05:00,510
+vous avez un vecteur de paramètres thêta,
+
+77
+00:05:00,510 --> 00:05:03,175
+thêta 0, thêta 1, thêta 2,
+
+78
+00:05:03,175 --> 00:05:09,520
+jusqu'à thêta nx.
+
+79
+00:05:09,520 --> 00:05:11,723
+thêta zéro joue le rôle de b,
+
+80
+00:05:11,723 --> 00:05:13,663
+c’est juste un nombre réel,
+
+81
+00:05:13,663 --> 00:05:18,505
+et thêta 1 à thêta nx jouent le rôle de W.
+ Il s’avère que,
+
+82
+00:05:18,505 --> 00:05:20,350
+lorsque vous implémentez un
+ réseau de neurones,
+
+83
+00:05:20,350 --> 00:05:26,145
+il sera plus facile de simplement garder b et W 
+ en tant que paramètres distincts.
+
+84
+00:05:26,145 --> 00:05:27,430
+Et donc, dans ce cours,
+
+85
+00:05:27,430 --> 00:05:32,087
+nous n’utiliserons pas cette convention
+ de notation que je viens d’écrire en rouge.
+
+86
+00:05:32,087 --> 00:05:36,330
+Si vous n’avez pas vu cette notation avant dans 
+d’autres cours, ne vous inquiétez pas à ce sujet.
+
+87
+00:05:36,330 --> 00:05:39,610
+C’est juste que pour ceux d'entre vous qui
+ ont vu cette notation, j’ai voulu
+
+88
+00:05:39,610 --> 00:05:43,730
+mentionner explicitement que nous
+ n’utilisons pas cette notation dans ce cours.
+
+89
+00:05:43,730 --> 00:05:45,235
+Mais si vous n’avez pas vu ça avant,
+
+90
+00:05:45,235 --> 00:05:48,430
+ce n’est pas important et vous
+ n’avez pas besoin de vous en inquiéter.
+
+91
+00:05:48,430 --> 00:05:52,465
+Vous avez vu maintenant à quoi ressemble
+ le modèle de régression logistique.
+
+92
+00:05:52,465 --> 00:05:57,140
+Ensuite, pour changer les paramètres W et b,
+ vous devez définir une fonction de coût.
+
+93
+00:05:57,140 --> 00:05:58,830
+Nous verrons cela dans la prochaine vidéo.

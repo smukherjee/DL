@@ -1,0 +1,100 @@
+Em um vídeo anterior, você viu o modelo de regressão logística. Para treinar os parâmetros "W" e "b"
+do 
+modelo de regressão logística, você precisa definir uma função de custo. Vamos dar uma olhada na função de custo
+que você pode usar para treinar a regressão logística. Recapitulando, isto é o que temos
+que identificar do slide anterior. Então, sua saída ŷ 
+é sigmoide de w transposta vezes x mais b, ou seja, ŷ = σ (w⸆x + b)
+ onde um sigmoide de z é como foi definida aqui. Para saber os parâmetros
+para o seu modelo, é dado um conjunto com 
+"m" exemplos de treinamento e é normal que você queira
+encontrar parâmetros 'W' e 'b' tal qual, pelo menos no
+conjunto de treinamento, os seus resultados. As predições que você tem
+no conjunto de treinamento, escrevemos apenas como ŷ⁽ⁱ⁾
+ e serão o valor aproximado dos rótulos verdadeiros de y⁽ⁱ⁾
+ no conjunto de treinamento que você tem. Para acrescentar maior detalhe
+à equação acima, dissemos que ŷ
+ é como definido acima para o exemplo de treinamento x
+e para cada exemplo, estamos utilizando
+esses índices (sobrescritos) com parêntesis para indicar
+e diferenciar os exemplos. Sua predição no exemplo i, que é ŷ⁽ⁱ⁾
+será obtida tomando a função sigmoide de (W transposta multiplicada por x⁽ⁱ⁾),
+ ou seja, σ (w⸆x⁽ⁱ⁾ + b) que é sigmoide de Z⁽ⁱ⁾,
+e podemos definir Z⁽ⁱ⁾ assim: Z⁽ⁱ⁾ é igual a W transposta vezes x⁽ⁱ⁾ mais b,
+assim, Z⁽ⁱ⁾ = w⸆x⁽ⁱ⁾ + b Durante o curso usaremos esta convenção notacional, O sobrescrito com 
+parêntese de índice i faz referência aos dados X ou Y ou Z ou algo associado
+ com o i-ésimo exemplo de treinamento, com o i-ésimo
+exemplo de treinamento. Isto é o que significa o índice sobrescrito
+entre parênteses. Vejamos qual função de perda, 
+ou função de erro podemos usar para medir quão bem
+nosso algoritmo está indo. Você poderia definir a perda
+quando o seu algoritmo dá o resultado, ŷ, em relação ao rótulo verdadeiro, y, como a metade
+ do (quadrado do erro), ou ʆ(ŷ,y) = ½ (ŷ - y)². Ocorre que isso pode ser feito, mas em regressão logística,
+geralmente, não fazemos isso porque quando
+conhecemos os parâmetros nos deparamos com o problema de otimização,
+do qual falaremos mais adiante, de se tornar não convexo. Então, acabamos tendo um problema de otimização
+ com múltiplos ótimos locais ("local optimum"). E assim, a descida gradiente pode
+não atingir o ponto ótimo global. Se você não entendeu esses últimos comentários, não se preocupe com isso,
+voltaremos a eles num vídeo mais adiante. Mas, o que devemos aprender aqui é que esta função ʆ chamada 
+de função de perda, 'Loss function', é uma função que você precisará executar, para medir o quão boa é a sua
+saída prevista ŷ, quando o rótulo verdadeiro for y. Assim como o erro ao quadrado parece ser
+uma escolha razoável, exceto que ela faz com que o
+gradiente decrescente não funcione tão bem. Assim, em Regressão Logística,
+na verdade, definiremos uma função de perda diferente, que trabalhe
+parecido com a do quadrado do erro, que nos trará um problema
+de otimização que seja convexo e assim, veremos num vídeo mais adiante,
+ficará bem mais fácil de otimizar. Então, o que usamos na
+regressão logística é na verdade a seguinte função de perda,
+a qual estou acabando de escrever aqui, - (y log ŷ + (1 - y) log (1 - ŷ )) ʆ(ŷ,y) = - (y log ŷ + (1 - y) log (1 - ŷ )) Veja uma explicação para o porquê
+de esta função de perda fazer sentido: tenha em mente que se usarmos erro ao quadrado, então queremos que
+tal erro ao quadrado seja o menor possível. E com essa função de perda 
+da regressão logística também queremos que ela seja
+a menor possível. Para entender por que isso faz sentido, vejamos dois casos. No primeiro deles, digamos que y = 1,
+então a função de perda ʆ(ŷ,y) será apenas
+menos este termo. Portanto:
+- log ŷ. Se y = 1. Por causa disso, 'se y = 1', o segundo termo,
+ 1 - y será igual a zero. Então, isso quer dizer que se y=1, 
+queremos - log ŷ o maior possível. Isso implica que queremos
+log ŷ bem grande, o maior possível, implicando que
+desejamos ŷ o maior possível. Mas, por conta do ŷ ser a função sigmoide,
+ela nunca poderá ser maior do que 1. Posto isso, se y = 1, queremos ŷ, o maior possível. Mas, ele nunca poderá ser maior do que 1;
+e dizemos que queremos que ŷ seja, também, próximo de 1. O outro caso, quando y = 0. Se y = 0, este primeiro termo da função
+de perda é igual a zero, porque 0 vezes log ŷ é zero, e então, este segundo termo
+determina a função de perda. Então a perda se torna 
+                             - log (1 - ŷ ) e assim, se no seu procedimento de aprendizagem
+você tentar tornar sua função de custo menor, o que isso implicará, é que você
+quer que log (1 - ŷ ) seja bem grande. Isso porque tem um sinal negativo na frente dela e então, usando o mesmo raciocínio,
+podemos concluir que esta função de perda está tentando
+tornar ŷ o menor possível. E, novamente, por conta de ŷ 
+ter de estar entre 0 e 1, isso diz que se y = 0, então sua função de perda vai empurrar seus parâmetros
+de modo a ter ŷ o mais próximo possível do valor zero. Agora, há muitas funções que geram o 
+efeito Rafidah (rejeitadas) que, quando y = 1, tentamos fazer ŷ ser grande e se
+y = 0, tentamos fazer ŷ ser pequeno. Apenas destacamos aqui, em verde, de alguma forma, uma justificativa informal
+desta função de perda. Daremos um vídeo opcional mais adiante,
+o qual trará uma justificativa mais formal do porquê, em Regressão Logística, de gostarmos
+de usar a função de perda com esta forma particular. Finalmente, a função de perda foi definida
+em relação a um único exemplo de treinamento. Ela mede o quão bem estamos indo
+em um único exemplo de treinamento. Agora, vamos definir algo chamado
+de função de custo, a qual mede o quão bem estamos indo
+em todo o conjunto de treinamento. Logo, a função de custo J,
+a qual é aplicada aos seus parâmetros W e b, será a 
+média de  1/m da soma da função de perda aplicada 
+a cada um dos "i" exemplos de treinamento. Onde o ŷ é, claro, a previsão resultante do seu algoritmo
+de regressão logística usando, você bem sabe, um conjunto específico de
+ parâmetros 'W' e 'b'. E só expandindo isso aqui, isso é igual a - 1/m da soma de i até m
+dessa definição da função de perda. Então, isso é
+y⁽ⁱ⁾ log ŷ⁽ⁱ⁾ + (1 - y⁽ⁱ⁾ ) log (1 - ŷ⁽ⁱ⁾). Acho que é melhor colocar
+colchetes aqui. Assim o sinal de menos fica 
+fora de tudo isso. Logo, a terminologia que usarei é que a função de perda é aplicada a apenas um
+único exemplo de treinamento. E a função de custo
+é o custo dos seus parâmetros. Então, ao treinar seu
+modelo de regressão logística, definiremos parâmetros 'W' e 'b' que minimizem sua função de custo total " J "
+que está escrita aqui embaixo. Assim, acabamos de ver como definir
+o algoritmo de regressão logística, a função de perda para seu
+exemplo de treinamento, e a função de custo total dos 
+parâmetros do seu algoritmo. Resulta que a regressão logística pode ser
+vista como uma rede neural muito, muito pequena. No próximo vídeo, veremos isso
+de modo que possa começar a entender mais sobre 
+o que faz uma rede neural. Então, vamos ao próximo vídeo,
+que é sobre como enxergar a regressão logística
+como sendo uma pequena rede neural.
+[Tradução: Carlos Lage | Revisão: Julia Yuri]

@@ -1,0 +1,275 @@
+1
+00:00:00,000 --> 00:00:02,070
+Şu ana kadar öğrendiklerinizi <br />göz önünde bulundurursak,
+
+2
+00:00:02,070 --> 00:00:04,745
+ilk programlama ödevinizle uğraşmaya<br /> başlamaya neredeyse hazırsınız.
+
+3
+00:00:04,745 --> 00:00:10,130
+Bunu yapmadan önce, size hızlıca Coursera'daki <br />iPython defterlerinden bahsetmeme izin verin.
+
+4
+00:00:10,130 --> 00:00:14,545
+Burada Coursera'dan erişebileceğiniz Jupyter iPython defterini görüyorsunuz.
+
+5
+00:00:14,545 --> 00:00:17,520
+Sizlere hızlıca iPython'ın <br />birkaç özelliğinden bahsedeyim.
+
+6
+00:00:17,520 --> 00:00:21,885
+Açıklamalar iPython defterinde burada yazılı.
+
+7
+00:00:21,885 --> 00:00:25,460
+Ve gördüğünüz açık gri bloklar ise kod blokları.
+
+8
+00:00:25,460 --> 00:00:27,030
+Bazen bu bloklarda
+
+9
+00:00:27,030 --> 00:00:29,255
+BURADAN KODLAMAYA BAŞLAYIN ve <br />BURADA KODLAMAYI BİTİRİN gibi şeyler göreceksiniz.
+
+10
+00:00:29,255 --> 00:00:31,860
+Egzersizinizi yaparken
+
+11
+00:00:31,860 --> 00:00:36,755
+kodunuzu bu iki belirteçin <br />arasına yazdığınızdan lütfen emin olun.
+
+12
+00:00:36,755 --> 00:00:41,485
+Örneğin, Merhaba Dünya yazalım.
+
+13
+00:00:41,485 --> 00:00:44,085
+Sonrasında bir kod bloğunu çalıştırmak için
+
+14
+00:00:44,085 --> 00:00:49,355
+shift+enter kombinasyonunu kullanabilir,
+
+15
+00:00:49,355 --> 00:00:51,265
+merhaba dünya yazdığımız bloğu çalıştırabiliriz.
+
+16
+00:00:51,265 --> 00:00:53,355
+Ve merhaba dünya yazdırdık.
+
+17
+00:00:53,355 --> 00:00:55,140
+Bir hücreyi çalıştırmak için
+
+18
+00:00:55,140 --> 00:00:56,940
+veya hücredeki bir kod bloğunu çalıştırmak için
+
+19
+00:00:56,940 --> 00:01:01,200
+yukarıdan cell'e tıklayıp 'Run Cell'e tıklayabilirsiniz.
+
+20
+00:01:01,200 --> 00:01:05,275
+Sizlerin bilgisayarında
+
+21
+00:01:05,275 --> 00:01:07,364
+çalıştırmak için gerekli olan kombinasyon
+
+22
+00:01:07,364 --> 00:01:09,105
+shift+enter'dan farklı olabilir.
+
+23
+00:01:09,105 --> 00:01:14,070
+Fakat benim hem MacOS'umda hem <br />de PC'mde bu kısayol shift+enter,
+
+24
+00:01:14,070 --> 00:01:16,550
+bu yüzden sizde de aynı <br />kombinasyon geçerli olabilir.
+
+25
+00:01:16,550 --> 00:01:18,480
+Eğer açıklamaları okurken
+
+26
+00:01:18,480 --> 00:01:20,960
+yanlışlıkla üstüne çift tıklarsanız
+
+27
+00:01:20,960 --> 00:01:24,270
+şu gördüğünüz Markdown diliyle karşılaşabilirsiniz.
+
+28
+00:01:24,270 --> 00:01:26,700
+Eğer bu tuhaf görünen yazı ile karşılaşırsanız,
+
+29
+00:01:26,700 --> 00:01:30,390
+eski haline döndürmek için bu hücreyi çalıştırmanız yeterli.
+
+30
+00:01:30,390 --> 00:01:34,740
+Yukarıda 'Cell' menüsünden 'Run Cell'e <br />tıklayabilir veya shift+enter kullanabilirsiniz,
+
+31
+00:01:34,740 --> 00:01:39,630
+bu yaptığımız markdown bloğunu çalıştırır<br /> ve eski güzel haline döndürür.
+
+32
+00:01:39,630 --> 00:01:41,565
+Bir kaç ipucu daha vereyim.
+
+33
+00:01:41,565 --> 00:01:43,795
+Böyle bir kodu çalıştırdığınızda
+
+34
+00:01:43,795 --> 00:01:48,333
+bu kod aslında bir çekirdekte,
+
+35
+00:01:48,333 --> 00:01:51,947
+yani bir sunucuda çalışan bir parça kod bloğunda çalıştırılır.
+
+36
+00:01:51,947 --> 00:01:54,900
+Eğer fazlasıyla büyük bir işlem yapıyorsanız,
+
+37
+00:01:54,900 --> 00:01:59,121
+bilgisayarı uzun süre açık <br />bırakırsanız veya bir şey yanlış giderse,
+
+38
+00:01:59,121 --> 00:02:00,505
+internet bağlantınız kesilirse,
+
+39
+00:02:00,505 --> 00:02:03,160
+sunucuda çalışan çekirdeğin<br /> küçük bir ihtimal de olsa durması mümkün.
+
+40
+00:02:03,160 --> 00:02:06,690
+Böyle bir durumda, yukarıda 'Kernel' menüsünden<br /> 'Restart'(yeniden başlat) demeniz yeterli.
+
+41
+00:02:06,690 --> 00:02:10,415
+Bu işlem çekirdeği yeniden <br />başlatır ve çalışmasını sağlar.
+
+42
+00:02:10,415 --> 00:02:13,080
+Eğer nispeten küçük işlemler yapıyorsanız <br />veya iPython defterini henüz açıyorsanız
+
+43
+00:02:13,080 --> 00:02:16,858
+böyle bir durumla karşılaşmamalısınız.
+
+44
+00:02:16,858 --> 00:02:19,995
+Eğer çekirdek durdu(Kernel has died) <br />gibi bir hatayla karşılaşırsanız
+
+45
+00:02:19,995 --> 00:02:21,310
+çekirdeği yeniden başlatmayı deneyebilirsiniz.
+
+46
+00:02:21,310 --> 00:02:25,362
+Son olarak, bunun gibi bazı iPython defterlerinde
+
+47
+00:02:25,362 --> 00:02:27,845
+birden fazla kod bloğu olabilir.
+
+48
+00:02:27,845 --> 00:02:33,255
+Daha önceki bloktaki bir kodun çalıştıracağımız <br />yerle pek ilgisi yok gibi görünse de
+
+49
+00:02:33,255 --> 00:02:35,550
+o bloğu da çalıştırdığınızdan emin olun çünkü
+
+50
+00:02:35,550 --> 00:02:39,698
+mesela burada, önceki blok numpy <br />kütüphanesini koda dahil ediyor ve
+
+51
+00:02:39,698 --> 00:02:42,360
+daha aşağıda kullanılması gerekebilecek bir kaç
+
+52
+00:02:42,360 --> 00:02:45,570
+değişkeni tanımlıyor.
+
+53
+00:02:45,570 --> 00:02:50,845
+Yani içerisine kod yazmanız istenmese <br />de üstteki blokları çalıştırmayı ihmal etmeyin.
+
+54
+00:02:50,845 --> 00:02:53,705
+Problemleri çözdükten sonra
+
+55
+00:02:53,705 --> 00:02:57,920
+yukarıda sağda gördüğünüz <br />mavi gönderme butonuna tıklayarak
+
+56
+00:02:57,920 --> 00:03:02,130
+notumuzun hesaplanması için <br />çözümlerimizi göndermiş oluyoruz.
+
+57
+00:03:02,130 --> 00:03:05,520
+Fark ettim ki iPython defterlerinin interaktif doğası
+
+58
+00:03:05,520 --> 00:03:09,008
+hızlı öğrenmek için çok kullanışlı oluyor.
+
+59
+00:03:09,008 --> 00:03:10,520
+Bir kaç satır kod yaz,
+
+60
+00:03:10,520 --> 00:03:13,450
+çıktısını gözlemle, hızlıca öğren ve bunu kullan.
+
+61
+00:03:13,450 --> 00:03:17,430
+Umarım ki Coursera'daki egzersizleri,
+
+62
+00:03:17,430 --> 00:03:20,775
+Jupyter iPython defterleri sayesinde hızlıca öğrenir,
+
+63
+00:03:20,775 --> 00:03:24,535
+deneyimler ve bu öğrenme algoritmalarını <br />nasıl kodlayacağınızı keşfedersiniz.
+
+64
+00:03:24,535 --> 00:03:26,325
+Bu videodan sonra bir tane video daha var.
+
+65
+00:03:26,325 --> 00:03:28,695
+Bu video, lojistik regresyonun maliyet fonksiyonundan bahseden
+
+66
+00:03:28,695 --> 00:03:32,210
+bir video. İzlemek zorunlu değil, sizin tercihinize kalmış.
+
+67
+00:03:32,210 --> 00:03:33,745
+İzlemek de izlememek de gayet uygun.
+
+68
+00:03:33,745 --> 00:03:38,140
+İkinci haftanın egzersizlerini çözmekte iyi şanslar.
+
+69
+00:03:38,140 --> 00:03:42,720
+Üçüncü haftanın başlangıcında sizleri görmeyi dört gözle bekliyorum.

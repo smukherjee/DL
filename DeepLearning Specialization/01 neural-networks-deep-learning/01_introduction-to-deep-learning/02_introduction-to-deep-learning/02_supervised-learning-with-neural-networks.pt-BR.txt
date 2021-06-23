@@ -1,0 +1,89 @@
+Há muito exagero
+sobre redes neurais. E talvez, parte desse exagero se justifique, 
+devido à quão bem estão funcionando Mas acontece que por enquanto, quase todo valor econômico criado
+pelas redes neurais tem sido através de um tipo de aprendizado de m´áquina,
+chamado de aprendizagem supervisionada. Vejamos o que isso quer dizer, e
+também alguns exemplos. Na aprendizagem supervisionada,
+tem-se alguma entrada x, e você quer que uma função de aprendizagem
+de um aplicativo aponte para uma saída y. Assim, por exemplo, acabamos de ver o 
+aplicativo de previsão de preços de habitações, onde são introduzidas algumas características da casa e
+tenta-se estimar o preço y. Eis alguns outros exemplos que redes neurais têm sido aplicadas com muita eficiência. Provavelmente, o o único aplicativo mais lucrativo
+em aprendizagem profunda hoje é publicidade on-line, talvez não o mais inspirador, mas certamente muito lucrativo, no qual, inserindo informações sobre um anúncio no site que se está pensando em exibir, e alguma informação 
+sobre o usuário, as redes neurais têm conseguido predizer muito bem se você
+irá ou não clicar no anúncio. E ao mostrar a você e aos usuários os anúncios que vocês estão mais
+propensos a clicarem neles, isso tem sido um aplicativo de redes neurais extremamente lucrativo
+ em várias empresas. Dado que a capacidade de exibir anúncios
+nos quais você está mais propenso a clicar neles tem um impacto direto no resultado final de algumas das grandes empresas
+de publicidade on-line. Visão computadorizada também fez 
+grandes avanços nos últimos anos, a maioria devida à aprendizagem profunda. Então você fornece uma imagem de entrada
+ e quer um índice, de saída digamos entre 1 e 1.000,
+ tentando lhe dizer se esta imagem, poderia ser qualquer uma delas, digo, uma das 1000 imagens diferentes. Assim, poderia ser usado para marcação de fotos. Acho que os recentes progressos no reconhecimento de fala também têm sido muito emocionantes, onde agora podemos inserir um clipe de áudio para uma rede neural, e termos uma transcrição dele, em texto, como saída. Tradução de máquina também teve grandes avanços graças a aprendizagem profunda onde agora podemos ter uma rede neural entrando com 
+uma sentença em inglês e uma saída direta, digamos, como uma sentença em chinês. E nos veículos autoconduzidos, poderíamos 
+fornecer uma imagem. digamos uma figura do que estiver em frente ao nosso carro, bem como alguma
+informação de um radar, e baseado neles, talvez uma rede neural
+possa ser treinada para lhe dizer a posição dos outros carros na estrada. Então isso passa a ser um componente chave
+em sistemas de veículos autoconduzidos. Então, muita criação de valor usando
+redes neurais tem sido habilmente selecionar o que deveria ser o x e
+o que deveria ser o y no seu problema em particular, e então ajustar
+ este componente de aprendizagem supervisionada aos sistemas geralmente ainda maiores, tais
+como em veículos autoconduzidos. Acontece que tipos ligeiramente diferentes de redes neurais são úteis para diferentes aplicações. Por exemplo, no aplicativo de imóveis que vimos no vídeo anterior, usamos uma arquitetura padrão
+universalizada de rede neural, certo? Talvez para o setor imobiliário e publicidade on-line
+podem ser relativamente rede neural padrão,
+como a que vimos. Para aplicativos de imagens, geralmente usaremos
+redes neurais convolucionais, abreviadas como CNNs. E para dados de sequência. Assim, por exemplo, o áudio tem uma componente temporal, certo? Áudio é descartado ao longo do tempo, 
+então o áudio é representado mais naturalmente como séries unidimensionais de tempo ou
+como uma sequência temporal unidimensional. E então para dados de sequência, você frequentemente usa um RNN, que é uma Rede Neural Recorrente. Linguagem, Inglês e Chinês, os
+alfabetos ou as palavras vêm uma de cada vez. Assim, linguagem também é mais naturalmente
+representada como dados de sequência. Bem como versões mais complexas de RNNs
+são geralmente usadas para tais aplicativos. E, para aplicativos mais complexos,
+como veículos autoconduzidos, onde temos uma imagem, isso sugere mais o uso de estrutura CNN
+, rede neural convolucional, e informações de radar, estas já são
+algo um pouco diferente. Você poderia com uma rede mais personalizada, ou algo mais complexo,
+ como uma arquitetura de rede neural híbrida. Isto foi só para ser um pouco mais concreto sobre o que são as arquiteturas de rede CNN padrão e as arquiteturas de rede RNN. Então na literatura você pode ter encontrado figuras assim como esta. Esta é uma rede neural padrão. Pode ter visto figuras como esta. Bem, este é um exemplo de Rede Neural Convolucional, e veremos num curso mais adiante exatamente o que esta figura
+significa e como podemos implementá-la. Mas, redes convolucionais
+são frequentemente usadas para dados de imagens. Você pode ter visto também
+figuras como esta aqui. E aprenderá como implementar isso
+num curso mais adiante. Redes neurais recorrentes
+são muito boas para este tipo de dados de sequência unidimensionais
+que podem ser um componente temporal. Também pode ter ouvido falar sobre
+aplicativos de aprendizado de máquina tanto para Dados Estruturados 
+como para Dados Não Estruturados. Eis o que estes termos significam: Dados Estruturados significam
+basicamente dados que vêm de bancos de dados. Então, por exemplo, na previsão de preços de habitação, você pode ter um banco de dados ou as colunas que informam o tamanho e o número de quartos. Estes são dados estruturados, ou
+predizer se um usuário vai ou não vai clicar num anúncio, você poderia ter esta informação
+sobre o usuário, como idade, alguma informação sobre o anúncio, e então
+rotular o que estamos tentando predizer. Isso são dados estruturados,
+que implicam em cada uma das características como o tamanho da casa,
+o número de quartos, ou a idade do usuário,
+têm um significado bem definido. Em contrapartida, dados não estruturados referem-se
+a coisas como áudio, áudio não tratado, ou imagens onde gostaríamos de 
+reconhecer algo, ou um texto, que estivesse contido nela. Aqui, as características poderiam ser
+valores de pixels numa imagem, ou uma ou outra palavra num trecho de um texto. Historicamente, tem sido muito mais difícil para os computadores darem sentido aos dados 
+não estruturados se compararmos com dados estruturados. E o fato da raça humana ter evoluído para ser 
+muito boa no entendimento de áudios ou de imagens. E então o texto foi uma invenção mais recente, mas seres humanos são realmente muito bons na
+interpretação de dados não estruturados. Desta forma, uma das coisas mais excitantes 
+sobre o desenvolvimento das redes neurais, é que graças ao aprendizado profundo,
+ e às redes neurais, computadores são muito melhores em interpretar dados não estruturados, 
+comparando-se à alguns anos atrás. E isso criou oportunidades 
+para várias novas funções que se utilizam de reconhecimento de fala, imagem, 
+processamento de linguagem natural em forma textual, o que é muito mais 
+do que era possível a 2 ou 3 anos atrás. Acredito que pela empatia 
+em aprender sobre dados não estruturados, você provavelmente irá ouvir mais nas mídias, 
+a respeito dos avanços da rede neural nesse campo, apenas porquê é interessante 
+quando a rede neural reconhece um gato. Todos nós gostamos disso, 
+e todos sabemos o que isso significa. Entretanto, ocorre que inúmeros 
+valores econômicos a curto prazo que a rede neural está criando, também 
+está presente em dados estruturados, como os sistemas de propaganda 
+mais desenvolvidos, as melhores recomendações de ganho, e também uma habilidade muito melhor 
+para processar grandes bancos de dados, dos quais muitas companhias 
+dependem de predições acuradas. Assim, nesse curso, muitas das técnicas 
+que iremos estudar, irão abordar tanto dados estruturados quanto 
+não estruturados. Para explicar os algoritmos, vamos focar mais nos exemplos 
+que se utilizam de dados não estruturados. No entanto, enquanto você passa por aplicativos 
+de rede neural com sua própria equipe, espero que você encontre uso para ambos
+ dados estruturados e não estruturados. Assim, redes neurais transformaram
+ o aprendizado supervisionado e estão criando valores econômicos gigantescos. Entretanto, sabe-se que 
+os ideais técnicos por trás das redes neurais sempre estiveram por perto, 
+algumas vezes por várias décadas. Então, porque apenas atualmente 
+elas estão se destacando e funcionando tão bem? No próximo vídeo, falaremos sobre 
+o por quê de apenas recentemente as redes neurais terem se tornado 
+esta ferramenta tão poderosa que você pode utilizar.

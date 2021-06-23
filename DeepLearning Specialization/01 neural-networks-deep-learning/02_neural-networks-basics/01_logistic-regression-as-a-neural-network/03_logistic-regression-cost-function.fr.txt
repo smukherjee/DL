@@ -1,0 +1,101 @@
+Dans une vidéo précédente, Vous avez vu le modèle 
+de régression logistique. Pour apprendre les paramètres W et b
+ du modèle de régression logistique, vous devez définir une fonction de coût. Nous allons voir la fonction de coût 
+que vous pouvez utiliser pour 
+entraîner une régression logistique. Pour rappel, voici ce que nous avons
+ défini dans la diapositive précédente. Votre sortie ŷ est la sigmoïde de la transformée de W x + b
+ avec la sigmoïde de z définie ici. Pour apprendre les paramètres pour 
+votre modèle, on vous donne un set d’apprentissage de 
+m exemples d'apprentissage et naturellement, vous voulez 
+trouver les paramètres W et b de façon que, au moins sur le set 
+d’apprentissage, les sorties que vous avez, les prédictions que vous avez
+ sur le set d’apprentissage, que nous écrirons ŷ(i) soient proches de la vérité, c'est à dire des étiquettes y(i)
+ qui sont dans le set d’apprentissage. Pour ajouter un peu plus de détails
+ à l’équation au-dessus, Nous avons dit que ŷ 
+est défini comme ceci en haut pour un exemple d'apprentissage x et, bien
+ sûr, pour chaque exemple d'apprentissage, nous utilisons ces exposants avec des parenthèses pour indexer 
+et différencier les exemples. Votre prédiction sur l'exemple
+ d'apprentissage i est ŷ(i) et sera obtenu en prenant la fonction sigmoïde
+ et en l'appliquant à la transposée de Wx(i) l'entrée de l'exemple d'apprentissage,
+ plus b. Et vous pouvez définir z(i) = W.T x(i) + b Tout au long de ce cours, nous allons utiliser cette 
+convention de notation, que les exposants i entre parenthèses
+ renvoient aux données x, y ou z ou autre chose,
+ associé à l'exemple d'apprentissage i, avec le i-ième exemple. C’est ce que signifie 
+l’exposant i entre parenthèses. Maintenant, nous allons voir quelle 
+fonction de perte, ou fonction d’erreur, nous pouvons utiliser pour mesurer 
+la performance de notre algorithme. Une chose que vous pourriez faire, c’est définir 
+la perte ainsi : quand votre algorithme donne ŷ et que la vraie étiquette est y,
+ prendre l'erreur au carré ou
+ la moitié de l'erreur au carré. Il s’avère que vous pourriez faire cela, mais en régression logistique,
+ d'habitude les gens ne font pas ça, parce que quand vous devez 
+apprendre les paramètres, vous trouvez que le problème d’optimisation
+ dont nous parlerons plus tard
+ devient non convexe. Donc vous vous retrouvez avec un problème 
+d’optimisation avec de multiples optima locaux. Et la descente de gradient peut
+ ne pas trouver l’optimum global. Si vous n'avez pas compris
+ ces derniers commentaires, ne vous inquiétez pas, nous en reparlerons
+ dans une vidéo plus tard. Mais l’intuition à garder est que cette fonction L appelée la fonction de perte 
+est une fonction que vous devrez définir pour mesurer 
+à quel point notre sortie ŷ
+ est bonne quand l'étiquette est y. Et le carré de l'erreur semble 
+être un choix raisonnable sauf qu’elle ne permet pas à la descente
+ de gradient de bien fonctionner. Donc pour la régression logistique, 
+nous définirons en fait une fonction de perte différente, qui joue 
+le même rôle que l'erreur quadratique, mais qui nous donnera un 
+problème d’optimisation qui est convexe et donc, comme nous allons
+ le voir dans une vidéo plus tard, devient
+ beaucoup plus facile à optimiser. Donc, ce que nous utilisons dans
+ la régression logistique est en fait la fonction de perte suivante
+ que je vais écrire ici, - ( y log(ŷ) + (1-y) log (1 - ŷ)) Voici une explication intuitive de 
+pourquoi cette fonction de perte est logique. Gardez à l’esprit que si nous utilisons l'erreur quadratique alors vous voulez
+ que l’erreur quadratique soit 
+aussi petite que possible. Et avec cette fonction de perte 
+de régression logistique, nous voulons également qu'elle soit
+ la plus petite possible. Pour comprendre pourquoi c'est logique, nous allons regarder les deux cas. Dans le premier cas, disons que y est égal à 1, 
+alors la fonction de perte L(ŷ, y) vaut juste ce terme, avec le signe moins. - log (ŷ) si y vaut 1. Parce que si y vaut 1, alors le second terme 1 - y est égal à zéro. Donc, si y vaut 1, nous voulons que 
+-log(ŷ) soit le plus grand possible. Ce qui signifie que vous voulez 
+que log( ŷ) soit grand, aussi grand que possible et cela signifie
+ que ŷ doit être grand. Mais puisque ŷ est égal à, vous savez, cette fonction sigmoïde, il ne peut
+ jamais être plus grand que 1. Donc c’est dire que si y = 1, vous voulez que ŷ soit le plus grand possible Mais il ne peut jamais être plus grand que 1,
+ donc vous voulez que ŷ soit proche
+ de 1 également. L’autre cas est si y est égal à zéro. Si y est égal à zéro, alors, ce premier terme 
+dans la fonction de perte est égal à zéro car y vaut zéro et donc le deuxième terme
+ définit la fonction de perte. Donc la perte devient - log( 1 - ŷ) Et donc, si dans votre processus 
+d’apprentissage, vous essayez de 
+minimiser la fonction de perte, cela signifie que vous voulez que
+ 1 - ŷ soit grand, parce qu'il y a un moins ici. Et avec un raisonnement similaire,
+ vous pouvez conclure que cette fonction de perte essaie de rendre 
+ŷ aussi petit que possible. Et encore une fois, puisque ŷ
+ doit être entre zéro et un, ça signifie que si y est égal à zéro, alors votre fonction de perte va pousser
+ les paramètres pour rendre ŷ 
+aussi proche de zéro que possible. Il y a beaucoup de fonctions 
+avec ce genre d'effet, qui poussent ŷ à être grand si y =1
+ et petit si y = 0. Nous avons juste donné ici en vert une justification un peu informelle
+ pour cette fonction de perte. Dans une vidéo en option plus tard nous 
+donnerons une justification plus formelle de pourquoi, en régression logistique, 
+nous aimons utiliser une fonction de perte 
+avec cette forme particulière. Enfin, la fonction de perte a été définie
+ pour un seul exemple d'apprentissage. Il mesure la performance 
+sur un seul exemple d'apprentissage. Je vais maintenant définir 
+ce qu’on appelle la fonction de coût, qui mesure la performance sur 
+le set d'apprentissage en entier. Donc la fonction de coût J s'applique à vos paramètres W et b 
+va être la moyenne 1/m fois la somme de la fonction de perte 
+appliquée à chacun des exemples
+ d'apprentissage où ici ŷ est bien sûr la prédiction en sortie de votre algorithme 
+de régression logistique utilisant un ensemble de paramètres W et b. Et pour étendre ça, ça vaut - 1/m fois la somme de 1 à m 
+de la fonction de perte, c'est à dire y(i) log(ŷ(i)) + (1 - y(i)) log(1 - ŷ(i)) Je suppose que je pourrais
+ mettre entre crochets ici. Le signe moins est donc devant tout le reste. La terminologie que je vais utiliser est que la fonction de perte est appliquée à 
+un seul exemple d'apprentissage comme ici. Et la fonction de coût représente
+ le coût de vos paramètres. Ainsi, lors de l'entraînement de 
+votre modèle de régression logistique, nous allons essayer de trouver 
+des paramètres W et b qui minimisent la fonction de coût globale J, 
+écrite en bas. Donc, vous avez vu la mise en place de
+ l’algorithme de régression logistique, la fonction de perte pour
+ un exemple d'apprentissage et la fonction de coût globale 
+pour les paramètres de votre algorithme. Il s’avère que la régression logistique 
+peut être considérée comme 
+un tout petit réseau de neurones. Dans la vidéo suivante, nous verrons cela 
+pour que vous puissiez commencer à avoir une intuition sur ce que
+ les réseaux de neurones font. Alors rendez vous dans
+ la prochaine vidéo sur la régression logistique vue comme
+ un tout petit réseau de neurones.

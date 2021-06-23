@@ -1,0 +1,330 @@
+<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:w10="urn:schemas-microsoft-com:office:word" xmlns:m="http://schemas.microsoft.com/office/omml/2004/12/core" xmlns:ve="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:o12="http://schemas.microsoft.com/office/2004/7/core" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:wp="http://schemas.openxmlformats.org/drawingml/2006/3/wordprocessingDrawing" xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/3/main" xmlns="http://www.w3.org/TR/REC-html40">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <head>
+    <style>style</style>
+  </head>
+  <body>
+    <div class="Section1">
+      <p>
+        <b>
+          <u>
+            <span style="font-size:20.0pt">Broadcasting in Python</span>
+          </u>
+        </b>
+      </p>
+      <p>
+(DESCRIPTION)        <br/>
+Text, Basics of Neural Network Programming. Broadcasting in Python. Website, deep learning, dot, A.I.        <br/>
+      </p>
+      <p>
+(SPEECH)        <br/>
+In the previous video, I mentioned that broadcasting is another technique that you can use to make your Python code run faster.        <br/>
+      </p>
+      <p>
+In this video, let's delve into how broadcasting in Python actually        <br/>
+      </p>
+      <p>
+(DESCRIPTION)        <br/>
+New slide, Broadcasting examples. Text, Calories from Carbs, Proteins, Fats, in 100 grams of different foods.        <br/>
+      </p>
+      <p>
+(SPEECH)        <br/>
+works.        <br/>
+      </p>
+      <p>
+Let's suppose today broadcasting with an example.        <br/>
+      </p>
+      <p>
+In this matrix, I've shown the number of calories from carbohydrates, proteins, and fats in 100 grams of four different foods.        <br/>
+      </p>
+      <p>
+So for example, a 100 grams of apples turns out, has 56 calories from carbs, and much less from proteins and fats.        <br/>
+      </p>
+      <p>
+Whereas, in contrast, a 100 grams of beef has 104 calories from protein and 135 calories from fat.        <br/>
+      </p>
+      <p>
+Now, let's say your goal is to calculate the percentage of calories from carbs, proteins and fats for each of the four foods.        <br/>
+      </p>
+      <p>
+So, for example, if you look at this column and add up the numbers in that column you get that 100 grams of apple has 56 plus 1.2 plus 1.8 so that's 59 calories.        <br/>
+      </p>
+      <p>
+And so as a percentage the percentage of calories from carbohydrates in an apple would be 56 over 59, that's about 94.9%.        <br/>
+      </p>
+      <p>
+So most of the calories in an apple come from carbs, whereas in contrast, most of the calories of beef come from protein and fat and so on.        <br/>
+      </p>
+      <p>
+So the calculation you want is really to sum up each of the four columns of this matrix to get the total number of calories in 100 grams of apples, beef, eggs, and potatoes.        <br/>
+      </p>
+      <p>
+And then to divide throughout the matrix, so as to get the percentage of calories from carbs, proteins and fats for each of the four foods.        <br/>
+      </p>
+      <p>
+So the question is, can you do this without an explicit for-loop?        <br/>
+      </p>
+      <p>
+Let's take a look at how you could do that.        <br/>
+      </p>
+      <p>
+What I'm going to do is show you how you can set, say this matrix equal to three by four matrix A.        <br/>
+      </p>
+      <p>
+And then with one line of Python code we're going to sum down the columns.        <br/>
+      </p>
+      <p>
+So we're going to get four numbers corresponding to the total number of calories in these four different types of foods, 100 grams of these four different types of foods.        <br/>
+      </p>
+      <p>
+And I'm going to use a second line of Python code to divide each of the four columns by their corresponding sum.        <br/>
+      </p>
+      <p>
+If that verbal description wasn't very clearly, hopefully it will be clearer in a second when we look in the Python        <br/>
+      </p>
+      <p>
+(DESCRIPTION)        <br/>
+New slide, Jupiter is opened in Python. Broadcasting example is the name of the workbook.        <br/>
+      </p>
+      <p>
+(SPEECH)        <br/>
+code.        <br/>
+      </p>
+      <p>
+So here we are in the Jupiter notebook.        <br/>
+      </p>
+      <p>
+I've already written this first piece of code to prepopulate the matrix A with the numbers we had just now, so we'll hit shift enter and just run that, so there's the matrix A.        <br/>
+      </p>
+      <p>
+And now here are the two lines of Python code.        <br/>
+      </p>
+      <p>
+First, we're going to compute tau equals a, that sum.        <br/>
+      </p>
+      <p>
+And x is equals 0 means to sum vertically.        <br/>
+      </p>
+      <p>
+We'll say more about that in a little bit.        <br/>
+      </p>
+      <p>
+And then print cal.        <br/>
+      </p>
+      <p>
+So we'll sum vertically.        <br/>
+      </p>
+      <p>
+Now 59 is the total number of calories in the apple, 239 was the total number of calories in the beef and the eggs and potato and so on.        <br/>
+      </p>
+      <p>
+And then with a compute percentage equals A/cal.reshape 1,4.        <br/>
+      </p>
+      <p>
+Actually we want percentages, so multiply by 100 here.        <br/>
+      </p>
+      <p>
+And then let's print percentage.        <br/>
+      </p>
+      <p>
+Let's run that.        <br/>
+      </p>
+      <p>
+And so that command we've taken the matrix A and divided it by this one by four matrix.        <br/>
+      </p>
+      <p>
+And this gives us the matrix of percentages.        <br/>
+      </p>
+      <p>
+So as we worked out kind of by hand just now in the apple there was a first column 94.9% of the calories are from carbs.        <br/>
+      </p>
+      <p>
+Let's go back to the        <br/>
+      </p>
+      <p>
+(DESCRIPTION)        <br/>
+Returned to Broadcasting example slide.        <br/>
+      </p>
+      <p>
+(SPEECH)        <br/>
+slides.        <br/>
+      </p>
+      <p>
+So just to repeat the two lines of code we had, this is what have written out in the Jupiter notebook.        <br/>
+      </p>
+      <p>
+To add a bit of detail this parameter, (axis = 0), means that you want Python to sum vertically.        <br/>
+      </p>
+      <p>
+So if this is axis 0 this means to sum vertically, where as the horizontal axis is axis 1.        <br/>
+      </p>
+      <p>
+So be able to write axis 1 or sum horizontally instead of sum vertically.        <br/>
+      </p>
+      <p>
+And then this command here, this is an example of Python broadcasting where you take a matrix A.        <br/>
+      </p>
+      <p>
+So this is a three by four matrix and you divide it by a one by four matrix.        <br/>
+      </p>
+      <p>
+And technically, after this first line of codes cal, the variable cal, is already a one by four matrix.        <br/>
+      </p>
+      <p>
+So technically you don't need to call reshape here again, so that's actually a little bit redundant.        <br/>
+      </p>
+      <p>
+But when I'm writing Python codes if I'm not entirely sure what matrix, whether the dimensions of a matrix I often would just call a reshape command just to make sure that it's the right column vector or the row vector or whatever you want it to be.        <br/>
+      </p>
+      <p>
+The reshape command is a constant time.        <br/>
+      </p>
+      <p>
+It's a order one operation that's very cheap to call.        <br/>
+      </p>
+      <p>
+So don't be shy about using the reshape command to make sure that your matrices are the size you need it to be.        <br/>
+      </p>
+      <p>
+Now, let's explain in greater detail how this type of operation works, right?        <br/>
+      </p>
+      <p>
+We had a three by four matrix and we divided it by a one by four matrix.        <br/>
+      </p>
+      <p>
+So, how can you divide a three by four matrix by a one by four matrix?        <br/>
+      </p>
+      <p>
+Or by one by four vector?        <br/>
+      </p>
+      <p>
+Let's go through a few more examples of broadcasting.        <br/>
+      </p>
+      <p>
+If you take a 4 by 1 vector and add it to a number, what Python will do is take this number and auto-expand it into a four by one vector as well, as follows.        <br/>
+      </p>
+      <p>
+And so the vector [1, 2, 3, 4] plus the number 100 ends up with that vector on the right.        <br/>
+      </p>
+      <p>
+You're adding a 100 to every element, and in fact we use this form of broadcasting where that constant was the parameter b in an earlier video.        <br/>
+      </p>
+      <p>
+And this type of broadcasting works with both column vectors and row vectors, and in fact we use a similar form of broadcasting earlier with the constant we're adding to a vector being the parameter b in logistic regression.        <br/>
+      </p>
+      <p>
+Here's another example.        <br/>
+      </p>
+      <p>
+Let's say you have a two by three matrix and you add it to this one by n matrix.        <br/>
+      </p>
+      <p>
+So the general case would be if you have some (m,n) matrix here and you add it to a (1,n) matrix.        <br/>
+      </p>
+      <p>
+What Python will do is copy the matrix m, times to turn this into m by n matrix, so instead of this one by three matrix it'll copy it twice in this example to turn it into this.        <br/>
+      </p>
+      <p>
+Also, two by three matrix and we'll add these so you'll end up with the sum on the right, okay?        <br/>
+      </p>
+      <p>
+So you taken, you added 100 to the first column, added 200 to second column, added 300 to the third column.        <br/>
+      </p>
+      <p>
+And this is basically what we did on the previous slide, except that we use a division operation instead of an addition operation.        <br/>
+      </p>
+      <p>
+So one last example, whether you have a (m,n) matrix and you add this to a (m,1) vector, (m,1) matrix.        <br/>
+      </p>
+      <p>
+Then just copy this n times horizontally.        <br/>
+      </p>
+      <p>
+So you end up with an (m,n) matrix.        <br/>
+      </p>
+      <p>
+So as you can imagine you copy it horizontally three times.        <br/>
+      </p>
+      <p>
+And you add those.        <br/>
+      </p>
+      <p>
+So when you add them you end up with this.        <br/>
+      </p>
+      <p>
+So we've added 100 to the first row and added 200 to the second row.        <br/>
+      </p>
+      <p>
+(DESCRIPTION)        <br/>
+New slide, General Principle.        <br/>
+      </p>
+      <p>
+(SPEECH)        <br/>
+Here's the more general principle of broadcasting in Python.        <br/>
+      </p>
+      <p>
+If you have an (m,n) matrix and you add or subtract or multiply or divide with a (1,n) matrix, then this will copy it n times into an (m,n) matrix.        <br/>
+      </p>
+      <p>
+And then apply the addition, subtraction, and multiplication of division element wise.        <br/>
+      </p>
+      <p>
+If conversely, you were to take the (m,n) matrix and add, subtract, multiply, divide by an (m,1) matrix, then also this would copy it now n times.        <br/>
+      </p>
+      <p>
+And turn that into an (m,n) matrix and then apply the operation element wise.        <br/>
+      </p>
+      <p>
+Just one of the broadcasting, which is if you have an (m,1) matrix, so that's really a column vector like [1,2,3], and you add, subtract, multiply or divide by a row number.        <br/>
+      </p>
+      <p>
+So maybe a (1,1) matrix.        <br/>
+      </p>
+      <p>
+So such as that plus 100, then you end up copying this real number n times until you'll also get another (n,1) matrix.        <br/>
+      </p>
+      <p>
+And then you perform the operation such as addition on this example element-wise.        <br/>
+      </p>
+      <p>
+And something similar also works for row vectors.        <br/>
+      </p>
+      <p>
+The fully general version of broadcasting can do even a little bit more than this.        <br/>
+      </p>
+      <p>
+If you're interested you can read the documentation for NumPy, and look at broadcasting in that documentation.        <br/>
+      </p>
+      <p>
+That gives an even slightly more general definition of broadcasting.        <br/>
+      </p>
+      <p>
+But the ones on the slide are the main forms of broadcasting that you end up needing to use when you implement a neural network.        <br/>
+      </p>
+      <p>
+Before we wrap up, just one last comment, which is for those of you that are used to programming in either MATLAB or Octave, if you've ever used the MATLAB or Octave function bsxfun in neural network programming bsxfun does something similar, not quite the same.        <br/>
+      </p>
+      <p>
+But it is often used for similar purpose as what we use broadcasting in Python for.        <br/>
+      </p>
+      <p>
+But this is really only for very advanced MATLAB and Octave users, if you've not heard of this, don't worry about it.        <br/>
+      </p>
+      <p>
+You don't need to know it when you're coding up neural networks in Python.        <br/>
+      </p>
+      <p>
+So, that was broadcasting in Python.        <br/>
+      </p>
+      <p>
+I hope that when you do the programming homework that broadcasting will allow you to not only make a code run faster, but also help you get what you want done with fewer lines of code.        <br/>
+      </p>
+      <p>
+Before you dive into the programming excercise, I want to share with you just one more set of ideas, which is that there's some tips and tricks that I've found reduces the number of bugs in my Python code and that I hope will help you too.        <br/>
+      </p>
+      <p>
+So with that, let's talk about that in the next video.        <br/>
+      </p>
+    </div>
+  </body>
+</html>

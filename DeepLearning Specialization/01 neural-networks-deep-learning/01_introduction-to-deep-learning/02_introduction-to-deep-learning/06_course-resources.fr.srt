@@ -1,0 +1,228 @@
+1
+00:00:00,000 --> 00:00:02,850
+J'espère que vous appréciez ce cours
+
+2
+00:00:02,850 --> 00:00:04,290
+et pour vous aider à le finir, 
+je veux m'assurer
+
+3
+00:00:04,290 --> 00:00:06,690
+que vous connaissez un certain nombre
+
+4
+00:00:06,690 --> 00:00:10,019
+de ressources de ce cours. 
+Premièrement, si vous avez
+
+5
+00:00:10,019 --> 00:00:11,580
+des question ou si vous voulez discuter
+
+6
+00:00:11,580 --> 00:00:13,440
+de quoi que ce soit avec
+ vos camarades de classe
+
+7
+00:00:13,440 --> 00:00:15,630
+ou avec les enseignants ou moi, ou
+
+8
+00:00:15,630 --> 00:00:17,369
+si vous voulez signaler un bug,
+ le meilleur endroit
+
+9
+00:00:17,369 --> 00:00:19,859
+pour le faire est le forum de discussions.
+
+10
+00:00:19,859 --> 00:00:21,270
+L'équipe d'enseignants 
+et moi même le consulterons
+
+11
+00:00:21,270 --> 00:00:23,760
+régulièrement et c'est aussi le bon endroit
+
+12
+00:00:23,760 --> 00:00:25,800
+pour trouver des réponses à vos questions,
+
+13
+00:00:25,800 --> 00:00:28,500
+de la part de vos camarades, ou
+
+14
+00:00:28,500 --> 00:00:30,630
+si vous voulez, essayer de répondre
+ aux questions de vos camarades.
+
+15
+00:00:30,630 --> 00:00:33,180
+Pour aller sur le forum de discussions,
+
+16
+00:00:33,180 --> 00:00:34,710
+depuis la page d'accueil du cours,
+
+17
+00:00:34,710 --> 00:00:36,149
+regardez la barre de menu sur la gauche,
+
+18
+00:00:36,149 --> 00:00:38,520
+la votre sera peut être un peu
+ différente de la mienne,
+
+19
+00:00:38,520 --> 00:00:40,410
+mais vous devriez y trouver 
+l'onglet 'forum de discussion'
+
+20
+00:00:40,410 --> 00:00:42,329
+qui vous amène au forum de discussions.
+
+21
+00:00:42,329 --> 00:00:45,450
+Le meilleur endroit pour
+ poser des questions
+
+22
+00:00:45,450 --> 00:00:48,270
+est sur le forum de discussions,
+
+23
+00:00:48,270 --> 00:00:50,070
+mais si pour une raison 
+quelconque, vous voulez
+
+24
+00:00:50,070 --> 00:00:52,530
+nous contacter directement,
+ nous prévenir d'un problème,
+
+25
+00:00:52,530 --> 00:00:54,750
+vous pouvez nous contacter à
+
+26
+00:00:54,750 --> 00:00:57,390
+cette adresse email. Je vous promet que
+
+27
+00:00:57,390 --> 00:00:59,399
+nous lirons chaque email
+ et nous essayerons
+
+28
+00:00:59,399 --> 00:01:01,710
+de résoudre les problèmes récurrents,
+
+29
+00:01:01,710 --> 00:01:04,460
+même si, en fonction 
+du volume d'e-mails reçus,
+
+30
+00:01:04,460 --> 00:01:06,659
+je ne peux pas garantir que nous pourrons
+
+31
+00:01:06,659 --> 00:01:08,880
+répondre rapidement à chaque message,
+
+32
+00:01:08,880 --> 00:01:10,909
+mais nous lirons 
+chaque email que vous enverrez.
+
+33
+00:01:10,909 --> 00:01:12,780
+Ensuite, je sais qu'il y a beaucoup
+
+34
+00:01:12,780 --> 00:01:15,360
+d'entreprises qui veulent former un grand
+
+35
+00:01:15,360 --> 00:01:17,369
+nombre d'employés 
+à l'apprentissage profond.
+
+36
+00:01:17,369 --> 00:01:19,409
+Si vous être responsable de la formation
+
+37
+00:01:19,409 --> 00:01:21,810
+dans votre entreprise et que vous voulez
+
+38
+00:01:21,810 --> 00:01:24,799
+former une centaine d'employés ou plus
+
+39
+00:01:24,799 --> 00:01:27,840
+à l'expertise en apprentissage profond,
+
+40
+00:01:27,840 --> 00:01:29,579
+vous pouvez nous contacter 
+à cette adresse email et
+
+41
+00:01:29,579 --> 00:01:32,189
+nous verrons si nous pouvons vous aider.
+
+42
+00:01:32,189 --> 00:01:34,439
+Nous n'en sommes 
+qu'au début du développement
+
+43
+00:01:34,439 --> 00:01:36,960
+du programme universitaire académique,
+
+44
+00:01:36,960 --> 00:01:39,229
+mais si vous êtes un 
+enseignant universitaire ou
+
+45
+00:01:39,229 --> 00:01:41,939
+un administrateur universitaire intéressé
+
+46
+00:01:41,939 --> 00:01:43,680
+par donner des cours 
+d'apprentissage profond
+
+47
+00:01:43,680 --> 00:01:45,689
+dans notre université, 
+vous pouvez nous contacter
+
+48
+00:01:45,689 --> 00:01:48,240
+à cette adresse email. J'espère
+
+49
+00:01:48,240 --> 00:01:49,680
+que ça vous donne plus de ressources
+
+50
+00:01:49,680 --> 00:01:51,750
+pour finir le cours, je verrai peut être
+
+51
+00:01:51,750 --> 00:01:54,360
+certains d'entre vous 
+sur les forums de discussions.
+
+52
+00:01:54,360 --> 00:01:56,659
+Je vous souhaite bonne chance.

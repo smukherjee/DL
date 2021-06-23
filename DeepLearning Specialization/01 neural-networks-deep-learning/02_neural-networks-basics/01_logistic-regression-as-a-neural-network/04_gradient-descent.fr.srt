@@ -1,0 +1,814 @@
+1
+00:00:00,590 --> 00:00:03,210
+Vous avez vu le modèle 
+de régression logistique.
+
+2
+00:00:03,210 --> 00:00:06,560
+Vous avez vu la fonction de perte 
+qui mesure la performance sur
+
+3
+00:00:06,560 --> 00:00:08,780
+un unique exemple d'apprentissage.
+
+4
+00:00:08,780 --> 00:00:13,530
+Vous avez vu aussi la fonction de coût qui 
+mesure la performance de vos paramètres
+
+5
+00:00:13,530 --> 00:00:16,590
+w et b sur l'ensemble du set d'apprentissage.
+
+6
+00:00:16,590 --> 00:00:21,600
+Maintenant nous allons parler de 
+comment vous pouvez utiliser l’algorithme de
+ descente de gradient pour entraîner,
+
+7
+00:00:21,600 --> 00:00:25,730
+ou pour enseigner les paramètres w et b 
+à votre set d'apprentissage.
+
+8
+00:00:25,730 --> 00:00:30,030
+Pour rappel, voici l’algorithme familier
+ de la régression logistique.
+
+9
+00:00:31,130 --> 00:00:34,700
+Et nous avons sur la deuxième ligne
+ la fonction de coût, J,
+
+10
+00:00:34,700 --> 00:00:37,879
+qui est fonction de vos paramètres w et b.
+
+11
+00:00:37,879 --> 00:00:39,960
+Et qui est définie comme la moyenne,
+
+12
+00:00:39,960 --> 00:00:44,140
+donc 1 sur m fois la somme
+ de cette fonction de perte.
+
+13
+00:00:44,140 --> 00:00:48,470
+Et donc la fonction de perte mesure 
+à quel point la sortie
+
+14
+00:00:48,470 --> 00:00:53,170
+de votre algorithme, ŷ(i)
+ sur chaque exemple d'apprentissage
+
+15
+00:00:53,170 --> 00:00:58,000
+est proche de la véritable étiquette y (i) 
+sur chacun des exemples d'apprentissage.
+
+16
+00:00:58,000 --> 00:01:00,886
+Et la formule complète est écrite sur la droite.
+
+17
+00:01:00,886 --> 00:01:04,130
+Donc la fonction de coût mesure 
+la performance de vos paramètres w et
+
+18
+00:01:04,130 --> 00:01:06,760
+b sur le set d'apprentissage.
+
+19
+00:01:06,760 --> 00:01:11,510
+Pour apprendre l’ensemble des paramètres
+ w et b il semble donc naturel de vouloir
+
+20
+00:01:11,510 --> 00:01:17,930
+trouver les w et b qui rendent la fonction de
+ coût J (w, b) aussi petite que possible.
+
+21
+00:01:17,930 --> 00:01:21,320
+Alors, voici une illustration de 
+la descente de gradient.
+
+22
+00:01:21,320 --> 00:01:25,320
+Dans ce diagramme, 
+les axes horizontaux représentent
+
+23
+00:01:25,320 --> 00:01:28,510
+votre espace de paramètres, w et b.
+
+24
+00:01:28,510 --> 00:01:32,350
+Dans la pratique, w peut être de dimension 
+beaucoup plus élevée, mais pour
+
+25
+00:01:32,350 --> 00:01:38,190
+le croquis, illustrons w avec un nombre réel
+ et b avec un nombre réel.
+
+26
+00:01:38,190 --> 00:01:40,770
+La fonction de coût J(w,b,) est alors
+
+27
+00:01:40,770 --> 00:01:45,130
+une certaine surface au-dessus 
+de ces axes horizontaux w et b.
+
+28
+00:01:45,130 --> 00:01:50,720
+La hauteur de la surface représente
+ la valeur de J(w,b) à un certain point.
+
+29
+00:01:50,720 --> 00:01:55,070
+Et ce que nous voulons faire vraiment 
+est de trouver les valeurs de w et b
+
+30
+00:01:55,070 --> 00:01:59,730
+qui correspondent au minimum 
+de la fonction de coût J.
+
+31
+00:02:00,830 --> 00:02:06,050
+Il s’avère que cette fonction de coût J
+ est une fonction convexe.
+
+32
+00:02:06,050 --> 00:02:10,327
+Donc c’est juste un gros bol unique,
+ il s’agit d’une fonction convexe,
+
+33
+00:02:10,327 --> 00:02:13,717
+à l'opposé des fonctions 
+qui ressemblent à ceci,
+
+34
+00:02:13,717 --> 00:02:18,120
+qui sont non convexes et ont beaucoup
+ d'optimums locaux différents.
+
+35
+00:02:18,120 --> 00:02:22,240
+Ainsi, le fait que notre fonction de coût
+ J(w,b) comme définie ici
+
+36
+00:02:22,240 --> 00:02:27,020
+soit convexe est l'une des raisons principales
+ qui fait que nous utilisons
+ cette fonction de coût J particulière
+
+37
+00:02:27,020 --> 00:02:29,610
+pour la régression logistique.
+
+38
+00:02:29,610 --> 00:02:33,810
+Afin de trouver une bonne valeur
+ pour les paramètres,
+
+39
+00:02:33,810 --> 00:02:39,160
+ce que nous allons faire est d’initialiser 
+w et b à une valeur initiale,
+
+40
+00:02:39,160 --> 00:02:43,360
+représentée par ce petit point rouge.
+
+41
+00:02:43,360 --> 00:02:47,562
+Pour la régression logistique, presque toutes
+ les méthodes d’initialisation fonctionnent,
+
+42
+00:02:47,562 --> 00:02:50,690
+habituellement, vous initialisez
+ la valeur à zéro.
+
+43
+00:02:50,690 --> 00:02:52,910
+L’initialisation aléatoire 
+fonctionne aussi, mais
+
+44
+00:02:52,910 --> 00:02:55,630
+les gens ne le font pas pour 
+la régression logistique, d'habitude.
+
+45
+00:02:55,630 --> 00:02:59,310
+Mais parce que cette fonction est convexe,
+ peu importe où vous initialisez,
+
+46
+00:02:59,310 --> 00:03:02,180
+vous devriez arriver au même point 
+ou à peu près au même point.
+
+47
+00:03:02,180 --> 00:03:06,450
+Et ce que fait la descente de gradient est
+ qu'elle commence à ce point initial et
+
+48
+00:03:06,450 --> 00:03:10,310
+puis se déplace légèrement 
+dans le sens de la plus grande pente.
+
+49
+00:03:10,310 --> 00:03:15,290
+Donc après une étape de descente de gradient
+ vous pourriez finir par là, parce que
+
+50
+00:03:15,290 --> 00:03:19,320
+on descend dans la direction 
+de la plus forte pente,
+
+51
+00:03:19,320 --> 00:03:21,250
+on descend aussi rapidement que possible.
+
+52
+00:03:21,250 --> 00:03:23,600
+Voilà donc une itération 
+de descente de gradient.
+
+53
+00:03:23,600 --> 00:03:27,084
+Et après deux itérations de descente 
+de gradient vous pourriez être là,
+
+54
+00:03:27,084 --> 00:03:28,830
+trois itérations et ainsi de suite.
+
+55
+00:03:28,830 --> 00:03:32,640
+Le point est caché derrière le bord 
+de la courbe, et normalement,
+
+56
+00:03:32,640 --> 00:03:38,880
+vous convergez vers cet optimum global
+ ou vous arrivez à quelque chose de proche
+ de l’optimum global.
+
+57
+00:03:38,880 --> 00:03:42,300
+Cette image illustre l’algorithme
+ de descente de gradient.
+
+58
+00:03:42,300 --> 00:03:44,310
+Nous allons voir un peu plus de détails.
+
+59
+00:03:44,310 --> 00:03:47,750
+Pour l’illustration, disons qu’il y a
+ une fonction, J(w),
+
+60
+00:03:47,750 --> 00:03:51,700
+que vous voulez minimiser, 
+et que cette fonction ressemble à ceci.
+
+61
+00:03:51,700 --> 00:03:54,650
+Pour rendre cela plus facile à dessiner,
+ je vais ignorer b pour l'instant,
+
+62
+00:03:54,650 --> 00:03:59,210
+pour que ce soit un graphe unidimensionnel 
+au lieu d’un graphe multidimensionnel.
+
+63
+00:03:59,210 --> 00:04:01,240
+Donc la descente de gradient fait ceci,
+
+64
+00:04:01,240 --> 00:04:06,740
+Nous allons procéder à plusieurs reprises
+ à la mise à jour suivante.
+
+65
+00:04:06,740 --> 00:04:09,467
+Nous allons prendre la valeur de w
+ et la mettre à jour,
+
+66
+00:04:09,467 --> 00:04:12,508
+je vais utiliser := pour représenter
+ la mise à jour de w.
+
+67
+00:04:12,508 --> 00:04:17,426
+Donc w devient w - alpha * dJ(w/dw
+
+68
+00:04:17,426 --> 00:04:22,200
+Il s’agit d’une dérivée dJ(w) / dw.
+
+69
+00:04:22,200 --> 00:04:26,230
+Je vais répéter ça jusqu'à 
+ce que l’algorithme converge.
+
+70
+00:04:26,230 --> 00:04:30,666
+Quelques points sur la notation, 
+alpha, ici, est le taux d’apprentissage, et
+
+71
+00:04:30,666 --> 00:04:36,820
+contrôle la taille du pas que nous faisons à 
+chaque itération, à chaque descente du gradient.
+
+72
+00:04:36,820 --> 00:04:41,200
+Nous parlerons plus tard des façons
+ de choisir le taux d'apprentissage alpha.
+
+73
+00:04:41,200 --> 00:04:44,490
+Et, deuxièmement, cette quantité ici,
+ c’est une dérivée.
+
+74
+00:04:44,490 --> 00:04:48,010
+C’est essentiellement la mise à jour 
+ou la modification que vous souhaitez 
+apporter au paramètre w.
+
+75
+00:04:48,010 --> 00:04:52,700
+Lorsque nous commencerons à écrire du code
+ pour implémenter la descente de gradient,
+
+76
+00:04:52,700 --> 00:04:57,380
+Nous allons utiliser la convention que
+ dans notre code le nom de variable
+
+77
+00:04:58,620 --> 00:05:02,300
+dw sera utilisé pour 
+représenter ce terme dérivé.
+
+78
+00:05:02,300 --> 00:05:06,551
+Donc, lorsque vous écrirez du code,
+ vous écrirez quelque chose comme
+
+79
+00:05:06,551 --> 00:05:10,046
+w := w - alpha * dw
+
+80
+00:05:10,046 --> 00:05:14,750
+Donc nous utilisons dw comme nom de 
+variable pour représenter ce terme dérivé.
+
+81
+00:05:14,750 --> 00:05:19,330
+Maintenant assurons-nous que cette mise à
+ jour de la descente de gradient est logique.
+
+82
+00:05:19,330 --> 00:05:21,880
+Disons que w était ici.
+
+83
+00:05:21,880 --> 00:05:26,060
+Vous êtes à ce point 
+sur la fonction de coût J(w).
+
+84
+00:05:26,060 --> 00:05:29,270
+Souvenez vous que la définition d’une dérivée
+
+85
+00:05:29,270 --> 00:05:31,420
+correspond à la pente
+ d’une fonction à un endroit.
+
+86
+00:05:31,420 --> 00:05:36,190
+La pente de la fonction est en fait 
+la hauteur divisée par la largeur,
+
+87
+00:05:36,190 --> 00:05:40,290
+dans un triangle ici qui est tangent
+ à J(w) en ce point là.
+
+88
+00:05:40,290 --> 00:05:43,900
+Et donc, ici la dérivée est positive.
+
+89
+00:05:43,900 --> 00:05:48,830
+w est mis à jour comme w moins
+ un taux d’apprentissage fois la dérivée.
+
+90
+00:05:48,830 --> 00:05:53,310
+La dérivée est positive et donc
+ quand vous soustrayez quelque chose à w,
+
+91
+00:05:53,310 --> 00:05:55,260
+vous vous déplacez vers la gauche.
+
+92
+00:05:55,260 --> 00:05:59,380
+Et votre algorithme de descente 
+de gradient fera lentement
+
+93
+00:05:59,380 --> 00:06:04,450
+diminuer le paramètre si vous avez commencé
+ avec cette grande valeur de w.
+
+94
+00:06:04,450 --> 00:06:08,545
+Un autre exemple : si w est ici,
+
+95
+00:06:08,545 --> 00:06:15,050
+alors à ce point, la pente ici
+ de dJ(w)/dw sera négative et
+
+96
+00:06:15,050 --> 00:06:22,771
+la mise à jour de la descente de gradient va
+ soustraire alpha fois un nombre négatif.
+
+97
+00:06:22,771 --> 00:06:27,122
+Et se retrouver à augmenter lentement w,
+ donc w devient de plus en plus grand
+
+98
+00:06:27,122 --> 00:06:31,530
+à chaque itération de la descente de gradient.
+
+99
+00:06:31,530 --> 00:06:34,387
+Alors, si tout va bien, 
+que vous initialisiez à gauche ou
+
+100
+00:06:34,387 --> 00:06:39,000
+à droite, la descente de gradient va 
+vous déplacer vers ce minimum global ici.
+
+101
+00:06:39,000 --> 00:06:43,100
+Si vous n'avez pas l'habitude 
+des dérivées ou de l'analyse et
+
+102
+00:06:43,100 --> 00:06:49,710
+de ce que signifie ce terme dJ (w) /dw, 
+ne vous inquiétez pas trop.
+
+103
+00:06:49,710 --> 00:06:53,770
+Nous allons parler un peu plus des dérivées 
+dans la prochaine vidéo.
+
+104
+00:06:53,770 --> 00:06:56,761
+Si vous avez une connaissance
+ approfondie en analyse,
+
+105
+00:06:56,761 --> 00:07:02,321
+vous pourrez avoir de meilleures intuitions sur 
+comment fonctionnent les réseaux neuronaux.
+
+106
+00:07:02,321 --> 00:07:05,471
+Mais même si vous n’êtes pas
+ familier avec l'analyse,
+
+107
+00:07:05,471 --> 00:07:10,091
+dans les prochaines vidéos, nous vous 
+donnerons assez d'intuitions sur les dérivées et
+
+108
+00:07:10,091 --> 00:07:14,980
+l'analyse pour que vous soyez en mesure 
+d’utiliser efficacement les réseaux de neurones.
+
+109
+00:07:14,980 --> 00:07:16,410
+Mais l’intuition globale pour l'instant
+
+110
+00:07:16,410 --> 00:07:21,520
+est que ce terme représente
+ la pente de la fonction, et
+
+111
+00:07:21,520 --> 00:07:26,760
+nous voulons connaître la pente de 
+la fonction à la valeur actuelle des paramètres
+
+112
+00:07:26,760 --> 00:07:31,140
+afin que nous puissions nous déplacer 
+sur la pente la plus raide, afin de savoir
+
+113
+00:07:31,140 --> 00:07:35,450
+dans quelle direction bouger pour descendre
+ sur la fonction de coût J.
+
+114
+00:07:36,660 --> 00:07:42,520
+Donc, nous avons écrit notre descente 
+de gradient pour J(w) comme si
+ w était notre seul paramètre.
+
+115
+00:07:42,520 --> 00:07:47,150
+Dans la régression logistique, votre fonction 
+de coût est une fonction de w et b.
+
+116
+00:07:47,150 --> 00:07:50,894
+Donc dans ce cas, la boucle à l'intérieur 
+de la descente de gradient, c'est à dire ça,
+
+117
+00:07:50,894 --> 00:07:53,302
+ce que vous devez répéter devient ceci :
+
+118
+00:07:53,302 --> 00:07:57,970
+Il faut remplacer w par
+ w moins le taux d'apprentissage
+
+119
+00:07:57,970 --> 00:08:02,030
+fois la dérivée de J(w,b) par rapport à w.
+
+120
+00:08:02,030 --> 00:08:07,460
+Et vous remplacez b par
+ b moins le taux d'apprentissage
+
+121
+00:08:07,460 --> 00:08:12,270
+fois la dérivée de la fonction de coût
+ par rapport à b.
+
+122
+00:08:12,270 --> 00:08:17,300
+Ces deux équations en bas sont donc
+ les mises à jour que vous implémentez.
+
+123
+00:08:17,300 --> 00:08:22,320
+Soit dit en passant, je tiens à mentionner 
+une convention de notation en analyse qui
+
+124
+00:08:22,320 --> 00:08:24,560
+est un peu déroutante
+ pour certaines personnes.
+
+125
+00:08:24,560 --> 00:08:28,387
+Je ne pense pas que ce soit super important 
+que vous compreniez l'analyse, mais
+
+126
+00:08:28,387 --> 00:08:32,411
+si vous voyez cela, je tiens à m'assurer 
+que ça ne vous déroute pas trop.
+
+127
+00:08:32,411 --> 00:08:35,519
+En analyse, ce terme ici,
+
+128
+00:08:35,519 --> 00:08:40,730
+nous l'écrivons comme ceci, 
+avec cet étrange d rond
+
+129
+00:08:40,730 --> 00:08:46,160
+Donc ce symbole, c'est en fait
+ juste un d minuscule
+
+130
+00:08:46,160 --> 00:08:51,070
+de forme arrondie. 
+Quand vous voyez cette expression, cela
+
+131
+00:08:51,070 --> 00:08:56,145
+signifie que ce n’est pas la dérivée de J(w,b), 
+pas vraiment la pente de la fonction J(w,b),
+
+132
+00:08:56,145 --> 00:09:01,580
+mais plutôt la pente de J(w,b)
+ dans la direction de w.
+
+133
+00:09:01,580 --> 00:09:06,640
+Et la règle de la notation en analyse, 
+qui je pense n’est pas tout à fait logique,
+
+134
+00:09:06,640 --> 00:09:11,780
+mais la règle de notation en analyse, 
+qui à mon avis rend juste les choses
+
+135
+00:09:11,780 --> 00:09:16,940
+plus compliquée, est que
+ si J est une fonction de deux variables
+
+136
+00:09:16,940 --> 00:09:21,550
+ou plus, alors au lieu d’utiliser d minuscule,
+ vous utilisez ce d rond.
+
+137
+00:09:21,550 --> 00:09:24,380
+C’est ce qu’on appelle 
+le symbole des dérivées partielles.
+
+138
+00:09:24,380 --> 00:09:26,120
+Mais ne vous inquiétez pas à ce sujet,
+
+139
+00:09:26,120 --> 00:09:31,090
+et si J est une fonction d'une seule variable, 
+alors vous utilisez d minuscule.
+
+140
+00:09:31,090 --> 00:09:33,960
+La seule différence entre 
+l'utilisation du symbole bizarre
+
+141
+00:09:33,960 --> 00:09:38,040
+de dérivée partielle ou un d minuscule 
+comme nous l’avons fait au dessus,
+
+142
+00:09:38,040 --> 00:09:41,570
+est si J est une fonction 
+de deux variables ou plus.
+
+143
+00:09:41,570 --> 00:09:45,900
+Dans ce cas, vous utilisez ce symbole,
+ le symbole des dérivées partielles, ou
+
+144
+00:09:45,900 --> 00:09:51,480
+si J est une fonction d’une variable,
+ alors vous utilisez d minuscule.
+
+145
+00:09:51,480 --> 00:09:55,410
+C’est l’une de ces règles bizarres
+ de notation en analyse dont
+
+146
+00:09:55,410 --> 00:09:58,540
+je pense qu'elles rendent les choses
+ plus compliquées que nécessaire.
+
+147
+00:09:58,540 --> 00:10:03,300
+Mais si vous voyez ce symbole 
+des dérivées partielles, tout ce que 
+cela signifie est que vous mesurez
+
+148
+00:10:03,300 --> 00:10:07,290
+la pente de la fonction
+ par rapport à l’une des variables.
+
+149
+00:10:07,290 --> 00:10:12,530
+Et de même façon, pour adhérer à la notation
+ mathématique formellement correcte
+
+150
+00:10:12,530 --> 00:10:18,070
+en analyse, puisque J a deux entrées
+ et non une seule,
+
+151
+00:10:18,070 --> 00:10:22,540
+ceci en bas doit être écrit avec 
+le symbole des dérivées partielles.
+
+152
+00:10:22,540 --> 00:10:28,290
+Mais cela signifie vraiment la même chose, 
+presque la même chose que d minuscule.
+
+153
+00:10:28,290 --> 00:10:31,360
+Enfin, lorsque vous implémentez ce code,
+
+154
+00:10:31,360 --> 00:10:36,220
+nous allons utiliser la convention que 
+cette quantité, qui est le montant par lequel
+
+155
+00:10:36,220 --> 00:10:41,980
+vous mettrez w à jour, sera notée 
+comme variable dw dans votre code.
+
+156
+00:10:41,980 --> 00:10:44,220
+Et cette quantité, ok,
+
+157
+00:10:44,220 --> 00:10:47,230
+la quantité par laquelle
+ vous voulez mettre à jour b
+
+158
+00:10:47,230 --> 00:10:50,740
+sera représentée par la variable db 
+dans votre code.
+
+159
+00:10:50,740 --> 00:10:55,580
+Bon, alors, voilà comment vous pouvez 
+implémenter la descente de gradient.
+
+160
+00:10:55,580 --> 00:10:59,830
+Maintenant, si vous n’avez pas fait d'analyse
+ depuis quelques années, je sais que
+ vous pouvez penser que c'est
+
+161
+00:10:59,830 --> 00:11:03,770
+beaucoup plus de dérivées et d'analyse
+ que ce que vous souhaiteriez.
+
+162
+00:11:03,770 --> 00:11:06,330
+Mais ne vous inquiétez pas si c'est le cas.
+
+163
+00:11:06,330 --> 00:11:10,150
+Dans la vidéo suivante, nous vous donnerons
+ plus d'intuitions sur les dérivées.
+
+164
+00:11:10,150 --> 00:11:13,560
+Et même sans une compréhension profonde
+ des mathématiques de l'analyse,
+
+165
+00:11:13,560 --> 00:11:16,310
+avec juste une compréhension
+ intuitive de l'analyse,
+
+166
+00:11:16,310 --> 00:11:19,130
+vous pourrez faire
+ des réseaux neuronaux efficaces.
+
+167
+00:11:19,130 --> 00:11:22,743
+Alors, allons à la vidéo suivante, 
+où nous parlerons un peu plus
+
+168
+00:11:22,743 --> 00:11:23,470
+des dérivées.

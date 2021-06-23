@@ -1,0 +1,804 @@
+1
+00:00:00,590 --> 00:00:03,210
+Você já viu o modelo de regressão logística.
+
+2
+00:00:03,210 --> 00:00:06,560
+Você já viu a função de perda que 
+mede o quão bem você está indo
+
+3
+00:00:06,560 --> 00:00:08,780
+em único exemplo de treinamento.
+
+4
+00:00:08,780 --> 00:00:13,530
+Você também viu a função de custo que 
+mede o quão bem seus parâmetros w e
+
+5
+00:00:13,530 --> 00:00:16,590
+b estão performando em seu 
+conjunto completo de treinamento.
+
+6
+00:00:16,590 --> 00:00:21,600
+Agora, vamos falar sobre como você pode usar 
+o algoritmo de gradiente decrescente para treinar
+
+7
+00:00:21,600 --> 00:00:25,730
+ou para aprender os parâmetros w e 
+b no seu conjunto de treinamento.
+
+8
+00:00:25,730 --> 00:00:30,030
+Recapitulando, aqui está o já familiar 
+algoritmo de regressão logística.
+
+9
+00:00:31,130 --> 00:00:34,700
+E nós temos na segunda 
+linha, a função de custo J,
+
+10
+00:00:34,700 --> 00:00:37,879
+que é uma função de 
+seus parâmetros w e b.
+
+11
+00:00:37,879 --> 00:00:39,960
+E que é definida como a média.
+
+12
+00:00:39,960 --> 00:00:44,140
+Então, é 1 sobre m, vezes o somatório 
+desta função de perda.
+
+13
+00:00:44,140 --> 00:00:48,470
+E a função de perda mede o quão bem as 
+saídas ŷ(i) do seu algoritmo,
+
+14
+00:00:48,470 --> 00:00:53,170
+em cada um dos exemplos de 
+treinamento, empilha ou
+
+15
+00:00:53,170 --> 00:00:58,000
+compara com o rótulo verdadeiro y(i) 
+em cada um dos exemplos de treinamento.
+
+16
+00:00:58,000 --> 00:01:00,886
+E a fórmula completa está 
+expandida no lado direito.
+
+17
+00:01:00,886 --> 00:01:04,130
+A função de custo mede o quão 
+bem os seus parâmetros w e
+
+18
+00:01:04,130 --> 00:01:06,760
+b estão performando no conjunto de treinamento.
+
+19
+00:01:06,760 --> 00:01:11,510
+Assim, para aprender o conjunto de 
+parâmetros w e b, parece natural que queiramos
+
+20
+00:01:11,510 --> 00:01:17,930
+encontrar w e b que 
+minimizem a função J(w, b).
+
+21
+00:01:17,930 --> 00:01:21,320
+Aqui está uma ilustração 
+do gradiente decrescente.
+
+22
+00:01:21,320 --> 00:01:25,320
+Neste diagrama, os eixos 
+horizontais representam
+
+23
+00:01:25,320 --> 00:01:28,510
+seus parâmetros espaciais w e b.
+
+24
+00:01:28,510 --> 00:01:32,350
+Na prática, w pode ter uma dimensão 
+muito maior, mas para fins de
+
+25
+00:01:32,350 --> 00:01:38,190
+plotagem, vamos ilustrar w como um único 
+número real e b com um único número real.
+
+26
+00:01:38,190 --> 00:01:40,770
+A função de custo J(w, b) é, então,
+
+27
+00:01:40,770 --> 00:01:45,130
+alguma superfície acima 
+destes eixos w e b.
+
+28
+00:01:45,130 --> 00:01:50,720
+Portanto, a altura da superfície representa 
+o valor de J(w.b) em um certo ponto.
+
+29
+00:01:50,720 --> 00:01:55,070
+E o que queremos fazer é realmente 
+encontrar o valor de w e
+
+30
+00:01:55,070 --> 00:01:59,730
+b de modo a corresponder ao 
+menor ponto da função de custo J.
+
+31
+00:02:00,830 --> 00:02:06,050
+Conclui-se que esta função de 
+custo J é uma função convexa.
+
+32
+00:02:06,050 --> 00:02:10,327
+É apenas uma grande bacia, então 
+esta é uma função convexa e
+
+33
+00:02:10,327 --> 00:02:13,717
+é contrária a funções que pareçam assim,
+
+34
+00:02:13,717 --> 00:02:18,120
+que são não-convexas e têm muitos ótimos locais, distintos.
+
+35
+00:02:18,120 --> 00:02:22,240
+Então, o fato de que nossa função 
+de custo J(w,b) definida aqui
+
+36
+00:02:22,240 --> 00:02:27,020
+ser convexa, é uma das razões principais porque
+ usamos especificamente esta função de custo J,
+
+37
+00:02:27,020 --> 00:02:29,610
+para regressão logística.
+
+38
+00:02:29,610 --> 00:02:33,810
+Assim, para encontrar um bom 
+valor para os parâmetros,
+
+39
+00:02:33,810 --> 00:02:39,160
+o que faremos é inicializar w e b 
+com algum valor inicial,
+
+40
+00:02:39,160 --> 00:02:43,360
+talvez demarcado por este pontinho vermelho.
+
+41
+00:02:43,360 --> 00:02:47,562
+E para regressão logística quase 
+qualquer método de inicialização funciona,
+
+42
+00:02:47,562 --> 00:02:50,690
+normalmente você inicializa o valor com zero.
+
+43
+00:02:50,690 --> 00:02:52,910
+Inicialização aleatória também funciona, mas
+
+44
+00:02:52,910 --> 00:02:55,630
+normalmente as pessoas não utilizam 
+isso em regressão logística.
+
+45
+00:02:55,630 --> 00:02:59,310
+Mas, pelo fato de esta função ser convexa, 
+não importa onde você inicializá-la,
+
+46
+00:02:59,310 --> 00:03:02,180
+você deverá chegar no mesmo 
+ponto ou muito próximo dele.
+
+47
+00:03:02,180 --> 00:03:06,450
+E o que o gradiente decrescente 
+faz é iniciar naquele ponto inicial e
+
+48
+00:03:06,450 --> 00:03:10,310
+então dá um passo na direção 
+mais íngreme de descida.
+
+49
+00:03:10,310 --> 00:03:15,290
+Após um passo do gradiente decrescente, 
+você provavelmente irá acabar aqui, porque
+
+50
+00:03:15,290 --> 00:03:19,320
+a função está tentando dar um passo 
+na direção da descida mais íngreme ou
+
+51
+00:03:19,320 --> 00:03:21,250
+descer o mais rápido possível.
+
+52
+00:03:21,250 --> 00:03:23,600
+Então, esta é uma iteração 
+do gradiente decrescente.
+
+53
+00:03:23,600 --> 00:03:27,084
+E depois de duas iterações do 
+gradiente decrescente você estará aqui,
+
+54
+00:03:27,084 --> 00:03:28,830
+três iterações e assim por diante.
+
+55
+00:03:28,830 --> 00:03:32,640
+Acho que está escondido por trás do 
+gráfico até que eventualmente, espero que você
+
+56
+00:03:32,640 --> 00:03:38,880
+acabe convergindo para este ponto 
+ideal ou chegue próximo dele.
+
+57
+00:03:38,880 --> 00:03:42,300
+Assim, esta imagem ilustra o 
+algoritmo de gradiente decrescente.
+
+58
+00:03:42,300 --> 00:03:44,310
+Vamos descrever com um pouco mais de detalhes.
+
+59
+00:03:44,310 --> 00:03:47,750
+Para fins de ilustração, digamos 
+que há uma função, J(w),
+
+60
+00:03:47,750 --> 00:03:51,700
+que você deseja minimizar, e talvez 
+esta função pareça desta forma.
+
+61
+00:03:51,700 --> 00:03:54,650
+Para tornar mais fácil de plotar, 
+vou ignorar b por enquanto,
+
+62
+00:03:54,650 --> 00:03:59,210
+apenas para torná-lo um gráfico unidimensional 
+ao invés de um gráfico multidimensional.
+
+63
+00:03:59,210 --> 00:04:01,240
+O gradiente decrescente faz o seguinte:
+
+64
+00:04:01,240 --> 00:04:06,740
+vamos repetidamente executar 
+a seguinte atualização.
+
+65
+00:04:06,740 --> 00:04:09,467
+Vamos pegar o valor de w e atualizá-lo.
+
+66
+00:04:09,467 --> 00:04:12,508
+Usaremos os dois pontos para 
+representar a atualização do w.
+
+67
+00:04:12,508 --> 00:04:17,426
+Então atribuiremos à w o resultado de:
+ w menos (alfa vezes a derivada dJ(w)/dw ).
+
+68
+00:04:17,426 --> 00:04:22,200
+ou seja, w - alfa * dJ(w)/dw.
+
+69
+00:04:22,200 --> 00:04:26,230
+Farei isso repetidamente até 
+que o algoritmo convirja.
+
+70
+00:04:26,230 --> 00:04:30,666
+Então, alguns pontos na notação: alfa 
+aqui, é a taxa de aprendizagem, e
+
+71
+00:04:30,666 --> 00:04:36,820
+controla o quão grande será o passo 
+tomado em cada iteração do gradiente decrescente.
+
+72
+00:04:36,820 --> 00:04:41,200
+Falaremos mais tarde sobre algumas 
+formas de escolher a taxa de aprendizagem alfa.
+
+73
+00:04:41,200 --> 00:04:44,490
+E segundo, esta quantidade 
+aqui, esta é a derivada.
+
+74
+00:04:44,490 --> 00:04:48,010
+Esta é basicamente a atualização ou 
+mudança que você quer fazer no parâmetro w.
+
+75
+00:04:48,010 --> 00:04:52,700
+Quando começarmos a escrever o código 
+para implementar o gradiente decrescente,
+
+76
+00:04:52,700 --> 00:04:57,380
+vamos convencionar que, no nosso 
+código, o nome da variável
+
+77
+00:04:58,620 --> 00:05:02,300
+dw representará 
+este termo derivativo.
+
+78
+00:05:02,300 --> 00:05:06,551
+Então, quando você programa, 
+você escreve algo como
+
+79
+00:05:06,551 --> 00:05:10,046
+w := w - alfa * dw.
+
+80
+00:05:10,046 --> 00:05:14,750
+Assim, usamos dw como nome da variável 
+que representará esta derivada.
+
+81
+00:05:14,750 --> 00:05:19,330
+Agora, vamos nos certificarmos que esta 
+atualização do gradiente decrescente faz sentido.
+
+82
+00:05:19,330 --> 00:05:21,880
+Digamos que w estivesse por aqui.
+
+83
+00:05:21,880 --> 00:05:26,060
+Então, você está nesta posição 
+da função de custo J(w).
+
+84
+00:05:26,060 --> 00:05:29,270
+Lembre-se que a definição de uma derivada
+
+85
+00:05:29,270 --> 00:05:31,420
+é a inclinação de uma função no ponto.
+
+86
+00:05:31,420 --> 00:05:36,190
+A inclinação da função é, na verdade, a altura dividida pela largura, certo
+
+87
+00:05:36,190 --> 00:05:40,290
+de um triângulo bem aqui 
+nesta tangente de J(w), neste ponto.
+
+88
+00:05:40,290 --> 00:05:43,900
+Assim, aqui a derivada é positiva.
+
+89
+00:05:43,900 --> 00:05:48,830
+W é atualizado como w menos uma 
+taxa de aprendizagem vezes a derivada.
+
+90
+00:05:48,830 --> 00:05:53,310
+A derivada é positiva, e então você 
+acaba subtraindo de w, e assim,
+
+91
+00:05:53,310 --> 00:05:55,260
+você acaba dando um passo à esquerda.
+
+92
+00:05:55,260 --> 00:05:59,380
+Então, o gradiente decrescente 
+fará seu algoritmo diminuir
+
+93
+00:05:59,380 --> 00:06:04,450
+lentamente o parâmetro se você 
+começou com este valor alto de w.
+
+94
+00:06:04,450 --> 00:06:08,545
+Como outro exemplo, se w estivesse aqui,
+
+95
+00:06:08,545 --> 00:06:15,050
+então, neste ponto a inclinação aqui 
+de dJ/dw será negativo, assim,
+
+96
+00:06:15,050 --> 00:06:22,771
+a atualização do gradiente decrescente 
+subtrairia alfa vezes um número negativo.
+
+97
+00:06:22,771 --> 00:06:27,122
+E acabaria aumentando lentamente w, e 
+você acaba tornando w cada vez maior
+
+98
+00:06:27,122 --> 00:06:31,530
+com iterações sucessivas 
+de gradiente decrescente.
+
+99
+00:06:31,530 --> 00:06:34,387
+Assim, espero que se você 
+inicializar na esquerda ou
+
+100
+00:06:34,387 --> 00:06:39,000
+na direita, o gradiente descendente irá
+movê-lo em direção ao mínimo global aqui.
+
+101
+00:06:39,000 --> 00:06:43,100
+Se você não está familiarizado 
+com derivadas ou com cálculo e
+
+102
+00:06:43,100 --> 00:06:49,710
+o que significa este termo dJ(w)/dw, 
+não se preocupe muito sobre isso.
+
+103
+00:06:49,710 --> 00:06:53,770
+Falaremos mais um pouco 
+sobre derivadas no próximo vídeo.
+
+104
+00:06:53,770 --> 00:06:56,761
+Se você tem um conhecimento 
+profundo sobre cálculo,
+
+105
+00:06:56,761 --> 00:07:02,321
+você será capaz de ter intuições mais profundas 
+sobre como as redes neurais funcionam.
+
+106
+00:07:02,321 --> 00:07:05,471
+Mas mesmo que você não 
+esteja tão familiarizado com cálculo,
+
+107
+00:07:05,471 --> 00:07:10,091
+nos próximos vídeos daremos 
+a você noções sobre derivadas e
+
+108
+00:07:10,091 --> 00:07:14,980
+sobre cálculo que você será capaz 
+de utilizar redes neurais de forma eficaz.
+
+109
+00:07:14,980 --> 00:07:16,410
+Mas por agora, a noção geral
+
+110
+00:07:16,410 --> 00:07:21,520
+é que este termo representa 
+a inclinação da função, e
+
+111
+00:07:21,520 --> 00:07:26,760
+queremos conhecer a inclinação 
+da função com os parâmetros atuais,
+
+112
+00:07:26,760 --> 00:07:31,140
+para que possamos seguir os passos em direção 
+ao valor mínimo, para que possamos saber qual
+
+113
+00:07:31,140 --> 00:07:35,450
+direção passos seguir, para garantir que os 
+valores estejam decrescendo na função J,
+que é a função de custo.
+
+114
+00:07:36,660 --> 00:07:42,520
+Então, escrevemos nosso gradiente decrescente 
+para J(s) como se tivéssemos apenas o parâmetro w.
+
+115
+00:07:42,520 --> 00:07:47,150
+Na regressão logística, sua função 
+de custo é uma função de w e b.
+
+116
+00:07:47,150 --> 00:07:50,894
+Neste caso, o loop interno do 
+gradiente decrescente, que é isso aqui,
+
+117
+00:07:50,894 --> 00:07:53,302
+isso que você tem que 
+repetir, torna-se o seguinte.
+
+118
+00:07:53,302 --> 00:07:57,970
+Você acaba atualizando w como, 
+w menos a taxa de aprendizagem, vezes
+
+119
+00:07:57,970 --> 00:08:02,030
+a derivada de J(w,b) em função de w.
+
+120
+00:08:02,030 --> 00:08:07,460
+E você atualiza b como, 
+b menos a taxa de aprendizagem, vezes
+
+121
+00:08:07,460 --> 00:08:12,270
+a derivada da função de 
+custo em função de b.
+
+122
+00:08:12,270 --> 00:08:17,300
+Assim, estas duas equações abaixo são 
+as atualizações reais que você implementa.
+
+123
+00:08:17,300 --> 00:08:22,320
+Adicionalmente, eu só gostaria de 
+mencionar uma convenção em cálculo que
+
+124
+00:08:22,320 --> 00:08:24,560
+é um pouco confuso para algumas pessoas.
+
+125
+00:08:24,560 --> 00:08:28,387
+Eu não acho que é super importante 
+que você entenda cálculo, mas
+
+126
+00:08:28,387 --> 00:08:32,411
+caso você veja isso, eu quero ter certeza 
+que você não fique quebrando a cabeça.
+
+127
+00:08:32,411 --> 00:08:35,519
+Em cálculo, este termo aqui,
+
+128
+00:08:35,519 --> 00:08:40,730
+nós normalmente escrevemos desta 
+forma, com este símbolo engraçado.
+
+129
+00:08:40,730 --> 00:08:46,160
+Este símbolo, isto é na verdade 
+apenas uma letra d minúscula
+
+130
+00:08:46,160 --> 00:08:51,070
+em uma fonte estilosa, em uma fonte estilizada 
+para que, quando você ver esta expressão, tudo isso
+
+131
+00:08:51,070 --> 00:08:56,145
+significa que isto não é J(w,b), ou 
+mesmo a inclinação da função J(w,b),
+
+132
+00:08:56,145 --> 00:09:01,580
+quanto esta função se inclina na direção w.
+
+133
+00:09:01,580 --> 00:09:06,640
+E a regra da notação em cálculo, o 
+que eu acho que não totalmente lógico,
+
+134
+00:09:06,640 --> 00:09:11,780
+mas a regra na notação de cálculo, 
+que eu acho só torna as coisas mais
+
+135
+00:09:11,780 --> 00:09:16,940
+complicadas do que precisam, é 
+que se J é uma função de duas ou
+
+136
+00:09:16,940 --> 00:09:21,550
+mais variáveis, então em vez de usar uma 
+d minúscula, você usa este símbolo engraçado.
+
+137
+00:09:21,550 --> 00:09:24,380
+Isto é um símbolo de derivada parcial.
+
+138
+00:09:24,380 --> 00:09:26,120
+Mas não se preocupe com isso.
+
+139
+00:09:26,120 --> 00:09:31,090
+Se J é uma função de uma única 
+variável, então você usa d minúsculo.
+
+140
+00:09:31,090 --> 00:09:33,960
+Assim, a única diferença entre 
+usar este símbolo engraçado
+
+141
+00:09:33,960 --> 00:09:38,040
+de derivada parcial ou o 
+d minúsculo que fizemos acima,
+
+142
+00:09:38,040 --> 00:09:41,570
+é se J é uma função 
+de duas ou mais variáveis.
+
+143
+00:09:41,570 --> 00:09:45,900
+Em qual situação você usa este 
+símbolo de derivada parcial, ou
+
+144
+00:09:45,900 --> 00:09:51,480
+se J é apenas uma função de uma 
+variável, então você usa a letra d minúscula.
+
+145
+00:09:51,480 --> 00:09:55,410
+Esta á uma dessas regras 
+engraçadas de notação em cálculo que
+
+146
+00:09:55,410 --> 00:09:58,540
+eu penso que só torna as coisas mais 
+complicadas do que elas precisam ser.
+
+147
+00:09:58,540 --> 00:10:03,300
+Mas se você este símbolo de derivada parcial, 
+tudo o que significa é que você está medindo
+
+148
+00:10:03,300 --> 00:10:07,290
+a inclinação da função, com 
+relação a uma das variáveis.
+
+149
+00:10:07,290 --> 00:10:12,530
+E da mesma forma, para aderir 
+a notação correta de cálculo,
+
+150
+00:10:12,530 --> 00:10:18,070
+mencionada anteriormente, porque aqui 
+J tem duas entradas e não apenas uma.
+
+151
+00:10:18,070 --> 00:10:22,540
+Esta coisa aqui embaixo deveria ser 
+escrita com este símbolo de derivada parcial.
+
+152
+00:10:22,540 --> 00:10:28,290
+Mas na verdade, isto significa a mesma coisa, 
+quase a mesma coisa que a letra minúscula d.
+
+153
+00:10:28,290 --> 00:10:31,360
+Finalmente, quando você implementa isso em código,
+
+154
+00:10:31,360 --> 00:10:36,220
+nós iremos utilizar uma convenção 
+que esta quantidade, realmente o valor
+
+155
+00:10:36,220 --> 00:10:41,980
+que você atribui a w, será 
+representada como dw no seu código.
+
+156
+00:10:41,980 --> 00:10:44,220
+E esta quantidade, correto?
+
+157
+00:10:44,220 --> 00:10:47,230
+A quantidade que você quer atribuir a b
+
+158
+00:10:47,230 --> 00:10:50,740
+será descrita como a 
+variável db no seu código.
+
+159
+00:10:50,740 --> 00:10:55,580
+Bem, então é assim que você pode 
+implementar o gradiente decrescente.
+
+160
+00:10:55,580 --> 00:10:59,830
+Agora, se você não estuda cálculo há 
+alguns anos, eu sei que isso pode parecer
+
+161
+00:10:59,830 --> 00:11:03,770
+muito mais derivadas de cálculo 
+do que você possa estar confortável.
+
+162
+00:11:03,770 --> 00:11:06,330
+Mas se você está se 
+sentindo assim, não se preocupe.
+
+163
+00:11:06,330 --> 00:11:10,150
+No próximo vídeo nós daremos a você 
+noções melhores sobre derivadas.
+
+164
+00:11:10,150 --> 00:11:13,560
+E mesmo sem um 
+conhecimento profundo de cálculo,
+
+165
+00:11:13,560 --> 00:11:16,310
+com apenas um 
+conhecimento intuitivo de cálculo
+
+166
+00:11:16,310 --> 00:11:19,130
+você será capaz de fazer redes 
+neurais funcionarem de forma eficaz.
+
+167
+00:11:19,130 --> 00:11:22,743
+Então, vamos para o próximo vídeo 
+onde falaremos um pouco mais sobre derivadas.
+Tradução: Renato Barata Gomes | Revisão: Carlos Lage
+
+168
+00:11:22,743 --> 00:11:23,470
+as derivadas.

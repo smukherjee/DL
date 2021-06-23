@@ -1,0 +1,578 @@
+1
+00:00:00,000 --> 00:00:01,619
+Quando você treina sua rede neural,
+
+2
+00:00:01,619 --> 00:00:03,955
+é importante inicializar
+os pesos aleatoriamente.
+
+3
+00:00:03,955 --> 00:00:08,426
+Para a regressão logística, tudo bem
+inicializar os pesos em zero,
+
+4
+00:00:08,426 --> 00:00:12,258
+mas para uma rede neural, inicializar
+os pesos a parâmetros todos zero e,
+
+5
+00:00:12,258 --> 00:00:14,706
+depois, aplicar o gradiente descendente,
+não funcionará.
+
+6
+00:00:14,706 --> 00:00:15,289
+Vamos ver por quê.
+
+7
+00:00:15,289 --> 00:00:20,173
+Então você tem dois recursos de entrada, portanto,
+
+8
+00:00:20,173 --> 00:00:25,953
+n'⁰' = 2 e duas unidades ocultas, então n'¹' = 2.
+
+9
+00:00:25,953 --> 00:00:31,547
+E, então, a matriz associada
+à camada oculta,
+
+10
+00:00:31,547 --> 00:00:35,373
+w'¹', será dois por dois.
+
+11
+00:00:35,373 --> 00:00:41,230
+Digamos que você o inicialize
+todos em 0s, então 0 0 0 0, matriz dois por dois.
+
+12
+00:00:41,230 --> 00:00:45,531
+E digamos que b'¹' também é igual a 0 0.
+
+13
+00:00:45,531 --> 00:00:50,788
+Acontece que inicializar os termos
+de polarização b para 0 está realmente correto,
+
+14
+00:00:50,788 --> 00:00:54,240
+mas a inicialização de w para
+todos os zeros é um problema.
+
+15
+00:00:54,240 --> 00:00:59,625
+Então, o problema com esta
+formalização é que,
+
+16
+00:00:59,625 --> 00:01:05,522
+para qualquer exemplo que você der,
+você terá que
+
+17
+00:01:05,522 --> 00:01:09,253
+a₁'¹' =  a₂'¹'
+ Certo?
+
+18
+00:01:09,253 --> 00:01:12,613
+Então, esta ativação e
+essa ativação serão as mesmas,
+
+19
+00:01:12,613 --> 00:01:17,170
+porque ambas as unidades ocultas
+estão calculando exatamente a mesma função.
+
+20
+00:01:17,170 --> 00:01:21,810
+E então,
+quando você calcula a retropropagação,
+
+21
+00:01:21,810 --> 00:01:24,478
+verifica-se que
+
+22
+00:01:24,478 --> 00:01:30,165
+dz₁'¹' = dz₂'¹', como se fosse por simetria, certo?
+
+23
+00:01:30,165 --> 00:01:33,720
+Ambas as unidades ocultas
+serão inicializadas da mesma maneira.
+
+24
+00:01:33,720 --> 00:01:36,080
+Tecnicamente, pelo que estou dizendo,
+
+25
+00:01:36,080 --> 00:01:39,851
+suponho que os pesos de saída 
+também sejam idênticos.
+
+26
+00:01:39,851 --> 00:01:45,122
+Então,  w'²' = [ 0  0 ]
+
+27
+00:01:45,122 --> 00:01:48,691
+Mas se você inicializar
+a rede neural desse jeito,
+
+28
+00:01:48,691 --> 00:01:53,590
+então essa unidade escondida e
+essa unidade oculta são completamente idênticas.
+
+29
+00:01:53,590 --> 00:01:57,011
+Às vezes você diz que elas são
+completamente simétricas,
+
+30
+00:01:57,011 --> 00:02:01,687
+o que significa que elas estão
+calculando exatamente a mesma função.
+
+31
+00:02:01,687 --> 00:02:03,765
+E por meio de uma prova por indução,
+
+32
+00:02:03,765 --> 00:02:08,064
+verifica-se que após cada
+iteração de treinamento, suas duas unidades
+
+33
+00:02:08,064 --> 00:02:11,272
+ocultas ainda estão calculando
+exatamente a mesma função.
+
+34
+00:02:11,272 --> 00:02:17,521
+Assim, você passa para mostrar que 
+dw será uma matriz que se parece com isso,
+
+35
+00:02:17,521 --> 00:02:20,681
+onde todas as linhas têm o mesmo valor.
+
+36
+00:02:20,681 --> 00:02:23,318
+Então, realizamos uma atualização de peso.
+
+37
+00:02:23,318 --> 00:02:30,163
+Quando você realiza uma atualização de peso...
+w'¹' = w'¹' - α . dw
+
+38
+00:02:30,163 --> 00:02:33,740
+Você verá que w'¹', após cada iteração,
+
+39
+00:02:33,740 --> 00:02:37,616
+terá a primeira linha
+igual à segunda linha.
+
+40
+00:02:37,616 --> 00:02:41,487
+Portanto, é possível construir
+uma prova por indução.
+
+41
+00:02:41,487 --> 00:02:44,688
+Se você inicializar todos os caminhos,
+todos os valores de w em 0;
+
+42
+00:02:44,688 --> 00:02:49,164
+então, porque ambas as unidades ocultas
+começam a calcular a mesma função,
+
+43
+00:02:49,164 --> 00:02:53,541
+e ambas as unidades têm
+a mesma influência na unidade de saída,
+
+44
+00:02:53,541 --> 00:02:57,542
+depois de uma iteração,
+essa mesma afirmação ainda é verdadeira.
+
+45
+00:02:57,542 --> 00:03:00,273
+As duas unidades ocultas ainda são simétricas.
+
+46
+00:03:00,273 --> 00:03:04,507
+E, portanto, por indução, após duas
+iterações, três iterações e assim por diante,
+
+47
+00:03:04,507 --> 00:03:07,013
+não importa quanto tempo você
+treine sua rede neural,
+
+48
+00:03:07,013 --> 00:03:10,373
+ambas as unidades ocultas, ainda,
+estão calculando exatamente a mesma função.
+
+49
+00:03:10,373 --> 00:03:15,212
+E, portanto, neste caso, não há realmente
+nenhum motivo para ter mais de uma unidade oculta,
+
+50
+00:03:15,212 --> 00:03:17,692
+porque todas elas estão
+calculando a mesma coisa.
+
+51
+00:03:17,692 --> 00:03:22,378
+E, claro, para redes neurais maiores,
+digamos de três características e
+
+52
+00:03:22,378 --> 00:03:24,972
+talvez um número muito maior de unidades ocultas,
+
+53
+00:03:24,972 --> 00:03:29,239
+um argumento semelhante funciona para mostrar que [...]
+com uma rede neural como essa[...]
+
+54
+00:03:29,239 --> 00:03:34,107
+Não desenharei as pontas [...]
+Se você inicializar os pesos com zeros,
+
+55
+00:03:34,107 --> 00:03:37,103
+todas as suas unidades ocultas
+serão simétricas.
+
+56
+00:03:37,103 --> 00:03:40,603
+Não importa quanto tempo
+você esteja executando o gradiente decrescente,
+
+57
+00:03:40,603 --> 00:03:44,037
+todos continuam a calcular
+exatamente a mesma função.
+
+58
+00:03:44,037 --> 00:03:48,785
+Então, isso não é útil,
+porque você quer que as diferentes
+
+59
+00:03:48,785 --> 00:03:52,835
+unidades ocultas computem
+diferentes funções.
+
+60
+00:03:52,835 --> 00:03:57,748
+A solução para isso é
+inicializar seus parâmetros aleatoriamente.
+
+61
+00:03:57,748 --> 00:03:58,677
+Então, aqui está o que você faz.
+
+62
+00:03:58,677 --> 00:04:04,053
+Você pode definir:
+ w'¹' = np.random.randn((2, 2)) * 0,01
+
+63
+00:04:04,053 --> 00:04:07,037
+Isso gera uma variável aleatória
+gaussiana (2, 2).
+
+64
+00:04:07,037 --> 00:04:12,358
+E, em seguida, geralmente, você multiplica
+isso por um número muito pequeno, como 0,01.
+
+65
+00:04:12,358 --> 00:04:14,951
+Então, você o inicializa
+com valores aleatórios muito pequenos.
+
+66
+00:04:14,951 --> 00:04:20,590
+E então b, verifica-se que b não tem o problema de simetria,
+
+67
+00:04:20,590 --> 00:04:24,735
+o que é chamado de problema de
+ruptura de simetria.
+
+68
+00:04:24,735 --> 00:04:29,370
+Então, isso pode ocorrer: inicializar b em zeros
+ b'¹' = np.zeros((2, 1))
+
+69
+00:04:29,370 --> 00:04:32,166
+Porque, enquanto
+w é inicializado aleatoriamente,
+
+70
+00:04:32,166 --> 00:04:36,769
+você começa com as diferentes unidades
+ocultas calculando coisas diferentes.
+
+71
+00:04:36,769 --> 00:04:40,912
+E, então, você não tem mais esse
+problema de ruptura de simetria.
+
+72
+00:04:40,912 --> 00:04:43,795
+E, da mesma forma, para w'²',
+você vai inicializar isso de forma aleatória.
+
+73
+00:04:43,795 --> 00:04:48,858
+E b'²', você pode inicializar isso em 0.
+
+74
+00:04:48,858 --> 00:04:55,321
+Então, você pode estar se perguntando,
+de onde veio esta constante e por que é 0,01?
+
+75
+00:04:55,321 --> 00:04:58,478
+Por que não colocar o número 100 ou 1000?
+
+76
+00:04:58,478 --> 00:05:02,313
+Acontece que, geralmente,
+preferimos inicializar
+
+77
+00:05:02,313 --> 00:05:05,763
+os pesos para valores aleatórios muito pequenos.
+
+78
+00:05:05,763 --> 00:05:10,443
+Porque, se você estiver usando uma
+função de ativação tanh ou sigmoide [...]
+
+79
+00:05:10,443 --> 00:05:14,047
+Ou outro sigmoide,
+mesmo que seja apenas na camada de saída.
+
+80
+00:05:14,047 --> 00:05:17,922
+Se os pesos forem muito grandes,
+
+81
+00:05:17,922 --> 00:05:23,967
+então, quando você calcular
+os valores de ativação,
+
+82
+00:05:23,967 --> 00:05:28,621
+lembre-se de que:
+ z'¹' = w'¹' x + b'¹'
+
+83
+00:05:28,621 --> 00:05:34,094
+E então a'¹' é a função de
+ativação aplicada a z'¹'.
+
+84
+00:05:34,094 --> 00:05:39,097
+Então, se w for muito grande,
+z será muito, ou pelo menos alguns
+
+85
+00:05:39,097 --> 00:05:44,235
+valores de z serão muito grandes ou
+muito pequenos.
+
+86
+00:05:44,235 --> 00:05:49,789
+E, nesse caso, é mais provável
+que você acabe com essas partes maiores
+
+87
+00:05:49,789 --> 00:05:55,699
+da função tanh ou da função sigmoide, onde
+a inclinação ou o gradiente são muito pequenos.
+
+88
+00:05:55,699 --> 00:05:58,302
+O que significa que o
+gradiente decrescente será muito lento.
+
+89
+00:05:58,302 --> 00:05:59,730
+Então, a aprendizagem foi muito lenta.
+
+90
+00:05:59,730 --> 00:06:04,133
+Então, apenas uma recapitulação, se w for muito grande,
+é mais provável que você acabe,
+
+91
+00:06:04,133 --> 00:06:08,633
+mesmo que seja no início do treinamento,
+com valores muito grandes de z.
+
+92
+00:06:08,633 --> 00:06:13,525
+O que faz com que sua função
+de ativação tanh ou sigmoide sejam saturadas,
+
+93
+00:06:13,525 --> 00:06:15,418
+diminuindo, assim, a aprendizagem.
+
+94
+00:06:15,418 --> 00:06:17,231
+Se você não tem nenhuma função de ativação
+
+95
+00:06:17,231 --> 00:06:22,149
+sigmoide ou tanh em toda sua
+rede neural, isso é menos um problema.
+
+96
+00:06:22,149 --> 00:06:26,506
+Mas se você está fazendo uma classificação binária
+e sua unidade de saída é uma função sigmoide,
+
+97
+00:06:26,506 --> 00:06:30,806
+então, você simplesmente não quer
+que os parâmetros iniciais sejam grandes demais.
+
+98
+00:06:30,806 --> 00:06:35,435
+Então, é por isso que a multiplicação de 0,01
+seria algo razoável para se tentar,
+
+99
+00:06:35,435 --> 00:06:36,872
+ou qualquer outro número pequeno.
+
+100
+00:06:36,872 --> 00:06:38,536
+E o mesmo para w'²', certo?
+
+101
+00:06:38,536 --> 00:06:44,295
+Isso pode ser:
+ w'²' = np.random.randn((1, 2))*0,01
+
+102
+00:06:44,295 --> 00:06:49,545
+Isso seria 1 por 2
+neste exemplo, vezes 0,01.
+
+103
+00:06:49,545 --> 00:06:51,404
+Faltando um s lá.
+
+104
+00:06:51,404 --> 00:07:00,085
+Então, finalmente, verifica-se que, às vezes,
+ele pode ser o melhor valor constante:  0,01
+
+105
+00:07:00,085 --> 00:07:04,304
+Quando você está treinando uma rede
+neural com apenas uma camada oculta,
+
+106
+00:07:04,304 --> 00:07:09,129
+é uma rede neural relativamente superficial,
+sem muitas camadas ocultas.
+
+107
+00:07:09,129 --> 00:07:12,392
+Defini-la para 0,01 provavelmente funcionará bem.
+
+108
+00:07:12,392 --> 00:07:15,705
+Mas quando você está treinando uma rede
+neural muito, muito profunda,
+
+109
+00:07:15,705 --> 00:07:19,294
+então você pode querer escolher
+uma constante diferente de 0,01.
+
+110
+00:07:19,294 --> 00:07:23,642
+E, no material da próxima semana,
+falaremos um pouco sobre como e
+
+111
+00:07:23,642 --> 00:07:27,925
+quando você pode querer escolher
+uma constante diferente de 0,01.
+
+112
+00:07:27,925 --> 00:07:32,008
+Mas, de qualquer forma, geralmente acabará
+sendo um número relativamente pequeno.
+
+113
+00:07:32,008 --> 00:07:34,584
+Então, isso é tudo para os vídeos desta semana.
+
+114
+00:07:34,584 --> 00:07:38,348
+Agora, você sabe como configurar uma rede
+neural de uma camada oculta,
+
+115
+00:07:38,348 --> 00:07:42,430
+inicializar os parâmetros, fazer previsões
+usando propagação para frente,
+
+116
+00:07:42,430 --> 00:07:45,445
+além de calcular derivadas e
+implementar gradiente decrescente
+
+117
+00:07:45,445 --> 00:07:46,275
+usando retropropagação.
+
+118
+00:07:46,275 --> 00:07:48,654
+Então, você deve ser capaz
+de responder aos questionários,
+
+119
+00:07:48,654 --> 00:07:51,166
+assim como fazer os exercícios de programação
+desta semana.
+
+120
+00:07:51,166 --> 00:07:52,143
+Boa sorte com isso.
+
+121
+00:07:52,143 --> 00:07:54,802
+Espero que você se divirta com
+o exercício de programação
+
+122
+00:07:54,802 --> 00:07:57,728
+e espero vê-lo nas matérias da semana quatro.
+[Tradução: Saulo S. de Souza/Simone Tateishi
+Revisão: Julia R. Yuri]

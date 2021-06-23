@@ -1,0 +1,153 @@
+Si les idées techniques de base
+ derrière l’apprentissage profond, derrière les réseaux de neurones,
+ existent depuis des décennies, Pourquoi décollent elles maintenant ? Dans cette vidéo, nous 
+allons voir certains des principaux facteurs derrière la montée de
+ l'apprentissage profond parce que je pense que cela vous aidera à
+ repérer les meilleures occasions d’appliquer ces outils au sein 
+de votre propre organisation. Au cours de ces dernières années beaucoup de gens m’ont demandé, « Andrew, pourquoi est ce que, soudainement,
+ l’apprentissage profond fonctionne si bien ? » Quand on me pose la question, 
+généralement, je dessine ceci. Disons que nous traçons une
+ figure où, sur l’axe horizontal, nous représentons la quantité de données
+ dont nous disposons pour une tâche. et sur l’axe vertical, nous traçons la performance de 
+notre algorithme d’apprentissage par exemple la précision de 
+notre classificateur de spam, ou de notre prédicteur de clic sur
+ une pub ou l’exactitude de notre réseau de neurones pour
+ localiser les autres voitures
+ pour notre voiture autonome. Si on trace la performance d’un 
+algorithme d’apprentissage traditionnel comme les machines à 
+vecteurs de support (SVM) ou la régression logistique en
+ fonction de la quantité de données, on obtient une courbe 
+qui ressemble à ça, où les performances s’améliorent 
+pendant un certain temps lorsque
+ vous ajoutez plus de données, mais après un certain temps, 
+les performances stagnent. C’est censé être une ligne horizontale,
+ je ne l'ai pas très bien dessinée. C'est presque comme si ils ne savaient
+ pas quoi faire avec ces énormes 
+quantités de données. Ce qui est arrivé 
+dans notre société au cours des 20 dernières années est que,
+ pour beaucoup de problèmes, nous sommes passés d'une quantité
+ de données relativement faible à, souvent, une assez grande
+ quantité de données. Beaucoup proviennent de la numérisation de nos sociétés où une grande part de
+ l’activité humaine est maintenant
+ dans l’univers numérique. Nous passons beaucoup de temps sur 
+nos ordinateurs, sur des sites web, sur des applications mobiles, et les activités sur
+ des appareils numériques créent des données. Grâce à l'arrivée des caméras bon marchés dans nos téléphones portables, 
+des accéléromètres, de toutes sortes de capteurs 
+dans l’Internet des objets, nous avons également recueilli 
+de plus en plus de données. Ainsi au cours des 20 dernières années 
+pour beaucoup d’applications, nous avons accumulé 
+beaucoup plus de données que ce que les algorithmes d’apprentissage
+ traditionnels peuvent utiliser efficacement. Avec les réseaux de neurones, 
+il s’avère que si vous entraînez un petit réseau de neurone, ses
+ performances peuvent ressembler à cela. Si vous entraînez un réseau de
+ neurones un peu plus grand, appelons-le réseau de taille moyenne, la performance sera un peu meilleure, et
+ si vous entraînez un très grand réseau, alors souvent, sa performance
+ s’améliore de plus en plus. Alors, quelques observations. Premièrement, si vous voulez atteindre
+ ce niveau de performance très élevé, alors vous avez besoin de deux choses : Tout d’abord, la plupart du temps
+ nous devons être en mesure d'entraîner un réseau de neurones assez grand pour profiter de l’énorme quantité
+ de données et d’autre part, vous devez être ici sur l’axe des x, vous avez besoin de beaucoup de données. Donc nous disons souvent que l’échelle a 
+conduit le progrès de l’apprentissage profond. Et par l'échelle, je veux dire à la fois
+ la taille du réseau neuronal, c'est-à-dire un réseau de neurones 
+avec un grand nombre d’unités cachées, 
+beaucoup de paramètres et un grand nombre de connexions 
+ainsi que l’échelle des données. En fait, aujourd'hui,
+ un des moyens les plus fiables 
+pour obtenir de meilleures performances pour un réseau de neurones consiste 
+souvent à entraîner un réseau plus grand
+ ou à lui donner plus de données. Et ça ne fonctionne que 
+jusqu'à un certain point car à un moment, vous n'avez plus de
+ données ou le réseau neuronal devient tellement gros qu'il prend 
+trop de temps à entraîner, mais simplement améliorer l’échelle 
+nous a vraiment fait beaucoup avancer dans
+ le monde de l’apprentissage profond. Afin de rendre ce schéma
+ un peu plus précis techniquement, permettez-moi d’ajouter
+ quelques petites choses. J’ai écrit 'quantité de
+ données' sur l’axe des X. Techniquement, c’est une quantité
+ de données étiquetées, où par donnée étiquetée, j'entends
+ des exemples d'entraînement où nous avons 
+à la fois l’entrée x et l'étiquette y. Je voudrais introduire un peu de la notation
+ que nous utiliserons plus tard dans ce cours. Nous allons utiliser la lettre m minuscule pour
+ indiquer la taille de notre set d’apprentissage, donc le nombre d’exemples d'apprentissage
+ est m minuscule. C’est l’axe horizontal. Un autre détail sur cette figure est que, dans ce régime où on a de petits
+ ensembles d'apprentissage, l’ordre relatif des algorithmes
+ n'est en fait pas très bien défini. Donc si vous n’avez pas beaucoup 
+de données d’apprentissage, c’est souvent vos compétences à extraire 
+à la main des caractéristiques
+ qui détermine la performance. Il est donc tout à fait possible qu'une
+ personne qui fait de l'apprentissage
+ avec des SVM et qui est plus motivée pour extraire des caractéristiques 
+à la main obtienne de meilleurs résultats
+que quelqu'un qui utilise un grand réseau de neurones, peut être, dans ce régime
+ des petits ensembles d'apprentissage, les SVG peuvent être meilleurs. Dans cette région à gauche de la figure, l’ordre relatif des algorithmes
+ n'est en fait pas très bien défini. Et la performance dépend bien plus
+de votre habilité à extraire des caractéristiques à la main et 
+d’autres détails de bas niveau des algorithmes, et c’est seulement dans ce régime de big data, des ensembles d'apprentissage très grands, avec des m de grande valeur,
+ ici à droite, que l'on voit plus nettement les grands réseaux
+ neuronaux dominer les autres approches. Donc si un de vos amis vous demande 
+pourquoi les réseaux de neurones décollent, je vous encourage à
+ leur dessiner ce graphique. Donc je dirais que dans les premiers jours, au début de l'avènement du deep learning, c'était l'échelle des données 
+et l'échelle des calculs, la simple capacité d'entraîner 
+de très grands réseaux de neurones que ce soit sur CPU ou GPU, qui nous a permis 
+de faire beaucoup de progrès. Mais, de plus en plus, surtout 
+dans les dernières années, nous avons vu de formidables innovations 
+algorithmiques également. Je ne veux pas minimiser cela. Fait intéressant, bon nombre des
+ innovations algorithmiques ont été faites en essayant d'accélérer les
+ calculs des réseaux de neurones. Alors, comme exemple concret, un des progrès énormes dans
+ les réseaux de neurones a été de passer de la fonction sigmoïde, qui ressemble à ça, à une fonction ReLu, dont nous avons parlé rapidement dans une vidéo
+ précédente, qui ressemble à ceci. Si vous ne comprenez pas les détails
+ de ce que je vais dire, ne vous inquiétez pas. Mais il s’avère que l’un des problèmes de 
+l’utilisation des fonctions sigmoïdes en machine learning est qu’il y a ces régions ici 
+où la pente de la fonction, où le gradient est presque nul. Et donc l’apprentissage devient
+ vraiment lent. Parce que quand vous implémentez une descente de
+ gradient et que le gradient est nul, les paramètres changent très lentement
+ et l'apprentissage est donc très lent. Alors que, en changeant ce qui s’appelle 
+la fonction d’activation du réseau neuronal pour utiliser cette fonction appelée la
+ fonction ReLU ou l’Unité Linéaire Rectifiée, ReLU, le gradient est égal à un pour
+ toutes les valeurs positives de l’entrée. Et le gradient a donc beaucoup moins 
+tendance à se réduire progressivement à zéro. Et le gradient ici, la pente de cette
+ droite est égale à zéro sur la gauche, mais il s’avère qu'en remplaçant simplement la fonction sigmoïde par la fonction ReLU, on a rendu l'algorithme appelé 
+descente de gradient beaucoup plus rapide. Donc il s’agit d’un exemple d'une innovation
+ algorithmique relativement simple, mais cette innovation algorithmique 
+a vraiment aidé à faire les calculs. Donc il y a en fait eu beaucoup
+ d’exemples comme celui-ci où nous avons modifié l’algorithme pour que le
+ code s’exécute beaucoup plus rapidement. Et ça nous a permis d'entraîner des réseaux
+ beaucoup plus grands ou en un temps raisonnable, même lorsque nous avons
+ un grand réseau ou beaucoup de données. L’autre raison qui fait que calculer 
+rapidement est important est que le processus d'entraîner 
+des réseaux de neurones est très itératif. Souvent, vous avez une idée pour une architecture de réseau neuronal et 
+vous implémentez votre idée dans le code, l'implémentation de votre idée 
+vous permet de lancer une expérience, qui vous donne la performance de 
+votre réseau neuronal, et à partir de ça, vous retournez modifier les détails de votre réseau de neurones et puis 
+vous parcourez ce cercle encore et encore. Et quand votre réseau neuronal prend
+ beaucoup de temps à entraîner, il faut beaucoup de temps pour
+ faire le tour de ce cercle. Et il y a une grande différence 
+de productivité pour la construction 
+des réseaux neuronaux quand vous pouvez avoir une idée et l’essayer et
+ voir si cela fonctionne en 10 minutes, ou peut-être en un jour, par rapport à devoir 
+entraîner votre réseau pendant un mois. Parfois ça arrive, parce que
+ quand vous obtenez un résultat en 10 minutes ou en une journée, vous pouvez essayer beaucoup plus d’idées 
+et avoir beaucoup plus de chances de découvrir un réseau de neurones 
+qui fonctionne bien pour votre application. Et donc des calculs rapides aident vraiment à obtenir un résultat expérimental
+ plus rapidement. Et cela a vraiment aidé à la fois les 
+utilisateurs des réseaux de neurones, et les chercheurs travaillant sur
+ l'apprentissage profond à itérer bien plus vite et à améliorer 
+leurs idées plus vite. Donc, tout cela a été 
+un accélérateur incroyable pour toute la communauté de recherche 
+sur l'apprentissage profond, qui a inventé de nouveaux algorithmes et a
+ progressé en continu sur ce sujet. Donc, voici certaines des forces
+ qui permettent la montée de l’apprentissage
+ profond, mais la bonne nouvelle est que ces forces agissent encore
+ puissamment pour rendre
+ l’apprentissage profond encore meilleur. Pour les données : La société produit 
+toujours plus de données numériques. Pour la puissance de calcul :
+ Le matériel spécialisé comme les GPU 
+et un réseau plus rapide, de nombreux types de matériels. Je suis en fait assez confiant que notre capacité
+ à construire de très grands réseaux neuronaux va continuer à s'améliorer, du point
+ de vue de la puissance de calcul. Pour les algorithmes : Toute la communauté 
+de recherche sur l'apprentissage profond continue à innover de façon phénoménale 
+en ce qui concerne les algorithmes. Donc, pour cette raison, je pense que nous pouvons 
+être très optimistes, je le suis en tous cas, sur le fait
+ que l'apprentissage profond va continuer à s'améliorer pendant
+ encore de nombreuses années. Bien, sur ce, passons à la dernière
+ vidéo de cette semaine. où nous parlerons un peu plus de
+ ce que vous apprendrez dans ce cours.

@@ -1,0 +1,84 @@
+No vídeo anterior, você viu os blocos básicos para implementação
+de redes neurais profundas. Uma fase de propagação para frente,
+para cada camada, e uma fase correspondente à retropropagação. Vamos ver como você pode, de fato,
+implementar essas fases. Começaremos com uma propagação para frente. Lembre-se de que isso fará o seguinte:
+ abastece a'ˡ ⁻ ¹' (entrada); e retorna a'ˡ' (saída) e a cache z'ˡ'. E nós acabamos de dizer que
+,do ponto de vista da implementação, talvez, armazenaremos w'ˡ' e b'ˡ', apenas para facilitar a chamada das funções
+no exercício de programação. Então, as equações já devem se mostrar conhecidas. A forma de implementar uma função para frente é 
+apenas isto:  z'ˡ' = w'ˡ' * a'ˡ ⁻ ¹' + b'ˡ'. Então:
+a'ˡ' = g'ˡ'(z'ˡ') E se você quiser vetorizar a implementação, basta fazer:
+ Z'ˡ' =  W'ˡ' * A'ˡ ⁻ ¹' + b'ˡ', adicionando b, para um "broadcast" em Python. A'ˡ' = g'ˡ'(Z'ˡ')
+[aplicação do produto de Hadamard] E você se lembra de que no diagrama
+para a fase de propagação para frente, nós tínhamos esta cadeia de caixas indo para frente, então você a inicializou com um A'⁰', o qual é igual a x 
+(A'⁰' = x) Então, você a inicializou. De fato, qual é a entrada para este aqui? É  a'⁰'  que é a característica de entrada
+para qualquer um dos exemplos de treinamento, se você estiver fazendo um exemplo por vez; ou A'⁰', o conjunto de exemplos
+de treinamento completo, se você estiver processando o conjunto inteiro. Portanto, esta é a entrada para a primeira
+função para frente na cadeia. E depois, repetindo isso, você consegue calcular a propagação para frente,
+ da esquerda para a direita. Na sequência, vamos falar
+sobre a fase da retropropagação. Aqui, o seu objetivo é:
+ entrar com dₐ'ˡ'; e produzir:
+dₐ'ˡ ⁻ ¹', dw'ˡ' e db'ˡ' Deixe-me anotar as etapas necessárias
+para você calculá-los: dz'ˡ' = dₐ'ˡ' .  g'ˡ' ' (z'ˡ') 
+[aplicação do produto de Hadamard] E então, calculamos as derivadas: dw'ˡ'  = dz'ˡ' .  a'ˡ ⁻ ¹' Eu não a coloquei explicitamente
+ – a cache –, mas acontece que você precisa dela também. Assim:
+db'ˡ' = dz 'ˡ' E finalmente:
+                                  dₐ'ˡ ⁻ ¹' = w'ˡ'⸆  .  dz'ˡ' Eu não quero demonstrar as derivadas,
+detalhadamente, mas acontece que, se você pegar
+ estas definições para "dₐ" inseridas aqui, obterá a mesma fórmula
+que vimos, na semana passada, para o cálculo deste dz'ˡ'
+como uma função do dz'ˡ' anterior. Na verdade, se eu o inserir aqui, você terá:
+ dz'ˡ' = w'ˡ ⁺ ¹'⸆dz'ˡ ⁺ ¹' * g'ˡ'  '  (z'ˡ') Eu sei[...]
+ Há muita álgebra[...] Na verdade, você pode fazer
+          a sua própria verificação, pois esta é a equação que anotamos para a retropropagação, na semana passada, quando fizemos uma rede neural
+para uma camada oculta simples. Como lembrete: desta vez,
+                                 aplicamos o produto de Hadamard. E assim, tudo que você precisa são essas 4 equações
+ para implementar a sua função para trás. Finalmente, anotarei uma versão vetorizada: Então começamos com: dZ'ˡ' = dA'ˡ' * g'ˡ'  '  (Z'ˡ')
+[com  produto de Hadamard] Talvez, nenhuma surpresa aí. dW'ˡ' = (1/m)dZ'ˡ' * A'ˡ ⁻ ¹'⸆ db'ˡ' = (1/m) np.sum(dZ'ˡ') axis = 1, keepdims = True (Verdadeiro) Falamos sobre o uso do np.sum
+para o cálculo da "db", na semana passada. E finalmente: dA'ˡ ⁻ ¹' = W'ˡ'⸆ . dZ'ˡ' Isso lhe permite entrar com
+esta quantidade:  da'ˡ', todas aqui; e produzir dW'ˡ' e db'ˡ', as derivadas que você precisa, bem como  dₐ'ˡ ⁻ ¹', conforme a sequência. Então, é assim que você implementa
+a função da retropropagação. Apenas para resumir: Pegue a entrada x; você terá a primeira camada em que, talvez,
+tenha uma função de ativação ReLU; vá à segunda camada em que, talvez,
+haja outra função de ativação ReLU; vá à terceira camada em que, talvez, tenha uma função de ativação sigmoide,
+se você estiver usando a classificação binária; e isso resulta em ŷ; e depois, usando o ŷ, você poderá calcular a perda, ʆ (ŷ , y). Isso lhe permite iniciar a sua iteração de retropropagação. Vou desenhar as setas, primeiro, ok? Assim, não vou precisar alternar as canetas [...] Você terá, então, a retropropagação
+calculando as derivadas. Calculando: dw'³', db'³', dw'²', db'²', dw'¹', db'¹' E durante o percurso,
+teríamos os cálculos, eu acredito [...] as caches enviarão os z'¹', z'²', z'³'. E aqui, você passaria para trás[...]
+dₐ'²' e dₐ'¹'. Isso poderia calcular a dₐ'⁰', mas não vamos usá-la. Então, você pode desconsiderá-la. Assim, temos a forma como se implementa
+as propagações para frente e a para trás, para uma rede neural de 3 camadas. Agora, há apenas um último detalhe
+que eu não mencionei, que é sobre a sequência da propagação para frente. Nós vamos inicializá-la com o dado de entrada x. Qual seria a sequência de retropropagação? Ocorre que: dₐ'ˡ' [...] quando você está usando a regressão logística, quando você está fazendo a classificação binária, dₐ'ˡ' = - y/a +[ (1 - y) / (1 - a) ] Então, temos que a derivada para a função perda em relação à saída, em relação ao ŷ, pode ser mostrada desta forma. Se você é familiarizado com Cálculo, se você pesquisar sobre função perda ʆ e aplicar a derivada em relação a ŷ,
+ou em relação a "a", você pode mostrar que obtemos aquela fórmula. Então, esta é a fórmula que você deve usar para "dₐ", 
+para a última camada L. E, é claro, se você estivesse
+implementando uma vetorização, você inicializaria a sequência para trás, não com isso,mas com dA para a camada L, que será a mesma coisa para diferentes exemplos: [...] sobre "a" para o primeiro exemplo
+de treinamento, " + (1-y⁽¹⁾) " ou seja, y para
+o primeiro exemplo de treinamento, sobre " (1-a⁽¹⁾) " 
+isto é, "a" para o primeiro exemplo de treinamento, e etc... até o exemplo de treinamento "m". E é assim que você implementa a versão vetorizada. É dessa forma que você inicializa
+a versão vetorizada da retropropagação. Assim, você está vendo os princípios básicos tanto para propagação para frente
+quanto para retropropagação. Agora, se você implementar essas equações, terá uma aplicação correta das propagações para frente e para trás,
+para conseguir o que você precisa. Você deve estar pensando:
+"Nossa, são tantas equações! Estou meio confuso, não tenho muita certeza...
+Como isso pode funcionar" Se você estiver se sentindo assim,
+o meu conselho é: quando você estiver fazendo
+as atividades de programação desta semana, será capaz de implementar essas teorias por si só. E tudo ficará mais concreto. Sei que há muitas equações e, talvez, algumas delas
+não fazem nenhum sentido, mas se você trabalhar usando
+[as matérias] Cálculo e Álgebra Linear, que não são fáceis, sinta-se livre para tentar. Isso, na verdade, é uma das derivadas mais difíceis
+em Aprendizado de Máquina. Acontece que as equações avançam, ou melhor, as equações do Cálculo desencadeiam
+as derivadas, especialmente em retropropagação. Mas, novamente,
+se isso parece um pouco abstrato, um pouco misterioso para você, a minha opinião é que quando você
+estiver fazendo os exercícios de programação, isso se tornará mais concreto para você. Apesar de que, mesmo hoje, quando eu implemento um algoritmo
+de aprendizagem, às vezes, eu mesmo fico surpreso, quando os meus algoritmos de aprendizagem
+funcionam. Isso é porque muitas das complexidades do Aprendizado de Máquina
+vêm dos dados, ao invés das linhas de códigos. Então, às vezes, você sente como se tivesse implementado
+poucas linhas de códigos, não tem muita certeza do que fez, mas isso funciona quase como mágica. Por essas mágicas não estarem, realmente,
+nos pedaços de códigos que você escreve, os quais, com frequência, não são muito longos [...] Não são exatamente simples, mas não se trata de códigos contendo 10 mil ou 100 mil linhas [...] Mas você entrou com tantos dados
+que, às vezes, mesmo que eu tenha trabalhado com Aprendizado
+de Máquina por um longo período, às vezes, isso me surpreende um pouco [...] quando meus algoritmos de aprendizagem funcionam,
+porque muitas das complexidades do algoritmo de aprendizagem vêm de dados, ao invés de vir, necessariamente,
+dos códigos escritos em milhares de linhas. Então, você implementa
+as redes neurais profundas dessa forma. E novamente, tudo começará a ficar mais concreto
+quando você estiver fazendo o seu exercício de programação. Antes de seguirmos para o próximo vídeo, gostaria de debater sobre
+hiperparâmetros e parâmetros. Ocorre que quando você está
+treinando redes profundas, estar apto, também,
+para organizar os seus hiperparâmetros será útil para o desenvolvimento
+mais eficiente das suas redes. No próximo vídeo, vamos falar sobre
+o que isso significa, exatamente.
+Tradução: Tiago A. da Silva / Julia Yuri
+Revisão: Carlos Lage

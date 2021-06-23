@@ -1,0 +1,211 @@
+1
+00:00:00,000 --> 00:00:03,000
+Sinir ağları hesaplamalarının
+
+2
+00:00:03,000 --> 00:00:07,253
+bir geri geçiş veya geri yayılım adımları tarafından takip edilen,
+
+3
+00:00:07,253 --> 00:00:10,005
+içinde sinir ağlarının sonuçlarını hesapladığımız,
+
+4
+00:00:10,005 --> 00:00:13,310
+eğimleri ve türevleri hesaplamada kullandığımız
+
+5
+00:00:13,310 --> 00:00:16,137
+bir ileri geçiş veya ileri yayılım adımına göre düzenlediğini söylemiştim.
+
+6
+00:00:16,137 --> 00:00:21,540
+Hesaplama grafiği neden bu şekilde düzenlendiğini açıklar.
+
+7
+00:00:21,540 --> 00:00:24,375
+Bu videoda bir örneğin üzerinden geçeceğiz.
+
+8
+00:00:24,375 --> 00:00:28,060
+Hesaplama grafiğini açıklamak için
+
+9
+00:00:28,060 --> 00:00:34,260
+S biçimli bağlanım veya gelişmiş sinir ağından daha basit bir örnek kullanalım.
+
+10
+00:00:34,260 --> 00:00:37,200
+Bir J fonksiyonunu hesaplamaya çalıştığımızı varsayalım,
+
+11
+00:00:37,200 --> 00:00:39,510
+üç değişkenli bu fonksiyonun değişkenleri a, b,
+
+12
+00:00:39,510 --> 00:00:44,900
+c ve fonksiyon 3(a+bc) olsun.
+
+13
+00:00:44,900 --> 00:00:49,260
+Bu fonksiyonu hesaplamak için aslında üç ayrı adım var.
+
+14
+00:00:49,260 --> 00:00:51,799
+İlkinde bc'yi hesaplamanız gerekiyor.
+
+15
+00:00:51,799 --> 00:00:55,195
+ve bu değere u değişkeni diyelim.
+
+16
+00:00:55,195 --> 00:00:59,117
+Yani u=bc olur ve sonra V=a*u şeklinde hesaplama yapabilirsiniz.
+
+17
+00:00:59,117 --> 00:01:06,060
+Buna v diyelim ve sonra
+
+18
+00:01:06,060 --> 00:01:09,380
+J değişkeni 3v'ye eşit olur.
+
+19
+00:01:09,380 --> 00:01:15,555
+Yani bu hesaplamaya çalıştığımız son J fonksiyonudur.
+
+20
+00:01:15,555 --> 00:01:20,970
+Bu üç adımı alarak onları bu şekilde hesaplama grafiğinde çizebiliriz.
+
+21
+00:01:20,970 --> 00:01:26,400
+Buraya a,b ve c değerlerini çizdiğimi varsayalım.
+
+22
+00:01:26,400 --> 00:01:31,825
+İlk yaptığımız şey u=bc'yi hesaplamaktı.
+
+23
+00:01:31,825 --> 00:01:35,015
+Bunu dikdörtgen bir kutu içine alacağım.
+
+24
+00:01:35,015 --> 00:01:39,030
+Böylelikle girdilerimiz b ve c olur.Sonra,
+
+25
+00:01:39,030 --> 00:01:41,505
+V=a+u eşitiğini elde edebiliriz.
+
+26
+00:01:41,505 --> 00:01:47,440
+Eşitliğin girdileri V'dir.
+
+27
+00:01:47,440 --> 00:01:56,645
+Yani girdileri a ile birlikte hesaplanmış u'dur.
+
+28
+00:01:56,645 --> 00:02:04,205
+Ve sonra nihayet, elimizde J=3v eşitliği var.
+
+29
+00:02:04,205 --> 00:02:07,235
+Yani somut bir örnek olarak, eğer a=5,
+
+30
+00:02:07,235 --> 00:02:10,040
+b=3 ve c=2 olursa o halde u=bc altı olacaktır.
+
+31
+00:02:10,040 --> 00:02:15,967
+a+u (v) ise 5+6 dan 11 (v), J ise v'nin üç katı olduğundan J=33'tür.
+
+32
+00:02:15,967 --> 00:02:22,310
+Hatta , umarım bunun
+
+33
+00:02:22,310 --> 00:02:29,520
+3(5+3*2) olduğunu doğrulayabilirsiniz.
+
+34
+00:02:29,520 --> 00:02:30,865
+Ve eğer bunu açarsak
+
+35
+00:02:30,865 --> 00:02:34,390
+aslında J'nin değerini 33 buluruz.
+
+36
+00:02:34,390 --> 00:02:38,060
+Dolayısıyla hesaplama grafiği, uygun hale getirmek istediğiniz
+
+37
+00:02:38,060 --> 00:02:41,790
+bazı ayırt edici veya özel çıktı değişkenlerinin varlığında,
+
+38
+00:02:41,790 --> 00:02:43,940
+bu durumda J gibi,
+
+39
+00:02:43,940 --> 00:02:46,215
+kullanışlı olur.
+
+40
+00:02:46,215 --> 00:02:48,755
+S biçimli bağlanım durumunda
+
+41
+00:02:48,755 --> 00:02:53,260
+J, küçültmeye çalıştığımız cos fonksiyonudur.
+
+42
+00:02:53,260 --> 00:02:56,615
+Ve bu ufak örnekte gördüğümüz üzere
+
+43
+00:02:56,615 --> 00:02:58,666
+soldan sağa geçişte
+
+44
+00:02:58,666 --> 00:03:01,075
+J'nin değerini hesaplayabiliriz.
+
+45
+00:03:01,075 --> 00:03:05,993
+Ve bir sonraki slaytlarda göreceğimiz üzere türevleri hesaplamada
+
+46
+00:03:05,993 --> 00:03:10,010
+mavi okların tersi yönde giden,
+
+47
+00:03:10,010 --> 00:03:14,380
+bunun gibi sağdan sola bir geçiş olacaktır.
+
+48
+00:03:14,380 --> 00:03:17,205
+Türevleri hesaplamada bu en normali olacaktır.
+
+49
+00:03:17,205 --> 00:03:20,015
+Tekrarlamak gerekirse, hesaplama grafikleri
+
+50
+00:03:20,015 --> 00:03:24,250
+bu mavi okla soldan sağa hesaplama yapar.
+
+51
+00:03:24,250 --> 00:03:26,510
+Türevlerin ters kırmızı ok sağdan sola hesaplamasını
+
+52
+00:03:26,510 --> 00:03:31,710
+nasıl yapacağınıza bir sonraki videoda değinelim.
+
+53
+00:03:31,710 --> 00:03:33,000
+Haydi bir sonraki videoya geçelim.

@@ -1,0 +1,88 @@
+Neste vídeo, quero ajudá-lo a obter 
+um conhecimento intuitivo de cálculo e derivadas. Agora, talvez você esteja pensando que 
+não tenha visto cálculo desde a época da faculdade. E dependendo de quando você se 
+formou, talvez isso já faz algum tempo. Se isto é o que está 
+pensando, não se preocupe. Você não precisa de um conhecimento profundo 
+em cálculo para aplicar, de forma eficiente, em redes neurais e aprendizagem profunda. Se você está assistindo este vídeo 
+ou alguns vídeos posteriores e está se perguntando: 
+Nossa! Isso é mesmo para mim? Estes cálculos parecem muito complicados!
+Minha dica para você é a seguinte: assista os vídeos e então, se você 
+conseguir fazer as tarefas e completar os exercícios de programação com sucesso, 
+você sabe utilizar aprendizagem profunda. Na verdade, o que você vê 
+mais tarde é que na semana 4, nós definiremos alguns tipos de 
+funções que permitirão que você encapsule tudo o que precisa 
+ser feito em relação a cálculo. Que tais funções de propagação para 
+frente e as de retro-propagação que você já aprendeu, permitirão que você coloque tudo o 
+que você precisa saber sobre cálculo nestas funções, assim você não precisa 
+mais se preocupar com elas além de encapsular. Mas pensei que nesta incursão em 
+aprendizagem profunda, deveríamos nesta semana, abrir a caixa e mergulhar 
+um pouco mais sobre os detalhes do cálculo. Mas realmente, tudo o que você precisa 
+é um conhecimento intuitivo para que possa construir e aplicar estes 
+algorítimos com sucesso. Finalmente, se você está entre 
+este grupo menor de pessoas que é expert em cálculo, se você estiver 
+muito familiarizado com cálculo e derivadas, não vejo nenhum 
+problema se quiser pular este vídeo. Mas para os outros, vamos mergulhar e tentar obter uma compreensão 
+intuitiva sobre derivadas. Eu plotei aqui a função f(a) = 3a, 
+resultando em uma linha reta. Para obter o conhecimento sobre derivadas, 
+vamos olhar alguns pontos desta função. Digamos que "a" é igual a 2. Nesse caso, "f" de "a" é igual 
+a 3 vezes "a", é igual a 6. Então, se "a" é igual a 2, 
+então "f" é igual a 6. Daremos o valor de "a"... 
+não vamos aumentar um pouco. Vou aumentar um pouco 
+de modo que "a" agora é 2,001. Então, eu vou dar um 
+empurrãozinho para a direita. Agora, é, digamos, 2,001, este 
+gráfico não está em escala, 2,001. A diferença de 0,001 é muito pequena 
+para mostrar neste gráfico, mas ela dá um empurrãozinho nele 
+para a direita. Agora f(a) = 3 vezes este valor. 
+Assim, 6,003. Vamos plotar aqui. Não está em escala. Isto é 6,003. Se você olhar aqui para este pequeno 
+triângulo que eu estou destacando em verde, o que vemos é que, se eu 
+empurrar o ponto "a" 0,001 para a direita, então, f(a) sobe 0,003. A quantidade que f(a) aumentou 
+foi 3 vezes maior do que o quantidade que eu 
+empurrei "a" para a direita. Então diremos que a 
+inclinação, ou a derivada da função f(a) é 3, quando "a" é igual a 2. O termo derivada basicamente 
+significa inclinação. É apenas que derivada soa 
+assustador, intimidante, enquanto inclinação é uma forma mais 
+amigável de descrever o conceito de derivada. Então, sempre que você escutar derivada, 
+apenas pense que é a inclinação da função. E mais formalmente, a inclinação 
+é definida como a altura dividida pela largura deste 
+pequeno triângulo que temos em verde. Então, é 0,003 dividido por 0,001. E o fato de que a inclinação é 
+igual a 3, ou a derivada é igual a 3, apenas representa o fato de que quando 
+você empurra "a" 0,001 para a direita, uma pequena quantidade, o valor
+de f(a) sobe 3 vezes mais que o valor que você 
+empurrou "a" na horizontal. Isto é o que significa a inclinação de uma linha. Agora, vamos dar uma olhada 
+nesta função de um outro ponto. Digamos que "a" agora é igual a 5. Neste caso, f(a), 3 vezes "a", 
+é igual a 15. Digamos que eu novamente empurre 
+"a" para a direita, um pequeno empurrãozinho que ela seja agora aumentada para 5,001. f(a) é 3 vezes este valor. Então, f(a) = 15,003. E mais uma vez, quando 
+eu mover "a" para a direita, empurrei "a" 0,001 para a direita, 
+f(a) subirá 3 vezes este valor. Assim, mais uma vez a inclinação,
+em a = 5, é também 3. A forma que escrevemos isso, em que 
+a inclinação da função "f" é igual a 3, dizemos df(a)/da. E isto só significa que a 
+inclinação da função f(a), quando você altera um pequeno 
+valor da variável "a", é igual a 3. E uma forma alternativa de escrever 
+esta fórmula de derivada é assim: você também pode escrever d/da . f(a). Se você colocar o f(a) em cima 
+ou se você escreve aqui em frente, Isso não importa. Mas toda esta equação significa que, 
+se eu mover "a" um pouquinho para a direita, eu espero que f(a) suba 3 
+vezes a quantidade que eu movi o valor de "a". Neste vídeo, eu expliquei derivada falando o que acontece quando 
+empurramos a variável "a" 0,001. Se você quer uma definição 
+matemática formal de derivadas, elas são definidas com um valor ainda menor 
+de quanto você empurra "a" para a direita. Portanto, não é 0,001. Não é 0,00000001. Não é 0,0000000000...1 e assim por diante. Mas um valor ainda menor do que isso. E a definição formal de derivativa diz que, 
+sempre que você empurrar "a" para a direita, por uma quantidade infinitesimal, basicamente 
+uma quantidade infinitamente pequena, se você fizer isso, f(a) irá sempre 
+aumentar 3 vezes, independente do valor que você empurre para a direita, 
+por menor menor que ele seja. Então, esta é a definição 
+formal de uma derivativa. Mas, para fins de nossa 
+compreensão intuitiva, falaremos sobre empurrar "a" 
+para a direita em valores pequenos, 0,001, mesmo que 0,001 não seja 
+exatamente pequeno, pequenino, ou infinitesimal. Uma propriedade da derivada 
+é que não importa onde você meça a inclinação desta função, 
+ela será igual a 3. Independentemente se "a" é igual a 2 
+ou se "a" é igual a 5, a inclinação desta função é igual a 3. Significa que, qualquer que seja o valor de "a", 
+se você aumentá-lo por 0,001, o valo de f(a) aumentará 
+3 vezes este valor. Assim, esta função tem 
+sempre a mesma inclinação. Uma forma de ver isso é que, em qualquer 
+lugar que você desenhe este pequeno triângulo, a altura divida pela largura terá 
+sempre a mesma relação de 3 para 1. Espero que isso dê uma 
+noção do que é uma inclinação, uma derivada de uma linha reta, onde, neste exemplo, a inclinação 
+da função foi 3 em qualquer ponto. No próximo vídeo, veremos um exemplo 
+um pouco mais complexo onde a inclinação da função pode ser 
+diferente em pontos diferentes da função 
+[Tradução: Renato Barata Gomes | Revisão: Carlos Lage]

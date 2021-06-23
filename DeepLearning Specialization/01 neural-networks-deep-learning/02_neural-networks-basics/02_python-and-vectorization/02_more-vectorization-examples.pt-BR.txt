@@ -1,0 +1,66 @@
+No vídeo anterior, você viu alguns 
+exemplos de vetorização usando funções internas e, evitando explicitamente os laços de repetição "for", permite que você 
+acelere o seu código significativamente. Vamos ver mais alguns exemplos. A regra de ouro para manter 
+em mente é, quando você estiver programando sua rede neural ou quando 
+você estiver programando regressão logística, sempre que possível, evite usar laços de repetição "for". E nem sempre é possível se livrar
+de um laço de repetição "for", mas quando você puder usar uma função interna ou encontrar alguma outra forma de calcular o que quer que você precise, você geralmente irá mais rápido do que 
+se você tivesse um laço de repetição "for". Vamos olhar em outro exemplo. Se alguma vez você desejar calcular 
+um vetor u como produto de uma matriz A, e outro vetor v, então a definição de um multiplicador de matriz é que seu uᵢ é igual ao somatório j de Aᵢj vezes vj. Certo. Assim é como você define uᵢ. Então, a implementação não vetorizada disso seria saber definir
+u = np.zeros ...(continua) ... isso vai ser
+u = np.zeros((n,1)) E então, 
+um laço "for" para i, outro laço "for" para j, e assim vai. Correto? Então
+u[i] += A[i][j] vezes v[j]. Então agora, isso tem dois laços "for"
+um para i" e outro para "j". Então esta foi uma versão
+não vetorizada. A implementação vetorizada será
+u = np.dot(A,v) e esta implementação à direita para a versão vetorizada elimina dois laços de repetição "for" diferentes 
+e será muito mais rápida. Vamos ver mais um exemplo. Digamos que você já tem um vetor v na memória e você quer aplicar a operação exponencial em 
+todos os elementos de, digamos, este vetor v. Então, você calcula 
+u igual ao vetor, isto é, igual a e^v₁, e^v₂, e assim por diante até
+e^vₙ. Então, esta seria uma implementação 
+não vetorizada onde, primeiramente, você inicializa u com um vetor de zeros
+ e então, você tem um laço de repetição "for"
+que calcula os elementos, um de cada vez. Mas resulta que Python e Numpy têm muitas 
+funções internas que permitem que você calcule estes vetores com apenas uma 
+única chamada de uma única função. Então, eu implementaria isso assim:
+import numpy as np e depois chamaria u = np.exp(v)
+Note que, enquanto anteriormente você teve um laço de repetição "for", 
+com apenas uma linha de código aqui, com este v como um vetor de entrada, u como um vetor de saída, você se livrou do laço de 
+repetição "for" e a implementação na direita será muito mais rápida do 
+que a outra do laço "for". Na verdade, a biblioteca numpy 
+tem muitas outras funções de vetores. Assim, np.log(v) calculará
+o log de cada elemento de v. np.abs(v) calcula o 
+valor absoluto de cada elemento de v. np.maximum(v,0), calcula o valor máximo entre 
+o elemento de v e zero, você obtém, assim, o máximo entre 
+cada elemento de v ou zero (o que for maior, certo?) v**2 eleva ao quadrado
+cada elemento de v. Você sabe, 1/v pega o 
+inverso de cada elemento, e assim por diante. Então, sempre que você estiver tentado 
+a escrever um laço de repetição "for", observe se há alguma forma de chamar uma função interna do NumPy sem 
+ter que fazer o laço de repetição "for". Então, vamos pegar todos 
+esses aprendizados e aplicá-los em nossa implementação do gradiente 
+decrescente na regressão logística e ver se podemos, pelo menos, nos 
+livrar de um dos dois laços de 
+repetição "for" que nós tínhamos. Então, aqui está o nosso código para calcular 
+as derivadas para a regressão logística. E nós tínhamos 2 laços de repetição "for". Um era este aqui em cima e 
+o segundo era este aqui, correto? Então, em nosso exemplo, nós tínhamos n, ou melhor,
+ nₓ = 2, mas se tivéssemos mais 
+características do que apenas duas, então 
+precisaríamos de laços "for" sobre dw₁, sobre dw₂, dw₃ e assim por diante. Então, é como se houvesse, na verdade,
+um laço "for" par= 1 até j= nₓ. Você sabe que dwj
+é atualizada em cada iteração, correto? Então, queremos eliminar 
+este segundo laço "for". É isso o que faremos nesta linha. A forma que faremos isso é, ao invés 
+de explicitamente inicializar dw₁, dw₂, e assim por diante, com zeros, nós vamos eliminar isso e ao 
+contrário, faremos de dw um vetor. Definiremos dw igual a 
+np.zeros, e faremos isso, digamos, para um vetor de dimensões nₓ por 1, 
+(nₓ,1) e aqui, ao invés disso, você sabe, que é um laço de repetição sobre 
+os componentes individuais, nós simplesmente usamos 
+esta operação de valor de vetor. dw + = X⁽ⁱ⁾ dz⁽ⁱ⁾ dw += X⁽ⁱ⁾ dz⁽ⁱ⁾ 
+e então, finalmente, ao invés disso, nós só teremos dw /= m. Agora, passamos de dois 
+laços de repetição "for" para apenas um. Nós ainda temos este laço "for" sobre 
+os exemplos de treinamento individuais. Espero que este vídeo 
+tenha dado uma noção de vetorização e de que quando nos 
+livramos de um laço de repetição "for", seu código já irá rodar mais rápido. Mas resulta que podemos fazer ainda melhor. Então, no próximo vídeo, falaremos de como vetorizar 
+ainda mais a regressão logística e você verá um resultado surpreendente 
+em que, sem usar qualquer laço "for", sem necessitar um laço de repetição 
+"for" sobre os exemplos de treinamento, você poderia escrever o código para 
+processar o conjunto de treinamentos inteiro, basicamente tudo ao mesmo tempo. Então, vamos ver isso no próximo vídeo.
+[Tradução: Renato Barata Gomes | Revisão: Carlos Lage.]

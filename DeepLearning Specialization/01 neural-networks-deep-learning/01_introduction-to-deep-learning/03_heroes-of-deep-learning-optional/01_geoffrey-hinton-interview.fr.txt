@@ -1,0 +1,500 @@
+Dans le cadre de ce cours 
+fourni par deeplearning.ai, j’espère non seulement vous enseigner les
+ idées techniques en apprentissage profond, mais aussi vous présenter certaines personnes, 
+certains des héros du deep learning. Des personnes qui ont inventé tellement des idées que vous découvrirez dans ce cours,
+ ou dans cette spécialisation. Dans ces vidéos, je souhaite également demander 
+à ces leaders de l’apprentissage profond de vous donner des conseils de carrière pour savoir
+ comment vous pouvez percer en apprentissage profond, comment vous pouvez faire de la recherche 
+ou trouver un emploi en apprentissage profond. Dans la première de cette série d'interviews, Je suis très heureux de vous proposer 
+une interview avec Geoffrey Hinton. Bienvenue Geoff et merci de faire 
+cette interview avec deeplearning.ai. >> Je vous remercie de m’avoir invité. je pense qu’à ce stade, vous que plus que
+ quiconque sur cette planète avez inventé tellement des idées 
+derrière l'apprentissage profond. Et beaucoup de gens vous ont appelé 
+le parrain de l’apprentissage profond. Bien que lorsque nous bavardions
+ il y a quelques minutes, jusqu'à ce que je réalise que vous pensiez que je suis le premier à vous appeler
+ comme cela, ce que je suis très heureux d’avoir fait. Mais ce que je veux demander est, beaucoup de gens
+ vous connaissent en tant que légende, je voudrais vous poser des questions sur
+ votre histoire personnelle derrière la légende. Alors comment vous êtes vous retrouvé, au départ, 
+comment vous êtes-vous impliqué dans l'IA et l'apprentissage automatique et
+ les réseaux de neurones ? >> Quand j’étais au lycée, j’ai eu 
+un camarade de classe qui a toujours été meilleur que moi en tout, 
+c'était un brillant mathématicien. Et il est venu à l’école un jour et a dit : 
+Sais-tu que le cerveau utilise des hologrammes ? Et je pense que c'était aux environ de 1966 et
+ j’ai dit, plus ou moins, c'est quoi un hologramme ? Et il a expliqué que dans un hologramme,
+ vous pouvez en enlever la moitié vous obtenez toujours l'image complète. Et que les souvenirs dans le cerveau pourraient 
+être répartis sur tout le cerveau. Et donc je suppose qu’il avait lu quelque chose 
+sur les expériences de Lashley, où vous coupez des morceaux de cerveau d’un rat et vous découvrez qu’il est très difficile de trouver 
+un endroit où il stocke un souvenir particulier. C’est ce qui m’a tout d’abord intéressé, la façon
+ dont le cerveau emmagasine les souvenirs. Et puis quand je suis allé à l’Université, J’ai commencé étudier la physiologie et la physique. Je pense que quand j’étais à Cambridge, j'étais le seul élève de premier cycle
+ faisant la physiologie et la physique. Et puis j’ai laissé tomber ça et essayé de faire de la philosophie, parce que je pensais 
+que cela pourrait me donner plus de notions Mais il m'a semblé en fait manquer de moyens pour distinguer 
+quand ils disaient quelque chose de faux. Et alors, je suis passé à la psychologie. En psychologie, ils avaient des théories
+ très, très simples et il m’a semblé que c’était en quelque sorte désespérément insuffisant
+ pour expliquer ce que fait le cerveau. Alors, j’ai abandonné quelques temps 
+et je suis devenu charpentier. Et puis j’ai décidé que j’essayerais l'IA
+ et je suis allé d’à Édimbourg, pour étudier l'IA avec Langer Higgins. Il avait fait de très beaux travaux
+ sur les réseaux neuronaux, et il venait juste d'abandonner les réseaux neuronaux 
+et avait été très impressionné par la thèse de Winograd. Donc quand je suis arrivé, 
+il pensait que je faisais des choses dépassées, et Je devais me mettre à l’IA symbolique. Et nous avons eu beaucoup de débats à ce sujet, 
+mais j’ai juste continué à faire ce en quoi j’ai cru. >> Et ensuite ? >> j’ai finalement obtenu un doctorat
+ en intelligence artificielle, mais je ne pouvais pas
+ obtenir un emploi en Grande-Bretagne. Mais j’ai vu cette très belle publicité pour des bourses Sloan en Californie 
+et j'ai réussi à en obtenir une. Et je suis allé en Californie, et tout y était différent. Ainsi en Grande-Bretagne, les réseaux neuronaux 
+étaient considérés comme quelque chose de stupide, et en Californie, Don Norman et David Rumelhart étaient très ouverts à 
+des idées sur des réseaux neuronaux. C’était la première fois où j’étais quelque part où
+ la réflexion sur le fonctionnement du cerveau, et réfléchir à comment ça pourrait 
+se rapporter à la psychologie, était considéré comme quelque chose de très positif. Et c'était très sympa, en particulier, la collaboration avec 
+David Rumelhart était géniale. >> je vois, très bien.
+Donc, ce fut quand vous étiez à l’UCSD que vous et Rumelhart, autour de quoi, 1982, avez écrit la première publication sur 
+la rétropropagation, n'est ce pas? >> En fait, c’était plus compliqué que cela. >> Que s'est-il se passé ? >> Début 1982, je crois, David Rumelhart et moi et Ron Williams, entre nous, avons développé 
+l’algorithme de rétropropagation, C’est principalement l'idée de David Rumelhart. Nous avons découvert plus tard que 
+beaucoup d’autres personnes l'avaient inventé. David Parker l'avait inventé, sans doute après nous, 
+mais avant que nous l'ayons publié. Paul Werbos l'avait déjà publié, 
+pas mal d’années avant, mais personne n’y avait accordé beaucoup d’attention. Et il y avait d’autres personnes qui avaient développé
+ des algorithmes très similaires, Ce n’est pas clair ce que l'on entend par rétropropagation, Mais utiliser la règle de décomposition des dérivée
+ n’était pas une idée nouvelle. >> je vois, pourquoi, à votre avis, est-ce que 
+c’est votre publication qui a tellement contribué à ce que la communauté s'empare
+ de la rétropropagation ? Il semble que votre publication à marqué 
+une inflexion dans l’acceptation de cet algorithme, tout le monde l’a accepté. >> Donc nous avons réussi à obtenir 
+une publication dans Nature en 1986. Et j’ai dû faire pas mal de travail politique 
+pour que cette publication soit acceptée. J'ai su qu’un des relecteurs allait 
+probablement être Stuart Sutherland, qui était un psychologue 
+bien connu en Grande-Bretagne. Et je suis allé lui parler assez longuement, et je lui ai expliqué exactement 
+de quoi il était question. Et il était très impressionné par le fait que nous avions montré que la rétropropagation pouvait 
+apprendre des représentations de mots. Et que vous pouviez regarder ces représentations,
+ qui sont des petits vecteurs, et vous pouviez comprendre la signification
+ des caractéristiques individuelles. Donc nous avions fait l'apprentissage sur 
+des triplettes de mots sur les arbres généalogiques, comme Marie a pour mère Victoria. Et vous lui donniez les deux premiers mots,
+ et il devait prévoir le dernier mot. Et après l'apprentissage, vous pouviez voir toutes sortes de caractéristiques 
+dans les représentations des mots individuels. Comme la nationalité de la personne, de quelle génération ils étaient, de quelle 
+branche de la famille, et ainsi de suite. C’est ce qui fait que Stuart Sutherland 
+a été vraiment impressionné, et je pense que c'est pour ça 
+que le papier a été accepté. >> C'était le tout début du plongement
+ lexical et vous avez déjà vu caractéristiques de significations sémantiques 
+émerger de l’algorithme d'apprentissage. >> Oui, et du point de vue d’un psychologue, 
+l'intéressant était que ça unifiait deux écoles complètement différentes 
+sur ce à quoi ressemble la connaissance. Il y avait le vieux point de vue du psychologue 
+qui disait qu’un concept est juste un gros paquet de caractéristiques, 
+et il y a beaucoup de preuves pour cela. Et puis il y avait la vue de l'AI du moment, 
+qui est une vue structuraliste formelle. Qui était qu’un concept est la façon dont
+ il est lié à d’autres concepts. Et pour capturer un concept, vous deviez faire quelque chose 
+comme une structure de graphe ou peut-être un réseau sémantique. Et ce que cet exemple de rétropropagation a montré
+ est que vous pouviez lui donner les informations qui iraient dans une structure 
+de graphe, ou dans ce cas un arbre généalogique, et qu'il pouvait convertir ces informations en 
+caractéristiques de telle manière qu’il put ensuite utiliser ces caractéristiques pour en dériver de nouvelles
+ informations cohérentes, c’est à dire généraliser. Mais l’essentiel c’était ce va et vient entre
+ la représentation graphique, la structure arborescente de l’arbre généalogique, et une représentation des gens en tant 
+que gros vecteurs de caractéristiques. Et en fait qu’à partir de la représentation en graphe,
+ vous pouviez obtenir des vecteurs de caractéristiques. vecteurs. Et avec les vecteurs de caractéristiques, 
+vous pouvez obtenir une représentation en graphe. >> Donc c'était en 1986 ? Au début des années 90, Bengio a montré que 
+vous pouvez prendre des données réelles, vous pouvez prendre du texte en anglais et
+ y appliquer les mêmes techniques, et avoir du plongement lexical à partir de texte en anglais, 
+et ça a beaucoup impressionné les gens. >> je suppose. Récemment, nous avons beaucoup
+ parlé de la façon dont les ordinateurs rapides
+ comme les GPU et les supercalculateurs ont été un moteur
+ pour l’apprentissage profond. Je ne savais pas que dès 1986 et
+ au début des années 90, on dirait que entre vous et Benjio il y avait déjà
+ les prémices de cette tendance. >> Oui, c’était un progrès énorme. En 1986, j’utilisais une machine Lisp qui avait
+ moins d’un dixième d’un méga flop. Et vers 1993 ou à peu près, les gens voyaient dix mega flops. >> je vois.
+>> Donc il y avait un facteur de 100, et c’est à ce moment là que 
+c'est devenu facile à utiliser, parce que les ordinateurs devenaient
+ juste plus rapide. >> Dans les dernières décennies, 
+vous avez inventé des pans entiers des réseaux de neurones 
+et de l'apprentissage profond. Je suis réellement curieux, 
+de tout ce que vous avez inventé, qu'est ce qui vous enthousiasme le plus
+ encore aujourd'hui ? >> Donc je pense que la plus belle chose
+ est le travail que je fais avec Terry Sejnowski sur des machines de Boltzmann. Donc nous avons découvert 
+qu'il y avait cet algorithme d'apprentissage très très simple
+ qui s'applique à de gros réseaux densément connectés où on ne pouvait voir
+ que quelques-uns des nœuds. Donc il apprendrait des représentations cachées 
+et c’est un algorithme très simple. Et ça ressemblait au genre de choses que
+ vous pouvez avoir dans un cerveau parce que chaque synapse a seulement besoin de connaître
+ le comportement des deux neurones auxquels 
+elle était directement connectée. Et l’information qui était propagée était la même. Il y a deux phases différentes,
+ que nous avons appelé le réveil et le sommeil. Mais dans les deux phases différentes, vous propagez des informations de la même façon. Alors que dans quelque chose comme la 
+rétropropagation, il y a une passe directe et une passe arrière et 
+elles fonctionnent différemment. Elles envoient des types de signaux différents. Donc je pense que c’est la plus belle chose. Et pendant de nombreuses années,
+ c'était juste une curiosité, parce qu’il semblait que c’était beaucoup trop lent. Mais plus tard, je me suis débarrassé d’un peu 
+de la beauté, et au lieu de le laisser s'installer, j'ai utilisé une seule itération,
+ dans un réseau un peu plus simple. Et cela a donné 
+les machines de Boltzmann restreintes, qui fonctionnaient efficacement dans la pratique. Ainsi, dans la compétition de Netflix, par exemple, les machines de Boltzmann restreintes étaient
+ un des ingrédients de la soumission gagnante. >> Et en fait, beaucoup de la résurgence récente
+ des réseaux neuronaux et de l'apprentissage profond, à partir d'environ 2007, 
+vient de la machine de Boltzmann restreinte, et des travaux sur la machine de Boltzmann générale
+ que vous et votre laboratoire avez menés. >> Oui c’est une autre partie de mon travail 
+dont je suis très content, l’idée de qui vous pourriez entrainer 
+votre machine de Boltzmann restreinte, qui n'avait qu'une couche de 
+caractéristiques cachées et que vous pourriez
+ apprendre une couche de caractéristiques. Et puis vous pourriez traiter ces caractéristiques comme 
+des données et le faire à nouveau, et puis vous pouvez traiter les nouvelles
+ caractéristiques que vous avez apprises
+ comme des données et le faire à nouveau, autant de fois que vous voulez. Donc c'était sympa, 
+cela fonctionnait dans la pratique. Et puis Yee Whye Teh s’est rendu compte que tout cela pouvait
+ être considéré comme un seul modèle, mais c’était un modèle bizarre. C’était un modèle où, en haut, vous avez 
+une machine de Boltzmann restreinte, mais en dessous vous aviez un réseau de croyance sigmoïde,
+ qui était quelque chose que Radford Neal avait inventé des années plus tôt. Donc c’était un modèle dirigé et ce que nous avions réussi à inventer en 
+entrainant ces machines de Boltzmann restreintes était un moyen efficace de faire des inférences
+ dans des réseaux de croyance sigmoïdes. Donc, à cette époque, il y avait des gens qui faisaient 
+des réseaux neuronaux, et qui voulaient 
+utiliser des réseaux densément connectés, mais n’avaient pas de bons moyens de faire 
+des inférences probabilistes en eux. Et vous aviez des gens qui faisaient des modèles 
+graphiques, contrairement à mes enfants, qui pouvaient faire des inférences correctement, 
+mais seulement dans des réseaux peu connectés. Et ce que nous avons réussi à montrer 
+est comment faire l’apprentissage de réseaux de croyance profonds pour qu’il y ait
+ une forme approximative d’inférence qui est très rapide, elle nécessite une seule passe dans le sens direct 
+et ça c’était un très beau résultat. Et vous pouviez garantir que chaque fois que vous 
+appreniez une couche supplémentaire de caractéristiques, Il y avait une borne inférieure, 
+chaque fois que vous entrainiez une nouvelle couche,
+ vous aviez une nouvelle borne, et la nouvelle borne était toujours
+ meilleure que l'ancienne borne. >> Les bornes variationnelles, qui apparaissent 
+lorsque vous ajoutez des couches. Oui, je me souviens de la vidéo. >> Donc c'est la deuxième chose 
+qui m'a vraiment enthousiasmé. Et je suppose que la troisième chose est le travail que
+ j’ai fait avec Bradford Neal sur les méthodes variationnelles. Il s’avère que des gens en statistiques avaient 
+fait un travail similaire plus tôt, mais nous ne le savions pas. Si nous avons réussi à faire fonctionner l'EM (expectation maximisation) beaucoup mieux 
+en montrant qu'il n'y a pas besoin d'une étape E parfaite. Vous pouvez faire une étape E approximée. Et EM est un algorithme important dans les statistiques. Et nous en avions montré une grande généralisation. Et, en particulier, en 1993, je pense, avec Van Camp, j’ai fait un papier qui était, je pense, la
+ première publication sur les variations bayésiennes où nous avons montré que vous pouvez en fait
+ faire une version de l’apprentissage bayésien qui était beaucoup plus souple, 
+en approximant le vrai postérieur avec une gaussienne. Et vous pouvez le faire avec un réseau neuronal. Et j’étais très content de ça. >> je vois.
+Wow. Yep, je pense que je me souviens de toutes ces publications, Neal et Hinton sur l'EM approximée, 
+j'ai passé de nombreuses heures à le lire. Et je pense que certains des algorithmes
+ que vous utilisez aujourd'hui ou certains des algorithmes que beaucoup de gens 
+utilisent presque tous les jours, je veux dire des choses comme l'abandon, ou je crois que l'activation ReLU 
+proviennent de votre groupe ? >> Oui et non. D'autres personnes ont pensé aux unités linéaires rectifiées. Et effectivement, nous avons fait des travaux avec
+ des machines de Boltzmann restreintes montrant qu’une ReLU était presque exactement équivalente
+ à une pile entière d’unités logistiques. Et c’est une des choses qui ont aidé 
+les ReLUs à avoir du succès. >> J’étais vraiment curieux à ce sujet. Le papier sur les ReLU contenait
+ beaucoup de math montrant que cette fonction peut être approximée par cette formule vraiment compliquée. Avez-vous fait toutes ces maths pour que votre papier
+ soit accepté dans une conférence universitaire, ou tous les maths ont vraiment
+ influencé le développement de max de 0 et x ? >> Ça a été l’un des cas où 
+les maths ont vraiment été importantes pour le développement de l’idée. Donc je connaissais les unités linéaires rectifiées,
+ évidemment, et je connaissais les unités logistiques. Et grâce au travail sur les machines de Boltzmann, tout le travail de base a été effectué
+ à l’aide d’unités logistiques. Et donc la question était : l’algorithme d’apprentissage pourrait-il servir à
+ quelque chose avec des unités linéaires rectifiées ? Et en montrant que les unités linéaires rectifiées 
+étaient presque équivalentes à une pile d'unités logistiques, nous avons montré que
+ toutes les maths pourraient se faire. — Je vois. Et ça a fourni l’inspiration pour aujourd'hui,
+ des tonnes de gens utilisent les ReLUs et ça marche, sans
+>> Oui. >> Sans devoir nécessairement comprendre
+ la même motivation. >> Oui, une chose j’ai remarquée plus tard 
+quand je suis allé chez Google, je crois que c'était en 2014, j’ai donné une conférence
+ à Google sur l’utilisation des ReLUs et l’initialisation avec la matrice identité. parce que la bonne chose avec les ReLUs, 
+c’est que si vous dupliquez les couches cachées et que vous initialisez avec l’identité, ça copie simplement le modèle vers la couche en dessous. Et donc je montrais que vous pouvez entrainer
+ des réseaux avec 300 couches cachées et que vous pouvez les entrainer vraiment efficacement 
+si vous initialisez avec leur identité. Mais je n'ai pas poussé ça plus loin et
+ je regrette vraiment de ne pas l'avoir fait. Nous avons publié un papier avec Quoc Le
+ montrant que vous pouvez initialiser montrant que vous pouvez initialiser
+ des réseaux récurrents comme ça. Mais j'aurais dû approfondir ça parce que,
+ plus tard, ces réseaux résiduel c'était vraiment ce genre de chose. >> Au cours des années, je vous ai beaucoup
+ entendu parler du cerveau. Je vous ai entendu parler de la relation 
+entre la rétro propagation et le cerveau. Quelles sont vos idées actuelles là-dessus ? >> je travaille à un papier sur ça actuellement. Je suppose que ma pensée principale est la suivante. S'il s’avère que la rétro propagation est
+ un très bon algorithme pour faire de l’apprentissage, alors, assurément, l'évolution pourrait
+ avoir réussi à l'implémenter. Je veux dire, vous avez des cellules qui peuvent 
+se transformer soit en globes oculaires, soit en dents. Donc, si les cellules peuvent faire ça, elles peuvent
+ à coup sûr implémenter la rétro-propagation et vraisemblablement il y a une énorme
+ pression sélective pour ça. Donc je pense que l’idée des neuroscientifiques comme quoi 
+cela ne semble pas plausible est tout simplement ridicule. Il peut y avoir une certaine implémentation subtile de ça. Et je pense que le cerveau a probablement quelque chose 
+qui n'est peut-être pas exactement de la rétro-propagation, mais qui en est assez proche. Et au cours des années, j'ai eu un certain nombre d’idées
+ sur comment cela pourrait fonctionner. Ainsi en 1987, en collaboration avec Jay McClelland, j'ai mis au point l’algorithme de recirculation, l'idée est que vous envoyez 
+des informations dans une boucle. Et que vous essayez de faire en sorte que les choses ne changent pas lorsque
+ les informations font le tour de cette boucle. La version plus simple serait donc
+ vous avez des unités d'entrée et des unités cachées, et vous envoyez des informations de l’unité d'entrée
+ à l'unité cachée, puis de nouveau à l’entrée, et puis de nouveau à la cachée,
+ puis de nouveau à l’entrée et ainsi de suite. Et ce que vous voulez, vous souhaitez
+ entraîner un auto encodeur, mais vous voulez l'entraîner 
+sans avoir à faire de rétro-propagation. Donc vous l'entraînez seulement à se débarrasser
+ de toute variation dans les activités. Donc, l’idée est que la règle d’apprentissage pour les synapses est de changer la pondération 
+proportionnellement à l’entrée présynaptique et proportionnellement au taux de changement 
+de l’entrée postsynaptique. Mais avec la recirculation, vous essayez
+ de faire de l’entrée postsynaptique, vous essayez de faire que le vieux soit bon 
+et que le nouveau soit mauvais, donc vous modifiez dans cette direction. Nous avons inventé cet algorithme
+ avant que les neuroscientifiques découvrent la plasticité fonction du temps d'occurrence des impulsions. La plasticité fonction du temps d'occurrence des impulsions
+ est en fait le même algorithme mais dans l'autre sens, où la nouvelle chose est bonne et
+ la vieille chose est mauvaise dans la règle d’apprentissage. Si vous modifiez les pondérations 
+en proportions de l’activité présynaptique multiplié par la nouvelle activité post synaptique moins l'ancienne. Par la suite, j’ai réalisé en 2007,
+ que si vous preniez une pile de machines de Boltzmann restreintes et vous les entraînez. Après l'apprentissage, vous avez alors
+ exactement les bonnes conditions pour implémenter la rétro-propagation
+ en essayant juste de reconstruire. Si vous regardez l'erreur de reconstruction,
+ l’erreur de reconstruction vous donne en fait la dérivée 
+de la performance discriminative. Et lors du premier atelier sur l’apprentissage profond en 2007,
+ j’ai donné une conférence à ce sujet. Qui a été presque complètement ignoré. Plus tard, Joshua Bengio a reprit l’idée et a fait beaucoup de travaux là-dessus. Et j’ai fait plus de travail là-dessus moi aussi. Et je pense que cette idée que si vous avez 
+une pile d’auto-encodeurs, alors vous pouvez obtenir des dérivées en envoyant l’activité vers l’arrière
+ et en regardant l'erreur de reconstruction, est une idée vraiment intéressante et 
+c'est peut-être comme ça que le cerveau fait. >> Il y a un autre sujet sur lequel je sais que 
+vous avez beaucoup réfléchi, et je crois que vous y travaillez toujours, c’est comment faire face à
+ des échelles de temps multiples dans l’apprentissage profond ? Alors, pouvez-vous partager vos pensées là-dessus ? >> Oui, donc en fait, cela remonte à 
+mes premières années de thèse. La première conférence que j’ai donnée était sur 
+l’utilisation de ce que j’ai appelé les poids rapides. Donc des poids qui s’adaptent rapidement,
+ mais s'affaiblissent rapidement. Et par conséquent peuvent contenir 
+de la mémoire à court terme. Et je l’ai montré dans un système très simple 
+en 1973 que vous pouvez faire de la vraie récursivité avec ces poids. Et ce que j’entends par vraie récursivité 
+c’est que les neurones qui servent à représenter des choses sont réutilisés pour 
+représenter des choses dans le noyau récursif. Et le poids qui est utilisé pour représenter de la connaissance 
+est réutilisé dans le noyau récursif. Et cela amène la question de, 
+quand vous sortez de votre noyau récursif, Comment vous vous souvenez de ce que
+ vous étiez en train de faire ? Où est cette mémoire ? Parce que vous avez utilisé les neurones
+ pour le noyau récursif. Et la réponse est que vous pouvez 
+mettre cette mémoire dans les poids rapide, et vous pouvez récupérer les états d'activité des neurones 
+à partir de ces poids rapides. Et plus récemment, en travaillant avec Jimmy Ba, nous avons obtenu un papier dans NIPS en utilisant 
+des poids rapides pour la récursivité comme ça. — Je vois. >> Donc ça fait un sacré écart. Le premier modèle était inédit en 1973 et puis le modèle de Jimmy Ba était 
+en 2015, je crois, ou 2016. C’est donc une quarantaine d’années plus tard. >> Et, je suppose, une autre idée dont je
+ vous ai entendu parler depuis quelques années maintenant, plus de cinq ans, selon moi, 
+est les capsules, où en êtes vous avec ça ? >> OK, donc je suis de retour dans l'état où j'étais avant, qui est que j’ai cette idée, en laquelle je crois vraiment,
+ et personne d’autre n'y croit. Et je propose des publications à 
+ce sujet et elles sont refusées. Mais je crois vraiment en cette idée et 
+je vais juste continuer à la pousser. Alors ça tourne autour de,
+ il y a quelques idées clés. L'une est sur la façon dont vous représentez
+ des entités multi dimensionnelles et vous pouvez représenter des entités multidimensionnelles
+ par juste un petit vecteur d'activités, tant que vous savez qu'il y a l’un d’eux. Donc l’idée est dans chaque région de l’image, 
+vous supposez qu’il y a au plus un seul type de caractéristique. Et puis, vous utilisez une série de neurones, et leurs activités représentent les différents aspects 
+de cette fonctionnalité, comme, dans la région, quelles sont
+ exactement ses coordonnées x et y ? Quelle est son orientation ? À quelle vitesse se déplace-t-il ? De quelle couleur est-il ? Quelle luminosité ? Et des trucs comme ça. Ainsi, vous pouvez utiliser tout un tas de neurones 
+pour représenter les différentes dimensions de la même chose. A condition qu'il n'y en ait qu'une seule. C’est une façon très différente de représenter les choses par rapport à ce que nous faisons
+ d'habitude avec les réseaux de neurones. Normalement dans les réseaux de neurones,
+ nous avons juste une grande couche, et toutes les unités font 
+ce qu'elles veulent indépendamment. Mais vous ne pensez pas à les regrouper 
+en petits groupes qui représentent différentes coordonnées de la même chose. Donc je pense que nous devrions mettre en place 
+cette structure supplémentaire. Et puis l’autre idée qui va avec ça.. >> Donc, cela signifie que
+ dans la représentation distribuée, vous partitionnez la représentation. >> Oui.
+>> en différents sous-ensembles. >> Oui.
+>> Pour représenter, au lieu de- >> j'appelle chacun de ces sous-ensembles une capsule. — Je vois. >> Et l’idée est qu'une capsule est en mesure 
+de représenter une instance d’une entité, mais seulement une. Et elle représente toutes les différentes propriétés 
+de cette fonctionnalité. C’est une fonctionnalité qui a beaucoup de propriétés
+ en opposition avec un neurone normal dans un réseau de neurones normal,
+ qui a juste une dimension de propriété. >> Oui, je vois. >> Et puis ce que vous pouvez faire si vous avez cela, 
+vous pouvez faire quelque chose que les réseaux de neurones normaux font très mal, 
+qui est ce que j’appelle le routage par accord. Donc supposons que vous voulez faire de la segmentation et vous avez quelque chose qui pourrait être une bouche 
+et autre chose qui pourrait être un nez. Et vous voulez savoir si vous devriez les mettre ensemble
+ pour en faire une seule chose. Donc, l’idée est d'avoir une capsule pour une bouche qui a les paramètres de la bouche. Et vous avez une capsule pour un nez 
+qui a les paramètres du nez. Et puis pour décider s’il faut les mettre ensemble ou pas, vous faites que chacun d'entre eux vote pour savoir 
+quels devraient être les paramètres pour un visage. Maintenant, si la bouche et le nez sont 
+dans la bonne relation spatiale, ils seront d'accord. Ainsi, lorsque vous obtenez deux capsules à un niveau
+ qui votent pour le même jeu de paramètres de niveau supérieur, vous pouvez supposer 
+qu’ils ont probablement raison, parce que l’accord dans un espace 
+de dimension élevé est très peu probable. Et c’est une façon très différente de faire du filtrage, par rapport à ce que nous utilisons habituellement 
+dans des réseaux neuronaux. Donc je pense que ce routage par accord
+ va être crucial pour avoir des réseaux neuronaux qui généralisent 
+beaucoup mieux à partir de données limitées. Je pense qu’ils seront très bons pour gérer 
+des changements dans le point de vue, très bons pour faire de la segmentation. Et j’espère que ce sera beaucoup 
+plus efficace statistiquement que ce que nous faisons actuellement dans des réseaux neuronaux. Qui est que, si vous souhaitez vous occuper
+ des changements de point de vue, vous lui donnez juste tout un tas de points de vue 
+différents et vous l'entrainez sur ça. >> je vois, ok, donc plutôt que 
+l’apprentissage 'feed forward', l’apprentissage supervisé, vous pouvez apprendre cela d’une manière différente. >> Eh bien, j’ai quand même l’intention de le faire 
+avec de l’apprentissage supervisé, mais la mécanique des chemins vers l’avant est très différente. Il n’est pas un pur chemin vers l’avant en ce sens 
+qu’il y a des petits bouts d’itération qui se passent, où vous pensez que vous avez trouvé une bouche
+ et vous pensez que vous avez trouvé un nez. Et vous utilisez un peu d’itération pour décider si vous devez vraiment vous mettre ensemble
+ pour faire un visage. Et vous pouvez faire une rétro
+ propagation de cette itération. Alors vous pouvez essayer 
+de faire un peu de discrimination, et nous travaillons sur ça maintenant 
+avec mon groupe à Toronto. J’ai maintenant une petite équipe de Google
+ à Toronto, qui fait partie de la Brain team. C’est ce qui m’enthousiasme en ce moment. >> Je vois, oui, super. J'attends avec impatience la publication, quand elle sortira. >> Oui, si elle sort [rire]. >> Vous avez travaillé sur l'apprentissage profond 
+pendant plusieurs décennies. Je suis vraiment curieux de savoir,
+ comment votre façon de penser, votre compréhension de l’IA 
+a changé au cours de ces années ? >> Donc je suppose que beaucoup de mon histoire
+ intellectuelle a été autour de la rétro propagation et comment utiliser la rétro propagation,
+ comment faire usage de son pouvoir. Donc dans un premier temps, dans le milieu
+ des années 80, nous l'utilisions pour l'apprentissage discriminatif et ça fonctionnait bien. J’ai alors décidé, vers le début des années 90, qu'en fait la plus grande partie de l’apprentissage
+ humain allait être de l’apprentissage non supervisé. Et je me suis beaucoup intéressé à
+ l’apprentissage non supervisé, et C’est quand j’ai travaillé sur des choses 
+comme l’algorithme wake-sleep. >> Et vos commentaires à ce moment-là ont
+ vraiment influencé mes réflexions également. Donc quand j'étais à la tête de Google Brain,
+ notre premier projet a consacré beaucoup de travail à l'apprentissage non supervisé
+ à cause de votre influence. >> C'est vrai, et je vous ai peut être induit en erreur. Parce qu’à long terme, Je pense que l’apprentissage non supervisé 
+va être absolument crucial. Mais il faut un peu regarder la réalité en face. Et ce qui a marché au cours des dix dernières
+ années, c'est l’apprentissage supervisé. La formation discriminative,
+ où vous avez des étiquettes, ou vous essayez de prédire la prochaine chose 
+dans une série, ce qui sert d’étiquette. Et ça a incroyablement bien fonctionné. Je persiste à croire que l’apprentissage non supervisé 
+va être crucial, et que les choses vont marcher incroyablement beaucoup mieux 
+que ce qu'elles font maintenant quand nous aurons
+ fait fonctionner ça correctement, mais ce n'est pas encore le cas. >> Oui, je pense que beaucoup 
+des anciens de l'apprentissage profond, dont je fais partie, restent très intéressés par ce sujet. C’est juste qu'aucun d'entre nous n'a pour le moment
+ presque aucune idée de comment le faire. Peut-être que vous en avez, mais pas moi. >> Vous pouvez utiliser des astuces de reparamétrisation 
+dans les auto encodeurs variationnels. Ca me semblait être une bonne idée. Et les réseaux génératifs antagonistes 
+m'ont aussi semblé être une idée vraiment sympa. Je pense que les réseaux génératifs antagonistes sont l'une des plus grandes idées vraiment neuves
+ dans l'apprentissage profond. J’espère que je peux avoir autant 
+de succès avec les capsules, mais maintenant, les réseaux génératifs antagonistes
+ont été, je crois, une grande percée. >> Qu'est ce qui est arrivé aux modèles
+ de 'sparsity' et de 'slow features', qui étaient deux des autres principes 
+pour construire des modèles non supervisés ? Je n’a jamais été aussi fan de la 'sparsity' 
+que vous l'étiez, mon ami. Mais les 'slow features' sont, je pense, une erreur. On ne devrait pas dire slow (lent). L’idée de base est bonne, mais on ne devrait pas
+ rechercher des caractéristiques qui ne changent pas, on devrait rechercher des caractéristiques
+ qui changent de manière prévisible. Voici une sorte de principe de base sur 
+comment modéliser quelque chose. Vous prenez vos mesures, et vous appliquez
+ une transformation non linéaire à vos mesures jusqu'à ce que vous arriviez à une représentation sous forme de vecteur d’état
+ dans lequel l’action est linéaire. Vous ne faites pas juste seulement semblant que c’est linéaire, 
+comme vous le faites avec les filtres habituels, mais vous trouverez une transformation des observables vers les variables sous-jacentes,
+ où des opérations linéaires, comme des multiplications matricielles
+ sur les variables sous-jacentes, fera le travail. Ainsi, par exemple, si vous souhaitez 
+modifier les points de vue. Si vous voulez produire l’image
+ depuis un autre point de vue, ce que vous devez faire, 
+c’est d'aller des pixels aux coordonnées. Et une fois que vous avez obtenu 
+la représentation en coordonnées, et j'espère que les capsules pourront,
+ entre autres, trouver ça, Vous pouvez ensuite faire une multiplication
+ de matrices pour changer de point de vue, et puis vous pouvez le remapper vers des pixels. >> C’est pourquoi vous avez fait tout cela. >> Je pense que c’est un principe très général. >> C’est pourquoi vous avez fait tout ce travail sur
+ la synthèse des visages, n'est-ce pas ? Où vous prenez un visage et le compressez 
+dans un vecteur de très faible dimension et alors vous pouvez jouer avec ça et obtenir d'autres visages. >> j’ai eu un élève qui a travaillé là-dessus,
+ je n’y ai pas beaucoup travaillé moi-même. >> Maintenant, je suis sûr 
+qu'on vous le demande tout le temps, Si quelqu'un veut réussir 
+en apprentissage profond, que doit-il faire ? Quels conseils auriez-vous ? Je suis sûr que vous avez donné beaucoup de conseils 
+à des gens directement, mais pour l’audience mondiale des gens qui regardent cette vidéo, quels conseils auriez-vous pour eux, 
+pour démarrer dans l’apprentissage profond ? >> OK, donc mon conseil est de lire la littérature, 
+mais de ne pas trop en lire. C’est le conseil que j’ai eu de mon maître de thèse, 
+et c'est très différent de ce que la plupart des gens disent. La plupart des gens disent que vous devez 
+passer plusieurs années à lire la littérature et qu'ensuite vous pouvez commencer
+ à travailler sur vos propres idées. Et c’est peut-être vrai pour certains chercheurs, 
+mais pour les chercheurs créatifs je pense que vous devriez lire un peu de la littérature. Et remarquer quelque chose que, 
+à votre avis, tout le monde fait mal, qui vous contrarie. Vous le regardez et ça ne vous semble pas bon. Et puis trouvez une façon de le faire correctement. Et puis quand les gens vous disent 
+que ça ne vaut rien, continuez sur ça. Et j’ai un très bon principe
+ pour aider les gens à persévérer, qui est, soit vos intuitions sont bonnes, 
+soit elles ne le sont pas. Si vos intuitions sont bonnes, 
+vous devez les suivre et vous réussirez finalement. Si vos intuitions ne sont pas bonnes,
+ peu importe ce que vous faites. — Je vois.
+[Rires] Des conseils inspirants, 
+je devrais faire ça. >> Vous pouvez avoir confiance
+ en vos intuitions. Il ne sert à rien de 
+ne pas leur faire confiance. >>Je vois, oui. Généralement, je conseille aux gens de
+ non seulement lire, mais aussi
+ de reproduire des articles publiés. Et peut-être que cela met une limitation 
+naturelle sur combien vous pouvez en faire, parce que la reproduction des résultats
+ prend beaucoup de temps. Oui, c’est vrai que lorsque vous
+ essayez de répliquer un article publié, vous découvrez tous les petits trucs
+ nécessaires pour le faire fonctionner. L'autre conseil que j’ai, c'est de 
+ne jamais cesser de programmer. Parce que si vous donnez à 
+un étudiant quelque chose à faire,
+ s'ils ne sont pas bons, ils vont revenir et dire : 
+ça n’a pas fonctionné. Et la raison pour laquelle 
+ça n’a pas fonctionné est 
+une petite décision qu'ils ont prise, sans réaliser qu'elle était cruciale. Et si vous le donnez à un bon élève, 
+comme UY Tay par exemple. Vous pouvez lui donner n’importe quoi et
+ il va revenir et dire, cela a fonctionné. Je me souviens d'avoir fait ça une fois, 
+et j’ai dit, mais attends une minute, UY. Puisque nous en avons parlé, J’ai réalisé que ça ne pouvait pas marcher,
+pour la raison suivante. Et UY a dit : Oui, j’ai réalisé ça 
+tout de suite, donc j’ai supposé que 
+vous ne vouliez pas dire ça. >> [Rires] je vois, oui, c’est génial, oui. Voyons voir, d'autres conseils pour des gens qui veulent percer dans l'IA 
+et l'apprentissage profond ? >> je dirais simplement, lisez assez pour 
+commencer à développer des intuitions. Et puis, faites confiance 
+à vos intuitions et allez-y, ne soyez pas trop inquiet si tout le monde 
+dit que ça n'a pas de sens. >> Et je suppose qu’il n’y a aucun moyen 
+de savoir si les autres ont raison ou pas quand ils disent que ça n'a pas de sens,
+ mais vous devez juste y aller
+ et vous verrez bien. >> Oui, mais il y a une chose, si vous
+ pensez que c’est vraiment une bonne idée, et que les autres personnes vous disent 
+que ça n'a n'a vraiment aucun sens, alors vous savez que vous êtes 
+vraiment sur quelque chose. Ainsi, un exemple de cela est
+ quand Radford [Neal] et moi avons commencé 
+avec les méthodes variationnelles. J’ai envoyé un mail expliquant ça à un de
+ mes anciens étudiants appelé Peter Brown, qui savait beaucoup de choses sur l'EM. Et il l'a montré à ceux 
+qui travaillaient avec lui, appelé les frères Della Pietra, 
+ils étaient jumeaux, je crois. Et il m’a alors dit plus tard 
+ce qu’ils ont dit, et ils ont dit : Soit ce mec est ivre, 
+soit il est tout simplement stupid, alors ils pensaient vraiment, vraiment 
+que c’était n'importe quoi. Maintenant, ça pouvait être en partie
+ la façon dont je l’ai expliqué, parce que je l’ai expliqué
+ en termes intuitifs. Mais quand vous avez ce que
+ vous pensez être une bonne idée et que les autres pensent que c'est 
+complètement nul, c'est le signe 
+d’une très bonne idée. >> je vois et
+ à propos de thèmes de recherche les nouveaux thésards devraient
+ travailler sur quoi ? les capsules et peut-être l'apprentissage non supervisé, 
+autre chose ? >> Un bon conseil pour
+ les nouveaux étudiants est essayez de trouver un directeur de thèse 
+qui croit en la même chose que vous. Parce que si vous travaillez sur 
+des choses auxquelles votre directeur
+ de thèse croît vraiment, il vous donnera beaucoup 
+de temps et de bons conseils. Si vous travaillez sur des choses qui 
+n'intéressent pas votre directeur de thèse, vous aurez des conseils, 
+mais ce ne sera pas aussi utile. >> je vois et un dernier conseil
+ pour les apprenants, Que pensez vous du fait d'entrer
+ dans un programme de doctorat ? Par rapport à rejoindre à une 
+grande entreprise ou un groupe 
+de recherche de pointe ? >> Oui, c’est compliqué, je pense que
+ maintenant, ce qui se passe est que, il n’y a pas assez d'universitaires
+ formés à l’apprentissage profond pour
+ enseigner à tous les gens qui ont besoin d'apprendre ça 
+dans les universités. Il n’y a juste pas assez de bande passante 
+académique, mais Je pense que cela va être temporaire. Je pense que ce qui est arrivé est que
+ la plupart des départements 
+ont été très lents à comprendre le genre de révolution
+ qui est en train de se passer. Je suis un peu d’accord avec vous, 
+ce n’est pas tout à fait une deuxième
+ révolution industrielle, mais c’est quelque chose qui est 
+presque à la même échelle. Et il y a un énorme changement 
+qui se fait, fondamentalement parce que notre
+ relation aux ordinateurs a changé. Au lieu de les programmer, 
+nous leur montrons, et ils comprennent. C’est une manière complètement différente 
+d’utiliser des ordinateurs, et les départements de sciences 
+informatiques sont construits autour de
+ l’idée de la programmation des ordinateurs. Et ils ne comprennent pas que montrer aux ordinateurs va
+ être aussi important que
+ la programmation des ordinateurs. Ils ne comprennent pas que la moitié 
+des personnes dans le département 
+devraient être des personnes qui font faire des choses à 
+des ordinateurs en leur montrant. Mon propre département refuse de 
+reconnaître qu’on devrait avoir beaucoup beaucoup de gens qui font ça. Ils pensent, qu'ils peuvent en avoir deux, 
+peut-être un peu plus, mais pas trop. Et dans cette situation, il faut se rappeler que
+ ce sont les grandes entreprises 
+qui font le plus de formation. Donc Google forme des gens maintenant,
+ nous appelons ça Brain residency, Je soupçonne que les universités
+ vont rattraper par la suite. >> je vois, ok, en fait, 
+peut-être que beaucoup d’étudiants 
+se sont rendus compte de ça. Dans les 50 meilleurs programmes, 
+plus de la moitié des candidats veulent travailler en montrant, 
+plutôt qu'en programmant. Ouais, cool, oui, en fait, pour 
+rendre à César ce qui est à César, alors que deeplearning.ai crée une 
+spécialisation en apprentissage profond, autant que je sache, le premier MOOC sur
+ l'apprentissage profond était en fait le votre, sur Coursera également, en 2012. Et de façon un peu étrange, c’est à ce moment là que vous avez
+ aussi publié l’algorithme de RMS prop, 
+qui est aussi un gros morceau. >> Eh bien, oui, comme vous le savez,
+ c’était parce que vous m’avez 
+invité à faire le MOOC. Et puis quand je n'étais pas sûr de le faire, 
+vous avez continué à me pousser, c’était très bien que je l’aie fait, 
+même si c’était beaucoup de travail. >> Oui et je vous remercie de l'avoir fait, 
+je me souviens que vous vous plaigniez, parce que c'était tellement de travail. Et que vous restiez debout tard la nuit, 
+mais je pense que beaucoup,
+ beaucoup d’apprenants ont bénéficié de votre premier MOOC,
+ donc je vous suis très reconnaissant pour ça. >> C’est bon, oui
+ >> Oui. Depuis des années, Je vous ai vu débattre sur
+ les paradigmes de l’IA, et sur un possible changement 
+de paradigme de l’IA. Quels sont vos, vous pouvez partager 
+votre opinion là-dessus ? >> Oui, avec plaisir. Donc je pense que dans 
+les premiers jours, dans les années 50, des gens comme von Neumann et Turing
+ ne croyait pas en l’IA symbolique, ils étaient beaucoup plus inspirés
+ par le cerveau. Malheureusement, ils sont tous deux 
+décédés beaucoup trop jeunes, et
+ leur voix n’ont pas été entendues. Et dans les premiers jours de l’IA, les gens étaient complètement 
+convaincus que les représentations
+ dont vous avez besoin pour l'intelligence étaient
+ des expressions symboliques. Une sorte de logique nettoyée, où vous 
+pourriez faire des choses non monotones,
+pas tout à fait de la logique, mais quelque chose comme de la logique
+ et que l’essence de l’intelligence 
+était le raisonnement. Ce qui arrive aujourd'hui, et 
+c’est une vision complètement différente, est qu’une pensée n'est juste qu'un 
+grand gros vecteur d’activité neurale, ce qui contraste avec une pensée
+ comme étant une expression symbolique. Et je pense que les gens qui
+ croyaient que les pensées étaient
+ des expressions symboliques on vraiment fait une énorme erreur. Ce qui entre est une chaîne de mots, 
+et ce qui sort est une chaîne de mots. Et à cause de cela, les chaînes de mots sont
+ le moyen évident de représenter les choses. Alors ils ont pensé que 
+ce qui devait être entre les deux
+ était une chaîne de mots, ou quelque chose comme
+ une chaîne de mots. Et je pense que ce qui est entre les deux 
+n’a rien à voir avec une chaîne de mots. Je pense que l’idée que les pensées 
+doivent être dans une sorte de langage 
+est aussi bête que l'idée que la compréhension 
+d'une scène dans l'espace doit être en pixels. 
+Il y a des pixels en entrée, et, si nous pouvions, si nous avions une
+ imprimante matricielle attachée à nous, il y aurait des pixels en sortie, mais ce 
+qui est entre les deux n’est pas des pixels. Et donc je pense que les pensées sont 
+juste ces grand gros vecteurs, et que ces grands vecteurs 
+ont des pouvoirs causals. Ils provoquent
+ d’autres grands vecteurs, et C’est tout à fait contrairement à l’idée 
+standard de l’IA comme quoi les pensées
+ sont des expressions symboliques. >> je vois, bien, Je suppose que l'IA en vient à 
+ce nouveau point de vue récemment. >> Une partie. Je pense que beaucoup de gens en IA
+ pensent toujours que les pensées doivent
+ être des expressions symboliques. >> Je vous remercie beaucoup 
+pour cette interview. C’était fascinant d’entendre 
+comment l'apprentissage profond a
+ évolué au cours des années, ainsi que la façon dont vous aidez
+ toujours à la conduire vers l’avenir,
+ alors je vous remercie, Geoff. >> Eh bien, je vous remercie de 
+m’avoir donné cette opportunité. - Merci.

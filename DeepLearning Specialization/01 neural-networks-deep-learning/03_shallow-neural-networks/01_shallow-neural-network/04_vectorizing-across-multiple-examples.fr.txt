@@ -1,0 +1,76 @@
+Dans la dernière vidéo, vous avez vu comment 
+calculer la prédiction d'un réseau de neurones, à partir d'un seul exemple d'apprentissage. Dans cette vidéo, vous allez apprendre à vectoriser 
+sur plusieurs exemples d'apprentissage. Et le résultat sera assez semblable à ce que 
+vous avez vu pour la régression logistique, en empilant les différents exemples d'apprentissage
+ dans les différentes colonnes de la matrice, vous pourrez prendre les équations 
+que vous aviez de la vidéo précédente et avec très peu de changements,
+ les modifier pour que le réseau de neurones calcule les sorties sur tous les exemples
+ à peu près tous en même temps. Nous allons donc voir les détails de comment faire cela. Voici les quatre équations nous avions 
+dans la vidéo précédente pour calculer z1, a1, z2 et a2. Et elles vous disent comment, 
+à partir d'un vecteur de caractéristiques x, vous pouvez les utiliser pour générer a2 = ŷ 
+pour un seul exemple d'apprentissage. Maintenant, si vous avez m exemples d'apprentissage,
+ vous devez répéter cette procédure pour disons, le premier exemple d'apprentissage x exposant parenthèses 1, pour calculer ŷ (1) (y-chapeau(1)), c'est la prédiction sur
+ votre premier exemple d'apprentissage. Puis x (2) qu'on utilise pour générer
+ la prédiction ŷ (2). Et ainsi de suite jusqu'à x(m) pour
+ générer une prédiction ŷ (m). Pour pouvoir écrire ces fonctions d'activation en une seule, Je vais écrire ceci a[2](1). Voici a[2](2), et a[2](m). Dans cette notation a[2](i), l'exposant entre parenthèses, i,
+ se réfère à l'exemple d'apprentissage i, l'exposant entre crochets, 2,
+ se réfère à la couche 2. Voilà donc ce que signifient les indices 
+entre crochets et entre parenthèses. Et donc si vous avez
+ une implémentation non vectorisée et que vous voulez calculer les prédictions 
+de tous vos exemples d'apprentissage, vous devez faire 
+pour i = 1 à m, puis, basiquement, implémenter 
+ces quatre équations, n'est ce pas ? Vous devez faire z[1](i) z[1](i) = W[1] x(i) + b [1], a[1](i) = sigmoïde de z[1](i). z[2](i) = W[2] a[1](i) + b [2], z[2](i) = W[2] a[1](i) + b [2], et a[2](i) = sigmoïde de z[2](i). C’est donc essentiellement ces quatre équations
+ en haut en ajoutant l'exposant i entre parenthèses pour toutes les variables 
+qui dépendent de l’exemple d'apprentissage. Donc ajouter cet exposant parenthèses i à x et z et a, si vous voulez calculer toutes les sorties
+ sur vos m exemples d'apprentissage. Ce que nous voulons faire est vectoriser ce calcul entier, 
+afin de se débarrasser de cette boucle for. Et en passant, dans le cas où il semble que
+ j'insiste un peu lourdement sur toute cette algèbre linéaire, c'est parce que
+ savoir implémenter ceci correctement est important à l’ère
+ de l’apprentissage profond. Et nous avons choisi les notations
+ très soigneusement pour ce cours pour rendre ces étapes de vectorisation
+ aussi faciles que possible. Donc j’espère qu'aller comme ça 
+au fond des choses vous aidera à à avoir plus rapidement des implémentations
+ correctes et fonctionnelles de ces algorithmes. Très bien, donc laissez moi recopier tout
+ ce bloc de code sur la diapositive suivante et nous verrons comment vectoriser cela. Alors, voici ce que nous avions 
+sur la diapositive précédente avec la boucle for qui parcourt
+ nos m exemples d'apprentissage. Rappelons que nous avons défini
+ la matrice X comme égale à nos exemples d'apprentissage empilés 
+en colonnes comme ceci. Donc, prenez les exemples d'apprentissage
+ et empilez-les en colonnes. Ainsi, cela devient une matrice de taille n, ou peut-être nx, par m. Je vais tout de suite vous dire 
+ce que vous avez besoin d'implémenter afin d’avoir une implémentation 
+vectorisée de cette boucle for. Il s’avère que ce que vous devez faire est calculer grand Z [1] = W [1] X + b [1], grand A [1] = sigmoïde de Z [1]. Puis grand Z [2] = W[2] A[1] + b [2], Z [2] = W[2] A[1] + b [2] et ensuite A [2] = sigmoïde de Z [2]. Donc si vous voulez l’analogie est que 
+nous sommes passés des vecteurs petit x à la matrice X majuscule en empilant 
+les petits x dans différentes colonnes. Si vous faites la même chose pour les petits z,
+ donc par exemple, Si vous prenez z[1](1), z[1](2), etc, et ce sont tous des vecteurs colonnes,
+ jusqu'à z[1](m), ok. C’est cette première quantité, toutes ces m quantités,
+ et que vous les empilez en colonnes, alors ça vous donne la matrice Z [1]. Et de la même façon, vous prenez cette quantité et vous prenez a[1](1), a[1](2) et ainsi de suite et a[1](m) et vous les empilez en colonnes. Puis, tout comme nous sommes passés
+ de x minuscule à X majuscule, et de z minuscule à Z majuscule, Cela transforme les a minuscules, 
+qui sont des vecteurs, à A [1] majuscule, qui est là. Et de même pour Z [2] et A [2]. Ils sont aussi obtenus en prenant ces vecteurs et en les empilant horizontalement. Et en prenant ces vecteurs et 
+en les empilant horizontalement, afin d’obtenir Z [2] et A [2]. L’une des propriétés de cette notation
+ qui peut peut-être vous aider à vous y retrouver est que ces matrices,
+ par exemple, Z et A, sont indexées horizontalement,
+sur les exemples d'apprentissage. C’est pourquoi l’indice horizontal correspond
+ à un exemple d'apprentissage différent, Lorsque vous balayez de gauche à droite, 
+vous parcourez le set d'apprentissage. Et verticalement, cet indice vertical
+ correspond aux différents nœuds dans le réseau de neurones. Ainsi, par exemple, ce nœud, cette valeur tout en haut à gauche de la matrice correspond à l’activation du premier neurone caché sur
+ le premier exemple d'apprentissage. La valeur juste en dessous correspond à 
+l’activation du deuxième neurone caché sur le premier exemple d'apprentissage, puis le troisième neurone caché sur
+ le premier exemple d'apprentissage,
+ et ainsi de suite. Donc quand vous descendez, l'indexation
+ va jusqu'au nombre de neurones cachés. Alors que si vous vous déplacez horizontalement,
+ vous allez du premier neurone caché sur le premier exemple d'apprentissage 
+vers le premier neurone caché sur le seconde exemple d'apprentissage, 
+le troisième exemple d'apprentissage, et ainsi de suite jusqu'à ce nœud ici
+ qui correspond à l’activation du premier neurone caché sur le dernier 
+exemple d'apprentissage, le m-ième. OK donc horizontalement la matrice A 
+parcourt les différents exemples d'apprentissage. Et verticalement les différents indices
+ dans la matrice A correspondent aux différents neurones cachés. Et une intuition similaire vaut pour
+ la matrice Z également, ainsi que pour X, horizontalement, on a 
+les différents exemples de formation, et verticalement, cela correspond à 
+différentes caractéristiques d'entrée, qui sont en fait différents nœuds de 
+la couche d'entrée du réseau de neurones. Donc avec ces équations, vous savez maintenant 
+comment implémenter votre réseau de neurones avec de la vectorisation, de la vectorisation 
+par rapport à plusieurs exemples. Dans la prochaine vidéo je veux vous montrer 
+une justification un peu plus poussée, pour montrer que c'est une implémentation correcte
+ de ce type de vectorisation. Il s’avère que la justification est similaire à 
+ce que vous avez vu pour la régression logistique. Continuons sur la prochaine vidéo.

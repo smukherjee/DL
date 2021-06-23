@@ -1,0 +1,3062 @@
+1
+00:00:00,620 --> 00:00:03,610
+Dans le cadre de ce cours 
+fourni par deeplearning.ai,
+
+2
+00:00:03,610 --> 00:00:07,590
+j’espère non seulement vous enseigner les
+ idées techniques en apprentissage profond, mais
+
+3
+00:00:07,590 --> 00:00:11,658
+aussi vous présenter certaines personnes, 
+certains des héros du deep learning.
+
+4
+00:00:11,658 --> 00:00:13,160
+Des personnes qui ont inventé tellement
+
+5
+00:00:13,160 --> 00:00:17,700
+des idées que vous découvrirez dans ce cours,
+ ou dans cette spécialisation.
+
+6
+00:00:17,700 --> 00:00:21,420
+Dans ces vidéos, je souhaite également demander 
+à ces leaders de l’apprentissage profond
+
+7
+00:00:21,420 --> 00:00:24,990
+de vous donner des conseils de carrière pour savoir
+ comment vous pouvez percer en apprentissage profond,
+
+8
+00:00:24,990 --> 00:00:27,805
+comment vous pouvez faire de la recherche 
+ou trouver un emploi en apprentissage profond.
+
+9
+00:00:27,805 --> 00:00:30,156
+Dans la première de cette série d'interviews,
+
+10
+00:00:30,156 --> 00:00:34,228
+Je suis très heureux de vous proposer 
+une interview avec Geoffrey Hinton.
+
+11
+00:00:38,427 --> 00:00:44,150
+Bienvenue Geoff et merci de faire 
+cette interview avec deeplearning.ai.
+
+12
+00:00:44,150 --> 00:00:46,550
+>> Je vous remercie de m’avoir invité.
+
+13
+00:00:46,550 --> 00:00:50,088
+je pense qu’à ce stade, vous que plus que
+ quiconque sur cette planète avez
+
+14
+00:00:50,088 --> 00:00:52,835
+inventé tellement des idées 
+derrière l'apprentissage profond.
+
+15
+00:00:52,835 --> 00:00:57,650
+Et beaucoup de gens vous ont appelé 
+le parrain de l’apprentissage profond.
+
+16
+00:00:57,650 --> 00:01:01,529
+Bien que lorsque nous bavardions
+ il y a quelques minutes, jusqu'à ce que je réalise
+
+17
+00:01:01,529 --> 00:01:05,600
+que vous pensiez que je suis le premier à vous appeler
+ comme cela, ce que je suis très heureux d’avoir fait.
+
+18
+00:01:06,780 --> 00:01:11,320
+Mais ce que je veux demander est, beaucoup de gens
+ vous connaissent en tant que légende,
+
+19
+00:01:11,320 --> 00:01:15,030
+je voudrais vous poser des questions sur
+ votre histoire personnelle derrière la légende.
+
+20
+00:01:15,030 --> 00:01:19,980
+Alors comment vous êtes vous retrouvé, au départ, 
+comment vous êtes-vous impliqué dans l'IA
+
+21
+00:01:19,980 --> 00:01:21,520
+et l'apprentissage automatique et
+ les réseaux de neurones ?
+
+22
+00:01:22,730 --> 00:01:26,960
+>> Quand j’étais au lycée, j’ai eu 
+un camarade de classe qui a toujours été
+
+23
+00:01:26,960 --> 00:01:31,220
+meilleur que moi en tout, 
+c'était un brillant mathématicien.
+
+24
+00:01:31,220 --> 00:01:37,010
+Et il est venu à l’école un jour et a dit : 
+Sais-tu que le cerveau utilise des hologrammes ?
+
+25
+00:01:38,190 --> 00:01:44,161
+Et je pense que c'était aux environ de 1966 et
+ j’ai dit, plus ou moins, c'est quoi un hologramme ?
+
+26
+00:01:44,161 --> 00:01:47,390
+Et il a expliqué que dans un hologramme,
+ vous pouvez en enlever la moitié
+
+27
+00:01:47,390 --> 00:01:49,730
+vous obtenez toujours l'image complète.
+
+28
+00:01:49,730 --> 00:01:53,466
+Et que les souvenirs dans le cerveau pourraient 
+être répartis sur tout le cerveau.
+
+29
+00:01:53,466 --> 00:01:56,022
+Et donc je suppose qu’il avait lu quelque chose 
+sur les expériences de Lashley,
+
+30
+00:01:56,022 --> 00:01:57,939
+où vous coupez des morceaux de cerveau d’un rat et
+
+31
+00:01:57,939 --> 00:02:01,740
+vous découvrez qu’il est très difficile de trouver 
+un endroit où il stocke un souvenir particulier.
+
+32
+00:02:04,411 --> 00:02:08,920
+C’est ce qui m’a tout d’abord intéressé, la façon
+ dont le cerveau emmagasine les souvenirs.
+
+33
+00:02:10,180 --> 00:02:12,220
+Et puis quand je suis allé à l’Université,
+
+34
+00:02:12,220 --> 00:02:15,130
+J’ai commencé étudier la physiologie et la physique.
+
+35
+00:02:16,400 --> 00:02:17,731
+Je pense que quand j’étais à Cambridge,
+
+36
+00:02:17,731 --> 00:02:20,260
+j'étais le seul élève de premier cycle
+ faisant la physiologie et la physique.
+
+37
+00:02:21,888 --> 00:02:25,270
+Et puis j’ai laissé tomber ça et
+
+38
+00:02:25,270 --> 00:02:29,170
+essayé de faire de la philosophie, parce que je pensais 
+que cela pourrait me donner plus de notions
+
+39
+00:02:29,170 --> 00:02:32,780
+Mais il m'a semblé en fait
+
+40
+00:02:32,780 --> 00:02:37,130
+manquer de moyens pour distinguer 
+quand ils disaient quelque chose de faux.
+
+41
+00:02:37,130 --> 00:02:39,420
+Et alors, je suis passé à la psychologie.
+
+42
+00:02:41,988 --> 00:02:45,920
+En psychologie, ils avaient des théories
+ très, très simples et il m’a semblé
+
+43
+00:02:45,920 --> 00:02:49,620
+que c’était en quelque sorte désespérément insuffisant
+ pour expliquer ce que fait le cerveau.
+
+44
+00:02:49,620 --> 00:02:52,737
+Alors, j’ai abandonné quelques temps 
+et je suis devenu charpentier.
+
+45
+00:02:52,737 --> 00:02:57,169
+Et puis j’ai décidé que j’essayerais l'IA
+ et je suis allé d’à Édimbourg,
+
+46
+00:02:57,169 --> 00:02:59,580
+pour étudier l'IA avec Langer Higgins.
+
+47
+00:02:59,580 --> 00:03:02,662
+Il avait fait de très beaux travaux
+ sur les réseaux neuronaux, et
+
+48
+00:03:02,662 --> 00:03:07,830
+il venait juste d'abandonner les réseaux neuronaux 
+et avait été très impressionné par la thèse de Winograd.
+
+49
+00:03:07,830 --> 00:03:11,460
+Donc quand je suis arrivé, 
+il pensait que je faisais des choses dépassées, et
+
+50
+00:03:11,460 --> 00:03:14,210
+Je devais me mettre à l’IA symbolique.
+
+51
+00:03:14,210 --> 00:03:18,210
+Et nous avons eu beaucoup de débats à ce sujet, 
+mais j’ai juste continué à faire ce en quoi j’ai cru.
+
+52
+00:03:18,210 --> 00:03:21,138
+>> Et ensuite ?
+
+53
+00:03:21,138 --> 00:03:28,033
+>> j’ai finalement obtenu un doctorat
+ en intelligence artificielle, mais je ne pouvais pas
+ obtenir un emploi en Grande-Bretagne.
+
+54
+00:03:28,033 --> 00:03:30,979
+Mais j’ai vu cette très belle publicité pour
+
+55
+00:03:30,979 --> 00:03:36,070
+des bourses Sloan en Californie 
+et j'ai réussi à en obtenir une.
+
+56
+00:03:36,070 --> 00:03:40,625
+Et je suis allé en Californie, et tout y était différent.
+
+57
+00:03:40,625 --> 00:03:46,685
+Ainsi en Grande-Bretagne, les réseaux neuronaux 
+étaient considérés comme quelque chose de stupide,
+
+58
+00:03:46,685 --> 00:03:50,272
+et en Californie, Don Norman et
+
+59
+00:03:50,272 --> 00:03:56,640
+David Rumelhart étaient très ouverts à 
+des idées sur des réseaux neuronaux.
+
+60
+00:03:56,640 --> 00:04:00,720
+C’était la première fois où j’étais quelque part où
+ la réflexion sur le fonctionnement du cerveau,
+
+61
+00:04:00,720 --> 00:04:03,290
+et réfléchir à comment ça pourrait 
+se rapporter à la psychologie,
+
+62
+00:04:03,290 --> 00:04:05,650
+était considéré comme quelque chose de très positif.
+
+63
+00:04:05,650 --> 00:04:06,936
+Et c'était très sympa,
+
+64
+00:04:06,936 --> 00:04:09,792
+en particulier, la collaboration avec 
+David Rumelhart était géniale.
+
+65
+00:04:09,792 --> 00:04:12,968
+>> je vois, très bien.
+Donc, ce fut quand vous étiez à l’UCSD que
+
+66
+00:04:12,968 --> 00:04:16,177
+vous et Rumelhart, autour de quoi, 1982,
+
+67
+00:04:16,177 --> 00:04:20,182
+avez écrit la première publication sur 
+la rétropropagation, n'est ce pas?
+
+68
+00:04:20,182 --> 00:04:23,292
+>> En fait, c’était plus compliqué que cela.
+
+69
+00:04:23,292 --> 00:04:24,796
+>> Que s'est-il se passé ?
+
+70
+00:04:24,796 --> 00:04:28,214
+>> Début 1982, je crois,
+
+71
+00:04:28,214 --> 00:04:32,900
+David Rumelhart et moi et Ron Williams,
+
+72
+00:04:32,900 --> 00:04:37,967
+entre nous, avons développé 
+l’algorithme de rétropropagation,
+
+73
+00:04:37,967 --> 00:04:42,291
+C’est principalement l'idée de David Rumelhart.
+
+74
+00:04:42,291 --> 00:04:46,390
+Nous avons découvert plus tard que 
+beaucoup d’autres personnes l'avaient inventé.
+
+75
+00:04:46,390 --> 00:04:52,798
+David Parker l'avait inventé, sans doute après nous, 
+mais avant que nous l'ayons publié.
+
+76
+00:04:52,798 --> 00:04:56,425
+Paul Werbos l'avait déjà publié, 
+pas mal d’années avant, mais
+
+77
+00:04:56,425 --> 00:04:58,860
+personne n’y avait accordé beaucoup d’attention.
+
+78
+00:04:58,860 --> 00:05:01,923
+Et il y avait d’autres personnes qui avaient développé
+ des algorithmes très similaires,
+
+79
+00:05:01,923 --> 00:05:04,340
+Ce n’est pas clair ce que l'on entend par rétropropagation,
+
+80
+00:05:04,340 --> 00:05:08,055
+Mais utiliser la règle de décomposition des dérivée
+ n’était pas une idée nouvelle.
+
+81
+00:05:08,055 --> 00:05:12,484
+>> je vois, pourquoi, à votre avis, est-ce que 
+c’est votre publication qui a tellement contribué
+
+82
+00:05:12,484 --> 00:05:15,940
+à ce que la communauté s'empare
+ de la rétropropagation ?
+
+83
+00:05:15,940 --> 00:05:20,540
+Il semble que votre publication à marqué 
+une inflexion dans l’acceptation de
+
+84
+00:05:20,540 --> 00:05:22,934
+cet algorithme, tout le monde l’a accepté.
+
+85
+00:05:22,934 --> 00:05:26,675
+>> Donc nous avons réussi à obtenir 
+une publication dans Nature en 1986.
+
+86
+00:05:26,675 --> 00:05:30,580
+Et j’ai dû faire pas mal de travail politique 
+pour que cette publication soit acceptée.
+
+87
+00:05:30,580 --> 00:05:34,622
+J'ai su qu’un des relecteurs allait 
+probablement être Stuart Sutherland,
+
+88
+00:05:34,622 --> 00:05:36,992
+qui était un psychologue 
+bien connu en Grande-Bretagne.
+
+89
+00:05:36,992 --> 00:05:38,815
+Et je suis allé lui parler assez longuement, et
+
+90
+00:05:38,815 --> 00:05:41,480
+je lui ai expliqué exactement 
+de quoi il était question.
+
+91
+00:05:41,480 --> 00:05:44,140
+Et il était très impressionné par le fait
+
+92
+00:05:44,140 --> 00:05:48,970
+que nous avions montré que la rétropropagation pouvait 
+apprendre des représentations de mots.
+
+93
+00:05:48,970 --> 00:05:52,490
+Et que vous pouviez regarder ces représentations,
+ qui sont des petits vecteurs,
+
+94
+00:05:52,490 --> 00:05:55,950
+et vous pouviez comprendre la signification
+ des caractéristiques individuelles.
+
+95
+00:05:55,950 --> 00:06:01,600
+Donc nous avions fait l'apprentissage sur 
+des triplettes de mots sur les arbres généalogiques,
+
+96
+00:06:01,600 --> 00:06:06,420
+comme Marie a pour mère Victoria.
+
+97
+00:06:06,420 --> 00:06:11,550
+Et vous lui donniez les deux premiers mots,
+ et il devait prévoir le dernier mot.
+
+98
+00:06:11,550 --> 00:06:12,970
+Et après l'apprentissage,
+
+99
+00:06:12,970 --> 00:06:17,780
+vous pouviez voir toutes sortes de caractéristiques 
+dans les représentations des mots individuels.
+
+100
+00:06:17,780 --> 00:06:19,950
+Comme la nationalité de la personne,
+
+101
+00:06:19,950 --> 00:06:25,180
+de quelle génération ils étaient, de quelle 
+branche de la famille, et ainsi de suite.
+
+102
+00:06:25,180 --> 00:06:27,680
+C’est ce qui fait que Stuart Sutherland 
+a été vraiment impressionné, et
+
+103
+00:06:27,680 --> 00:06:29,666
+je pense que c'est pour ça 
+que le papier a été accepté.
+
+104
+00:06:29,666 --> 00:06:33,905
+>> C'était le tout début du plongement
+ lexical et vous avez déjà vu
+
+105
+00:06:33,905 --> 00:06:38,390
+caractéristiques de significations sémantiques 
+émerger de l’algorithme d'apprentissage.
+
+106
+00:06:38,390 --> 00:06:44,090
+>> Oui, et du point de vue d’un psychologue, 
+l'intéressant était que ça unifiait
+
+107
+00:06:44,090 --> 00:06:49,740
+deux écoles complètement différentes 
+sur ce à quoi ressemble la connaissance.
+
+108
+00:06:49,740 --> 00:06:53,460
+Il y avait le vieux point de vue du psychologue 
+qui disait qu’un concept est juste un gros
+
+109
+00:06:53,460 --> 00:06:56,810
+paquet de caractéristiques, 
+et il y a beaucoup de preuves pour cela.
+
+110
+00:06:56,810 --> 00:07:02,180
+Et puis il y avait la vue de l'AI du moment, 
+qui est une vue structuraliste formelle.
+
+111
+00:07:02,180 --> 00:07:06,190
+Qui était qu’un concept est la façon dont
+ il est lié à d’autres concepts.
+
+112
+00:07:06,190 --> 00:07:09,820
+Et pour capturer un concept, vous deviez faire quelque chose 
+comme une structure de graphe ou
+
+113
+00:07:09,820 --> 00:07:11,640
+peut-être un réseau sémantique.
+
+114
+00:07:11,640 --> 00:07:15,875
+Et ce que cet exemple de rétropropagation a montré
+ est que vous pouviez lui donner
+
+115
+00:07:15,875 --> 00:07:21,070
+les informations qui iraient dans une structure 
+de graphe, ou dans ce cas un arbre généalogique,
+
+116
+00:07:22,080 --> 00:07:26,920
+et qu'il pouvait convertir ces informations en 
+caractéristiques de telle manière qu’il put ensuite
+
+117
+00:07:26,920 --> 00:07:33,470
+utiliser ces caractéristiques pour en dériver de nouvelles
+ informations cohérentes, c’est à dire généraliser.
+
+118
+00:07:33,470 --> 00:07:38,438
+Mais l’essentiel c’était ce va et vient entre
+ la représentation graphique,
+
+119
+00:07:38,438 --> 00:07:43,000
+la structure arborescente de l’arbre généalogique, et
+
+120
+00:07:43,000 --> 00:07:46,715
+une représentation des gens en tant 
+que gros vecteurs de caractéristiques.
+
+121
+00:07:46,715 --> 00:07:50,873
+Et en fait qu’à partir de la représentation en graphe,
+ vous pouviez obtenir des vecteurs de caractéristiques.
+
+122
+00:07:50,873 --> 00:07:51,469
+vecteurs.
+
+123
+00:07:51,469 --> 00:07:54,995
+Et avec les vecteurs de caractéristiques, 
+vous pouvez obtenir une représentation en graphe.
+
+124
+00:07:54,995 --> 00:07:57,730
+>> Donc c'était en 1986 ?
+
+125
+00:07:57,730 --> 00:08:02,430
+Au début des années 90, Bengio a montré que 
+vous pouvez prendre des données réelles,
+
+126
+00:08:02,430 --> 00:08:07,420
+vous pouvez prendre du texte en anglais et
+ y appliquer les mêmes techniques, et
+
+127
+00:08:07,420 --> 00:08:13,980
+avoir du plongement lexical à partir de texte en anglais, 
+et ça a beaucoup impressionné les gens.
+
+128
+00:08:13,980 --> 00:08:18,682
+>> je suppose. Récemment, nous avons beaucoup
+ parlé de la façon dont les ordinateurs rapides
+ comme les GPU et
+
+129
+00:08:18,682 --> 00:08:21,750
+les supercalculateurs ont été un moteur
+ pour l’apprentissage profond.
+
+130
+00:08:21,750 --> 00:08:26,376
+Je ne savais pas que dès 1986 et
+ au début des années 90, on dirait que
+
+131
+00:08:26,376 --> 00:08:29,570
+entre vous et Benjio il y avait déjà
+ les prémices de cette tendance.
+
+132
+00:08:30,600 --> 00:08:32,630
+>> Oui, c’était un progrès énorme.
+
+133
+00:08:32,630 --> 00:08:41,440
+En 1986, j’utilisais une machine Lisp qui avait
+ moins d’un dixième d’un méga flop.
+
+134
+00:08:41,440 --> 00:08:47,720
+Et vers 1993 ou à peu près, les gens voyaient dix mega flops.
+
+135
+00:08:47,720 --> 00:08:49,600
+>> je vois.
+>> Donc il y avait un facteur de 100,
+
+136
+00:08:49,600 --> 00:08:51,770
+et c’est à ce moment là que 
+c'est devenu facile à utiliser,
+
+137
+00:08:51,770 --> 00:08:53,580
+parce que les ordinateurs devenaient
+ juste plus rapide.
+
+138
+00:08:53,580 --> 00:08:56,960
+>> Dans les dernières décennies, 
+vous avez inventé
+
+139
+00:08:56,960 --> 00:08:59,970
+des pans entiers des réseaux de neurones 
+et de l'apprentissage profond.
+
+140
+00:08:59,970 --> 00:09:02,670
+Je suis réellement curieux, 
+de tout ce que vous avez inventé,
+
+141
+00:09:02,670 --> 00:09:05,050
+qu'est ce qui vous enthousiasme le plus
+ encore aujourd'hui ?
+
+142
+00:09:06,940 --> 00:09:09,590
+>> Donc je pense que la plus belle chose
+ est le travail que je fais avec
+
+143
+00:09:09,590 --> 00:09:12,620
+Terry Sejnowski sur des machines de Boltzmann.
+
+144
+00:09:12,620 --> 00:09:14,500
+Donc nous avons découvert 
+qu'il y avait cet algorithme
+
+145
+00:09:14,500 --> 00:09:18,830
+d'apprentissage très très simple
+ qui s'applique à de gros
+
+146
+00:09:18,830 --> 00:09:23,550
+réseaux densément connectés où on ne pouvait voir
+ que quelques-uns des nœuds.
+
+147
+00:09:23,550 --> 00:09:27,730
+Donc il apprendrait des représentations cachées 
+et c’est un algorithme très simple.
+
+148
+00:09:27,730 --> 00:09:31,130
+Et ça ressemblait au genre de choses que
+ vous pouvez avoir dans un cerveau parce que
+
+149
+00:09:31,130 --> 00:09:34,210
+chaque synapse a seulement besoin de connaître
+ le comportement des deux
+
+150
+00:09:34,210 --> 00:09:35,940
+neurones auxquels 
+elle était directement connectée.
+
+151
+00:09:37,010 --> 00:09:41,230
+Et l’information qui était propagée était la même.
+
+152
+00:09:41,230 --> 00:09:45,160
+Il y a deux phases différentes,
+ que nous avons appelé le réveil et le sommeil.
+
+153
+00:09:45,160 --> 00:09:46,820
+Mais dans les deux phases différentes,
+
+154
+00:09:46,820 --> 00:09:48,760
+vous propagez des informations de la même façon.
+
+155
+00:09:48,760 --> 00:09:52,360
+Alors que dans quelque chose comme la 
+rétropropagation, il y a une passe directe et
+
+156
+00:09:52,360 --> 00:09:54,820
+une passe arrière et 
+elles fonctionnent différemment.
+
+157
+00:09:54,820 --> 00:09:56,379
+Elles envoient des types de signaux différents.
+
+158
+00:09:58,100 --> 00:10:01,190
+Donc je pense que c’est la plus belle chose.
+
+159
+00:10:01,190 --> 00:10:03,730
+Et pendant de nombreuses années,
+ c'était juste une curiosité,
+
+160
+00:10:03,730 --> 00:10:05,090
+parce qu’il semblait que c’était beaucoup trop lent.
+
+161
+00:10:06,210 --> 00:10:10,420
+Mais plus tard, je me suis débarrassé d’un peu 
+de la beauté, et au lieu de le laisser
+
+162
+00:10:10,420 --> 00:10:13,730
+s'installer, j'ai utilisé une seule itération,
+ dans un réseau un peu plus simple.
+
+163
+00:10:13,730 --> 00:10:16,570
+Et cela a donné 
+les machines de Boltzmann restreintes,
+
+164
+00:10:16,570 --> 00:10:19,430
+qui fonctionnaient efficacement dans la pratique.
+
+165
+00:10:19,430 --> 00:10:21,586
+Ainsi, dans la compétition de Netflix, par exemple,
+
+166
+00:10:21,586 --> 00:10:26,170
+les machines de Boltzmann restreintes étaient
+ un des ingrédients de la soumission gagnante.
+
+167
+00:10:26,170 --> 00:10:30,210
+>> Et en fait, beaucoup de la résurgence récente
+ des réseaux neuronaux et
+
+168
+00:10:30,210 --> 00:10:34,790
+de l'apprentissage profond, à partir d'environ 2007, 
+vient de la machine de Boltzmann restreinte,
+
+169
+00:10:34,790 --> 00:10:37,710
+et des travaux sur la machine de Boltzmann générale
+ que vous et votre laboratoire avez menés.
+
+170
+00:10:38,940 --> 00:10:42,130
+>> Oui c’est une autre partie de mon travail 
+dont je suis très content,
+
+171
+00:10:42,130 --> 00:10:46,290
+l’idée de qui vous pourriez entrainer 
+votre machine de Boltzmann restreinte,
+
+172
+00:10:46,290 --> 00:10:51,120
+qui n'avait qu'une couche de 
+caractéristiques cachées et que vous pourriez
+ apprendre une couche de caractéristiques.
+
+173
+00:10:51,120 --> 00:10:54,850
+Et puis vous pourriez traiter ces caractéristiques comme 
+des données et le faire à nouveau, et
+
+174
+00:10:54,850 --> 00:10:57,953
+puis vous pouvez traiter les nouvelles
+ caractéristiques que vous avez apprises
+ comme des données et le faire à nouveau,
+
+175
+00:10:57,953 --> 00:10:59,570
+autant de fois que vous voulez.
+
+176
+00:10:59,570 --> 00:11:03,060
+Donc c'était sympa, 
+cela fonctionnait dans la pratique.
+
+177
+00:11:03,060 --> 00:11:08,709
+Et puis Yee Whye Teh s’est rendu compte que tout cela pouvait
+ être considéré comme un seul modèle,
+
+178
+00:11:08,709 --> 00:11:11,110
+mais c’était un modèle bizarre.
+
+179
+00:11:11,110 --> 00:11:15,946
+C’était un modèle où, en haut, vous avez 
+une machine de Boltzmann restreinte, mais
+
+180
+00:11:15,946 --> 00:11:20,626
+en dessous vous aviez un réseau de croyance sigmoïde,
+ qui était quelque chose que
+
+181
+00:11:20,626 --> 00:11:23,060
+Radford Neal avait inventé des années plus tôt.
+
+182
+00:11:23,060 --> 00:11:24,620
+Donc c’était un modèle dirigé et
+
+183
+00:11:24,620 --> 00:11:28,651
+ce que nous avions réussi à inventer en 
+entrainant ces machines de Boltzmann restreintes
+
+184
+00:11:28,651 --> 00:11:32,760
+était un moyen efficace de faire des inférences
+ dans des réseaux de croyance sigmoïdes.
+
+185
+00:11:33,830 --> 00:11:36,870
+Donc, à cette époque,
+
+186
+00:11:36,870 --> 00:11:41,270
+il y avait des gens qui faisaient 
+des réseaux neuronaux, et qui voulaient 
+utiliser des réseaux densément connectés, mais
+
+187
+00:11:41,270 --> 00:11:45,500
+n’avaient pas de bons moyens de faire 
+des inférences probabilistes en eux.
+
+188
+00:11:45,500 --> 00:11:50,050
+Et vous aviez des gens qui faisaient des modèles 
+graphiques, contrairement à mes enfants,
+
+189
+00:11:50,050 --> 00:11:55,603
+qui pouvaient faire des inférences correctement, 
+mais seulement dans des réseaux peu connectés.
+
+190
+00:11:55,603 --> 00:12:01,140
+Et ce que nous avons réussi à montrer 
+est comment faire l’apprentissage de
+
+191
+00:12:01,140 --> 00:12:06,280
+réseaux de croyance profonds pour qu’il y ait
+ une forme approximative d’inférence qui est très rapide,
+
+192
+00:12:06,280 --> 00:12:10,578
+elle nécessite une seule passe dans le sens direct 
+et ça c’était un très beau résultat.
+
+193
+00:12:10,578 --> 00:12:14,890
+Et vous pouviez garantir que chaque fois que vous 
+appreniez une couche supplémentaire de caractéristiques,
+
+194
+00:12:16,010 --> 00:12:19,980
+Il y avait une borne inférieure, 
+chaque fois que vous entrainiez une nouvelle couche,
+ vous aviez une nouvelle borne, et
+
+195
+00:12:19,980 --> 00:12:22,700
+la nouvelle borne était toujours
+ meilleure que l'ancienne borne.
+
+196
+00:12:22,700 --> 00:12:25,810
+>> Les bornes variationnelles, qui apparaissent 
+lorsque vous ajoutez des couches.
+
+197
+00:12:25,810 --> 00:12:26,970
+Oui, je me souviens de la vidéo.
+
+198
+00:12:26,970 --> 00:12:29,680
+>> Donc c'est la deuxième chose 
+qui m'a vraiment enthousiasmé.
+
+199
+00:12:29,680 --> 00:12:35,600
+Et je suppose que la troisième chose est le travail que
+ j’ai fait avec Bradford Neal sur les méthodes variationnelles.
+
+200
+00:12:35,600 --> 00:12:40,750
+Il s’avère que des gens en statistiques avaient 
+fait un travail similaire plus tôt,
+
+201
+00:12:40,750 --> 00:12:43,100
+mais nous ne le savions pas.
+
+202
+00:12:44,610 --> 00:12:47,260
+Si nous avons réussi à faire
+
+203
+00:12:47,260 --> 00:12:50,250
+fonctionner l'EM (expectation maximisation) beaucoup mieux 
+en montrant qu'il n'y a pas besoin d'une étape E parfaite.
+
+204
+00:12:50,250 --> 00:12:52,800
+Vous pouvez faire une étape E approximée.
+
+205
+00:12:52,800 --> 00:12:55,320
+Et EM est un algorithme important dans les statistiques.
+
+206
+00:12:55,320 --> 00:12:58,380
+Et nous en avions montré une grande généralisation.
+
+207
+00:12:58,380 --> 00:13:02,490
+Et, en particulier, en 1993, je pense, avec Van Camp,
+
+208
+00:13:02,490 --> 00:13:07,040
+j’ai fait un papier qui était, je pense, la
+ première publication sur les variations bayésiennes
+
+209
+00:13:07,040 --> 00:13:12,090
+où nous avons montré que vous pouvez en fait
+ faire une version de l’apprentissage bayésien
+
+210
+00:13:12,090 --> 00:13:17,950
+qui était beaucoup plus souple, 
+en approximant le vrai postérieur avec une gaussienne.
+
+211
+00:13:17,950 --> 00:13:20,320
+Et vous pouvez le faire avec un réseau neuronal.
+
+212
+00:13:20,320 --> 00:13:22,600
+Et j’étais très content de ça.
+
+213
+00:13:22,600 --> 00:13:23,680
+>> je vois.
+Wow.
+
+214
+00:13:23,680 --> 00:13:26,670
+Yep, je pense que je me souviens de toutes ces publications,
+
+215
+00:13:26,670 --> 00:13:32,630
+Neal et Hinton sur l'EM approximée, 
+j'ai passé de nombreuses heures à le lire.
+
+216
+00:13:32,630 --> 00:13:36,070
+Et je pense que certains des algorithmes
+ que vous utilisez aujourd'hui ou
+
+217
+00:13:36,070 --> 00:13:41,110
+certains des algorithmes que beaucoup de gens 
+utilisent presque tous les jours, je veux dire
+
+218
+00:13:41,110 --> 00:13:46,570
+des choses comme l'abandon, ou je crois que l'activation ReLU 
+proviennent de votre groupe ?
+
+219
+00:13:46,570 --> 00:13:47,390
+>> Oui et non.
+
+220
+00:13:47,390 --> 00:13:51,470
+D'autres personnes ont pensé aux unités linéaires rectifiées.
+
+221
+00:13:51,470 --> 00:13:56,860
+Et effectivement, nous avons fait des travaux avec
+ des machines de Boltzmann restreintes montrant
+
+222
+00:13:56,860 --> 00:14:02,880
+qu’une ReLU était presque exactement équivalente
+ à une pile entière d’unités logistiques.
+
+223
+00:14:02,880 --> 00:14:05,190
+Et c’est une des choses qui ont aidé 
+les ReLUs à avoir du succès.
+
+224
+00:14:05,190 --> 00:14:07,440
+>> J’étais vraiment curieux à ce sujet.
+
+225
+00:14:07,440 --> 00:14:12,570
+Le papier sur les ReLU contenait
+ beaucoup de math montrant que cette fonction
+
+226
+00:14:12,570 --> 00:14:15,530
+peut être approximée par cette formule vraiment compliquée.
+
+227
+00:14:15,530 --> 00:14:19,140
+Avez-vous fait toutes ces maths pour que votre papier
+ soit accepté dans une conférence universitaire,
+
+228
+00:14:19,140 --> 00:14:24,840
+ou tous les maths ont vraiment
+ influencé le développement de max de 0 et x ?
+
+229
+00:14:26,450 --> 00:14:30,440
+>> Ça a été l’un des cas où 
+les maths ont vraiment été importantes
+
+230
+00:14:30,440 --> 00:14:32,350
+pour le développement de l’idée.
+
+231
+00:14:32,350 --> 00:14:35,262
+Donc je connaissais les unités linéaires rectifiées,
+ évidemment, et
+
+232
+00:14:35,262 --> 00:14:36,821
+je connaissais les unités logistiques.
+
+233
+00:14:36,821 --> 00:14:39,250
+Et grâce au travail sur les machines de Boltzmann,
+
+234
+00:14:39,250 --> 00:14:42,720
+tout le travail de base a été effectué
+ à l’aide d’unités logistiques.
+
+235
+00:14:42,720 --> 00:14:45,120
+Et donc la question était :
+
+236
+00:14:45,120 --> 00:14:49,070
+l’algorithme d’apprentissage pourrait-il servir à
+ quelque chose avec des unités linéaires rectifiées ?
+
+237
+00:14:49,070 --> 00:14:54,400
+Et en montrant que les unités linéaires rectifiées 
+étaient presque équivalentes à une pile
+
+238
+00:14:54,400 --> 00:15:00,350
+d'unités logistiques, nous avons montré que
+ toutes les maths pourraient se faire.
+
+239
+00:15:00,350 --> 00:15:01,508
+— Je vois.
+
+240
+00:15:01,508 --> 00:15:05,890
+Et ça a fourni l’inspiration pour aujourd'hui,
+ des tonnes de gens utilisent les ReLUs et
+
+241
+00:15:05,890 --> 00:15:08,000
+ça marche, sans
+>> Oui.
+
+242
+00:15:08,000 --> 00:15:12,130
+>> Sans devoir nécessairement comprendre
+ la même motivation.
+
+243
+00:15:13,150 --> 00:15:16,850
+>> Oui, une chose j’ai remarquée plus tard 
+quand je suis allé chez Google,
+
+244
+00:15:16,850 --> 00:15:22,796
+je crois que c'était en 2014, j’ai donné une conférence
+ à Google sur l’utilisation des ReLUs et
+
+245
+00:15:22,796 --> 00:15:26,660
+l’initialisation avec la matrice identité.
+
+246
+00:15:26,660 --> 00:15:30,300
+parce que la bonne chose avec les ReLUs, 
+c’est que si vous dupliquez les couches cachées
+
+247
+00:15:30,300 --> 00:15:32,667
+et que vous initialisez avec l’identité,
+
+248
+00:15:32,667 --> 00:15:35,050
+ça copie simplement le modèle vers la couche en dessous.
+
+249
+00:15:36,140 --> 00:15:40,120
+Et donc je montrais que vous pouvez entrainer
+ des réseaux avec 300 couches cachées et
+
+250
+00:15:40,120 --> 00:15:44,760
+que vous pouvez les entrainer vraiment efficacement 
+si vous initialisez avec leur identité.
+
+251
+00:15:44,760 --> 00:15:48,065
+Mais je n'ai pas poussé ça plus loin et
+ je regrette vraiment de ne pas l'avoir fait.
+
+252
+00:15:48,065 --> 00:15:52,507
+Nous avons publié un papier avec Quoc Le
+ montrant que vous pouvez initialiser
+
+253
+00:15:52,507 --> 00:15:55,565
+montrant que vous pouvez initialiser
+ des réseaux récurrents comme ça.
+
+254
+00:15:55,565 --> 00:16:00,370
+Mais j'aurais dû approfondir ça parce que,
+ plus tard, ces réseaux résiduel
+
+255
+00:16:00,370 --> 00:16:03,572
+c'était vraiment ce genre de chose.
+
+256
+00:16:03,572 --> 00:16:06,660
+>> Au cours des années, je vous ai beaucoup
+ entendu parler du cerveau.
+
+257
+00:16:06,660 --> 00:16:09,447
+Je vous ai entendu parler de la relation 
+entre la rétro propagation et le cerveau.
+
+258
+00:16:09,447 --> 00:16:13,720
+Quelles sont vos idées actuelles là-dessus ?
+
+259
+00:16:13,720 --> 00:16:16,910
+>> je travaille à un papier sur ça actuellement.
+
+260
+00:16:18,250 --> 00:16:21,160
+Je suppose que ma pensée principale est la suivante.
+
+261
+00:16:21,160 --> 00:16:25,570
+S'il s’avère que la rétro propagation est
+ un très bon algorithme pour faire de l’apprentissage,
+
+262
+00:16:26,620 --> 00:16:31,610
+alors, assurément, l'évolution pourrait
+ avoir réussi à l'implémenter.
+
+263
+00:16:32,730 --> 00:16:37,270
+Je veux dire, vous avez des cellules qui peuvent 
+se transformer soit en globes oculaires, soit en dents.
+
+264
+00:16:37,270 --> 00:16:42,440
+Donc, si les cellules peuvent faire ça, elles peuvent
+ à coup sûr implémenter la rétro-propagation et
+
+265
+00:16:42,440 --> 00:16:45,860
+vraisemblablement il y a une énorme
+ pression sélective pour ça.
+
+266
+00:16:45,860 --> 00:16:50,490
+Donc je pense que l’idée des neuroscientifiques comme quoi 
+cela ne semble pas plausible est tout simplement ridicule.
+
+267
+00:16:50,490 --> 00:16:52,890
+Il peut y avoir une certaine implémentation subtile de ça.
+
+268
+00:16:52,890 --> 00:16:56,000
+Et je pense que le cerveau a probablement quelque chose 
+qui n'est peut-être pas exactement
+
+269
+00:16:56,000 --> 00:16:58,620
+de la rétro-propagation, mais qui en est assez proche.
+
+270
+00:16:58,620 --> 00:17:02,566
+Et au cours des années, j'ai eu un certain nombre d’idées
+ sur comment cela pourrait fonctionner.
+
+271
+00:17:02,566 --> 00:17:06,994
+Ainsi en 1987, en collaboration avec Jay McClelland,
+
+272
+00:17:06,994 --> 00:17:11,202
+j'ai mis au point l’algorithme de recirculation,
+
+273
+00:17:11,202 --> 00:17:16,090
+l'idée est que vous envoyez 
+des informations dans une boucle.
+
+274
+00:17:17,470 --> 00:17:18,686
+Et que vous essayez de faire en sorte
+
+275
+00:17:18,686 --> 00:17:22,206
+que les choses ne changent pas lorsque
+ les informations font le tour de cette boucle.
+
+276
+00:17:22,206 --> 00:17:26,490
+La version plus simple serait donc
+ vous avez des unités d'entrée et des unités cachées, et
+
+277
+00:17:26,490 --> 00:17:31,046
+vous envoyez des informations de l’unité d'entrée
+ à l'unité cachée, puis de nouveau à l’entrée, et
+
+278
+00:17:31,046 --> 00:17:34,388
+puis de nouveau à la cachée,
+ puis de nouveau à l’entrée et ainsi de suite.
+
+279
+00:17:34,388 --> 00:17:38,001
+Et ce que vous voulez, vous souhaitez
+ entraîner un auto encodeur,
+
+280
+00:17:38,001 --> 00:17:42,300
+mais vous voulez l'entraîner 
+sans avoir à faire de rétro-propagation.
+
+281
+00:17:42,300 --> 00:17:47,250
+Donc vous l'entraînez seulement à se débarrasser
+ de toute variation dans les activités.
+
+282
+00:17:47,250 --> 00:17:51,922
+Donc, l’idée est que la règle d’apprentissage pour
+
+283
+00:17:51,922 --> 00:17:57,930
+les synapses est de changer la pondération 
+proportionnellement à l’entrée présynaptique et
+
+284
+00:17:57,930 --> 00:18:01,780
+proportionnellement au taux de changement 
+de l’entrée postsynaptique.
+
+285
+00:18:01,780 --> 00:18:04,060
+Mais avec la recirculation, vous essayez
+ de faire de l’entrée postsynaptique,
+
+286
+00:18:04,060 --> 00:18:08,330
+vous essayez de faire que le vieux soit bon 
+et que le nouveau soit mauvais, donc
+
+287
+00:18:08,330 --> 00:18:09,620
+vous modifiez dans cette direction.
+
+288
+00:18:11,010 --> 00:18:14,472
+Nous avons inventé cet algorithme
+ avant que les neuroscientifiques découvrent
+
+289
+00:18:14,472 --> 00:18:16,521
+la plasticité fonction du temps d'occurrence des impulsions.
+
+290
+00:18:16,521 --> 00:18:20,700
+La plasticité fonction du temps d'occurrence des impulsions
+ est en fait le même algorithme mais
+
+291
+00:18:20,700 --> 00:18:26,220
+dans l'autre sens, où la nouvelle chose est bonne et
+ la vieille chose est mauvaise dans la règle d’apprentissage.
+
+292
+00:18:26,220 --> 00:18:30,010
+Si vous modifiez les pondérations 
+en proportions de l’activité présynaptique
+
+293
+00:18:30,010 --> 00:18:35,690
+multiplié par la nouvelle activité post synaptique moins l'ancienne.
+
+294
+00:18:37,060 --> 00:18:42,020
+Par la suite, j’ai réalisé en 2007,
+ que si vous preniez une pile de
+
+295
+00:18:42,020 --> 00:18:47,830
+machines de Boltzmann restreintes et vous les entraînez.
+
+296
+00:18:47,830 --> 00:18:52,620
+Après l'apprentissage, vous avez alors
+ exactement les bonnes conditions pour
+
+297
+00:18:52,620 --> 00:18:56,450
+implémenter la rétro-propagation
+ en essayant juste de reconstruire.
+
+298
+00:18:56,450 --> 00:19:01,124
+Si vous regardez l'erreur de reconstruction,
+ l’erreur de reconstruction
+
+299
+00:19:01,124 --> 00:19:05,728
+vous donne en fait la dérivée 
+de la performance discriminative.
+
+300
+00:19:05,728 --> 00:19:12,079
+Et lors du premier atelier sur l’apprentissage profond en 2007,
+ j’ai donné une conférence à ce sujet.
+
+301
+00:19:12,079 --> 00:19:16,454
+Qui a été presque complètement ignoré.
+
+302
+00:19:16,454 --> 00:19:19,799
+Plus tard, Joshua Bengio a reprit l’idée et
+
+303
+00:19:19,799 --> 00:19:24,340
+a fait beaucoup de travaux là-dessus.
+
+304
+00:19:24,340 --> 00:19:26,490
+Et j’ai fait plus de travail là-dessus moi aussi.
+
+305
+00:19:26,490 --> 00:19:33,280
+Et je pense que cette idée que si vous avez 
+une pile d’auto-encodeurs, alors vous pouvez
+
+306
+00:19:33,280 --> 00:19:38,440
+obtenir des dérivées en envoyant l’activité vers l’arrière
+ et en regardant l'erreur de reconstruction,
+
+307
+00:19:38,440 --> 00:19:42,520
+est une idée vraiment intéressante et 
+c'est peut-être comme ça que le cerveau fait.
+
+308
+00:19:42,520 --> 00:19:47,520
+>> Il y a un autre sujet sur lequel je sais que 
+vous avez beaucoup réfléchi, et je crois
+
+309
+00:19:47,520 --> 00:19:51,930
+que vous y travaillez toujours, c’est comment faire face à
+ des échelles de temps multiples dans l’apprentissage profond ?
+
+310
+00:19:51,930 --> 00:19:54,468
+Alors, pouvez-vous partager vos pensées là-dessus ?
+
+311
+00:19:54,468 --> 00:19:58,910
+>> Oui, donc en fait, cela remonte à 
+mes premières années de thèse.
+
+312
+00:19:58,910 --> 00:20:04,040
+La première conférence que j’ai donnée était sur 
+l’utilisation de ce que j’ai appelé les poids rapides.
+
+313
+00:20:04,040 --> 00:20:07,560
+Donc des poids qui s’adaptent rapidement,
+ mais s'affaiblissent rapidement.
+
+314
+00:20:07,560 --> 00:20:08,832
+Et par conséquent peuvent contenir 
+de la mémoire à court terme.
+
+315
+00:20:08,832 --> 00:20:13,496
+Et je l’ai montré dans un système très simple 
+en 1973 que vous pouvez faire
+
+316
+00:20:13,496 --> 00:20:16,590
+de la vraie récursivité avec ces poids.
+
+317
+00:20:16,590 --> 00:20:23,010
+Et ce que j’entends par vraie récursivité 
+c’est que les neurones qui servent
+
+318
+00:20:23,010 --> 00:20:28,470
+à représenter des choses sont réutilisés pour 
+représenter des choses dans le noyau récursif.
+
+319
+00:20:30,210 --> 00:20:31,750
+Et le poids qui est utilisé pour
+
+320
+00:20:31,750 --> 00:20:34,388
+représenter de la connaissance 
+est réutilisé dans le noyau récursif.
+
+321
+00:20:34,388 --> 00:20:39,170
+Et cela amène la question de, 
+quand vous sortez de votre noyau récursif,
+
+322
+00:20:39,170 --> 00:20:41,600
+Comment vous vous souvenez de ce que
+ vous étiez en train de faire ?
+
+323
+00:20:41,600 --> 00:20:42,970
+Où est cette mémoire ?
+
+324
+00:20:42,970 --> 00:20:45,015
+Parce que vous avez utilisé les neurones
+ pour le noyau récursif.
+
+325
+00:20:46,080 --> 00:20:49,240
+Et la réponse est que vous pouvez 
+mettre cette mémoire dans les poids rapide, et
+
+326
+00:20:49,240 --> 00:20:53,940
+vous pouvez récupérer les états d'activité des neurones 
+à partir de ces poids rapides.
+
+327
+00:20:53,940 --> 00:20:56,151
+Et plus récemment, en travaillant avec Jimmy Ba,
+
+328
+00:20:56,151 --> 00:21:00,141
+nous avons obtenu un papier dans NIPS en utilisant 
+des poids rapides pour la récursivité comme ça.
+
+329
+00:21:00,141 --> 00:21:00,898
+— Je vois.
+
+330
+00:21:00,898 --> 00:21:04,145
+>> Donc ça fait un sacré écart.
+
+331
+00:21:04,145 --> 00:21:08,746
+Le premier modèle était inédit en 1973 et
+
+332
+00:21:08,746 --> 00:21:14,966
+puis le modèle de Jimmy Ba était 
+en 2015, je crois, ou 2016.
+
+333
+00:21:14,966 --> 00:21:16,469
+C’est donc une quarantaine d’années plus tard.
+
+334
+00:21:16,469 --> 00:21:22,840
+>> Et, je suppose, une autre idée dont je
+ vous ai entendu parler depuis quelques années maintenant,
+
+335
+00:21:22,840 --> 00:21:29,350
+plus de cinq ans, selon moi, 
+est les capsules, où en êtes vous avec ça ?
+
+336
+00:21:29,350 --> 00:21:34,150
+>> OK, donc je suis de retour dans l'état où j'étais avant,
+
+337
+00:21:34,150 --> 00:21:39,320
+qui est que j’ai cette idée, en laquelle je crois vraiment,
+ et personne d’autre n'y croit.
+
+338
+00:21:39,320 --> 00:21:42,120
+Et je propose des publications à 
+ce sujet et elles sont refusées.
+
+339
+00:21:42,120 --> 00:21:45,938
+Mais je crois vraiment en cette idée et 
+je vais juste continuer à la pousser.
+
+340
+00:21:45,938 --> 00:21:53,880
+Alors ça tourne autour de,
+ il y a quelques idées clés.
+
+341
+00:21:53,880 --> 00:22:00,000
+L'une est sur la façon dont vous représentez
+ des entités multi dimensionnelles et
+
+342
+00:22:00,000 --> 00:22:05,070
+vous pouvez représenter des entités multidimensionnelles
+ par juste un petit vecteur d'activités,
+
+343
+00:22:05,070 --> 00:22:07,630
+tant que vous savez qu'il y a l’un d’eux.
+
+344
+00:22:07,630 --> 00:22:12,150
+Donc l’idée est dans chaque région de l’image, 
+vous supposez qu’il y a au plus
+
+345
+00:22:12,150 --> 00:22:14,000
+un seul type de caractéristique.
+
+346
+00:22:15,200 --> 00:22:18,020
+Et puis, vous utilisez une série de neurones, et
+
+347
+00:22:18,020 --> 00:22:23,190
+leurs activités représentent les différents aspects 
+de cette fonctionnalité,
+
+348
+00:22:24,230 --> 00:22:27,270
+comme, dans la région, quelles sont
+ exactement ses coordonnées x et y ?
+
+349
+00:22:27,270 --> 00:22:28,780
+Quelle est son orientation ?
+
+350
+00:22:28,780 --> 00:22:29,930
+À quelle vitesse se déplace-t-il ?
+
+351
+00:22:29,930 --> 00:22:30,630
+De quelle couleur est-il ?
+
+352
+00:22:30,630 --> 00:22:31,270
+Quelle luminosité ?
+
+353
+00:22:31,270 --> 00:22:32,590
+Et des trucs comme ça.
+
+354
+00:22:32,590 --> 00:22:36,350
+Ainsi, vous pouvez utiliser tout un tas de neurones 
+pour représenter les différentes dimensions de
+
+355
+00:22:36,350 --> 00:22:37,710
+la même chose.
+
+356
+00:22:37,710 --> 00:22:39,410
+A condition qu'il n'y en ait qu'une seule.
+
+357
+00:22:40,490 --> 00:22:46,110
+C’est une façon très différente de représenter les choses
+
+358
+00:22:46,110 --> 00:22:48,155
+par rapport à ce que nous faisons
+ d'habitude avec les réseaux de neurones.
+
+359
+00:22:48,155 --> 00:22:49,820
+Normalement dans les réseaux de neurones,
+ nous avons juste une grande couche,
+
+360
+00:22:49,820 --> 00:22:52,080
+et toutes les unités font 
+ce qu'elles veulent indépendamment.
+
+361
+00:22:52,080 --> 00:22:55,770
+Mais vous ne pensez pas à les regrouper 
+en petits groupes qui représentent
+
+362
+00:22:55,770 --> 00:22:57,310
+différentes coordonnées de la même chose.
+
+363
+00:22:58,660 --> 00:23:02,080
+Donc je pense que nous devrions mettre en place 
+cette structure supplémentaire.
+
+364
+00:23:02,080 --> 00:23:05,020
+Et puis l’autre idée qui va avec ça..
+
+365
+00:23:05,020 --> 00:23:07,410
+>> Donc, cela signifie que
+ dans la représentation distribuée,
+
+366
+00:23:07,410 --> 00:23:09,280
+vous partitionnez la représentation.
+
+367
+00:23:09,280 --> 00:23:11,270
+>> Oui.
+>> en différents sous-ensembles.
+
+368
+00:23:11,270 --> 00:23:13,900
+>> Oui.
+>> Pour représenter, au lieu de-
+
+369
+00:23:13,900 --> 00:23:15,600
+>> j'appelle chacun de ces sous-ensembles une capsule.
+
+370
+00:23:15,600 --> 00:23:16,180
+— Je vois.
+
+371
+00:23:16,180 --> 00:23:21,078
+>> Et l’idée est qu'une capsule est en mesure 
+de représenter une instance d’une entité, mais
+
+372
+00:23:21,078 --> 00:23:21,794
+seulement une.
+
+373
+00:23:21,794 --> 00:23:27,130
+Et elle représente toutes les différentes propriétés 
+de cette fonctionnalité.
+
+374
+00:23:27,130 --> 00:23:29,880
+C’est une fonctionnalité qui a beaucoup de propriétés
+ en opposition avec
+
+375
+00:23:29,880 --> 00:23:34,530
+un neurone normal dans un réseau de neurones normal,
+ qui a juste une dimension de propriété.
+
+376
+00:23:34,530 --> 00:23:36,240
+>> Oui, je vois.
+
+377
+00:23:36,240 --> 00:23:41,423
+>> Et puis ce que vous pouvez faire si vous avez cela, 
+vous pouvez faire quelque chose que
+
+378
+00:23:41,423 --> 00:23:48,980
+les réseaux de neurones normaux font très mal, 
+qui est ce que j’appelle le routage par accord.
+
+379
+00:23:48,980 --> 00:23:52,960
+Donc supposons que vous voulez faire de la segmentation et
+
+380
+00:23:52,960 --> 00:23:56,660
+vous avez quelque chose qui pourrait être une bouche 
+et autre chose qui pourrait être un nez.
+
+381
+00:23:57,910 --> 00:24:02,179
+Et vous voulez savoir si vous devriez les mettre ensemble
+ pour en faire une seule chose.
+
+382
+00:24:02,179 --> 00:24:03,879
+Donc, l’idée est d'avoir une capsule pour
+
+383
+00:24:03,879 --> 00:24:06,040
+une bouche qui a les paramètres de la bouche.
+
+384
+00:24:06,040 --> 00:24:10,582
+Et vous avez une capsule pour un nez 
+qui a les paramètres du nez.
+
+385
+00:24:10,582 --> 00:24:13,797
+Et puis pour décider s’il faut les mettre ensemble ou pas,
+
+386
+00:24:13,797 --> 00:24:18,670
+vous faites que chacun d'entre eux vote pour savoir 
+quels devraient être les paramètres pour un visage.
+
+387
+00:24:19,930 --> 00:24:23,718
+Maintenant, si la bouche et le nez sont 
+dans la bonne relation spatiale,
+
+388
+00:24:23,718 --> 00:24:24,725
+ils seront d'accord.
+
+389
+00:24:24,725 --> 00:24:28,888
+Ainsi, lorsque vous obtenez deux capsules à un niveau
+ qui votent pour le même jeu de paramètres
+
+390
+00:24:28,888 --> 00:24:32,106
+de niveau supérieur, vous pouvez supposer 
+qu’ils ont probablement raison,
+
+391
+00:24:32,106 --> 00:24:35,350
+parce que l’accord dans un espace 
+de dimension élevé est très peu probable.
+
+392
+00:24:36,950 --> 00:24:42,109
+Et c’est une façon très différente de faire du filtrage,
+
+393
+00:24:42,109 --> 00:24:46,130
+par rapport à ce que nous utilisons habituellement 
+dans des réseaux neuronaux.
+
+394
+00:24:46,130 --> 00:24:50,708
+Donc je pense que ce routage par accord
+ va être crucial pour
+
+395
+00:24:50,708 --> 00:24:56,700
+avoir des réseaux neuronaux qui généralisent 
+beaucoup mieux à partir de données limitées.
+
+396
+00:24:56,700 --> 00:24:59,797
+Je pense qu’ils seront très bons pour gérer 
+des changements dans le point de vue,
+
+397
+00:24:59,797 --> 00:25:01,500
+très bons pour faire de la segmentation.
+
+398
+00:25:01,500 --> 00:25:04,794
+Et j’espère que ce sera beaucoup 
+plus efficace statistiquement que ce que
+
+399
+00:25:04,794 --> 00:25:06,147
+nous faisons actuellement dans des réseaux neuronaux.
+
+400
+00:25:06,147 --> 00:25:08,575
+Qui est que, si vous souhaitez vous occuper
+ des changements de point de vue,
+
+401
+00:25:08,575 --> 00:25:12,000
+vous lui donnez juste tout un tas de points de vue 
+différents et vous l'entrainez sur ça.
+
+402
+00:25:12,000 --> 00:25:16,460
+>> je vois, ok, donc plutôt que 
+l’apprentissage 'feed forward', l’apprentissage supervisé,
+
+403
+00:25:16,460 --> 00:25:19,120
+vous pouvez apprendre cela d’une manière différente.
+
+404
+00:25:20,220 --> 00:25:24,120
+>> Eh bien, j’ai quand même l’intention de le faire 
+avec de l’apprentissage supervisé, mais
+
+405
+00:25:24,120 --> 00:25:27,720
+la mécanique des chemins vers l’avant est très différente.
+
+406
+00:25:27,720 --> 00:25:32,010
+Il n’est pas un pur chemin vers l’avant en ce sens 
+qu’il y a des petits bouts d’itération qui se passent,
+
+407
+00:25:32,010 --> 00:25:36,550
+où vous pensez que vous avez trouvé une bouche
+ et vous pensez que vous avez trouvé un nez.
+
+408
+00:25:36,550 --> 00:25:39,127
+Et vous utilisez un peu d’itération pour décider
+
+409
+00:25:39,127 --> 00:25:42,530
+si vous devez vraiment vous mettre ensemble
+ pour faire un visage.
+
+410
+00:25:42,530 --> 00:25:46,352
+Et vous pouvez faire une rétro
+ propagation de cette itération.
+
+411
+00:25:46,352 --> 00:25:50,286
+Alors vous pouvez essayer 
+de faire un peu de discrimination,
+
+412
+00:25:50,286 --> 00:25:54,417
+et nous travaillons sur ça maintenant 
+avec mon groupe à Toronto.
+
+413
+00:25:54,417 --> 00:26:00,260
+J’ai maintenant une petite équipe de Google
+ à Toronto, qui fait partie de la Brain team.
+
+414
+00:26:00,260 --> 00:26:02,127
+C’est ce qui m’enthousiasme en ce moment.
+
+415
+00:26:02,127 --> 00:26:02,891
+>> Je vois, oui, super.
+
+416
+00:26:02,891 --> 00:26:05,366
+J'attends avec impatience la publication, quand elle sortira.
+
+417
+00:26:05,366 --> 00:26:10,750
+>> Oui, si elle sort [rire].
+
+418
+00:26:10,750 --> 00:26:13,040
+>> Vous avez travaillé sur l'apprentissage profond 
+pendant plusieurs décennies.
+
+419
+00:26:13,040 --> 00:26:15,330
+Je suis vraiment curieux de savoir,
+ comment votre façon de penser,
+
+420
+00:26:15,330 --> 00:26:18,760
+votre compréhension de l’IA 
+a changé au cours de ces années ?
+
+421
+00:26:20,380 --> 00:26:27,678
+>> Donc je suppose que beaucoup de mon histoire
+ intellectuelle a été autour de la rétro propagation
+
+422
+00:26:27,678 --> 00:26:33,531
+et comment utiliser la rétro propagation,
+ comment faire usage de son pouvoir.
+
+423
+00:26:33,531 --> 00:26:36,966
+Donc dans un premier temps, dans le milieu
+ des années 80, nous l'utilisions pour
+
+424
+00:26:36,966 --> 00:26:40,203
+l'apprentissage discriminatif et ça fonctionnait bien.
+
+425
+00:26:40,203 --> 00:26:42,405
+J’ai alors décidé, vers le début des années 90,
+
+426
+00:26:42,405 --> 00:26:46,749
+qu'en fait la plus grande partie de l’apprentissage
+ humain allait être de l’apprentissage non supervisé.
+
+427
+00:26:46,749 --> 00:26:50,138
+Et je me suis beaucoup intéressé à
+ l’apprentissage non supervisé, et
+
+428
+00:26:50,138 --> 00:26:54,300
+C’est quand j’ai travaillé sur des choses 
+comme l’algorithme wake-sleep.
+
+429
+00:26:54,300 --> 00:26:58,306
+>> Et vos commentaires à ce moment-là ont
+ vraiment influencé mes réflexions également.
+
+430
+00:26:58,306 --> 00:27:03,010
+Donc quand j'étais à la tête de Google Brain,
+ notre premier projet a consacré beaucoup de
+
+431
+00:27:03,010 --> 00:27:07,900
+travail à l'apprentissage non supervisé
+ à cause de votre influence.
+
+432
+00:27:07,900 --> 00:27:09,740
+>> C'est vrai, et je vous ai peut être induit en erreur.
+
+433
+00:27:09,740 --> 00:27:11,470
+Parce qu’à long terme,
+
+434
+00:27:11,470 --> 00:27:13,840
+Je pense que l’apprentissage non supervisé 
+va être absolument crucial.
+
+435
+00:27:15,160 --> 00:27:19,376
+Mais il faut un peu regarder la réalité en face.
+
+436
+00:27:19,376 --> 00:27:24,107
+Et ce qui a marché au cours des dix dernières
+ années, c'est l’apprentissage supervisé.
+
+437
+00:27:24,107 --> 00:27:27,179
+La formation discriminative,
+ où vous avez des étiquettes,
+
+438
+00:27:27,179 --> 00:27:31,810
+ou vous essayez de prédire la prochaine chose 
+dans une série, ce qui sert d’étiquette.
+
+439
+00:27:31,810 --> 00:27:33,769
+Et ça a incroyablement bien fonctionné.
+
+440
+00:27:37,528 --> 00:27:42,266
+Je persiste à croire que l’apprentissage non supervisé 
+va être crucial, et que les choses vont
+
+441
+00:27:42,266 --> 00:27:47,145
+marcher incroyablement beaucoup mieux 
+que ce qu'elles font maintenant quand nous aurons
+ fait fonctionner ça correctement,
+
+442
+00:27:47,145 --> 00:27:48,200
+mais ce n'est pas encore le cas.
+
+443
+00:27:49,990 --> 00:27:53,225
+>> Oui, je pense que beaucoup 
+des anciens de l'apprentissage profond,
+
+444
+00:27:53,225 --> 00:27:56,074
+dont je fais partie, restent très intéressés par ce sujet.
+
+445
+00:27:56,074 --> 00:28:01,513
+C’est juste qu'aucun d'entre nous n'a pour le moment
+ presque aucune idée de comment le faire.
+
+446
+00:28:01,513 --> 00:28:04,983
+Peut-être que vous en avez, mais pas moi.
+
+447
+00:28:04,983 --> 00:28:08,160
+>> Vous pouvez utiliser des astuces de reparamétrisation 
+dans les auto encodeurs variationnels.
+
+448
+00:28:08,160 --> 00:28:10,120
+Ca me semblait être une bonne idée.
+
+449
+00:28:10,120 --> 00:28:15,260
+Et les réseaux génératifs antagonistes 
+m'ont aussi semblé être une idée vraiment sympa.
+
+450
+00:28:15,260 --> 00:28:18,645
+Je pense que les réseaux génératifs antagonistes sont
+
+451
+00:28:18,645 --> 00:28:23,430
+l'une des plus grandes idées vraiment neuves
+ dans l'apprentissage profond.
+
+452
+00:28:23,430 --> 00:28:26,363
+J’espère que je peux avoir autant 
+de succès avec les capsules, mais
+
+453
+00:28:26,363 --> 00:28:31,740
+maintenant, les réseaux génératifs antagonistes
+ont été, je crois, une grande percée.
+
+454
+00:28:31,740 --> 00:28:34,439
+>> Qu'est ce qui est arrivé aux modèles
+ de 'sparsity' et de 'slow features',
+
+455
+00:28:34,439 --> 00:28:38,806
+qui étaient deux des autres principes 
+pour construire des modèles non supervisés ?
+
+456
+00:28:41,556 --> 00:28:47,788
+Je n’a jamais été aussi fan de la 'sparsity' 
+que vous l'étiez, mon ami.
+
+457
+00:28:47,788 --> 00:28:52,672
+Mais les 'slow features' sont, je pense, une erreur.
+
+458
+00:28:52,672 --> 00:28:53,660
+On ne devrait pas dire slow (lent).
+
+459
+00:28:53,660 --> 00:28:57,880
+L’idée de base est bonne, mais on ne devrait pas
+ rechercher des caractéristiques qui ne changent pas,
+
+460
+00:28:57,880 --> 00:29:00,660
+on devrait rechercher des caractéristiques
+ qui changent de manière prévisible.
+
+461
+00:29:01,680 --> 00:29:07,060
+Voici une sorte de principe de base sur 
+comment modéliser quelque chose.
+
+462
+00:29:08,620 --> 00:29:13,391
+Vous prenez vos mesures, et vous appliquez
+ une transformation non linéaire
+
+463
+00:29:13,391 --> 00:29:17,612
+à vos mesures jusqu'à ce que vous arriviez à
+
+464
+00:29:17,612 --> 00:29:22,672
+une représentation sous forme de vecteur d’état
+ dans lequel l’action est linéaire.
+
+465
+00:29:22,672 --> 00:29:26,103
+Vous ne faites pas juste seulement semblant que c’est linéaire, 
+comme vous le faites avec les filtres habituels,
+
+466
+00:29:26,103 --> 00:29:29,625
+mais vous trouverez une transformation des observables
+
+467
+00:29:29,625 --> 00:29:32,616
+vers les variables sous-jacentes,
+ où des opérations linéaires,
+
+468
+00:29:32,616 --> 00:29:37,480
+comme des multiplications matricielles
+ sur les variables sous-jacentes, fera le travail.
+
+469
+00:29:37,480 --> 00:29:39,700
+Ainsi, par exemple, si vous souhaitez 
+modifier les points de vue.
+
+470
+00:29:39,700 --> 00:29:42,890
+Si vous voulez produire l’image
+ depuis un autre point de vue,
+
+471
+00:29:42,890 --> 00:29:46,900
+ce que vous devez faire, 
+c’est d'aller des pixels aux coordonnées.
+
+472
+00:29:47,950 --> 00:29:50,686
+Et une fois que vous avez obtenu 
+la représentation en coordonnées,
+
+473
+00:29:50,686 --> 00:29:54,120
+et j'espère que les capsules pourront,
+ entre autres, trouver ça,
+
+474
+00:29:54,120 --> 00:29:57,350
+Vous pouvez ensuite faire une multiplication
+ de matrices pour changer de point de vue, et
+
+475
+00:29:57,350 --> 00:29:59,210
+puis vous pouvez le remapper vers des pixels.
+
+476
+00:29:59,210 --> 00:29:59,893
+>> C’est pourquoi vous avez fait tout cela.
+
+477
+00:29:59,893 --> 00:30:02,170
+>> Je pense que c’est un principe très général.
+
+478
+00:30:02,170 --> 00:30:04,773
+>> C’est pourquoi vous avez fait tout ce travail sur
+ la synthèse des visages, n'est-ce pas ?
+
+479
+00:30:04,773 --> 00:30:09,355
+Où vous prenez un visage et le compressez 
+dans un vecteur de très faible dimension et alors
+
+480
+00:30:09,355 --> 00:30:12,450
+vous pouvez jouer avec ça et obtenir d'autres visages.
+
+481
+00:30:12,450 --> 00:30:15,950
+>> j’ai eu un élève qui a travaillé là-dessus,
+ je n’y ai pas beaucoup travaillé moi-même.
+
+482
+00:30:17,100 --> 00:30:19,180
+>> Maintenant, je suis sûr 
+qu'on vous le demande tout le temps,
+
+483
+00:30:19,180 --> 00:30:23,920
+Si quelqu'un veut réussir 
+en apprentissage profond, que doit-il faire ?
+
+484
+00:30:23,920 --> 00:30:25,040
+Quels conseils auriez-vous ?
+
+485
+00:30:25,040 --> 00:30:28,938
+Je suis sûr que vous avez donné beaucoup de conseils 
+à des gens directement, mais pour
+
+486
+00:30:28,938 --> 00:30:31,550
+l’audience mondiale des gens qui regardent cette vidéo,
+
+487
+00:30:31,550 --> 00:30:35,999
+quels conseils auriez-vous pour eux, 
+pour démarrer dans l’apprentissage profond ?
+
+488
+00:30:35,999 --> 00:30:42,171
+>> OK, donc mon conseil est de lire la littérature, 
+mais de ne pas trop en lire.
+
+489
+00:30:42,171 --> 00:30:48,030
+C’est le conseil que j’ai eu de mon maître de thèse, 
+et c'est très différent de ce que la plupart des gens disent.
+
+490
+00:30:48,030 --> 00:30:52,474
+La plupart des gens disent que vous devez 
+passer plusieurs années à lire la littérature et
+
+491
+00:30:52,474 --> 00:30:55,421
+qu'ensuite vous pouvez commencer
+ à travailler sur vos propres idées.
+
+492
+00:30:55,421 --> 00:31:00,295
+Et c’est peut-être vrai pour certains chercheurs, 
+mais pour les chercheurs créatifs je pense
+
+493
+00:31:00,295 --> 00:31:03,803
+que vous devriez lire un peu de la littérature.
+
+494
+00:31:03,803 --> 00:31:07,792
+Et remarquer quelque chose que, 
+à votre avis, tout le monde fait mal,
+
+495
+00:31:07,792 --> 00:31:10,340
+qui vous contrarie.
+
+496
+00:31:10,340 --> 00:31:13,568
+Vous le regardez et ça ne vous semble pas bon.
+
+497
+00:31:13,568 --> 00:31:15,660
+Et puis trouvez une façon de le faire correctement.
+
+498
+00:31:16,890 --> 00:31:22,476
+Et puis quand les gens vous disent 
+que ça ne vaut rien, continuez sur ça.
+
+499
+00:31:22,476 --> 00:31:26,339
+Et j’ai un très bon principe
+ pour aider les gens à persévérer,
+
+500
+00:31:26,339 --> 00:31:29,996
+qui est, soit vos intuitions sont bonnes, 
+soit elles ne le sont pas.
+
+501
+00:31:29,996 --> 00:31:32,030
+Si vos intuitions sont bonnes, 
+vous devez les suivre et
+
+502
+00:31:32,030 --> 00:31:34,060
+vous réussirez finalement.
+
+503
+00:31:34,060 --> 00:31:36,478
+Si vos intuitions ne sont pas bonnes,
+ peu importe ce que vous faites.
+
+504
+00:31:36,478 --> 00:31:40,329
+— Je vois.
+[Rires]
+
+505
+00:31:40,329 --> 00:31:43,420
+Des conseils inspirants, 
+je devrais faire ça.
+
+506
+00:31:43,420 --> 00:31:45,410
+>> Vous pouvez avoir confiance
+ en vos intuitions.
+
+507
+00:31:45,410 --> 00:31:47,847
+Il ne sert à rien de 
+ne pas leur faire confiance.
+
+508
+00:31:47,847 --> 00:31:49,420
+>>Je vois, oui.
+
+509
+00:31:49,420 --> 00:31:55,193
+Généralement, je conseille aux gens de
+ non seulement lire, mais aussi
+ de reproduire des articles publiés.
+
+510
+00:31:55,193 --> 00:31:58,161
+Et peut-être que cela met une limitation 
+naturelle sur combien vous pouvez en faire,
+
+511
+00:31:58,161 --> 00:32:00,800
+parce que la reproduction des résultats
+ prend beaucoup de temps.
+
+512
+00:32:01,910 --> 00:32:05,312
+Oui, c’est vrai que lorsque vous
+ essayez de répliquer un article publié,
+
+513
+00:32:05,312 --> 00:32:08,100
+vous découvrez tous les petits trucs
+ nécessaires pour le faire fonctionner.
+
+514
+00:32:08,100 --> 00:32:11,938
+L'autre conseil que j’ai, c'est de 
+ne jamais cesser de programmer.
+
+515
+00:32:11,938 --> 00:32:15,577
+Parce que si vous donnez à 
+un étudiant quelque chose à faire,
+ s'ils ne sont pas bons,
+
+516
+00:32:15,577 --> 00:32:18,550
+ils vont revenir et dire : 
+ça n’a pas fonctionné.
+
+517
+00:32:18,550 --> 00:32:22,030
+Et la raison pour laquelle 
+ça n’a pas fonctionné est 
+une petite décision qu'ils ont prise,
+
+518
+00:32:22,030 --> 00:32:25,100
+sans réaliser qu'elle était cruciale.
+
+519
+00:32:25,100 --> 00:32:28,850
+Et si vous le donnez à un bon élève, 
+comme UY Tay par exemple.
+
+520
+00:32:28,850 --> 00:32:31,120
+Vous pouvez lui donner n’importe quoi et
+ il va revenir et dire, cela a fonctionné.
+
+521
+00:32:32,670 --> 00:32:36,420
+Je me souviens d'avoir fait ça une fois, 
+et j’ai dit, mais attends une minute, UY.
+
+522
+00:32:36,420 --> 00:32:37,330
+Puisque nous en avons parlé,
+
+523
+00:32:37,330 --> 00:32:40,380
+J’ai réalisé que ça ne pouvait pas marcher,
+pour la raison suivante.
+
+524
+00:32:40,380 --> 00:32:43,586
+Et UY a dit : Oui, j’ai réalisé ça 
+tout de suite, donc j’ai supposé que 
+vous ne vouliez pas dire ça.
+
+525
+00:32:43,586 --> 00:32:47,627
+>> [Rires] je vois, oui, c’est génial, oui.
+
+526
+00:32:47,627 --> 00:32:51,575
+Voyons voir, d'autres conseils pour
+
+527
+00:32:51,575 --> 00:32:57,782
+des gens qui veulent percer dans l'IA 
+et l'apprentissage profond ?
+
+528
+00:32:57,782 --> 00:33:02,000
+>> je dirais simplement, lisez assez pour 
+commencer à développer des intuitions.
+
+529
+00:33:02,000 --> 00:33:05,811
+Et puis, faites confiance 
+à vos intuitions et allez-y,
+
+530
+00:33:05,811 --> 00:33:10,783
+ne soyez pas trop inquiet si tout le monde 
+dit que ça n'a pas de sens.
+
+531
+00:33:10,783 --> 00:33:14,352
+>> Et je suppose qu’il n’y a aucun moyen 
+de savoir si les autres ont raison ou pas
+
+532
+00:33:14,352 --> 00:33:19,950
+quand ils disent que ça n'a pas de sens,
+ mais vous devez juste y aller
+ et vous verrez bien.
+
+533
+00:33:19,950 --> 00:33:24,350
+>> Oui, mais il y a une chose, si vous
+ pensez que c’est vraiment une bonne idée,
+
+534
+00:33:24,350 --> 00:33:27,201
+et que les autres personnes vous disent 
+que ça n'a n'a vraiment aucun sens,
+
+535
+00:33:27,201 --> 00:33:29,761
+alors vous savez que vous êtes 
+vraiment sur quelque chose.
+
+536
+00:33:29,761 --> 00:33:33,960
+Ainsi, un exemple de cela est
+ quand Radford [Neal] et moi avons commencé 
+avec les méthodes variationnelles.
+
+537
+00:33:35,420 --> 00:33:40,690
+J’ai envoyé un mail expliquant ça à un de
+ mes anciens étudiants appelé Peter Brown,
+
+538
+00:33:40,690 --> 00:33:42,560
+qui savait beaucoup de choses sur l'EM.
+
+539
+00:33:43,570 --> 00:33:46,967
+Et il l'a montré à ceux 
+qui travaillaient avec lui,
+
+540
+00:33:46,967 --> 00:33:51,253
+appelé les frères Della Pietra, 
+ils étaient jumeaux, je crois.
+
+541
+00:33:51,253 --> 00:33:55,914
+Et il m’a alors dit plus tard 
+ce qu’ils ont dit, et ils ont dit :
+
+542
+00:33:55,914 --> 00:34:00,277
+Soit ce mec est ivre, 
+soit il est tout simplement stupid, alors
+
+543
+00:34:00,277 --> 00:34:04,260
+ils pensaient vraiment, vraiment 
+que c’était n'importe quoi.
+
+544
+00:34:04,260 --> 00:34:06,460
+Maintenant, ça pouvait être en partie
+ la façon dont je l’ai expliqué,
+
+545
+00:34:06,460 --> 00:34:08,043
+parce que je l’ai expliqué
+ en termes intuitifs.
+
+546
+00:34:09,150 --> 00:34:13,100
+Mais quand vous avez ce que
+ vous pensez être une bonne idée et
+
+547
+00:34:13,100 --> 00:34:16,810
+que les autres pensent que c'est 
+complètement nul, c'est le signe 
+d’une très bonne idée.
+
+548
+00:34:18,026 --> 00:34:21,555
+>> je vois et
+ à propos de thèmes de recherche
+
+549
+00:34:21,555 --> 00:34:26,183
+les nouveaux thésards devraient
+ travailler sur quoi ? les capsules et
+
+550
+00:34:26,183 --> 00:34:30,707
+peut-être l'apprentissage non supervisé, 
+autre chose ?
+
+551
+00:34:30,707 --> 00:34:34,078
+>> Un bon conseil pour
+ les nouveaux étudiants est
+
+552
+00:34:34,078 --> 00:34:38,344
+essayez de trouver un directeur de thèse 
+qui croit en la même chose que vous.
+
+553
+00:34:38,344 --> 00:34:42,637
+Parce que si vous travaillez sur 
+des choses auxquelles votre directeur
+ de thèse croît vraiment,
+
+554
+00:34:42,637 --> 00:34:47,170
+il vous donnera beaucoup 
+de temps et de bons conseils.
+
+555
+00:34:47,170 --> 00:34:50,590
+Si vous travaillez sur des choses qui 
+n'intéressent pas votre directeur de thèse,
+
+556
+00:34:50,590 --> 00:34:55,262
+vous aurez des conseils, 
+mais ce ne sera pas aussi utile.
+
+557
+00:34:55,262 --> 00:34:58,386
+>> je vois et un dernier conseil
+ pour les apprenants,
+
+558
+00:34:58,386 --> 00:35:02,440
+Que pensez vous du fait d'entrer
+ dans un programme de doctorat ?
+
+559
+00:35:02,440 --> 00:35:09,687
+Par rapport à rejoindre à une 
+grande entreprise ou un groupe 
+de recherche de pointe ?
+
+560
+00:35:09,687 --> 00:35:13,890
+>> Oui, c’est compliqué, je pense que
+ maintenant, ce qui se passe est que,
+
+561
+00:35:13,890 --> 00:35:18,727
+il n’y a pas assez d'universitaires
+ formés à l’apprentissage profond pour
+ enseigner à tous les gens
+
+562
+00:35:18,727 --> 00:35:21,125
+qui ont besoin d'apprendre ça 
+dans les universités.
+
+563
+00:35:21,125 --> 00:35:25,011
+Il n’y a juste pas assez de bande passante 
+académique, mais
+
+564
+00:35:25,011 --> 00:35:27,780
+Je pense que cela va être temporaire.
+
+565
+00:35:27,780 --> 00:35:32,410
+Je pense que ce qui est arrivé est que
+ la plupart des départements 
+ont été très lents à
+
+566
+00:35:32,410 --> 00:35:34,890
+comprendre le genre de révolution
+ qui est en train de se passer.
+
+567
+00:35:34,890 --> 00:35:38,720
+Je suis un peu d’accord avec vous, 
+ce n’est pas tout à fait une deuxième
+ révolution industrielle, mais
+
+568
+00:35:38,720 --> 00:35:41,000
+c’est quelque chose qui est 
+presque à la même échelle.
+
+569
+00:35:41,000 --> 00:35:43,691
+Et il y a un énorme changement 
+qui se fait,
+
+570
+00:35:43,691 --> 00:35:47,980
+fondamentalement parce que notre
+ relation aux ordinateurs a changé.
+
+571
+00:35:47,980 --> 00:35:53,920
+Au lieu de les programmer, 
+nous leur montrons, et ils comprennent.
+
+572
+00:35:53,920 --> 00:35:56,570
+C’est une manière complètement différente 
+d’utiliser des ordinateurs, et
+
+573
+00:35:56,570 --> 00:36:01,210
+les départements de sciences 
+informatiques sont construits autour de
+ l’idée de la programmation des ordinateurs.
+
+574
+00:36:01,210 --> 00:36:03,480
+Et ils ne comprennent pas que
+
+575
+00:36:05,000 --> 00:36:09,330
+montrer aux ordinateurs va
+ être aussi important que
+ la programmation des ordinateurs.
+
+576
+00:36:09,330 --> 00:36:13,940
+Ils ne comprennent pas que la moitié 
+des personnes dans le département 
+devraient être des personnes
+
+577
+00:36:13,940 --> 00:36:16,510
+qui font faire des choses à 
+des ordinateurs en leur montrant.
+
+578
+00:36:16,510 --> 00:36:22,183
+Mon propre département refuse de 
+reconnaître qu’on devrait avoir beaucoup
+
+579
+00:36:22,183 --> 00:36:24,790
+beaucoup de gens qui font ça.
+
+580
+00:36:24,790 --> 00:36:28,730
+Ils pensent, qu'ils peuvent en avoir deux, 
+peut-être un peu plus, mais pas trop.
+
+581
+00:36:31,260 --> 00:36:32,452
+Et dans cette situation,
+
+582
+00:36:32,452 --> 00:36:36,510
+il faut se rappeler que
+ ce sont les grandes entreprises 
+qui font le plus de formation.
+
+583
+00:36:36,510 --> 00:36:40,335
+Donc Google forme des gens maintenant,
+ nous appelons ça Brain residency,
+
+584
+00:36:40,335 --> 00:36:43,792
+Je soupçonne que les universités
+ vont rattraper par la suite.
+
+585
+00:36:43,792 --> 00:36:48,360
+>> je vois, ok, en fait, 
+peut-être que beaucoup d’étudiants 
+se sont rendus compte de ça.
+
+586
+00:36:48,360 --> 00:36:53,131
+Dans les 50 meilleurs programmes, 
+plus de la moitié des candidats veulent
+
+587
+00:36:53,131 --> 00:36:57,079
+travailler en montrant, 
+plutôt qu'en programmant.
+
+588
+00:36:57,079 --> 00:37:00,720
+Ouais, cool, oui, en fait, pour 
+rendre à César ce qui est à César,
+
+589
+00:37:00,720 --> 00:37:04,930
+alors que deeplearning.ai crée une 
+spécialisation en apprentissage profond,
+
+590
+00:37:04,930 --> 00:37:09,239
+autant que je sache, le premier MOOC sur
+ l'apprentissage profond était en fait le votre,
+
+591
+00:37:09,239 --> 00:37:11,752
+sur Coursera également, en 2012.
+
+592
+00:37:12,828 --> 00:37:14,430
+Et de façon un peu étrange,
+
+593
+00:37:14,430 --> 00:37:18,900
+c’est à ce moment là que vous avez
+ aussi publié l’algorithme de RMS prop, 
+qui est aussi un gros morceau.
+
+594
+00:37:20,240 --> 00:37:25,910
+>> Eh bien, oui, comme vous le savez,
+ c’était parce que vous m’avez 
+invité à faire le MOOC.
+
+595
+00:37:25,910 --> 00:37:30,239
+Et puis quand je n'étais pas sûr de le faire, 
+vous avez continué à me pousser,
+
+596
+00:37:30,239 --> 00:37:34,340
+c’était très bien que je l’aie fait, 
+même si c’était beaucoup de travail.
+
+597
+00:37:34,340 --> 00:37:37,409
+>> Oui et je vous remercie de l'avoir fait, 
+je me souviens que vous vous plaigniez,
+
+598
+00:37:37,409 --> 00:37:38,351
+parce que c'était tellement de travail.
+
+599
+00:37:38,351 --> 00:37:42,413
+Et que vous restiez debout tard la nuit, 
+mais je pense que beaucoup,
+ beaucoup d’apprenants ont
+
+600
+00:37:42,413 --> 00:37:47,330
+bénéficié de votre premier MOOC,
+ donc je vous suis très reconnaissant pour ça.
+
+601
+00:37:47,330 --> 00:37:49,260
+>> C’est bon, oui
+ >> Oui. Depuis des années,
+
+602
+00:37:49,260 --> 00:37:53,290
+Je vous ai vu débattre sur
+ les paradigmes de l’IA, et
+
+603
+00:37:53,290 --> 00:37:57,030
+sur un possible changement 
+de paradigme de l’IA.
+
+604
+00:37:57,030 --> 00:37:59,984
+Quels sont vos, vous pouvez partager 
+votre opinion là-dessus ?
+
+605
+00:37:59,984 --> 00:38:05,157
+>> Oui, avec plaisir. Donc je pense que dans 
+les premiers jours, dans les années 50,
+
+606
+00:38:05,157 --> 00:38:10,335
+des gens comme von Neumann et Turing
+ ne croyait pas en l’IA symbolique,
+
+607
+00:38:10,335 --> 00:38:14,220
+ils étaient beaucoup plus inspirés
+ par le cerveau.
+
+608
+00:38:14,220 --> 00:38:20,127
+Malheureusement, ils sont tous deux 
+décédés beaucoup trop jeunes, et
+ leur voix n’ont pas été entendues.
+
+609
+00:38:20,127 --> 00:38:21,806
+Et dans les premiers jours de l’IA,
+
+610
+00:38:21,806 --> 00:38:26,259
+les gens étaient complètement 
+convaincus que les représentations
+ dont vous avez besoin pour
+
+611
+00:38:26,259 --> 00:38:30,500
+l'intelligence étaient
+ des expressions symboliques.
+
+612
+00:38:30,500 --> 00:38:35,509
+Une sorte de logique nettoyée, où vous 
+pourriez faire des choses non monotones,
+pas tout à fait de la logique,
+
+613
+00:38:35,509 --> 00:38:41,143
+mais quelque chose comme de la logique
+ et que l’essence de l’intelligence 
+était le raisonnement.
+
+614
+00:38:41,143 --> 00:38:45,662
+Ce qui arrive aujourd'hui, et 
+c’est une vision complètement différente,
+
+615
+00:38:45,662 --> 00:38:50,984
+est qu’une pensée n'est juste qu'un 
+grand gros vecteur d’activité neurale,
+
+616
+00:38:50,984 --> 00:38:55,200
+ce qui contraste avec une pensée
+ comme étant une expression symbolique.
+
+617
+00:38:55,200 --> 00:38:59,087
+Et je pense que les gens qui
+ croyaient que les pensées étaient
+ des expressions symboliques
+
+618
+00:38:59,087 --> 00:39:00,140
+on vraiment fait une énorme erreur.
+
+619
+00:39:01,210 --> 00:39:07,030
+Ce qui entre est une chaîne de mots, 
+et ce qui sort est une chaîne de mots.
+
+620
+00:39:08,140 --> 00:39:12,580
+Et à cause de cela, les chaînes de mots sont
+ le moyen évident de représenter les choses.
+
+621
+00:39:12,580 --> 00:39:15,710
+Alors ils ont pensé que 
+ce qui devait être entre les deux
+ était une chaîne de mots, ou
+
+622
+00:39:15,710 --> 00:39:18,360
+quelque chose comme
+ une chaîne de mots.
+
+623
+00:39:18,360 --> 00:39:21,310
+Et je pense que ce qui est entre les deux 
+n’a rien à voir avec une chaîne de mots.
+
+624
+00:39:21,310 --> 00:39:26,060
+Je pense que l’idée que les pensées 
+doivent être dans une sorte de langage 
+est aussi bête que
+
+625
+00:39:26,060 --> 00:39:30,980
+l'idée que la compréhension 
+d'une scène dans l'espace
+
+626
+00:39:30,980 --> 00:39:34,280
+doit être en pixels. 
+Il y a des pixels en entrée,
+
+627
+00:39:34,280 --> 00:39:37,930
+et, si nous pouvions, si nous avions une
+ imprimante matricielle attachée à nous,
+
+628
+00:39:37,930 --> 00:39:41,929
+il y aurait des pixels en sortie, mais ce 
+qui est entre les deux n’est pas des pixels.
+
+629
+00:39:43,210 --> 00:39:46,620
+Et donc je pense que les pensées sont 
+juste ces grand gros vecteurs, et
+
+630
+00:39:46,620 --> 00:39:48,460
+que ces grands vecteurs 
+ont des pouvoirs causals.
+
+631
+00:39:48,460 --> 00:39:50,490
+Ils provoquent
+ d’autres grands vecteurs, et
+
+632
+00:39:50,490 --> 00:39:56,100
+C’est tout à fait contrairement à l’idée 
+standard de l’IA comme quoi les pensées
+ sont des expressions symboliques.
+
+633
+00:39:56,100 --> 00:39:56,700
+>> je vois, bien,
+
+634
+00:39:57,740 --> 00:40:01,560
+Je suppose que l'IA en vient à 
+ce nouveau point de vue récemment.
+
+635
+00:40:01,560 --> 00:40:02,660
+>> Une partie.
+
+636
+00:40:02,660 --> 00:40:08,230
+Je pense que beaucoup de gens en IA
+ pensent toujours que les pensées doivent
+ être des expressions symboliques.
+
+637
+00:40:08,230 --> 00:40:09,780
+>> Je vous remercie beaucoup 
+pour cette interview.
+
+638
+00:40:09,780 --> 00:40:12,970
+C’était fascinant d’entendre 
+comment l'apprentissage profond a
+ évolué au cours des années,
+
+639
+00:40:12,970 --> 00:40:17,680
+ainsi que la façon dont vous aidez
+ toujours à la conduire vers l’avenir,
+ alors je vous remercie, Geoff.
+
+640
+00:40:17,680 --> 00:40:19,038
+>> Eh bien, je vous remercie de 
+m’avoir donné cette opportunité.
+
+641
+00:40:19,038 --> 00:40:20,147
+- Merci.

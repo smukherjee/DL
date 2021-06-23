@@ -1,0 +1,62 @@
+Olá e bem-vindo. Como você provavelmente já sabe, "deep learning" já transformou os negócios na internet tradicional,
+tais como pesquisa na web e publicidade. Mas a aprendizagem profunda
+também está permitindo criar novos produtos e negócios e 
+novas maneiras de ajudar as pessoas. Desde melhores serviços de saúde, onde a aprendizagem profunda
+está ficando realmente boa em leitura de imagens de raio-x,
+até na produção de uma educação personalizada, e desde a agricultura de precisão, 
+até mesmo em carros autoconduzidos e muitos outros. Se quiser aprender sobre
+as ferramentas de aprendizagem profunda e ser capaz de aplicá-las na construção de coisas incríveis, quero ajudá-lo a chegar lá. Quando você terminar esta sequência de cursos na Coursera, chamada de "especialização", você será capaz de colocar, com bastante confiança, 
+a aprendizagem profunda em seu currículo. Na próxima década, creio que todos nós teremos uma oportunidade de 
+construir um mundo incrível, uma sociedade incrível, que será movido, que será
+movida a Inteligência Artificial, e espero que você tenha um papel importante na 
+criação desta sociedade movida a base de IA. Isso posto, comecemos! Creio que a IA é a nova eletricidade. Começando a cerca de 100 anos atrás, a eletrificação da nossa sociedade transformou
+ cada grande indústria, tudo que vai desde transporte, manufatura, até saúde, comunicação e muitas outras. E hoje, vemos um surpreendente caminho claro para a IA nos dar uma transformação igualmente grande! E claro, a parte da IA que está aumentando rapidamente e direcionando um monte destes 
+desenvolvimentos, é aprendizagem profunda. Então hoje, aprendizagem profunda é uma das mais altamente procuradas nos mundos 
+da tecnologia e das habilidades. E através deste curso e alguns outros depois deste, quero auxiliá-lo a ganhar e dominar tais habilidades. Então aqui está o que 
+você aprenderá nesta sequência de cursos, também chamados 
+de "especialização" aqui na Coursera. No primeiro curso, você aprenderá sobre os fundamentos das redes neurais, aprenderá sobre redes neurais e aprendizagem profunda. Este vídeo que você está vendo é parte deste primeiro curso,
+ que dura quatro semanas, no total. E cada um dos cinco cursos na especialização 
+terá cerca de duas a quatro semanas, com a maioria deles, na verdade, 
+menor do que quatro semanas. Mas neste primeiro curso, você aprenderá como construir
+uma rede neural, incluindo uma rede neural profunda, e 
+como direcioná-la aos dados. Ao final deste curso, você será capaz de construir uma 
+rede neural profunda para reconhecer, adivinhe... Gatos. Por alguma razão, há um gato correndo por aí 
+em aprendizagem profunda. E, seguindo a tradição, neste primeiro curso, construiremos um reconhecedor de gatos. Em seguida, no segundo curso, você aprenderá sobre os aspectos práticos 
+da aprendizagem profunda. Então você aprenderá, agora que 
+já construiu sua rede, como, de fato, fazê-la 
+ter um bom desempenho. Depois você aprenderá sobre afinação de hiperparâmetro, 
+sobre regularização, sobre como diagnosticar tendências e variantes e sobre algoritmos de otimização avançados, como 
+Momentum, RMS prop e Algoritmo de autorização de Adam. Às vezes, parece que há muito refinamento, até mesmo magia negra,
+ em como construir sua rede neural. Então, o segundo curso que será de três semanas, desmitificará algumas destas magias negras. No terceiro curso, que terá só duas semanas, você aprenderá como estruturar seu projeto
+ de aprendizagem automática. Acontece que a estratégia para construir um sistema de aprendizagem automática 
+mudou na era da aprendizagem profunda. Então, por exemplo, a forma de dividir os dados 
+para treinamento, para desenvolvimento (ou dev) também chamado de
+ conjunto de validação cruzada e para conjunto de testes, mudou na era da aprendizagem profunda. Então se as novas melhores práticas estão fazendo isso e, independentemente de seu conjunto de treinamento 
+e o de teste vir de diferentes distribuições, isso vem acontecendo muito mais
+na era da aprendizagem profunda. Então, como lidar com isso? E se você já ouviu falar de aprendizagem profunda
+de ponta a ponta, você também aprenderá mais sobre ela 
+neste terceiro curso e verá quando deve usá-la e, talvez,
+quando não deveria. O material neste terceiro curso
+é relativamente exclusivo. Compartilharei com você
+muitas das lições difíceis que aprendi, construindo e entregando
+muitos produtos usando aprendizagem profunda. Tanto quanto sei, é um material que não é ensinado na maioria das universidades que têm cursos
+de aprendizagem profunda. Mas eu realmente espero que você faça
+ seus sistemas de aprendizagem profunda funcionarem bem. No próximo curso, falaremos sobre redes neurais convolucionais, 
+frequentemente abreviados CNNs. CNNs são frequentemente aplicadas
+ao processamento de imagens. Então, você aprenderá a construir tais modelos
+no curso quatro. Finalmente, no curso cinco, você aprenderá sobre modelos de sequência
+e como aplicá-los ao processamento de linguagem natural
+ e a outros problemas. Modelos de sequência incluem modelos como redes neurais recorrentes,
+abreviadas como RNNs e modelos LSTM, estes últimos, para modelos de memória
+de curto e de longo prazos. Você aprenderá o que esses termos significam
+ no curso cinco e será capaz de aplicá-los aos problemas de processamento
+de linguagem natural. Então você aprenderá tais modelos no curso cinco 
+e será capaz de aplicá-los aos dados de sequência. Assim, por exemplo, a linguagem natural é 
+apenas uma sequência de palavras. Também entenderá como tais modelos 
+podem ser aplicados ao reconhecimento da fala, ou para criar música, e outros problemas. Assim, nestes cursos você aprenderá as 
+ferramentas de aprendizagem profunda; será capaz de aplicá-las na 
+construção de coisas incríveis; e espero que muitos de vocês, com isso,
+avancem em suas carreiras profissionais. Isso posto, comecemos! Por favor, siga para o próximo vídeo,
+onde falaremos sobre aprendizagem profunda aplicada
+ao aprendizado supervisionado.
+Tradução: Carlos O. D. Lage|Revisão: Julia Yuri

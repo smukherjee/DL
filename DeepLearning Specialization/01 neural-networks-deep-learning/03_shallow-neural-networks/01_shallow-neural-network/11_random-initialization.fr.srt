@@ -1,0 +1,577 @@
+1
+00:00:00,000 --> 00:00:01,619
+Lorsque vous entraînez
+ votre réseau de neurones,
+
+2
+00:00:01,619 --> 00:00:03,955
+il est important d’initialiser
+ les poids au hasard.
+
+3
+00:00:03,955 --> 00:00:08,426
+Pour la régression logistique, il était
+ suffisant d'initialiser les poids à zéro.
+
+4
+00:00:08,426 --> 00:00:12,258
+Mais pour un réseau de neurones, initialiser
+ les poids de tous les paramètres à zéro
+
+5
+00:00:12,258 --> 00:00:14,706
+puis appliquer la descente de gradient, 
+ne marchera pas.
+
+6
+00:00:14,706 --> 00:00:15,289
+Nous allons voir pourquoi.
+
+7
+00:00:15,289 --> 00:00:20,173
+Vous avez ici deux propriétés
+d'entrée, donc
+
+8
+00:00:20,173 --> 00:00:25,953
+n0 = 2 et deux unités cachées, donc n1 = 2.
+
+9
+00:00:25,953 --> 00:00:31,547
+Et donc la matrice associée
+ à la couche cachée,
+
+10
+00:00:31,547 --> 00:00:35,373
+W1, va être de dimension deux par deux.
+
+11
+00:00:35,373 --> 00:00:41,230
+Disons que vous l’initialisez avec des 0, 
+une matrice 2 par 2 : 0 0 0 0
+
+12
+00:00:41,230 --> 00:00:45,531
+Et disons que b1 est aussi égal à 0 0.
+
+13
+00:00:45,531 --> 00:00:50,788
+Il s’avère qu'initialiser
+ le biais b à 0 fonctionne,
+
+14
+00:00:50,788 --> 00:00:54,240
+mais l'initialisation de W à 0
+ est un problème.
+
+15
+00:00:54,240 --> 00:00:59,625
+Le problème
+ avec cette forme d'initialisation est que,
+
+16
+00:00:59,625 --> 00:01:05,522
+pour tous les exemples que 
+vous lui donnerez, vous aurez
+
+17
+00:01:05,522 --> 00:01:09,253
+a11 et a12 qui seront égaux, ok ?
+
+18
+00:01:09,253 --> 00:01:12,613
+Donc cette activation et cette activation 
+auront la même valeur,
+
+19
+00:01:12,613 --> 00:01:17,170
+parce que ces deux unités cachées calculent
+ exactement la même fonction.
+
+20
+00:01:17,170 --> 00:01:21,810
+Et ensuite, quand vous calculez
+ la rétro-propagation,
+
+21
+00:01:21,810 --> 00:01:24,478
+Il s’avère que dz11 et dz12
+
+22
+00:01:24,478 --> 00:01:30,165
+seront également les mêmes,
+ à cause de la symétrie, ok ?
+
+23
+00:01:30,165 --> 00:01:33,720
+Ces deux unités cachées seront initialisées
+ de la même manière.
+
+24
+00:01:33,720 --> 00:01:36,080
+Techniquement, pour ce que je dis,
+
+25
+00:01:36,080 --> 00:01:39,851
+je pars du principe que les poids 
+de sortie sont aussi identiques,
+
+26
+00:01:39,851 --> 00:01:45,122
+c'est à dire que W2 vaut [0 0].
+
+27
+00:01:45,122 --> 00:01:48,691
+Mais si vous initialisez le réseau 
+de neurones de cette façon,
+
+28
+00:01:48,691 --> 00:01:53,590
+alors cette unité cachée et cette unité cachée
+ sont complètement identiques.
+
+29
+00:01:53,590 --> 00:01:57,011
+Parfois, vous dites qu’elles sont 
+complètement symétriques,
+
+30
+00:01:57,011 --> 00:02:01,687
+ce qui signifie qu’elles exécutent 
+exactement la même fonction.
+
+31
+00:02:01,687 --> 00:02:03,765
+Et par un preuve par induction,
+
+32
+00:02:03,765 --> 00:02:08,064
+il s’avère qu’après 
+chaque itération d'apprentissage,
+
+33
+00:02:08,064 --> 00:02:11,272
+vos deux unités cachées calculent
+ exactement la même fonction.
+
+34
+00:02:11,272 --> 00:02:17,521
+On peux montrer que dW sera 
+une matrice qui ressemblera à ceci.
+
+35
+00:02:17,521 --> 00:02:20,681
+Où toutes les lignes ont la même valeur.
+
+36
+00:02:20,681 --> 00:02:23,318
+Donc, lors de la mise à jour des poids,
+
+37
+00:02:23,318 --> 00:02:30,163
+W1 est remplacé par W1 - alpha * dW.
+
+38
+00:02:30,163 --> 00:02:33,740
+Vous trouvez que W1, après chaque itération,
+
+39
+00:02:33,740 --> 00:02:37,616
+aura la première ligne égale
+ à la deuxième ligne.
+
+40
+00:02:37,616 --> 00:02:41,487
+Donc, il est possible de construire
+ une preuve par induction que,
+
+41
+00:02:41,487 --> 00:02:44,688
+si vous initialisez toutes les valeurs de W à 0,
+
+42
+00:02:44,688 --> 00:02:49,164
+alors, parce que les deux unités cachées
+ calculent la même fonction,
+
+43
+00:02:49,164 --> 00:02:53,541
+et que les deux unités cachées ont 
+la même influence sur l’unité de sortie,
+
+44
+00:02:53,541 --> 00:02:57,542
+alors, après une itération, cette même
+ affirmation est toujours vraie,
+
+45
+00:02:57,542 --> 00:03:00,273
+les deux unités cachées
+ sont toujours symétriques.
+
+46
+00:03:00,273 --> 00:03:04,507
+Et donc, par induction, après deux itérations, 
+trois itérations et ainsi de suite,
+
+47
+00:03:04,507 --> 00:03:07,013
+peu importe combien de temps vous
+ entraînez votre réseau de neurones,
+
+48
+00:03:07,013 --> 00:03:10,373
+les deux unités cachées calculent
+ toujours exactement la même fonction.
+
+49
+00:03:10,373 --> 00:03:15,212
+Et dans ce cas, il est vraiment inutile 
+d’avoir plusieurs unités cachées,
+
+50
+00:03:15,212 --> 00:03:17,692
+parce qu’elles calculent toutes
+ la même chose.
+
+51
+00:03:17,692 --> 00:03:22,378
+Et bien sûr, pour des réseaux de neurones 
+plus grands, disons trois caractéristiques et
+
+52
+00:03:22,378 --> 00:03:24,972
+un très grand nombre d’unités cachées,
+
+53
+00:03:24,972 --> 00:03:29,239
+un argument similaire montre
+ qu’avec un réseau de neurones comme ça,
+
+54
+00:03:29,239 --> 00:03:34,107
+je ne vais pas dessiner tous les traits, 
+si vous initialisez les poids à zéro,
+
+55
+00:03:34,107 --> 00:03:37,103
+alors toutes vos unités cachées
+ sont symétriques.
+
+56
+00:03:37,103 --> 00:03:40,603
+Et peu importe combien de temps 
+vous calculez la descente de gradient,
+
+57
+00:03:40,603 --> 00:03:44,037
+elles continuent toutes à calculer
+ exactement la même fonction.
+
+58
+00:03:44,037 --> 00:03:48,785
+Et ce n’est pas bon, 
+parce que vous voulez que les différentes
+
+59
+00:03:48,785 --> 00:03:52,835
+unités cachées calculent
+ des fonctions différentes.
+
+60
+00:03:52,835 --> 00:03:57,748
+La solution consiste à initialiser 
+vos paramètres au hasard.
+
+61
+00:03:57,748 --> 00:03:58,677
+Voici ce qu'il faut faire.
+
+62
+00:03:58,677 --> 00:04:04,053
+Vous pouvez définir w1 = np.random.randn
+
+63
+00:04:04,053 --> 00:04:07,037
+Cela génère une variable 
+aléstoire gaussienne (2,2).
+
+64
+00:04:07,037 --> 00:04:12,358
+Et puis en général, vous multipliez ceci 
+par quelque chose de très petit, comme 0,01.
+
+65
+00:04:12,358 --> 00:04:14,951
+Donc vous initialisez à 
+de très faibles valeurs aléatoires.
+
+66
+00:04:14,951 --> 00:04:20,590
+Et puis b, il s’avère que b 
+n’a pas le problème de symétrie,
+
+67
+00:04:20,590 --> 00:04:24,735
+ce qu’on appelle le problème
+ de rupture de symétrie.
+
+68
+00:04:24,735 --> 00:04:29,370
+Donc on peux juste initialiser b à zéro.
+
+69
+00:04:29,370 --> 00:04:32,166
+Parce que
+ tant que W est initialisée au hasard,
+
+70
+00:04:32,166 --> 00:04:36,769
+vous commencez avec les différentes unités 
+cachées qui calculent des choses différentes.
+
+71
+00:04:36,769 --> 00:04:40,912
+Et donc vous n’avez plus ce problème 
+de rupture de symétrie.
+
+72
+00:04:40,912 --> 00:04:43,795
+Et puis de la même façon, pour W2, 
+vous allez l'initialiser au hasard.
+
+73
+00:04:43,795 --> 00:04:48,858
+Et b2, vous pouvez l'initialiser à 0.
+
+74
+00:04:48,858 --> 00:04:55,321
+Vous vous demandez peut-être, d'où vient
+ cette constante et pourquoi 0,01 ?
+
+75
+00:04:55,321 --> 00:04:58,478
+Pourquoi ne pas mettre 100 ou 1000 ?
+
+76
+00:04:58,478 --> 00:05:02,313
+En fait, on préfère généralement initialiser
+
+77
+00:05:02,313 --> 00:05:05,763
+les poids
+ à de très faibles valeurs aléatoires.
+
+78
+00:05:05,763 --> 00:05:10,443
+Parce que si vous utilisez une fonction
+ d’activation tanh ou sigmoïde,
+
+79
+00:05:10,443 --> 00:05:14,047
+même si c'est seulement 
+pour la couche de sortie,
+
+80
+00:05:14,047 --> 00:05:17,922
+si les poids sont trop grands,
+
+81
+00:05:17,922 --> 00:05:23,967
+lorsque vous calculez
+ les valeurs d’activation,
+
+82
+00:05:23,967 --> 00:05:28,621
+n’oubliez pas que z [1] = W1 x + b.
+
+83
+00:05:28,621 --> 00:05:34,094
+Et puis a1 est la fonction 
+d’activation appliquée à z1.
+
+84
+00:05:34,094 --> 00:05:39,097
+Donc si W est très grand, 
+z sera très grand, ou au moins certaines
+
+85
+00:05:39,097 --> 00:05:44,235
+valeurs de z seront très grandes
+ ou très petites.
+
+86
+00:05:44,235 --> 00:05:49,789
+Et dans ce cas, vous êtes plus susceptibles
+ de vous retrouver sur un plateau
+
+87
+00:05:49,789 --> 00:05:55,699
+de la fonction tanh ou sigmoïde, 
+où la pente, ou le gradient, est très faible.
+
+88
+00:05:55,699 --> 00:05:58,302
+Ce qui signifie que la descente 
+de gradient sera très lente,
+
+89
+00:05:58,302 --> 00:05:59,730
+donc l’apprentissage sera très lent.
+
+90
+00:05:59,730 --> 00:06:04,133
+Récapitulons, si W est trop grand, vous êtes
+ plus susceptibles de vous retrouver
+
+91
+00:06:04,133 --> 00:06:08,633
+même au tout début de l'apprentissage,
+ avec de très grandes valeurs de z,
+
+92
+00:06:08,633 --> 00:06:13,525
+ce qui fait que votre tanh ou votre fonction 
+d’activation sigmoïde est saturée,
+
+93
+00:06:13,525 --> 00:06:15,418
+et ça ralentit l’apprentissage.
+
+94
+00:06:15,418 --> 00:06:17,231
+Si vous n’avez pas du tout 
+de fonction d'activation
+
+95
+00:06:17,231 --> 00:06:22,149
+tanh ou sigmoïde dans votre réseau
+ de neurones, c’est moins un problème.
+
+96
+00:06:22,149 --> 00:06:26,506
+Mais si vous faites une classification binaire 
+et que votre unité de sortie est une sigmoïde,
+
+97
+00:06:26,506 --> 00:06:30,806
+alors vous ne voulez pas que 
+les paramètres initiaux soient trop grands.
+
+98
+00:06:30,806 --> 00:06:35,435
+C’est pourquoi multiplier par 0,01 est
+ quelque chose de raisonnable à essayer, ou
+
+99
+00:06:35,435 --> 00:06:36,872
+n’importe quel autre petit nombre.
+
+100
+00:06:36,872 --> 00:06:38,536
+Et c'est la même chose pour w2, ok ?
+
+101
+00:06:38,536 --> 00:06:44,295
+Ceci peut être random.randn
+
+102
+00:06:44,295 --> 00:06:49,545
+la matrice est
+ de 1 par 2 dans cet exemple, fois 0,01.
+
+103
+00:06:49,545 --> 00:06:51,404
+Il manque un s ici.
+
+104
+00:06:51,404 --> 00:07:00,085
+Donc finalement, il s’avère que parfois il peut
+ y avoir une meilleure constante que 0,01.
+
+105
+00:07:00,085 --> 00:07:04,304
+Quand vous entraînez un réseau de neurones
+ avec juste une couche cachée,
+
+106
+00:07:04,304 --> 00:07:09,129
+un réseau de neurones relativement peu
+ profond, sans beaucoup de couches cachées,
+
+107
+00:07:09,129 --> 00:07:12,392
+mettre 0,01 fonctionnera probablement bien.
+
+108
+00:07:12,392 --> 00:07:15,705
+Mais quand vous entraînez
+ un réseau neuronal très profond,
+
+109
+00:07:15,705 --> 00:07:19,294
+alors vous voudrez peut-être choisir 
+une constante différente de 0,01.
+
+110
+00:07:19,294 --> 00:07:23,642
+Et la semaine prochaine, nous allons parler 
+un petit peu de comment et
+
+111
+00:07:23,642 --> 00:07:27,925
+quand vous pouvez vouloir choisir 
+une constante différente de 0,01.
+
+112
+00:07:27,925 --> 00:07:32,008
+Mais quoi qu’il en soit, ça restera
+ habituellement un nombre assez petit.
+
+113
+00:07:32,008 --> 00:07:34,584
+Donc, c’est tout pour 
+les vidéos de cette semaine.
+
+114
+00:07:34,584 --> 00:07:38,348
+Vous savez maintenant comment
+ mettre en place un réseau de neurones
+ avec une couche cachée,
+
+115
+00:07:38,348 --> 00:07:42,430
+initialiser les paramètres, faire des prédictions
+ en utilisant la propagation directe,
+
+116
+00:07:42,430 --> 00:07:45,445
+et calculer les dérivées et 
+mettre en place la descente de gradient,
+
+117
+00:07:45,445 --> 00:07:46,275
+en utilisant la rétro propagation.
+
+118
+00:07:46,275 --> 00:07:48,654
+Vous devriez pouvoir faire les quiz,
+
+119
+00:07:48,654 --> 00:07:51,166
+ainsi que les exercices de programmation
+ de cette semaine.
+
+120
+00:07:51,166 --> 00:07:52,143
+Bonne chance avec ça.
+
+121
+00:07:52,143 --> 00:07:54,802
+J’espère que vous vous amuserez 
+avec l’exercice de programmation, et
+
+122
+00:07:54,802 --> 00:07:57,728
+j'ai hâte de vous voir 
+pour la quatrième semaine.

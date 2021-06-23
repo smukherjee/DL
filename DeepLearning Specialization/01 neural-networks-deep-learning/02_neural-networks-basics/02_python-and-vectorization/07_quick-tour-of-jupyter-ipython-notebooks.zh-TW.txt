@@ -1,0 +1,30 @@
+有了您所學的一切 您正準備好要迎戰您的第一個程式任務 在您做之前
+讓我您快速導覽 ipyhon notebook 在 Coursera 這個就是 Jupyter ipython notebook
+您可以從 Coursera 進入 讓我很快地展示一些功能 這個指導寫在 iPython notebook 的文字裡 而這個長長的淡灰色區塊是程式區塊 偶而您會看到 這些區塊有時候我會說
+ 'START CODE HERE' 跟 'END CODE HERE' 做您的練習時請確認 將您的程式寫在 
+'START CODE HERE' 跟 'END CODE HERE' 中間 舉個例子
+列印 'Hello world' 然後執行一個程式區塊 您可以按 shift+enter 來執行這段程式區塊 我猜我們只是列印  'Hello world' 所以會列印 Hello world 要執行一個儲存格 您也可以執行一個程式區塊的儲存格 您可以點擊 Cell
+然後選 Run Cells 來執行 有可能在您的電腦上 鍵盤上的捷徑對於 Cell, Run Cells 也許不同於 shift+enter 但我的 Mac 跟我的 PC 都是使用 shift+enter 也許跟您的一樣 當您讀這些指導時 如果您不小心雙擊它 您可能會看到這個 markdown 語言 如果您看到這種有趣的文字 要轉回原來好看的文字
+只要執行這個儲存格 您可以點擊 Cell
+ Run Cells 或者按 shift+enter 執行 基本上會執行者這個 markdown 
+轉回去原來好看的文字 再來一些提示 當您執行一些程式像這樣 它實際上是在核心 (Kernel) 上跑 一小段的程式
+在伺服器上跑 如果您執行一個很大的程式或者 離開電腦很久
+或出現一些問題 您網路的連接出問題等等 有很小的機會
+在後端的核心會死掉 在這種情況下, 請點擊 Kernel 
+然後按 restart kernel 希望這樣會重新啟動 kernel 讓它重回工作 這不應該會發生在
+如果您只是跑一段 相對小的程式而您只是
+剛開始打開 ipython notebook 如果您看到一個錯誤訊息說
+ Kernel 已經死了或者類似的 您可以試 Kernel, Restart 最後在 iPython notebook 像這樣也許有多個程式區塊 即使如果前面的程式區塊
+並沒有產生任何程式 請先確定執行
+這些程式區塊 在這個例子,它導入了 numpy as np 等等 然後設定一些變數
+您或許需要它們 為了執行後面的程式區塊 所以請先執行前面這些區塊即使
+您沒有被要求寫任何程式在這些區塊上 最後, 當您做完建置您的答案後 這裡有一個藍色 'submit assignment' 
+按鈕在右上方 點擊它來提交
+您的答案來給分 我發現這種互動式指令的 ipython notebook 方式很有用
+對於快速學習 建置幾行程式 看一下結果, 學習很快速 我希望從 Coursera 的練習中 Jupyter iPython notebook 
+會幫助您快速學習 跟實驗看看如何去
+建置這些演算法 下面還有一段影片 這是一個可選的影片
+談論有關 羅吉斯迴歸分析成本函數, 
+您可以看, 可以不看 兩種皆可 但不管如何，祝您
+在第二週的程式作業好運 我期待見到您
+在第三週的課程

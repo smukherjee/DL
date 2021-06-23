@@ -1,0 +1,439 @@
+1
+00:00:01,050 --> 00:00:03,840
+Derin öğrenme terimi Sinir Ağları eğitimi,
+
+2
+00:00:03,840 --> 00:00:06,050
+bazen de çok büyük Sinir Ağlarına karşılık gelmektedir.
+
+3
+00:00:06,050 --> 00:00:08,400
+Peki ya Sinir Ağları tam olarak ne anlama geliyor?
+
+4
+00:00:08,400 --> 00:00:11,340
+Bu videoda, size bazı temel sezgileri vermeye çalışacağım.
+
+5
+00:00:12,850 --> 00:00:16,540
+Konut Fiyat Tahmin örneği ile başlayalım.
+
+6
+00:00:16,540 --> 00:00:20,599
+Diyelim ki altı ev ile alakalı bir veri setiniz var. Bu sebeple evin büyüklüğünü
+
+7
+00:00:20,599 --> 00:00:24,478
+metre kare cinsinden biliyor ayrıca evin fiyatını da biliyorsunuz ve siz
+
+8
+00:00:24,478 --> 00:00:28,501
+evlerin fiyatını büyüklüklerine göre tahmin edip fonksiyonlarına uydurmak istiyorsunuz.
+
+9
+00:00:28,501 --> 00:00:33,509
+Eğer doğrusal regresyona aşina iseniz ,o zaman bu verilere
+
+10
+00:00:33,509 --> 00:00:38,450
+doğrusal bir çizgi koyalım ve böylece doğrusal çizgi elde edelim diyebilirsiniz
+
+11
+00:00:38,450 --> 00:00:41,850
+Fakat istesekte fiyatın asla negatif olamayacağını
+
+12
+00:00:41,850 --> 00:00:43,770
+biliriz diyebilirsiniz,değil mi
+
+13
+00:00:43,770 --> 00:00:48,050
+Yani doğrusal çizgi(straight line fit)sonunda negatif olacaktır.
+
+14
+00:00:48,050 --> 00:00:49,960
+Eğriyi buraya bükelim.
+
+15
+00:00:49,960 --> 00:00:51,530
+Böylece burada sıfırla sonlanır.
+
+16
+00:00:51,530 --> 00:00:56,770
+Bu kalın mavi çizgi sona erer.
+
+17
+00:00:56,770 --> 00:00:59,760
+Fonksiyonunuz bu büyüklük fonksiyonuna göre evin fiyatını tahmin etmek içindir.
+
+18
+00:00:59,760 --> 00:01:03,310
+Buna karşılık burada sıfır ve sağda doğrusal çizgi(straight line fit) var.
+
+19
+00:01:04,408 --> 00:01:08,735
+Bu yüzden bu fonksiyonun çok basit bir sinir ağına göre konut fiyatlarına
+
+20
+00:01:08,735 --> 00:01:11,880
+uygun olduğunu düşünebilirsiniz
+
+21
+00:01:11,880 --> 00:01:14,230
+Neredeyse olası en kolay sinir ağı.
+
+22
+00:01:14,230 --> 00:01:15,000
+Buraya çizeyim.
+
+23
+00:01:17,220 --> 00:01:22,170
+X dediğimiz ,bir evin büyüklüğü ,sinir ağlarına girdi olarak var.
+
+24
+00:01:22,170 --> 00:01:26,791
+Bu düğüme bu küçük daire giriyor ve
+
+25
+00:01:26,791 --> 00:01:30,940
+sonra y dediğimiz çıktı olur.
+
+26
+00:01:30,940 --> 00:01:37,183
+Böylece bir sinir ağında tek bir nöron olan bu küçük daire ,
+
+27
+00:01:37,183 --> 00:01:41,830
+solda çizdiğimiz bu fonksiyonu uygular.
+
+28
+00:01:43,350 --> 00:01:48,940
+Ve tüm nöronlar büyüklükleri girer,lineer fonksiyonu hesaplar
+
+29
+00:01:48,940 --> 00:01:51,960
+sıfırı max alır ve sonra tahmini fiyat çıkar.
+
+30
+00:01:53,190 --> 00:01:58,230
+Ve bu arada sinir ağları literatüründe bu fonksiyonu çok görürsün.
+
+31
+00:01:58,230 --> 00:02:00,992
+Bu fonksiyon bazen sıfıra gider ve
+
+32
+00:02:00,992 --> 00:02:03,550
+sonra doğrusal bir çizgi halini alır.
+
+33
+00:02:03,550 --> 00:02:09,108
+Bu fonksiyon düzeltme edilmiş doğrusal birimleri temsil eden
+
+34
+00:02:09,108 --> 00:02:17,620
+ReLU olarak adlandırılır.
+
+35
+00:02:17,620 --> 00:02:18,252
+Böyle R-E-L-U.Ve
+
+36
+00:02:18,252 --> 00:02:22,520
+düzeltme, maksimum sıfır almak demektir bu yüzden böyle bir şekli almanızı sağlar
+
+37
+00:02:23,640 --> 00:02:25,550
+Şuan için ReLU birimleriyle ilgili endişelenmeye gerek yok
+
+38
+00:02:25,550 --> 00:02:30,200
+fakat bu kurstan sonra tekrar bir şeyde karşılaşırsın.
+
+39
+00:02:30,200 --> 00:02:33,790
+Öyleyse bu tek bir nöron ağ ise,sinir ağı,
+
+40
+00:02:33,790 --> 00:02:38,870
+gerçekten küçük bir sinir ağıdır,daha büyük bir sinir ağı ise ,o zaman
+
+41
+00:02:38,870 --> 00:02:44,520
+tek bir nöronun çoğunu alarak ve onları bir araya getirerek oluşur.
+
+42
+00:02:44,520 --> 00:02:50,700
+Yani bu nöronu tek bir lego tuğlası olarak düşünecek olursak sonrasında
+
+43
+00:02:50,700 --> 00:02:55,270
+bu lego tuğlaların çoğunluğunu bir araya getirirsek en büyük sinir ağını elde ederiz.
+
+44
+00:02:55,270 --> 00:02:56,110
+Bir örnekte görelim.
+
+45
+00:02:57,260 --> 00:03:02,220
+Diyelim ki sadece büyüklükten bir evin fiyatını tahmin etmenin yerine,
+
+46
+00:03:02,220 --> 00:03:04,330
+bildiğiniz başka özellikler var.
+
+47
+00:03:04,330 --> 00:03:08,164
+Evle ilgili yatak odalarının sayıları gibi başka şeyler bilirsiniz.
+
+48
+00:03:08,164 --> 00:03:13,630
+ve bir evin fiyatını gerçekten etkileyenin aile
+
+49
+00:03:13,630 --> 00:03:18,820
+büyüklüğü olduğunu düşünürsünüz,değil mi?
+
+50
+00:03:18,820 --> 00:03:21,882
+Peki bu ev üç kişilik aile ya da dört kişilik aile ya da beş kişilik aileniz için
+
+51
+00:03:21,882 --> 00:03:22,687
+uygun mudur?
+
+52
+00:03:22,687 --> 00:03:26,351
+Metrekare cinsinden ve odaların sayısına göre evin ailenize
+
+53
+00:03:26,351 --> 00:03:28,960
+uygun olup olmadığını karar vermek
+
+54
+00:03:28,960 --> 00:03:31,462
+gerçekten de büyüklüğe göredir.
+
+55
+00:03:31,462 --> 00:03:34,909
+Ve o zaman farklı ülkelerde posta kodu
+
+56
+00:03:34,909 --> 00:03:40,520
+denen, zip(diğer bir adıyla) kodunu bilirsiniz.
+
+57
+00:03:40,520 --> 00:03:48,820
+Ve belkide gelecekte posta kodu size yürünebilirliği(sağlıksal,çevresel,finansal faydaları) söyleyebilir?
+
+58
+00:03:48,820 --> 00:03:51,434
+Yani bu mahalle büyük ölçüde yürünebilirlikli mi?
+
+59
+00:03:51,434 --> 00:03:53,635
+Bakkal yürünebilir mi?
+
+60
+00:03:53,635 --> 00:03:54,194
+Okul yürünebilir mi?
+
+61
+00:03:54,194 --> 00:03:55,250
+Araba kullanmaya gerek var mı?
+
+62
+00:03:55,250 --> 00:03:57,870
+Ve bazı insanlar büyük ölçüde yürünebilirliği olan mahalleleri tercih eder.
+
+63
+00:03:57,870 --> 00:04:06,145
+Ve sonrasında zip kodu yanı sıra zenginliği de söyleyebilir,değil mi?
+
+64
+00:04:06,145 --> 00:04:09,200
+Başka ülkelerde olmasa da Amerika'da kesin.
+
+65
+00:04:09,200 --> 00:04:13,590
+Okul kalitesinin ne kadar iyi olduğunu söyler.
+
+66
+00:04:13,590 --> 00:04:17,820
+Çizdiğim küçük dairelerin her biri, düzeltilmiş veya başka hafif doğrusal
+
+67
+00:04:17,820 --> 00:04:22,670
+olmayan fonksiyonlarda bu ReLU'lardan biri olabilir.
+
+68
+00:04:22,670 --> 00:04:24,936
+Böylece, aile büyüklüğünü, yatak odalarının büyüklüğüne ve sayısına göre
+
+69
+00:04:24,936 --> 00:04:28,420
+tahmin edebilirsiniz;okul kalitesini ise posta koduna ,yürünebilirliğe
+
+70
+00:04:28,420 --> 00:04:32,050
+bağlı olarak, zenginliğe göre tahmin edebilirsiniz.
+
+71
+00:04:32,050 --> 00:04:35,660
+Ve sonunda insanların bir eve ne kadar ödeyeceklerine karar vermede en iyi yolun
+
+72
+00:04:35,660 --> 00:04:38,880
+onlar için gerçekten önemli olan şeylere bakmak olduğunu düşünebilirsiniz.
+
+73
+00:04:38,880 --> 00:04:43,060
+Bu durumda aile büyüklüğü,yürünebilirlik ve okul kalitesi,
+
+74
+00:04:43,060 --> 00:04:45,210
+fiyatı tahmin etmeye yardım eder.
+
+75
+00:04:46,330 --> 00:04:51,740
+Yani bu örnekte x dört girdinin tümüdür.
+
+76
+00:04:53,470 --> 00:04:56,460
+Ve y, tahmin etmeye çalıştığımız fiyattır.
+
+77
+00:04:57,960 --> 00:05:03,350
+Ve böylece, tek bir nörondan ya da önceki slayttan aldığımız basit belirleyicileri
+
+78
+00:05:03,350 --> 00:05:07,360
+bir araya getirerek, şimdi biraz daha büyük bir sinir ağı elde ederiz.
+
+79
+00:05:07,360 --> 00:05:10,850
+Onu uygularken sinir ağını nasıl yönetirsiniz
+
+80
+00:05:10,850 --> 00:05:15,860
+Sadece girdiye x vermemiz ve
+
+81
+00:05:15,860 --> 00:05:20,740
+eğitim setinizdeki bir kaç örnek için çıktıya y vermeniz ve
+
+82
+00:05:20,740 --> 00:05:23,580
+ve ortadaki her şey kendi kendini çözecektir.
+
+83
+00:05:25,435 --> 00:05:29,225
+Yani aslında uyguladığınız budur.
+
+84
+00:05:29,225 --> 00:05:32,055
+Burada dört girdili bir sinir ağımız var.
+
+85
+00:05:32,055 --> 00:05:35,455
+Yani girdi özellikleri; oda sayısı büyüklüğü,
+
+86
+00:05:35,455 --> 00:05:40,365
+posta kodu ve mahallenin zenginliği olabilir.
+
+87
+00:05:40,365 --> 00:05:44,805
+Ve bu giriş özellikleri verildiğinde,
+
+88
+00:05:44,805 --> 00:05:50,200
+sinir ağının işi,y fiyatı tahmin etmek olacaktır.
+
+89
+00:05:50,200 --> 00:05:55,942
+Ayrıca sinir ağında gizli birimler dediğimiz çemberlerin
+
+90
+00:05:55,942 --> 00:06:02,310
+her biri, tüm dört girdinin özelliklerini alır.
+
+91
+00:06:02,310 --> 00:06:08,139
+Mesela örneğin bu ilk düğüm aile büyüklüğünü temsil eder,
+
+92
+00:06:08,139 --> 00:06:12,056
+aile büyüklüğü de x1 ve x2'ye
+
+93
+00:06:12,056 --> 00:06:15,302
+bağlıdır demek yerine, iyi sinir ağı,
+
+94
+00:06:15,302 --> 00:06:18,200
+bilmek istediğin her neyse ona karar verendir diyeceğiz.
+
+95
+00:06:18,200 --> 00:06:21,070
+Ve istediğini tamamlamak için özelliklerin dördünüde sana vereceğiz.
+
+96
+00:06:21,070 --> 00:06:26,170
+Bu katmanlara ,bu girdi katmanına ve sinir ağının ortasındaki
+
+97
+00:06:26,170 --> 00:06:28,960
+bu katmana ,yoğunlukları bağlantılıdır deriz.
+
+98
+00:06:28,960 --> 00:06:31,740
+Çünkü her girdi özelliği,ortadaki çemberlerin
+
+99
+00:06:31,740 --> 00:06:33,980
+hepsiyle bağlantılıdır.
+
+100
+00:06:33,980 --> 00:06:38,630
+Ve sinir ağları hakkında dikkat çeken şey, x ve y hakkında yeterli veriyi vermesidir.
+
+101
+00:06:38,630 --> 00:06:43,290
+x ve y ile ilgili yeterli veri ve x ile ynin birlikte olduğu eğitim örnekleri verildiğinde sinir ağları
+
+102
+00:06:43,290 --> 00:06:47,450
+x'den y'ye doğru şekilde eşleştiren işlevleri bulmakta oldukça başarılıdır.
+
+103
+00:06:48,990 --> 00:06:51,680
+Bu basit bir sinir ağı.
+
+104
+00:06:51,680 --> 00:06:54,290
+Kendi sinir ağlarınızı oluştururken,denetimli öğrenme teşviklerinde onları
+
+105
+00:06:54,290 --> 00:06:57,130
+en kullanışlı ve en güçlü bulabilirsiniz.Bunun anlamı
+
+106
+00:06:57,130 --> 00:07:01,620
+konut fiyatı tahmin örneğinde gördüğünüz gibi x girdisi
+
+107
+00:07:01,620 --> 00:07:06,980
+alıp y çıktısını planlıyorsunuz.
+
+108
+00:07:06,980 --> 00:07:11,490
+Bir sonraki videoda, daha fazla denetlenen öğrenim örneği ve
+
+109
+00:07:11,490 --> 00:07:15,670
+uygulamalarınız için son derece yararlı olacak şekilde ağlarınızı nerede
+
+110
+00:07:15,670 --> 00:07:16,670
+bulabileceğinize dair bazı örnekleri inceleyelim.

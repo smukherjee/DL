@@ -1,0 +1,70 @@
+Em um vídeo anterior, eu escrevi 
+uma fórmula para a função de custo em regressão logística. Neste vídeo opcional, eu quero 
+dar-lhe uma rápida justificativa do porque nós gostamos de usar esta 
+função de custo em regressão logística. Para recapitular rapidamente, em regressão logística, nós temos que a previsão ŷ é σ(W⸆x + b), onde σ é essa função conhecida. E dizemos que queremos 
+interpretar ŷ como p(y = 1 | x). Então, nós queremos que nosso 
+algoritmo retorne ŷ como a possibilidade que y = 1 para um determinado conjunto 
+de características de entrada x. Então, outra forma de 
+dizer é, se y é igual a 1, então a probabilidade p(y|x) = ŷ. Por outro lado, se y = 0, então a probabilidade de que y 
+fosse 0 seria 1-ŷ, correto? Então, ŷ era a probabilidade, quando y =1, então 1 - ŷ é a probabilidade quando y = 0. Deixe-me pegar estas duas equações 
+e só copiá-las para o próximo slide. O que vou fazer é pegar 
+estas duas equações que basicamente definem p(y|x) 
+para os dois casos y = 0 ou y = 1. E então, pegar estas duas equações 
+e transformá-las em uma única equação. E só salientando que ŷ tem que ser 0 ou 1 
+porque em equações de custo binárias, y =0 ou 1 são os dois únicos casos possíveis, ok? Quando alguém pegar estas duas 
+equações e resumi-las, como segue. Deixe-me só escrever como se parece, e depois 
+explicaremos o porquê ela se parece assim. Então, (1-ŷ) elevado a (1-y). Resulta que esta única linha 
+resume as duas equações no topo. Explicarei por quê. No primeiro caso, 
+suponha y = 1, certo? porque se y = 1, então este 
+termo acaba sendo ŷ, pois, é ŷ elevado à potência 1. Este termo acaba sendo 1 - ŷ 
+elevado à 1 - 1, isto é, elevado à potência 0. Mas, qualquer número elevado 
+à potência 0 é igual a 1, isso some. Então, esta equação, desta 
+forma p(y|x) = ŷ, quando y = 1. Isto é exatamente o que queríamos. Agora, que tal o segundo caso? 
+E se y = 0? Se y = 0, então esta 
+equação acima p(y|x) = ŷ elevada à potência 0, mas qualquer 
+coisa elevado a zero é igual a 1, então isso é igual a 1 vezes 1 - ŷ 
+elevado à potência 1 - y. Então, 1 - y é 1 - 0, então é só 1. E isso é igual a 1 vezes (1 - ŷ) = 1 - ŷ. E então aqui nós temos 
+que y = 0, p(y|x) = 1 - ŷ, que é exatamente o que queríamos acima. Então, o que acabamos de 
+mostrar é que esta equação é uma definição correta para p(y|x). Finalmente, pelo fato da função 
+log ser uma função crescente estritamente monotônica, para maximizar 
+log p(y|x) deveria dar a você um resultado similar a otimização de p(y|x) e se 
+você calcular log p(y|x), é igual a log (ŷ elevado a y)
+vezes (1 - ŷ) elevado a (1 - y). E então simplifica para y log ŷ + (1 - y) log (1 - y), certo? Então, isso é na verdade o 
+negativo da função de perda que tivemos que encontrar anteriormente. E há um sinal negativo lá porque normalmente, 
+se você está treinando um algoritmo de aprendizagem, você quer 
+fazer probabilidades grandes, enquanto que em regressão 
+logística, nós expressamos assim. Nós queremos minimizar 
+a função de perda. Então, minimizar a perda corresponde 
+a maximizar o log da probabilidade. Então, é assim que se parece a função 
+de perda com um único exemplo. E a função de custo? Toda a função de custo em um conjunto 
+completo de treinamento com m exemplos? Vamos descobrir isso. Então, a probabilidade de todos os 
+rótulos em um conjunto de treinamento. Escrevendo isso de forma 
+um pouco mais informal. Se você assume que os exemplos de treinamento, 
+eu desenhei independentemente ou desenhei "IID", independentes e identicamente distribuídos, então, a probabilidade dos exemplos 
+é o produto das probabilidades. O produto de i = 1 até i = m de
+ p(y(i)) dado x(i). E então, se você quer realizar uma 
+estimativa de máxima verossimilhança, certo, então, você quer maximizar, 
+localizar os parâmetros que maximizem a chance de suas observações 
+e conjunto de treinamentos. Mas maximizar isso é o 
+mesmo que maximizar o log, então nós só colocamos 
+logs em ambos os lados. Então, o log da probabilidade dos rótulos 
+no conjunto de treinamento é igual a, log de um produto é
+a soma dos logs. Então, é o somatório de i=1 
+até m de log p(y(i)) dado x(i). E nós tínhamos descoberto 
+anteriormente, no slide anterior, que isso é:  - ʆ (ŷ⁽ⁱ⁾,y⁽ⁱ⁾). Em estatística, há um princípio chamado de 
+princípio da estimativa de máxima verossimilhança, que significa somente a escolha de 
+parâmetros que maximizem esta coisa. Ou em outras palavras, 
+que maximiza isso aqui. Somatório negativo de i = 1 até m de 
+ʆ (ŷ⁽ⁱ⁾<i>,y⁽ⁱ⁾<i>), e basta mover o sinal 
+negativo fora do somatório. Então, isso justifica o custo que tivemos na regressão logística, que é J(w,b) disso. E porque nós agora queremos minimizar o custo 
+ao invés de estimar máxima verossimilhança, nós temos que retirar o sinal de subtração. Finalmente, para conveniência, queremos 
+nos certificar que nossos valores 
+estão em uma escala melhor, nós só adicionamos ali 
+um fator extra de escala 1/m. Mas só para resumir, minimizando esta 
+função de custo J(w,b), estamos realmente realizando estimativa de máxima verossimilhança 
+com o modelo de regressão logística. Sob a suposição que nossos exemplos 
+de treinamento foram IID, ou independentes e identicamente distribuídos. Então, obrigado por ter assistido este 
+vídeo, mesmo que ele seja opcional. Espero que ele dê uma noção do 
+porquê nós usamos a função de custo para regressão logística e com isso, eu espero que você vá para 
+os exercícios, para o exercício profissional e as perguntas do quiz desta semana. E boa sorte nos "quizzes" e nos exercícios a seguir. 
+[Tradução: Renato Barata Gomes | Revisão: Carlos Lage.]

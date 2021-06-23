@@ -1,0 +1,500 @@
+1
+00:00:00,000 --> 00:00:03,195
+Hoş geldiniz.Vektörleştirme temelde
+
+2
+00:00:03,195 --> 00:00:07,315
+Kodunuzdaki açık klasörlerden kurtulma.
+
+3
+00:00:07,315 --> 00:00:11,835
+Uygulamada derin öğrenme döneminde güvenliği
+
+4
+00:00:11,835 --> 00:00:15,210
+büyük veri setleri üzerinde kendimiz eğitiyoruz
+
+5
+00:00:15,210 --> 00:00:18,475
+çünkü derin öğrenme algoritmaları parlama eğiliminde
+
+6
+00:00:18,475 --> 00:00:22,790
+Böylece kodunuzun çok hızlı çalışır aksi halde,
+
+7
+00:00:22,790 --> 00:00:24,525
+eğer big data seti üzerinde çalışıyorsa
+
+8
+00:00:24,525 --> 00:00:27,000
+kodunuz çalışmak için uzun zaman alabilir.
+
+9
+00:00:27,000 --> 00:00:30,255
+Sonucu almak için uzun süredir bekliyorum.
+
+10
+00:00:30,255 --> 00:00:32,035
+Derin öğrenme döneminde
+
+11
+00:00:32,035 --> 00:00:37,490
+Vectorization(Vektörleştirme) gerçekleştirme önemli bir beceri haline geldi.
+
+12
+00:00:37,490 --> 00:00:40,010
+Bir örnek ile başlayalım.
+
+13
+00:00:40,010 --> 00:00:42,225
+Vectorization(Vektörleştirme) nedir?
+
+14
+00:00:42,225 --> 00:00:48,780
+Lojistik regresyon hesablamada Z=w^T(x)+b
+
+15
+00:00:48,780 --> 00:00:55,405
+W ve X sütun vektörü oldular.
+
+16
+00:00:55,405 --> 00:00:58,000
+Çok fazla özelliğe sahipseniz çok büyük vektörler olabilir.
+
+17
+00:00:58,000 --> 00:01:07,080
+W ve X nx boyutlu vektörlerdir.
+
+18
+00:01:07,080 --> 00:01:10,170
+W transpoz x hesaplanırken 
+
+19
+00:01:10,170 --> 00:01:15,660
+Vektörleştirmeme(non-vectorized) uygulaması varsa
+
+20
+00:01:15,660 --> 00:01:18,725
+Z=0 olur 
+
+21
+00:01:18,725 --> 00:01:24,860
+Değerler i ile (n-x) aralığında olacaktır.
+
+22
+00:01:24,860 --> 00:01:27,330
+İ=1,2,NX olabilir
+
+23
+00:01:27,330 --> 00:01:34,040
+Z^+=w[i]**[i]
+
+24
+00:01:34,040 --> 00:01:37,100
+Sonrasında Z+=b yapabiliriz belki.
+
+25
+00:01:37,100 --> 00:01:39,855
+Bu bir vektörsüzleştirme uygulaması
+
+26
+00:01:39,855 --> 00:01:43,090
+Bunun gerçekten yavaş olacağını görüyorsun.
+
+27
+00:01:43,090 --> 00:01:48,560
+Tam tersi Vektörleştirme uygulandığında W transpoz X'i doğrudan hesaplanır.
+
+28
+00:01:48,560 --> 00:01:52,085
+Python veya bir numpy
+
+29
+00:01:52,085 --> 00:02:01,428
+kullanacağımız Z=np.W
+
+30
+00:02:01,428 --> 00:02:06,270
+W transpoz x'e eşittir.
+
+31
+00:02:06,270 --> 00:02:09,075
+B'yi doğrudan ekleyebilirsiniz.
+
+32
+00:02:09,075 --> 00:02:12,400
+Bunun daha hızlı olduğunu 
+
+33
+00:02:12,400 --> 00:02:17,075
+Küçük bir demo ile örnekleyelim.
+
+34
+00:02:17,075 --> 00:02:21,960
+Jupiter Python kodlarını yazdığım bir platform.
+
+35
+00:02:21,960 --> 00:02:28,041
+İlk önce numpy kütüphanesini dahil edelim.
+
+36
+00:02:28,041 --> 00:02:30,000
+Örneğin,
+
+37
+00:02:30,000 --> 00:02:36,570
+Bir A dizisi tanımlıyorum 
+
+38
+00:02:36,570 --> 00:02:39,560
+A'yı yazdırıyoruz.
+
+39
+00:02:39,560 --> 00:02:41,160
+Şimdi kod parçasının çıktısı için 
+
+40
+00:02:41,160 --> 00:02:43,170
+shift enter'a bastık
+
+41
+00:02:43,170 --> 00:02:44,847
+sonrasında kodu çalıştırır.
+
+42
+00:02:44,847 --> 00:02:47,970
+Böylece oluşturduğumuz A dizisinin çıktısını verir
+
+43
+00:02:47,970 --> 00:02:50,580
+Şimdi ise Vectorization(Vektörleştirme) demo'su oluşturalım
+
+44
+00:02:50,580 --> 00:02:51,990
+Zaman kütüphanelerini de ekliyorum,
+
+45
+00:02:51,990 --> 00:02:53,580
+onu kullanmamızın amacı
+
+46
+00:02:53,580 --> 00:02:56,565
+farklı operasyonların ne kadar sürdüğünü zamanlamak için.
+
+47
+00:02:56,565 --> 00:02:59,139
+Bir A dizi oluşturabilir miyiz?
+
+48
+00:02:59,139 --> 00:03:02,905
+Rastgele kümesi içinde
+
+49
+00:03:02,905 --> 00:03:10,065
+bu rastgele değerlerle 1 milyon boyutlu bir dizi oluşturduk.
+
+50
+00:03:10,065 --> 00:03:13,300
+b=np.random.rand
+
+51
+00:03:13,300 --> 00:03:16,120
+Başka bir milyon boyutlu dizi.
+
+52
+00:03:16,120 --> 00:03:20,810
+tic=time.time şimdiki zamanı tutar.
+
+53
+00:03:20,810 --> 00:03:26,395
+c=np.dot(a,b)
+
+54
+00:03:26,395 --> 00:03:28,649
+toc=time.time.
+
+55
+00:03:28,649 --> 00:03:31,950
+Yazdırıyoruz
+
+56
+00:03:31,950 --> 00:03:34,857
+Bu vektörleştirme sürümüdür.
+
+57
+00:03:34,857 --> 00:03:37,685
+Vektörleştirme sürümüdür.
+
+58
+00:03:37,685 --> 00:03:41,985
+Çıktı alacağız.
+
+59
+00:03:41,985 --> 00:03:45,060
+Geçen zamana bakalım
+
+60
+00:03:45,060 --> 00:03:48,330
+geçen zaman (toc-tic)*1000 
+
+61
+00:03:48,330 --> 00:03:52,075
+bunu milisaniye cinsinde ifade edebiliriz
+
+62
+00:03:52,075 --> 00:03:54,075
+ms milisaniyedir.
+
+63
+00:03:54,075 --> 00:03:56,435
+Shift Enter'a basıyoruz.
+
+64
+00:03:56,435 --> 00:04:01,890
+Bu kod 3 ms yada 1.5 ms aldı 
+
+65
+00:04:01,890 --> 00:04:06,170
+belki 1.5 yada 3.5 ms de olabilir.
+
+66
+00:04:06,170 --> 00:04:08,370
+Çalışırken değerler biraz değişir
+
+67
+00:04:08,370 --> 00:04:12,085
+fakat ortalama 1.5 ms gibi gözüküyor
+
+68
+00:04:12,085 --> 00:04:15,665
+Bu çalıştığında 2 ms alabilir.
+
+69
+00:04:15,665 --> 00:04:16,967
+ortak çalışmaya dayalı şekilde 
+katılmaya isteklendiren, 
+
+70
+00:04:16,967 --> 00:04:19,005
+Koda eklemeler yapalım.
+
+71
+00:04:19,005 --> 00:04:22,270
+Vektörsüzleştirme(non-vectorize) sürümü uygulanamadı.
+
+72
+00:04:22,270 --> 00:04:24,151
+c=0,
+
+73
+00:04:24,151 --> 00:04:27,750
+tic=time.time.
+
+74
+00:04:27,750 --> 00:04:29,335
+Şimdi klasöre uygulayalım.
+
+75
+00:04:29,335 --> 00:04:35,348
+I aralığı 1 milyon ,
+
+76
+00:04:35,348 --> 00:04:38,676
+Doğru sıfırı seçiyorum.
+
+77
+00:04:38,676 --> 00:04:43,936
+C += (a,i) x (b,i)
+
+78
+00:04:43,936 --> 00:04:50,775
+ve toc=time.time.
+
+79
+00:04:50,775 --> 00:04:57,725
+Son olarak, döngüden daha fazlasını yazdır.
+
+80
+00:04:57,725 --> 00:05:15,225
+Alınan süre 1000*(toc-tic) ms 
+
+81
+00:05:15,225 --> 00:05:17,505
+bunu milisaniye cinsiden yapar.
+
+82
+00:05:17,505 --> 00:05:19,735
+Bir tane daha yapalım.
+
+83
+00:05:19,735 --> 00:05:22,802
+C değerini de yazdıralım
+
+84
+00:05:22,802 --> 00:05:27,960
+Her iki durumda da aynı değere sahip olduğundan emin olun
+
+85
+00:05:27,960 --> 00:05:35,770
+Çalıştırıyorum ve çıktıyı kontrol ediyorum.
+
+86
+00:05:35,770 --> 00:05:38,305
+Her iki durumda da vektörleştirme sürümü
+
+87
+00:05:38,305 --> 00:05:41,125
+ve vektörsüzleştirme(non-vectorize) sürümü aynı değerleri hesaplar.
+
+88
+00:05:41,125 --> 00:05:45,355
+Bildiğiniz gibi 2.55 den 6.99 olduğunu görüyoruz.
+
+89
+00:05:45,355 --> 00:05:48,670
+Vektörleştirme sürümü 1.5 milisaniye sürdü.
+
+90
+00:05:48,670 --> 00:05:57,555
+For döngüsü ve vektörsüzleştirme(non-vectorized) sürümü 400 ms neredeyse 500 ms sürdü.
+
+91
+00:05:57,555 --> 00:06:01,285
+Vektörsüzleştirme(non-vectorize) sürümü 300 ms 
+
+92
+00:06:01,285 --> 00:06:05,660
+vektörleştirme sürümünden daha uzun süreler.
+
+93
+00:06:05,660 --> 00:06:11,230
+Vektörleştirme kodunuzda
+
+94
+00:06:11,230 --> 00:06:15,120
+Kodunuz aslında 300 kat daha hızlı çalışır.
+
+95
+00:06:15,120 --> 00:06:16,540
+Tekrar çalıştıralım.
+
+96
+00:06:16,540 --> 00:06:18,930
+Tekrar çalıştıralım.
+
+97
+00:06:18,930 --> 00:06:22,235
+Vektörleştirme sürümü ve 4 döngü 1.5 ms sürdü
+
+98
+00:06:22,235 --> 00:06:25,960
+Yani yine 481 ms oldu 
+
+99
+00:06:25,960 --> 00:06:29,535
+4 döngü için 300ms daha yavaş.
+
+100
+00:06:29,535 --> 00:06:30,980
+Eğer x yavaşlarsa
+
+101
+00:06:30,980 --> 00:06:33,880
+Aralarındaki fark kodunuzun
+
+102
+00:06:33,880 --> 00:06:37,615
+5 dakika sürmesine karşın 1 dakika sürmesidir.
+
+103
+00:06:37,615 --> 00:06:41,410
+Derin öğrenme algoritmalarını uygularken
+
+104
+00:06:41,410 --> 00:06:43,300
+gerçekten hızlı sonuçlar alırsınız.
+
+105
+00:06:43,300 --> 00:06:46,590
+Kodunuzu vektörleştirirseniz daha hızlı olur.
+
+106
+00:06:46,590 --> 00:06:49,300
+Bazılarınız bunu duymuş olabilirsiniz
+
+107
+00:06:49,300 --> 00:06:54,260
+ölçeklenebilir derin öğrenme uygulamaları GPU(Graphics Processing Unit) üzerinde yapılır.
+
+108
+00:06:54,260 --> 00:06:59,515
+Fakat Jüpiterde yazdığım bütün demolar CPU(Central Processing Unit) üzerinde.
+
+109
+00:06:59,515 --> 00:07:04,530
+Hem GPU hem CPU paralelleştirme talimatlarına sahipler.
+
+110
+00:07:04,530 --> 00:07:07,530
+Bazen SIMD(Single instruction multiple data ) talimatlar olarak adlandırılırlar.
+
+111
+00:07:07,530 --> 00:07:11,190
+Tek bir komut çoklu veri anlamına gelir.
+
+112
+00:07:11,190 --> 00:07:13,045
+Fakat temel anlamı ise
+
+113
+00:07:13,045 --> 00:07:16,835
+np.function gibi bir fonksiyon veya başka fonksiyonlar
+
+114
+00:07:16,835 --> 00:07:23,495
+for döngüsünü açıkça uygulamanızı gerektirmez.
+
+115
+00:07:23,495 --> 00:07:28,150
+Python Pi'nin almasını sağlar
+
+116
+00:07:28,150 --> 00:07:33,640
+hesaplarınızı daha hızlı yapmak için paralellikten çok daha iyi bir avantaj.
+
+117
+00:07:33,640 --> 00:07:38,610
+Hem CPU'daki hesaplamalar hemde GPU'daki hesaplamalar için geçerlidir.
+
+118
+00:07:38,610 --> 00:07:41,070
+GPU'ların GPU'larda SIMD hesaplamaları üzerinde oldukça iyi
+
+119
+00:07:41,070 --> 00:07:44,980
+ancak CPU' da bu konuda çok da kötü değil.
+
+120
+00:07:44,980 --> 00:07:47,510
+GPU'lar kadar iyi olmayabilir.
+
+121
+00:07:47,510 --> 00:07:51,660
+Vektörleştirmenin kodunuzu önemli ölçüde hızlandırdığını görüyorsunuz.
+
+122
+00:07:51,660 --> 00:07:54,685
+Unutulmaması gereken ana kural 
+
+123
+00:07:54,685 --> 00:07:57,425
+mümkün oldukça 4 açık döngüyü kullanmaktan kaçınmak.
+
+124
+00:07:57,425 --> 00:07:59,980
+Gelecek videoda daha fazla vektörleştirme örnekleri inceleyeceğiz  
+
+125
+00:07:59,980 --> 00:08:04,000
+ve lojistik regresyon vektörleştirmeye başlayacağız.

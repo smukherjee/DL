@@ -1,0 +1,30 @@
+Então você está prestes a chegar ao final da primeira semana do material 
+sobre o primeiro curso nesta especialização. Deixe-me dar-lhe uma rápida noção 
+do que você aprenderá nas próximas semanas também. Como eu disse no primeiro vídeo, esta especialização é composta por cinco cursos. E agora, estamos no primeiro dos cinco cursos que ensinam os fundamentos mais importantes, realmente, os mais importantes pilares 
+da aprendizagem profunda. Então no final deste primeiro curso, você saberá como construir e trabalhar 
+com uma rede neural profunda. Eis os detalhes do que está neste primeiro curso. Este curso dura quatro semanas. E você acaba de chegar ao final da primeira semana,
+que foi uma introdução à aprendizagem profunda. Ao final de cada semana, serão apresentadas 10 perguntas
+ de múltipla escolha que você pode usar para verificar sua 
+compreensão do material. Então, quando acabar de assistir a este vídeo, espero que você dê uma olhada nessas perguntas. Na segunda semana, você aprenderá sobre o 
+Básico da Programação de Redes Neurais. Você aprenderá a estrutura do que nós chamamos de propagação para a frente
+e a propagação reversa, que são passos do algoritmo e aprenderá a
+implementar, de forma eficiente, redes neurais. A partir da segunda semana, você também poderá fazer 
+um exercício de programação que permitirá que você pratique o 
+que acabou de aprender, implementando você mesmo algoritmos 
+e vendo como eles funcionam. Acho que é realmente 
+gratificante quando aprendo sobre eles e os codifico e os vejo funcionando, eu mesmo. Espero que você goste também. Tendo aprendido a estrutura de programação
+de redes neurais na terceira semana, você codificará uma rede neural que contém
+uma única camada oculta. Tudo bem. Então você aprenderá sobre todos os 
+conceitos-chave necessários à implementação e para 
+poder trabalhar com redes neurais. E finalmente, na semana quatro, você construirá uma rede neural profunda, com muitas camadas e verá, 
+você mesmo, que ela funciona. Então, parabéns ao terminar 
+os vídeos até este aqui. Espero que agora você tenha uma boa ideia
+ de alto nível do que está acontecendo na aprendizagem profunda. E talvez alguns de vocês também já foram designados
+para trabalhar com aprendizagem profunda, tenham algumas ideias de onde
+ podem querer aplicar aprendizagem profunda. Então, espero que após este vídeo, vocês prossigam e respondam as 10 questões
+de múltipla escolha que virão a seguir, no website do curso e usem essas 10 questões para ver o que vocês 
+entenderam do assunto. E não se preocupe se não conseguir responder
+todas na primeira vez, pois, poderá tentar outras vezes até que 
+todas estejam certas. Eu as achei úteis para garantir que
+ estava entendendo todos os conceitos, espero que você também pense assim. Isto posto, parabéns, de novo, por chegar até aqui e espero vê-lo nos vídeos da semana dois.
+Tradução: CARLOS O. D. LAGE | Revisão: Julia Yuri

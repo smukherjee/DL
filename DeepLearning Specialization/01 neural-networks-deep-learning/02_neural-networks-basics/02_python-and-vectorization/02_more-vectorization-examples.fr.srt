@@ -1,0 +1,454 @@
+1
+00:00:00,000 --> 00:00:05,340
+Dans la vidéo précédente, vous avez vu 
+quelques exemples sur comment
+la vectorisation, en utilisant
+
+2
+00:00:05,340 --> 00:00:07,770
+des fonctions intégrées et 
+en évitant les boucles explicites
+
+3
+00:00:07,770 --> 00:00:11,130
+FOR peut permettre d’accélérer
+ votre code de manière significative
+
+4
+00:00:11,130 --> 00:00:13,558
+Voyons quelques autres exemples.
+
+5
+00:00:13,558 --> 00:00:16,110
+La règle de base à retenir
+ est lorsque vous
+
+6
+00:00:16,110 --> 00:00:19,792
+programmez votre réseau de neurones
+ ou votre régression logistique,
+
+7
+00:00:19,792 --> 00:00:23,190
+évitez dans la mesure du possible
+ les boucles explicites FOR.
+
+8
+00:00:23,190 --> 00:00:27,285
+Et il n'est pas toujours possible de 
+ne jamais utiliser de boucle FOR
+
+9
+00:00:27,285 --> 00:00:29,520
+mais quand vous pouvez utiliser une 
+fonction intégrée ou trouver
+
+10
+00:00:29,520 --> 00:00:32,710
+une autre façon de calculer ce 
+dont vous avez besoin,
+
+11
+00:00:32,710 --> 00:00:36,555
+vous irez souvent plus vite que si vous
+ utilisiez une boucle explicite FOR.
+
+12
+00:00:36,555 --> 00:00:38,445
+Regardons un autre exemple.
+
+13
+00:00:38,445 --> 00:00:44,412
+Si jamais vous voulez calculer un vecteur
+ u comme le produit d’une matrice A,
+
+14
+00:00:44,412 --> 00:00:46,144
+et un autre vecteur, v,
+
+15
+00:00:46,144 --> 00:00:50,840
+alors la définition d’un multiplicateur
+ de matrice est que
+
+16
+00:00:50,840 --> 00:00:55,830
+votre ui est égal à la somme sur j, Aij, vj
+
+17
+00:00:55,830 --> 00:00:57,050
+En effet.
+
+18
+00:00:57,050 --> 00:00:58,445
+Voila comment vous définissez ui,
+
+19
+00:00:58,445 --> 00:01:01,500
+et donc l'implémentation non vectorisée,
+de ceci serait
+
+20
+00:01:01,500 --> 00:01:06,140
+de fixer u = np. zéros
+
+21
+00:01:06,140 --> 00:01:08,105
+et ça sera n par un
+
+22
+00:01:08,105 --> 00:01:11,745
+et alors FOR i et ainsi de suite
+
+23
+00:01:11,745 --> 00:01:14,250
+FOR j et ainsi de suite
+
+24
+00:01:14,250 --> 00:01:22,950
+OK? et puis ui plus égal Aij fois vj
+
+25
+00:01:22,950 --> 00:01:27,725
+Alors maintenant, nous avons 
+deux boucles FOR sur i et j
+
+26
+00:01:27,725 --> 00:01:29,269
+donc ceci est la version non vectorisée.
+
+27
+00:01:29,269 --> 00:01:37,355
+L’implémentation vectorisée consistera
+ à dire u = np.dot(A, v).
+
+28
+00:01:37,355 --> 00:01:39,160
+L'implémentation sur votre droite,
+
+29
+00:01:39,160 --> 00:01:41,655
+la version vectorisée, élimine maintenant
+
+30
+00:01:41,655 --> 00:01:44,628
+deux boucles FOR différentes
+et sera beaucoup plus rapide.
+
+31
+00:01:44,628 --> 00:01:46,655
+Parcourons un exemple de plus
+
+32
+00:01:46,655 --> 00:01:50,900
+Disons que vous avez déjà un vecteur v
+ en mémoire et que vous voulez
+
+33
+00:01:50,900 --> 00:01:55,190
+appliquer l’opération exponentielle à
+ chaque élément de, disons,
+
+34
+00:01:55,190 --> 00:01:59,250
+ce vecteur v, donc vous calculez u 
+égal au vecteur qui est e de v1
+
+35
+00:01:59,250 --> 00:02:04,085
+e de v2 et ainsi de suite jusqu'à e de vn
+
+36
+00:02:04,085 --> 00:02:10,370
+Donc ce serait une implémentation 
+non vectorisée où dans un premier temps
+
+37
+00:02:10,370 --> 00:02:13,700
+vous initialisez u comme vecteur de zéros
+ et vous avez ensuite
+
+38
+00:02:13,700 --> 00:02:18,260
+une boucle FOR qui calcule les éléments
+ un par un
+
+39
+00:02:18,260 --> 00:02:24,110
+Il s’avère que Python et NumPy ont
+ de nombreuses fonctions intégrées
+ qui vous permettent
+
+40
+00:02:24,110 --> 00:02:31,160
+de calculer ces vecteurs avec juste
+ un seul appel à une fonction unique.
+
+41
+00:02:31,160 --> 00:02:40,180
+Donc ce que je ferais pour implémenter 
+cela est import numpy as np
+
+42
+00:02:40,180 --> 00:02:50,110
+et puis, vous appelez simplement u = np.exp(v). 
+Notez que tandis que précédemment,
+
+43
+00:02:50,110 --> 00:02:53,600
+vous avez la boucle FOR explicite, 
+avec juste une ligne de code
+
+44
+00:02:53,600 --> 00:02:57,317
+ici avec ce v comme vecteur d’entrée,
+
+45
+00:02:57,317 --> 00:02:58,840
+u comme un vecteur de sortie,
+
+46
+00:02:58,840 --> 00:03:02,340
+vous vous êtes débarrassés de la
+ boucle FOR explicite et
+ la mise en œuvre de
+
+47
+00:03:02,340 --> 00:03:06,275
+droite sera beaucoup plus rapide que
+ celle ayant besoin de la boucle FOR.
+
+48
+00:03:06,275 --> 00:03:10,310
+En fait, la bibliothèque NumPy contient
+ beaucoup d'autres fonctions vectorielles.
+
+49
+00:03:10,310 --> 00:03:15,175
+Donc np.log(v) calculera le log
+ élément par élément
+
+50
+00:03:15,175 --> 00:03:19,220
+np.abs calcule la valeur absolue
+
+51
+00:03:19,220 --> 00:03:24,935
+np.maximum calcule les maxima
+ élément par élément
+
+52
+00:03:24,935 --> 00:03:29,850
+vous pouvez prendre le max de tous
+ les éléments de v par rapport à zéro.
+
+53
+00:03:29,850 --> 00:03:31,290
+v**2
+
+54
+00:03:31,290 --> 00:03:38,214
+prend le carré, élément par élément de v
+
+55
+00:03:38,214 --> 00:03:42,932
+1/v prend l'inverse élément par
+ élément et ainsi de suite
+
+56
+00:03:42,932 --> 00:03:45,635
+Ainsi, à chaque fois que vous êtes
+ tenté d’écrire une boucle FOR,
+
+57
+00:03:45,635 --> 00:03:48,440
+Regardez et vérifiez si il y a 
+une manière d'appeler
+
+58
+00:03:48,440 --> 00:03:53,069
+une fonction intégrée de NumPy
+ pour le faire sans cette boucle FOR.
+
+59
+00:03:53,069 --> 00:03:55,640
+Donc tirons les leçons de tout ceci
+ et appliquons-les à
+
+60
+00:03:55,640 --> 00:03:59,105
+l'implémentation de la descente de gradient
+ de notre régression logistique
+
+61
+00:03:59,105 --> 00:04:02,955
+et voyons si nous pouvons au moins
+ nous débarrasser de l’une des deux
+ boucles FOR que nous avions.
+
+62
+00:04:02,955 --> 00:04:07,980
+Voici donc notre code pour calculer
+ les dérivées pour la régression logistique.
+
+63
+00:04:07,980 --> 00:04:09,335
+Nous avions deux boucles FOR.
+
+64
+00:04:09,335 --> 00:04:13,065
+Une était celle ci en haut, et
+ la seconde était celle là.
+
+65
+00:04:13,065 --> 00:04:15,422
+Donc, dans notre exemple,
+
+66
+00:04:15,422 --> 00:04:17,810
+Nous avions n ou nx égal à deux,
+
+67
+00:04:17,810 --> 00:04:19,910
+mais si vous aviez plus de
+ caractéristiques que juste
+
+68
+00:04:19,910 --> 00:04:23,865
+deux alors vous auriez 
+besoin d'une boucle FOR sur dw1
+
+69
+00:04:23,865 --> 00:04:25,676
+dw2, dw3 et ainsi de suite.
+
+70
+00:04:25,676 --> 00:04:30,305
+Donc c’est comme si il y a 
+effectivement un FOR j=1 à nx.
+
+71
+00:04:30,305 --> 00:04:37,395
+dwj, vous le savez, est mis à jour, non ?
+
+72
+00:04:37,395 --> 00:04:41,745
+Nous voudrions donc éliminer 
+cette deuxième boucle FOR
+
+73
+00:04:41,745 --> 00:04:43,745
+C’est ce que nous allons faire
+ sur cette diapo.
+
+74
+00:04:43,745 --> 00:04:48,725
+Donc, la façon dont nous allons
+ le faire est qu’au lieu
+ d’initialiser explicitement dw1,
+
+75
+00:04:48,725 --> 00:04:51,390
+dw2 et ainsi de suite, à zéros,
+
+76
+00:04:51,390 --> 00:04:58,100
+nous allons nous en débarrasser et 
+plutôt déclarer dw comme un vecteur.
+
+77
+00:04:58,100 --> 00:05:05,600
+Ainsi nous allons définir dw=np.zéros 
+et définissons, disons,
+
+78
+00:05:05,600 --> 00:05:10,490
+(nx,1) comme dimension du vecteur.
+
+79
+00:05:10,490 --> 00:05:13,175
+Alors ici au lieu de cette
+
+80
+00:05:13,175 --> 00:05:15,941
+boucle FOR sur les composants individuels
+
+81
+00:05:15,941 --> 00:05:19,190
+Nous utilisons simplement
+ cette opération vectorielle
+
+82
+00:05:19,190 --> 00:05:22,350
+dw += ...
+
+83
+00:05:22,350 --> 00:05:32,031
+dw += x(i).dz(i) et finalement
+ au lieu de cela
+
+84
+00:05:32,031 --> 00:05:33,620
+nous avons simplement
+
+85
+00:05:33,620 --> 00:05:42,562
+dw/=m. Donc maintenant nous sommes 
+passés de deux boucles FOR à une.
+
+86
+00:05:42,562 --> 00:05:48,864
+Nous avons encore cette boucle FOR qui 
+fait une boucle sur
+ les exemples d'apprentissage.
+
+87
+00:05:48,864 --> 00:05:51,030
+Donc j’espère que cette vidéo 
+vous a donné une idée de
+
+88
+00:05:51,030 --> 00:05:54,165
+la vectorisation et en retirant
+une boucle FOR
+
+89
+00:05:54,165 --> 00:05:56,505
+votre code s'exécute déjà plus vite.
+
+90
+00:05:56,505 --> 00:05:58,320
+Mais il s’avère que nous
+ pouvons faire encore mieux.
+
+91
+00:05:58,320 --> 00:05:59,418
+Donc dans la prochaine vidéo,
+
+92
+00:05:59,418 --> 00:06:03,237
+nous verrons comment vectoriser
+ encore plus la régression logistique et
+
+93
+00:06:03,237 --> 00:06:07,365
+vous verrez le résultat plutôt surprenant
+ que sans utiliser aucune boucle FOR,
+
+94
+00:06:07,365 --> 00:06:10,695
+sans avoir besoin de boucle FOR
+ sur les exemples d'apprentissage
+
+95
+00:06:10,695 --> 00:06:14,760
+vous pouvez écrire du code pour traiter 
+la totalité de l’échantillon d'apprentissage,
+
+96
+00:06:14,760 --> 00:06:17,060
+donc à peu près tout en même temps.
+
+97
+00:06:17,060 --> 00:06:19,000
+Voyons donc cela dans la prochaine vidéo.

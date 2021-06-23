@@ -1,0 +1,568 @@
+1
+00:00:00,000 --> 00:00:02,705
+Nos vídeos anteriores desta 
+semana, bem como
+
+2
+00:00:02,705 --> 00:00:05,735
+das semanas anteriores,
+
+3
+00:00:05,735 --> 00:00:08,075
+você viu os pilares fundamentais
+
+4
+00:00:08,075 --> 00:00:10,456
+de propagação para frente e retropropagação,
+
+5
+00:00:10,456 --> 00:00:14,090
+os principais componentes que você precisa
+para implementar uma rede neural profunda.
+
+6
+00:00:14,090 --> 00:00:18,303
+Vamos ver como você pode
+colocar estes componentes juntos
+para construir uma rede profunda.
+
+7
+00:00:18,303 --> 00:00:20,333
+Aqui, temos uma rede com algumas camadas.
+
+8
+00:00:20,333 --> 00:00:27,290
+Vamos escolher uma camada e examinar os cálculos,
+ focando apenas essa camada.
+
+9
+00:00:27,290 --> 00:00:33,410
+Para a camada L, você tem
+ alguns parâmetros w'ᴸ' e b'ᴸ',
+
+10
+00:00:33,410 --> 00:00:35,645
+e para a propagação para frente,
+
+11
+00:00:35,645 --> 00:00:42,180
+você irá introduzir as ativações a'ᴸ ⁻ ¹',
+
+12
+00:00:42,180 --> 00:00:48,895
+da camada anterior e gerar a saída a'ᴸ'.
+
+13
+00:00:48,895 --> 00:01:00,105
+A maneira que fizemos anteriormente foi
+calculando z'ᴸ' = w'ᴸ'. a'ᴸ ⁻ ¹' + b'ᴸ',
+
+14
+00:01:00,105 --> 00:01:08,025
+                  e em seguida a'ᴸ' = g'ᴸ'(z'ᴸ').
+Certo?
+
+15
+00:01:08,025 --> 00:01:12,990
+Assim é como você vai da entrada
+a'ᴸ ⁻ ¹' para a saída a'ᴸ'.
+
+16
+00:01:12,990 --> 00:01:15,330
+E verifica-se que para uso posterior,
+
+17
+00:01:15,330 --> 00:01:20,640
+será útil também armazenar
+ em cache o valor z'ᴸ'.
+
+18
+00:01:20,640 --> 00:01:24,060
+Deixe-me incluir também essa cache porque
+
+19
+00:01:24,060 --> 00:01:28,170
+armazenar o valor z'ᴸ'
+será útil para a fase
+
+20
+00:01:28,170 --> 00:01:31,290
+de retropropagação, mais adiante.
+
+21
+00:01:31,290 --> 00:01:32,745
+Então, para a fase
+
+22
+00:01:32,745 --> 00:01:34,785
+de retropropagação, de novo,
+
+23
+00:01:34,785 --> 00:01:37,390
+focando os cálculos
+desta camada L,
+
+24
+00:01:37,390 --> 00:01:41,635
+você vai implementar
+a função que alimenta
+
+25
+00:01:41,635 --> 00:01:51,840
+dₐ'ᴸ' (entrada);
+e produz  dₐ'ᴸ ⁻ ¹' (saída)
+
+26
+00:01:51,840 --> 00:01:53,650
+Apenas para esclarecer os detalhes:
+
+27
+00:01:53,650 --> 00:01:56,050
+A entrada é, na verdade, dₐ'ᴸ' ,
+
+28
+00:01:56,050 --> 00:01:59,130
+tal qual cache.
+
+29
+00:01:59,130 --> 00:02:04,040
+Então, você dispõe do valor de z'ᴸ'
+que você calculou;
+
+30
+00:02:04,040 --> 00:02:06,755
+então, com a saída dₐ'ᴸ ⁻ ¹'
+
+31
+00:02:06,755 --> 00:02:09,940
+você pode, também,
+produzir os gradientes que você deseja,
+
+32
+00:02:09,940 --> 00:02:14,025
+a fim de implementar os
+gradientes descendentes para a aprendizagem.
+
+33
+00:02:14,025 --> 00:02:19,772
+Então, essa é a estrutura básica de como
+ você implementa a fase "forward" (para frente),
+
+34
+00:02:19,772 --> 00:02:22,680
+o que denominamos função "forward",
+tal como esta fase "backward".
+
+35
+00:02:22,680 --> 00:02:24,970
+Nós deveríamos ter chamado
+esta fase de função "backward" (para trás)
+
+36
+00:02:24,970 --> 00:02:27,535
+Então, apenas para resumir:
+na camada L,
+
+37
+00:02:27,535 --> 00:02:32,650
+você vai ter a fase "forward", ou propagação
+para frente, ou função "forward".
+
+38
+00:02:32,650 --> 00:02:38,986
+Entrada: a'ᴸ ⁻ ¹'; e saída: a'ᴸ'
+
+39
+00:02:38,986 --> 00:02:42,070
+A fim de fazer este cálculo,
+
+40
+00:02:42,070 --> 00:02:45,650
+você precisará usar o w'ᴸ' e b'ᴸ'.
+
+41
+00:02:45,650 --> 00:02:54,185
+E, também, uma saída:
+uma cache que contém  o z'ᴸ'.
+
+42
+00:02:54,185 --> 00:02:56,357
+E Então, uma função "backward",
+usando a fase da retropropagação.
+
+43
+00:02:56,357 --> 00:03:01,650
+que será uma outra função que abastecerá
+
+44
+00:03:01,650 --> 00:03:08,065
+dₐ'ᴸ' (entrada); e produzirá  dₐ'ᴸ ⁻ ¹' (saída).
+
+45
+00:03:08,065 --> 00:03:13,820
+Isso demonstra que: dadas as derivadas
+em relação a essas ativações,
+
+46
+00:03:13,820 --> 00:03:16,950
+este  dₐ'ᴸ', quais são as derivadas?
+
+47
+00:03:16,950 --> 00:03:20,400
+Quantas alterações eu quero para   a'ᴸ ⁻ ¹'  ?
+
+48
+00:03:20,400 --> 00:03:24,590
+Então, calcula-se as derivadas
+em relação às ativações da camada anterior.
+
+49
+00:03:24,590 --> 00:03:29,870
+Dentro dessa caixa,
+você precisará usar w'ᴸ' e b'ᴸ'.
+
+50
+00:03:29,870 --> 00:03:31,200
+E isso ocorre ao longo do caminho.
+
+51
+00:03:31,200 --> 00:03:34,144
+Você acaba calculando  dz'ᴸ'
+
+52
+00:03:34,144 --> 00:03:36,400
+e então, esta caixa,
+
+53
+00:03:36,400 --> 00:03:43,515
+esta função "backward" pode,
+também produzir dw'ᴸ' e db'ᴸ' (saída).
+
+54
+00:03:43,515 --> 00:03:47,740
+Às vezes, usarei setas vermelhas para denotar
+a evolução da retropropagação,
+
+55
+00:03:47,740 --> 00:03:51,668
+se você quiser ver [o processo]
+através dessas setas vermelhas.
+
+56
+00:03:51,668 --> 00:03:55,305
+Assim, se você pode implementar
+estas duas funções,
+
+57
+00:03:55,305 --> 00:03:59,390
+o cálculo básico
+da rede neural seria o seguinte:
+
+58
+00:03:59,390 --> 00:04:02,453
+Você vai entrar com
+a característica de entrada a'⁰';
+
+59
+00:04:02,453 --> 00:04:07,710
+ela vai calcular
+as ativações na primeira camada,
+
+60
+00:04:07,710 --> 00:04:09,624
+vamos chamar isso de  a'¹'.
+
+61
+00:04:09,624 --> 00:04:14,535
+Para fazer isso, você precisa de w'¹' e  b'¹'.
+
+62
+00:04:14,535 --> 00:04:21,090
+Então, você terá também
+uma cache na saída: z'¹'.
+
+63
+00:04:21,090 --> 00:04:22,475
+Agora, feito isso,
+
+64
+00:04:22,475 --> 00:04:25,290
+você abastece a segunda camada com isso.
+
+65
+00:04:25,290 --> 00:04:28,026
+Então, usando  w'²' e b'²',
+
+66
+00:04:28,026 --> 00:04:32,355
+você vai calcular as ativações
+da próxima camada, a'²'.
+
+67
+00:04:32,355 --> 00:04:36,475
+E assim, sucessivamente,
+até que, finalmente,
+
+68
+00:04:36,475 --> 00:04:40,065
+você conclui com a saída a'ᴸ',
+
+69
+00:04:40,065 --> 00:04:42,655
+que é igual a ŷ.
+
+70
+00:04:42,655 --> 00:04:51,595
+E durante o percurso, armazenamos
+em caches, todos esses valores z.
+
+71
+00:04:51,595 --> 00:04:55,161
+Então, essa é a fase
+propagação para frente ("forward").
+
+72
+00:04:55,161 --> 00:04:57,585
+Agora, para a fase
+retropropagação ("backward"),
+
+73
+00:04:57,585 --> 00:05:03,220
+faremos uma sequência
+de iterações para trás,
+
+74
+00:05:03,220 --> 00:05:12,200
+em que percorreremos o sentido retrógrado,
+calculando os gradientes, da mesma forma.
+
+75
+00:05:12,200 --> 00:05:17,350
+Então, vamos abastecer aqui: dₐ'ᴸ'
+
+76
+00:05:17,350 --> 00:05:21,674
+Assim, esta caixa nos dará:  dₐ'ᴸ ⁻ ¹'
+
+77
+00:05:21,674 --> 00:05:30,424
+e assim sucessivamente, até obtermos:
+dₐ'²',  dₐ'¹'.
+
+78
+00:05:30,424 --> 00:05:35,500
+Você pode, na verdade,
+ter mais uma saída para calcular o  dₐ⁰.
+
+79
+00:05:35,500 --> 00:05:40,250
+Mas isso é derivada em relação à sua
+característica de entrada que não é útil,
+
+80
+00:05:40,250 --> 00:05:46,237
+pelo menos para o treinamento de pesos
+dessas redes neurais supervisionadas.
+
+81
+00:05:46,237 --> 00:05:48,160
+Portanto, você pode parar neste.
+
+82
+00:05:48,160 --> 00:05:54,365
+Ao longo do percurso, a retropropagação, também,
+ termina produzindo dw'ᴸ', db'ᴸ' [...]
+
+83
+00:05:54,365 --> 00:05:58,800
+Assim como aqui, também,
+há os parâmetros w'ᴸ' e b'ᴸ'.
+
+84
+00:05:58,800 --> 00:06:04,810
+Este sai com dw'³', db'³',
+
+85
+00:06:04,810 --> 00:06:09,238
+e assim por diante.
+
+86
+00:06:09,238 --> 00:06:16,660
+Então, você termina calculando
+todas as derivadas necessárias.
+
+87
+00:06:16,660 --> 00:06:21,235
+Talvez, apenas para preencher
+esta estrutura um pouco mais [...]
+
+88
+00:06:21,235 --> 00:06:28,500
+Estas caixas usarão esses
+parâmetros também [...] w'ᴸ', b'ᴸ' [...]
+
+89
+00:06:28,500 --> 00:06:34,560
+Ocorre que nós veremos, mais tarde,
+que dentro dessas caixas,
+
+90
+00:06:34,560 --> 00:06:37,460
+terminamos calculando, também os dz.
+
+91
+00:06:37,460 --> 00:06:43,305
+Uma das iterações do treinamento de
+uma rede neural envolve [...]
+Começando com a'⁰' que é x;
+
+92
+00:06:43,305 --> 00:06:46,725
+seguindo através
+da propagação para frente;
+
+93
+00:06:46,725 --> 00:06:50,715
+calculando ŷ; e depois,
+usamos isso para computar isto;
+
+94
+00:06:50,715 --> 00:06:55,680
+e então, a retropropagação, fazendo isso;
+
+95
+00:06:55,680 --> 00:06:59,880
+e agora, você tem todos esses
+termos da derivada;
+
+96
+00:06:59,880 --> 00:07:08,830
+e então, o w será atualizado:
+ w = w - α.dw, para cada camada
+[α = taxa de aprendizagem];
+
+97
+00:07:08,830 --> 00:07:12,570
+e similarmente para o b.
+
+98
+00:07:12,570 --> 00:07:17,757
+Agora, o cálculo da retropropagação
+terá todas essas derivadas.
+
+99
+00:07:17,757 --> 00:07:21,845
+Assim, essa é uma iteração do
+gradiente descendente para a sua rede neural.
+
+100
+00:07:21,845 --> 00:07:25,125
+Antes de seguir adiante,
+apenas mais um detalhe informativo.
+
+101
+00:07:25,125 --> 00:07:29,665
+Conceitualmente, seria útil pensar
+nessas 'caches', aqui, como depósitos
+
+102
+00:07:29,665 --> 00:07:34,361
+de valores, de z,
+para as funções de retropropagação.
+
+103
+00:07:34,361 --> 00:07:35,635
+Mas quando você a implementa [...]
+
+104
+00:07:35,635 --> 00:07:38,496
+Você viu no exercício anterior que
+quando a implementamos,
+
+105
+00:07:38,496 --> 00:07:40,840
+descobrimos que estas caches
+podem ser uma forma conveniente
+
+106
+00:07:40,840 --> 00:07:43,730
+de ter estes valores
+dos parâmetros, w'¹' e  b'¹',
+
+107
+00:07:43,730 --> 00:07:46,648
+dentro da função
+de retropropagação, também.
+
+108
+00:07:46,648 --> 00:07:47,868
+Então, no exercício anterior,
+
+109
+00:07:47,868 --> 00:07:49,795
+na verdade, você armazenou
+nas suas caches:
+
+110
+00:07:49,795 --> 00:07:52,239
+z, bem como w e b.
+
+111
+00:07:52,239 --> 00:07:57,715
+Então armazenamos aqui:
+ z'²', w'²' e b'²'.
+
+112
+00:07:57,715 --> 00:07:59,860
+Da perspectiva de implementação,
+
+113
+00:07:59,860 --> 00:08:04,120
+eu acho que fazer isso é uma forma prática
+para, simplesmente, ter as cópias dos parâmetros.
+
+114
+00:08:04,120 --> 00:08:08,975
+De forma que você possa usá-los, mais tarde,
+quando estiver calculando a retropropagação.
+
+115
+00:08:08,975 --> 00:08:15,446
+Assim, esses são os detalhes para a implementação
+que você verá quando estiver fazendo
+ o exercício de programação.
+
+116
+00:08:15,446 --> 00:08:20,061
+Você viu um dos princípios básicos
+para implementar uma rede neural profunda.
+
+117
+00:08:20,061 --> 00:08:21,640
+Em cada camada, há a fase
+da propagação para frente;
+
+118
+00:08:21,640 --> 00:08:24,260
+e há a fase de retropropagação,
+correspondente;
+
+119
+00:08:24,260 --> 00:08:27,675
+e existem as caches para passar
+ as informações entre as fases.
+
+120
+00:08:27,675 --> 00:08:28,930
+No próximo vídeo,
+
+121
+00:08:28,930 --> 00:08:32,250
+veremos como podemos, realmente,
+implementar esses princípios básicos.
+
+122
+00:08:32,250 --> 00:08:33,500
+Vamos ao próximo vídeo.
+Tradução: Lucas Oliveira Silva / Julia Yuri
+Revisão: Carlos Lage

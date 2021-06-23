@@ -1,0 +1,213 @@
+<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:w10="urn:schemas-microsoft-com:office:word" xmlns:m="http://schemas.microsoft.com/office/omml/2004/12/core" xmlns:ve="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:o12="http://schemas.microsoft.com/office/2004/7/core" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:wp="http://schemas.openxmlformats.org/drawingml/2006/3/wordprocessingDrawing" xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/3/main" xmlns="http://www.w3.org/TR/REC-html40">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <head>
+    <style>style</style>
+  </head>
+  <body>
+    <div class="Section1">
+      <p>
+        <b>
+          <u>
+            <span style="font-size:20.0pt">What is a neural network?</span>
+          </u>
+        </b>
+      </p>
+      <p>
+(DESCRIPTION)        <br/>
+Text, Introduction to Deep Learning. What is a Neural Network? Website, deep learning, dot, A.I.        <br/>
+      </p>
+      <p>
+(SPEECH)        <br/>
+The term, Deep Learning, refers to training Neural Networks, sometimes very large Neural Networks.        <br/>
+      </p>
+      <p>
+So what exactly is a Neural Network?        <br/>
+      </p>
+      <p>
+In this video, let's try to give you some of the basic intuitions.        <br/>
+      </p>
+      <p>
+(DESCRIPTION)        <br/>
+New slide, Housing Price Prediction. A right angle graph is displayed. The X plane is labeled, size of house. The Y plane is labeled, price.        <br/>
+      </p>
+      <p>
+(SPEECH)        <br/>
+Let's start to the Housing Price Prediction example.        <br/>
+      </p>
+      <p>
+Let's say you have a data sets with six houses, so you know the size of the houses in square feet or square meters and you know the price of the house and you want to fit a function to predict the price of the houses, the function of the size.        <br/>
+      </p>
+      <p>
+So if you are familiar with linear regression you might say, well let's put a straight line to these data so and we get a straight line like that.        <br/>
+      </p>
+      <p>
+But to be Pathans you might say well we know that prices can never be negative, right.        <br/>
+      </p>
+      <p>
+So instead of the straight line fit which eventually will become negative, let's bend the curve here.        <br/>
+      </p>
+      <p>
+So it just ends up zero here.        <br/>
+      </p>
+      <p>
+So this thick blue line ends up being your function for predicting the price of the house as a function of this size.        <br/>
+      </p>
+      <p>
+Whereas zero here and then there's a straight line fit to the right.        <br/>
+      </p>
+      <p>
+So you can think of this function that you've just fit the housing prices as a very simple neural network.        <br/>
+      </p>
+      <p>
+It's almost as simple as possible neural network.        <br/>
+      </p>
+      <p>
+Let me draw it here.        <br/>
+      </p>
+      <p>
+We have as the input to the neural network the size of a house which one we call x.        <br/>
+      </p>
+      <p>
+It goes into this node, this little circle and then it outputs the price which we call y.        <br/>
+      </p>
+      <p>
+So this little circle, which is a single neuron in a neural network, implements this function that we drew on the left.        <br/>
+      </p>
+      <p>
+And all the neuron does is it inputs the size, computes this linear function, takes a max of zero, and then outputs the estimated price.        <br/>
+      </p>
+      <p>
+And by the way in the neural network literature, you see this function a lot.        <br/>
+      </p>
+      <p>
+This function which goes to zero sometimes and then it'll takes of as a straight line.        <br/>
+      </p>
+      <p>
+This function is called a ReLU function which stands for rectified linear units.        <br/>
+      </p>
+      <p>
+So R-E-L-U. And rectify just means taking a max of 0 which is why you get a function shape like this.        <br/>
+      </p>
+      <p>
+You don't need to worry about ReLU units for now but it's just something you see again later in this course.        <br/>
+      </p>
+      <p>
+So if this is a single neuron, neural network, really a tiny little neural network, a larger neural network is then formed by taking many of the single neurons and stacking them together.        <br/>
+      </p>
+      <p>
+So, if you think of this neuron that's being like a single Lego brick, you then get a bigger neural network by stacking together many of these Lego bricks.        <br/>
+      </p>
+      <p>
+Let's see an example.        <br/>
+      </p>
+      <p>
+Let’s say that instead of predicting the price of a house just from the size, you now have other features.        <br/>
+      </p>
+      <p>
+You know other things about the host, such as the number of bedrooms, I should have wrote [INAUDIBLE] bedrooms, and you might think that one of the things that really affects the price of a house is family size, right?        <br/>
+      </p>
+      <p>
+So can this house fit your family of three, or family of four, or family of five?        <br/>
+      </p>
+      <p>
+And it's really based on the size in square feet or square meters, and the number of bedrooms that determines whether or not a house can fit your family's family size.        <br/>
+      </p>
+      <p>
+And then maybe you know the zip codes, in different countries it's called a postal code of a house.        <br/>
+      </p>
+      <p>
+And the zip code maybe as a future to tells you, walkability?        <br/>
+      </p>
+      <p>
+So is this neighborhood highly walkable?        <br/>
+      </p>
+      <p>
+Thing just walks the grocery store?        <br/>
+      </p>
+      <p>
+Walk the school?        <br/>
+      </p>
+      <p>
+Do you need to drive?        <br/>
+      </p>
+      <p>
+And some people prefer highly walkable neighborhoods.        <br/>
+      </p>
+      <p>
+And then the zip code as well as the wealth maybe tells you, right.        <br/>
+      </p>
+      <p>
+Certainly in the United States but some other countries as well.        <br/>
+      </p>
+      <p>
+Tells you how good is the school quality.        <br/>
+      </p>
+      <p>
+So each of these little circles I'm drawing, can be one of those ReLU, rectified linear units or some other slightly non linear function.        <br/>
+      </p>
+      <p>
+So that based on the size and number of bedrooms, you can estimate the family size, their zip code, based on walkability, based on zip code and wealth can estimate the school quality.        <br/>
+      </p>
+      <p>
+And then finally you might think that well the way people decide how much they're will to pay for a house, is they look at the things that really matter to them.        <br/>
+      </p>
+      <p>
+In this case family size, walkability, and school quality and that helps you predict the price.        <br/>
+      </p>
+      <p>
+So in the example x is all of these four inputs.        <br/>
+      </p>
+      <p>
+And y is the price you're trying to predict.        <br/>
+      </p>
+      <p>
+And so by stacking together a few of the single neurons or the simple predictors we have from the previous slide, we now have a slightly larger neural network.        <br/>
+      </p>
+      <p>
+How you manage neural network is that when you implement it, you need to give it just the input x and the output y for a number of examples in your training set and all this things in the middle, they will figure out by itself.        <br/>
+      </p>
+      <p>
+So what you actually implement is this.        <br/>
+      </p>
+      <p>
+Where, here, you have a neural network with four inputs.        <br/>
+      </p>
+      <p>
+So the input features might be the size, number of bedrooms, the zip code or postal code, and the wealth of the neighborhood.        <br/>
+      </p>
+      <p>
+And so given these input features, the job of the neural network will be to predict the price y.        <br/>
+      </p>
+      <p>
+And notice also that each of these circle, these are called hidden units in the neural network, that each of them takes its inputs all four input features.        <br/>
+      </p>
+      <p>
+So for example, rather than saying these first nodes represent family size and family size depends only on the features X1 and X2.        <br/>
+      </p>
+      <p>
+Instead, we're going to say, well neural network, you decide whatever you want this known to be.        <br/>
+      </p>
+      <p>
+And we'll give you all four of the features to complete whatever you want.        <br/>
+      </p>
+      <p>
+So we say that layers that this is input layer and this layer in the middle of the neural network are density connected.        <br/>
+      </p>
+      <p>
+Because every input feature is connected to every one of these circles in the middle.        <br/>
+      </p>
+      <p>
+And the remarkable thing about neural networks is that, given enough data about x and y, given enough training examples with both x and y, neural networks are remarkably good at figuring out functions that accurately map from x to y.        <br/>
+      </p>
+      <p>
+So, that's a basic neural network.        <br/>
+      </p>
+      <p>
+In turns out that as you build out your own neural networks, you probably find them to be most useful, most powerful in supervised learning incentives, meaning that you're trying to take an input x and map it to some output y, like we just saw in the housing price prediction example.        <br/>
+      </p>
+      <p>
+In the next video let's go over some more examples of supervised learning and some examples of where you might find your networks to be incredibly helpful for your applications as well.        <br/>
+      </p>
+    </div>
+  </body>
+</html>

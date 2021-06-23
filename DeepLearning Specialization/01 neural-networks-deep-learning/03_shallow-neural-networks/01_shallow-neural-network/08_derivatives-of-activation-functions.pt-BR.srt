@@ -1,0 +1,499 @@
+1
+00:00:00,302 --> 00:00:04,340
+Quando você implementa a retropropagação
+na sua rede neural, você precisa calcular
+
+2
+00:00:04,340 --> 00:00:07,813
+a inclinação da derivada das funções de ativação.
+
+3
+00:00:07,813 --> 00:00:11,333
+Vamos dar uma olhada nas escolhas que temos para funções de ativação e
+
+4
+00:00:11,333 --> 00:00:14,025
+em como podemos calcular a inclinação dessas funções.
+
+5
+00:00:14,025 --> 00:00:17,239
+Aqui está a conhecida
+função de ativação sigmoide.
+
+6
+00:00:17,239 --> 00:00:22,252
+Então, para qualquer valor de z [...]
+Por exemplo, neste valor de z,
+
+7
+00:00:22,252 --> 00:00:27,184
+esta função terá alguma inclinação,
+ou alguma derivada, correspondente a [...]
+
+8
+00:00:27,184 --> 00:00:32,389
+Se você desenhar uma pequena linha aqui [...]
+altura x comprimento [...] temos esse pequeno triângulo.
+
+9
+00:00:32,389 --> 00:00:39,823
+Então, se g(z) é a função sigmoide,
+ então a inclinação da função é:
+
+10
+00:00:39,823 --> 00:00:47,034
+(d/dz)g(z); e do Cálculo,
+sabemos que isso é a inclinação de g(x) em z.
+
+11
+00:00:47,034 --> 00:00:52,513
+E se você está familiarizado com Cálculo
+e sabe como calcular derivadas [...]
+
+12
+00:00:52,513 --> 00:00:56,074
+Se você calcular a derivada da função sigmoide,
+
+13
+00:00:56,074 --> 00:01:00,300
+é possível mostrar que é igual a esta fórmula.
+
+14
+00:01:00,300 --> 00:01:02,380
+Eu não vou apresentar as etapas do cálculo.
+
+15
+00:01:02,380 --> 00:01:04,839
+Mas se você está familiarizado com Cálculo,
+
+16
+00:01:04,839 --> 00:01:08,465
+fique à vontade para parar o vídeo
+e tentar provar por você mesmo.
+
+17
+00:01:08,465 --> 00:01:16,583
+                                   Então isso é igual a:
+                     g(z) * ( 1 - g(z) )
+
+18
+00:01:16,583 --> 00:01:20,923
+Então, vamos fazer uma verificação
+para ver se a expressão faz sentido.
+
+19
+00:01:20,923 --> 00:01:26,343
+Primeiramente, se z é um valor alto,
+por exemplo,  z=10.
+
+20
+00:01:26,343 --> 00:01:30,315
+Então g(z) será próximo de 1.
+
+21
+00:01:30,315 --> 00:01:38,758
+E a fórmula que temos à esquerda nos diz que
+d/dz g(z) é próximo de g(z),
+
+22
+00:01:38,758 --> 00:01:42,979
+o que é igual a:  1 * (1-1),
+
+23
+00:01:42,979 --> 00:01:46,851
+o que é, portanto, muito próximo de 0.
+
+24
+00:01:46,851 --> 00:01:51,267
+E isso, claro, está correto, porque
+quando z é grande, a inclinação fica próximo de 0.
+
+25
+00:01:51,267 --> 00:01:58,885
+Por outro lado, se z = -10, aqui por exemplo.
+Temos que g(z) está próximo de 0.
+
+26
+00:01:58,885 --> 00:02:01,765
+Assim, a fórmula à esquerda nos diz que:
+
+27
+00:02:01,765 --> 00:02:07,333
+(d/dz)g(z) estará próximo do g(z),
+que é:  0 * (1 - 0)            
+
+28
+00:02:07,333 --> 00:02:10,005
+Então, isso também, está próximo do 0.
+
+29
+00:02:10,005 --> 00:02:16,889
+Finalmente, se z = 0, então:
+
+30
+00:02:16,889 --> 00:02:18,983
+g(z) = 1/2
+Isso é a função sigmoide.
+
+31
+00:02:18,983 --> 00:02:24,040
+Assim, a derivada:
+
+32
+00:02:24,040 --> 00:02:28,459
+(d/dz)g(z) = 1/2(1 - 1/2) = 1/4
+
+33
+00:02:28,459 --> 00:02:33,135
+E isso, realmente,
+vem a ser o valor correto da derivada,
+
+34
+00:02:33,135 --> 00:02:35,831
+ou seja, a inclinação dessa função,
+quando z = 0.
+
+35
+00:02:35,831 --> 00:02:38,839
+Finalmente, apenas para apresentar
+mais uma parte da notação [...]
+
+36
+00:02:38,839 --> 00:02:42,321
+Às vezes, ao invés de escrever isto:
+ (d/dz)g(z)
+
+37
+00:02:42,321 --> 00:02:46,087
+a forma simplificada dessa derivada é:
+g'(z)
+
+38
+00:02:46,087 --> 00:02:52,167
+Assim, g'(z). Em Cálculo, o símbolo de aspas simples
+denota a primeira derivada.
+
+39
+00:02:52,167 --> 00:02:55,283
+Então, g'(z) é a forma simplificada, em Cálculo,
+
+40
+00:02:55,283 --> 00:03:00,455
+para a derivada da função g,
+em relação à entrada variável z.
+
+41
+00:03:00,455 --> 00:03:07,513
+Em rede neural, nós temos:
+
+42
+00:03:07,513 --> 00:03:11,351
+a = g(z) que é igual a isto.
+
+43
+00:03:11,351 --> 00:03:17,145
+Então esta fórmula, também,
+é simplificada:  a*(1-a)
+
+44
+00:03:17,145 --> 00:03:20,109
+Às vezes, durante a implementação,
+você poderá ver
+
+45
+00:03:20,109 --> 00:03:25,256
+algo assim: g'(z) = a(1-a)
+
+46
+00:03:25,256 --> 00:03:29,040
+Isso se refere à observação
+
+47
+00:03:29,040 --> 00:03:33,428
+de que g'(z) é uma derivada
+que é igual a isto aqui.<br /><br /><br /><br />
+
+48
+00:03:33,428 --> 00:03:38,397
+A vantagem dessa fórmula é que,
+se você já calculou o valor
+
+49
+00:03:38,397 --> 00:03:43,078
+para o 'a', então, usando essa expressão,
+você pode calcular rapidamente o valor
+
+50
+00:03:43,078 --> 00:03:45,038
+para a inclinação, para o g'(z).
+
+51
+00:03:45,038 --> 00:03:47,632
+Ok, então, isso foi a função de ativação sigmoide.
+
+52
+00:03:47,632 --> 00:03:51,172
+Agora, vamos ver a função de ativação "tanh".
+
+53
+00:03:51,172 --> 00:03:56,311
+Similar a o que vimos anteriormente,
+a definição de (d/dz)g(z)
+
+54
+00:03:56,311 --> 00:04:01,155
+é a inclinação de g(z),
+
+55
+00:04:01,155 --> 00:04:07,747
+em um ponto específico de z.
+E se você observar a fórmula
+
+56
+00:04:07,747 --> 00:04:13,066
+da função tangente hiperbólica,
+e se você tem experiência com Cálculo,
+
+57
+00:04:13,066 --> 00:04:17,359
+você pode fazer a derivada e mostrar
+que isso é simplificado, chegando a esta fórmula.
+
+58
+00:04:20,813 --> 00:04:23,997
+Usando a denotação simplificada,
+
+59
+00:04:23,997 --> 00:04:27,019
+chamaremos isso, novamente, de g'(z).
+
+60
+00:04:27,019 --> 00:04:30,941
+Então, se você quiser provar
+que essa fórmula faz sentido:
+
+61
+00:04:30,941 --> 00:04:37,005
+Então, para z = 10,
+tanh(z) estará bem próximo de 1.
+
+62
+00:04:37,005 --> 00:04:41,309
+Isto varia de +1 até -1.
+
+63
+00:04:41,309 --> 00:04:45,183
+Então, o g'(z),
+
+64
+00:04:45,183 --> 00:04:48,148
+de acordo com essa fórmula,
+será aproximadamente  (1 - 1²).
+
+65
+00:04:48,148 --> 00:04:53,930
+Então g'(z) está próximo de 0.
+Então, se z é grande, a inclinação estará próximo de 0.
+
+66
+00:04:53,930 --> 00:04:58,760
+Por outro lado, se z é bem reduzido,
+digamos z = -10,
+
+67
+00:04:58,760 --> 00:05:02,440
+então, tanh(z) estará próximo de -1.
+
+68
+00:05:02,440 --> 00:05:07,871
+Assim, g'(z) estará próximo de  (1 - (-1)²)
+
+69
+00:05:07,871 --> 00:05:12,792
+Então, ele está próximo de 1 - 1
+ que está, também, próximo de 0.
+
+70
+00:05:12,792 --> 00:05:18,421
+Finalmente, se z = 0; então tanh(z) = 0.
+
+71
+00:05:18,421 --> 00:05:22,165
+Então, a inclinação g'(z) = 1.
+
+72
+00:05:22,165 --> 00:05:26,433
+Na verdade, isso é a inclinação quando o z = 0.
+
+73
+00:05:26,433 --> 00:05:33,001
+Resumindo, se a = g(z);
+então, se 'a' é igual a este tanh(z),
+
+74
+00:05:33,001 --> 00:05:38,300
+então, a derivada g'(z) = 1 - a²
+
+75
+00:05:38,300 --> 00:05:42,000
+Então, novamente,
+se você já calculou o valor de 'a',
+
+76
+00:05:42,000 --> 00:05:46,522
+você pode usar essa fórmula
+para calcular rapidamente a derivada também.
+
+77
+00:05:46,522 --> 00:05:49,618
+Finalmente, aqui mostramos
+como você calcula as derivadas para
+
+78
+00:05:49,618 --> 00:05:51,338
+as funções de ativação ReLU e LeakyReLU.
+
+79
+00:05:51,338 --> 00:05:57,866
+Para a ReLU:
+g(z) = max (0, z)
+
+80
+00:05:57,866 --> 00:06:03,330
+Então: g'(z) será 0 se z < 0; e
+
+81
+00:06:03,330 --> 00:06:09,066
+              1 se z > 0
+
+82
+00:06:09,066 --> 00:06:15,498
+E derivada indefinida,
+ tecnicamente indefinida, se z = 0.
+
+83
+00:06:15,498 --> 00:06:18,339
+Mas, se você está implementando-a
+
+84
+00:06:18,339 --> 00:06:21,398
+em software, ela pode não ser 100%, 
+matematicamente, correta.
+
+85
+00:06:21,398 --> 00:06:25,571
+Mas operará bem,
+se z for exatamente igual a 0,
+
+86
+00:06:25,571 --> 00:06:30,501
+se você ajustar a derivada: g'(z) = 1 se z ≥ 0.
+Ou ela tem que ser 0.
+
+87
+00:06:30,501 --> 00:06:31,781
+Não tem muita importância.
+
+88
+00:06:31,781 --> 00:06:33,578
+Se você é expert em otimização,
+
+89
+00:06:33,578 --> 00:06:37,109
+tecnicamente, g' vem a ser
+o que é denominado subgradiente
+
+90
+00:06:37,109 --> 00:06:41,360
+da função de ativação g(z), razão pela qual
+o gradiente descendente ainda opera.
+
+91
+00:06:41,360 --> 00:06:47,327
+Mas você pode pensar nisso
+como a chance de z ser exatamente 0,000000 [...]
+
+92
+00:06:47,327 --> 00:06:52,805
+Isso é tão pequeno que quase não importa
+como você definiu a derivada
+
+93
+00:06:52,805 --> 00:06:54,303
+para z = 0.
+
+94
+00:06:54,303 --> 00:06:59,155
+Então, na prática, isso é o que as pessoas fazem
+para a derivada de z.
+
+95
+00:06:59,155 --> 00:07:03,712
+Finalmente, se você está treinando
+uma rede neural
+
+96
+00:07:03,712 --> 00:07:06,882
+com a função de ativação LeakyReLU,
+
+97
+00:07:06,882 --> 00:07:12,244
+então:  g(z) = max(0.01z , z)
+
+98
+00:07:12,244 --> 00:07:15,247
+Então:
+
+99
+00:07:15,247 --> 00:07:19,074
+g'(z) será:
+
+100
+00:07:19,074 --> 00:07:20,477
+0,01 se z < 0;
+e 1 se z > 0
+
+101
+00:07:20,477 --> 00:07:26,403
+Novamente, o gradiente
+não é definido tecnicamente,
+
+102
+00:07:26,403 --> 00:07:31,479
+quando z é exatamente igual a 0,
+mas se você implementar
+
+103
+00:07:31,479 --> 00:07:38,353
+uma parte do código que defina a derivada,
+ou seja, que defina g'(z) sendo 0,01 ou 1. 
+g'(z) = 1 se z ≥ 0 
+
+104
+00:07:38,353 --> 00:07:41,499
+Qualquer um dos dois, não importa. Assim, quando o z
+for exatamente 0, o seu código funcionará bem.
+
+105
+00:07:41,499 --> 00:07:45,594
+Então, suprido com essas fórmulas,
+você será capaz de calcular as inclinações,
+
+106
+00:07:45,594 --> 00:07:48,400
+as derivadas, das suas funções de ativação.
+
+107
+00:07:48,400 --> 00:07:50,553
+Agora que você tem essas ferramentas,
+
+108
+00:07:50,553 --> 00:07:54,502
+prepare-se para ver como se implementa
+o gradiente descendente para a sua rede neural.
+
+109
+00:07:54,502 --> 00:07:57,309
+Vamos ao próximo vídeo.
+Tradução: Marcio N. P. da Silva / Julia Yuri
+Revisão: Carlos Lage

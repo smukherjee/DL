@@ -1,0 +1,51 @@
+El término Aprendizaje Profundo se refiere al entrenamiento de Redes Neuronales aveces Redes Neuronales muy grandes Entonces, ¿qué es exactamente una red neuronal? En este video, vamos a intentar darte
+algunas de las intuiciones básicas. Comencemos con un ejemplo de predicción de precios de viviendas Digamos que tienes un conjunto de datos 
+con seis viviendas, conoces el 
+tamaño de las casas en pies cuadrados o metros cuadrados
+ y conoces el precio y quieres ajustar una función para predecir el precio de las casas en función de su tamaño Bien, si estás familiarizado con la regresión
+lineal, podrías decir pongamos una línea recta a estos datos 
+y así obtenemos una línea recta como ésta. Pero para ser rigurosos podrías decir
+bueno sabemos que los precios nunca pueden ser negativos. Así que en vez de ajustar mediante una línea recta,
+ la cual podría llegar a ser negativa, vamos a doblar la curva aquí. doblemos la curva de modo que termine en cero aquí. Así que esta línea azul termina siendo tu función para predecir el precio de una casa en función de su tamaño. Donde es cero aquí y luego allí 
+una línea recta que se ajuste a la derecha. Así que puedes pensar en esta función,
+ que has ajustado a los precios de la vivienda, como una red neuronal muy simple. Es casi la red neuronal más simple. Déjame dibujar esto aquí. Tenemos como entrada a la red neuronal 
+el tamaño de la casa al que llamaremos x. Entra en este nodo, este círculo pequeño Y luego entrega el precio que llamaremos y. Entonces este pequeño círculo, 
+el cual es una neurona en una red neuronal implementa esta función que dibujamos a la izquierda. Y todo lo que la neurona hace es recibir la entrada, 
+computar esta función lineal tomar el máximo con el cero,
+ y arrojar como salida el precio estimado Y por cierto en la literatura de redes neuronales, esta función se verá mucho. Esta función que es cero a veces y luego toma la forma de una línea recta. Esta función se llama función ReLU que significa Unidades Lineales Rectificadas. ReLU Y rectificar sólo significa tomar un máximo de 0, 
+razón por la cual tienes una forma de función como esta. No necesitas preocuparte por unidades ReLU por ahora pero es algo que verás otra vez
+ más adelante en este curso. Por lo tanto esto es una sola neurona, o red neuronal, realmente una pequeña red neuronal, una mayor red neuronal se forma tomando muchas de las
+ neuronas individuales y apilarlas juntas. Así que si piensas de esta neurona 
+que es como un solo ladrillo de Lego, luego puedes obtener una red neuronal más grande si 
+apilas juntos muchos de estos ladrillos de Lego. Veamos un ejemplo. Digamos que en vez de predecir el
+ precio de una casa sólo por su tamaño, ahora tienes otras características. Conoces otras cosas sobre la casa, tales como el número de dormitorios, Debí haber escrito dormitorios de la casa.
+ Y se podría pensar que una de las cosas que realmente afecta el precio de la casa
+ es el tamaño familiar, cierto? sí puede caber en esta casa una familia de tres,
+ cuatro, o una familia de cinco personas Y realmente se basa en el tamaño en
+ pies o metros cuadrados, y el número de dormitorios que determina si una casa puede ajustarse al tamaño de una familia. Y entonces tal vez sabes los códigos postales, en diversos países se denomina el código postal de una casa. ¿Y el código postal tal vez como una característica
+ te dice, transitabilidad? ¿Entonces, este barrio es muy transitable? Cosas como caminar a la tienda de comestibles caminar a la escuela ¿necesitas conducir? algunos prefieren barrios muy transitables Y entonces el código postal,
+ así como la riqueza, tal vez te dicen ciertamente en los Estados Unidos y también en otros países te dicen la calidad de las escuelas. Así que cada uno de estos pequeños círculos que estoy dibujando, puede ser una de esas ReLU unidades lineales rectificadas o alguna otra función ligeramente no lineal. Así que basado en el tamaño y el número de dormitorios, se puede estimar el tamaño de la familia, su código postal, basado en la transitabilidad, basado en código postal y riqueza puede estimar la calidad de las escuelas. Y finalmente se podría pensar que así la gente decide cuánto están dispuestos a pagar por una casa,
+ mirando las cosas que realmente les importan a ellos. En este caso el tamaño de la familia,
+ la transitabilidad y calidad de las escuelas te ayudan a predecir el precio. Así, en este ejemplo x contiene 
+estas cuatro entradas y y es el precio que estas tratando de predecir. Apilando juntas algunas de las neuronas individuales o los predictores simples que tenemos desde la diapositiva anterior, disponemos de una red neuronal un poco más grande. La magia de la red neuronal es que
+ cuando la implementas necesitas darle la sólo la entrada x la salida y por el número de ejemplos
+ en el conjunto de entrenamiento y todas estas cosas en la mitad 
+se resolverán por sí mismas. Lo que realmente implementas es ésto Donde, aquí,
+ tienes una red neuronal con cuatro entradas. Donde las características de entrada podrían ser
+ el tamaño, número de dormitorios, el código postal o código postal y 
+la riqueza del barrio. Y dadas estas características de entrada, será el trabajo de la red neuronal
+ predecir el precio y. Y note también que estos círculos, 
+se denominan unidades ocultas en la red neuronal, y que cada una de ellas
+ toma como entrada todas las cuatro características Por ejemplo, en lugar de decir estos primeros
+ nodos representan el tamaño de la familia y el tamaño de la familia depende solamente 
+de las características x1 y x2. vamos a decir, red neuronal , decide lo que quieras que este nodo sea. te daremos las cuatro de las características 
+para calcular lo que quieras. Luego decimos que las capas,
+ como esta capa de entrada y esta capa en medio de la red neuronal 
+estan densamente conectadas Porque cada característica de ingreso 
+está conectada a cada uno de estos círculos en el centro. lo notable de las redes neuronales es que, dada la suficiente información sobre x e y, dado suficientes ejemplos de entrenamiento 
+con x e y, las redes neuronales son muy buenas para descubrir funciones que 
+mapean exactamente de x a y. Así, esta es una red neuronal básica. Sucede que a medida que construyes
+ tus propias redes neuronales probablemente encontrarás que son muy útiles, 
+muy poderosas, en aprendizaje supervisado, lo que se trata es tomar una entrada "x" y asignar a alguna salida "y", como acabamos de ver en el ejemplo de la predicción del precio de la vivienda. En el siguiente vídeo vamos a ver
+ algunos ejemplos de aprendizaje supervisado y algunos ejemplos donde 
+ encontrarás que las redes serán increíblemente útiles para tus aplicaciones.

@@ -1,0 +1,231 @@
+1
+00:00:00,000 --> 00:00:03,050
+Entonces, ¿qué tiene que ver el aprendizaje profundo con el cerebro?
+
+2
+00:00:03,050 --> 00:00:05,005
+Tomando el riesgo de adelantarnos a la conclusión final,
+
+3
+00:00:05,005 --> 00:00:06,885
+diría que no mucho.
+
+4
+00:00:06,885 --> 00:00:09,750
+pero miremos rápidamente el porqué las personas siguen haciendo
+
+5
+00:00:09,750 --> 00:00:13,185
+la analogía entre el Aprendizaje Profundo y el cerebro humano.
+
+6
+00:00:13,185 --> 00:00:15,345
+Cuando implementas una red neural,
+
+7
+00:00:15,345 --> 00:00:16,470
+esto es lo que haces,
+
+8
+00:00:16,470 --> 00:00:18,270
+propagación hacia adelante y retropropagación.
+
+9
+00:00:18,270 --> 00:00:21,930
+Y creo que porque ha sido difícil transmitir la intuición de
+
+10
+00:00:21,930 --> 00:00:26,850
+que estas ecuaciones realmente están haciendo es descenso<br /> por gradiente en una función muy compleja,
+
+11
+00:00:26,850 --> 00:00:29,940
+la analogía de que es como el cerebro
+
+12
+00:00:29,940 --> 00:00:34,365
+se ha convertido en una explicación demasiado
+ simplificada de lo que está haciendo,
+
+13
+00:00:34,365 --> 00:00:40,010
+pero esta simplicidad seduce al público
+ a utilizarlo abiertamente,
+
+14
+00:00:40,010 --> 00:00:42,275
+al igual que a los medios a reportarlo,
+
+15
+00:00:42,275 --> 00:00:44,825
+y ciertamente atrapó la imaginación popular,
+
+16
+00:00:44,825 --> 00:00:48,020
+Hay una analogía muy sutil entre,
+
+17
+00:00:48,020 --> 00:00:53,315
+digamos, una unidad de regresión logística con 
+ función de activación sigmoidea,
+
+18
+00:00:53,315 --> 00:00:58,130
+y aquí hay una caricatura de una sola neurona en el cerebro.
+
+19
+00:00:58,130 --> 00:01:02,555
+En esta imagen de una neurona biológica , esta neurona,
+
+20
+00:01:02,555 --> 00:01:03,905
+la cual es una célula en tu cerebro,
+
+21
+00:01:03,905 --> 00:01:07,945
+recibe señales eléctricas de tus otras neuronas,
+
+22
+00:01:07,945 --> 00:01:11,100
+X_1, X_2, X_3, o tal vez de otras neuronas A_1, A_2,
+
+23
+00:01:11,100 --> 00:01:14,595
+A_3, hace un cálculo simple de umbral,
+
+24
+00:01:14,595 --> 00:01:17,110
+y luego, si esta neurona se activa,
+
+25
+00:01:17,110 --> 00:01:20,150
+envía un pulso eléctrico a través del axón,
+
+26
+00:01:20,150 --> 00:01:23,330
+bajando por este cable largo, tal vez a otras neuronas.
+
+27
+00:01:23,330 --> 00:01:27,540
+Entonces, existe una analogía muy simplista entre
+
+28
+00:01:27,540 --> 00:01:34,540
+una neurona en una red neuronal y una neurona
+biológica, como la cual se muestra a la derecha,
+
+29
+00:01:34,540 --> 00:01:37,865
+pero creo que hoy, incluso los neurocientíficos
+
+30
+00:01:37,865 --> 00:01:41,390
+no tienen idea de lo que una sola neurona está haciendo.
+
+31
+00:01:41,390 --> 00:01:44,120
+Una sola neurona parece ser mucho más compleja
+
+32
+00:01:44,120 --> 00:01:47,545
+de lo que somos capaces de caracterizar<br /> a través de la neurociencia,
+
+33
+00:01:47,545 --> 00:01:52,595
+y aunque algo de lo que se está haciendo sí es un poco como la regresión logística,
+
+34
+00:01:52,595 --> 00:01:58,795
+todavía hay mucho sobre lo que hace una sola neurona que <br />ningún ser humano entiende hoy.
+
+35
+00:01:58,795 --> 00:02:02,210
+Por ejemplo, cómo exactamente las neuronas <br />en el cerebro humano aprenden,
+
+36
+00:02:02,210 --> 00:02:05,155
+es todavía un proceso bastante misterioso.
+
+37
+00:02:05,155 --> 00:02:09,410
+Actualmente, no está completamente claro<br /> si el cerebro humano utiliza un algoritmo,
+
+38
+00:02:09,410 --> 00:02:12,590
+que hace algo como retro-propagación <br />o descenso por gradiente o si hay
+
+39
+00:02:12,590 --> 00:02:17,915
+un principio de aprendizaje fundamentalmente <br />diferente que el cerebro humano utiliza.
+
+40
+00:02:17,915 --> 00:02:20,635
+Así que, cuando pienso en el <br />aprendizaje profundo.
+
+41
+00:02:20,635 --> 00:02:25,160
+Pienso que es muy bueno en el aprendizaje de <br />funciones bastante flexibles,
+
+42
+00:02:25,160 --> 00:02:29,090
+funciones bastantes complejas <br />para aprender mapeos de X a Y
+
+43
+00:02:29,090 --> 00:02:32,320
+para aprender mapeos de<br /> entrada-salida en el aprendizaje supervisado.
+
+44
+00:02:32,320 --> 00:02:35,199
+Y si esto es como la analogía con el cerebro,
+
+45
+00:02:35,199 --> 00:02:36,965
+tal vez eso fue útil alguna vez, pero
+
+46
+00:02:36,965 --> 00:02:40,040
+creo que el campo se ha movido al punto donde
+
+47
+00:02:40,040 --> 00:02:45,135
+esa analogía se esta rompiendo, <br />por lo que tiendo a no a utilizar esa analogía mucho.
+
+48
+00:02:45,135 --> 00:02:48,620
+Así que, eso es todo respecto a las "redes neuronales y el cerebro".
+
+49
+00:02:48,620 --> 00:02:51,830
+Creo que tal vez el campo de <br />visión por computador ha tomado
+
+50
+00:02:51,830 --> 00:02:54,455
+un poco mas de inspiración del cerebro humano que
+
+51
+00:02:54,455 --> 00:02:57,290
+otras disciplinas que también <br />aplican aprendizaje profundo,
+
+52
+00:02:57,290 --> 00:03:02,465
+pero yo personalmente utilizo la analogía <br />con el cerebro humano menos de lo que solía
+
+53
+00:03:02,465 --> 00:03:05,090
+Así que, eso es todo para este video.
+
+54
+00:03:05,090 --> 00:03:07,940
+Ahora sabes como aplicar propagación<br /> hacia delante y hacia atrás
+
+55
+00:03:07,940 --> 00:03:10,940
+y descenso por gradiente incluso <br />para redes neurales profundas.
+
+56
+00:03:10,940 --> 00:03:12,905
+Mucha suerte con el ejercicio de programación,
+
+57
+00:03:12,905 --> 00:03:17,130
+y espero compartir mas de estas ideas contigo en el segundo curso.

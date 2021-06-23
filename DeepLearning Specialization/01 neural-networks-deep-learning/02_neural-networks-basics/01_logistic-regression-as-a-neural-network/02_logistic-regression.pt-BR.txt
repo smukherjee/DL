@@ -1,0 +1,52 @@
+Neste vídeo, abordaremos 
+regressão logística. Este é um algoritmo de aprendizagem 
+que usamos quando o rótulos de saída Y em um problema de aprendizado 
+supervisionado são ou 0 ou 1, portanto, problemas de classificação binária. Dado um vetor de característica X, 
+que poderia estar relacionado a uma imagem que você queira reconhecer 
+como sendo ou não a de um gato, você quer um algoritmo que 
+possa produzir uma previsão, que chamaremos de ŷ
+(y circunflexo), que é a sua
+estimativa de y. Mais formalmente, você quer que 
+ŷ seja a probabilidade de que y seja igual a 1, dado as 
+características de entradas x. Em outras palavras, se x é uma imagem, como vimos o último vídeo, você quer que o ŷ lhe informe, qual é a chance de que esta 
+seja uma imagem de gato? Então x, como dissemos no vídeo anterior, é um vetor x de dimensão nₓ, dados que os parâmetros de 
+regressão logística serão w, que também é um vetor de dimensões nₓ, junto com b, que é apenas um número real. Então, dados uma entrada X
+e os parâmetros W e b, como geramos a saída ŷ? Bem, uma coisa que você poderia 
+tentar, e que não funciona, seria fazer o ŷ receber 
+"w" transposto vezes "X" mais "b", tipo uma função linear da entrada X. E na verdade, isso é o que você usa, se 
+você estivesse fazendo regressão linear. Mas este não é um bom 
+algoritmo para classificação binária porque você quer que ŷ possibilite 
+a chance de y ser igual a 1. Então, ŷ deveria na verdade 
+estar entre zero e um, e é difícil de aplicar isso 
+porque W transposta vezes X (W⸆.X) + b (W⸆.X) + b pode ser muito maior que 1 
+ou pode ser até mesmo negativa, o que não faz muito sentido em probabilidade, onde você quer que os resultados
+estejam entre zero e um. Então, em regressão logística, 
+nossa saída em vez disso, será ŷ = a função σ aplicada a esta quantidade. É assim que função σ se parece. Se no eixo horizontal eu ploto z, então 
+a função σ de Z se parece assim. Então, ela vai suavemente de zero até um. Deixe-me rotular meus eixos aqui. Este é 0 e cruza o eixo vertical em 0,5. Então, isso é como σ(z) se parece e
+usaremos z para denotar esta quantidade. W⸆.X + b. Aqui está a fórmula para a função σ. σ de z, onde
+z é um número real, é igual a 1/(1 + e^-z).
+Um dividido por (1 + e elevado -z). Então observe algumas coisas. Se Z é muito grande, 
+então e^-z será próximo de zero. Então, σ de z será aproximadamente 1 dividido por 
+1 mais algo muito próximo a zero porque e elevado a um número negativo
+muito grande será próximo de zero. Então, isso é próximo de 1. E de fato, se você observar o gráfico à esquerda, se z é muito grande,
+σ(z) é muito próximo de 1. Inversamente, se Z é muito pequeno, ou é um número negativo muito grande, então o σ(z) torna-se 1/(1 + e^-z), e isso torna-se um número enorme. Isso torna-se, pense como 1 dividido 
+por 1 mais um número que é muito grande, e assim, isto será próximo de zero. E de fato, você vê que conforme z 
+torna-se um número negativo muito grande, σ(z) tenderá a zero. Então, quando você implementa regressão logística, seu trabalho é tentar aprender parâmetros W e b de forma que ŷ seja uma boa estimativa
+da chance de y ser igual a 1. Antes de seguir, apenas
+ mais uma observação sobre notação. Quando programamos redes neurais, nós normalmente mantemos o 
+parâmetro W e o parâmetro b separados, onde aqui, b corresponde
+a um inter-espectro. Em outros cursos, você pode ter visto alguma notação 
+que lida com isso de forma distinta. Em algumas convenções, você define uma 
+característica extra chamada xₒ, igual a 1. Sendo que agora, X
+pertence a R de nₓ+₁. E então, você define
+ŷ = σ de Teta (Θ) transposta vezes X. Nesta convenção notacional alternativa, você tem vetor Θ de parâmetros, Θ₀, Θ₁, Θ₂, até o Θnₓ 
+e assim, Θ₀, substitui o b,
+age como ele e é só um número real, e Θ₁ até Θnₓ fazem
+o papel de W. Resulta que, quando você implementa sua rede neural, será mais fácil manter
+ b e W como parâmetros separados. E assim, nesta aula, não usaremos nenhuma destas convenções 
+que acabei de escrever em vermelho. Se você não viu esta notação antes 
+em outros cursos, não se preocupe. É só que eu queria, para aqueles que já viram esta notação, mencionar explicitamente que nós 
+não usaremos esta notação neste curso. Mas se você não viu isso antes, não é importante e você não precisa se preocupar com isso. Bem, agora você viu como o modelo 
+de regressão logística se parece. A seguir, para mudar os parâmetros W e b, 
+você precisa definir uma função de custo. Faremos isso no próximo vídeo.
+[Tradução: Renato Barata Gomes | Revisão: Carlos Lage.]

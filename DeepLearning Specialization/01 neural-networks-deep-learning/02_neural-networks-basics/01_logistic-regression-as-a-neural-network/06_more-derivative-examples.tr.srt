@@ -1,0 +1,631 @@
+1
+00:00:00,000 --> 00:00:03,105
+Bu videoda size biraz daha karmaşık bir örnek göstereceğim.
+
+2
+00:00:03,105 --> 00:00:06,870
+Fonksiyonun eğimi fonksiyonun farklı noktalarında farklı olabilir.
+
+3
+00:00:06,870 --> 00:00:08,125
+Bir örnek ile başlayalım.
+
+4
+00:00:08,125 --> 00:00:11,888
+f(a) = a² fonksiyonunu çizelim.
+
+5
+00:00:11,888 --> 00:00:15,975
+Şimdi a = 2 noktasına bakalım.
+
+6
+00:00:15,975 --> 00:00:19,107
+Yani a ya da f(a) = 4 olur.
+
+7
+00:00:19,107 --> 00:00:24,490
+Sağa doğru hafifçe sürükleyelim, şimdi a = 2.001.
+
+8
+00:00:24,490 --> 00:00:31,580
+a² olan f(a) yaklaşık 4.004 olacak.
+
+9
+00:00:31,580 --> 00:00:33,585
+Aslında tam değerin,
+
+10
+00:00:33,585 --> 00:00:39,140
+hesap makinesiyle hesaplanınca 4.004001 olduğunu anlaşılıyor.
+
+11
+00:00:39,140 --> 00:00:42,120
+Sadece 4.004'ün yeterince yakın olduğunu söyleyeceğim.
+
+12
+00:00:42,120 --> 00:00:44,430
+Yani bunun anlamı a = 2 olduğunda,
+
+13
+00:00:44,430 --> 00:00:46,825
+bu durumu grafik üzerinde çizelim.
+
+14
+00:00:46,825 --> 00:00:49,320
+Yani dediğimiz a = 2 ise,
+
+15
+00:00:49,320 --> 00:00:56,225
+daha sonra f(a) = 4 olur ve burada x ve y ekseni ölçeklendirilmemiştir.
+
+16
+00:00:56,225 --> 00:00:59,480
+Teknik olarak, dikey yükseklik yatay yükseklikten çok daha yüksek olmalıdır,
+
+17
+00:00:59,480 --> 00:01:03,540
+böylece x ve y ekseni aynı ölçekte değildir.
+
+18
+00:01:03,540 --> 00:01:10,865
+Ama şimdi 2.001'e sürüklüyorum, o zaman f(a) kabaca 4.004 olur.
+
+19
+00:01:10,865 --> 00:01:13,864
+Yani bu küçük üçgeni tekrar çizersek,
+
+20
+00:01:13,864 --> 00:01:18,675
+Bunun anlamı, eğer onu 0.001 ile sağa sürüklersem,
+
+21
+00:01:18,675 --> 00:01:23,238
+f(a) 0.004 dört kat daha fazla artar.
+
+22
+00:01:23,238 --> 00:01:25,170
+Yani yüksek matematik dilinde,
+
+23
+00:01:25,170 --> 00:01:30,880
+f(a)'nın türevi olan eğimin
+
+24
+00:01:30,880 --> 00:01:36,840
+a = 2'deki f (a) 'nın türevinin 4 olduğunu ya da bunu matematiksel notasyonundan yazdığımızı söyleriz,
+
+25
+00:01:36,840 --> 00:01:42,750
+a = 2 olduğunda d / da'nın d (f) = 4 olduğunu söyleriz.
+
+26
+00:01:42,750 --> 00:01:45,200
+Şimdi f(a) = a² fonksiyonuyla ilgili bir şey
+
+27
+00:01:45,200 --> 00:01:49,530
+eğimin farklı a değerleri için farklı olmasıdır.
+
+28
+00:01:49,530 --> 00:01:52,970
+Bu önceki slaytta gördüğümüz örnekten farklı.
+
+29
+00:01:52,970 --> 00:01:55,650
+Yani farklı bir noktaya bakalım.
+
+30
+00:01:55,650 --> 00:01:58,721
+Eğer a = 2 yerine a = 5 ise,
+
+31
+00:01:58,721 --> 00:02:04,880
+şimdi a = 5 için f(a) yani a² = 25
+
+32
+00:02:04,880 --> 00:02:07,205
+Eğer tekrar 8 sağa ötelersem,
+
+33
+00:02:07,205 --> 00:02:09,129
+bu 8 için küçük bir öteleme yaptığımda,
+
+34
+00:02:09,129 --> 00:02:18,555
+şimdi a = 5.001 sonra f(a) yaklaşık 25.010 olacaktır.
+
+35
+00:02:18,555 --> 00:02:23,550
+Gördüğümüz şey şu ki a için .001'lik bir öteleme yaparsak,
+
+36
+00:02:23,550 --> 00:02:25,620
+f(a) on kat daha fazla yükselir.
+
+37
+00:02:25,620 --> 00:02:30,960
+Bu yüzden d/da f(a) = 10 olduğunda
+
+38
+00:02:30,960 --> 00:02:33,690
+a = 5 olduğu zaman f(a) on kat artar
+
+39
+00:02:33,690 --> 00:02:36,910
+8'e kadar ufak bir öteleme yaptığımızdaki gibi olur.
+
+40
+00:02:36,910 --> 00:02:41,040
+Bu yüzden türevlerin farklı noktalarda neden farklı olduğunu görmenin bir yolu
+
+41
+00:02:41,040 --> 00:02:45,285
+eğer bu küçük üçgenin buradaki farklı noktalarda doğru çizilebilmesi durumunda,
+
+42
+00:02:45,285 --> 00:02:49,080
+üçgenin yüksekliğinin oranının
+
+43
+00:02:49,080 --> 00:02:53,280
+eğri üzerindeki farklı noktalarda üçgenin genişliğinin de o oranda olduğunu göreceksiniz.
+
+44
+00:02:53,280 --> 00:02:59,880
+Yani burada eğim = 4 olduğunda a = 2, a = 10, a = 5 olduğunda.
+
+45
+00:02:59,880 --> 00:03:02,670
+Şimdi bir yüksek matematik ders kitabına bakarsanız,
+
+46
+00:03:02,670 --> 00:03:06,867
+bu yüksek matematik ders kitabı size d/da'nın f(a) olduğunu söyleyecektir,
+
+47
+00:03:06,867 --> 00:03:08,259
+yani f(a) = a²,
+
+48
+00:03:08,259 --> 00:03:09,929
+Bu d/da'nın karşılığı a²'dir.
+
+49
+00:03:09,929 --> 00:03:13,410
+Bu yüksek matematik ders kitabından bulduğumuz formüllerden birisi,
+
+50
+00:03:13,410 --> 00:03:16,740
+fonksiyonun eğimi a² = 2a'dır.
+
+51
+00:03:16,740 --> 00:03:19,200
+Şimdi bunu ortaya çıkardığımız şekilde kanıtlayacak olursak
+
+52
+00:03:19,200 --> 00:03:22,170
+bir yüksek matematik ders kitabı açtığınızda
+
+53
+00:03:22,170 --> 00:03:28,135
+tablo formülleri size a²=2a türevini anlatacaktır.
+
+54
+00:03:28,135 --> 00:03:31,575
+Ve aslında, bu bizim çalıştığımız şeylerle tutarlıdır.
+
+55
+00:03:31,575 --> 00:03:39,460
+Yani, a = 2 olduğunda, fonksiyonun eğimi a 2x2 = 4'dür.
+
+56
+00:03:39,460 --> 00:03:46,243
+Ve a = 5 olduğunda, 2xa fonksiyonunun eğimi 2x5 = 10'dur.
+
+57
+00:03:46,243 --> 00:03:50,430
+Öyleyse, eğer bir yüksek matematik kitabına bakarsanız ve bu formülü görürseniz,
+
+58
+00:03:50,430 --> 00:03:54,270
+a²'nin türevi 2a'dır,
+
+59
+00:03:54,270 --> 00:03:57,615
+tüm bu demektir ki a verilen herhangi bir değer için,
+
+60
+00:03:57,615 --> 00:04:04,695
+eğer küçük bir değer ile yani 0.001 ile yukarı doğru sürüklüyorsanız,
+
+61
+00:04:04,695 --> 00:04:09,550
+f(a)'nın 2a kadar yükselmesini beklersiniz.
+
+62
+00:04:09,550 --> 00:04:12,700
+Bu eğim ya da türevsel zamanlardır
+
+63
+00:04:12,700 --> 00:04:16,660
+diğer bir deyişle a değerini sağa doğru sürüklemiş olursunuz.
+
+64
+00:04:16,660 --> 00:04:18,540
+Şimdi küçük bir detay,
+
+65
+00:04:18,540 --> 00:04:23,130
+bu yaklaşık sembolleri burada kullanın ve bu tam olarak 4.004 değil,
+
+66
+00:04:23,130 --> 00:04:26,515
+orada fazladan .001 var.
+
+67
+00:04:26,515 --> 00:04:29,226
+Bu ekstra .001 ,
+
+68
+00:04:29,226 --> 00:04:34,370
+buradaki küçük şey şu : 0.001 sağa doğru bir sürükleme yapıyor olmamızın sebebi,
+
+69
+00:04:34,370 --> 00:04:37,530
+eğer bu sonsuz küçük değerle sağa doğru sürükleme yapıyorsak
+
+70
+00:04:37,530 --> 00:04:43,290
+o zaman bu ekstra her dönem gidecektir
+
+71
+00:04:43,290 --> 00:04:48,060
+f(a)'nın dışarı çıktığı miktarın
+
+72
+00:04:48,060 --> 00:04:53,335
+sağa doğru dürtme miktarına göre türev zamanlara eşit olduğunu bulun.
+
+73
+00:04:53,335 --> 00:04:59,295
+Ve neden türevleri kullanılarak tanımlanır çünkü neden 4.004 tam olarak sebebi
+
+74
+00:04:59,295 --> 00:05:05,774
+türevlerin bu sonsuz küçük çaplı dürtüler kullanılarak 0.001 yerine değil tanımlanmasıdır.
+
+75
+00:05:05,774 --> 00:05:08,070
+Ve 0.001 küçük olsa da 
+
+76
+00:05:08,070 --> 00:05:09,865
+sonsuz küçük değildir.
+
+77
+00:05:09,865 --> 00:05:13,730
+Bu yüzden f(a)'nın ortaya çıktığı miktar tam olarak formül tarafından verilmez
+
+78
+00:05:13,730 --> 00:05:17,720
+ancak bu sadece türev tarafından verilen bir türdür.
+
+79
+00:05:17,720 --> 00:05:19,034
+Bu videoyu tamamlamak için,
+
+80
+00:05:19,034 --> 00:05:21,945
+bir kaç tane daha hızlı örnek verelim.
+
+81
+00:05:21,945 --> 00:05:27,980
+Şimdiye kadar gördüğünüz örnek f(a) = a² ise
+
+82
+00:05:27,980 --> 00:05:34,460
+yüksek matematik ders kitapları formül tablosunun türevinin 2a'ya eşit olduğunu söyleyeceğidir.
+
+83
+00:05:34,460 --> 00:05:38,300
+Ve içinden seçtiğimiz örnekte eğer (a) = 2 ,
+
+84
+00:05:38,300 --> 00:05:41,930
+f(a) = 4 ise, ve bizim sürüklediğimiz örnek,
+
+85
+00:05:41,930 --> 00:05:45,350
+f(a)'dan biraz daha büyük olduğu için
+
+86
+00:05:45,350 --> 00:05:51,160
+ve f(a) 4.004'den biraz daha büyük olduğu için f(a) yükseldi, dört kat daha fazla ve gerçekten a = 2 olduğunda,
+
+87
+00:05:51,160 --> 00:05:53,660
+türevler 4'e eşittir.
+
+88
+00:05:53,660 --> 00:05:55,600
+Diğer bazı örneklere bakalım.
+
+89
+00:05:55,600 --> 00:05:58,880
+Diyelim ki, yerine f(a) =a ³.
+
+90
+00:05:58,880 --> 00:06:03,380
+Bu ders kitabının yarısını alır ve tablo formüllerine bakarsınız,
+
+91
+00:06:03,380 --> 00:06:06,070
+gördüğünüz gibi, bu fonksiyonun eğimi, yine,
+
+92
+00:06:06,070 --> 00:06:10,000
+bu fonksiyonun türevi 3a²'ye eşittir.
+
+93
+00:06:10,000 --> 00:06:14,335
+Böylece bu formülü yüksek matematik ders kitabından çıkarabilirsiniz.
+
+94
+00:06:14,335 --> 00:06:16,850
+Yani bu ne anlama geliyor ?
+
+95
+00:06:16,850 --> 00:06:19,430
+Yani bunu yorumlamanın yolu şu şekildedir.
+
+96
+00:06:19,430 --> 00:06:21,725
+Bir örnek olarak tekrar a = 2 alalım.
+
+97
+00:06:21,725 --> 00:06:27,560
+Yani f(a) veya a³=8, bu iki bölüm üç.
+
+98
+00:06:27,560 --> 00:06:30,570
+Bu yüzden küçük bir sürükleme yapıyoruz.
+
+99
+00:06:30,570 --> 00:06:37,160
+f (a) 'nın 8.012 olduğunu ve bunu kontrol etmekte özgür olduğunuzu görürsünüz.
+
+100
+00:06:37,160 --> 00:06:40,070
+2.001 tp bölüm üçünü al,
+
+101
+00:06:40,070 --> 00:06:41,330
+bunu 8.012'ye çok yakın bulursun.
+
+102
+00:06:41,330 --> 00:06:49,463
+Ve aslında, 3 = 2x = 2x3² eşit olduğunda,
+
+103
+00:06:49,463 --> 00:06:50,750
+bunun 12 olduğunu görürsünüz.
+
+104
+00:06:50,750 --> 00:06:55,255
+Bu nedenle türev formülü eğer sağa doğru küçük bir hareketle sürüklerseniz,
+
+105
+00:06:55,255 --> 00:06:58,464
+f (a) 'nın 12 kat fazla çıkması gerektiğini öngörürsünüz.
+
+106
+00:06:58,464 --> 00:07:01,950
+Ve gerçekten, bu bir .001 ile yükseldiğinde doğrudur,
+
+107
+00:07:01,950 --> 00:07:06,447
+f (a) .122'den 12 kat fazla yükseldi.
+
+108
+00:07:06,447 --> 00:07:08,960
+Sadece bir son örnek ve sonra bitireceğiz.
+
+109
+00:07:08,960 --> 00:07:12,190
+Diyelim ki f (a) log fonksiyonuna eşittir.
+
+110
+00:07:12,190 --> 00:07:14,690
+Yani doğru bir logaritma a'da,
+
+111
+00:07:14,690 --> 00:07:17,595
+bunu temel e logaritması olarak kullanacağım.
+
+112
+00:07:17,595 --> 00:07:20,755
+Bu yüzden bazı insanlar log(a) yazarlar.
+
+113
+00:07:20,755 --> 00:07:22,420
+Eğer yüksek matematik ders kitabına bakarsanız,
+
+114
+00:07:22,420 --> 00:07:26,465
+doğal (a) 'nın türevini aldığınızı görürsünüz.
+
+115
+00:07:26,465 --> 00:07:30,005
+Yani bu sadece bu şekilde olan bir fonksiyon,
+
+116
+00:07:30,005 --> 00:07:34,645
+bu fonksiyonun eğimi 1 / a tarafından verilir.
+
+117
+00:07:34,645 --> 00:07:40,430
+Yani bunu yorumlama yolu eğer bir değeri varsa
+
+118
+00:07:40,430 --> 00:07:46,865
+o zaman a = 2'yi örnek alarak kullanmaya devam edelim ve .001 ile sağa sürükleyelim,
+
+119
+00:07:46,865 --> 00:07:51,005
+f(a)'nın yukarıya çıkmasını
+
+120
+00:07:51,005 --> 00:07:56,470
+yani f(a)'nın 1/a kadar yükselmesini beklersiniz.
+
+121
+00:07:56,470 --> 00:08:00,380
+Yani eğer bir hesap makinesini açarsanız,
+
+122
+00:08:00,380 --> 00:08:02,795
+a = 2'nin,
+
+123
+00:08:02,795 --> 00:08:10,850
+f(a)'nın yaklaşık 0.69315 olduğunu ve 
+
+124
+00:08:10,850 --> 00:08:21,617
+eğer f'yi arttırırsanız ve 2.001'e yükselirse f(a)'nın yaklaşık 0.69395 olduğunu görürsünüz,
+
+125
+00:08:21,617 --> 00:08:27,220
+0.0005 kadar artış olur.
+
+126
+00:08:27,220 --> 00:08:32,150
+Ve gerçekten de, eğer türev için formüle bakarsanız a = 2 için,
+
+127
+00:08:32,150 --> 00:08:36,280
+d / da f (a) = 1/2 
+
+128
+00:08:36,280 --> 00:08:41,720
+Yani bu türev formülü, eğer .001 kadar değişiklik yaparsanız,
+
+129
+00:08:41,720 --> 00:08:46,230
+f (a) 'nın sadece 1 / 2'si kadar yani 0,001'den yukarı çıkmasını beklersiniz.
+
+130
+00:08:46,230 --> 00:08:51,250
+tam olarak 0.0005 olduğunu.
+
+131
+00:08:51,250 --> 00:08:56,180
+Ardından .001 a = 2 / 3'ten çıkıldığında,
+
+132
+00:08:56,180 --> 00:09:01,095
+a = 2.01 f (a) yarı yarıya kadar artar.
+
+133
+00:09:01,095 --> 00:09:04,980
+Yani, cevaplar yaklaşık .0005 yükseliyor.
+
+134
+00:09:04,980 --> 00:09:08,510
+Yani eğer bu küçük üçgeni çizersek
+
+135
+00:09:08,510 --> 00:09:13,450
+yatay eksende dikey eksende sadece .001 yükselirse,
+
+136
+00:09:13,450 --> 00:09:18,217
+(a) logaritmasının yarısı bu kadardır.
+
+137
+00:09:18,217 --> 00:09:22,585
+Ve böylece bu durumda 1 / a veya 1/2,
+
+138
+00:09:22,585 --> 00:09:27,770
+1a = 2 bu a = 2 iken bu çizginin sadece eğimidir.
+
+139
+00:09:27,770 --> 00:09:30,290
+Yani bu türevler için.
+
+140
+00:09:30,290 --> 00:09:32,660
+Bu videodan öğrenilen yalnızca iki mesaj vardır.
+
+141
+00:09:32,660 --> 00:09:36,800
+Birincisi, fonksiyonun türevi sadece eğim anlamına gelir
+
+142
+00:09:36,800 --> 00:09:39,110
+fonksiyon ve fonksiyonun eğimi
+
+143
+00:09:39,110 --> 00:09:41,830
+fonksiyon üzerindeki farklı noktalarda farklı olabilir.
+
+144
+00:09:41,830 --> 00:09:45,635
+İlk örneğimizde f (a) = 3a bu düz bir çizgiydi.
+
+145
+00:09:45,635 --> 00:09:47,400
+Türev her yerde aynıydı,
+
+146
+00:09:47,400 --> 00:09:48,885
+her yerde üçtü.
+
+147
+00:09:48,885 --> 00:09:52,790
+F (a) = a² veya f (a) = log (a) gibi diğer fonksiyonlar için,
+
+148
+00:09:52,790 --> 00:09:54,920
+çizginin eğimi değişir.
+
+149
+00:09:54,920 --> 00:09:59,410
+Bu nedenle, eğim veya türev eğri üzerindeki farklı noktalarda farklı olabilir.
+
+150
+00:09:59,410 --> 00:10:00,723
+Yani bu bir ilk öğrenilen mesajdır.
+
+151
+00:10:00,723 --> 00:10:03,150
+Türev sadece bir çizginin eğimi anlamına gelir.
+
+152
+00:10:03,150 --> 00:10:06,930
+İkinci mesaj, bir fonksiyonun türevini aramak isterseniz,
+
+153
+00:10:06,930 --> 00:10:10,860
+yüksek matematik ders kitabınızı açabilir veya Wikipedia'ya bakabilir ve
+
+154
+00:10:10,860 --> 00:10:15,160
+genellikle bu fonksiyonların eğimi için farklı noktalarda bir formül elde edebilirsiniz.
+
+155
+00:10:15,160 --> 00:10:20,645
+Öyle ki, umarım türevlerin veya hatların eğimlerinin sezgisel bir anlayışına sahip olursunuz.
+
+156
+00:10:20,645 --> 00:10:21,862
+Bir sonraki videoya gidelim.
+
+157
+00:10:21,862 --> 00:10:24,600
+Hesaplama düşüşünü ve
+
+158
+00:10:24,600 --> 00:10:27,620
+daha karmaşık türevleri hesaplamak için nasıl kullanılacağı hakkında konuşmaya başlayacağız.

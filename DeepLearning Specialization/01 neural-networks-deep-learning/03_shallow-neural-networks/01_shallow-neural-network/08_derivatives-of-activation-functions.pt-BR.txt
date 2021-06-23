@@ -1,0 +1,65 @@
+Quando você implementa a retropropagação
+na sua rede neural, você precisa calcular a inclinação da derivada das funções de ativação. Vamos dar uma olhada nas escolhas que temos para funções de ativação e em como podemos calcular a inclinação dessas funções. Aqui está a conhecida
+função de ativação sigmoide. Então, para qualquer valor de z [...]
+Por exemplo, neste valor de z, esta função terá alguma inclinação,
+ou alguma derivada, correspondente a [...] Se você desenhar uma pequena linha aqui [...]
+altura x comprimento [...] temos esse pequeno triângulo. Então, se g(z) é a função sigmoide,
+ então a inclinação da função é: (d/dz)g(z); e do Cálculo,
+sabemos que isso é a inclinação de g(x) em z. E se você está familiarizado com Cálculo
+e sabe como calcular derivadas [...] Se você calcular a derivada da função sigmoide, é possível mostrar que é igual a esta fórmula. Eu não vou apresentar as etapas do cálculo. Mas se você está familiarizado com Cálculo, fique à vontade para parar o vídeo
+e tentar provar por você mesmo. Então isso é igual a:
+                     g(z) * ( 1 - g(z) ) Então, vamos fazer uma verificação
+para ver se a expressão faz sentido. Primeiramente, se z é um valor alto,
+por exemplo,  z=10. Então g(z) será próximo de 1. E a fórmula que temos à esquerda nos diz que
+d/dz g(z) é próximo de g(z), o que é igual a:  1 * (1-1), o que é, portanto, muito próximo de 0. E isso, claro, está correto, porque
+quando z é grande, a inclinação fica próximo de 0. Por outro lado, se z = -10, aqui por exemplo.
+Temos que g(z) está próximo de 0. Assim, a fórmula à esquerda nos diz que: (d/dz)g(z) estará próximo do g(z),
+que é:  0 * (1 - 0) Então, isso também, está próximo do 0. Finalmente, se z = 0, então: g(z) = 1/2
+Isso é a função sigmoide. Assim, a derivada: (d/dz)g(z) = 1/2(1 - 1/2) = 1/4 E isso, realmente,
+vem a ser o valor correto da derivada, ou seja, a inclinação dessa função,
+quando z = 0. Finalmente, apenas para apresentar
+mais uma parte da notação [...] Às vezes, ao invés de escrever isto:
+ (d/dz)g(z) a forma simplificada dessa derivada é:
+g'(z) Assim, g'(z). Em Cálculo, o símbolo de aspas simples
+denota a primeira derivada. Então, g'(z) é a forma simplificada, em Cálculo, para a derivada da função g,
+em relação à entrada variável z. Em rede neural, nós temos: a = g(z) que é igual a isto. Então esta fórmula, também,
+é simplificada:  a*(1-a) Às vezes, durante a implementação,
+você poderá ver algo assim: g'(z) = a(1-a) Isso se refere à observação de que g'(z) é uma derivada
+que é igual a isto aqui.<br /><br /><br /><br /> A vantagem dessa fórmula é que,
+se você já calculou o valor para o 'a', então, usando essa expressão,
+você pode calcular rapidamente o valor para a inclinação, para o g'(z). Ok, então, isso foi a função de ativação sigmoide. Agora, vamos ver a função de ativação "tanh". Similar a o que vimos anteriormente,
+a definição de (d/dz)g(z) é a inclinação de g(z), em um ponto específico de z.
+E se você observar a fórmula da função tangente hiperbólica,
+e se você tem experiência com Cálculo, você pode fazer a derivada e mostrar
+que isso é simplificado, chegando a esta fórmula. Usando a denotação simplificada, chamaremos isso, novamente, de g'(z). Então, se você quiser provar
+que essa fórmula faz sentido: Então, para z = 10,
+tanh(z) estará bem próximo de 1. Isto varia de +1 até -1. Então, o g'(z), de acordo com essa fórmula,
+será aproximadamente  (1 - 1²). Então g'(z) está próximo de 0.
+Então, se z é grande, a inclinação estará próximo de 0. Por outro lado, se z é bem reduzido,
+digamos z = -10, então, tanh(z) estará próximo de -1. Assim, g'(z) estará próximo de  (1 - (-1)²) Então, ele está próximo de 1 - 1
+ que está, também, próximo de 0. Finalmente, se z = 0; então tanh(z) = 0. Então, a inclinação g'(z) = 1. Na verdade, isso é a inclinação quando o z = 0. Resumindo, se a = g(z);
+então, se 'a' é igual a este tanh(z), então, a derivada g'(z) = 1 - a² Então, novamente,
+se você já calculou o valor de 'a', você pode usar essa fórmula
+para calcular rapidamente a derivada também. Finalmente, aqui mostramos
+como você calcula as derivadas para as funções de ativação ReLU e LeakyReLU. Para a ReLU:
+g(z) = max (0, z) Então: g'(z) será 0 se z < 0; e 1 se z > 0 E derivada indefinida,
+ tecnicamente indefinida, se z = 0. Mas, se você está implementando-a em software, ela pode não ser 100%, 
+matematicamente, correta. Mas operará bem,
+se z for exatamente igual a 0, se você ajustar a derivada: g'(z) = 1 se z ≥ 0.
+Ou ela tem que ser 0. Não tem muita importância. Se você é expert em otimização, tecnicamente, g' vem a ser
+o que é denominado subgradiente da função de ativação g(z), razão pela qual
+o gradiente descendente ainda opera. Mas você pode pensar nisso
+como a chance de z ser exatamente 0,000000 [...] Isso é tão pequeno que quase não importa
+como você definiu a derivada para z = 0. Então, na prática, isso é o que as pessoas fazem
+para a derivada de z. Finalmente, se você está treinando
+uma rede neural com a função de ativação LeakyReLU, então:  g(z) = max(0.01z , z) Então: g'(z) será: 0,01 se z < 0;
+e 1 se z > 0 Novamente, o gradiente
+não é definido tecnicamente, quando z é exatamente igual a 0,
+mas se você implementar uma parte do código que defina a derivada,
+ou seja, que defina g'(z) sendo 0,01 ou 1. 
+g'(z) = 1 se z ≥ 0 Qualquer um dos dois, não importa. Assim, quando o z
+for exatamente 0, o seu código funcionará bem. Então, suprido com essas fórmulas,
+você será capaz de calcular as inclinações, as derivadas, das suas funções de ativação. Agora que você tem essas ferramentas, prepare-se para ver como se implementa
+o gradiente descendente para a sua rede neural. Vamos ao próximo vídeo.
+Tradução: Marcio N. P. da Silva / Julia Yuri
+Revisão: Carlos Lage

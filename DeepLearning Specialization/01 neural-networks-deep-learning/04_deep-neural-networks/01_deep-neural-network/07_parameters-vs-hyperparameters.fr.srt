@@ -1,0 +1,819 @@
+1
+00:00:00,060 --> 00:00:04,380
+Être efficace dans le développement
+ de votre réseau
+
+2
+00:00:02,669 --> 00:00:06,870
+de neurones profond, nécessite 
+que vous organisiez bien
+
+3
+00:00:04,380 --> 00:00:09,269
+non seulement vos paramètres, mais aussi
+
+4
+00:00:06,870 --> 00:00:11,759
+vos hyper paramètres,
+ Que sont ces hyper paramètres ?
+
+5
+00:00:09,269 --> 00:00:15,170
+Jetons y un coup d'œil.
+
+6
+00:00:11,759 --> 00:00:17,820
+Les paramètres de votre modèle 
+sont W et b. Il y a également
+
+7
+00:00:15,170 --> 00:00:21,720
+d'autres choses qu'il faut indiquer à
+
+8
+00:00:17,820 --> 00:00:26,220
+votre algorithme d'apprentissage tel que
+
+9
+00:00:21,720 --> 00:00:28,920
+le taux d'apprentissage alpha. 
+Vous avez besoin
+
+10
+00:00:26,220 --> 00:00:32,329
+de définir alpha, ce qui déterminera
+
+11
+00:00:28,920 --> 00:00:34,890
+par conséquent, comment 
+vos paramètres évolueront,
+
+12
+00:00:32,329 --> 00:00:38,190
+et peut être le nombre d'itérations
+
+13
+00:00:34,890 --> 00:00:40,170
+de descente de gradient
+ que vous effectuerez.
+
+14
+00:00:38,190 --> 00:00:42,629
+Votre algorithme d'apprentissage,
+comme vous le savez, a également d'autres
+
+15
+00:00:40,170 --> 00:00:47,340
+valeurs à définir tels que
+
+16
+00:00:42,629 --> 00:00:50,629
+le nombre de couches cachées 
+qu'on appelle L majuscule
+
+17
+00:00:47,340 --> 00:00:56,039
+ou bien le nombre d'unités cachées
+
+18
+00:00:50,629 --> 00:00:59,670
+tel que n[1], n[2] et ainsi de suite.
+
+19
+00:00:56,039 --> 00:01:03,329
+Ensuite, vous avez le choix
+
+20
+00:00:59,670 --> 00:01:05,610
+de la fonction d'activation. 
+Voulez vous utiliser
+
+21
+00:01:03,329 --> 00:01:06,869
+la fonction ReLU ou tanh
+ ou bien la fonction sigmoïde
+
+22
+00:01:05,610 --> 00:01:11,760
+ou autres fonctions,
+ particulièrement dans les
+
+23
+00:01:06,869 --> 00:01:13,590
+couches cachées.
+Toutes ces informations
+
+24
+00:01:11,760 --> 00:01:15,990
+doivent être indiquées à votre
+
+25
+00:01:13,590 --> 00:01:19,640
+algorithme d'apprentissage. 
+Ce sont des paramètres
+
+26
+00:01:15,990 --> 00:01:22,200
+qui contrôlent les paramètres
+
+27
+00:01:19,640 --> 00:01:25,640
+les plus importants W et b.
+
+28
+00:01:22,200 --> 00:01:29,340
+Et donc on appelle tous ces paramètres
+ ci-dessous des hyper paramètres.
+
+29
+00:01:25,640 --> 00:01:30,750
+Car, toutes les données qu'on voit ici 
+comme le taux d'apprentissage alpha,
+
+30
+00:01:29,340 --> 00:01:32,369
+le nombre d'itérations,
+
+31
+00:01:30,750 --> 00:01:36,000
+le nombre de couches cachées
+ et ainsi de suite
+
+32
+00:01:32,369 --> 00:01:39,290
+sont des paramètres
+ qui tous contrôlent W et b
+
+33
+00:01:36,000 --> 00:01:41,970
+et donc on les appelle les hyper paramètres.
+
+34
+00:01:39,290 --> 00:01:44,250
+Effectivement, ce sont
+ les hyper paramètres qui,
+
+35
+00:01:41,970 --> 00:01:46,950
+en quelque sorte,
+ déterminent la valeur finale
+
+36
+00:01:44,250 --> 00:01:50,100
+des paramètres W et b
+que vous aurez à la fin.
+
+37
+00:01:46,950 --> 00:01:53,520
+Et en fait, l'apprentissage profond a
+
+38
+00:01:50,100 --> 00:01:55,470
+beaucoup d'hyper paramètres différents.
+
+39
+00:01:53,520 --> 00:01:57,899
+Plus tard, dans un cours 
+ultérieur, nous verrons
+
+40
+00:01:55,470 --> 00:02:02,990
+d'autres hyper paramètres tels que
+
+41
+00:01:57,899 --> 00:02:02,990
+le terme du moment, la taille du mini-lot,
+
+42
+00:02:05,150 --> 00:02:13,020
+diverses formes de 
+paramètres de régularisation
+
+43
+00:02:07,220 --> 00:02:14,700
+et ainsi de suite.
+Et si aucun des termes ci-dessous
+
+44
+00:02:13,020 --> 00:02:16,020
+n'a encore de sens pour vous,
+
+45
+00:02:14,700 --> 00:02:18,810
+ne vous inquiétez pas, nous en parlerons
+
+46
+00:02:16,020 --> 00:02:21,870
+dans le second cours. Comme l'apprentissage
+
+47
+00:02:18,810 --> 00:02:24,120
+profond a beaucoup d'hyper paramètres,
+
+48
+00:02:21,870 --> 00:02:26,370
+contrairement à ce qui se faisait au début
+ de l'apprentissage automatique,
+
+49
+00:02:24,120 --> 00:02:28,890
+je vais essayer d'être
+ le plus cohérent possible,
+
+50
+00:02:26,370 --> 00:02:31,050
+en appelant le taux d'apprentissage
+
+51
+00:02:28,890 --> 00:02:33,480
+alpha un hyper paramètre plutôt
+
+52
+00:02:31,050 --> 00:02:35,250
+que de le considérer un paramètre.
+ Je pense que durant les premières
+
+53
+00:02:33,480 --> 00:02:37,920
+ères de l'apprentissage automatique, 
+où on n'avait pas
+
+54
+00:02:35,250 --> 00:02:39,600
+autant d'hyper paramètres,
+ la plupart d'entre nous
+
+55
+00:02:37,920 --> 00:02:42,120
+était négligeant ici en appelant
+
+56
+00:02:39,600 --> 00:02:44,610
+alpha un paramètre. Techniquement
+
+57
+00:02:42,120 --> 00:02:47,580
+alpha est un paramètre, mais un paramètre
+
+58
+00:02:44,610 --> 00:02:50,280
+qui détermine les vrais paramètres.
+
+59
+00:02:47,580 --> 00:02:51,570
+J'essaie d'être cohérent en appelant
+
+60
+00:02:50,280 --> 00:02:54,180
+ces choses comme alpha, le nombre
+
+61
+00:02:51,570 --> 00:02:55,769
+d'itérations, et ainsi de suite
+des hyper paramètres.
+
+62
+00:02:54,180 --> 00:02:57,810
+Donc lorsque vous entrainez un réseau 
+de neurones profond pour
+
+63
+00:02:55,769 --> 00:02:59,940
+votre application, vous trouverez 
+peut-être qu'il peut y avoir
+
+64
+00:02:57,810 --> 00:03:01,560
+beaucoup de possibilités de réglages
+
+65
+00:02:59,940 --> 00:03:04,440
+pour les différents hyper paramètres.
+Et vous devrez
+
+66
+00:03:01,560 --> 00:03:07,230
+en essayer plusieurs. De ce fait,
+l'apprentissage profond de nos jours,
+
+67
+00:03:04,440 --> 00:03:09,840
+est un processus très
+empirique où souvent vous commencez
+
+68
+00:03:07,230 --> 00:03:12,150
+par avoir une idée, par exemple,
+ vous avez une idée
+
+69
+00:03:09,840 --> 00:03:13,549
+pour la meilleure valeur pour
+
+70
+00:03:12,150 --> 00:03:16,739
+le taux d'apprentissage,
+vous pourriez vous dire, peut-être
+
+71
+00:03:13,549 --> 00:03:20,670
+"alpha est égal à 0.01, 
+je voudrais essayer ça".
+
+72
+00:03:16,739 --> 00:03:22,530
+Ensuite vous l'implémentez,
+ essayez et
+
+73
+00:03:20,670 --> 00:03:23,910
+observez comment
+ça marche. Puis, en vous basant
+
+74
+00:03:22,530 --> 00:03:25,890
+sur le résultat, vous diriez 
+"Tu sais quoi?
+
+75
+00:03:23,910 --> 00:03:28,620
+j'ai changé d'avis, j'ai envie d'augmenter
+
+76
+00:03:25,890 --> 00:03:30,930
+le taux d'apprentissage à 0.05" 
+et lorsque vous
+
+77
+00:03:28,620 --> 00:03:32,970
+n'êtes pas sûr de 
+quelle est la meilleure valeur
+
+78
+00:03:30,930 --> 00:03:35,010
+à utiliser pour le taux d'apprentissage, vous
+
+79
+00:03:32,970 --> 00:03:37,680
+pouvez essayer une valeur de
+ taux d'apprentissage alpha
+
+80
+00:03:35,010 --> 00:03:39,690
+et regarder la fonction de coût J décroître
+
+81
+00:03:37,680 --> 00:03:41,820
+comme ceci. Ensuite 
+vous essayerez une valeur
+
+82
+00:03:39,690 --> 00:03:43,650
+plus élevée pour le taux
+ d'apprentissage alpha et
+
+83
+00:03:41,820 --> 00:03:45,060
+observerez la fonction de coût croître
+
+84
+00:03:43,650 --> 00:03:47,250
+et diverger. A ce moment là, 
+vous essayerez une autre
+
+85
+00:03:45,060 --> 00:03:49,709
+version et observerez la fonction 
+décroître rapidement
+
+86
+00:03:47,250 --> 00:03:51,780
+à l'inverse du cas de la
+ valeur élevée. Puis vous en
+
+87
+00:03:49,709 --> 00:03:53,670
+essayerez une autre version et observerez la
+
+88
+00:03:51,780 --> 00:03:55,530
+fonction J décroître comme ceci.
+
+89
+00:03:53,670 --> 00:03:57,840
+Après avoir essayé 
+une série de valeurs, vous
+
+90
+00:03:55,530 --> 00:04:00,870
+vous direz "okay, apparemment cette valeur de
+
+91
+00:03:57,840 --> 00:04:02,790
+alpha me fournit un apprentissage assez rapide
+
+92
+00:04:00,870 --> 00:04:04,290
+et me permet de converger
+ vers une valeur assez
+
+93
+00:04:02,790 --> 00:04:06,720
+basse de la fonction de coût J, 
+donc je vais utiliser
+
+94
+00:04:04,290 --> 00:04:08,040
+cette valeur de alpha". Vous avez vu dans
+
+95
+00:04:06,720 --> 00:04:10,170
+la diapositive précédente
+ qu'il peut y avoir beaucoup
+
+96
+00:04:08,040 --> 00:04:11,489
+d'hyper paramètres différents et il se trouve
+
+97
+00:04:10,170 --> 00:04:13,830
+que lorsque vous commencez
+ à travailler sur une nouvelle
+
+98
+00:04:11,489 --> 00:04:15,450
+application, je trouve qu'il est très
+
+99
+00:04:13,830 --> 00:04:17,940
+difficile de savoir à l'avance
+ quelles seraient exactement
+
+100
+00:04:15,450 --> 00:04:20,580
+les meilleures valeurs des hyper paramètres
+
+101
+00:04:17,940 --> 00:04:22,169
+Donc, ce qui se passe habituellement est que
+
+102
+00:04:20,580 --> 00:04:24,570
+vous avez à tester plusieurs différentes
+
+103
+00:04:22,169 --> 00:04:26,970
+valeurs et à suivre ce cycle où
+
+104
+00:04:24,570 --> 00:04:28,440
+vous essayez quelques valeurs, peut-être 
+vous essayerez avec 5 couches
+
+105
+00:04:26,970 --> 00:04:31,140
+cachées, avec tel nombre 
+d'unités cachées, vous
+
+106
+00:04:28,440 --> 00:04:34,140
+l'implémentez et observez comment ça marche et
+
+107
+00:04:31,140 --> 00:04:36,180
+ensuite itérer avec ça.
+Le titre de cette diapositive
+
+108
+00:04:34,140 --> 00:04:38,340
+indique que l'apprentissage
+ profond appliqué est un
+
+109
+00:04:36,180 --> 00:04:40,740
+processus très empirique 
+et un processus empirique
+
+110
+00:04:38,340 --> 00:04:42,419
+est juste une manière de dire qu'il faut
+
+111
+00:04:40,740 --> 00:04:45,330
+essayer plusieurs choses et observer ce qui
+
+112
+00:04:42,419 --> 00:04:47,190
+fonctionne. Une autre chose
+ que j'ai remarquée
+
+113
+00:04:45,330 --> 00:04:48,810
+est que l'apprentissage profond 
+est aujourd'hui appliqué
+
+114
+00:04:47,190 --> 00:04:51,990
+à tellement de problèmes,
+ allant de la vision par ordinateur
+
+115
+00:04:48,810 --> 00:04:53,789
+à la reconnaissance vocale et au traitement
+
+116
+00:04:51,990 --> 00:04:55,500
+de langage naturel, à beaucoup
+
+117
+00:04:53,789 --> 00:04:59,250
+d'applications avec des données structurées,
+
+118
+00:04:55,500 --> 00:05:02,430
+comme la publicité en ligne 
+ou la recherche web,
+
+119
+00:04:59,250 --> 00:05:05,640
+ou la recommandation de produits
+ et ainsi de suite.
+
+120
+00:05:02,430 --> 00:05:08,190
+Et ce que j’ai vu c'est qu'au début,
+
+121
+00:05:05,640 --> 00:05:10,080
+les chercheurs de chaque discipline
+
+122
+00:05:08,190 --> 00:05:12,060
+utilisaient des approches différentes.
+
+123
+00:05:10,080 --> 00:05:14,400
+Et parfois, les intuitions 
+sur les hyper paramètres
+
+124
+00:05:12,060 --> 00:05:16,590
+se portent entre les domaines, et parfois pas.
+
+125
+00:05:14,400 --> 00:05:17,849
+Donc je conseille souvent aux gens
+
+126
+00:05:16,590 --> 00:05:20,970
+surtout lorsqu'ils commencent sur
+
+127
+00:05:17,849 --> 00:05:23,550
+un nouveau problème d’essayer
+ une série de
+
+128
+00:05:20,970 --> 00:05:25,500
+valeurs et de voir ce qui fonctionne 
+
+129
+00:05:23,550 --> 00:05:27,930
+et puis dans le prochain cours
+nous verrons des
+
+130
+00:05:25,500 --> 00:05:30,780
+manières plus systématiques d'essayer
+
+131
+00:05:27,930 --> 00:05:32,070
+une plage de valeurs. Deuxièmement,
+
+132
+00:05:30,780 --> 00:05:33,570
+même si vous travaillez sur une même
+
+133
+00:05:32,070 --> 00:05:35,220
+application depuis longtemps,
+
+134
+00:05:33,570 --> 00:05:37,979
+peut être sur la publicité en ligne,
+
+135
+00:05:35,220 --> 00:05:39,930
+quand vous progressez sur le problème,
+
+136
+00:05:37,979 --> 00:05:41,580
+il est très possible que
+ les meilleures valeurs
+
+137
+00:05:39,930 --> 00:05:43,830
+pour le taux d'apprentissage, 
+
+138
+00:05:41,580 --> 00:05:46,440
+le nombre d'unité cachées, etc, change, 
+
+139
+00:05:43,830 --> 00:05:49,229
+donc même si vous réglez votre système
+
+140
+00:05:46,440 --> 00:05:51,750
+pour avoir les meilleurs 
+hyper paramètres aujourd'hui,
+
+141
+00:05:49,229 --> 00:05:53,430
+il est possible que ce ne soient plus
+
+142
+00:05:51,750 --> 00:05:55,650
+les meilleures valeurs dans un an.
+
+143
+00:05:53,430 --> 00:05:57,840
+Peut être parce que 
+vos infrastructures informatiques,
+
+144
+00:05:55,650 --> 00:05:59,789
+vos CPU, ou le type de GPU 
+
+145
+00:05:57,840 --> 00:06:01,560
+que vous utilisez aura changé. 
+
+146
+00:05:59,789 --> 00:06:03,659
+Donc je conseille de,
+
+147
+00:06:01,560 --> 00:06:05,070
+de temps en temps,
+
+148
+00:06:03,659 --> 00:06:06,659
+tous les quelques mois, si vous travaillez
+
+149
+00:06:05,070 --> 00:06:09,030
+sur un problème pendant longtemps,
+
+150
+00:06:06,659 --> 00:06:10,800
+plusieurs années, testez quelques valeurs
+
+151
+00:06:09,030 --> 00:06:12,570
+pour les hyper paramètres pour vérifier
+
+152
+00:06:10,800 --> 00:06:15,150
+si vous pouvez trouver de meilleures valeurs
+
+153
+00:06:12,570 --> 00:06:17,280
+pour les hyper paramètres, et en même temps,
+
+154
+00:06:15,150 --> 00:06:18,779
+vous allez doucement acquérir
+ de l'intuition sur
+
+155
+00:06:17,280 --> 00:06:19,870
+les hyper paramètres
+ qui fonctionnent le mieux
+
+156
+00:06:18,779 --> 00:06:21,820
+pour votre problème.
+
+157
+00:06:19,870 --> 00:06:24,010
+Et je sais que cela peut sembler une
+
+158
+00:06:21,820 --> 00:06:25,510
+partie insatisfaisante de
+ l’apprentissage profond
+
+159
+00:06:24,010 --> 00:06:27,940
+de devoir essayer toutes les valeurs
+
+160
+00:06:25,510 --> 00:06:30,160
+pour ces hyper paramètres, mais c'est
+
+161
+00:06:27,940 --> 00:06:32,200
+peut être un domaine où la recherche
+
+162
+00:06:30,160 --> 00:06:33,850
+est encore en train de progresser, et
+
+163
+00:06:32,200 --> 00:06:36,190
+peut être qu'avec le temps, nous aurons
+
+164
+00:06:33,850 --> 00:06:38,350
+de meilleurs indices pour choisir les
+
+165
+00:06:36,190 --> 00:06:41,260
+meilleurs hyper paramètres. 
+Mais il est aussi possible
+
+166
+00:06:38,350 --> 00:06:43,630
+que parce que les CPUs et 
+les GPUs et les réseaux
+
+167
+00:06:41,260 --> 00:06:45,910
+et les bases de données
+ changent constamment,
+
+168
+00:06:43,630 --> 00:06:47,680
+il est possible que les indices ne convergent
+
+169
+00:06:45,910 --> 00:06:49,360
+jamais et qu'il faille continuer
+
+170
+00:06:47,680 --> 00:06:50,860
+à tester différentes valeurs et
+
+171
+00:06:49,360 --> 00:06:52,479
+à les évaluer sur un ensemble
+ de validation croisée
+
+172
+00:06:50,860 --> 00:06:54,100
+réservé pour ça et
+
+173
+00:06:52,479 --> 00:06:56,350
+à choisir la valeur qui fonctionne le mieux
+
+174
+00:06:54,100 --> 00:06:58,870
+pour votre problème. 
+C'était une courte discussion
+
+175
+00:06:56,350 --> 00:07:01,030
+sur les hyper paramètres.
+ Dans le second cours,
+
+176
+00:06:58,870 --> 00:07:03,280
+nous donnerons également quelques 
+suggestions pour savoir comment
+
+177
+00:07:01,030 --> 00:07:06,040
+explorer systématiquement l’espace des
+
+178
+00:07:03,280 --> 00:07:07,570
+hyper paramètres. 
+Mais maintenant vous avez en fait
+
+179
+00:07:06,040 --> 00:07:09,430
+à peu près tous les outils
+ dont vous avez besoin
+
+180
+00:07:07,570 --> 00:07:11,470
+pour faire l'exercice de programmation.
+
+181
+00:07:09,430 --> 00:07:14,050
+Mais avant ça, je voudrais encore partager
+
+182
+00:07:11,470 --> 00:07:16,150
+une série d'idée sur, on me le demande
+
+183
+00:07:14,050 --> 00:07:18,660
+souvent, le rapport entre
+ l'apprentissage profond
+
+184
+00:07:16,150 --> 00:07:18,660
+et le cerveau humain.

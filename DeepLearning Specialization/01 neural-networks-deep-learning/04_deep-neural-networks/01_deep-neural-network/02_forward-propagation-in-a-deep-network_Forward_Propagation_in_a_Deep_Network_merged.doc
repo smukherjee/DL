@@ -1,0 +1,202 @@
+<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:w10="urn:schemas-microsoft-com:office:word" xmlns:m="http://schemas.microsoft.com/office/omml/2004/12/core" xmlns:ve="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:o12="http://schemas.microsoft.com/office/2004/7/core" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:wp="http://schemas.openxmlformats.org/drawingml/2006/3/wordprocessingDrawing" xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/3/main" xmlns="http://www.w3.org/TR/REC-html40">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <head>
+    <style>style</style>
+  </head>
+  <body>
+    <div class="Section1">
+      <p>
+        <b>
+          <u>
+            <span style="font-size:20.0pt">Forward Propagation in a Deep Network</span>
+          </u>
+        </b>
+      </p>
+      <p>
+(SPEECH)        <br/>
+In        <br/>
+      </p>
+      <p>
+(DESCRIPTION)        <br/>
+Text, Deep Neural Networks. Forward Propogation in a Deep Network. Website, deep learning, dot, A.I.        <br/>
+      </p>
+      <p>
+(SPEECH)        <br/>
+the last video, we described what is a deep L-layer neural network and also talked about the notation we use to describe such networks.        <br/>
+      </p>
+      <p>
+In this video, you see how you can perform forward propagation, in a deep network.        <br/>
+      </p>
+      <p>
+(DESCRIPTION)        <br/>
+New slide, Forward propagation in a deep network.        <br/>
+      </p>
+      <p>
+(SPEECH)        <br/>
+As usual, let's first go over what forward propagation will look like for a single training example x, and then later on we'll talk about the vectorized version, where you want to carry out forward propagation on the entire training set at the same time.        <br/>
+      </p>
+      <p>
+But given a single training example x, here's how you compute the activations of the first layer.        <br/>
+      </p>
+      <p>
+So for this first layer, you compute z1 equals w1 times x plus b1.        <br/>
+      </p>
+      <p>
+So w1 and b1 are the parameters that affect the activations in layer one.        <br/>
+      </p>
+      <p>
+This is layer one of the neural network, and then you compute the activations for that layer to be equal to g of z1.        <br/>
+      </p>
+      <p>
+The activation function g depends on what layer you're at and maybe what index set as the activation function from layer one.        <br/>
+      </p>
+      <p>
+So if you do that, you've now computed the activations for layer one.        <br/>
+      </p>
+      <p>
+How about layer two? Say that layer.        <br/>
+      </p>
+      <p>
+Well, you would then compute z2 equals w2 a1 plus b2.        <br/>
+      </p>
+      <p>
+Then, so the activation of layer two is the y matrix times the outputs of layer one.        <br/>
+      </p>
+      <p>
+So, it's that value, plus the bias vector for layer two.        <br/>
+      </p>
+      <p>
+Then a2 equals the activation function applied to z2.        <br/>
+      </p>
+      <p>
+Okay? So that's it for layer two, and so on and so forth.        <br/>
+      </p>
+      <p>
+Until you get to the upper layer, that's layer four.        <br/>
+      </p>
+      <p>
+Where you would have that z4 is equal to the parameters for that layer times the activations from the previous layer, plus that bias vector.        <br/>
+      </p>
+      <p>
+Then similarly, a4 equals g of z4.        <br/>
+      </p>
+      <p>
+So, that's how you compute your estimated output, y hat.        <br/>
+      </p>
+      <p>
+So, just one thing to notice, x here is also equal to a0, because the input feature vector x is also the activations of layer zero.        <br/>
+      </p>
+      <p>
+So we scratch out x.        <br/>
+      </p>
+      <p>
+When I cross out x and put a0 here, then all of these equations basically look the same.        <br/>
+      </p>
+      <p>
+The general rule is that zl is equal to wl times a of l minus 1 plus bl.        <br/>
+      </p>
+      <p>
+It's one there. And then, the activations for that layer is the activation function applied to the values of z.        <br/>
+      </p>
+      <p>
+So, that's the general forward propagation equation.        <br/>
+      </p>
+      <p>
+So, we've done all this for a single training example.        <br/>
+      </p>
+      <p>
+How about for doing it in a vectorized way for the whole training set at the same time?        <br/>
+      </p>
+      <p>
+The equations look quite similar as before.        <br/>
+      </p>
+      <p>
+For the first layer, you would have capital Z1 equals w1 times capital X plus b1.        <br/>
+      </p>
+      <p>
+Then, A1 equals g of Z1.        <br/>
+      </p>
+      <p>
+Bear in mind that X is equal to A0.        <br/>
+      </p>
+      <p>
+These are just the training examples stacked in different columns.        <br/>
+      </p>
+      <p>
+You could take this, let me scratch out X, they can put A0 there.        <br/>
+      </p>
+      <p>
+Then for the next layer, looks similar, Z2 equals w2 A1 plus b2 and A2 equals g of Z2.        <br/>
+      </p>
+      <p>
+We're just taking these vectors z or a and so on, and stacking them up.        <br/>
+      </p>
+      <p>
+This is z vector for the first training example, z vector for the second training example, and so on, down to the nth training example, stacking these and columns and calling this capital Z.        <br/>
+      </p>
+      <p>
+Similarly, for capital A, just as capital X.        <br/>
+      </p>
+      <p>
+All the training examples are column vectors stack left to right.        <br/>
+      </p>
+      <p>
+In this process, you end up with y hat which is equal to g of Z4, this is also equal to A4.        <br/>
+      </p>
+      <p>
+That's the predictions on all of your training examples stacked horizontally.        <br/>
+      </p>
+      <p>
+So just to summarize on notation, I'm going to modify this up here.        <br/>
+      </p>
+      <p>
+A notation allows us to replace lowercase z and a with the uppercase counterparts, is that already looks like a capital Z.        <br/>
+      </p>
+      <p>
+That gives you the vectorized version of forward propagation that you carry out on the entire training set at a time, where A0 is X.        <br/>
+      </p>
+      <p>
+Now, if you look at this implementation of vectorization, it looks like that there is going to be a For loop here.        <br/>
+      </p>
+      <p>
+So therefore l equals 1-4.        <br/>
+      </p>
+      <p>
+For L equals 1 through capital L. Then you have to compute the activations for layer one, then layer two, then for layer three, and then the layer four.        <br/>
+      </p>
+      <p>
+So, seems that there is a For loop here.        <br/>
+      </p>
+      <p>
+I know that when implementing neural networks, we usually want to get rid of explicit For loops.        <br/>
+      </p>
+      <p>
+But this is one place where I don't think there's any way to implement this without an explicit For loop.        <br/>
+      </p>
+      <p>
+So when implementing forward propagation, it is perfectly okay to have a For loop to compute the activations for layer one, then layer two, then layer three, then layer four.        <br/>
+      </p>
+      <p>
+No one knows, and I don't think there is any way to do this without a For loop that goes from one to capital L, from one through the total number of layers in the neural network.        <br/>
+      </p>
+      <p>
+So, in this place, it's perfectly okay to have an explicit For loop.        <br/>
+      </p>
+      <p>
+So, that's it for the notation for deep neural networks, as well as how to do forward propagation in these networks.        <br/>
+      </p>
+      <p>
+If the pieces we've seen so far looks a little bit familiar to you, that's because what we're seeing is taking a piece very similar to what you've seen in the neural network with a single hidden layer and just repeating that more times.        <br/>
+      </p>
+      <p>
+Now, it turns out that we implement a deep neural network, one of the ways to increase your odds of having a bug-free implementation is to think very systematic and carefully about the matrix dimensions you're working with.        <br/>
+      </p>
+      <p>
+So, when I'm trying to debug my own code, I'll often pull a piece of paper, and just think carefully through, so the dimensions of the matrix I'm working with.        <br/>
+      </p>
+      <p>
+Let's see how you could do that in the next video.        <br/>
+      </p>
+    </div>
+  </body>
+</html>

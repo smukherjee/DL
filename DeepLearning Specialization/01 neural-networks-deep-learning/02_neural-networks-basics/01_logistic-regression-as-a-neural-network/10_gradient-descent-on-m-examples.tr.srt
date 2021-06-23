@@ -1,0 +1,741 @@
+1
+00:00:00,060 --> 00:00:03,750
+Önceki videoda, türevlerin nasıl hesaplanacağını
+
+2
+00:00:01,890 --> 00:00:05,819
+ve lojistik bağlanım için bir eğitim örneğinde
+
+3
+00:00:03,750 --> 00:00:07,500
+bir eğitim örneğine gradyent düşümünün
+
+4
+00:00:05,819 --> 00:00:09,929
+gradyan düşümünün nasıl uygulanacağını gördünüz.
+
+5
+00:00:07,500 --> 00:00:12,450
+Şimdi bunu m için yapmak istiyoruz.
+
+6
+00:00:09,929 --> 00:00:14,429
+eğitim örneklerine başlamak için
+
+7
+00:00:12,450 --> 00:00:17,460
+Eğitim örneklerine başlamak için 
+J maliyet fonksiyonunu hatırlayalım.
+
+8
+00:00:14,429 --> 00:00:19,380
+"w" ve "b" değişkenlerine bağlı,
+
+9
+00:00:17,460 --> 00:00:22,699
+-
+
+10
+00:00:19,380 --> 00:00:25,350
+J maliyet fonksiyonu, 1/m çarpı 1'den M'ye kadar olan toplama eşittir. 
+Algoritma çıktısı
+
+11
+00:00:22,699 --> 00:00:29,519
+-
+
+12
+00:00:25,350 --> 00:00:33,510
+"y" ve "a üssü i" örneği üzerinden olduğunda kaybı bilirsiniz.
+
+13
+00:00:29,519 --> 00:00:36,120
+-
+
+14
+00:00:33,510 --> 00:00:40,620
+"a üssü i" ve "y-şapka" birbirine eşittir.
+
+15
+00:00:36,120 --> 00:00:46,800
+Bu ifade de, "W transpoz" çarpı "X üssü i" artı "B"
+
+16
+00:00:40,620 --> 00:00:48,510
+sigmalarına eşit olacak şekilde tanımlanır.
+ Dolayısıyla,
+
+17
+00:00:46,800 --> 00:00:51,600
+önceki slaytta, tek bir eğitim örneği olduğunda
+
+18
+00:00:48,510 --> 00:00:55,620
+-
+
+19
+00:00:51,600 --> 00:01:00,180
+LD türevlerinin nasıl hesaplandığı gösterilmiştir.
+Yani şimdi, dw1, dw2 ve
+
+20
+00:00:55,620 --> 00:01:03,809
+-
+
+21
+00:01:00,180 --> 00:01:06,689
+db ile bir önceki slaytta yaptığımız şeyi yapıyoruz.
+
+22
+00:01:03,809 --> 00:01:08,369
+Ancak sadece bir eğitim örneğini kullanarak alınan 
+değerlere karşılık gelen
+
+23
+00:01:06,689 --> 00:01:10,799
+değerleri belirtmek için
+üst-indis ile birlikte
+
+24
+00:01:08,369 --> 00:01:15,030
+-
+
+25
+00:01:10,799 --> 00:01:17,850
+"xi" ve "yi" kullanıyoruz. 
+ Yani şimdi,
+
+26
+00:01:15,030 --> 00:01:20,759
+genel olarak maliyet fonksiyonu,
+
+27
+00:01:17,850 --> 00:01:22,530
+-
+
+28
+00:01:20,759 --> 00:01:26,220
+1/m ifadesi bireysel kayıpların
+
+29
+00:01:22,530 --> 00:01:29,369
+terimi olduğu için toplamın ortalama olduğunu görüyorsunuz.
+ Dolayısıyla
+
+30
+00:01:26,220 --> 00:01:32,810
+bu maliyet fonksiyonunun w1'e göre türevinin alınması
+
+31
+00:01:29,369 --> 00:01:38,600
+-
+
+32
+00:01:32,810 --> 00:01:42,600
+bireysel kayıpların w1'e göre türevinin toplamının
+
+33
+00:01:38,600 --> 00:01:46,170
+-
+
+34
+00:01:42,600 --> 00:01:48,240
+ortalamasına eşittir.
+Ancak daha önce bu terimi nasıl hesaplayacağımızı
+
+35
+00:01:46,170 --> 00:01:54,119
+-
+
+36
+00:01:48,240 --> 00:01:55,890
+zaten gösterdik. 
+Önceki slaytta,
+
+37
+00:01:54,119 --> 00:01:57,659
+tek bir eğitim örneğinde bilgisayarların
+
+38
+00:01:55,890 --> 00:02:00,450
+nasıl hesapladığını gördünüz.
+Öyleyse,
+
+39
+00:01:57,659 --> 00:02:03,119
+yapmanız gereken şey, 
+önceki eğitim örneğinde gösterdiğimiz gibi,
+
+40
+00:02:00,450 --> 00:02:04,680
+-
+
+41
+00:02:03,119 --> 00:02:07,350
+türevleri hesaplamak
+
+42
+00:02:04,680 --> 00:02:10,379
+ve ortalamalarını almaktır.
+
+43
+00:02:07,350 --> 00:02:10,830
+Bu, gradyan düşümünü uygulamak için
+
+44
+00:02:10,379 --> 00:02:12,870
+-
+
+45
+00:02:10,830 --> 00:02:15,390
+kullanacağımız genel gradyanı verecektir.
+Çok fazla ayrıntı olduğunu biliyorum.
+
+46
+00:02:12,870 --> 00:02:17,730
+-
+
+47
+00:02:15,390 --> 00:02:19,920
+Ama hadi hepsini toplayıp 
+somut bir algoritma haline getirelim.
+
+48
+00:02:17,730 --> 00:02:21,690
+Lojistik bağlanım ile gradyan düşümünü
+
+49
+00:02:19,920 --> 00:02:24,960
+-
+
+50
+00:02:21,690 --> 00:02:28,350
+birlikte uygulayabilmeniz için yapmanız gereken şey:
+
+51
+00:02:24,960 --> 00:02:37,770
+"J =0", "dw1=0", "dw2=0", "db=0 "olarak yazalım.
+
+52
+00:02:28,350 --> 00:02:40,140
+-
+
+53
+00:02:37,770 --> 00:02:43,190
+Şöyle yapacağız, 
+eğitim seti üzerinde
+
+54
+00:02:40,140 --> 00:02:45,690
+-
+
+55
+00:02:43,190 --> 00:02:47,670
+bir döngü kullanacağız ve her bir eğitim örneğinin
+
+56
+00:02:45,690 --> 00:02:49,020
+türevlerini hesaplayıp sonra ekleyeceğiz.
+
+57
+00:02:47,670 --> 00:02:51,480
+"i" birden başlayacak M'e kadar devam edecek.
+
+58
+00:02:49,020 --> 00:02:54,360
+-
+
+59
+00:02:51,480 --> 00:02:57,090
+Yani M, hesapladığımız eğitim örneklerinin sayısıdır.
+
+60
+00:02:54,360 --> 00:03:00,360
+-
+
+61
+00:02:57,090 --> 00:03:04,020
+tahmini "a üst-indis i", sigma "z üst indis i"ye eşittir.
+
+62
+00:03:00,360 --> 00:03:09,120
+-
+
+63
+00:03:04,020 --> 00:03:12,360
+"J+" ifadesi (yi çarpı log ai ) + (1-yi) çarpı (1-ai) ifadesine eşittir.
+
+64
+00:03:09,120 --> 00:03:14,010
+Ardından bu ifadenin
+
+65
+00:03:12,360 --> 00:03:15,959
+sonucunun negatif işareti alınır.
+
+66
+00:03:14,010 --> 00:03:20,580
+-
+
+67
+00:03:15,959 --> 00:03:28,500
+"dzi" ifadesi "ai"eksi "yi" işlemine,
+"dw1+" ifadesi "x1i" çarpı "dzi"
+
+68
+00:03:20,580 --> 00:03:33,180
+işlemine eşittir.
+"dw2" ifadesi de "x2i" çarpı dzi işlemine eşittir.
+
+69
+00:03:28,500 --> 00:03:35,280
+-
+
+70
+00:03:33,180 --> 00:03:37,680
+Ben sadece iki özellik olduğunu
+
+71
+00:03:35,280 --> 00:03:41,070
+varsayarak bu hesaplamayı yapıyorum.
+
+72
+00:03:37,680 --> 00:03:45,480
+Aksi takdirde, bunu "dw1, dw2, dw3" için yaparsınız 
+ve bu şekilde devam eder.
+
+73
+00:03:41,070 --> 00:03:47,430
+-
+
+74
+00:03:45,480 --> 00:03:49,350
+"db+" ifadesi "dzi"ye eşittir.
+Sanırım bu döngünün sonu.
+
+75
+00:03:47,430 --> 00:03:51,900
+Son olarak tüm M eğitim örnekleri için tamamlanır.
+
+76
+00:03:49,350 --> 00:03:54,959
+Hala M ile bölmeliyiz. 
+Çünkü biz ortalamayı hesaplıyoruz.
+
+77
+00:03:51,900 --> 00:03:56,880
+Bu nedenle, "dw1/"
+
+78
+00:03:54,959 --> 00:04:01,920
+-
+
+79
+00:03:56,880 --> 00:04:04,260
+ifadesi m'e eşit olacaktır. 
+"dw2/" ifadesi de m'e eşittir.
+
+80
+00:04:01,920 --> 00:04:07,019
+Tüm ortalamalarda "db/" ifadesi m'e eşittir.
+
+81
+00:04:04,260 --> 00:04:09,060
+Dolayısıyla, tüm bu hesaplamalarda
+
+82
+00:04:07,019 --> 00:04:11,160
+her bir parametreye (w1, w2 ve b) 
+bağlı olarak
+
+83
+00:04:09,060 --> 00:04:14,250
+-
+
+84
+00:04:11,160 --> 00:04:17,010
+J maliyet fonksiyonunun türevini hesapladınız.
+
+85
+00:04:14,250 --> 00:04:22,079
+Bu nedenle yorumun detayları, ne yaptığımızı açıklıyor.
+
+86
+00:04:17,010 --> 00:04:25,020
+-
+
+87
+00:04:22,079 --> 00:04:28,169
+Toplayıcı (akümülatör) olarak, DW 1, DW2 ve DB'yi kullanıyoruz.
+
+88
+00:04:25,020 --> 00:04:31,500
+Bu hesaplamalardan sonra, "dw1" ifadesinin
+
+89
+00:04:28,169 --> 00:04:33,509
+maliyet fonksiyonunun w1'e göre türevine
+ eşit olduğunu biliyoruz.
+
+90
+00:04:31,500 --> 00:04:36,780
+-
+
+91
+00:04:33,509 --> 00:04:39,720
+dw2 ve db için de benzer şekilde olduğunu biliyoruz.
+
+92
+00:04:36,780 --> 00:04:41,520
+DW 1 ve DW 2'nin "i" üst simgesini içermediğine dikkat edin. 
+Çünkü, tüm eğitim setini
+
+93
+00:04:39,720 --> 00:04:43,379
+-
+
+94
+00:04:41,520 --> 00:04:45,690
+toplamak için 
+bu kodda onları toplayıcı (akümülatör) olarak kullanacağız.
+
+95
+00:04:43,379 --> 00:04:48,960
+-
+
+96
+00:04:45,690 --> 00:04:51,539
+Oysa burada dzi, sadece tek bir eğitim örneği ile dz üzerineydi.
+
+97
+00:04:48,960 --> 00:04:53,490
+-
+
+98
+00:04:51,539 --> 00:04:55,740
+Bu yüzden, bilgisayardaki bir "i" örneğine
+
+99
+00:04:53,490 --> 00:04:58,379
+başvurmak için üst indis "i" bulunmaktadır.
+
+100
+00:04:55,740 --> 00:05:00,960
+Bu nedenle, tüm bu hesaplamaları
+
+101
+00:04:58,379 --> 00:05:03,449
+gradyan düşümünün ilk adımını uygulamak için bitirdim.
+
+102
+00:05:00,960 --> 00:05:06,360
+Uyguladığınız w1, 
+"w1-öğrenme oranı süreleri çarpı dw1"
+
+103
+00:05:03,449 --> 00:05:10,710
+olarak güncellenir. 
+w2 de aynı şekilde,
+
+104
+00:05:06,360 --> 00:05:13,740
+"w2-öğrenme oranı süreleri çarpı dw2" olarak güncellenir.
+
+105
+00:05:10,710 --> 00:05:17,190
+-
+
+106
+00:05:13,740 --> 00:05:21,000
+Ve, B'de "B eksi öğrenim oranı süreleri çarpı db" 
+olarak güncellenir.
+
+107
+00:05:17,190 --> 00:05:23,879
+-
+
+108
+00:05:21,000 --> 00:05:27,000
+Bildiğiniz gibi ve sonunda J burada,
+ maliyet fonksiyonunuz için
+
+109
+00:05:23,879 --> 00:05:28,590
+doğru bir değer olacaktır.
+
+110
+00:05:27,000 --> 00:05:31,050
+-
+
+111
+00:05:28,590 --> 00:05:33,060
+Bu nedenle, slayttaki her şey, yalnızca tek aşamalı
+
+112
+00:05:31,050 --> 00:05:35,699
+gradyan düşümünü gerçekleştirir. Yani, 
+ gradyan düşümünün birden çok adımını sırayla
+
+113
+00:05:33,060 --> 00:05:37,680
+-
+
+114
+00:05:35,699 --> 00:05:40,469
+gerçekleştirmek için bu slayttaki her şeyi 
+birçok kez tekrarlamanız gerekiyor.
+Bu durumda
+
+115
+00:05:37,680 --> 00:05:41,819
+-
+
+116
+00:05:40,469 --> 00:05:43,830
+bu detaylar tekrar çok karmaşık görünüyor. 
+
+117
+00:05:41,819 --> 00:05:45,960
+-
+
+118
+00:05:43,830 --> 00:05:48,599
+Bunun için fazla endişelenmeyin.
+ Umuyorum ki,
+
+119
+00:05:45,960 --> 00:05:50,520
+D programlama atamasına gidip
+
+120
+00:05:48,599 --> 00:05:54,120
+bunu uyguladığınızda her şey daha net olacaktır. 
+Fakat, burada
+
+121
+00:05:50,520 --> 00:05:57,300
+hesaplama ve uygulama ile iki zayıflık ortaya çıkıyor.
+
+122
+00:05:54,120 --> 00:05:59,729
+-
+
+123
+00:05:57,300 --> 00:06:01,440
+Bu, lojistik bağlanımın uygulanabilmesi için, döngüler için
+
+124
+00:05:59,729 --> 00:06:03,960
+-
+
+125
+00:06:01,440 --> 00:06:05,490
+iki tane yazmanız gerektiği anlamına gelir. 
+Döngü için birincisi,
+
+126
+00:06:03,960 --> 00:06:07,770
+-
+
+127
+00:06:05,490 --> 00:06:10,919
+M eğitim örnekleri üzerinde küçük bir döngüdür.
+
+128
+00:06:07,770 --> 00:06:13,139
+Döngü için ikincisi, buradaki tüm özellikler üzerinde bir döngüdür.
+
+129
+00:06:10,919 --> 00:06:15,930
+-
+
+130
+00:06:13,139 --> 00:06:17,879
+Bu örnekte, sadece 2 özellik vardı. 
+ "n=2" ve "x=2"
+
+131
+00:06:15,930 --> 00:06:21,000
+Fakat, daha fazla özelliğe sahipseniz,
+ "DW 1" ve "DW 2"yi
+
+132
+00:06:17,879 --> 00:06:23,099
+yazmayı bitirirsiniz ve 
+"DW 3" için benzer hesaplamalar elde edersiniz.
+
+133
+00:06:21,000 --> 00:06:25,979
+-
+
+134
+00:06:23,099 --> 00:06:29,009
+Yani "DW n" e kadar, tüm "n" özelliklerine göre
+
+135
+00:06:25,979 --> 00:06:31,279
+bir for döngüsüne sahip olmanız gerekiyor.
+
+136
+00:06:29,009 --> 00:06:33,199
+-
+
+137
+00:06:31,279 --> 00:06:36,049
+Derin öğrenme algoritmalarını uyguladığınızda, 
+ kodunuzda açık "for döngüleri"nin
+
+138
+00:06:33,199 --> 00:06:38,419
+-
+
+139
+00:06:36,049 --> 00:06:41,839
+olması algoritmanızın daha az verimle çalışmasına neden olur.
+
+140
+00:06:38,419 --> 00:06:44,149
+Ve böylece, derin öğrenme hatası
+
+141
+00:06:41,839 --> 00:06:46,669
+-
+
+142
+00:06:44,149 --> 00:06:48,649
+çok daha büyük veri kümelerine hareket edecektir. Bu nedenle,
+
+143
+00:06:46,669 --> 00:06:50,779
+-
+
+144
+00:06:48,649 --> 00:06:52,969
+algoritmalarınızı açık "for döngüleri" kullanmadan gerçekleştirebilmeniz
+
+145
+00:06:50,779 --> 00:06:55,129
+gerçekten çok önemlidir ve 
+çok daha büyük veri kümelerini
+
+146
+00:06:52,969 --> 00:06:56,719
+-
+
+147
+00:06:55,129 --> 00:06:58,129
+ölçeklendirmenize yardımcı olacaktır.
+
+148
+00:06:56,719 --> 00:07:01,159
+Bu nedenle, kodunuzdaki bu açık tam döngülerden
+ kurtulmanıza olanak
+
+149
+00:06:58,129 --> 00:07:03,559
+-
+
+150
+00:07:01,159 --> 00:07:06,169
+tanıyan vektörleme teknikleri adı verilen teknikler ortaya çıkıyor.
+
+151
+00:07:03,559 --> 00:07:08,199
+-
+
+152
+00:07:06,169 --> 00:07:11,239
+Bence ön-derin öğrenme döneminde, derin öğrenmenin yükselişinden önce, vektörizasyon güzeldi.
+
+153
+00:07:08,199 --> 00:07:13,159
+-
+
+154
+00:07:11,239 --> 00:07:15,589
+Bazen, bir kodu hızlandırmak için uygulayabilirsiniz, 
+bazen de uygulayamazsınız.
+
+155
+00:07:13,159 --> 00:07:17,749
+Fakat derin öğrenme döneminde,
+
+156
+00:07:15,589 --> 00:07:20,029
+bu ve bu gibi döngülerden kurtulmak için yapılan
+
+157
+00:07:17,749 --> 00:07:22,699
+vektörizasyon işlemleri oldukça önemli bir hale geldi.
+
+158
+00:07:20,029 --> 00:07:25,039
+-
+
+159
+00:07:22,699 --> 00:07:26,989
+Çünkü çok büyük veri kümeleri üzerinde, çok daha fazla
+
+160
+00:07:25,039 --> 00:07:29,239
+eğitim yapıyoruz. Yani, kodunuzun verimli olmasına
+
+161
+00:07:26,989 --> 00:07:31,209
+gerçekten ihtiyacınız var. Önümüzdeki birkaç videoda,
+
+162
+00:07:29,239 --> 00:07:34,219
+-
+
+163
+00:07:31,209 --> 00:07:37,339
+vektörizasyondan ve tek bir tam döngü bile kullanmadan
+
+164
+00:07:34,219 --> 00:07:40,879
+bunların nasıl uygulanacağından bahsedeceğiz.
+
+165
+00:07:37,339 --> 00:07:43,069
+Umarım, lojistik bağlanıma nasıl yaklaşacağınızı
+
+166
+00:07:40,879 --> 00:07:44,299
+ya da lojistik bağlanım için gradyan düşümünü
+
+167
+00:07:43,069 --> 00:07:46,339
+nasıl uygulayacağınızı anlamışsınızdır.
+
+168
+00:07:44,299 --> 00:07:47,959
+Program egzersizini uygularken işler netleşecektir.
+
+169
+00:07:46,339 --> 00:07:50,299
+Ancak, program alıştırmasını yapmadan önce,
+
+170
+00:07:47,959 --> 00:07:51,829
+-
+
+171
+00:07:50,299 --> 00:07:54,079
+ilk olarak vektörizasyon hakkında konuşalım.
+
+172
+00:07:51,829 --> 00:07:56,419
+Öyleyse, tüm bu şeyleri tek bir döngü bile kullanmadan,
+
+173
+00:07:54,079 --> 00:07:58,369
+gradyan düşümünün tek bir iterasyonu ile
+
+174
+00:07:56,419 --> 00:08:01,479
+-
+
+175
+00:07:58,369 --> 00:08:01,479
+uygulayabilirsiniz.

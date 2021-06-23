@@ -1,0 +1,92 @@
+Quando você treina sua rede neural, é importante inicializar
+os pesos aleatoriamente. Para a regressão logística, tudo bem
+inicializar os pesos em zero, mas para uma rede neural, inicializar
+os pesos a parâmetros todos zero e, depois, aplicar o gradiente descendente,
+não funcionará. Vamos ver por quê. Então você tem dois recursos de entrada, portanto, n'⁰' = 2 e duas unidades ocultas, então n'¹' = 2. E, então, a matriz associada
+à camada oculta, w'¹', será dois por dois. Digamos que você o inicialize
+todos em 0s, então 0 0 0 0, matriz dois por dois. E digamos que b'¹' também é igual a 0 0. Acontece que inicializar os termos
+de polarização b para 0 está realmente correto, mas a inicialização de w para
+todos os zeros é um problema. Então, o problema com esta
+formalização é que, para qualquer exemplo que você der,
+você terá que a₁'¹' =  a₂'¹'
+ Certo? Então, esta ativação e
+essa ativação serão as mesmas, porque ambas as unidades ocultas
+estão calculando exatamente a mesma função. E então,
+quando você calcula a retropropagação, verifica-se que dz₁'¹' = dz₂'¹', como se fosse por simetria, certo? Ambas as unidades ocultas
+serão inicializadas da mesma maneira. Tecnicamente, pelo que estou dizendo, suponho que os pesos de saída 
+também sejam idênticos. Então,  w'²' = [ 0  0 ] Mas se você inicializar
+a rede neural desse jeito, então essa unidade escondida e
+essa unidade oculta são completamente idênticas. Às vezes você diz que elas são
+completamente simétricas, o que significa que elas estão
+calculando exatamente a mesma função. E por meio de uma prova por indução, verifica-se que após cada
+iteração de treinamento, suas duas unidades ocultas ainda estão calculando
+exatamente a mesma função. Assim, você passa para mostrar que 
+dw será uma matriz que se parece com isso, onde todas as linhas têm o mesmo valor. Então, realizamos uma atualização de peso. Quando você realiza uma atualização de peso...
+w'¹' = w'¹' - α . dw Você verá que w'¹', após cada iteração, terá a primeira linha
+igual à segunda linha. Portanto, é possível construir
+uma prova por indução. Se você inicializar todos os caminhos,
+todos os valores de w em 0; então, porque ambas as unidades ocultas
+começam a calcular a mesma função, e ambas as unidades têm
+a mesma influência na unidade de saída, depois de uma iteração,
+essa mesma afirmação ainda é verdadeira. As duas unidades ocultas ainda são simétricas. E, portanto, por indução, após duas
+iterações, três iterações e assim por diante, não importa quanto tempo você
+treine sua rede neural, ambas as unidades ocultas, ainda,
+estão calculando exatamente a mesma função. E, portanto, neste caso, não há realmente
+nenhum motivo para ter mais de uma unidade oculta, porque todas elas estão
+calculando a mesma coisa. E, claro, para redes neurais maiores,
+digamos de três características e talvez um número muito maior de unidades ocultas, um argumento semelhante funciona para mostrar que [...]
+com uma rede neural como essa[...] Não desenharei as pontas [...]
+Se você inicializar os pesos com zeros, todas as suas unidades ocultas
+serão simétricas. Não importa quanto tempo
+você esteja executando o gradiente decrescente, todos continuam a calcular
+exatamente a mesma função. Então, isso não é útil,
+porque você quer que as diferentes unidades ocultas computem
+diferentes funções. A solução para isso é
+inicializar seus parâmetros aleatoriamente. Então, aqui está o que você faz. Você pode definir:
+ w'¹' = np.random.randn((2, 2)) * 0,01 Isso gera uma variável aleatória
+gaussiana (2, 2). E, em seguida, geralmente, você multiplica
+isso por um número muito pequeno, como 0,01. Então, você o inicializa
+com valores aleatórios muito pequenos. E então b, verifica-se que b não tem o problema de simetria, o que é chamado de problema de
+ruptura de simetria. Então, isso pode ocorrer: inicializar b em zeros
+ b'¹' = np.zeros((2, 1)) Porque, enquanto
+w é inicializado aleatoriamente, você começa com as diferentes unidades
+ocultas calculando coisas diferentes. E, então, você não tem mais esse
+problema de ruptura de simetria. E, da mesma forma, para w'²',
+você vai inicializar isso de forma aleatória. E b'²', você pode inicializar isso em 0. Então, você pode estar se perguntando,
+de onde veio esta constante e por que é 0,01? Por que não colocar o número 100 ou 1000? Acontece que, geralmente,
+preferimos inicializar os pesos para valores aleatórios muito pequenos. Porque, se você estiver usando uma
+função de ativação tanh ou sigmoide [...] Ou outro sigmoide,
+mesmo que seja apenas na camada de saída. Se os pesos forem muito grandes, então, quando você calcular
+os valores de ativação, lembre-se de que:
+ z'¹' = w'¹' x + b'¹' E então a'¹' é a função de
+ativação aplicada a z'¹'. Então, se w for muito grande,
+z será muito, ou pelo menos alguns valores de z serão muito grandes ou
+muito pequenos. E, nesse caso, é mais provável
+que você acabe com essas partes maiores da função tanh ou da função sigmoide, onde
+a inclinação ou o gradiente são muito pequenos. O que significa que o
+gradiente decrescente será muito lento. Então, a aprendizagem foi muito lenta. Então, apenas uma recapitulação, se w for muito grande,
+é mais provável que você acabe, mesmo que seja no início do treinamento,
+com valores muito grandes de z. O que faz com que sua função
+de ativação tanh ou sigmoide sejam saturadas, diminuindo, assim, a aprendizagem. Se você não tem nenhuma função de ativação sigmoide ou tanh em toda sua
+rede neural, isso é menos um problema. Mas se você está fazendo uma classificação binária
+e sua unidade de saída é uma função sigmoide, então, você simplesmente não quer
+que os parâmetros iniciais sejam grandes demais. Então, é por isso que a multiplicação de 0,01
+seria algo razoável para se tentar, ou qualquer outro número pequeno. E o mesmo para w'²', certo? Isso pode ser:
+ w'²' = np.random.randn((1, 2))*0,01 Isso seria 1 por 2
+neste exemplo, vezes 0,01. Faltando um s lá. Então, finalmente, verifica-se que, às vezes,
+ele pode ser o melhor valor constante:  0,01 Quando você está treinando uma rede
+neural com apenas uma camada oculta, é uma rede neural relativamente superficial,
+sem muitas camadas ocultas. Defini-la para 0,01 provavelmente funcionará bem. Mas quando você está treinando uma rede
+neural muito, muito profunda, então você pode querer escolher
+uma constante diferente de 0,01. E, no material da próxima semana,
+falaremos um pouco sobre como e quando você pode querer escolher
+uma constante diferente de 0,01. Mas, de qualquer forma, geralmente acabará
+sendo um número relativamente pequeno. Então, isso é tudo para os vídeos desta semana. Agora, você sabe como configurar uma rede
+neural de uma camada oculta, inicializar os parâmetros, fazer previsões
+usando propagação para frente, além de calcular derivadas e
+implementar gradiente decrescente usando retropropagação. Então, você deve ser capaz
+de responder aos questionários, assim como fazer os exercícios de programação
+desta semana. Boa sorte com isso. Espero que você se divirta com
+o exercício de programação e espero vê-lo nas matérias da semana quatro.
+[Tradução: Saulo S. de Souza/Simone Tateishi
+Revisão: Julia R. Yuri]

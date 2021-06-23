@@ -1,0 +1,587 @@
+1
+00:00:00,000 --> 00:00:03,030
+Pour implémenter la rétro propagation pour
+ votre réseau de neurones, vous devez
+
+2
+00:00:03,030 --> 00:00:07,620
+pouvoir calculer la pente, ou la dérivée
+ des fonctions d’activation.
+
+3
+00:00:07,620 --> 00:00:09,990
+Jetons un œil à nos choix
+ de fonctions d’activation, et
+
+4
+00:00:09,990 --> 00:00:14,565
+à comment vous pouvez calculer
+ la pente de ces fonctions.
+
+5
+00:00:14,565 --> 00:00:18,225
+Voici la fonction d’activation sigmoïde
+ que vous connaissez déjà.
+
+6
+00:00:18,225 --> 00:00:20,835
+Pour une valeur donnée de z,
+
+7
+00:00:20,835 --> 00:00:22,160
+par exemple cette valeur de z,
+
+8
+00:00:22,160 --> 00:00:27,075
+cette fonction aura une pente 
+ou une dérivée, correspondant à,
+
+9
+00:00:27,075 --> 00:00:28,860
+si vous dessinez une petite ligne ici,
+
+10
+00:00:28,860 --> 00:00:32,460
+la hauteur divisée par
+ la largeur de ce petit triangle ici.
+
+11
+00:00:32,460 --> 00:00:36,630
+Donc, si g(z) est la fonction sigmoïde,
+
+12
+00:00:36,630 --> 00:00:39,930
+alors la pente de la fonction est
+
+13
+00:00:39,930 --> 00:00:41,655
+d/dz de g(z)
+
+14
+00:00:41,655 --> 00:00:48,685
+Et nous savons, en analyse,
+ que c’est la pente de g(x) à z.
+
+15
+00:00:48,685 --> 00:00:53,210
+Et si vous connaissez l'analyse et 
+que vous savez calculer les dérivées,
+
+16
+00:00:53,210 --> 00:00:56,060
+si vous prenez la dérivée de la fonction sigmoïde,
+
+17
+00:00:56,060 --> 00:00:59,915
+il est possible de montrer 
+qu’elle est égale à cette formule.
+
+18
+00:00:59,915 --> 00:01:02,930
+Je ne vais pas faire les étapes du calcul.
+
+19
+00:01:02,930 --> 00:01:04,730
+Si vous connaissez le calcul infinitésimal,
+
+20
+00:01:04,730 --> 00:01:08,180
+n’hésitez pas à mettre la vidéo en pause et
+ à essayer de prouver ça vous-même.
+
+21
+00:01:08,180 --> 00:01:12,545
+Et donc ceci est égal à
+
+22
+00:01:12,545 --> 00:01:16,505
+g(z) * (1 - g(z)).
+
+23
+00:01:16,505 --> 00:01:21,465
+Vérifions rapidement que
+ cette expression a du sens.
+
+24
+00:01:21,465 --> 00:01:24,045
+Tout d’abord, si z est très grand, 
+
+25
+00:01:24,045 --> 00:01:25,800
+disons z = 10,
+
+26
+00:01:25,800 --> 00:01:30,315
+Alors g(z) sera proche de 1 et donc
+
+27
+00:01:30,315 --> 00:01:38,760
+la formule que nous avons sur la gauche
+ nous dit que dg/dz doit être proche de
+
+28
+00:01:38,760 --> 00:01:43,210
+g(z), c'est à dire presque 1, fois (1 - 1)
+
+29
+00:01:43,210 --> 00:01:46,575
+qui est donc très proche de 0.
+
+30
+00:01:46,575 --> 00:01:49,110
+Et c'est en effet correct, 
+parce que quand z est très grand,
+
+31
+00:01:49,110 --> 00:01:51,135
+la pente est proche de 0.
+
+32
+00:01:51,135 --> 00:01:53,955
+À l’inverse, si z est très petit, disons z =-10,
+
+33
+00:01:53,955 --> 00:01:55,965
+on est plus loin par là,
+
+34
+00:01:55,965 --> 00:01:59,340
+Alors g(z) sera proche de 0.
+
+35
+00:01:59,340 --> 00:02:04,560
+la formule que nous avons sur la gauche
+ nous dit que dg/dz sera proche de
+
+36
+00:02:04,560 --> 00:02:07,095
+g(z), qui vaut 0, fois 1-0.
+
+37
+00:02:07,095 --> 00:02:10,685
+C'est également très proche de 0,
+ ce qui est correct.
+
+38
+00:02:10,685 --> 00:02:13,675
+Enfin, si z est égal à 0,
+
+39
+00:02:13,675 --> 00:02:17,355
+alors g(z) est égal à 1/2,
+
+40
+00:02:17,355 --> 00:02:19,275
+c’est la fonction sigmoïde ici.
+
+41
+00:02:19,275 --> 00:02:26,620
+Et donc la dérivée est égale à 
+0.5 * (1 - 0.5)
+
+42
+00:02:26,620 --> 00:02:28,665
+ce qui est égal à un quart.
+
+43
+00:02:28,665 --> 00:02:32,330
+Et c'est en effet la valeur 
+correcte de la dérivée,
+
+44
+00:02:32,330 --> 00:02:36,140
+de la pente de la fonction,
+ quand z est égal à 0.
+
+45
+00:02:36,140 --> 00:02:39,370
+Enfin, juste pour introduire 
+une nouvelle notation.
+
+46
+00:02:39,370 --> 00:02:42,895
+Parfois, au lieu d’écrire cette chose,
+
+47
+00:02:42,895 --> 00:02:46,340
+le raccourci pour la dérivée est g'(z).
+
+48
+00:02:46,340 --> 00:02:48,440
+Donc g'(z), en analyse, est 
+une forme abrégée,
+
+49
+00:02:48,440 --> 00:02:52,250
+l'apostrophe se dit prime,
+
+50
+00:02:52,250 --> 00:02:55,970
+g'(z) est une forme abrégée pour
+
+51
+00:02:55,970 --> 00:03:01,250
+la dérivée de la fonction de g,
+ par rapport à la variable d’entrée z.
+
+52
+00:03:01,250 --> 00:03:05,295
+Dans un réseau de neurones,
+
+53
+00:03:05,295 --> 00:03:10,740
+Nous avons a = g(z),
+
+54
+00:03:10,740 --> 00:03:17,530
+alors cette formule 
+se simplifie en a * (1 - a)
+
+55
+00:03:17,530 --> 00:03:19,710
+Parfois, dans l'implémentation,
+
+56
+00:03:19,710 --> 00:03:25,355
+vous pouvez voir quelque chose comme
+ g'(z) = a * (1-a).
+
+57
+00:03:25,355 --> 00:03:30,330
+Et ça se réfère seulement à l’observation
+
+58
+00:03:30,330 --> 00:03:31,710
+que g', c'est à dire la dérivée, 
+
+59
+00:03:31,710 --> 00:03:33,390
+est égal à ceci ici.
+
+60
+00:03:33,390 --> 00:03:38,980
+Et l’avantage de cette formule, c’est que
+ si vous avez déjà calculé la valeur de a,
+
+61
+00:03:38,980 --> 00:03:40,705
+en utilisant cette expression,
+
+62
+00:03:40,705 --> 00:03:44,860
+vous pouvez très rapidement calculer 
+la valeur de la pente pour g'.
+
+63
+00:03:44,860 --> 00:03:47,980
+Très bien, donc ça c'était pour
+ la fonction d’activation sigmoïde.
+
+64
+00:03:47,980 --> 00:03:51,220
+Nous allons maintenant étudier
+ la fonction d’activation tanh.
+
+65
+00:03:51,220 --> 00:03:53,285
+Comme ce que nous avions auparavant,
+
+66
+00:03:53,285 --> 00:03:57,330
+la définition de d/dz g(z)
+
+67
+00:03:57,330 --> 00:04:04,225
+est la pente de g(z) pour un z donné.
+
+68
+00:04:04,225 --> 00:04:10,605
+Et si vous regardez la formule de 
+la fonction tangente hyperbolique,
+
+69
+00:04:10,605 --> 00:04:12,390
+et si vous connaissez le calcul infinitésimal,
+
+70
+00:04:12,390 --> 00:04:15,905
+vous pouvez prendre les dérivés et 
+montrer que cela se simplifie en
+
+71
+00:04:15,905 --> 00:04:21,230
+cette formule et en utilisant
+
+72
+00:04:21,230 --> 00:04:27,050
+la même abréviation qu'avant, 
+nous allons appeler ça g'(z).
+
+73
+00:04:27,050 --> 00:04:30,735
+Si vous le souhaitez, vous pouvez
+ vérifier que cette formule a du sens.
+
+74
+00:04:30,735 --> 00:04:33,395
+Par exemple, si z est égal à 10,
+
+75
+00:04:33,395 --> 00:04:37,545
+tanh(z) sera proche de 1.
+
+76
+00:04:37,545 --> 00:04:42,330
+Cela va de + 1 à -1.
+
+77
+00:04:42,330 --> 00:04:45,030
+et g'(z),
+
+78
+00:04:45,030 --> 00:04:46,425
+suivant cette formule,
+
+79
+00:04:46,425 --> 00:04:48,300
+vaudra environ 1 moins 1 au carré, 
+
+80
+00:04:48,300 --> 00:04:50,115
+donc très proche de 0.
+
+81
+00:04:50,115 --> 00:04:52,190
+Donc si z est très grand,
+
+82
+00:04:52,190 --> 00:04:53,765
+la pente est proche de 0.
+
+83
+00:04:53,765 --> 00:04:56,375
+Au contraire, si z est très petit,
+
+84
+00:04:56,375 --> 00:04:58,750
+disons z = -10,
+
+85
+00:04:58,750 --> 00:05:02,715
+alors tanh(z) sera proche de -1.
+
+86
+00:05:02,715 --> 00:05:08,970
+Et donc g'(z) sera proche de
+ 1 moins -1 au carré,
+
+87
+00:05:08,970 --> 00:05:10,470
+ce qui est proche de 1-1,
+
+88
+00:05:10,470 --> 00:05:12,420
+qui est aussi proche de 0.
+
+89
+00:05:12,420 --> 00:05:14,775
+Enfin, si z est égal à 0,
+
+90
+00:05:14,775 --> 00:05:18,844
+alors tanh de z est égal à 0,
+
+91
+00:05:18,844 --> 00:05:21,630
+Et la pente est en fait égale à 1,
+
+92
+00:05:21,630 --> 00:05:25,740
+qui est effectivement
+ la pente lorsque z est égal à 0.
+
+93
+00:05:25,740 --> 00:05:27,255
+Bien, pour résumer,
+
+94
+00:05:27,255 --> 00:05:29,955
+si a est égal à g(z),
+
+95
+00:05:29,955 --> 00:05:34,170
+donc si a = tanh(z), alors la dérivée
+
+96
+00:05:34,170 --> 00:05:38,580
+g'(z) = 1 - a²
+
+97
+00:05:38,580 --> 00:05:41,990
+Encore une fois, si vous avez
+ déjà calculé la valeur de a,
+
+98
+00:05:41,990 --> 00:05:46,285
+vous pouvez utiliser cette formule 
+pour calculer très rapidement la dérivée.
+
+99
+00:05:46,285 --> 00:05:48,740
+Enfin, voici comment vous calculez
+ les dérivées pour les fonctions d'activation
+
+100
+00:05:48,740 --> 00:05:51,560
+ReLU et leaky ReLU.
+
+101
+00:05:51,560 --> 00:05:57,710
+Pour la ReLU, g(z) = max(0, z),
+
+102
+00:05:57,710 --> 00:06:00,840
+donc la dérivée est égale à,
+
+103
+00:06:00,840 --> 00:06:02,460
+elle est égale à 0
+
+104
+00:06:02,460 --> 00:06:09,525
+si z est inférieur à 0 
+et à 1 si z est supérieur à 0.
+
+105
+00:06:09,525 --> 00:06:16,300
+Et elle est techniquement indéfinie
+ si z est égal à exactement 0.
+
+106
+00:06:16,300 --> 00:06:19,399
+Mais si vous l'implémentez
+ dans un programme,
+
+107
+00:06:19,399 --> 00:06:21,960
+ce n'est peut être pas 100 % 
+mathématiquement correct,
+
+108
+00:06:21,960 --> 00:06:26,630
+mais ça fonctionne très bien si,
+ quand z est exactement 0,
+
+109
+00:06:26,630 --> 00:06:28,960
+vous définissez la dérivée comme 
+égale à 1.
+
+110
+00:06:28,960 --> 00:06:32,095
+Ou vous pouvez choisir 0,
+ ça n'a pas vraiment d'importance.
+
+111
+00:06:32,095 --> 00:06:34,540
+Si vous êtes un expert en
+ optimisation, techniquement,
+
+112
+00:06:34,540 --> 00:06:39,380
+g' devient ce qu’on appelle un
+ sous gradient de la fonction d’activation g(z),
+
+113
+00:06:39,380 --> 00:06:41,795
+c’est pourquoi la descente 
+de gradient fonctionne toujours.
+
+114
+00:06:41,795 --> 00:06:43,490
+Vous pouvez voir ça comme
+
+115
+00:06:43,490 --> 00:06:47,505
+la probabilité que z soit égal
+ à exactement 0.0000000...
+
+116
+00:06:47,505 --> 00:06:51,080
+est si petite, qu'elle n'a pas
+ vraiment d'importance
+
+117
+00:06:51,080 --> 00:06:54,245
+donc vous pouvez choisir la dérivée 
+égale à 1, ou égale à 0.
+
+118
+00:06:54,245 --> 00:06:59,090
+Dans la pratique, c’est donc ce que les gens
+ implémentent pour la dérivée de z.
+
+119
+00:06:59,090 --> 00:07:04,645
+Et enfin, si vous entraînez 
+un réseau de neurones avec la fonction
+
+120
+00:07:04,645 --> 00:07:14,630
+d'activation Leaky ReLU, alors g(z) 
+va être, disons, max(0.01z , z) .
+
+121
+00:07:14,630 --> 00:07:20,300
+Et donc g prime de z est égal
+ à 0.01 si z est négatif,
+
+122
+00:07:20,300 --> 00:07:26,685
+si z est inférieur à 0 
+et à 1 si z est supérieur à 0.
+
+123
+00:07:26,685 --> 00:07:31,250
+A nouveau, le gradient n’est techniquement 
+pas défini lorsque z est exactement égal à 0,
+
+124
+00:07:31,250 --> 00:07:34,250
+Mais si vous implémentez un morceau 
+de code qui définit la dérivée
+
+125
+00:07:34,250 --> 00:07:38,585
+g' à 0.01 ou à 1 en 0,
+
+126
+00:07:38,585 --> 00:07:40,160
+cela n'a pas vraiment d'importance.
+
+127
+00:07:40,160 --> 00:07:42,610
+Lorsque z est exactement 0,
+ votre code fonctionnera quand même.
+
+128
+00:07:42,610 --> 00:07:44,430
+Donc, avec ces formules, vous devriez
+
+129
+00:07:44,430 --> 00:07:49,355
+pouvoir calculer la pente, ou la dérivée
+ des fonctions d’activation.
+
+130
+00:07:49,355 --> 00:07:51,260
+Maintenant que vous avez ce bloc de base,
+
+131
+00:07:51,260 --> 00:07:55,235
+vous êtes prêts à implémenter la descente 
+de gradient pour votre réseau de neurones.
+
+132
+00:07:55,235 --> 00:07:57,330
+Allons dans la vidéo suivante pour voir ça.

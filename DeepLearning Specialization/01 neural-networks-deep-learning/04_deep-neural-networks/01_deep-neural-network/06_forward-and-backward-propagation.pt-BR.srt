@@ -1,0 +1,762 @@
+1
+00:00:00,000 --> 00:00:01,350
+No vídeo anterior,
+
+2
+00:00:01,350 --> 00:00:05,065
+você viu os blocos básicos para implementação
+de redes neurais profundas.
+
+3
+00:00:05,065 --> 00:00:07,696
+Uma fase de propagação para frente,
+para cada camada,
+
+4
+00:00:07,696 --> 00:00:09,975
+e uma fase correspondente à retropropagação.
+
+5
+00:00:09,975 --> 00:00:12,370
+Vamos ver como você pode, de fato,
+implementar essas fases.
+
+6
+00:00:12,370 --> 00:00:14,230
+Começaremos com uma propagação para frente.
+
+7
+00:00:14,230 --> 00:00:20,045
+Lembre-se de que isso fará o seguinte:
+ abastece a'ˡ ⁻ ¹' (entrada); e retorna a'ˡ' (saída)
+
+8
+00:00:20,045 --> 00:00:21,795
+e a cache z'ˡ'.
+
+9
+00:00:21,795 --> 00:00:24,615
+E nós acabamos de dizer que
+,do ponto de vista da implementação,
+
+10
+00:00:24,615 --> 00:00:28,145
+talvez, armazenaremos w'ˡ' e b'ˡ',
+
+11
+00:00:28,145 --> 00:00:31,585
+apenas para facilitar a chamada das funções
+no exercício de programação.
+
+12
+00:00:31,585 --> 00:00:35,438
+Então, as equações já devem se mostrar conhecidas.
+
+13
+00:00:35,438 --> 00:00:46,813
+A forma de implementar uma função para frente é 
+apenas isto:  z'ˡ' = w'ˡ' * a'ˡ ⁻ ¹' + b'ˡ'.
+
+14
+00:00:46,813 --> 00:00:53,620
+Então:
+a'ˡ' = g'ˡ'(z'ˡ')
+
+15
+00:00:53,620 --> 00:00:57,250
+E se você quiser vetorizar a implementação,
+
+16
+00:00:57,250 --> 00:01:06,218
+basta fazer:
+ Z'ˡ' =  W'ˡ' * A'ˡ ⁻ ¹' + b'ˡ',
+
+17
+00:01:06,218 --> 00:01:09,930
+adicionando b, para um "broadcast" em Python.
+
+18
+00:01:09,930 --> 00:01:15,296
+A'ˡ' = g'ˡ'(Z'ˡ')
+[aplicação do produto de Hadamard]
+
+19
+00:01:15,296 --> 00:01:20,128
+E você se lembra de que no diagrama
+para a fase de propagação para frente,
+
+20
+00:01:20,128 --> 00:01:22,565
+nós tínhamos esta cadeia de caixas indo para frente,
+
+21
+00:01:22,565 --> 00:01:26,775
+então você a inicializou com um A'⁰',
+
+22
+00:01:26,775 --> 00:01:29,305
+o qual é igual a x 
+(A'⁰' = x) 
+
+23
+00:01:29,305 --> 00:01:31,440
+Então, você a inicializou.
+
+24
+00:01:31,440 --> 00:01:33,380
+De fato, qual é a entrada para este aqui?
+
+25
+00:01:33,380 --> 00:01:40,207
+É  a'⁰'  que é a característica de entrada
+para qualquer um dos exemplos de treinamento,
+
+26
+00:01:40,207 --> 00:01:42,255
+se você estiver fazendo um exemplo por vez;
+
+27
+00:01:42,255 --> 00:01:45,800
+ou A'⁰', o conjunto de exemplos
+de treinamento completo,
+
+28
+00:01:45,800 --> 00:01:48,215
+se você estiver processando o conjunto inteiro.
+
+29
+00:01:48,215 --> 00:01:51,990
+Portanto, esta é a entrada para a primeira
+função para frente na cadeia.
+
+30
+00:01:51,990 --> 00:01:53,970
+E depois, repetindo isso, você consegue calcular
+
+31
+00:01:53,970 --> 00:01:57,085
+a propagação para frente,
+ da esquerda para a direita.
+
+32
+00:01:57,085 --> 00:02:00,110
+Na sequência, vamos falar
+sobre a fase da retropropagação.
+
+33
+00:02:00,110 --> 00:02:03,585
+Aqui, o seu objetivo é:
+ entrar com dₐ'ˡ';
+
+34
+00:02:03,585 --> 00:02:08,040
+e produzir:
+dₐ'ˡ ⁻ ¹', dw'ˡ' e db'ˡ'
+
+35
+00:02:08,040 --> 00:02:16,240
+Deixe-me anotar as etapas necessárias
+para você calculá-los:
+
+36
+00:02:16,240 --> 00:02:23,866
+dz'ˡ' = dₐ'ˡ' .  g'ˡ' ' (z'ˡ') 
+[aplicação do produto de Hadamard]
+
+37
+00:02:23,866 --> 00:02:27,405
+E então, calculamos as derivadas:
+
+38
+00:02:27,405 --> 00:02:34,420
+dw'ˡ'  = dz'ˡ' .  a'ˡ ⁻ ¹'
+
+39
+00:02:34,420 --> 00:02:37,445
+Eu não a coloquei explicitamente
+ – a cache –, mas acontece
+
+40
+00:02:37,445 --> 00:02:39,114
+que você precisa dela também.
+
+41
+00:02:39,114 --> 00:02:47,560
+Assim:
+db'ˡ' = dz 'ˡ'
+
+42
+00:02:47,560 --> 00:02:59,089
+                            E finalmente:
+                                  dₐ'ˡ ⁻ ¹' = w'ˡ'⸆  .  dz'ˡ'
+
+43
+00:02:59,089 --> 00:03:02,310
+Eu não quero demonstrar as derivadas,
+detalhadamente,
+
+44
+00:03:02,310 --> 00:03:06,605
+mas acontece que, se você pegar
+ estas definições para "dₐ" inseridas aqui,
+
+45
+00:03:06,605 --> 00:03:10,260
+obterá a mesma fórmula
+que vimos, na semana passada,
+
+46
+00:03:10,260 --> 00:03:16,617
+para o cálculo deste dz'ˡ'
+como uma função do dz'ˡ' anterior.
+
+47
+00:03:16,617 --> 00:03:18,135
+Na verdade, se eu o inserir aqui,
+
+48
+00:03:18,135 --> 00:03:33,817
+você terá:
+ dz'ˡ' = w'ˡ ⁺ ¹'⸆dz'ˡ ⁺ ¹' * g'ˡ'  '  (z'ˡ')
+
+49
+00:03:33,817 --> 00:03:36,165
+Eu sei[...]
+ Há muita álgebra[...]
+
+50
+00:03:36,165 --> 00:03:38,360
+                 Na verdade, você pode fazer
+          a sua própria verificação,
+
+51
+00:03:38,360 --> 00:03:40,820
+pois esta é a equação que anotamos
+
+52
+00:03:40,820 --> 00:03:43,055
+para a retropropagação, na semana passada,
+
+53
+00:03:43,055 --> 00:03:45,930
+quando fizemos uma rede neural
+para uma camada oculta simples.
+
+54
+00:03:45,930 --> 00:03:48,602
+                                     Como lembrete: desta vez,
+                                 aplicamos o produto de Hadamard.
+
+55
+00:03:48,602 --> 00:03:54,950
+E assim, tudo que você precisa são essas 4 equações
+ para implementar a sua função para trás.
+
+56
+00:03:54,950 --> 00:03:58,735
+Finalmente, anotarei uma versão vetorizada:
+
+57
+00:03:58,735 --> 00:04:04,135
+Então começamos com:
+
+58
+00:04:04,135 --> 00:04:11,045
+dZ'ˡ' = dA'ˡ' * g'ˡ'  '  (Z'ˡ')
+[com  produto de Hadamard]
+
+59
+00:04:11,045 --> 00:04:13,060
+Talvez, nenhuma surpresa aí.
+
+60
+00:04:13,060 --> 00:04:23,715
+dW'ˡ' = (1/m)dZ'ˡ' * A'ˡ ⁻ ¹'⸆
+
+61
+00:04:23,715 --> 00:04:30,844
+db'ˡ' = (1/m) np.sum(dZ'ˡ')
+
+62
+00:04:30,844 --> 00:04:37,970
+axis = 1, keepdims = True (Verdadeiro)
+
+63
+00:04:37,970 --> 00:04:44,095
+Falamos sobre o uso do np.sum
+para o cálculo da "db", na semana passada.
+
+64
+00:04:44,095 --> 00:04:56,155
+E finalmente: dA'ˡ ⁻ ¹' = W'ˡ'⸆ . dZ'ˡ'
+
+65
+00:04:56,155 --> 00:05:02,435
+Isso lhe permite entrar com
+esta quantidade:  da'ˡ', todas aqui;
+
+66
+00:05:02,435 --> 00:05:07,950
+e produzir dW'ˡ' e db'ˡ',
+
+67
+00:05:07,950 --> 00:05:10,100
+as derivadas que você precisa,
+
+68
+00:05:10,100 --> 00:05:16,022
+bem como  dₐ'ˡ ⁻ ¹', conforme a sequência.
+
+69
+00:05:16,022 --> 00:05:18,905
+Então, é assim que você implementa
+a função da retropropagação.
+
+70
+00:05:18,905 --> 00:05:20,560
+Apenas para resumir:
+
+71
+00:05:20,560 --> 00:05:23,585
+Pegue a entrada x;
+
+72
+00:05:23,585 --> 00:05:25,060
+você terá a primeira camada
+
+73
+00:05:25,060 --> 00:05:28,445
+em que, talvez,
+tenha uma função de ativação ReLU;
+
+74
+00:05:28,445 --> 00:05:30,570
+vá à segunda camada
+
+75
+00:05:30,570 --> 00:05:33,340
+em que, talvez,
+haja outra função de ativação ReLU;
+
+76
+00:05:33,340 --> 00:05:35,175
+vá à terceira camada
+
+77
+00:05:35,175 --> 00:05:39,595
+em que, talvez, tenha uma função de ativação sigmoide,
+se você estiver usando a classificação binária;
+
+78
+00:05:39,595 --> 00:05:41,875
+e isso resulta em ŷ;
+
+79
+00:05:41,875 --> 00:05:43,890
+e depois, usando o ŷ,
+
+80
+00:05:43,890 --> 00:05:46,265
+você poderá calcular a perda, ʆ (ŷ , y).
+
+81
+00:05:46,265 --> 00:05:49,685
+Isso lhe permite iniciar a sua iteração de retropropagação.
+
+82
+00:05:49,685 --> 00:05:51,775
+Vou desenhar as setas, primeiro, ok?
+
+83
+00:05:51,775 --> 00:05:54,320
+Assim, não vou precisar alternar as canetas [...]
+
+84
+00:05:54,320 --> 00:06:03,430
+Você terá, então, a retropropagação
+calculando as derivadas. Calculando:
+
+85
+00:06:03,430 --> 00:06:16,063
+dw'³', db'³', dw'²', db'²', dw'¹', db'¹'
+
+86
+00:06:16,063 --> 00:06:18,865
+E durante o percurso,
+teríamos os cálculos, eu acredito [...]
+
+87
+00:06:18,865 --> 00:06:24,820
+as caches enviarão os z'¹', z'²', z'³'.
+
+88
+00:06:24,820 --> 00:06:32,250
+E aqui, você passaria para trás[...]
+dₐ'²' e dₐ'¹'.
+
+89
+00:06:32,250 --> 00:06:34,730
+Isso poderia calcular a dₐ'⁰',
+
+90
+00:06:34,730 --> 00:06:35,880
+mas não vamos usá-la.
+
+91
+00:06:35,880 --> 00:06:37,935
+Então, você pode desconsiderá-la.
+
+92
+00:06:37,935 --> 00:06:40,785
+Assim, temos a forma como se implementa
+as propagações para frente e a para trás,
+
+93
+00:06:40,785 --> 00:06:44,040
+para uma rede neural de 3 camadas.
+
+94
+00:06:44,040 --> 00:06:46,140
+Agora, há apenas um último detalhe
+que eu não mencionei,
+
+95
+00:06:46,140 --> 00:06:48,735
+que é sobre a sequência da propagação para frente.
+
+96
+00:06:48,735 --> 00:06:52,420
+Nós vamos inicializá-la com o dado de entrada x.
+
+97
+00:06:52,420 --> 00:06:54,090
+Qual seria a sequência de retropropagação?
+
+98
+00:06:54,090 --> 00:06:59,235
+Ocorre que: dₐ'ˡ' [...]
+
+99
+00:06:59,235 --> 00:07:01,065
+quando você está usando a regressão logística,
+
+100
+00:07:01,065 --> 00:07:02,977
+quando você está fazendo a classificação binária,
+
+101
+00:07:02,977 --> 00:07:09,685
+dₐ'ˡ' = - y/a +[ (1 - y) / (1 - a) ]
+
+102
+00:07:09,685 --> 00:07:12,575
+Então, temos que a derivada para a função perda
+
+103
+00:07:12,575 --> 00:07:14,180
+em relação à saída,
+
+104
+00:07:14,180 --> 00:07:17,475
+em relação ao ŷ, pode ser mostrada desta forma.
+
+105
+00:07:17,475 --> 00:07:19,105
+Se você é familiarizado com Cálculo,
+
+106
+00:07:19,105 --> 00:07:21,328
+se você pesquisar sobre função perda ʆ 
+
+107
+00:07:21,328 --> 00:07:24,150
+e aplicar a derivada em relação a ŷ,
+ou em relação a "a",
+
+108
+00:07:24,150 --> 00:07:26,505
+você pode mostrar que obtemos aquela fórmula.
+
+109
+00:07:26,505 --> 00:07:31,350
+Então, esta é a fórmula que você deve usar para "dₐ", 
+para a última camada L.
+
+110
+00:07:31,350 --> 00:07:35,715
+E, é claro, se você estivesse
+implementando uma vetorização,
+
+111
+00:07:35,715 --> 00:07:38,351
+você inicializaria a sequência para trás,
+
+112
+00:07:38,351 --> 00:07:43,706
+não com isso,mas com dA para a camada L,
+
+113
+00:07:43,706 --> 00:07:48,465
+que será a mesma coisa para diferentes exemplos:
+
+114
+00:07:48,465 --> 00:07:54,011
+[...] sobre "a" para o primeiro exemplo
+de treinamento, " + (1-y⁽¹⁾) "
+
+115
+00:07:54,011 --> 00:07:55,285
+ou seja, y para
+o primeiro exemplo de treinamento,
+
+116
+00:07:55,285 --> 00:07:58,153
+sobre " (1-a⁽¹⁾) " 
+isto é, "a" para o primeiro exemplo de treinamento,
+
+117
+00:07:58,153 --> 00:08:05,185
+e etc... até o exemplo de treinamento "m".
+
+118
+00:08:05,185 --> 00:08:09,423
+E é assim que você implementa a versão vetorizada.
+
+119
+00:08:09,423 --> 00:08:13,055
+É dessa forma que você inicializa
+a versão vetorizada da retropropagação.
+
+120
+00:08:13,055 --> 00:08:16,100
+Assim, você está vendo os princípios básicos
+
+121
+00:08:16,100 --> 00:08:20,030
+tanto para propagação para frente
+quanto para retropropagação.
+
+122
+00:08:20,030 --> 00:08:22,340
+Agora, se você implementar essas equações,
+
+123
+00:08:22,340 --> 00:08:24,530
+terá uma aplicação correta
+
+124
+00:08:24,530 --> 00:08:27,640
+das propagações para frente e para trás,
+para conseguir o que você precisa.
+
+125
+00:08:27,640 --> 00:08:29,660
+Você deve estar pensando:
+"Nossa, são tantas equações!
+
+126
+00:08:29,660 --> 00:08:32,080
+Estou meio confuso, não tenho muita certeza...
+Como isso pode funcionar"
+
+127
+00:08:32,080 --> 00:08:34,645
+Se você estiver se sentindo assim,
+o meu conselho é:
+
+128
+00:08:34,645 --> 00:08:37,205
+quando você estiver fazendo
+as atividades de programação desta semana,
+
+129
+00:08:37,205 --> 00:08:40,175
+será capaz de implementar essas teorias por si só.
+
+130
+00:08:40,175 --> 00:08:42,020
+E tudo ficará mais concreto.
+
+131
+00:08:42,020 --> 00:08:43,805
+Sei que há muitas equações
+
+132
+00:08:43,805 --> 00:08:46,265
+e, talvez, algumas delas
+não fazem nenhum sentido,
+
+133
+00:08:46,265 --> 00:08:49,055
+mas se você trabalhar usando
+[as matérias] Cálculo
+
+134
+00:08:49,055 --> 00:08:50,905
+e Álgebra Linear, que não são fáceis,
+
+135
+00:08:50,905 --> 00:08:52,430
+sinta-se livre para tentar.
+
+136
+00:08:52,430 --> 00:08:56,390
+Isso, na verdade, é uma das derivadas mais difíceis
+em Aprendizado de Máquina.
+
+137
+00:08:56,390 --> 00:08:57,950
+Acontece que as equações avançam,
+
+138
+00:08:57,950 --> 00:09:02,685
+ou melhor, as equações do Cálculo desencadeiam
+as derivadas, especialmente em retropropagação.
+
+139
+00:09:02,685 --> 00:09:04,750
+Mas, novamente,
+se isso parece um pouco abstrato,
+
+140
+00:09:04,750 --> 00:09:06,400
+um pouco misterioso para você,
+
+141
+00:09:06,400 --> 00:09:09,108
+a minha opinião é que quando você
+estiver fazendo os exercícios de programação,
+
+142
+00:09:09,108 --> 00:09:11,465
+isso se tornará mais concreto para você.
+
+143
+00:09:11,465 --> 00:09:14,120
+Apesar de que, mesmo hoje,
+
+144
+00:09:14,120 --> 00:09:16,805
+quando eu implemento um algoritmo
+de aprendizagem, às vezes,
+
+145
+00:09:16,805 --> 00:09:18,000
+eu mesmo fico surpreso,
+
+146
+00:09:18,000 --> 00:09:21,170
+quando os meus algoritmos de aprendizagem
+funcionam. Isso é porque
+
+147
+00:09:21,170 --> 00:09:25,670
+muitas das complexidades do Aprendizado de Máquina
+vêm dos dados, ao invés das linhas de códigos.
+
+148
+00:09:25,670 --> 00:09:27,095
+Então, às vezes, você sente
+
+149
+00:09:27,095 --> 00:09:28,685
+como se tivesse implementado
+poucas linhas de códigos,
+
+150
+00:09:28,685 --> 00:09:30,110
+não tem muita certeza do que fez,
+
+151
+00:09:30,110 --> 00:09:31,625
+mas isso funciona quase como mágica.
+
+152
+00:09:31,625 --> 00:09:35,296
+Por essas mágicas não estarem, realmente,
+nos pedaços de códigos que você escreve,
+
+153
+00:09:35,296 --> 00:09:37,090
+os quais, com frequência, não são muito longos [...]
+
+154
+00:09:37,090 --> 00:09:38,705
+Não são exatamente simples,
+
+155
+00:09:38,705 --> 00:09:40,730
+mas não se trata de códigos contendo
+
+156
+00:09:40,730 --> 00:09:42,115
+10 mil ou 100 mil linhas [...]
+
+157
+00:09:42,115 --> 00:09:44,750
+Mas você entrou com tantos dados
+que, às vezes,
+
+158
+00:09:44,750 --> 00:09:46,850
+mesmo que eu tenha trabalhado com Aprendizado
+de Máquina por um longo período,
+
+159
+00:09:46,850 --> 00:09:49,400
+às vezes, isso me surpreende um pouco [...]
+
+160
+00:09:49,400 --> 00:09:53,274
+quando meus algoritmos de aprendizagem funcionam,
+porque muitas das complexidades do algoritmo de aprendizagem
+
+161
+00:09:53,274 --> 00:09:55,970
+vêm de dados, ao invés
+
+162
+00:09:55,970 --> 00:10:01,020
+de vir, necessariamente,
+dos códigos escritos em milhares de linhas.
+
+163
+00:10:01,020 --> 00:10:05,935
+Então, você implementa
+as redes neurais profundas dessa forma.
+
+164
+00:10:05,935 --> 00:10:10,325
+E novamente, tudo começará a ficar mais concreto
+quando você estiver fazendo o seu exercício de programação.
+
+165
+00:10:10,325 --> 00:10:14,220
+Antes de seguirmos para o próximo vídeo,
+
+166
+00:10:14,220 --> 00:10:17,480
+gostaria de debater sobre
+hiperparâmetros e parâmetros.
+
+167
+00:10:17,480 --> 00:10:19,681
+Ocorre que quando você está
+treinando redes profundas,
+
+168
+00:10:19,681 --> 00:10:22,225
+estar apto, também,
+para organizar os seus hiperparâmetros
+
+169
+00:10:22,225 --> 00:10:25,400
+será útil para o desenvolvimento
+mais eficiente das suas redes.
+
+170
+00:10:25,400 --> 00:10:29,000
+No próximo vídeo, vamos falar sobre
+o que isso significa, exatamente.
+Tradução: Tiago A. da Silva / Julia Yuri
+Revisão: Carlos Lage

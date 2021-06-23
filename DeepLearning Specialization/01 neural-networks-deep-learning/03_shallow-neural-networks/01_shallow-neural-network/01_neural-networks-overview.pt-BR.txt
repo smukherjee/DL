@@ -1,0 +1,35 @@
+Bem-vindo de volta. Nesta semana, você aprendeu a implementar uma rede neural. Antes de mergulhar nos detalhes técnicos, eu quero, neste vídeo, dar a você uma rápida visão geral do que
+ veremos nos vídeos desta semana. Então, se você não entender todos os detalhes neste vídeo, não se preocupe, nós nos aprofundaremos
+ nos detalhes técnicos nos próximos vídeos. Mas, por agora, vamos dar uma rápida olhada
+ em como você implementa em sua rede. Na semana passada, conversamos
+ sobre regressão logística e vimos como este modelo corresponde ao seguinte projeto de cálculo, onde você não colocou
+ os elementos x e os parâmetros 'w' e 'b' que permitem que você calcule z,
+ que é, então, utilizado para calcular 'a' e estávamos utilizando 'a' alternadamente com esta saída ŷ e, então, você
+ pode calcular a função de perda, que chamamos de ʆ. Uma rede neural se parace com isso. Como já me referi anteriormente, você pode formar uma rede neural
+ empilhando juntas muitas pequenas unidades de sigmoide. Considerando que, previamente,
+ este nó corresponde a dois passos para cálculos. O primeiro calcula o valor de 'z', o segundo calcula o valor de 'a'. Nesta rede neural, esta pilha de notas corresponderá
+ ao cálculo de z como esse, assim como um cálculo de 'a' como esse. Assim, aquele nó corresponde a um
+ outro cálculo de z e um outro cálculo de a. Então, a notação que introduziremos
+ mais tarde se parecerá com isso. Primeiro, forneceremos as entradas das características x, junto com alguns parâmetros w e b, e isso permitirá que você calcule z'¹'. Então, a nova notação que introduziremos
+ é que usaremos um colchete sobrescrito
+ para nos referirmos a quantidades associadas a essa
+ pilha de nós, chamada de camada. Depois, mais tarde, utilizaremos
+ colchetes sobrescritos 2, '²' para nos referirmos a quantidades
+ associadas àquele nó. Isso é chamado de
+ uma outra camada de rede neural. Os colchetes sobrescritos, como os que temos aqui, não devem ser confundidos com os parênteses, os quais utilizamos para
+ nos referirmos a exemplos de exercícios individuais. Então, considerando x sobrescrito i entre parênteses, ⁽ⁱ⁾, 
+ eu me refiro ao i-ésimo exemplo de treino, colchetes [1] e [2] se referem
+ a essas duas camadas; a camada um e a camada dois nesta rede neural. Mas, então, após o cálculo de z'¹'
+ similar à regressão logística, haverá um cálculo para calcular a'¹' e isso é justamente o sigmoide de z'¹'; depois, você calcula z'²' utilizando uma
+ outra equação linear e, em seguida, calcula a'²'. A'²' é a saída final da rede neural e também será utilizado
+ com ŷ alternadamente. Assim, eu sei que havia muitos detalhes,
+ mas a ideia principal para guardar é que, considerando
+ a regressão logística, tivemos esse 'z' seguido do cálculo de 'a'. Nesta rede neural, aqui nós apenas
+ fizemos isso várias vezes, como um z seguido do cálculo de a, um z seguido do cálculo de a e, depois, finalmente,
+ calcular a perda no fim. Você se lembra que, para a regressão logística, deixamos esse cálculo para trás a fim de calcular derivadas ou, como
+ você está calculando sua dₐ , dz e assim por diante. Logo, do mesmo modo, uma rede neural acabará fazendo um
+ cálculo da retro-propagação, que se parece com isso, no qual você acaba calculando dₐ'²', dz'²', que permite que você calcule dw'²', db'²' e assim por diante. Da direita para a esquerda, o cálculo para trás, 
+que está marcado com setas vermelhas. Então, isso te dá uma rápida visão
+ de como uma rede neural parece. É basicamente regressão logística
+ e repeti-la duas vezes. Eu sei que havia muitas leis novas de notação, novos detalhes, mas não se preocupe com eles; siga tudo que os detalharemos,
+provavelmente, já nos próximos vídeos. Então, vamos ao próximo vídeo. Começaremos a falar sobre a representação da rede neural.

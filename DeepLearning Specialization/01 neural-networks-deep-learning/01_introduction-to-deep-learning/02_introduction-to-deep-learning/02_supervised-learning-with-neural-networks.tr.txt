@@ -1,0 +1,62 @@
+Yapay sinir ağları yoğun bir şekilde halkın ilgisini çekmekte. ne kadar iyi çalıştıklarına bakılırsa bu haklı bir ilgi. Sonuçta, yapay sinir ağları tarafından ekonomik olarak yaratılan tüm değerler denetimli öğrenme de denilen makine öğrenmesinin bir tipinden kaynaklanıyor. Bakalım bu (denetimli öğrenme) nedir öğrenelim ve bazı örnekler görelim. Denetimli öğrenmede, senin girdi olarak bir x girdin var ve bu girdiyi y çıktısına ulaştıran fonksiyou öğrenmek istiyorsun. Örnek olarak, bir evin özelliklerini girdi olarak kullanıldığı ve y çıktısı olarak fiyat tahmini yapan
+ev fiyat tahmini uygulamasını görmüştük Şimdiyse, sinir ağlarının
+uygulandığı diğer örneklere bakalım. öğrenmiştik. Muhtemelen bugünlerde en kazançlı
+derin öğrenme uygulaması internet reklamcılığı,
+çok ilham verici olmasa da, kesinlikle çok kazançlı göstermek istediği internet sayfasını ve
+kullanıcıdan aldığı bazı bilgileri kullanarak, sinir ağları o reklama tıklayıp tıklamayacağınızı
+çok iyi bir şekilde tahmin edebilir. Birçok şirkette, size, yani kullanıcılarına, tıklanması
+en muhtemel reklamları gösteren, akıl almaz derecede kazançlı sinir ağları uygulamalardı Çünkü tıklanması en muhtemel reklamları
+sizlere gösterebilme yetisi, bazı büyük internet reklamcılığı şirketlerinin net gelirlerine direkt bir biçimde etki eder. Bilgisayarla görü, son birkaç yılda
+büyük ölçüde, derin öğrenme sayesinde, büyük bir gelişim gösterdi. Bir resmi seçip, seçilen bu resmin 1000 farklı resimden hangisi olduğunu belirten 1 ile 1000 arasında bir indeks çıktısı isteyebilirsiniz. Resim etiketleyebilirsiniz. Bir ses klibini sinir ağına girdi olarak verip, yazıya dökülmüş halini çıktı olarak veren konuşma tanıma alanındaki son gelişmelerin çok heyecan verici olduğunu düşünüyorum. İngilizce bir cümlenin sinir ağına girdi olarak verilebildiği
+ve direkt olarak Çince bir cümlenin çıktı olarak alınabildiği, makine çevirisi,
+derin öğrenme sayesinde, büyük bir gelişme gösterdi. Ve sürücüsüz araçlar. Bir görüntüyü girdi olarak seçip,
+radar için olduğu gibi, arabanızın önündekinin ne olduğunu bulabilir, ve buna dayanarak, belki de yoldaki diğer
+araçların pozisyonunu belirtmesi için sinir ağları eğitilebilir. Ve bu, sürücüsüz araç sistemleri için
+kilit bir parça haline gelir. Yani, x'in ne olması gerektiğini seçerken
+ve sizin belirli probleminiz için y'nin ne olması gerektiğini akıllıca seçerek,
+ardından bu denetimli öğrenme bileşenini genellikle sürücüsüz araçlar gibi daha
+büyük sistemlere uygulayarak, sinir ağları ile bir çok değer yaratılabilir. Farklı uygulamalar için,
+farklı tiplerde sinir ağlarının kullanışlı olduğu ortaya çıkıyor. Örneğin, bir önceki videoda
+gördüğümüz gayrimenkul uygulamasında evrensel standart bir sinir ağı
+mimarisi kullanıyoruz, değil mi? Belki de emlak ve internet reklamcılığı
+için daha önce gördüklerimiz gibi nispeten standart
+bir sinir ağı olabilir. Görüntü uygulamaları için genellikle,
+sinir ağları üzerinde evrişim yöntemini kullanırız. (kısaltması CNN) Ve sıralı veri tipleri için. Örneğin, ses zamana bağlıdır, değil mi? Ses zaman içerisinde çalınır,
+bu yüzden de ses en doğal şekilde 1 boyutlu zaman serisi olarak (time/temporal) gösterilir. Ve sıralı veri tipleri için,
+genellikle RNN kullanırsın. özyineli sinir ağı. dil, İngilizce ve Çince gibi,
+alfabeler ya da kelimeler art arda sıralanır. Bu yüzden dil de en doğal şekilde
+sıralı veri olarak gösterilir. Ve RNN'lerin daha kompleks versiyonları
+bu uygulamalarda kullanılır. Ve daha sonra, evrişimli sinir ağı mimarisinde fazlasını sunan resim ile, biraz daha farklı olan radar verisini içeren sürücüsüz araçlar gibi
+daha da karmaşık uygulamalar için, Daha özel ya da daha karmaşık, karma sinir ağ mimarisi kullanabilirsiniz. Standart CNN ve RNN mimarileri hakkında daha somut olmak adına, Literatürde, şu resmi görmüş olabilirsiniz. İşte bu standart sinir ağıdır. Şu resmi de görmüşsünüzdür. Bu da, evrişimli sinir ağına bir örnektir,
+ve sonraki derslerde bu resmin tam olarak ne anlama geldiğini 
+ve nasıl uygulandığını göreceğiz. Fakat, evrişimli ağlar genellikle resimler için kullanılır. Ayrıca, şu resmi de görmüş olabilirsiniz. Bunun da nasıl uygulandığını
+sonraki derslerde öğreneceksiniz. Özyineli sinir ağlar, zamana bağlı değişen tek boyutlu sıralı veri tipi için çok uygundur. Makine öğreniminin hem yapılandırılmış veriye hem de yapılandırılmamış verilere için
+uygulamalarını duymuş olabilirsiniz. İşte terimlerin anlamları: Yapılandırılmış veri temelde veritabanlarıdır. Örneğin, ev fiyatı tahmini uygulamasındaki yatak odası sayısını ve büyüklüğünü gösteren
+kolonlar ya da veritabanları gibi Bu, yapılandırılmış veridir, ya da hava tahmini,
+ya da reklama tıklamayacak kullanıcıların tahmini gibi, kullanıcı hakkında,
+yaşı gibi, bilgilere sahip olabilirsin, reklam hakkında bazı bilgilerle birlikte,
+tahmin etmek istediğin etiketlere de. Bu, iyi derecede tanımlanmış, evin büyüklüğü, yatak odası sayısı
+veya kullanıcının yaşı gibi özellikleri olan yapılandırılmış verilerdir. Aksine, yapılandırılmamış veriler, resimde ya da yazıda tanımak isteyeceğiniz ses, ham ses
+ya da resimler gibi şeyleri tanımlar. Mesela, bir resimdeki piksel değerleri ya da bir yazı kısmındaki bir kelime, özellikleri oluşturabilir. Tarih boyunca, bilgisayarlar için yapılandırılmamış verileri anlamlandırmak yapılandırılmış verilerle
+karşılaştırıldığında hep zor olmuştur. İnsanoğlunun, ses parçalarının yanı sıra görüntülerin de anlaşılmasında çok iyi olmasına evrildiği de bir gerçektir. ve sonrasında yazı daha yeni bir icattı, fakat insanlar yapılandırılmamış veriyi
+yorumlarken de gayet iyidir. Sinir ağlarının yükselişiyle ilgili
+en heyecan verici şeylerden biri de, derin öğrenme sayesinde, sinir ağları sayesinde,
+bilgisayarlar, birkaç yıl öncesine göre yapılandırılmamış verileri yorumlarken
+artık çok daha iyi olması. Ve bu da konuşma tanıma,
+resim tanıma, doğal dil işleme gibi heyecan verici yeni uygulamalar için
+iki üç yıl önce bile mümkün olandan çok daha fazlasını sunan birçok fırsat yaratıyor. Bence, insanların yapılandırılmamış verileri
+anlamada doğal bir empatiye sahip olmasından ötürü, sinir ağlarının
+yapılandırılmamış verilerdeki başarısını medyada daha fazla duyabilirsiniz çünkü sinir ağları
+bir kediyi tanıdığında çok havalıdır. Böyleyiz, ve bunun ne anlama geldiğini biliriz. Fakat daha iyi reklamcılık sistemleri,
+daha iyi kar önerileri ve birçok şirketin doğru tahminler
+yapmak zorunda olduğu devasa veritabanlarını daha iyi işleyebilmek gibi, sinir ağlarının yarattığı çok sayıda
+kısa vadeli ekonomik değer, yapılandırılmış veriler ile ortaya konmuştu. Bu kursta, hem yapılandırılmış,
+hem de yapılandırılmamış veriler ile birçok teknik uygulayacağız. Algoritmaları açıklamak amacıyla, yapılandırılmamış verileri kullanan
+örnekler kullanacağız. Fakat kendi ekibinizin yapay sinir ağları
+uygulamaları için, hem yapılandırılmış hem de yapılandırılmamış verileri
+ kullanacağınızı umuyorum. Böylelikle, sinir ağları, denetimli
+öğrenmeye dönüştü ve, muazzam bir ekonomik değer yaratıyor. Yine de, sinir ağlarının arkasındaki
+temel teknik fikirlerin çoğunluka, on yıllardır,
+etrafta olduğu ortaya çıkıyor. Peki neden şimdilerde iyi çalışmaya başladı? Bir sonraki videoda, sinir ağlarının,
+kullanabileceğiniz inanılmaz güçlü bir araç haline gelmesinin neden sadece son
+zamanlarda olduğunu anlatacağız.

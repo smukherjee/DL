@@ -1,0 +1,598 @@
+1
+00:00:00,000 --> 00:00:01,530
+Em um vídeo anterior,
+
+2
+00:00:01,530 --> 00:00:04,227
+você viu o modelo de regressão logística.
+
+3
+00:00:04,227 --> 00:00:07,526
+Para treinar os parâmetros "W" e "b"
+do 
+modelo de regressão logística,
+
+4
+00:00:07,526 --> 00:00:10,570
+você precisa definir uma função de custo.
+
+5
+00:00:10,570 --> 00:00:14,430
+Vamos dar uma olhada na função de custo
+que você pode usar para treinar a regressão logística.
+
+6
+00:00:14,430 --> 00:00:18,195
+Recapitulando, isto é o que temos
+que identificar do slide anterior.
+
+7
+00:00:18,195 --> 00:00:20,792
+Então, sua saída ŷ 
+é sigmoide de w
+
+8
+00:00:20,792 --> 00:00:24,690
+transposta vezes x mais b, ou seja, ŷ = σ (w⸆x + b)
+ onde um sigmoide de z é como foi definida aqui.
+
+9
+00:00:24,690 --> 00:00:27,600
+Para saber os parâmetros
+para o seu modelo, é dado
+
+10
+00:00:27,600 --> 00:00:31,200
+um conjunto com 
+"m" exemplos de treinamento e
+
+11
+00:00:31,200 --> 00:00:34,060
+é normal que você queira
+encontrar parâmetros 'W' e 'b'
+
+12
+00:00:34,060 --> 00:00:37,781
+tal qual, pelo menos no
+conjunto de treinamento, os seus resultados.
+
+13
+00:00:37,781 --> 00:00:40,225
+As predições que você tem
+no conjunto de treinamento,
+
+14
+00:00:40,225 --> 00:00:43,260
+escrevemos apenas como ŷ⁽ⁱ⁾
+ e serão o valor aproximado dos
+
+15
+00:00:43,260 --> 00:00:47,720
+rótulos verdadeiros de y⁽ⁱ⁾
+ no conjunto de treinamento que você tem.
+
+16
+00:00:47,720 --> 00:00:52,110
+Para acrescentar maior detalhe
+à equação acima,
+
+17
+00:00:52,110 --> 00:00:56,205
+dissemos que ŷ
+ é como definido acima para
+
+18
+00:00:56,205 --> 00:01:00,930
+o exemplo de treinamento x
+e para cada exemplo,
+
+19
+00:01:00,930 --> 00:01:03,240
+estamos utilizando
+esses índices (sobrescritos) com
+
+20
+00:01:03,240 --> 00:01:07,710
+parêntesis para indicar
+e diferenciar os exemplos.
+
+21
+00:01:07,710 --> 00:01:12,870
+Sua predição no exemplo i, que é ŷ⁽ⁱ⁾
+será obtida
+
+22
+00:01:12,870 --> 00:01:18,835
+tomando a função sigmoide de (W transposta multiplicada por x⁽ⁱ⁾),
+ ou seja, σ (w⸆x⁽ⁱ⁾ + b)
+
+23
+00:01:18,835 --> 00:01:25,905
+que é sigmoide de Z⁽ⁱ⁾,
+e podemos definir Z⁽ⁱ⁾ assim:
+
+24
+00:01:25,905 --> 00:01:30,110
+Z⁽ⁱ⁾ é igual a W transposta vezes x⁽ⁱ⁾ mais b,
+assim, Z⁽ⁱ⁾ = w⸆x⁽ⁱ⁾ + b
+
+25
+00:01:30,110 --> 00:01:31,350
+Durante o curso
+
+26
+00:01:31,350 --> 00:01:33,966
+usaremos esta convenção notacional,
+
+27
+00:01:33,966 --> 00:01:41,605
+O sobrescrito com 
+parêntese de índice i faz referência aos dados
+
+28
+00:01:41,605 --> 00:01:47,615
+X ou Y ou Z ou algo associado
+ com o i-ésimo exemplo de treinamento,
+
+29
+00:01:47,615 --> 00:01:50,885
+com o i-ésimo
+exemplo de treinamento.
+
+30
+00:01:50,885 --> 00:01:54,840
+Isto é o que significa o índice sobrescrito
+entre parênteses.
+
+31
+00:01:54,840 --> 00:01:57,630
+Vejamos qual função de perda, 
+ou função de erro
+
+32
+00:01:57,630 --> 00:02:01,315
+podemos usar para medir quão bem
+nosso algoritmo está indo.
+
+33
+00:02:01,315 --> 00:02:06,015
+Você poderia definir a perda
+quando o seu algoritmo dá o resultado, ŷ,
+
+34
+00:02:06,015 --> 00:02:12,320
+em relação ao rótulo verdadeiro, y, como a metade
+ do (quadrado do erro), ou ʆ(ŷ,y) = ½ (ŷ - y)².
+
+35
+00:02:12,320 --> 00:02:14,975
+Ocorre que isso pode ser feito,
+
+36
+00:02:14,975 --> 00:02:17,670
+mas em regressão logística,
+geralmente, não fazemos isso
+
+37
+00:02:17,670 --> 00:02:21,000
+porque quando
+conhecemos os parâmetros
+
+38
+00:02:21,000 --> 00:02:25,682
+nos deparamos com o problema de otimização,
+do qual falaremos mais adiante, de se tornar não convexo.
+
+39
+00:02:25,682 --> 00:02:30,105
+Então, acabamos tendo um problema de otimização
+ com múltiplos ótimos locais ("local optimum").
+
+40
+00:02:30,105 --> 00:02:33,285
+E assim, a descida gradiente pode
+não atingir o ponto ótimo global.
+
+41
+00:02:33,285 --> 00:02:35,580
+Se você não entendeu esses últimos comentários,
+
+42
+00:02:35,580 --> 00:02:38,320
+não se preocupe com isso,
+voltaremos a eles num vídeo mais adiante.
+
+43
+00:02:38,320 --> 00:02:40,990
+Mas, o que devemos aprender aqui
+
+44
+00:02:40,990 --> 00:02:44,620
+é que esta função ʆ chamada 
+de função de perda, 'Loss function', é uma função que você
+
+45
+00:02:44,620 --> 00:02:51,265
+precisará executar, para medir o quão boa é a sua
+saída prevista ŷ, quando o rótulo verdadeiro for y.
+
+46
+00:02:51,265 --> 00:02:54,345
+Assim como o erro ao quadrado parece ser
+uma escolha razoável,
+
+47
+00:02:54,345 --> 00:02:58,160
+exceto que ela faz com que o
+gradiente decrescente não funcione tão bem.
+
+48
+00:02:58,160 --> 00:03:00,500
+Assim, em Regressão Logística,
+na verdade, definiremos
+
+49
+00:03:00,500 --> 00:03:05,695
+uma função de perda diferente, que trabalhe
+parecido com a do quadrado do erro,
+
+50
+00:03:05,695 --> 00:03:08,910
+que nos trará um problema
+de otimização que seja
+
+51
+00:03:08,910 --> 00:03:13,530
+convexo e assim, veremos num vídeo mais adiante,
+ficará bem mais fácil de otimizar.
+
+52
+00:03:13,530 --> 00:03:17,310
+Então, o que usamos na
+regressão logística é na verdade
+
+53
+00:03:17,310 --> 00:03:21,795
+a seguinte função de perda,
+a qual estou acabando de escrever aqui,
+
+54
+00:03:21,795 --> 00:03:31,740
+- (y log ŷ + (1 - y) log (1 - ŷ ))
+
+55
+00:03:31,740 --> 00:03:34,600
+ʆ(ŷ,y) = - (y log ŷ + (1 - y) log (1 - ŷ ))
+
+56
+00:03:34,600 --> 00:03:38,785
+Veja uma explicação para o porquê
+de esta função de perda fazer sentido:
+
+57
+00:03:38,785 --> 00:03:41,285
+tenha em mente que se usarmos
+
+58
+00:03:41,285 --> 00:03:45,820
+erro ao quadrado, então queremos que
+tal erro ao quadrado seja o menor possível.
+
+59
+00:03:45,820 --> 00:03:48,680
+E com essa função de perda 
+da regressão logística
+
+60
+00:03:48,680 --> 00:03:51,495
+também queremos que ela seja
+a menor possível.
+
+61
+00:03:51,495 --> 00:03:53,508
+Para entender por que isso faz sentido,
+
+62
+00:03:53,508 --> 00:03:55,260
+vejamos dois casos.
+
+63
+00:03:55,260 --> 00:03:56,570
+No primeiro deles,
+
+64
+00:03:56,570 --> 00:03:59,430
+digamos que y = 1,
+então a função de
+
+65
+00:03:59,430 --> 00:04:05,415
+perda ʆ(ŷ,y) será apenas
+menos este termo.
+
+66
+00:04:05,415 --> 00:04:08,735
+Portanto:
+- log ŷ.
+
+67
+00:04:08,735 --> 00:04:10,770
+Se y = 1. Por causa disso, 'se y = 1',
+
+68
+00:04:10,770 --> 00:04:14,070
+o segundo termo,
+ 1 - y será igual a zero.
+
+69
+00:04:14,070 --> 00:04:19,880
+Então, isso quer dizer que se y=1, 
+queremos - log ŷ o maior possível.
+
+70
+00:04:19,880 --> 00:04:26,040
+Isso implica que queremos
+log ŷ bem grande,
+
+71
+00:04:26,040 --> 00:04:32,935
+o maior possível, implicando que
+desejamos ŷ o maior possível.
+
+72
+00:04:32,935 --> 00:04:35,170
+Mas, por conta do ŷ
+
+73
+00:04:35,170 --> 00:04:38,440
+ser a função sigmoide,
+ela nunca poderá ser maior do que 1.
+
+74
+00:04:38,440 --> 00:04:41,850
+Posto isso, se y = 1,
+
+75
+00:04:41,850 --> 00:04:44,050
+queremos ŷ, o maior possível.
+
+76
+00:04:44,050 --> 00:04:48,220
+Mas, ele nunca poderá ser maior do que 1;
+e dizemos que queremos que ŷ seja, também, próximo de 1.
+
+77
+00:04:48,220 --> 00:04:50,740
+O outro caso, quando y = 0.
+
+78
+00:04:50,740 --> 00:04:55,375
+Se y = 0, este primeiro termo da função
+de perda é igual a zero, porque
+
+79
+00:04:55,375 --> 00:05:01,290
+0 vezes log ŷ é zero, e então, este segundo termo
+determina a função de perda.
+
+80
+00:05:01,290 --> 00:05:07,210
+                                                  Então a perda se torna 
+                             - log (1 - ŷ )
+
+81
+00:05:07,210 --> 00:05:11,480
+e assim, se no seu procedimento de aprendizagem
+você tentar tornar sua função de custo menor,
+
+82
+00:05:11,480 --> 00:05:19,450
+o que isso implicará, é que você
+quer que log (1 - ŷ ) seja bem grande.
+
+83
+00:05:19,450 --> 00:05:22,050
+Isso porque tem um sinal negativo na frente dela e
+
+84
+00:05:22,050 --> 00:05:24,660
+então, usando o mesmo raciocínio,
+podemos concluir
+
+85
+00:05:24,660 --> 00:05:30,870
+que esta função de perda está tentando
+tornar ŷ o menor possível.
+
+86
+00:05:30,870 --> 00:05:34,320
+E, novamente, por conta de ŷ 
+ter de estar entre 0 e 1,
+
+87
+00:05:34,320 --> 00:05:38,155
+isso diz que se y = 0, então
+
+88
+00:05:38,155 --> 00:05:43,790
+sua função de perda vai empurrar seus parâmetros
+de modo a ter ŷ o mais próximo possível do valor zero.
+
+89
+00:05:43,790 --> 00:05:48,305
+Agora, há muitas funções que geram o 
+efeito Rafidah (rejeitadas) que, 
+
+90
+00:05:48,305 --> 00:05:52,950
+quando y = 1, tentamos fazer ŷ ser grande e se
+y = 0, tentamos fazer ŷ ser pequeno.
+
+91
+00:05:52,950 --> 00:05:55,150
+Apenas destacamos aqui, em verde,
+
+92
+00:05:55,150 --> 00:05:59,920
+de alguma forma, uma justificativa informal
+desta função de perda. Daremos
+
+93
+00:05:59,920 --> 00:06:03,970
+um vídeo opcional mais adiante,
+o qual trará uma justificativa mais formal
+
+94
+00:06:03,970 --> 00:06:08,500
+do porquê, em Regressão Logística, de gostarmos
+de usar a função de perda com esta forma particular.
+
+95
+00:06:08,500 --> 00:06:13,630
+Finalmente, a função de perda foi definida
+em relação a um único exemplo de treinamento.
+
+96
+00:06:13,630 --> 00:06:16,760
+Ela mede o quão bem estamos indo
+em um único exemplo de treinamento.
+
+97
+00:06:16,760 --> 00:06:21,148
+Agora, vamos definir algo chamado
+de função de custo,
+
+98
+00:06:21,148 --> 00:06:24,690
+a qual mede o quão bem estamos indo
+em todo o conjunto de treinamento.
+
+99
+00:06:24,690 --> 00:06:28,660
+Logo, a função de custo J,
+a qual é aplicada aos
+
+100
+00:06:28,660 --> 00:06:33,130
+seus parâmetros W e b, será a 
+média de  1/m 
+
+101
+00:06:33,130 --> 00:06:43,270
+da soma da função de perda aplicada 
+a cada um dos "i" exemplos de treinamento.
+
+102
+00:06:43,270 --> 00:06:45,435
+Onde o ŷ é, claro,
+
+103
+00:06:45,435 --> 00:06:49,570
+a previsão resultante do seu algoritmo
+de regressão logística usando, você bem sabe,
+
+104
+00:06:49,570 --> 00:06:52,430
+um conjunto específico de
+ parâmetros 'W' e 'b'.
+
+105
+00:06:52,430 --> 00:06:54,480
+E só expandindo isso aqui,
+
+106
+00:06:54,480 --> 00:06:58,010
+isso é igual a - 1/m
+
+107
+00:06:58,010 --> 00:07:03,550
+da soma de i até m
+dessa definição da função de perda.
+
+108
+00:07:03,550 --> 00:07:07,530
+Então, isso é
+y⁽ⁱ⁾ log ŷ⁽ⁱ⁾
+
+109
+00:07:07,530 --> 00:07:14,530
++ (1 - y⁽ⁱ⁾ ) log (1 - ŷ⁽ⁱ⁾).
+
+110
+00:07:14,530 --> 00:07:17,880
+Acho que é melhor colocar
+colchetes aqui.
+
+111
+00:07:17,880 --> 00:07:20,945
+Assim o sinal de menos fica 
+fora de tudo isso.
+
+112
+00:07:20,945 --> 00:07:23,665
+Logo, a terminologia que usarei é que
+
+113
+00:07:23,665 --> 00:07:29,120
+a função de perda é aplicada a apenas um
+único exemplo de treinamento.
+
+114
+00:07:29,120 --> 00:07:33,010
+E a função de custo
+é o custo dos seus parâmetros.
+
+115
+00:07:33,010 --> 00:07:36,115
+Então, ao treinar seu
+modelo de regressão logística,
+
+116
+00:07:36,115 --> 00:07:38,980
+definiremos parâmetros 'W' e 'b' que
+
+117
+00:07:38,980 --> 00:07:43,475
+minimizem sua função de custo total " J "
+que está escrita aqui embaixo.
+
+118
+00:07:43,475 --> 00:07:48,040
+Assim, acabamos de ver como definir
+o algoritmo de regressão logística,
+
+119
+00:07:48,040 --> 00:07:50,770
+a função de perda para seu
+exemplo de treinamento,
+
+120
+00:07:50,770 --> 00:07:54,190
+e a função de custo total dos 
+parâmetros do seu algoritmo.
+
+121
+00:07:54,190 --> 00:07:59,485
+Resulta que a regressão logística pode ser
+vista como uma rede neural muito, muito pequena.
+
+122
+00:07:59,485 --> 00:08:01,905
+No próximo vídeo, veremos isso
+de modo que possa começar
+
+123
+00:08:01,905 --> 00:08:04,965
+a entender mais sobre 
+o que faz uma rede neural.
+
+124
+00:08:04,965 --> 00:08:08,230
+Então, vamos ao próximo vídeo,
+que é sobre como
+
+125
+00:08:08,230 --> 00:08:11,630
+enxergar a regressão logística
+como sendo uma pequena rede neural.
+[Tradução: Carlos Lage | Revisão: Julia Yuri]

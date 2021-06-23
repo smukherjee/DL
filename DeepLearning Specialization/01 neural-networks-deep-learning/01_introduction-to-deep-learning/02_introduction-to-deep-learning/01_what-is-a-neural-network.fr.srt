@@ -1,0 +1,540 @@
+1
+00:00:01,050 --> 00:00:03,840
+Le terme 'apprentissage profond' désigne 
+l'entraînement des réseaux de neurones,
+
+2
+00:00:03,840 --> 00:00:06,050
+parfois, de très grands réseaux de neurones.
+
+3
+00:00:06,050 --> 00:00:08,400
+En quoi consiste exactement
+ un réseau de neurones ?
+
+4
+00:00:08,400 --> 00:00:11,340
+Dans cette vidéo, nous allons essayer de vous
+ donner certaines des intuitions fondamentales.
+
+5
+00:00:12,850 --> 00:00:16,540
+Nous allons commencer par l’exemple
+ de la prédiction du prix de l'immobilier.
+
+6
+00:00:16,540 --> 00:00:20,599
+Imaginons que vous avez 
+un ensemble de données de six maisons, 
+vous connaissez la taille des maisons
+
+7
+00:00:20,599 --> 00:00:24,478
+en pieds carrés ou mètres carrés, vous 
+connaissez le prix de la maison et vous voulez
+
+8
+00:00:24,478 --> 00:00:28,501
+adapter une fonction pour prédire
+ le prix des maisons en fonction de leur taille.
+
+9
+00:00:28,501 --> 00:00:33,509
+Si vous connaissez la régression linéaire, 
+vous allez me dire, eh bien nous allons
+
+10
+00:00:33,509 --> 00:00:38,450
+tracer une droite dans ces données 
+et nous obtenons une ligne droite comme ça.
+
+11
+00:00:38,450 --> 00:00:41,850
+Pour mieux faire, vous pourriez dire
+ nous savons que les prix
+
+12
+00:00:41,850 --> 00:00:43,770
+ne peuvent jamais être négatifs.
+
+13
+00:00:43,770 --> 00:00:48,050
+Donc au lieu de tracer une droite 
+qui finira par devenir négative,
+
+14
+00:00:48,050 --> 00:00:49,960
+nous allons plier la courbe ici,
+
+15
+00:00:49,960 --> 00:00:51,530
+pour qu'elle nous donne juste zéro ici.
+
+16
+00:00:51,530 --> 00:00:56,770
+Cette ligne bleue épaisse représente 
+votre fonction pour
+
+17
+00:00:56,770 --> 00:00:59,760
+prédire le prix de la maison 
+en fonction de sa taille.
+
+18
+00:00:59,760 --> 00:01:03,310
+Avec zéro ici et puis une ligne droite 
+qui correspond aux données.
+
+19
+00:01:04,408 --> 00:01:08,735
+Vous pouvez voir cette fonction que 
+vous venez d'adapter aux prix de l'immobilier,
+
+20
+00:01:08,735 --> 00:01:11,880
+comme un réseau de neurones très simple.
+
+21
+00:01:11,880 --> 00:01:14,230
+C'est presque le réseau neuronal
+ le plus simple possible.
+
+22
+00:01:14,230 --> 00:01:15,000
+Laissez-moi le dessiner ici.
+
+23
+00:01:17,220 --> 00:01:22,170
+Nous avons en entrée du réseau de neurones 
+la taille d’une maison que nous appelons x.
+
+24
+00:01:22,170 --> 00:01:26,791
+Elle va dans ce nœud, ce petit cercle et
+
+25
+00:01:26,791 --> 00:01:30,940
+il donne en sortie 
+le prix que nous appelons y.
+
+26
+00:01:30,940 --> 00:01:37,183
+Donc ce petit cercle, qui est un seul neurone 
+dans un réseau de neurones,
+
+27
+00:01:37,183 --> 00:01:41,830
+implémente cette fonction que 
+nous avons dessinée à gauche.
+
+28
+00:01:43,350 --> 00:01:48,940
+Et tout ce que le neurone fait, 
+c'est qu'il prend la taille en entrée, 
+calcule cette fonction linéaire,
+
+29
+00:01:48,940 --> 00:01:51,960
+prend le maximum par rapport à zéro
+ et renvoie ensuite le prix estimé.
+
+30
+00:01:53,190 --> 00:01:58,230
+En passant, dans la littérature sur les réseaux 
+neuronaux, vous voyez souvent cette fonction.
+
+31
+00:01:58,230 --> 00:02:00,992
+Cette fonction qui vaut zéro 
+pendant un certain temps
+
+32
+00:02:00,992 --> 00:02:03,550
+puis qui décolle en ligne droite.
+
+33
+00:02:03,550 --> 00:02:09,108
+Cette fonction est appelée 
+une fonction ReLU, ce qui signifie
+
+34
+00:02:09,108 --> 00:02:17,620
+REctified Linear Unit
+ [unité linéaire rectifiée]
+
+35
+00:02:17,620 --> 00:02:18,252
+Donc R-E-L-U.
+Et
+
+36
+00:02:18,252 --> 00:02:22,520
+rectifiée signifie simplement qu'on prend
+ le maximum avec 0, ce qui explique pourquoi
+ vous obtenez cette forme de fonction.
+
+37
+00:02:23,640 --> 00:02:25,550
+Vous n’avez pas besoin de vous
+ inquiéter à propos des unités ReLU
+
+38
+00:02:25,550 --> 00:02:30,200
+pour le moment, mais c’est quelque chose 
+que vous reverrez plus loin dans ce cours.
+
+39
+00:02:30,200 --> 00:02:33,790
+Donc, si ceci est un réseau de
+ neurones à un seul neurone,
+
+40
+00:02:33,790 --> 00:02:38,870
+un vraiment tout petit réseau neuronal,
+ un réseau de neurones plus grand
+
+41
+00:02:38,870 --> 00:02:44,520
+est ensuite formé en prenant beaucoup 
+de neurones simples et en les empilant.
+
+42
+00:02:44,520 --> 00:02:50,700
+Donc, si vous pensez à ce neurone comme
+ à une seule brique de Lego, alors vous
+
+43
+00:02:50,700 --> 00:02:55,270
+obtenez un réseau de neurones plus grand 
+en empilant beaucoup de ces briques de Lego.
+
+44
+00:02:55,270 --> 00:02:56,110
+Nous allons voir un exemple.
+
+45
+00:02:57,260 --> 00:03:02,220
+Disons qu’au lieu de prédire le prix 
+d’une maison seulement à partir de la taille,
+
+46
+00:03:02,220 --> 00:03:04,330
+vous avez maintenant
+ d’autres caractéristiques.
+
+47
+00:03:04,330 --> 00:03:08,164
+Vous savez d’autres choses sur la maison, 
+comme le nombre de chambres à coucher,
+
+48
+00:03:08,164 --> 00:03:13,630
+Je vais écrire ça #bedrooms,
+ et en fait, l’une des choses
+
+49
+00:03:13,630 --> 00:03:18,820
+qui change vraiment le prix d’une maison 
+est la taille de la famille, n'est ce pas ?
+
+50
+00:03:18,820 --> 00:03:21,882
+Cette maison peut-elle contenir votre 
+famille de trois personnes, ou de quatre
+
+51
+00:03:21,882 --> 00:03:22,687
+personnes, ou une famille de cinq ?
+
+52
+00:03:22,687 --> 00:03:26,351
+Et c’est vraiment la taille 
+en pieds carrés ou en mètres carrés, et
+
+53
+00:03:26,351 --> 00:03:28,960
+le nombre de chambres à coucher 
+qui détermine si, oui ou non,
+
+54
+00:03:28,960 --> 00:03:31,462
+une maison peut correspondre 
+à la taille de votre famille.
+
+55
+00:03:31,462 --> 00:03:34,909
+Et puis, peut-être aussi, 
+vous savez, les zip codes,
+
+56
+00:03:34,909 --> 00:03:40,520
+dans d'autres pays, ça s’appelle 
+le code postal, d’une maison.
+
+57
+00:03:40,520 --> 00:03:48,820
+Le code postal peut être une caractéristique 
+qui vous indique le type de quartier.
+
+58
+00:03:48,820 --> 00:03:51,434
+A quoi peut on accéder 
+à pied dans ce quartier ?
+
+59
+00:03:51,434 --> 00:03:53,635
+Peut on marcher jusqu'à une épicerie ?
+
+60
+00:03:53,635 --> 00:03:54,194
+Aller à l'école à pied ?
+
+61
+00:03:54,194 --> 00:03:55,250
+Ou faut-il y aller en voiture ?
+
+62
+00:03:55,250 --> 00:03:57,870
+Et certaines personnes préfèrent
+ les quartiers très piétonniers.
+
+63
+00:03:57,870 --> 00:04:06,145
+Et puis le code postal ainsi que 
+la richesse, peut-être, vous indiquent,
+
+64
+00:04:06,145 --> 00:04:09,200
+aux États-Unis, certainement,
+ mais dans d’autres pays aussi,
+
+65
+00:04:09,200 --> 00:04:13,590
+vous indiquent quelle est
+ la qualité de l’école.
+
+66
+00:04:13,590 --> 00:04:17,820
+Donc chacun de ces petits cercles que
+ je dessine peut être une de ces ReLU,
+
+67
+00:04:17,820 --> 00:04:22,670
+unités linéaires rectifiées ou une 
+autre fonction légèrement non linéaire.
+
+68
+00:04:22,670 --> 00:04:24,936
+Pour que, en vous basant sur la taille et
+ le nombre de chambres à coucher,
+
+69
+00:04:24,936 --> 00:04:28,420
+vous puissiez estimer la taille de la famille, 
+avec le code postal, l'accessibilité,
+
+70
+00:04:28,420 --> 00:04:32,050
+et à partir du code postal et de la richesse,
+ estimer la qualité de l’école.
+
+71
+00:04:32,050 --> 00:04:35,660
+Et puis finalement vous vous dites que 
+les gens décident de combien ils sont
+
+72
+00:04:35,660 --> 00:04:38,880
+prêts à payer pour une maison
+ en regardant les choses
+ qui comptent vraiment pour eux.
+
+73
+00:04:38,880 --> 00:04:43,060
+Dans ce cas, la taille de la famille, le 
+potentiel piétonnier et la qualité de l’école et
+
+74
+00:04:43,060 --> 00:04:45,210
+c'est ça qui vous aide à prévoir le prix.
+
+75
+00:04:46,330 --> 00:04:51,740
+Donc dans cet exemple, x est
+ l’ensemble de ces quatre entrées.
+
+76
+00:04:53,470 --> 00:04:56,460
+Et y est le prix que 
+vous essayez de prédire.
+
+77
+00:04:57,960 --> 00:05:03,350
+Et donc, en assemblant les quelques
+ neurones simples ou prédicteurs simples
+
+78
+00:05:03,350 --> 00:05:07,360
+que nous avions à la diapositive 
+précédente, nous avons maintenant 
+un réseau de neurones un peu plus grand.
+
+79
+00:05:07,360 --> 00:05:10,850
+Toute la magie du réseau de neurones,
+ c’est que quand vous l’implémentez,
+
+80
+00:05:10,850 --> 00:05:15,860
+vous devez lui donner juste l’entrée x et
+
+81
+00:05:15,860 --> 00:05:20,740
+la sortie y pour un certain nombre d’exemples
+ de votre ensemble d’apprentissage et
+
+82
+00:05:20,740 --> 00:05:23,580
+toutes ces choses au milieu, 
+il les trouvera de lui même.
+
+83
+00:05:25,435 --> 00:05:29,225
+Donc ce que vous implémentez
+ en réalité est ceci.
+
+84
+00:05:29,225 --> 00:05:32,055
+Où, ici, vous avez un réseau de 
+neurones avec quatre entrées.
+
+85
+00:05:32,055 --> 00:05:35,455
+Les caractéristiques d’entrée pourraient être
+ la taille, le nombre de chambres à coucher,
+
+86
+00:05:35,455 --> 00:05:40,365
+le code zip ou code postal et
+ la richesse du quartier.
+
+87
+00:05:40,365 --> 00:05:44,805
+Et donc compte tenu de 
+ces caractéristiques d’entrée,
+
+88
+00:05:44,805 --> 00:05:50,200
+le travail du réseau neuronal
+ sera de prédire le prix y.
+
+89
+00:05:50,200 --> 00:05:55,942
+Notez également que chacun de ces cercles, 
+qui sont appelés des unités cachées dans
+
+90
+00:05:55,942 --> 00:06:02,310
+les réseaux de neurones, que 
+chacun d’eux prend en entrée 
+les quatre caractéristiques d’entrée.
+
+91
+00:06:02,310 --> 00:06:08,139
+Ainsi, par exemple, plutôt que 
+de dire que ce premier nœud
+ représente la taille de la famille et
+
+92
+00:06:08,139 --> 00:06:12,056
+que la taille de la famille repose uniquement
+ sur les caractéristiques x1 et x2.
+
+93
+00:06:12,056 --> 00:06:15,302
+A la place, nous allons dire, 
+eh bien, réseau neuronal,
+
+94
+00:06:15,302 --> 00:06:18,200
+tu décides ce que tu veux 
+que ce nœud représente
+
+95
+00:06:18,200 --> 00:06:21,070
+Et nous te donnons les quatre caractéristiques 
+d'entrée pour calculer ce que tu veux.
+
+96
+00:06:21,070 --> 00:06:26,170
+Donc nous disons que cette couche 
+qui est la couche d’entrée et
+
+97
+00:06:26,170 --> 00:06:28,960
+cette couche au milieu du réseau de
+ neurones sont densément connectées.
+
+98
+00:06:28,960 --> 00:06:31,740
+Parce que toutes les caractéristiques 
+d’entrée sont connectées à chacun
+
+99
+00:06:31,740 --> 00:06:33,980
+de ces cercles au milieu.
+
+100
+00:06:33,980 --> 00:06:38,630
+Et la chose remarquable à propos 
+des réseaux neuronaux est qu’avec 
+suffisamment de données sur
+
+101
+00:06:38,630 --> 00:06:43,290
+x et y, suffisamment d'exemples d'apprentissage
+ avec x et y, les réseaux de neurones
+
+102
+00:06:43,290 --> 00:06:47,450
+sont remarquablement bon pour trouver
+ les fonctions qui relient avec précision x et y.
+
+103
+00:06:48,990 --> 00:06:51,680
+Donc, voici un réseau neuronal de base.
+
+104
+00:06:51,680 --> 00:06:54,290
+En fin de compte, à mesure que vous
+ développez vos propres réseaux de neurones,
+
+105
+00:06:54,290 --> 00:06:57,130
+vous trouverez sans doute qu’ils sont
+ plus utiles et plus puissants
+
+106
+00:06:57,130 --> 00:07:01,620
+en mode d'apprentissage supervisé, c'est à dire
+ quand vous tentez de prendre une entrée x et
+
+107
+00:07:01,620 --> 00:07:06,980
+de la relier à une sortie y, comme nous l’avons vu
+ dans l'exemple de prédiction du prix des logements.
+
+108
+00:07:06,980 --> 00:07:11,490
+Dans la prochaine vidéo, nous verrons d'autres 
+exemples d’apprentissage supervisé et
+
+109
+00:07:11,490 --> 00:07:15,670
+quelques exemples où vous verrez 
+que les réseaux neuronaux peuvent être
+ incroyablement utile pour
+
+110
+00:07:15,670 --> 00:07:16,670
+vos applications également.

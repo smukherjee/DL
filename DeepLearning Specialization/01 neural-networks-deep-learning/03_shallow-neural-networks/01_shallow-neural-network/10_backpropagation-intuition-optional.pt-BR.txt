@@ -1,0 +1,143 @@
+No último video, você viu as equações para retropropagação. Neste vídeo, vamos praticar um pouco de intuição usando a computação gráfica
+para ver como aquelas equações foram derivadas. Este vídeo é completamente opcional. Portanto, sinta-se livre para vê-lo ou não. Você deve ser capaz de fazer todo o trabalho,
+de qualquer forma. Lembrando-se de que quando falamos
+sobre regressão logística, nós tivemos isto, passando adiante,
+onde computamos o 'z', então 'a', e depois
+a função perda [ ʆ (a,y) ]. Então, para usar as derivadas, temos este passo reverso,
+onde poderíamos computar primeiro o dₐ e então, computamos o dz, depois computamos o 'dw' e o 'db'. Assim, a definição para a perda foi: ʆ (a,y) = -y log a -(1-y) log(1-a) Se você é habituado com Cálculo e usar a derivada disso em relação a 'a',
+d [ʆ (a,y)]/dₐ isso lhe daria a fórmula para o dₐ. Assim:
+dₐ = d[ʆ (a,y)] / dₐ = - y log a - (1-y).log (1-a) E se resolvermos a fórmula,
+podemos mostrar que isso é: dₐ = - ( y / a ) + [ (1-y) / (1-a) ] Você apenas os dividiu por meio do Cálculo
+usando as derivadas. Isso ocorre quando você retrocede
+mais um passo para computar o 'dz'. Nós tínhamos que 'dz = a - y'.
+Eu expliquei o porquê anteriormente, mas acontece que
+da regra de cadeia do Cálculo, dz = dₐ . g'(z) Onde: g(z) = σ(z) que é a nossa função de ativação para esta unidade
+ de saída em regressão logística, certo? Então, só para lembrar:
+isso ainda é regressão logística, onde temos x₁ , x₂ e x₃ 
+E depois, apenas um σ (sigma), que nos dá 'a' que nos dará 'ŷ'.
+[ ŷ = a ] Então, aqui, a nossa função de ativação
+foi uma função sigmoide. E em particular, somente àqueles que estão acostumados
+com a regra da cadeia em Cálculo, a razão para isso é porque
+a = σ(z) E assim: ∂ʆ / ∂z = (∂ʆ / ∂a) . (dₐ / dz)
+ [' ∂ ' = derivada parcial] Isso é
+ a = σ(z) isto é igual a (d/dz) g(z) = g'(z) Então, é por isso que esta expressão [∂ʆ /∂z]
+que é dz em nosso código é igual a esta expressão [∂ʆ /∂a]
+que é dₐ em nosso código, vezes g'(z). [dz = dₐ . g'(z)]
+Então é isso. Então, essa última derivada
+faria sentido, somente, se você é familiarizado com Cálculo
+e especificamente com a regra da cadeia. Caso contrário, não se preocupe com isso. Tentarei explicar a 'intuição'
+sempre que for necessário. E finalmente, tendo computado o 'dz'
+para essa regressão logística, vamos calcular o 'dw', que era: dw = dz.x   e   db = dz
+quando você tem um único exemplo de treinamento. Então, isso foi regressão logística. Assim, o que nós faremos,
+quando estivermos calculando a retropropagação para uma rede neural,
+é um cálculo bem similar a esse, mas faremos isso duas vezes, porque agora
+nós não temos um 'x' indo para uma unidade de saída, mas temos 'x' indo para uma camada oculta,
+e depois, indo para a unidade de saída. Então, em vez de o cálculo ter um passo,
+tal como tivemos aqui, teremos duas etapas aqui,
+neste tipo de rede neural, com duas camadas. Assim, nesta rede neural de duas camadas,
+temos: a camada de entrada; uma camada oculta;
+e a camada de saída. Lembre-se das etapas
+do processo de cálculos. Primeiro, você calcula z'¹'
+usando esta equação. Depois, calcula  a'¹'.
+E depois,  o z'²'. Note que o z'²' depende, também,
+dos parâmetros   W'²' e  b'²'. E Então, com base em  z'²', calcule a'²'.
+E finalmente, isso lhe dará a perda. A retropropagação fará o reverso
+para calcular o  dₐ'²'  e, depois, o  dz'²'. E então, você retornará
+para calcular o  dW'²'  e  db'²'. Retornará para calcular o  dₐ'¹' dz'¹'  e assim,
+sucessivamente. Não precisamos usar as derivadas
+com relação ao dado de entrada 'x', pois o 'x' relaciona-se
+com o aprendizado supervisionado. Não estamos tentando otimizar o 'x'. Assim,
+não nos preocuparemos com as derivadas. Pelo menos para o aprendizado supervisionado, com relação a 'x'. Vou pular,
+explicitamente, o cálculo do  dₐ'²'. Se você quiser, na verdade,
+poderá calculá-lo. E então, use-o para computar o dz'²',
+mas na prática você pode compactá-los em uma etapa.
+Assim, você acabará tendo: dz'²' = a'²' - y
+igual ao resultado anterior. E você terá também... Vou escrever aqui embaixo:
+dW'²'  e  db'²' Você tem: dW'²' = dz'²' . a'¹'⸆ 
+[ ⸆ = 'transposto' ] e  db'²' = dz'²' Esse passo é bem similar à regressão logística,
+onde tínhamos dw = dz . x,
+exceto que agora a'¹' faz o papel de 'x'
+e há uma transposição aí por causa da relação entre a matriz W (maiúsculo)
+e o nosso parâmetro individual w (minúsculo). Há uma transposição aí, certo? Porque w = [---] (matriz linha) no caso da
+regressão logística, com uma saída simples. dw'²' é assim, enquanto o W aqui era uma matriz coluna.
+Por isso há uma transposição extra para a'¹', enquanto que para o 'x' aqui, para a regressão logística,
+nós não tivemos isso. Então, isso conclui
+ metade sobre a retropropagação. Novamente, você pode calcular o dₐ'¹' se quiser. Apesar de que, na prática, os cálculos de dₐ'¹' e dz'¹' são, normalmente,
+compactados em uma etapa e assim, o que você vai obter, na verdade, é que: dz'¹' = W'²' ⸆ . dz'²'
+ e então, vezes um elemento, Produto de Hadamard ('element wise product'),
+de g'¹' ' z'¹'.
+ [∴  dz'¹' = W'²' ⸆ . dz'²' . g'¹' ' z'¹' ] Apenas para fazer uma checagem
+das dimensões: Se você tem uma rede neural como esta... resultando em ŷ. Se você tem nₓ = n'⁰' características de entrada, n'¹'  unidade oculta, e  n'²'  até agora... n'²' , em nosso caso, apenas uma unidade de saída. Então, a matriz W'²' é  ( n'²' ₓ n'¹' )
+dimensional z'²'  ∴  dz'²'  será  ( n'²' ₓ 1 )
+dimensional Isso será, na verdade, um por um quando fazemos classificação binária. z'¹', portanto também o dz'¹' serão  ( n'¹' ₓ 1 )
+dimensional. Note que para qualquer variável,
+'foo' e 'dfoo' terão sempre a mesma dimensão. Por isso W e dW terão sempre a mesma dimensão e,
+da mesma forma, b e db;
+ z e dz; etc. Para se certificar de que as dimensões
+de todos eles são iguais, temos:
+dz'¹' = W'²' ⸆ . dz'²' e então, isso é um Produto de Hadamard,
+vezes (g'¹') ' (z'¹'). [ dz'¹' = W'²' ⸆ . dz'²' * g'¹' ' z'¹' ]
+Então, igualando-se as dimensões acima, isto (dz'¹')  será  (n'¹' ₓ 1) = W'²' ⸆ a transposição disso que será
+(n¹ ₓ n²) dimensional dz'²' será  (n² ₓ 1) dimensional e então, este... este [ (g'¹') ' (z'¹') ]
+tem a mesma dimensão do z'¹'. Então, isso será, também,
+ * (n¹ ₓ 1) dimensional. Assim, as dimensões fazem sentido. Certo? (n'¹' ₓ 1), vetor dimensional pode ser obtido por (n'¹' ₓ n'²'), matriz dimensional, vezes (n'²' ₓ 1), porque essas duas coisas dá-lhe
+uma matriz dimensional (n'¹' ₓ 1), e isso se torna o Produto de Hadamard
+de 2 vetores dimensionais (n'¹' ₓ 1). E assim, as dimensões são iguais. Uma dica para a implementação
+de uma retropropagação: Se você se certifica de que
+as dimensões das suas matrizes são iguais, então, considere quais são as dimensões das várias matrizes, incluindo W'¹', W'²', z'¹', z'²', a'¹', a'²', etc.
+E certifique-se de que as dimensões
+dessas operações matriciais são iguais. Às vezes, isso já eliminará bastante,
+um monte de 'bugs' em uma retropropagação. Ok. Então, isso nos deu o dz'¹' e, finalmente, apenas para completar.
+dW'¹' e db'¹'... Devemos anotá-los aqui, eu acho, mas visto que estou indo para o lado direito da tela... dW'¹' e db'¹' são dados
+pelas seguintes fórmulas: dW'¹' = dz'¹'. x⸆ e db'¹' = dz'¹' Você pode notar a similaridade
+entre essas equações e estas, de cima. Na verdade, não é coincidência, porque x faz o papel de a⁰.
+Portanto, x⸆  é  a⁰ ⸆ Essas equações
+são muito similares. Assim, isso dá a ideia de como
+a retropropagação é derivada. Nós temos aqui 6 equações principais
+para: dz'²', dW'²', db'²', dz'¹', dW'¹' e db'¹'. Deixe-me apenas copiar
+estas 6 equações no próximo slide. Até agora, definimos
+derivadas de retropropagação para o caso de você estar treinando
+um único exemplo por vez, mas é natural que, em vez de trabalhar em
+um único exemplo por vez, gostaríamos de vetorizar
+uma diversidade de exemplos de treinamento. Então, lembre-se de que
+para a propagação para frente, quando estamos trabalhando
+com um exemplo por vez, temos equações como esta:
+a'¹' = g'¹'(z'¹') Com a finalidade de vetorizar, pegamos, digamos,
+os z's e nós os agrupamos em colunas como estas...
+E vamos denominá-los Z, maiúsculo. E assim, descobrimos que
+ao agruparmos os valores em colunas e definindo as versões deles, em letras maiúsculas, temos:
+Z'¹' = W'¹' X + b'¹' e  A'¹' = g'¹'(Z'¹') Definimos as notações cuidadosamente neste curso
+ para termos a certeza de que os exemplos de agrupamentos, em diferentes colunas
+de uma matriz, fazem com que tudo isso funcione. Isso faz com que, se você empregar
+a matemática com atenção, o mesmo artifício serve para a retropropagação.
+Portanto, as equações vetoriais são as seguintes: Primeiro, se você pegar estes dz's
+para diferentes exemplos de treinamentos e agrupá-los em diferentes colunas de uma matriz... 
+O mesmo para este (a'²') e este (y)... Então esta é a implementação vetorial (dZ'²' = A'²' - Y)
+e aqui está a definição para... ou seja, você pode calcular dW'²'
+dW'²' = 1/m [dZ'²'(A'¹')⸆] Há um '1/m' extra porque a função custo 'J' é... = 1/m ∑ (para i=1 até n) de função perda ʆ (ŷ ,y) Quando calculamos as derivadas, temos o termo '1/m' extra,
+tal como tivemos quando calculamos a atualização dos pesos
+para a regressão logística. Então esta é a atualização
+que você obtém pra o db'²'. Soma-se os dz's novamente e então, com o '1/m' e depois,
+o dz'¹' é calculado, como segue. Novamente, isto é um Produto de Hadamard.
+Somente que... Vimos no slide anterior que
+isto era um vetor dimensional (n'¹' ₓ 1). Agora isto é uma matriz dimensional (n'¹' ₓ m). Estes dois termos são, também, (n'¹' ₓ m),
+dimensional. É por isso que o asterisco é
+um Produto de Hadamard. Enfim, as duas atualizações restantes. Talvez, isso não seja tão assombroso. Espero que isso tenha dado alguma percepção
+sobre como é a derivada do algoritmo da retropropagação. Em todos os aprendizados de máquina, eu acho que a derivada
+do algoritmo da retropropagação é, na verdade, uma das partes mais complicadas
+da matemática que eu conheço. E isso exige o conhecimento
+tanto da álgebra linear quanto das derivadas de matrizes
+para reaplicar as derivadas desde o princípio. Se você é um expert em cálculo de matriz, poderá provar a derivada do algoritmo
+usando esse processo, mas acho que existem muitos profissionais
+da aprendizagem profunda que têm visto as derivadas
+no nível próximo do que você viu neste vídeo, e você já está apto para ter todas essas intuições
+e para implementar esses algoritmos efetivamente. Se você é um expert em Cálculo, veja se consegue calcular
+as derivadas desde o princípio. É uma das partes mais difíceis da matemática. Uma das operações de derivadas mais difíceis
+ que eu tenho conhecimento,
+dentro de toda a aprendizagem de máquina. De qualquer forma,
+se você colocar isso em prática, ela funcionará e acho que você tem
+ intuições suficientes para adaptá-la e usá-la. Há apenas mais um detalhe que eu quero compartilhar,
+ antes de você implementar a sua rede neural, que é: como inicializar os pesos de sua rede neural. Acontece que inicializar seus parâmetros, não do zero, mas aleatoriamente, revela-se muito importante
+para o treinamento da sua rede neural. No próximo vídeo,
+ você verá o motivo.
+[Tradução: Julia R. Yuri | Revisão: Carlos Lage.]

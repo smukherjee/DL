@@ -1,0 +1,131 @@
+No último video, trabalhamos em um exemplo do uso de um 
+diagrama computacional para calcular uma função J. Agora, vamos fazer uma análise 
+clara deste diagrama computacional. Mostrar como usá-lo para 
+realizar cálculos de derivadas para aquela função J. Aqui está um diagrama computacional. Digamos que você queira calcular 
+a derivada de J com relação a "v". Então, o que é isso? Bem, ele diz que se pegássemos 
+este valor de "v" e mudássemos ele um pouco, 
+como o valor de J mudaria? Bem, "J" está definido como 3 vezes "v". E aqui, v = 11. Então, se quiséssemos aumentar "v" 
+um pouquinho para 11,001, então J, que é 3v, logo atualmente 33, aumentará para 33,003. Então aqui, aumentamos "v" em 0,001. E o resultado disso é que J 
+aumenta 3 vezes este valor. Assim, a derivada de J com 
+relação a "v" é igual a 3, porque o aumento de "J" é 
+3 vezes o aumento de "v". E de fato, este é muito 
+análogo ao exemplo que tivemos no vídeo anterior, 
+onde tivemos f(a) = 3a. E então, calculamos a derivada df/da, 
+que de forma simplificada, com uma notação um pouco simplória, 
+você pode escrever df/da = 3. Então, aqui nós temos J = 3v, e assim dj/dv = 3. Aqui, "J" faz o papel de "f", e "v" faz o papel de "a" neste exemplo 
+que fizemos em um vídeo anterior. Então, de fato, a terminologia de 
+retro-propagação que estamos vendo, é que se você quer calcular a derivada 
+desta variável final de saída, e que normalmente é a variável 
+que você mais se preocupa, com relação a "v", então fizemos 
+um passo da retro-propagação. Então, chamamos um passo 
+atrás neste diagrama. Agora, vejamos um outro exemplo. O que é dJ/da? Em outras palavras, se aumentarmos o 
+valor de "a", como isso afeta o valor de J? Bem, vamos estudar este 
+exemplo, onde agora a = 5. Vamos aumentá-la para 5,001. O impacto ´líquido disso é que "v", 
+que era "a" + "u", que anteriormente era 11, seria aumentado para 11,001. E então, já vimos acima que J agora aumenta para 33,003. Então o que vemos é que, se você 
+aumentar "a" 0,001, "J" aumenta 0,003. E quando me refiro em aumentar "a", quero 
+dizer que você tem que pegar este valor de 5 e simplesmente colocar um novo valor. Então, a mudança em "a" irá propagar 
+para a direita do diagrama computacional, de forma que J acaba sendo 33,003. E assim, o aumento de "J" é 
+3 vezes o aumento de "a". Isto significa que esta derivada é igual a 3. E uma forma de desmembrar isso 
+é dizer que se você mudar "a", então isso mudará "v". E mudando "v", isso mudaria "J". Assim, a mudança no valor de "J", 
+quando você aumenta o valor, quando você dá um empurrãozinho 
+para cima no valor de "a", é que, primeiro, quando você muda "a", 
+você acaba aumentando "v". Bem, quanto o "v" aumenta? Ele aumenta pelo montante 
+determinado por dv/da. E então, a mudança em "v" causará 
+o aumento no valor de "J". Em cálculo, isso é chamado 
+Regra da Cadeia, onde se "a" afeta "v", afeta "J", e então, o quanto
+J muda quando você altera "a" é o produto do quanto 
+"v" muda quando você altera "a" vezes o quanto "J" muda 
+quando você altera "v". Em cálculo, novamente, isto é 
+chamado Regra da Cadeia. E, o que vimos a partir deste cálculo 
+é que se você aumentar "a" em 0,001, "v" altera pelo mesmo valor. Então, dv/da = 1. Então, na verdade, se você fizer 
+o que acabamos de discutir dv/dJ = 3 e dv/da = 1. Então, o produto destas derivadas
+ é 3 vezes 1, que na verdade, lhe dá o 
+valor correto dJ/da = 3. Esta pequena ilustração mostra que, 
+por tendo computado dJ/dv, ou seja, a derivada com 
+respeito a esta variável, ela pode então ajudá-lo 
+a computar dJ/da. E este é outro passo neste 
+cálculo de retro-propagação. Eu quero introduzir mais 
+uma convenção de notação, que é aquela quando você está programando 
+para implementar retro-propagação, normalmente haverá alguma variável de 
+saída final que você realmente se preocupa. A variável de saída final que é realmente 
+importante e que você quer otimizar. Neste caso, esta variável final de saída é "J". É realmente o último nó no 
+seu diagrama computacional. Assim, um monte de cálculos estarão
+tentando calcular a derivada daquela variável final de saída. Então, "d" desta variável final de saída 
+com relação a outra variável. Então, nós chamamos isso de dvar. Um monte de cálculos que você 
+terá, será para calcular a derivada da variável final de saída, "J" neste caso, 
+com várias variáveis intermediárias, tais como "a", "b", "c", "u", ou "v". E, quando você implementa isso no
+software, como você chama esta variável? Uma coisa que você 
+poderia fazer é em Python, você poderia nos dar um nome de 
+variável grande tipo dFinalOutputVar/dvar. Mas este é um nome 
+muito longo de variável. Você poderia chamar esta, 
+eu acho, dJdvar. Mas como você está sempre calculando
+derivadas com relação a dJ, com relação a esta variável final de saída,
+vou introduzir uma nova notação. Onde, no código, quando você estiver calculando
+esta coisa no código que você escrever, iremos usar o nome da variável dvar
+para representar essa quantidade. Então, dvar no seu código
+representará a derivada da variável final de saída que é
+importante para você, como J. Bem, algumas vezes, o último l, com relação
+às diversas quantidades intermediárias que você estiver calculando no seu código. Então, esta coisa aqui no seu código,
+você usa dv para denotar este valor. Então, "dv" seria igual a 3. E seu código, você 
+representa isso como "da", que também 
+descobrimos ser igual a 3. Nós realizamos retro-propagação parcialmente 
+através deste diagrama computacional. Vamos fazer o resto deste
+exemplo no próximo slide. Então, vamos fazer uma cópia limpa
+do nosso diagrama computacional. E somente para recapitular, 
+o que fizemos até agora é ir para atrás aqui 
+e descobrir que dv =3. Novamente, a definição de "dv", 
+é apenas um nome de variável, onde o código é realmente dJ/dv. Nós descobrimos que da = 3. E outra vez, "da" é o nome da variável no 
+seu código e isso é realmente o valor dJ/da. E nós confirmamos como nós retornamos 
+nestes duas pontas desta forma. Agora, vamos continuar 
+calculando derivadas. Vamos olhar o valor de "u". Qual é o valor de dJ/du? Bem, através de um cálculo 
+similar ao que fizemos antes, nós começamos com u = 6. Se você aumentar "u" para 6,001, 
+então "v", que era anteriormente 11, vai para 11,001. E "J" vai de 33 para 33,003. Assim, o aumento de "J" 
+é 3 vezes, então é igual. E a análise para "u" é muito similar 
+à análise que fizemos para "a". Isso é na verdade calculado 
+como dJ/dv vezes dv/du, onde já havíamos 
+identificado que era 3. E isto resulta ser igual a 1. Então, percorremos mais 
+um passo da retro-propagação. Acabamos calculando que 
+"du" também é igual a 3. E du é, naturalmente, 
+apenas este dJ/du. Agora, vamos entrar e 
+detalhar o último exemplo. Qual é o valor de dJ/db? Então, aqui, imagine que você 
+pudesse alterar o valor de "b". E que você queira ajustar "b" 
+a fim de minimizar ou maximizar o valor de J. Qual é a derivada ou qual é a inclinação desta função "J" quando 
+você altera um pouco o valor de "b"? Resulta que usando a regra 
+da cadeia em cálculo, isto pode ser escrito como a 
+multiplicação de duas coisas. Esta dJ/du vezes du/db. E o raciocínio é que se você 
+muda um pouquinho "b", de b = 3 para, digamos, 3,001. A maneira que isso afeta "J" 
+é que primeiro afetará "u". Mas quanto ela afeta "u"? Bem, "u" é definido como "b" vezes "c". Então, isso vai passar de 6, quando b = 3, agora para 6,002, porque c = 2 no nosso exemplo aqui. Então, isto nos diz que
+du/db = 2. Porque quando você aumenta "b" 0,001, 
+"u" aumenta o dobro. Então du/db, isto é igual a 2. E agora, sabemos que "u" subiu 
+duas vezes, tanto como "b" subiu. Bem, qual é o valor de dJ/du? Nós já descobrimos que é igual a 3. E multiplicando estes dois, 
+nós encontramos dJ/db = 6. E novamente, aqui está o raciocínio 
+para esta segunda parte do cálculo. Que é o que queremos saber quando "u" 
+sobe 0,002, como é que isso afeta J? O fato de que dJ/du = 3, 
+nos diz que quando "u" sobe 0,002, "J" sobe 
+3 vezes este valor. Então, J deveria aumentar 0,006. E isso vem do fato que dJ/du = 3. E se você verificar o 
+cálculo detalhadamente, você erá encontrar que 
+se "b" se torna 3,001, então "u" se torna 6,002, 
+"v" se torna 11,002, Então é "a" + "u", que é 5 + "u". E J, que é igual a 3 vezes "v", acaba resultando em 33,006. E assim, você obtém este dJ/db = 6. E para preencher isso, isso é como 
+se fossemos para trás, e isso é db = 6. E db realmente é o nome da 
+variável dJ/db no código Python. E eu não irei passar por este 
+último exemplo no detalhe. Mas resulta que se você computar dJ, isso acaba sendo
+dJ/du vezes du/dc. E isso acaba resultando em 9,
+isto é 3 vezes 3. Não irei abordar aquele exemplo no detalhe. Mas, através desta última etapa, 
+é possível derivar que "dc" é igual. Então a mensagem que fica deste vídeo, 
+deste exemplo, é que quando calculamos derivadas e computamos todas estas derivadas, 
+a maneira mais eficiente de fazer isso é através do processamento da direita para a 
+esquerda seguindo a direção das setas vermelhas. E, em particular, primeiro
+calcularemos a derivada em relação a "v". E isso torna-se útil para calcular a derivada com relação a "a" 
+e a derivada com relação a "u". E então, a derivada com relação a "u", por exemplo, este termo aqui 
+e este outro aqui, tornam-se úteis para calcular 
+a derivada com relação a "b" e a derivada com relação a "c". Então, isso foi o diagrama computacional e, 
+a propagação para frente ou cálculo da esquerda para direita para calcular a função de custo, 
+tal como "J" que você quer otimizar. E a retro-propagação ou o cálculo da direita 
+para a esquerda para calcular derivadas. Se você não está familiarizado com cálculo 
+ou com a regra da cadeia, sei que alguns destes detalhes
+foram passados muito rapidamente, mas se você não acompanhou todos os detalhes,
+não se preocupe. No próximo vídeo, repetiremos o conteúdo 
+no contexto da regressão logística, e mostraremos a você exatamente o que você 
+precisa fazer para implementar os cálculos que necessita para calcular as derivadas do modelo de 
+regressão logística. 
+[Tradução: Renato Barata Gomes | Revisão: Carlos Lage]

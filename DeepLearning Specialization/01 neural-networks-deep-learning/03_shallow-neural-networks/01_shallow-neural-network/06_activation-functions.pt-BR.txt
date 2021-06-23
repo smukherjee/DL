@@ -1,0 +1,134 @@
+Quando você constrói sua rede neural,
+ uma das escolhas que você tem que fazer é qual a função de ativação 
+ usar nas camadas ocultas, bem como quais serão as unidades
+ de saída de sua rede neural. Até agora, usamos
+ apenas a função de ativação sigmoide. Mas, às vezes, outras escolhas
+ podem funcionar muito melhor. Vamos dar uma olhada em algumas das opções. Nos passos da propagação direta 
+da rede neural, temos esses três passos, nos quais
+ utilizamos a função sigmoide aqui. Assim, a sigmoide é chamada
+ de função de ativação. E aqui está a conhecida função sigmoide, a = 1/(1+e⁻ᶻ) Então, no caso mais geral,
+ podemos ter uma função diferente, g(z) [NT: lê-se "g" de "z"],
+ a qual estou escrevendo aqui, onde g poderia ser uma função não linear
+ que não pode ser a função sigmoide. Então, por exemplo, a função sigmoide
+ varia entre zero e um, e a função de ativação que, quase sempre,
+ funciona melhor do que a função sigmoide é a função tanh: 
+ tangente hiperbólica. Então, isso é z, 
+isso é a = tanh(z) e isso varia de
+ +1 até -1. A fórmula para a função tanh é (eᶻ - e⁻ᶻ)/ (eᶻ + e⁻ᶻ) E, na verdade, matematicamente,
+ é uma versão deslocada da função sigmoide. Então, como uma função sigmoide dessa,
+ mas deslocada, a fim de atravessa o ponto (zero, zero) e
+ na escala, então vai de -1 até +1. Acontece que, para as unidades ocultas,
+ se você deixar a função g de Z ser igual a tanh(z), isso, quase sempre, funciona
+ melhor do que a função sigmoide porque os valores entre +1
+ e -1, a média das ativações que vêm da camada oculta, e
+ eles estão mais próximos à média 0. E, então, às vezes, quando
+ você treina um algoritmo de aprendizagem, você pode centralizar os dados e eles podem ter média 0, usando
+ uma funçãpo tanh ao invés de uma função sigmoide. Tem o tipo de efeito
+de centralização de dados, a fim de que a média de seus dados esteja
+ próxima de 0 ao invés de, 
+talvez, 0,5 (meio). E isso, na verdade, facilita o aprendizado para
+ a próxima camada, um pouco mais fácil. Falaremos mais sobre isso no segundo
+ curso, quando conversarmos sobre algoritmos de otimização também. Mas uma vantagem é que eu, praticamente, nunca mais usei a função ativação
+ sigmoide. A função tanh é, quase
+ sempre, estritamente superior. A única exceção é para a camada
+ de saída porque, se y é 0 ou 1, então, faz sentido 
+ ŷ ser um número, a única saída é a que está entre 0 e
+ 1 ao invés de -1 e 1. Então, a exceção onde
+ eu utilizaria a função ativação sigmoide é quando você
+ está usando classificação binária; nesse caso, você pode usar a função ativação
+ sigmoide para as camadas de saída. Então, g(z'²') aqui é igual a sigma de z'²' . E, então, o que você vê nesse exemplo
+ é onde você pode ter uma função de ativação tanh para a camada oculta,
+ e uma função sigmoide para a camada de saída. Então, a as funções de ativação podem ser
+ diferentes para camadas diferentes. E, às vezes, para realçar que as funções
+ de ativação são diferentes para camadas diferentes, nós podemos usar esses
+ sobrescritos em colchetes também para indicar que o g'¹' pode
+ ser diferente do g'²'. Novamente, o sobrescrito do colchete um
+ refere-se a essa camada e o sobrescrito do colchete dois
+ refere-se à camada de saída. Agora, uma das desvantagens de
+ ambas as funções, sigmoide e tanh, é que, se z for
+ muito grande ou muito pequeno, então o gradiente ou a derivada ou a
+ inclinação dessa função torna-se muito pequena. Então, se z for muito grande
+ou muito pequeno, a inclinação da função
+ acaba sendo próxima de 0. E, então,
+ isso pode retardar a descida do gradiente. Então, uma outra escolha
+ que é muito popular na aprendizagem da máquina é
+ chamada de unidade linear retificada. Então, a função de valor se parece com isso. E a fórmula é = max(0,z). Então, a derivada é 1,
+ enquanto Z for positivo. E a derivada ou
+ a inclinação é 0, quando Z for negativo. Se você estiver implementando isso, tecnicamente a derivada, quando Z
+ for exatamente 0, não é bem definida. Mas quando você implementa
+ isso no computador, a resposta que você obterá exatamente
+ é Z igual a 0,0000000000001. É muito pequeno, então você não necessita
+ de se preocupar com isso na prática. Você poderia simular a derivada,
+ quando Z for igual a 0, você pode simular que é 1 ou 0 e,
+ então, qual tipo funciona muito bem. Então, o fato é que não é diferenciável,
+ e o fato de que, por isso, aqui estão algumas regras de ouro para
+ a escolha das funções de ativação. Se sua saída pode ser ou 0, ou 1,
+ se você estiver usando a classificação binária, então a função ativação sigmoide é uma
+ escolha muito natural para a camada de saída. E, então, para todas as outras, usar ReLU, ou a unidade linear retificada, é cada vez maior a escolha
+ do padrão da função de ativação. Então, se você não tiver certeza do que usar para
+ sua camada oculta, eu usaria apenas a função
+ de ativação ReLU. É o que você vê a maioria
+ das pessoas usando hoje em dia. Embora, às vezes, as pessoas também
+ usem a função de ativação tanh. Uma desvantagem da ReLU é que
+ a derivada é igual a zero, quando z é negativo. Na prática, isso funciona muito bem. Mas há uma outra versão da
+ ReLU, chamada de ReLU solta. Eu darei a vocês a fórmula
+ no próximo slide. Mas, ao invés de ser
+ 0 quando Z é negativo, basta uma leve inclinação,
+ então isso é chamado de ReLU solta. Isso, geralmente, funciona melhor do que
+ a função de ativação ReLU, embora não seja
+ muito utilizada na prática. Qualquer um deveria ser bom, embora, se você tivesse que escolher um,
+ geralmente costumo usar o ReLU. E a vantagem de ambas - ReLU e
+ ReLU solta - é que, para muitos dos espaços de Z,
+ a derivada da função de ativação, a inclinação da função
+ de ativação é muito diferente de 0. E, então, na prática,
+ usando a função de ativação ReLU, sua rede neural, frequentemente, aprenderá
+ muito mais rápido do que quando utilizar a função de ativação tanh ou função de ativação sigmoide. E o motivo principal é que há
+ menos desses efeitos de inclinação da função tender a 0,
+ o que retarda a aprendizagem. E eu sei que, para metade dos valores
+ de z, a inclinação de ReLU é 0, mas, na prática, o suficiente das unidades
+ ocultas terão z maior que 0. Então, a aprendizagem ainda pode ser bem rápida para
+ a maioria dos exemplos de treino. Então, vamos recapitular bem rapidamente os prós e
+ contras das diferentes funções de ativação. Aqui está a função de ativação sigmoide. Nunca use esta, 
+ exceto para a camada de saída, se você estiver fazendo classificação binária,
+ ou talvez quase nunca use. E o motivo pelo qual eu quase nunca
+ uso isso é porque a tanh é estritamente muito mais superior. Então, a função de ativação tanh é esta. E, então, o padrão, a função de ativação
+ mais comumente usada é a ReLU, que é essa. Então, se você tem dúvidas do que mais utilizar,
+ use essa aqui e, talvez, sinta-se livre também
+ para tentar a ReLU solta. Onde pode ser (0.01z, Z) 
+[NT: um centézimo de z, z]. Certo?
+ Então, um é o máximo de 0,01 vezes z e Z, que lhe dá
+ algumas curvas da função. E você pode dizer,
+ por que é essa a constante 0,01? Bem, você pode também fazer aquele outro
+ parâmetro de algoritmo de aprendizagem. E algumas pessoas dizem
+ que funciona bem melhor. Mas eu quase não vejo as pessoas fazerem isso. Mas se você sentir como no seu
+ aplicativo, por favor, sinta-se livre para fazer isso. E você pode apenas ver como funciona,
+ e o quão bem ele funciona, e ficar com ele, se ele te
+ der um bom resultado. Então, eu espero que te dê uma noção de algumas
+ das escolhas de funções de ativação que você pode utilizar em sua rede neural. Um dos temas que veremos em aprendizagem
+ profunda é que você, frequentemente, tem muitas escolhas diferentes sobre como
+ codificar sua rede neural, variando desde o número de unidades ocultas,
+ até a escolha da função de ativação, ou como inicializar os pesos,
+que veremos mais tarde. Muitas escolhas como essa. Acontece que, às vezes,
+ é difícil conseguir boas orientações exatamente para o que funcionaria melhor
+ para o seu problema. Então, ao longo desses cursos, eu
+ continuo dando a vocês uma noção do que vejo na indústria em termos
+ de o que é mais ou menos popular. Mas para a sua aplicação,
+ com idiossincrasias de sua aplicação, de fato é muito difícil saber
+, com antecedência, exatamente o que funcionará melhor. Então, seria um conselho comum
+, se você não tem certeza de qual dessas funções de ativação funciona melhor,
+ experimentar todas elas e avaliar um conjunto de validações ou um desenvolvimento
+, sobre os quais conversaremos mais tarde, e veremos quais funcionam melhor
+ para continuarmos com isso. E eu penso que, testando essas
+ escolhas diferentes para a sua aplicação, seria melhor para o futuro da arquitetura de sua
+ rede neural contra as idiossincrasias de seu problema,
+ assim como as evoluções dos algoritmos. Ao invés de, se eu tivesse que determinar uma,
+ sempre utilize uma ativação ReLU e não use nenhuma outra. Isso pode ou não ser aplicado para
+ qualquer problema em que você vier a trabalhar, seja num futuro próximo ou
+ distante. Tudo bem, então essa foi a escolha
+ das funções de ativação e vocês viram as funções
+ de ativação mais populares. Há uma outra questão
+ que, às vezes, vocês poderiam perguntar, que é: por que não é preciso nem mesmo
+ utilizar uma função de ativação em tudo? Por que não terminar com isso? Então, vamos conversar sobre
+ no próximo vídeo, no qual vocês verão por que as redes neurais realmente necessitam
+de alguns tipos de função de ativação não linear.
+[Tradução: Helena Lucas Rosa | Revisão: Carlos Lage.]

@@ -1,0 +1,208 @@
+<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:w10="urn:schemas-microsoft-com:office:word" xmlns:m="http://schemas.microsoft.com/office/omml/2004/12/core" xmlns:ve="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:o12="http://schemas.microsoft.com/office/2004/7/core" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:wp="http://schemas.openxmlformats.org/drawingml/2006/3/wordprocessingDrawing" xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/3/main" xmlns="http://www.w3.org/TR/REC-html40">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <head>
+    <style>style</style>
+  </head>
+  <body>
+    <div class="Section1">
+      <p>
+        <b>
+          <u>
+            <span style="font-size:20.0pt">Quick tour of Jupyter:iPython Notebooks</span>
+          </u>
+        </b>
+      </p>
+      <p>
+(SPEECH)        <br/>
+With        <br/>
+      </p>
+      <p>
+(DESCRIPTION)        <br/>
+Text, basics of neural network programming. Quick tour of Jupyter i Python notebooks        <br/>
+      </p>
+      <p>
+(SPEECH)        <br/>
+everything you've learned, you're just about ready to tackle your first programming assignment.        <br/>
+      </p>
+      <p>
+Before you do that, let me just give you a quick tour of iPython notebooks in Coursera.        <br/>
+      </p>
+      <p>
+Here you see Jupiter iPython notebook that you can get to on Coursera.        <br/>
+      </p>
+      <p>
+Let me just quickly show you a few features of this.        <br/>
+      </p>
+      <p>
+The        <br/>
+      </p>
+      <p>
+(DESCRIPTION)        <br/>
+Coursera page with document. Document title, logistic regression with a neural network mind set. Introductory text. Welcome to your second programming assignment. You will implement an algorithm recognizing cat faces on images. You will have to use what you've implemented in the first programming assignment        <br/>
+      </p>
+      <p>
+(SPEECH)        <br/>
+instructions are written right here in the text in the iPython notebook.        <br/>
+      </p>
+      <p>
+And        <br/>
+      </p>
+      <p>
+(DESCRIPTION)        <br/>
+Rules of the assignment, forbidding for or while loops. Learning objectives. Build the general architecture of a learning algorithm, including initializing parameters, calculating cost function and gradient, and gathering all functions in a main model function        <br/>
+      </p>
+      <p>
+(SPEECH)        <br/>
+these long light gray blocks are blocks of code.        <br/>
+      </p>
+      <p>
+So        <br/>
+      </p>
+      <p>
+(DESCRIPTION)        <br/>
+Document contains interstitial passages on a gray background. They are segments of Python code, beginning with import library statements        <br/>
+      </p>
+      <p>
+(SPEECH)        <br/>
+occasionally, you'll see in these blocks something that'll say this is the START CODE HERE and END CODE HERE.        <br/>
+      </p>
+      <p>
+To        <br/>
+      </p>
+      <p>
+(DESCRIPTION)        <br/>
+With three pound signs at the beginning of the start code and end code lines, representing a comment that is not processed by the Python interpreter        <br/>
+      </p>
+      <p>
+(SPEECH)        <br/>
+do your exercise please make sure to write your code between the START CODE HERE and END CODE HERE.        <br/>
+      </p>
+      <p>
+So, for example, print Hello world.        <br/>
+      </p>
+      <p>
+And then to execute a code block, you can hit shift+enter and then execute this code block which, I guess, we just wrote print Hello world.        <br/>
+      </p>
+      <p>
+So        <br/>
+      </p>
+      <p>
+(DESCRIPTION)        <br/>
+The sentence, hello world, appears beneath the gray segment of code        <br/>
+      </p>
+      <p>
+(SPEECH)        <br/>
+that prints it Hello World.        <br/>
+      </p>
+      <p>
+To run a cell, you can also, to run one of these code blocks of cell, you can also click cell and then run cell. So        <br/>
+      </p>
+      <p>
+(DESCRIPTION)        <br/>
+Menu bar at top of document        <br/>
+      </p>
+      <p>
+(SPEECH)        <br/>
+that executes this.        <br/>
+      </p>
+      <p>
+It's possible that on your computer, the keyboard shortcut for Cell, Run Cell might be different than shift+enter.        <br/>
+      </p>
+      <p>
+But on both, my Mac as well as on my PC is shift+enter, so might be the same for you as well.        <br/>
+      </p>
+      <p>
+Now        <br/>
+      </p>
+      <p>
+(DESCRIPTION)        <br/>
+Instructions change from a formatted document to a layout specification language in plain text, also in a gray background segment        <br/>
+      </p>
+      <p>
+(SPEECH)        <br/>
+when you're reading the instructions, if you accidentally double click on it, you might end up with this mark down language.        <br/>
+      </p>
+      <p>
+If you end up with this funny looking text, to convert it back to the nice looking text just run this Cell.        <br/>
+      </p>
+      <p>
+So you can go to Cell, Run Cell or I'm going to hit shift+enter and that basically executes the mark down and turns it back into this nice looking code.        <br/>
+      </p>
+      <p>
+Just a couple more tips.        <br/>
+      </p>
+      <p>
+When you execute code like this, it actually runs on a kernel, on a piece of code that runs on the server.        <br/>
+      </p>
+      <p>
+If you're running an excessively large job or if you leave a computer for a very long time or something goes wrong, your internet connection or something, there is a small chance that a kernel on the back end might die, in which case, just click Kernel and then restart Kernel.        <br/>
+      </p>
+      <p>
+And        <br/>
+      </p>
+      <p>
+(DESCRIPTION)        <br/>
+In Kernel menu on menu bar at top of document        <br/>
+      </p>
+      <p>
+(SPEECH)        <br/>
+hopefully, that will reboot the kernel and make it work again.        <br/>
+      </p>
+      <p>
+So that shouldn't happen if you're just running relatively small jobs and you're just starting up iPython notebook.        <br/>
+      </p>
+      <p>
+If you see an error message that the Kernel has died or something, you can try Kernel, Restart.        <br/>
+      </p>
+      <p>
+Finally, in iPython notebook, like this, there may be multiple blocks of code.        <br/>
+      </p>
+      <p>
+So        <br/>
+      </p>
+      <p>
+(DESCRIPTION)        <br/>
+Scrolling down to section two of the document, overview of the problem set. Problem statement        <br/>
+      </p>
+      <p>
+(SPEECH)        <br/>
+even if an earlier block of code doesn't have any create in code, make sure to execute this block of code because, in this example, it imports numpy as np and so on, and sets up some of the variables that you might need in order to execute the lower down blocks of code.        <br/>
+      </p>
+      <p>
+So        <br/>
+      </p>
+      <p>
+(DESCRIPTION)        <br/>
+Scrolling between first and second code blocks. First block imports the symbol N.P., which is used in the second        <br/>
+      </p>
+      <p>
+(SPEECH)        <br/>
+be sure to execute the ones on top even if you aren't asked to write any code in them.        <br/>
+      </p>
+      <p>
+And finally, when you're done implementing your solutions, there's this blue submit assignment buttons here on the upper right and we click that to submit your solutions for grading.        <br/>
+      </p>
+      <p>
+I've found that the interactive command shell nature of iPython notebooks to be very useful for learning quickly, implement a few lines of code, see an outcome, learn and add very quickly.        <br/>
+      </p>
+      <p>
+And so I hope that from the exercises in Coursera, Jupyter iPython notebooks will help you quickly learn and experiment and see how to implement these algorithms.        <br/>
+      </p>
+      <p>
+There's one more video after this.        <br/>
+      </p>
+      <p>
+This is an optional video that talks about the cost function for logistic regression. You can watch that or not.        <br/>
+      </p>
+      <p>
+Either way is perfectly fine.        <br/>
+      </p>
+      <p>
+But either way, best of luck with the week 2 programming assignments.        <br/>
+      </p>
+      <p>
+And I also look forward to seeing you at the start of the week three.        <br/>
+      </p>
+    </div>
+  </body>
+</html>

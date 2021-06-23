@@ -1,0 +1,538 @@
+1
+00:00:00,000 --> 00:00:01,619
+(Bir Gizli Katmanlı Neural Ağ - Rastgele Başlatma)
+Neural ağınızı eğitirken,
+
+2
+00:00:01,619 --> 00:00:03,955
+ağırlıkların başlangıç değerlerini 
+rastgele ayarlamak önemlidir
+
+3
+00:00:03,955 --> 00:00:08,426
+Lojistik regresyon için, ağırlıkların başlangıç 
+değerlerini  sıfır ayarlamak tamamdır.
+
+4
+00:00:08,426 --> 00:00:12,258
+Ancak bir neural ağ için ağırlıkların 
+parametrelerini sıfır başlatmak ve 
+
+5
+00:00:12,258 --> 00:00:14,706
+sonra uygulanan gradyan düşümü 
+(gradient descent) işe yaramaz.
+
+6
+00:00:14,706 --> 00:00:15,289
+Neden olduğunu görelim.
+
+7
+00:00:15,289 --> 00:00:20,173
+Yani burada iki giriş özelliği var, yani
+
+8
+00:00:20,173 --> 00:00:25,953
+n0=2, ve iki gizli birim, yani n1=2.
+
+9
+00:00:25,953 --> 00:00:31,547
+ve böylece ilişkili matris ile gizli katman,
+
+10
+00:00:31,547 --> 00:00:35,373
+ w 1, ikiye iki olacak.
+
+11
+00:00:35,373 --> 00:00:41,230
+Diyelim ki ikiye iki matrisini 
+hepsi 0 olarak tanımladın, yani 0 0 0 0.
+
+12
+00:00:41,230 --> 00:00:45,531
+Ve B1'in de 0 0'a eşit olduğunu söyleyelim.
+
+13
+00:00:45,531 --> 00:00:50,788
+Bias terimlerinin 0 dan b'ye kadar
+ tanımlanması gerçekten iyi çıkıyor,
+
+14
+00:00:50,788 --> 00:00:54,240
+ancak w için hepsi 0 tanımlanması bir sorundur.
+
+15
+00:00:54,240 --> 00:00:59,625
+Yani bu başlangıç biçimiyle ilgili sorun,
+
+16
+00:00:59,625 --> 00:01:05,522
+ona verdiğiniz herhangi bir örnek için, 
+a1,1 elde edersiniz ve
+
+17
+00:01:05,522 --> 00:01:09,253
+a1, 2' ye eşit olacak, değil mi?
+
+18
+00:01:09,253 --> 00:01:12,613
+Yani bu aktivasyon ve
+ bu aktivasyon aynı olacaktır,
+
+19
+00:01:12,613 --> 00:01:17,170
+çünkü  bu gizli birimlerden her ikisi de 
+tam olarak aynı fonksiyonu hesaplıyor. 
+
+20
+00:01:17,170 --> 00:01:21,810
+ve sonra , geriye yayılımı hesapladığınızda,
+
+21
+00:01:21,810 --> 00:01:24,478
+ortaya dz11 çıktı ve
+
+22
+00:01:24,478 --> 00:01:30,165
+dz12 de simetri ile aynı tür olacak, değil mi?
+
+23
+00:01:30,165 --> 00:01:33,720
+Bu gizli birimlerden ikisi de aynı şekilde tanımlanacaktır.
+
+24
+00:01:33,720 --> 00:01:36,080
+Teknik olarak, söylediklerim için,
+
+25
+00:01:36,080 --> 00:01:39,851
+Giden ağırlıklarından aynı 
+olduğunu farz ediyorum.
+
+26
+00:01:39,851 --> 00:01:45,122
+Yani bu w2 0 0' a eşittir.
+
+27
+00:01:45,122 --> 00:01:48,691
+Ama eğer neural ağı bu yöntemle başlatırsanız,
+
+28
+00:01:48,691 --> 00:01:53,590
+o zaman bu gizli birim ve
+ bu gizli gizli birim tamamen aynı olur.
+
+29
+00:01:53,590 --> 00:01:57,011
+Bazen tamamen simetrik olduklarını söylüyorsunuz,
+
+30
+00:01:57,011 --> 00:02:01,687
+bu da tam olarak aynı fonksiyonu
+ yerine getirdikleri anlamına geliyor.
+
+31
+00:02:01,687 --> 00:02:03,765
+ve indüksiyonla(induction) bir kanıt olarak,
+
+32
+00:02:03,765 --> 00:02:08,064
+her bir yinelemeli eğitimden sonra,
+ iki gizli birimin
+
+33
+00:02:08,064 --> 00:02:11,272
+hala tam olarak aynı fonksiyonu 
+hesapladığı ortaya çıkıyor.
+
+34
+00:02:11,272 --> 00:02:17,521
+Bu yüzden dw' nin buna benzeyen 
+bir matris olacağını göstermek mümkün.
+
+35
+00:02:17,521 --> 00:02:20,681
+Her satırın aynı değeri aldığı yer.
+
+36
+00:02:20,681 --> 00:02:23,318
+Yani bir ağırlık güncellemesi yapıyoruz.
+
+37
+00:02:23,318 --> 00:02:30,163
+Yani  bir ağırlık güncellemesi yaptığınızda,
+ w1 w1- alfa defa dw gibi güncellenir.
+
+38
+00:02:30,163 --> 00:02:33,740
+Her iterasyondan sonra, bu w1'i bulduğunuzda,
+
+39
+00:02:33,740 --> 00:02:37,616
+ilk satır ikinci satıra eşit olacaktır.
+
+40
+00:02:37,616 --> 00:02:41,487
+Eğer tüm yolları, w' deki tüm değerleri 0
+ başlangıç değerleri ile ayarlarsak
+
+41
+00:02:41,487 --> 00:02:44,688
+indüksiyon (induction) ile kanıt oluşturmak mümkündür ,
+
+42
+00:02:44,688 --> 00:02:49,164
+o zaman çünkü iki gizli birimde(units) aynı fonksiyonu hesaplamaya başlar.
+
+43
+00:02:49,164 --> 00:02:53,541
+Ve her iki gizli birim(units) çıkış biriminde aynı etkiye sahiptirler,
+
+44
+00:02:53,541 --> 00:02:57,542
+son bir iterasyondan sonra, aynı açıklama hala doğru,
+
+45
+00:02:57,542 --> 00:03:00,273
+iki gizli birim hala simetriktir.
+
+46
+00:03:00,273 --> 00:03:04,507
+Ve bu nedenle, indüksiyon ile, iki iterasyon 
+ve üç iterasyondan sonra ve böyle devam eden,
+
+47
+00:03:04,507 --> 00:03:07,013
+neural ağınızı ne kadar eğittiğiniz önemli değil,
+
+48
+00:03:07,013 --> 00:03:10,373
+her iki gizli birimde de hala aynı fonksiyonu hesaplar.
+
+49
+00:03:10,373 --> 00:03:15,212
+Ve böylece bu durumda, birden fazla 
+gizli birime sahip olmanın anlamı yoktur.
+
+50
+00:03:15,212 --> 00:03:17,692
+Çünkü hepsi aynı şeyi hesaplıyorlar.
+
+51
+00:03:17,692 --> 00:03:22,378
+Ve elbette, daha büyük neural ağlar için, 3 özellik ve
+
+52
+00:03:22,378 --> 00:03:24,972
+belki çok büyük bir sayıda gizli birimden bahsedelim,
+
+53
+00:03:24,972 --> 00:03:29,239
+bir benzer argümanın bunun gibi bir 
+neural ağı ile çalıştığını gösterir.
+
+54
+00:03:29,239 --> 00:03:34,107
+Eğer ağırlıkları sıfırlarsanız, tüm kenarları çizecektir çünkü,
+
+55
+00:03:34,107 --> 00:03:37,103
+o zaman tüm gizli birimleriniz simetrik,
+
+56
+00:03:37,103 --> 00:03:40,603
+ve ne kadar zamandır dereceli(eğimli) alçalma 
+çalıştırıyorsanız önemli değil,
+
+57
+00:03:40,603 --> 00:03:44,037
+hepsi tam olarak aynı fonksiyonu 
+hesaplamaya devam eder.
+
+58
+00:03:44,037 --> 00:03:48,785
+Yani bu pek işe yaramaz, çünkü farklı gizli birimlerin
+
+59
+00:03:48,785 --> 00:03:52,835
+farklı fonksiyonları hesaplamasını istiyorsunuz.
+
+60
+00:03:52,835 --> 00:03:57,748
+Bunun çözümü parametrelerinizi rastgele başlatmanızdır.
+
+61
+00:03:57,748 --> 00:03:58,677
+ İşte burada yaptıklarınız.
+
+62
+00:03:58,677 --> 00:04:04,053
+w1 = np.random.randn  olarak belirleyebilirsiniz.
+
+63
+00:04:04,053 --> 00:04:07,037
+Bu rastgele bir Gauss değişkeni üretir (2,2).
+
+64
+00:04:07,037 --> 00:04:12,358
+Ve sonra genellikle, bunu 0,01 gibi
+ çok küçük bir sayı ile çarpın.
+
+65
+00:04:12,358 --> 00:04:14,951
+Böylece onu çok küçük rastgele değerler ile başlatırsınız.
+
+66
+00:04:14,951 --> 00:04:20,590
+Ve böylece b'nin simetri sorunu olmadığı ortaya çıkıyor.
+
+67
+00:04:20,590 --> 00:04:24,735
+Buna simetri kırılma problemi 
+(symmetry breaking problem) denir.
+
+68
+00:04:24,735 --> 00:04:29,370
+Yani b'yi sıfır başlatmak sorun değildir.
+
+69
+00:04:29,370 --> 00:04:32,166
+Çünkü w rastgele başlatıldığı sürece,
+
+70
+00:04:32,166 --> 00:04:36,769
+Farklı şeyleri hesaplayan farklı
+ gizli birimler ile başlıyorsunuz.
+
+71
+00:04:36,769 --> 00:04:40,912
+Ve böylece artık simetri kırma problemi 
+(symmetry breaking problem) sorun değildir.
+
+72
+00:04:40,912 --> 00:04:43,795
+Ve sonra benzer şekilde, w2 için, bunu rastgele başlatacaksınız.
+
+73
+00:04:43,795 --> 00:04:48,858
+Ve b2, bunu da 0 olarak başlatabilirsiniz.
+
+74
+00:04:48,858 --> 00:04:55,321
+Yani merak ediyor olabilirsiniz bu sabit değer nereden geldi ve neden 0.01? diye
+
+75
+00:04:55,321 --> 00:04:58,478
+Neden 100 veya 1000 değil?
+
+76
+00:04:58,478 --> 00:05:02,313
+Genellikle ağırlıkların çok küçük
+ rastgele değerlerle
+
+77
+00:05:02,313 --> 00:05:05,763
+başlamasını tercih ettiğimiz ortaya çıkıyor.
+
+78
+00:05:05,763 --> 00:05:10,443
+Çünkü eğer bir tanh veya sigmoid aktivasyon fonksiyonu 
+(sigmoid activation function) 
+
+79
+00:05:10,443 --> 00:05:14,047
+ya da diğer sigmoid'i kullanıyorsanız, 
+sadece çıktı katmanında bile.
+
+80
+00:05:14,047 --> 00:05:17,922
+Eğer ağırlıklar çok büyük ise,
+
+81
+00:05:17,922 --> 00:05:23,967
+o zaman aktivasyon değerlerini hesapladığınızda,
+
+82
+00:05:23,967 --> 00:05:28,621
+z[1] = w1 x + b 'yi unutmayın.
+
+83
+00:05:28,621 --> 00:05:34,094
+Ve sonra a1, z1'e uygulanan aktivasyon fonksiyonudur.
+
+84
+00:05:34,094 --> 00:05:39,097
+Yani w çok büyük ise ,z de çok büyük 
+yada en azından bazı değerlerde
+
+85
+00:05:39,097 --> 00:05:44,235
+z değerleri çok büyük veya
+ çok küçük olacaktır.
+
+86
+00:05:44,235 --> 00:05:49,789
+Ve bu durumda, tahn fonksiyonunun veya 
+eğimin (slope) veya
+
+87
+00:05:49,789 --> 00:05:55,699
+eğimin çok küçük olduğu sigmoid fonksiyonunun
+ bu şişman kısımlarında ortaya çıkma olasılığı daha yüksektir.
+
+88
+00:05:55,699 --> 00:05:58,302
+Bu gradyan düşümü (gradient descent) çok yavaş olacak demektir.
+
+89
+00:05:58,302 --> 00:05:59,730
+Yani öğrenme çok yavaştı.
+
+90
+00:05:59,730 --> 00:06:04,133
+Yani sadece bir özet, eğer w çok büyük ise, 
+
+91
+00:06:04,133 --> 00:06:08,633
+eğitimin başlangıcında bile çok büyük 
+değerlerle sona ermeniz daha olasıdır.
+
+92
+00:06:08,633 --> 00:06:13,525
+Hangi durumlar tahn veya 
+sigmoid aktivasyon fonksiyonu doygun hale getirir.
+
+93
+00:06:13,525 --> 00:06:15,418
+Böylece öğrenmeyi yavaşlatır.
+
+94
+00:06:15,418 --> 00:06:17,231
+Neural ağınız boyunca eğer 
+hiçbir sigmoid veya
+
+95
+00:06:17,231 --> 00:06:22,149
+tahn aktivasyon fonksiyonunuz yoksa,
+ bu daha az sorun olur.
+
+96
+00:06:22,149 --> 00:06:26,506
+Ancak eğer ikili sınıflama yapıyorsanız, ve
+ çıkış biriminiz bi sigmoid fonksiyon ise
+
+97
+00:06:26,506 --> 00:06:30,806
+başlangıç parametrelerinin çok büyük
+ olmasını istemezsiniz.
+
+98
+00:06:30,806 --> 00:06:35,435
+işte bu yüzden 0.01 ile çarpmak,
+ denemek için makul bir şey
+
+99
+00:06:35,435 --> 00:06:36,872
+ya da başka küçük bir sayı olurdu.
+
+100
+00:06:36,872 --> 00:06:38,536
+Ve w2 için de aynı, değil mi?
+
+101
+00:06:38,536 --> 00:06:44,295
+Bu random.random olabilir.
+
+102
+00:06:44,295 --> 00:06:49,545
+Sanırım bu örnekte 1'den 2'ye kadar, 0.01 kez
+
+103
+00:06:49,545 --> 00:06:51,404
+Orada bir eksik
+
+104
+00:06:51,404 --> 00:07:00,085
+Sonuç olarak, bazen onlar 0.01'den daha iyi sabitler olabilir.
+
+105
+00:07:00,085 --> 00:07:04,304
+Sadece bir gizli katmanı olan
+ bir neural ağını eğitirken,
+
+106
+00:07:04,304 --> 00:07:09,129
+çok fazla gizli katman olmaksızın nispeten
+ yüzeysel (shallow) bir neural ağdır.
+
+107
+00:07:09,129 --> 00:07:12,392
+0.01 olarak ayarlayın muhtemelen iyi çalışacaktır.
+
+108
+00:07:12,392 --> 00:07:15,705
+Ancak çok derin (deep) bir neural ağı eğitirken,
+
+109
+00:07:15,705 --> 00:07:19,294
+o zaman 0.01'den farklı bir
+ sabit seçmek isteyebilirsiniz.
+
+110
+00:07:19,294 --> 00:07:23,642
+Gelecek haftaki materyalde ,0.01'den
+ farklı bir sabiti nasıl  ve
+
+111
+00:07:23,642 --> 00:07:27,925
+ne zaman seçmek isteyebileceğiniz
+ hakkında biraz konuşacağız.
+
+112
+00:07:27,925 --> 00:07:32,008
+Ancak her iki durumda da, genellikle
+ nispeten küçük bir sayı olur.
+
+113
+00:07:32,008 --> 00:07:34,584
+Yani bu haftaki videolar için bu kadar.
+
+114
+00:07:34,584 --> 00:07:38,348
+Artık bir gizli bir katmanlı neural ağın 
+nasıl kuracağınızı biliyorsunuz,
+
+115
+00:07:38,348 --> 00:07:42,430
+parametreleri başlatabilirsiniz,
+kullanarak tahminlerde bulunabilirsiniz.
+
+116
+00:07:42,430 --> 00:07:45,445
+Türevleri hesaplamanın yanı sıra, 
+gradyan alçalmayı (gradient descent) uygular, 
+
+117
+00:07:45,445 --> 00:07:46,275
+geri yayılım kullanır.
+
+118
+00:07:46,275 --> 00:07:48,654
+Böylece, bu haftaki programlama
+ alıştırmalarının yanı sıra
+
+119
+00:07:48,654 --> 00:07:51,166
+sınavları yapabilmelisiniz.
+
+120
+00:07:51,166 --> 00:07:52,143
+İyi şanslar.
+
+121
+00:07:52,143 --> 00:07:54,802
+Umarım problem alıştırmalarıyla eğlenirsiniz, ve
+
+122
+00:07:54,802 --> 00:07:57,728
+hafta dört materyalde sizi görmek için sabırsızlanıyoruz.

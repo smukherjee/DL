@@ -1,0 +1,82 @@
+Nos vídeos anteriores desta 
+semana, bem como das semanas anteriores, você viu os pilares fundamentais de propagação para frente e retropropagação, os principais componentes que você precisa
+para implementar uma rede neural profunda. Vamos ver como você pode
+colocar estes componentes juntos
+para construir uma rede profunda. Aqui, temos uma rede com algumas camadas. Vamos escolher uma camada e examinar os cálculos,
+ focando apenas essa camada. Para a camada L, você tem
+ alguns parâmetros w'ᴸ' e b'ᴸ', e para a propagação para frente, você irá introduzir as ativações a'ᴸ ⁻ ¹', da camada anterior e gerar a saída a'ᴸ'. A maneira que fizemos anteriormente foi
+calculando z'ᴸ' = w'ᴸ'. a'ᴸ ⁻ ¹' + b'ᴸ', e em seguida a'ᴸ' = g'ᴸ'(z'ᴸ').
+Certo? Assim é como você vai da entrada
+a'ᴸ ⁻ ¹' para a saída a'ᴸ'. E verifica-se que para uso posterior, será útil também armazenar
+ em cache o valor z'ᴸ'. Deixe-me incluir também essa cache porque armazenar o valor z'ᴸ'
+será útil para a fase de retropropagação, mais adiante. Então, para a fase de retropropagação, de novo, focando os cálculos
+desta camada L, você vai implementar
+a função que alimenta dₐ'ᴸ' (entrada);
+e produz  dₐ'ᴸ ⁻ ¹' (saída) Apenas para esclarecer os detalhes: A entrada é, na verdade, dₐ'ᴸ' , tal qual cache. Então, você dispõe do valor de z'ᴸ'
+que você calculou; então, com a saída dₐ'ᴸ ⁻ ¹' você pode, também,
+produzir os gradientes que você deseja, a fim de implementar os
+gradientes descendentes para a aprendizagem. Então, essa é a estrutura básica de como
+ você implementa a fase "forward" (para frente), o que denominamos função "forward",
+tal como esta fase "backward". Nós deveríamos ter chamado
+esta fase de função "backward" (para trás) Então, apenas para resumir:
+na camada L, você vai ter a fase "forward", ou propagação
+para frente, ou função "forward". Entrada: a'ᴸ ⁻ ¹'; e saída: a'ᴸ' A fim de fazer este cálculo, você precisará usar o w'ᴸ' e b'ᴸ'. E, também, uma saída:
+uma cache que contém  o z'ᴸ'. E Então, uma função "backward",
+usando a fase da retropropagação. que será uma outra função que abastecerá dₐ'ᴸ' (entrada); e produzirá  dₐ'ᴸ ⁻ ¹' (saída). Isso demonstra que: dadas as derivadas
+em relação a essas ativações, este  dₐ'ᴸ', quais são as derivadas? Quantas alterações eu quero para   a'ᴸ ⁻ ¹'  ? Então, calcula-se as derivadas
+em relação às ativações da camada anterior. Dentro dessa caixa,
+você precisará usar w'ᴸ' e b'ᴸ'. E isso ocorre ao longo do caminho. Você acaba calculando  dz'ᴸ' e então, esta caixa, esta função "backward" pode,
+também produzir dw'ᴸ' e db'ᴸ' (saída). Às vezes, usarei setas vermelhas para denotar
+a evolução da retropropagação, se você quiser ver [o processo]
+através dessas setas vermelhas. Assim, se você pode implementar
+estas duas funções, o cálculo básico
+da rede neural seria o seguinte: Você vai entrar com
+a característica de entrada a'⁰'; ela vai calcular
+as ativações na primeira camada, vamos chamar isso de  a'¹'. Para fazer isso, você precisa de w'¹' e  b'¹'. Então, você terá também
+uma cache na saída: z'¹'. Agora, feito isso, você abastece a segunda camada com isso. Então, usando  w'²' e b'²', você vai calcular as ativações
+da próxima camada, a'²'. E assim, sucessivamente,
+até que, finalmente, você conclui com a saída a'ᴸ', que é igual a ŷ. E durante o percurso, armazenamos
+em caches, todos esses valores z. Então, essa é a fase
+propagação para frente ("forward"). Agora, para a fase
+retropropagação ("backward"), faremos uma sequência
+de iterações para trás, em que percorreremos o sentido retrógrado,
+calculando os gradientes, da mesma forma. Então, vamos abastecer aqui: dₐ'ᴸ' Assim, esta caixa nos dará:  dₐ'ᴸ ⁻ ¹' e assim sucessivamente, até obtermos:
+dₐ'²',  dₐ'¹'. Você pode, na verdade,
+ter mais uma saída para calcular o  dₐ⁰. Mas isso é derivada em relação à sua
+característica de entrada que não é útil, pelo menos para o treinamento de pesos
+dessas redes neurais supervisionadas. Portanto, você pode parar neste. Ao longo do percurso, a retropropagação, também,
+ termina produzindo dw'ᴸ', db'ᴸ' [...] Assim como aqui, também,
+há os parâmetros w'ᴸ' e b'ᴸ'. Este sai com dw'³', db'³', e assim por diante. Então, você termina calculando
+todas as derivadas necessárias. Talvez, apenas para preencher
+esta estrutura um pouco mais [...] Estas caixas usarão esses
+parâmetros também [...] w'ᴸ', b'ᴸ' [...] Ocorre que nós veremos, mais tarde,
+que dentro dessas caixas, terminamos calculando, também os dz. Uma das iterações do treinamento de
+uma rede neural envolve [...]
+Começando com a'⁰' que é x; seguindo através
+da propagação para frente; calculando ŷ; e depois,
+usamos isso para computar isto; e então, a retropropagação, fazendo isso; e agora, você tem todos esses
+termos da derivada; e então, o w será atualizado:
+ w = w - α.dw, para cada camada
+[α = taxa de aprendizagem]; e similarmente para o b. Agora, o cálculo da retropropagação
+terá todas essas derivadas. Assim, essa é uma iteração do
+gradiente descendente para a sua rede neural. Antes de seguir adiante,
+apenas mais um detalhe informativo. Conceitualmente, seria útil pensar
+nessas 'caches', aqui, como depósitos de valores, de z,
+para as funções de retropropagação. Mas quando você a implementa [...] Você viu no exercício anterior que
+quando a implementamos, descobrimos que estas caches
+podem ser uma forma conveniente de ter estes valores
+dos parâmetros, w'¹' e  b'¹', dentro da função
+de retropropagação, também. Então, no exercício anterior, na verdade, você armazenou
+nas suas caches: z, bem como w e b. Então armazenamos aqui:
+ z'²', w'²' e b'²'. Da perspectiva de implementação, eu acho que fazer isso é uma forma prática
+para, simplesmente, ter as cópias dos parâmetros. De forma que você possa usá-los, mais tarde,
+quando estiver calculando a retropropagação. Assim, esses são os detalhes para a implementação
+que você verá quando estiver fazendo
+ o exercício de programação. Você viu um dos princípios básicos
+para implementar uma rede neural profunda. Em cada camada, há a fase
+da propagação para frente; e há a fase de retropropagação,
+correspondente; e existem as caches para passar
+ as informações entre as fases. No próximo vídeo, veremos como podemos, realmente,
+implementar esses princípios básicos. Vamos ao próximo vídeo.
+Tradução: Lucas Oliveira Silva / Julia Yuri
+Revisão: Carlos Lage

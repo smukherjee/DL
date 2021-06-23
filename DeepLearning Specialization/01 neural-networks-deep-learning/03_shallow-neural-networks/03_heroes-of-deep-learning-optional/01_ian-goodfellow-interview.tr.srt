@@ -1,0 +1,1124 @@
+1
+00:00:02,550 --> 00:00:05,830
+Merhaba, Ian. Bugün bize katıldığın için çok teşekkürler.
+
+2
+00:00:05,830 --> 00:00:06,860
+Beni davet ettiğiniz için teşekkürler.
+
+3
+00:00:06,860 --> 00:00:08,775
+Andrew. Burada bulunmaktan çok memnunum.
+
+4
+00:00:08,775 --> 00:00:11,920
+Bugün itibariyle dünyada en fazla görünür derin öğrenme araştırmacılarından bir tanesisin.
+
+5
+00:00:11,920 --> 00:00:14,450
+Kişisel hikayeni bizimle paylaşır mısın?
+
+6
+00:00:14,450 --> 00:00:16,810
+Peki, şimdi yaptığınız bu işi nasıl yapıyorsunuz?
+
+7
+00:00:16,810 --> 00:00:19,150
+Evet. Kulağa hoş geliyor.
+
+8
+00:00:19,150 --> 00:00:24,287
+Aslında sizinle tanışmadan önce ilk olarak 
+makine öğrenmesine ilgi duyuyordum.
+
+9
+00:00:24,287 --> 00:00:29,705
+Sinirbilim üzerine çalışıyordum ve lisanstaki danışmanım
+
+10
+00:00:29,705 --> 00:00:34,600
+Jerry Cain Stanford'da verdiğiniz Yapay Zekaya Giriş dersini
+ almam için beni cesaretlendirdi.
+
+11
+00:00:34,600 --> 00:00:35,790
+Aa bunun bilmiyordum. Tamam.
+
+12
+00:00:35,790 --> 00:00:39,885
+Yapay zekanın güzel bir fikir olduğunu hep düşündüm,
+
+13
+00:00:39,885 --> 00:00:42,590
+ama pratikte, ana fikir
+
+14
+00:00:42,590 --> 00:00:44,483
+bence oyundaki yapay zeka gibiydi,
+
+15
+00:00:44,483 --> 00:00:47,375
+insanlar katı kodlanmış kurallar ile
+
+16
+00:00:47,375 --> 00:00:49,700
+bilgisayar karakterlerinin oyunlarda nerede
+
+17
+00:00:49,700 --> 00:00:52,085
+ne söyleyeceklerini yazıyorlardı.
+
+18
+00:00:52,085 --> 00:00:56,750
+Daha sonra, senin yapay zeka giriş dersini aldım. 
+Burada doğrusal bağlanım,
+
+19
+00:00:56,750 --> 00:01:02,815
+doğrusal bağlanım hatasının
+ yanlılık ve değişinti ayrışımı gibi konuları anlatmıştın.
+
+20
+00:01:02,815 --> 00:01:06,665
+Bunun gerçek bir bilim olduğunu fark etmeye başlamıştım ve
+
+21
+00:01:06,665 --> 00:01:10,970
+sinirbilim yerine yapay zekada
+ bir bilim kariyeri yapabileceğimi düşündüm.
+
+22
+00:01:10,970 --> 00:01:12,730
+Anladım, harika. Sonra ne oldu peki?
+
+23
+00:01:12,730 --> 00:01:15,290
+Sonra geldim ve
+ asistanlık yaptım senin dersine.
+
+24
+00:01:15,290 --> 00:01:17,815
+Anladım, evet. ..(?)..
+
+25
+00:01:17,815 --> 00:01:22,595
+Benim için büyük bir dönüm noktası da
+ asistanlık yaparken oldu.
+
+26
+00:01:22,595 --> 00:01:23,720
+Öğrencilerden birisi,
+
+27
+00:01:23,720 --> 00:01:25,310
+arkadaşım Ethan Dreifuss,
+
+28
+00:01:25,310 --> 00:01:28,689
+Geoff Hinton'ın derin inanç ağı makalesiyle ilgilendi.
+
+29
+00:01:28,689 --> 00:01:29,022
+Anlıyorum
+
+30
+00:01:29,022 --> 00:01:35,660
+Sonra da ikimiz boş zamanlarımızda ilk CUDA GPU tabanlı 
+makinelerden birini 
+
+31
+00:01:35,660 --> 00:01:43,280
+boltzmann makinesi koşsun diye Stanford'ta inşa ettik.
+
+32
+00:01:43,280 --> 00:01:43,817
+Anlıyorum
+
+33
+00:01:43,817 --> 00:01:46,295
+O noktada, derin öğrenmenin
+
+34
+00:01:46,295 --> 00:01:50,720
+gelecekte üzerine gidilmesi gereken şey olduğu
+ konusunda derin sezgi sahibi olmaya başladım.
+
+35
+00:01:50,720 --> 00:01:53,660
+Üzerinde çalıştığım diğer birçok algoritma,
+
+36
+00:01:53,660 --> 00:01:56,285
+mesela destek vektör makineleri,
+
+37
+00:01:56,285 --> 00:01:58,845
+doğru asimptotlara sahip değil gibi görünüyorlardı.
+
+38
+00:01:58,845 --> 00:02:01,400
+Daha fazla eğitim verisi eklediğinizde yavaşlıyorlardı.
+
+39
+00:02:01,400 --> 00:02:03,476
+Ya da aynı miktarda eğitim verisi kullanarak
+
+40
+00:02:03,476 --> 00:02:08,240
+bazı ayarları değiştirince daha iyi
+ performans almak zor oluyordu.
+
+41
+00:02:08,240 --> 00:02:13,065
+O noktada da, derin öğrenme üzerine
+ olabildiğince fazla odaklanmaya başladım.
+
+42
+00:02:13,065 --> 00:02:18,595
+Bende Reyna'nın(?) çok eski GPU makalesinin
+
+43
+00:02:18,595 --> 00:02:21,585
+çok fazla ön çalışmadan ötürü
+ sana teşekkür ettiğini hatırlıyorum.
+
+44
+00:02:21,585 --> 00:02:25,850
+Evet, evet, o makale bizim inşa ettiğimiz
+ bazı makineleri kullanarak yazıldı.
+
+45
+00:02:25,850 --> 00:02:26,656
+Evet.
+
+46
+00:02:26,656 --> 00:02:30,755
+Ethan ile birlikte inşa ettiğimiz ilk makineyi
+
+47
+00:02:30,755 --> 00:02:35,120
+kendi paramızla Ethan'ın annesinin evinde yaptık.
+
+48
+00:02:35,120 --> 00:02:39,835
+Daha sonrada, laboratuvar parasıyla
+ Stanford için iki ya da üç tane ürettik.
+
+49
+00:02:39,835 --> 00:02:42,965
+Bu harika. Bu hikayeyi bilmiyordum. Bu harika.
+
+50
+00:02:42,965 --> 00:02:45,830
+Evet, bugün derin öğrenme dünyasını
+
+51
+00:02:45,830 --> 00:02:48,365
+gerçekten fırtına gibi vuran bir şey de
+
+52
+00:02:48,365 --> 00:02:51,645
+senin GANs(çekişmeli üretici ağlar) icadın oldu.
+
+53
+00:02:51,645 --> 00:02:54,085
+Bu fikri nasıl geliştirdin?
+
+54
+00:02:54,085 --> 00:02:56,885
+Üretici modellere uzun bir süredir çalışıyordum,
+
+55
+00:02:56,885 --> 00:02:59,000
+çekişmeli üretici ağlar da
+
+56
+00:02:59,000 --> 00:03:02,570
+çok fazla eğitim verisine sahip olduğun ve bu verilere benzeyen 
+
+57
+00:03:02,570 --> 00:03:08,420
+ama hayali olan daha fazla örnek üretmenin bir yolu.
+
+58
+00:03:08,420 --> 00:03:13,265
+Daha önce hiç bu şekilde görülmemişlerdi.
+
+59
+00:03:13,265 --> 00:03:16,220
+GAN'lar için fikir sahibi olmadan önce
+
+60
+00:03:16,220 --> 00:03:19,780
+birkaç yıldan beri popüler olan üretici modelleri yapmanın başka yolları da vardı.
+
+61
+00:03:19,780 --> 00:03:24,860
+Doktora programımın çoğunda tüm bu diğer yöntemler üzerinde çalıştıktan sonra,
+
+62
+00:03:24,860 --> 00:03:29,000
+Boltzmann makineleri ve seyrek kodlama gibi diğer tüm çerçevelerin
+
+63
+00:03:29,000 --> 00:03:32,630
+avantajları ve dezavantajları
+
+64
+00:03:32,630 --> 00:03:35,955
+ile yıllardır gerçekten popüler olan diğer tüm yaklaşımlar hakkında çok şey biliyordum.
+
+65
+00:03:35,955 --> 00:03:40,265
+Ben bu dezavantajların hepsinden kurtulacak
+ bir şey üzerinde çalışıyordum.
+
+66
+00:03:40,265 --> 00:03:44,110
+En sonunda da, barda bir arkadaşımla üretici modeller üzerine tartışırken,
+
+67
+00:03:44,110 --> 00:03:45,845
+birden taşlar yerine oturuverdi.
+
+68
+00:03:45,845 --> 00:03:47,540
+Sonra da onlara şunu, 
+bunu ve sonra da bunu
+
+69
+00:03:47,540 --> 00:03:49,510
+yapman lazım ve o zaman işe yarayacak dedim.
+
+70
+00:03:49,510 --> 00:03:52,890
+Arkadaşlarım ilk başta çalışacağına inanmadı.
+
+71
+00:03:52,890 --> 00:03:55,410
+Tam o zamanlarda da derin öğrenme
+ ders kitabını yazmam gerekiyordu.
+
+72
+00:03:55,410 --> 00:03:55,790
+Anlıyorum
+
+73
+00:03:55,790 --> 00:03:57,620
+Fakat ben çok çalışacağına çok inanıyordum ve
+
+74
+00:03:57,620 --> 00:03:59,870
+aynı akşam eve gittim, kodladım ve çalıştı.
+
+75
+00:03:59,870 --> 00:04:02,920
+Yani ÇÜA'ların(çekişmeli üretim ağları) ilk versiyonlarını uygulamak bir akşamını aldı?
+
+76
+00:04:02,920 --> 00:04:06,050
+Gece yarısı gibiydi ilk uyguladığımda,
+
+77
+00:04:06,050 --> 00:04:09,530
+arkadaşımın ayrılışı için bardaki partiden
+ sonra eve gidince yaptım.
+
+78
+00:04:09,530 --> 00:04:10,086
+Anlıyorum
+
+79
+00:04:10,086 --> 00:04:11,784
+İlk versiyonu çalıştı,
+
+80
+00:04:11,784 --> 00:04:13,275
+ki bu çok çok şanslı bir şeydi.
+
+81
+00:04:13,275 --> 00:04:15,825
+Üstün parametreler ya da
+ başka bir şeyi aramak zorunda kalmadım.
+
+82
+00:04:15,825 --> 00:04:17,840
+Bir yerde okuduğum bir hikaye vardı,
+
+83
+00:04:17,840 --> 00:04:21,851
+neredeyse ölüyormuşsun ve 
+bu da yapay zekaya olan bağlılığını yinelemiş.
+
+84
+00:04:21,851 --> 00:04:24,160
+Bundan bahsedebilir misin?
+
+85
+00:04:24,160 --> 00:04:30,215
+Tabi, tam olarak ölüyordum denemez ama
+ kısa bir süre öyle düşündüm.
+
+86
+00:04:30,215 --> 00:04:33,170
+Çok kötü başım ağrıyordu ve bazı doktorlar
+
+87
+00:04:33,170 --> 00:04:37,571
+beyin kanaması geçiriyor olabileceğimi söylediler.
+
+88
+00:04:37,571 --> 00:04:39,740
+Ve beyin kanaması geçirip geçirmediğimi
+
+89
+00:04:39,740 --> 00:04:43,180
+söyleyen MR sonuçlarını beklerken,
+
+90
+00:04:43,180 --> 00:04:47,810
+farkına vardım ki o anda aklımdan geçen çoğu düşünceler
+
+91
+00:04:47,810 --> 00:04:49,910
+başkalarının eninde sonunda o an aklımda olan 
+
+92
+00:04:49,910 --> 00:04:52,750
+araştırma fikirlerini denemesi gerektiğiydi.
+
+93
+00:04:52,750 --> 00:04:53,224
+Anladım anladım.
+
+94
+00:04:53,224 --> 00:04:55,820
+Şimdi düşünüyorum da, hepsi çok saçma araştırma fikirleri!
+
+95
+00:04:55,820 --> 00:04:56,553
+Anlıyorum
+
+96
+00:04:56,553 --> 00:04:58,700
+Ama o anda,
+
+97
+00:04:58,700 --> 00:05:02,325
+hayatımdaki en büyük önceliklerden birinin
+
+98
+00:05:02,325 --> 00:05:05,780
+makine öğrenmesi araştırmalarımı devam ettirmek olduğunu düşündüm.
+
+99
+00:05:05,780 --> 00:05:07,910
+Anladım. Evet. Mükemmel
+
+100
+00:05:07,910 --> 00:05:10,055
+Yakında ölüyor olabileceğini düşünürken
+
+101
+00:05:10,055 --> 00:05:12,265
+Sadece araştırmayı nasıl yapacağınızı düşünüyorsun.
+
+102
+00:05:12,265 --> 00:05:12,649
+Evet.
+
+103
+00:05:12,649 --> 00:05:15,690
+İşte bu bağlılıktır!
+
+104
+00:05:15,690 --> 00:05:17,850
+Evet.
+
+105
+00:05:17,850 --> 00:05:21,808
+Evet, bugün hala ÇÜA araştırmalarının çoğunun merkezindesin,
+
+106
+00:05:21,808 --> 00:05:24,560
+çekişmeli üretim ağlarının.
+
+107
+00:05:24,560 --> 00:05:27,710
+ÇÜA'ların geleceğini nasıl görüyorsun,
+ bahsedebilir misin?
+
+108
+00:05:27,710 --> 00:05:32,930
+Şuanda ÇÜA'lar birçok farklı şey için kullanılıyor. Mesela yarıgözetimli öğrenme,
+
+109
+00:05:32,930 --> 00:05:39,185
+diğer modeller için veri üretme ve
+ hatta bilimsel deneylerin simülasyonunu yapma
+
+110
+00:05:39,185 --> 00:05:43,850
+Prensipte bütün bu şeyler
+ diğer üretici modellerle yapılabilir.
+
+111
+00:05:43,850 --> 00:05:47,695
+Bence ÇÜA'lar önemli bir dönemeçte şuanda.
+
+112
+00:05:47,695 --> 00:05:50,210
+Şuanda, bazen iyi çalışıyorlar,
+
+113
+00:05:50,210 --> 00:05:55,890
+ama iyi bir performans için
+ bilimden çok sanat gibi yaklaşman gerekebiliyor.
+
+114
+00:05:55,890 --> 00:05:59,870
+İnsanların 10 yıl önce derin öğrenme
+ hakkında ne hissettiklerine benziyor aslında biraz.
+
+115
+00:05:59,870 --> 00:06:01,430
+O zamanlarda,
+
+116
+00:06:01,430 --> 00:06:05,330
+Boltzmann makineleri ile derin inanç ağlarını temel yapı taşları olarak kullanıyorduk.
+
+117
+00:06:05,330 --> 00:06:07,420
+Onlar çok ama çok ayrıntılıydı.
+
+118
+00:06:07,420 --> 00:06:11,945
+Zamanla rektifiye doğrusal ünitelere(ReLU)
+ ve toptan normalleştirmeye geçtik.
+
+119
+00:06:11,945 --> 00:06:14,635
+Ve böylece derin öğrenme
+ çok daha fazla güvenilir oldu.
+
+120
+00:06:14,635 --> 00:06:18,470
+Eğer aynı şekilde ÇÜA'ları da derin öğrenme kadar güvenilir yaparsak
+
+121
+00:06:18,470 --> 00:06:20,840
+o zaman ÇÜA'ları şuan kullanılan yerlerde
+
+122
+00:06:20,840 --> 00:06:24,110
+daha başarılı şekilde kullanılıyorken göreceğiz.
+
+123
+00:06:24,110 --> 00:06:29,060
+Eğer ÇÜA'ları nasıl kararlı hale getirebileceğimizi çözmezsek
+
+124
+00:06:29,060 --> 00:06:32,960
+o zaman onların derin öğrenme tarihine en büyük katkıları
+
+125
+00:06:32,960 --> 00:06:35,060
+insanlara üretici modelleme içeren işlerin
+
+126
+00:06:35,060 --> 00:06:37,590
+nasıl yapılacağını gösterdikleri olacak.
+
+127
+00:06:37,590 --> 00:06:41,505
+Günün sonunda da, onları diğer 
+üretici modeller ile değiştireceğiz.
+
+128
+00:06:41,505 --> 00:06:47,870
+Şu aralar, zamanımın yüzde kırkını
+ ÇÜA'ları kararlı hale getirmeye çalışarak geçiriyorum.
+
+129
+00:06:47,870 --> 00:06:50,780
+Anlıyorum, güzel. Derin öğrenmeye 
+
+130
+00:06:50,780 --> 00:06:53,765
+on yıl kadar önce katılan insanlar öncü oldular.
+
+131
+00:06:53,765 --> 00:06:54,963
+Senin gibi mesela.
+
+132
+00:06:54,963 --> 00:06:57,360
+Belki de bugün ÇÜA çalışmaya başlayan insanlar da,
+
+133
+00:06:57,360 --> 00:07:00,120
+eğer başarılı olursa, 
+bu konuda ilk öncüler olabilirler.
+
+134
+00:07:00,120 --> 00:07:04,220
+Evet, bir çok insan halihazırda ÇÜA'ların ilk öncüleri sayılır.
+
+135
+00:07:04,220 --> 00:07:09,105
+Eğer ÇÜA'ların bir tarihinden bahsedecek olursak,
+
+136
+00:07:09,105 --> 00:07:12,740
+diğer gruplardan da bahsetmek gerekecek.
+
+137
+00:07:12,740 --> 00:07:17,280
+Indico, Facebook ve Berkeley
+ birçok farklı şey yaptılar mesela.
+
+138
+00:07:17,280 --> 00:07:19,735
+Bütün araştırmalarına ek olarak,
+
+139
+00:07:19,735 --> 00:07:24,300
+derin öğrenme üzerine bir kitabın ortak yazarlığını yaptın. O iş nasıl gidiyor?
+
+140
+00:07:24,300 --> 00:07:26,897
+Doğru, Yoshua Bengio ve Aaron Courville ile birlikte
+
+141
+00:07:26,897 --> 00:07:29,900
+-ki benim ortak doktora danışmanım olurlar-
+
+142
+00:07:29,900 --> 00:07:35,465
+derin öğrenmenin modern versiyonu
+ üzerine ilk ders kitabını yazdık.
+
+143
+00:07:35,465 --> 00:07:38,615
+İngilizce ve Çince derlemelerinde
+
+144
+00:07:38,615 --> 00:07:42,920
+oldukça popüler oldu.
+
+145
+00:07:42,920 --> 00:07:48,915
+Bu iki dilde toplam 70.000 adet satış yaptık.
+
+146
+00:07:48,915 --> 00:07:54,730
+Ve ben de birçok öğrenciden kitaptan
+ çok şey öğrendiklerine dair geri dönüt aldım.
+
+147
+00:07:54,730 --> 00:07:58,940
+Diğer kitaplardan biraz farklı bir şekilde şöyle yaptık;
+
+148
+00:07:58,940 --> 00:08:03,905
+derin öğrenmede işinize yarayacak oldukça odaklı bir matematikle başladık.
+
+149
+00:08:03,905 --> 00:08:07,670
+Senin Stanford'taki derslerinden aldığım bir şey
+
+150
+00:08:07,670 --> 00:08:11,570
+doğrusal cebir ve olasılık çok önemli iki konu.
+
+151
+00:08:11,570 --> 00:08:15,230
+İnsanlar makine öğrenimi algoritmaları hakkında heyecanlanıyorlar.
+
+152
+00:08:15,230 --> 00:08:18,500
+Ama gerçekten mükemmel bir uygulayıcı olmak istiyorsanız,
+
+153
+00:08:18,500 --> 00:08:26,055
+Yöntemlerin altındaki temel matematikte çok iyi olmalısınız.
+
+154
+00:08:26,055 --> 00:08:27,290
+Biz de kitabın girişinde
+
+155
+00:08:27,290 --> 00:08:31,345
+epey odaklı bir temel matematik sunumu veriyoruz.
+
+156
+00:08:31,345 --> 00:08:34,153
+Bu şekilde, gidip bütün doğrusal cebiri
+ öğrenmek zorunda kalmıyorsunuz.
+
+157
+00:08:34,153 --> 00:08:35,900
+Hızlı bir şekilde
+
+158
+00:08:35,900 --> 00:08:37,770
+derin öğrenme için en faydalı kısımlardan oluşan
+
+159
+00:08:37,770 --> 00:08:40,540
+küçük bir doğrusal cebir kursu alıyorsunuz.
+
+160
+00:08:40,540 --> 00:08:44,660
+Yani bir süredir matematik görmemiş ya da biraz temeli eksik birisi de
+
+161
+00:08:44,660 --> 00:08:47,000
+sizin kitabın başından başlayacak, arkaplanda gereken matematiği alacak
+
+162
+00:08:47,000 --> 00:08:49,790
+ve direk derin öğrenmeye geçiş yapabilecek.
+
+163
+00:08:49,790 --> 00:08:52,175
+Bilmeniz gereken bütün olgular orada var.
+
+164
+00:08:52,175 --> 00:08:59,520
+Ben olsam kesinlikle odaklı bir şekilde
+ o konularda pratik kazanacak eforu harcardım.
+
+165
+00:08:59,520 --> 00:08:59,684
+Evet. Evet. Harika.
+
+166
+00:08:59,684 --> 00:09:01,370
+Eğer birisi gerçekten matematikten korkuyorsa,
+
+167
+00:09:01,370 --> 00:09:03,700
+bu biraz sancılı bir süreç olabilir.
+
+168
+00:09:03,700 --> 00:09:08,323
+Ama eğer öğrenmek için hazırsanız ve
+ çok iyi öğreneceğinize inanıyorsanız,
+
+169
+00:09:08,323 --> 00:09:11,360
+ihtiyacınız olan bütün araçlar orada bence.
+
+170
+00:09:11,360 --> 00:09:15,470
+Derin öğrenmede çok uzun zamandır çalışmış birisi olarak,
+
+171
+00:09:15,470 --> 00:09:18,710
+geçmişe bakıp bana biraz
+ yapay zeka ve derin öğrenmenin
+
+172
+00:09:18,710 --> 00:09:21,050
+nasıl evrildiğine dair düşüncelerini
+
+173
+00:09:21,050 --> 00:09:24,650
+aktarabilirsen sevinirim.
+
+174
+00:09:24,650 --> 00:09:28,595
+On yıl önce, şöyle hissediyordum; 
+
+175
+00:09:28,595 --> 00:09:31,580
+camia olarak makine öğrenmesinde 
+karşılaştığımız en büyük sorun
+
+176
+00:09:31,580 --> 00:09:34,715
+yapay zeka ile alakalı işler için
+ nasıl çalıştıracağımız sorusuydu.
+
+177
+00:09:34,715 --> 00:09:39,440
+Basit işler için kullanabileceğimiz bazı iyi araçlar vardı.
+
+178
+00:09:39,440 --> 00:09:44,555
+Mesela insan tasarımcıların çoğu işi yapıp 
+
+179
+00:09:44,555 --> 00:09:47,000
+yarattığı öznitelikleri bilgisayara verdiği 
+
+180
+00:09:47,000 --> 00:09:51,965
+ve bilgisayarın da o elle çıkarılmış özniteliklerdeki
+ örüntüleri tanıması gibi
+
+181
+00:09:51,965 --> 00:09:54,170
+Bu da bir dizi şey için iyiydi.
+
+182
+00:09:54,170 --> 00:09:56,750
+Mesela kullanıcı hangi reklama tıklar tahmin etmek
+
+183
+00:09:56,750 --> 00:10:01,895
+ya da bazı temel bilimsel analizler gibi.
+
+184
+00:10:01,895 --> 00:10:07,505
+Ama içinde milyonlarca piksel olan resimleri içeren herhangi bir şey 
+
+185
+00:10:07,505 --> 00:10:10,150
+ya da ham ses dalgası ile çalışmakta
+
+186
+00:10:10,150 --> 00:10:13,950
+zorlanıyorduk çünkü sistemin bütün her şeyi
+ baştan inşa etmesi gerekiyordu.
+
+187
+00:10:13,950 --> 00:10:18,880
+Sonunda problemi kapsamlı şekilde çözmeyi başardık,
+ beş yıl kadar oluyor.
+
+188
+00:10:18,880 --> 00:10:22,180
+Şimdi öyle bir noktadayız ki
+
+189
+00:10:22,180 --> 00:10:26,268
+birinin yapay zekaya başlaması için bir sürü yol var
+
+190
+00:10:26,268 --> 00:10:31,060
+ve belki en zor problemleri 
+hangi yoldan başlamaya karar vermek.
+
+191
+00:10:31,060 --> 00:10:35,500
+Denetimli öğrenme çalışmalarının yanı sıra 
+pekiştirmeli öğrenme çalışmaları yapmak ister misiniz?
+
+192
+00:10:35,500 --> 00:10:40,410
+Denetimsiz öğrenme çalışmalarının yanı sıra denetimli öğrenme çalışmaları yapmak ister misiniz?
+
+193
+00:10:40,410 --> 00:10:44,333
+Ya da makine öğrenmesi algoritmalarının 
+adil olması için çalışmak ister misiniz?
+
+194
+00:10:44,333 --> 00:10:48,460
+Ki bizim kaçındığımız önyargıları yansıtmasınlar.
+
+195
+00:10:48,460 --> 00:10:54,565
+Ya da yapay zeka etrafındaki sosyal meseleler hallolsun diye çalışırsınız.
+
+196
+00:10:54,565 --> 00:10:58,535
+Yapay zeka sosyal karışıklık, istihdam kayıpları gibi 
+
+197
+00:10:58,535 --> 00:11:03,440
+sorunlar yaratmaktansa herkese faydalı olsun gibi.
+
+198
+00:11:03,440 --> 00:11:04,600
+Sanırım şuanda,
+
+199
+00:11:04,600 --> 00:11:08,025
+yapılabilecek farklı şeylerin sayısı gerçekten çok fazla.
+
+200
+00:11:08,025 --> 00:11:11,380
+Hem yapay zekanın olası negatif yanlarını engellemek
+
+201
+00:11:11,380 --> 00:11:14,965
+hem de pozitif çıktıyı olabildiğince arttırmak üzerine.
+
+202
+00:11:14,965 --> 00:11:19,800
+Bugün yapay zekaya başlamak isteyen bir sürü insan var.
+
+203
+00:11:19,800 --> 00:11:23,285
+Bu insanlar için nasıl bir tavsiyeniz olur?
+
+204
+00:11:23,285 --> 00:11:26,950
+Yapay zeka alanına giriş yapmak isteyen birçok insan
+
+205
+00:11:26,950 --> 00:11:32,200
+mutlaka doktora ya da benzeri bir etikete 
+ ihtiyaçları olduğunu sanıyor.
+
+206
+00:11:32,200 --> 00:11:35,155
+Ben artık bunun bir gereksinim olduğunu düşünmüyorum.
+
+207
+00:11:35,155 --> 00:11:40,285
+İyi bir kod yazıp GitHub'a koymak 
+dikkat çekmenin bir yoludur.
+
+208
+00:11:40,285 --> 00:11:43,380
+Eğer yüksek seviyede çalışan birisinin çözmek istediği
+
+209
+00:11:43,380 --> 00:11:47,320
+problemi çözen ilginç bir projeniz varsa
+
+210
+00:11:47,320 --> 00:11:49,840
+önce GitHub deponuzu bulurlar,
+
+211
+00:11:49,840 --> 00:11:53,450
+sonra da sizi bulup onlar için çalışmanızı isterler.
+
+212
+00:11:53,450 --> 00:11:56,140
+Geçen yıl OpenAI'da bu yıl da Google'da
+
+213
+00:11:56,140 --> 00:12:00,010
+işe aldığım bir sürü insan mesela
+
+214
+00:12:00,010 --> 00:12:02,755
+bu şekilde ilgimi çektiler.
+
+215
+00:12:02,755 --> 00:12:06,895
+İlk olarak internette açık kaynaklı projelerde
+ yayımladıkları projelerini gördüm.
+
+216
+00:12:06,895 --> 00:12:11,275
+Makale yazıp onları ArXiv'e koymak da güzel bir yol olabilir.
+
+217
+00:12:11,275 --> 00:12:12,745
+Çoğu zaman,
+
+218
+00:12:12,745 --> 00:12:16,750
+bilimsel literatüre yeni akademik katkı olarak görülecek
+
+219
+00:12:16,750 --> 00:12:20,860
+yeni ve cilalı işler yapmak daha zor bir iş.
+
+220
+00:12:20,860 --> 00:12:27,885
+Ama faydalı bir yazılım ürünü geliştirme
+ noktasına çok daha önce varabilirsiniz.
+
+221
+00:12:27,885 --> 00:12:30,022
+Yani sizin kitabı okumak,
+
+222
+00:12:30,022 --> 00:12:33,930
+içindeki konuları çalışmak ve GitHub ve ArXiv'e bir şeyler yüklemek.
+
+223
+00:12:33,930 --> 00:12:36,100
+Bence kitabı okuyarak öğrenirken
+
+224
+00:12:36,100 --> 00:12:39,454
+aynı zamanda da bir proje üzerinde çalışmak da çok önemli
+
+225
+00:12:39,454 --> 00:12:42,730
+Makine öğrenmesini
+
+226
+00:12:42,730 --> 00:12:46,555
+halihazırda ilgilendiğiniz
+ bir alana uygulamak isteyebilirsiniz.
+
+227
+00:12:46,555 --> 00:12:50,500
+Mesela bir alan biyologu iseniz ve
+ derin öğrenmeye başlamak istiyorsanız
+
+228
+00:12:50,500 --> 00:12:53,255
+kuşları tanımak için kullanabilirsiniz mesela.
+
+229
+00:12:53,255 --> 00:12:56,905
+Ya da makine öğrenmesini kendi hayatınızda
+ bir konuya uygulayacak fikriniz yoksa
+
+230
+00:12:56,905 --> 00:13:01,600
+farklı bir şey seçebilirsiniz örneğin
+ (Google) Street View'da ile kapı numaralarını sınıflandırma.
+
+231
+00:13:01,600 --> 00:13:05,580
+Burada bütün veri kümeleri siz süreci
+ kolay uygulayın diye hazırlanmıştır.
+
+232
+00:13:05,580 --> 00:13:07,330
+Bu şekilde gereken kitabı okurken 
+
+233
+00:13:07,330 --> 00:13:09,700
+ya da size konseptleri anlatan Coursera videoları izlerken
+
+234
+00:13:09,700 --> 00:13:14,105
+bütün temel becerileri de pekiştirmiş olursunuz.
+
+235
+00:13:14,105 --> 00:13:15,670
+Son birkaç yıl içinde
+
+236
+00:13:15,670 --> 00:13:20,045
+senin çekişmeli örnekler üzerinde
+ artan şekilde daha fazla çalışman oldu.
+
+237
+00:13:20,045 --> 00:13:21,535
+Biraz da ondan bahsedebilir misin?
+
+238
+00:13:21,535 --> 00:13:24,490
+Evet. Bence çekişmeli örnekler
+
+239
+00:13:24,490 --> 00:13:29,835
+makine öğrenmesi güvenliği 
+olarak adlandırdığım yeni bir alanın başlangıcı.
+
+240
+00:13:29,835 --> 00:13:33,250
+Geçmişte, saldırganların bilgisayarları
+
+241
+00:13:33,250 --> 00:13:38,275
+yanlış kodu koşmaları konusunda 
+kandırdığı bilgisayar güvenliği meseleleri gördük.
+
+242
+00:13:38,275 --> 00:13:40,890
+Buna uygulama-seviyesi güvenliği deniyor.
+
+243
+00:13:40,890 --> 00:13:46,300
+Ve insanların bilgisayarlara mesaj gönderip 
+
+244
+00:13:46,300 --> 00:13:52,545
+bu mesajların geldiği kişinin kim olduğu
+ konusunda bilgisayarları kandırdığı örnekler var.
+
+245
+00:13:52,545 --> 00:13:55,025
+Bu da ağ-seviyesi güvenliği olarak adlandırılıyor.
+
+246
+00:13:55,025 --> 00:13:57,230
+Şimdi de şunu görüyoruz; siz makine öğrenmesi
+
+247
+00:13:57,230 --> 00:13:59,920
+algoritmalarını yapmaması gereken şeyleri
+ yapmaları konusunda kandırıyorsunuz.
+
+248
+00:13:59,920 --> 00:14:06,010
+Makine öğretmesi algoritmasını koşan program
+ doğru kodu koşuyor olsa da,
+
+249
+00:14:06,010 --> 00:14:07,960
+makine öğretmesi algoritmasını
+
+250
+00:14:07,960 --> 00:14:10,025
+koşan program mesajların kimden
+
+251
+00:14:10,025 --> 00:14:13,605
+geldiğini biliyor olsa da bu yaşanıyor.
+
+252
+00:14:13,605 --> 00:14:17,050
+Ve bence gelişiminin başında olan bir teknolojiyi
+
+253
+00:14:17,050 --> 00:14:20,830
+güvenli bir şekilde inşa etmek önemli bir konu.
+
+254
+00:14:20,830 --> 00:14:27,065
+Biz gördük ki çalışan bir sistemi inşa edip
+ sonradan güvenlik eklemek zor bir iş.
+
+255
+00:14:27,065 --> 00:14:30,640
+Ben makine öğrenmesi problemlerine dalma
+
+256
+00:14:30,640 --> 00:14:34,705
+ve önceden tahmin etme konusunda heyecanlıyım.
+
+257
+00:14:34,705 --> 00:14:37,600
+Bu algoritmaların güvenli olduğundan
+ başında daha emin olabiliriz.
+
+258
+00:14:37,600 --> 00:14:41,650
+Yıllar sonra geriye dönük güncelleme yapmaktansa böylesi daha iyi.
+
+259
+00:14:41,650 --> 00:14:43,111
+Teşekkürler, bu harikaydı.
+
+260
+00:14:43,111 --> 00:14:46,090
+Senin hikayen hakkında bir sürü büyüleyici şey vardı.
+
+261
+00:14:46,090 --> 00:14:47,470
+Yıllardır seni tanıyor olsam da
+
+262
+00:14:47,470 --> 00:14:49,935
+bunları bilmiyordum. Çok teşekkürler paylaştığın için.
+
+263
+00:14:49,935 --> 00:14:53,090
+Rica ederim. Teşekkürler beni davet ettiğin için,
+ harika bir sohbetti.
+
+264
+00:14:53,090 --> 00:14:53,630
+Tamam mı?
+Teşekkürler.
+
+265
+00:14:53,630 --> 00:14:55,010
+Rica ederim.

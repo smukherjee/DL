@@ -1,0 +1,52 @@
+(Bir Gizli Katmanlı Neural Ağ - Rastgele Başlatma)
+Neural ağınızı eğitirken, ağırlıkların başlangıç değerlerini 
+rastgele ayarlamak önemlidir Lojistik regresyon için, ağırlıkların başlangıç 
+değerlerini  sıfır ayarlamak tamamdır. Ancak bir neural ağ için ağırlıkların 
+parametrelerini sıfır başlatmak ve sonra uygulanan gradyan düşümü 
+(gradient descent) işe yaramaz. Neden olduğunu görelim. Yani burada iki giriş özelliği var, yani n0=2, ve iki gizli birim, yani n1=2. ve böylece ilişkili matris ile gizli katman, w 1, ikiye iki olacak. Diyelim ki ikiye iki matrisini 
+hepsi 0 olarak tanımladın, yani 0 0 0 0. Ve B1'in de 0 0'a eşit olduğunu söyleyelim. Bias terimlerinin 0 dan b'ye kadar
+ tanımlanması gerçekten iyi çıkıyor, ancak w için hepsi 0 tanımlanması bir sorundur. Yani bu başlangıç biçimiyle ilgili sorun, ona verdiğiniz herhangi bir örnek için, 
+a1,1 elde edersiniz ve a1, 2' ye eşit olacak, değil mi? Yani bu aktivasyon ve
+ bu aktivasyon aynı olacaktır, çünkü  bu gizli birimlerden her ikisi de 
+tam olarak aynı fonksiyonu hesaplıyor. ve sonra , geriye yayılımı hesapladığınızda, ortaya dz11 çıktı ve dz12 de simetri ile aynı tür olacak, değil mi? Bu gizli birimlerden ikisi de aynı şekilde tanımlanacaktır. Teknik olarak, söylediklerim için, Giden ağırlıklarından aynı 
+olduğunu farz ediyorum. Yani bu w2 0 0' a eşittir. Ama eğer neural ağı bu yöntemle başlatırsanız, o zaman bu gizli birim ve
+ bu gizli gizli birim tamamen aynı olur. Bazen tamamen simetrik olduklarını söylüyorsunuz, bu da tam olarak aynı fonksiyonu
+ yerine getirdikleri anlamına geliyor. ve indüksiyonla(induction) bir kanıt olarak, her bir yinelemeli eğitimden sonra,
+ iki gizli birimin hala tam olarak aynı fonksiyonu 
+hesapladığı ortaya çıkıyor. Bu yüzden dw' nin buna benzeyen 
+bir matris olacağını göstermek mümkün. Her satırın aynı değeri aldığı yer. Yani bir ağırlık güncellemesi yapıyoruz. Yani  bir ağırlık güncellemesi yaptığınızda,
+ w1 w1- alfa defa dw gibi güncellenir. Her iterasyondan sonra, bu w1'i bulduğunuzda, ilk satır ikinci satıra eşit olacaktır. Eğer tüm yolları, w' deki tüm değerleri 0
+ başlangıç değerleri ile ayarlarsak indüksiyon (induction) ile kanıt oluşturmak mümkündür , o zaman çünkü iki gizli birimde(units) aynı fonksiyonu hesaplamaya başlar. Ve her iki gizli birim(units) çıkış biriminde aynı etkiye sahiptirler, son bir iterasyondan sonra, aynı açıklama hala doğru, iki gizli birim hala simetriktir. Ve bu nedenle, indüksiyon ile, iki iterasyon 
+ve üç iterasyondan sonra ve böyle devam eden, neural ağınızı ne kadar eğittiğiniz önemli değil, her iki gizli birimde de hala aynı fonksiyonu hesaplar. Ve böylece bu durumda, birden fazla 
+gizli birime sahip olmanın anlamı yoktur. Çünkü hepsi aynı şeyi hesaplıyorlar. Ve elbette, daha büyük neural ağlar için, 3 özellik ve belki çok büyük bir sayıda gizli birimden bahsedelim, bir benzer argümanın bunun gibi bir 
+neural ağı ile çalıştığını gösterir. Eğer ağırlıkları sıfırlarsanız, tüm kenarları çizecektir çünkü, o zaman tüm gizli birimleriniz simetrik, ve ne kadar zamandır dereceli(eğimli) alçalma 
+çalıştırıyorsanız önemli değil, hepsi tam olarak aynı fonksiyonu 
+hesaplamaya devam eder. Yani bu pek işe yaramaz, çünkü farklı gizli birimlerin farklı fonksiyonları hesaplamasını istiyorsunuz. Bunun çözümü parametrelerinizi rastgele başlatmanızdır. İşte burada yaptıklarınız. w1 = np.random.randn  olarak belirleyebilirsiniz. Bu rastgele bir Gauss değişkeni üretir (2,2). Ve sonra genellikle, bunu 0,01 gibi
+ çok küçük bir sayı ile çarpın. Böylece onu çok küçük rastgele değerler ile başlatırsınız. Ve böylece b'nin simetri sorunu olmadığı ortaya çıkıyor. Buna simetri kırılma problemi 
+(symmetry breaking problem) denir. Yani b'yi sıfır başlatmak sorun değildir. Çünkü w rastgele başlatıldığı sürece, Farklı şeyleri hesaplayan farklı
+ gizli birimler ile başlıyorsunuz. Ve böylece artık simetri kırma problemi 
+(symmetry breaking problem) sorun değildir. Ve sonra benzer şekilde, w2 için, bunu rastgele başlatacaksınız. Ve b2, bunu da 0 olarak başlatabilirsiniz. Yani merak ediyor olabilirsiniz bu sabit değer nereden geldi ve neden 0.01? diye Neden 100 veya 1000 değil? Genellikle ağırlıkların çok küçük
+ rastgele değerlerle başlamasını tercih ettiğimiz ortaya çıkıyor. Çünkü eğer bir tanh veya sigmoid aktivasyon fonksiyonu 
+(sigmoid activation function) ya da diğer sigmoid'i kullanıyorsanız, 
+sadece çıktı katmanında bile. Eğer ağırlıklar çok büyük ise, o zaman aktivasyon değerlerini hesapladığınızda, z[1] = w1 x + b 'yi unutmayın. Ve sonra a1, z1'e uygulanan aktivasyon fonksiyonudur. Yani w çok büyük ise ,z de çok büyük 
+yada en azından bazı değerlerde z değerleri çok büyük veya
+ çok küçük olacaktır. Ve bu durumda, tahn fonksiyonunun veya 
+eğimin (slope) veya eğimin çok küçük olduğu sigmoid fonksiyonunun
+ bu şişman kısımlarında ortaya çıkma olasılığı daha yüksektir. Bu gradyan düşümü (gradient descent) çok yavaş olacak demektir. Yani öğrenme çok yavaştı. Yani sadece bir özet, eğer w çok büyük ise, eğitimin başlangıcında bile çok büyük 
+değerlerle sona ermeniz daha olasıdır. Hangi durumlar tahn veya 
+sigmoid aktivasyon fonksiyonu doygun hale getirir. Böylece öğrenmeyi yavaşlatır. Neural ağınız boyunca eğer 
+hiçbir sigmoid veya tahn aktivasyon fonksiyonunuz yoksa,
+ bu daha az sorun olur. Ancak eğer ikili sınıflama yapıyorsanız, ve
+ çıkış biriminiz bi sigmoid fonksiyon ise başlangıç parametrelerinin çok büyük
+ olmasını istemezsiniz. işte bu yüzden 0.01 ile çarpmak,
+ denemek için makul bir şey ya da başka küçük bir sayı olurdu. Ve w2 için de aynı, değil mi? Bu random.random olabilir. Sanırım bu örnekte 1'den 2'ye kadar, 0.01 kez Orada bir eksik Sonuç olarak, bazen onlar 0.01'den daha iyi sabitler olabilir. Sadece bir gizli katmanı olan
+ bir neural ağını eğitirken, çok fazla gizli katman olmaksızın nispeten
+ yüzeysel (shallow) bir neural ağdır. 0.01 olarak ayarlayın muhtemelen iyi çalışacaktır. Ancak çok derin (deep) bir neural ağı eğitirken, o zaman 0.01'den farklı bir
+ sabit seçmek isteyebilirsiniz. Gelecek haftaki materyalde ,0.01'den
+ farklı bir sabiti nasıl  ve ne zaman seçmek isteyebileceğiniz
+ hakkında biraz konuşacağız. Ancak her iki durumda da, genellikle
+ nispeten küçük bir sayı olur. Yani bu haftaki videolar için bu kadar. Artık bir gizli bir katmanlı neural ağın 
+nasıl kuracağınızı biliyorsunuz, parametreleri başlatabilirsiniz,
+kullanarak tahminlerde bulunabilirsiniz. Türevleri hesaplamanın yanı sıra, 
+gradyan alçalmayı (gradient descent) uygular, geri yayılım kullanır. Böylece, bu haftaki programlama
+ alıştırmalarının yanı sıra sınavları yapabilmelisiniz. İyi şanslar. Umarım problem alıştırmalarıyla eğlenirsiniz, ve hafta dört materyalde sizi görmek için sabırsızlanıyoruz.

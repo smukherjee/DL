@@ -1,0 +1,511 @@
+1
+00:00:03,320 --> 00:00:05,850
+Neuroniniai tinklai paskutiniu metu sulaukia ypač daug dėmesio.
+
+2
+00:00:05,850 --> 00:00:10,170
+Dalis šio dėmesio yra išties pagrįsta, nes jie puikiai dirba.
+
+3
+00:00:10,170 --> 00:00:11,220
+Tačiau paaiškėjo, kad kol kas,
+
+4
+00:00:11,220 --> 00:00:15,710
+beveik visa ekonominė vertė, sukurta neuroninių tinklų, buvo naudojant
+
+5
+00:00:15,710 --> 00:00:18,970
+vieno tipo mašininio mokymosi metodą, vadinamą prižiūrimuoju mokymusi.
+
+6
+00:00:18,970 --> 00:00:22,120
+Pažiūrėkime ką tai reiškia peržvelgdmi keletą pavyzdžių.
+
+7
+00:00:22,120 --> 00:00:26,030
+Naudojant prižiūrimą mokymąsi, jūs turite keletą įvesties duomenų x ir
+
+8
+00:00:26,030 --> 00:00:30,210
+jūs norite išmokti funkciją, kuri atvaizduojama išvesties duomenimis y.
+
+9
+00:00:30,210 --> 00:00:34,890
+Pavyzdžiui, ką tik mes matėme nekilnojamo turto kainų prognozavimą kur
+
+10
+00:00:34,890 --> 00:00:40,850
+jūs įvedate keletą namo savybių ir bandote išvesti ar įvertinti kainą y.
+
+11
+00:00:40,850 --> 00:00:45,180
+Čia yra dar keletas pavyzdžių kur neuroniniai tinklai buvo pritaikyti
+
+12
+00:00:45,180 --> 00:00:46,940
+labai efektyviai.
+
+13
+00:00:46,940 --> 00:00:51,180
+Greičiausiai vienas pelningausias gilaus mokymosi pritaikymas šiandien yra
+
+14
+00:00:51,180 --> 00:00:56,150
+reklama internete, galbūt ne labiausiai įkvepiantis, bet tikrai labai pelningas.
+
+15
+00:00:56,150 --> 00:01:02,770
+Jame įvedant informaciją apie reklamą ir puslapį kuriame galvojame
+
+16
+00:01:02,770 --> 00:01:07,020
+ją parodyti jums, ir šiek tiek informacijos apie patį vartotoją, neuroniniai tinklai gali
+
+17
+00:01:07,020 --> 00:01:10,700
+labai geri prognozuoti, ar jūs paspausite ant reklamos.
+
+18
+00:01:10,700 --> 00:01:11,770
+Rodydami jums ir
+
+19
+00:01:11,770 --> 00:01:15,800
+rodydami kitiems vartotojams reklamas, ant kurių tikėtina paspausite, pavirto
+
+20
+00:01:15,800 --> 00:01:20,830
+ypač pelningu neuroninių tinklų pritaikymu keliose kompanijose.
+
+21
+00:01:20,830 --> 00:01:24,040
+Nes galimybė rodyti jums reklamas, ant kurių jūs tikėtina
+
+22
+00:01:24,040 --> 00:01:26,690
+paspausite, turi tiesioginę įtaką pelnui
+
+23
+00:01:26,690 --> 00:01:29,200
+kai kuriose labai didelėse internetinės reklamos kompanijose.
+
+24
+00:01:30,630 --> 00:01:35,150
+Kompiuterinis matymas taip pat vystosi sparčiai paskutinius keletą metų,
+
+25
+00:01:35,150 --> 00:01:37,050
+pagrindinė to priežastis - gilus mokymasis.
+
+26
+00:01:37,050 --> 00:01:41,140
+Jūs galite įkelti paveikslėlį ir norėtumėte gauti skaičių,
+
+27
+00:01:41,140 --> 00:01:45,290
+tarkim nuo 1 iki 1000, kuris pasakytų ką atvaizduoja šis paveikslėlis,
+
+28
+00:01:45,290 --> 00:01:47,300
+kuris galėtų būti bet kuris iš 1000 skirtingų paveikslėlių tipų.
+
+29
+00:01:47,300 --> 00:01:50,500
+Taigi, jūs galėtumėte tą panaudoti žymėjimui nuotraukose.
+
+30
+00:01:50,500 --> 00:01:54,520
+Aš manau paskutinis progresas kalbos atpažinime taip pat yra labai daug žadantis,
+
+31
+00:01:54,520 --> 00:01:57,910
+jūs galite įkelti garso ištrauką neuroniniam tinklui, ir jis
+
+32
+00:01:57,910 --> 00:02:00,930
+išves tekstinį jo turinį.
+
+33
+00:02:00,930 --> 00:02:05,400
+Mašininiai vertimai taip pat žengia greitai į priekį dėl gilaus mokymosi, kur
+
+34
+00:02:05,400 --> 00:02:09,400
+jūs galite įvesti anglišką sakinį neuroniniam tinklui ir tiesiogiai gauti tarkim
+
+35
+00:02:09,400 --> 00:02:11,010
+sakinį kiniečių kalba.
+
+36
+00:02:11,010 --> 00:02:15,930
+Taip pat autonominiame vairavime, jūs galite pateikti paveikslėlį, pavyzdžiui, kas
+
+37
+00:02:15,930 --> 00:02:20,600
+yra priekyje jūsų mašinos kartu su informacija iš radaro, ir
+
+38
+00:02:20,600 --> 00:02:25,080
+tuo remiantis, neuroninis tinklas gali būti ištreniruotas pasakyti jums
+
+39
+00:02:25,080 --> 00:02:26,100
+kitų mašinų poziciją ant kelio.
+
+40
+00:02:26,100 --> 00:02:30,870
+Tai tampa esminiu komponentu autonominio vairavimo sistemose.
+
+41
+00:02:30,870 --> 00:02:35,730
+Taigi daug vertės kūrimo iš neuroninių tinklų atėjo gudriai
+
+42
+00:02:35,730 --> 00:02:39,360
+pasirenkant kas turėtų būti x ir kas turėtų būti y
+
+43
+00:02:39,360 --> 00:02:45,000
+jūsų konkrečiai problemai, ir tada pritaikant šį prižiūrimo mokymosi komponentą
+
+44
+00:02:45,000 --> 00:02:48,660
+didesnei sistema, tokiai kaip autonominė mašina.
+
+45
+00:02:48,660 --> 00:02:52,880
+Paaiškėjo, kad šiek tiek skirtingi neuroninių tinklų tipai yra naudingi
+
+46
+00:02:52,880 --> 00:02:54,960
+skirtinguose pritaikymuose.
+
+47
+00:02:54,960 --> 00:03:00,100
+Pavyzdžiui, nekilnojamo turto aplikacijoje, kurią matėme prieš tai buvusioje
+
+48
+00:03:00,100 --> 00:03:04,520
+vaizdo įraše, mes naudojame universaliai standartinę neuroninių tinklų architektūrą, tiesa?
+
+49
+00:03:04,520 --> 00:03:08,510
+Galbūt nekilnojamo turto vertinimui ar interneto reklamos srityje gal ir galėtų būti
+
+50
+00:03:08,510 --> 00:03:11,620
+santykinai standartinis neuronins tinklas, kaip tas, kurį mes matėme.
+
+51
+00:03:13,410 --> 00:03:19,120
+Aplikacijose dirbančiose su paveikslėliais mes dažnai naudosime konvoliucinius neuroninius tinklus,
+
+52
+00:03:19,120 --> 00:03:20,680
+dažnai trumpinamus kaip CNN.
+
+53
+00:03:21,730 --> 00:03:24,000
+O duomenims kurie išdėstyti seka...
+
+54
+00:03:24,000 --> 00:03:27,840
+Pavyzdžiui, audio duomenys turi laiko komponentę, tiesa?
+
+55
+00:03:27,840 --> 00:03:32,990
+Audio yra girdimas per tam tikrą laiką, taigi audio yra natūraliai atvaizduojamas
+
+56
+00:03:32,990 --> 00:03:38,110
+kaip vienos dimensijos laiko eilutė arba kaip vienos dimensijos laikinė seka.
+
+57
+00:03:38,110 --> 00:03:42,420
+Taigi duomenimis, kurie atvaizduojami kaip seka, jūs dažnai naudotumėte RNN,
+
+58
+00:03:42,420 --> 00:03:45,810
+grįžtamojo ryšio neuroninį tinklą.
+
+59
+00:03:45,810 --> 00:03:50,270
+Kalba, anglų ir kiniečių, alfabetas arba žodžiai eina po vieną vienu metu.
+
+60
+00:03:50,270 --> 00:03:54,820
+Taigi kalba taip pat natūraliai reprezentuojama kaip duomenų seka.
+
+61
+00:03:54,820 --> 00:04:00,700
+Labiau komplikuotos RNN versijos yra naudojamos būtent tam.
+
+62
+00:04:00,700 --> 00:04:04,360
+Galiausiai, dar sudėtingesniam pritaikymui, tokiam kaip autonominis vairavimas, kur jūs turite
+
+63
+00:04:04,360 --> 00:04:09,200
+paveikslėlį, kuris siūlytų labiau CNN,konvoliucinio neuroninio tinklo, struktūrą ir
+
+64
+00:04:09,200 --> 00:04:12,480
+radaro informaciją, kas yra kažkas visiškai kito.
+
+65
+00:04:12,480 --> 00:04:15,360
+Galiausiai jūs naudotumėte specializuotą, arba
+
+66
+00:04:15,360 --> 00:04:19,880
+kažkokią dar sudėtingesnę hibridinę neuroninio tinklo architektūrą.
+
+67
+00:04:20,880 --> 00:04:26,100
+Taigi, kad būti šiek tiek tikslesniam apie tai kas yra standartinės CNN ir
+
+68
+00:04:26,100 --> 00:04:27,950
+RNN architektūros.
+
+69
+00:04:27,950 --> 00:04:32,790
+Literatūroje jūs galbūt matėte paveikslėlius tokie kaip šis.
+
+70
+00:04:32,790 --> 00:04:34,740
+Tai yra standartinis neuroninis tinklas.
+
+71
+00:04:34,740 --> 00:04:36,800
+Jūs galbūt matėte ir tokį paveikslėlį.
+
+72
+00:04:36,800 --> 00:04:41,830
+Tai yra pavyzdys konvoliucinio neuroninio tinklos, ir mes pamatysime
+
+73
+00:04:41,830 --> 00:04:45,950
+vėlesniame kurse tiksliai ką šis paveikslėlis reiškia ir kaip jūs jį galėtumėte įgyvendinti.
+
+74
+00:04:45,950 --> 00:04:51,560
+Konvoliuciniai neuroniniai tinklai yra dažnai naudojami paveikslėliams.
+
+75
+00:04:51,560 --> 00:04:54,100
+Ir jūs galbūt matėte paveikslėlių, tokių kaip šis.
+
+76
+00:04:54,100 --> 00:04:57,590
+Ir jūs išmoksite kaip įgyvendinti tai vėlesniame kurse.
+
+77
+00:04:57,590 --> 00:05:00,180
+Grįžtamojo ryšio neuroniniai tinklai yra labai geri
+
+78
+00:05:00,180 --> 00:05:06,220
+vienos dimensijos duomenų sekai kuri turi galbūt laikinę komponentę.
+
+79
+00:05:06,220 --> 00:05:10,310
+Jūs taip pat galbūt girdėjote apie mašininio mokymosi pritaikymą
+
+80
+00:05:10,310 --> 00:05:14,000
+struktūrizuotiems duomenims ir nestruktūrizuotiems duomenims.
+
+81
+00:05:14,000 --> 00:05:14,960
+Štai ką šios frazės reiškia.
+
+82
+00:05:14,960 --> 00:05:18,620
+Struktūrizuoti duomenys reiškia iš esmės duomenis duomenų bazėse.
+
+83
+00:05:19,910 --> 00:05:25,010
+Pavyzdžiui, nuspėjant namų kainą jūs turite duomenų bazę ar
+
+84
+00:05:25,010 --> 00:05:28,140
+stulpelį, kuris jums pasako dydį ir kambarių skaičių.
+
+85
+00:05:28,140 --> 00:05:33,460
+Tai yra struktūrizuoti duomenys, arba bandant nuspėti ar vartotojas
+
+86
+00:05:33,460 --> 00:05:37,330
+paspaus ant reklamos, jūs turėsite informaciją apie vartotoją, pavyzdžiui amžių,
+
+87
+00:05:37,330 --> 00:05:41,590
+šiek tiek informacijos apie reklamą ir žymes, kurias jūs bandote prognozuoti.
+
+88
+00:05:41,590 --> 00:05:46,470
+Tai yra struktūrizuoti duomenys, kas reiškia, kad kiekviena savybė,
+
+89
+00:05:46,470 --> 00:05:49,740
+tokia kaip namo dydis, kambarių skaičius, arba
+
+90
+00:05:49,740 --> 00:05:54,530
+vartotojo amžius, turi labai aiškiai apibrėžtą prasmę.
+
+91
+00:05:54,530 --> 00:06:00,520
+Kitu atveju, nestruktūrizuoti duomenys yra tokie duomenys kaip garsas
+
+92
+00:06:00,520 --> 00:06:05,790
+arba paveikslėliai, kuriuose jūs norėtumėte atpažinti kas yra pavaizduota, arba tekstas.
+
+93
+00:06:05,790 --> 00:06:09,230
+Čia savybės gali būti taškų vertės paveikslėlyje arba
+
+94
+00:06:09,230 --> 00:06:12,190
+pavieniai žodžiai teksto fragmente.
+
+95
+00:06:12,190 --> 00:06:14,330
+Istoriškai, kur kas sunkiau
+
+96
+00:06:14,330 --> 00:06:19,480
+kompiuteriui suprasti nestruktūrizuotus duomenis negu struktūrizuotus duomenis.
+
+97
+00:06:19,480 --> 00:06:24,270
+Ir vien pats faktas, kad žmonių rasė yra ypač gerai išsivysčius suprasti
+
+98
+00:06:24,270 --> 00:06:26,270
+garsus bei paveikslėlius.
+
+99
+00:06:26,270 --> 00:06:28,390
+Ir tekstas buvo gana nesenas išradimas, bet
+
+100
+00:06:28,390 --> 00:06:31,760
+žmonės puikiai sugeba interpretuoti nestruktūrizuotus duomenis.
+
+101
+00:06:31,760 --> 00:06:36,800
+Vienas labiausiai jaudinančių dalykų apie populiarėjančius neuroninius tinklus yra,
+
+102
+00:06:36,800 --> 00:06:41,280
+kad gilaus mokymosi dėka, dėl neuroninių tinklų, kompiuteriai kur kas geriau sugeba
+
+103
+00:06:41,280 --> 00:06:46,320
+interpretuoti nestruktūrizuotus duomenis palyginus tai su situacija prieš keletą metų.
+
+104
+00:06:46,320 --> 00:06:51,240
+Ir tai sukuria daug galimybių naujiems, daug žadantiems pritaikymams, kurie naudoja
+
+105
+00:06:51,240 --> 00:06:55,220
+kalbos atpažinimą, paveikslėlių atpažinimą, natūralios kalbos teksto apdorojimą,
+
+106
+00:06:56,230 --> 00:07:00,180
+kur kas daugiau negu buvo įmanoma, palyginus prieš du ar tris metus.
+
+107
+00:07:00,180 --> 00:07:03,940
+Manau, kad žmonės turi natūralią empatiją nestruktūrizuotų duomenų supratimui,
+
+108
+00:07:03,940 --> 00:07:08,250
+jūs išgirsite apie neuroninių tinklų pasiekimus dirbant su nestruktūrizuotais duomenimis
+
+109
+00:07:08,250 --> 00:07:13,060
+žiniasklaidoje, nes tai atrodo kietai, kuomet neuroninis tinklas sugeba atpažinti katę<br />
+
+110
+00:07:13,060 --> 00:07:15,750
+Mums visiems tai patinka ir mes suprantame, ką tai reiškia.
+
+111
+00:07:15,750 --> 00:07:19,290
+Bet taip pat daug greitai pasiekiamos ekonominės vertės, kurią kuria
+
+112
+00:07:19,290 --> 00:07:24,270
+neuroniniai tinklai, matome ir dirbant su struktūrizuotais duomenimis,
+
+113
+00:07:24,270 --> 00:07:28,690
+tokiais kaip: geresnės reklamos sistemos, pelningesnės rekomendacijos ir
+
+114
+00:07:28,690 --> 00:07:33,730
+vien tik galimybė apdoroti milžiniškas duomenų bazes, kurias
+
+115
+00:07:33,730 --> 00:07:37,290
+daugelis kompanijų turi, kad galėtų atlikti tikslias prognozes.
+
+116
+00:07:37,290 --> 00:07:41,230
+Daugybė metodų, su kuriais mes susipažinsime šiame kurse, bus pritaikomi
+
+117
+00:07:41,230 --> 00:07:44,690
+tiek struktūrizuotiems, tiek nestruktūrizuotiems duomenims.
+
+118
+00:07:44,690 --> 00:07:46,970
+Siekiant išaiškinti algoritmus,
+
+119
+00:07:46,970 --> 00:07:52,210
+mes naudosime daugiau pavyzdžių, kurie naudoja nestruktūrizuotus duomenis.
+
+120
+00:07:52,210 --> 00:07:56,280
+Bet kai galvosite apie neuroninių tinklų pritaikymą savo komandoje
+
+121
+00:07:56,280 --> 00:08:01,360
+aš tikiuosi atrasite jų panaudojimą tiek ant struktūrizuotų, tiek ant nestruktūrizuotų duomenų.
+
+122
+00:08:02,590 --> 00:08:06,390
+Taigi neuroniniai tinklai transformavo prižiūrimąjį mokymąsi
+
+123
+00:08:06,390 --> 00:08:09,500
+ir jie kuria didžiulę ekonominę vertę.
+
+124
+00:08:09,500 --> 00:08:12,910
+Visgi žinoma, kad techniniai principai naudojami neuroniniuose tinkluose
+
+125
+00:08:12,910 --> 00:08:16,520
+buvo sukurti jau seniai, kartais net prieš keletą dešimtmečių.
+
+126
+00:08:16,520 --> 00:08:20,980
+Tai kodėl tik dabar jie pradeda sparčiai populiarėti ir puikiai veikti?
+
+127
+00:08:20,980 --> 00:08:24,970
+Kitame vaizdo įraše, mes pakalbėsime apie tai, kodėl tik gana neseniai
+
+128
+00:08:24,970 --> 00:08:28,940
+neuroniniai tinklai tapo nepaprastai galingu įrankiu, kuriuo jūs galite pasinaudoti.

@@ -1,0 +1,443 @@
+1
+00:00:00,000 --> 00:00:02,250
+Tekrar hoşgeldiniz. Bu videoda
+
+2
+00:00:02,250 --> 00:00:04,980
+Lojistik regresyon için gradyan düşümü (gradient descent) uygulamak amacıyla
+
+3
+00:00:04,980 --> 00:00:08,330
+türev nasıl hesaplanır bahsedeceğiz.
+
+4
+00:00:08,330 --> 00:00:11,040
+uygulamada yapacağınız şeyler bu konuyla ilgili akılda tutmanız gereken şeyler olacaktır.
+
+5
+00:00:11,040 --> 00:00:13,230
+Yani, lojistik regresyon için gradyan düşümü
+
+6
+00:00:13,230 --> 00:00:17,725
+uygulamak için gereken temel denklemler.
+
+7
+00:00:17,725 --> 00:00:22,185
+Bu videoda, hesaplama grafiğini kullanarak bu hesaplamayı yapmak istiyorum.
+
+8
+00:00:22,185 --> 00:00:25,320
+Hesaplama grafiğini kullanarak lojistik regresyon için gradyan düşümü
+
+9
+00:00:25,320 --> 00:00:29,342
+biraz abartılı olduğunu itiraf etmeliyim,
+
+10
+00:00:29,342 --> 00:00:31,183
+Ama bu fikirlere aşina olmak için
+
+11
+00:00:31,183 --> 00:00:33,975
+şunları açıklamak istiyorum,
+
+12
+00:00:33,975 --> 00:00:38,370
+Umarım, ayrıntılı bir şekilde sinir ağlarını konuştuğumuzda biraz daha anlamlı olacaktır.
+
+13
+00:00:38,370 --> 00:00:44,235
+Bunun için, lojistik regreson için gradyan düşümüne giriş yapalım.
+
+14
+00:00:44,235 --> 00:00:49,070
+Tekrarlamak gerekirse, aşağıdaki gibi lojistik regresyon kurmuştuk,
+
+15
+00:00:49,070 --> 00:00:53,220
+Tahminleriniz, ŷ, aşağıdaki gibi tanımlanır,
+
+16
+00:00:53,220 --> 00:00:56,490
+burada z olmasıdır.
+
+17
+00:00:56,490 --> 00:01:01,800
+Şimdilik sadece bir örneğe odaklanırsak, o zaman Loss(Loss Function),
+
+18
+00:01:01,800 --> 00:01:03,630
+ya da bu örneğe nazaran,
+
+19
+00:01:03,630 --> 00:01:05,190
+aşağıdaki gibi tanımlanır,
+
+20
+00:01:05,190 --> 00:01:07,855
+A'nın lojistik regrasyonun çıktısı olduğu yer,
+
+21
+00:01:07,855 --> 00:01:10,535
+ve Y yerdeki gerçek etikettir.
+
+22
+00:01:10,535 --> 00:01:15,735
+Bunu bir hesaplama grafiği olarak yazalım ve bu örnek için
+
+23
+00:01:15,735 --> 00:01:20,520
+Diyelim ki sadece iki tane var, X1 ve X2.
+
+24
+00:01:20,520 --> 00:01:22,860
+Z'yi hesaplamak için,
+
+25
+00:01:22,860 --> 00:01:27,030
+W1'i girmemiz gerekecek
+
+26
+00:01:27,030 --> 00:01:31,130
+W2 ve B, X1, X2 özellik değerlerine ek olarak.
+
+27
+00:01:31,130 --> 00:01:33,705
+Bu şeyler, bir hesaplama grafiğinde,
+
+28
+00:01:33,705 --> 00:01:36,910
+W1 olan Z'yi hesaplamak için kullanılır,
+
+29
+00:01:36,910 --> 00:01:41,588
+X1 + W2 X2 + B,
+
+30
+00:01:41,588 --> 00:01:45,380
+Bunu çerçeve içine alalım
+
+31
+00:01:45,380 --> 00:01:48,555
+Sonra, ŷ hesaplayalım,
+
+32
+00:01:48,555 --> 00:01:52,244
+ya da A =σ(z)
+
+33
+00:01:52,244 --> 00:01:55,740
+hesapla grafiğinde bir sonraki adım, son olarak,
+
+34
+00:01:55,740 --> 00:01:58,725
+L(a,y) hesaplayalım
+
+35
+00:01:58,725 --> 00:02:01,840
+ve formülü tekrar kopyalamayacağım.
+
+36
+00:02:01,840 --> 00:02:06,900
+Lojistik regresyonda, yapmak istediğimiz, parametreleri değiştirmek,
+
+37
+00:02:06,900 --> 00:02:12,830
+W ve B, bu Loss'u basitleştirmek için.
+
+38
+00:02:12,830 --> 00:02:15,870
+Tek bir eğitim örneğinde nasıl hesaplandığını gösteren
+
+39
+00:02:15,870 --> 00:02:19,280
+4 propagation (yayılım) adımdan bahsettik.
+
+40
+00:02:19,280 --> 00:02:23,940
+Şimdi, türevleri hesaplamak için geriye doğru nasıl gideceğimizi konuşalım.
+
+41
+00:02:23,940 --> 00:02:26,025
+İşte diyagramın temizlenmiş bir versiyonu.
+
+42
+00:02:26,025 --> 00:02:30,690
+Çünkü yapmak istediğimiz şey, bu Loss'la ilgili olarak türevleri hesaplamaktır.
+
+43
+00:02:30,690 --> 00:02:33,570
+Geriye doğru giderken yapmak istediğimiz ilk şey,
+
+44
+00:02:33,570 --> 00:02:38,010
+bu Loss'un türevini hesaplamaktır.
+
+45
+00:02:38,010 --> 00:02:41,940
+Buradaki A değişkenine göre senaryo.
+
+46
+00:02:41,940 --> 00:02:43,570
+Yani, kod da
+
+47
+00:02:43,570 --> 00:02:49,000
+Bu değişkeni göstermek için sadece "da" kullanıyorsunuz.
+
+48
+00:02:49,000 --> 00:02:52,725
+Calculus'a (hesaplama) aşina iseniz,
+
+49
+00:02:52,725 --> 00:03:02,004
+bunun -y/b + 1-y/1-a olduğu sonucuna varabilirdiniz.
+
+50
+00:03:02,004 --> 00:03:06,185
+Ve bunu yapmanın yolu, Loss için formülü alıyorsunuz ve
+
+51
+00:03:06,185 --> 00:03:07,535
+eğer calculus bilgisine aşinaysanız
+
+52
+00:03:07,535 --> 00:03:10,515
+türevi değişkene göre hesaplayabilirsiniz.
+
+53
+00:03:10,515 --> 00:03:12,792
+küçük harf A ve bu formülü elde edersiniz.
+
+54
+00:03:12,792 --> 00:03:15,280
+Ancak, matematik bilgisine aşina değilseniz, endişelenmeyin.
+
+55
+00:03:15,280 --> 00:03:17,960
+Türev formunu ve bu kurs boyunca
+
+56
+00:03:17,960 --> 00:03:20,100
+başka ne ihtiyacınız varsa karşılayacağız.
+
+57
+00:03:20,100 --> 00:03:21,185
+Calculus'ta uzman iseniz,
+
+58
+00:03:21,185 --> 00:03:24,590
+Loss'un formülünü aramanızı tavsiye ederim.
+
+59
+00:03:24,590 --> 00:03:29,504
+önceki slaytları ve hesaplamayı kullanarak A'ya göre türev alma,
+
+60
+00:03:29,504 --> 00:03:32,635
+ama bunu yapmak için yeterli matematik bilmiyorsanız, bunun için endişelenmeyin.
+
+61
+00:03:32,635 --> 00:03:35,491
+Şimdi, bu miktarda da ve türevi veya son alfa değişkeninizi
+
+62
+00:03:35,491 --> 00:03:38,825
+A'ya göre hesapladıktan sonra,
+
+63
+00:03:38,825 --> 00:03:40,715
+daha sonra geriye gidebilirsiniz.
+
+64
+00:03:40,715 --> 00:03:45,525
+dz'yi gösterebiliyorsunuz ki,
+
+65
+00:03:45,525 --> 00:03:47,648
+Bu değişken adı denen kısım,
+
+66
+00:03:47,648 --> 00:03:51,200
+bu Loss'un türevi olacak,
+
+67
+00:03:51,200 --> 00:03:53,618
+Z'ye veya L'ye karşı,
+
+68
+00:03:53,618 --> 00:03:59,850
+A ve Y de dahil olmak üzere Loss'u gerçekten parametre olarak yazabilir ya da yazamazsınız, değil mi?
+
+69
+00:03:59,850 --> 00:04:04,230
+Her iki gösterim de eşit derecede kabul edilebilir.
+
+70
+00:04:04,230 --> 00:04:09,605
+Bunun A-Y'ye eşit olduğunu gösterebiliriz.
+
+71
+00:04:09,605 --> 00:04:14,685
+Calculus uzmanları için sadece birkaç yorum,
+
+72
+00:04:14,685 --> 00:04:16,795
+Eğer calculus'ta uzman değilseniz, bunun için endişelenmeyin.
+
+73
+00:04:16,795 --> 00:04:20,320
+Ama bu, dL dz ortaya çıkıyor
+
+74
+00:04:20,320 --> 00:04:27,850
+Bu dL/da çarpı da/dz olarak ifade edilebilir,
+
+75
+00:04:27,850 --> 00:04:29,940
+ve da/dz ortaya çıkar,
+
+76
+00:04:29,940 --> 00:04:33,755
+Bu a(1-a) olduğu ortaya çıkıyor
+
+77
+00:04:33,755 --> 00:04:37,800
+ve dL/da daha önce burada çalıştık,
+
+78
+00:04:37,800 --> 00:04:41,530
+Bu iki niceliği alırsanız, dL/da
+
+79
+00:04:41,530 --> 00:04:43,846
+Bu terim, da/dz ile birlikte,
+
+80
+00:04:43,846 --> 00:04:47,165
+bu terimle ve sadece bu iki şeyi alıp çarpın.
+
+81
+00:04:47,165 --> 00:04:51,915
+Denklemin A-Y'ye basitleştirdiğini gösterebilirsiniz.
+
+82
+00:04:51,915 --> 00:04:53,220
+Bunun türevini bu şekilde alırsanız,
+
+83
+00:04:53,220 --> 00:04:57,390
+ve bu forma kısaca değinen zincir kuraldır.
+
+84
+00:04:57,390 --> 00:05:02,770
+Calculus'ta bilgili iseniz, bu hesaplamayı kendiniz yapmaktan çekinmeyin,
+
+85
+00:05:02,770 --> 00:05:05,345
+ama eğer bilmiyorsanız, bilmeniz gereken tek şey hesaplayabilirsiniz.
+
+86
+00:05:05,345 --> 00:05:09,365
+A-Y olarak DZ ve biz zaten bu hesabı sizin için yaptık.
+
+87
+00:05:09,365 --> 00:05:13,010
+Daha sonra, bu hesaplamadaki son adım,
+
+88
+00:05:13,010 --> 00:05:17,480
+W ve B'yi ne kadar değiştirmeniz gerektiğini hesaplamak için geri dönmektir.
+
+89
+00:05:17,480 --> 00:05:24,610
+Özellikle, W1 bakımından ve tırnak içinde türevin bu dw1 gerektirdiğini
+
+90
+00:05:24,610 --> 00:05:31,810
+ve bunun X1 kere dz'ye eşit olduğunu gösterebilirsiniz.
+
+91
+00:05:31,810 --> 00:05:36,485
+Sonra, benzer şekilde, W2'yi değiştirmek istediğiniz dW2,
+
+92
+00:05:36,485 --> 00:05:39,455
+X2 çarpı dz ve B,
+
+93
+00:05:39,455 --> 00:05:42,585
+affedersiniz, dB dZ'ye eşittir.
+
+94
+00:05:42,585 --> 00:05:47,375
+Sadece bu bir örneğe göre gradyan düşümü yapmak isterseniz,
+
+95
+00:05:47,375 --> 00:05:49,280
+Yapacağınız şey;
+
+96
+00:05:49,280 --> 00:05:52,640
+dz'yi hesaplamak için bu formülü kullanırdınız,
+
+97
+00:05:52,640 --> 00:05:56,707
+ve sonra dW1, dW2, hesaplamak için bu formülleri kullanın
+
+98
+00:05:56,707 --> 00:06:01,170
+db ve sonra bu güncelleştirmeleri gerçekleştirin.
+
+99
+00:06:01,170 --> 00:06:04,538
+W1, W1 eksi olarak güncellenir,
+
+100
+00:06:04,538 --> 00:06:06,575
+öğrenme oranı alfa, çarpı dW1.
+
+101
+00:06:06,575 --> 00:06:09,245
+W2 benzer şekilde güncellenir,
+
+102
+00:06:09,245 --> 00:06:14,170
+B, B eksi öğrenme oranı çarpı db olarak ayarlanır.
+
+103
+00:06:14,170 --> 00:06:18,860
+Ve böylece, bu tek bir örneğe göre bir derecelik adım olacaktır.
+
+104
+00:06:18,860 --> 00:06:22,130
+Türevleri nasıl hesaplayacağınızı ve nasıl uygulayacağınızı görüyorsunuz.
+
+105
+00:06:22,130 --> 00:06:27,200
+Tek bir eğitim örneğine göre lojistik regresyon için gradyan düşüm.
+
+106
+00:06:27,200 --> 00:06:28,987
+Ancak eğitim lojistik regresyon modeli,
+
+107
+00:06:28,987 --> 00:06:34,700
+M eğitim örneklerinin eğitim setleri verilen sadece bir eğitim örneğiniz yok.
+
+108
+00:06:34,700 --> 00:06:36,120
+Bir sonraki videoda,
+
+109
+00:06:36,120 --> 00:06:39,350
+bu fikirleri nasıl alabileceğinizi ve öğrenmeye nasıl uygulayabileceğinizi görelim.
+
+110
+00:06:39,350 --> 00:06:40,760
+sadece bir örnek değil ama
+
+111
+00:06:40,760 --> 00:06:42,400
+tüm bir eğitim setinden.

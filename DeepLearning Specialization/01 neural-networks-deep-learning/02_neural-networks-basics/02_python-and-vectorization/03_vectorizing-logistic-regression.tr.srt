@@ -1,0 +1,495 @@
+1
+00:00:00,860 --> 00:00:05,760
+Daha önce vektörleştirmenin (vectorization) kodunuzu belirgin bir şekilde nasıl hızlandırdığından bahsetmiştik.
+
+2
+00:00:05,760 --> 00:00:08,160
+Bu videoda 
+
+3
+00:00:08,160 --> 00:00:10,545
+lojistik regresyon işleminde vektörleştirme uygulamasını nasıl yapacağınızdan bahsedeceğiz.
+
+4
+00:00:10,545 --> 00:00:12,960
+Böylelikle, tüm bir eğitim seti (training set) için bu işlemi
+
+5
+00:00:12,960 --> 00:00:15,930
+yani, gradyan düşümü uygulamasının tüm eğitim seti için tek bir adımı için bile
+
+6
+00:00:15,930 --> 00:00:22,330
+tek bir ayrı for döngüsü kullanmadan uygulayabileceğiz.
+
+7
+00:00:22,330 --> 00:00:24,039
+Bu teknik konusunda,
+
+8
+00:00:24,039 --> 00:00:26,670
+ve sinir ağlarında, üzerinde daha sonra da konuşacağımız,
+
+9
+00:00:26,670 --> 00:00:30,050
+tek bir ayrı for döngüsü bile kullanmama konusunda oldukça heyecanlıyım.
+
+10
+00:00:30,050 --> 00:00:35,965
+Haydi başlayalım! Öncelikle, lojistik regresyonun ileri doğru yayılım (forward propogation) adımlarını inceleyelim.
+
+11
+00:00:35,965 --> 00:00:37,860
+Eğer eğitim setiniz m tane elemandan oluşuyorsa,
+
+12
+00:00:37,860 --> 00:00:40,605
+birinci eleman üzerinden bir tahmin yapmak için,
+
+13
+00:00:40,605 --> 00:00:42,105
+bu şekilde, 
+
+14
+00:00:42,105 --> 00:00:45,480
+bildiğiniz bu formüllerle z'yi hesaplamanız gerekir. 
+
+15
+00:00:45,480 --> 00:00:47,370
+Daha sonra aktivasyonları,
+
+16
+00:00:47,370 --> 00:00:49,485
+ve bu ilk eleman için y şapkayı,
+
+17
+00:00:49,485 --> 00:00:52,705
+daha sonra ikinci eğitim seti elemanı üzerinden tahmin yapmak için
+
+18
+00:00:52,705 --> 00:00:54,405
+bunu,
+
+19
+00:00:54,405 --> 00:00:57,085
+ve üçüncü eğitim seti elemanı üzerinden tahmin yapmak için de 
+
+20
+00:00:57,085 --> 00:00:59,045
+bunu hesaplamalı ve bu şekilde devam etmelisiniz.
+
+21
+00:00:59,045 --> 00:01:01,020
+Bunu bu şekilde m kez yapmanız gerekecektir,
+
+22
+00:01:01,020 --> 00:01:03,855
+eğer eğitim setinizde m tane elemanınız varsa.
+
+23
+00:01:03,855 --> 00:01:08,250
+Göreceğiz ki, ileri doğru yayılım adımını tamamlamak için,
+
+24
+00:01:08,250 --> 00:01:13,435
+yani eğitim setindeki m tane eğitim verisi için tahmin hesaplamalarını yapmak üzere,
+
+25
+00:01:13,435 --> 00:01:14,865
+bunu yapmanın
+
+26
+00:01:14,865 --> 00:01:17,925
+ayrı ayrı for döngüsü kullanmaksızın bir yolu var.
+
+27
+00:01:17,925 --> 00:01:20,450
+Nasıl yapabilirsiniz görelim:
+
+28
+00:01:20,450 --> 00:01:26,455
+Öncelikle, hatırlayın ki, X matrisini, eğitim girdilerimizi temsil etmek üzere,
+
+29
+00:01:26,455 --> 00:01:30,895
+yanyana bu şekilde birleşen farklı sütunlar halinde tanımlamıştık.
+
+30
+00:01:30,895 --> 00:01:33,810
+Bu bir matris,
+
+31
+00:01:33,810 --> 00:01:38,425
+n_x * m boyutlu bir matris.
+
+32
+00:01:38,425 --> 00:01:41,885
+Bunu Python numpy.shape fonksiyonu formunda bu şekilde yazıyorum.
+
+33
+00:01:41,885 --> 00:01:50,350
+Bu, sadece, X'in n_x * m boyutlu bir matris olsuğunun bir ifadesi.
+
+34
+00:01:50,350 --> 00:01:54,670
+Şimdi, ilk göstermek istediğim, z1, z2,
+
+35
+00:01:54,670 --> 00:01:56,512
+z3 ve diğerlerinin 
+
+36
+00:01:56,512 --> 00:01:58,665
+hepsi tek adımda,
+
+37
+00:01:58,665 --> 00:02:01,195
+yani tek satırlık bir kodla nasıl hesaplanabileceği.
+
+38
+00:02:01,195 --> 00:02:06,930
+Evet, 1 * m boyutunda,
+
+39
+00:02:06,930 --> 00:02:13,100
+aslında bir satır vektörü olan, bir matris oluşturacağım,
+
+40
+00:02:13,100 --> 00:02:15,405
+z1, z2 ve
+
+41
+00:02:15,405 --> 00:02:18,480
+zm'e kadar hepsini aynı anda hesaplayacağım,
+
+42
+00:02:18,480 --> 00:02:22,175
+Öyle görünüyor ki, bu,
+
+43
+00:02:22,175 --> 00:02:29,225
+w'nun transpozu çarpı X matrisi, artı, bu (b,b,...,b) vektörü,
+
+44
+00:02:29,225 --> 00:02:31,040
+şeklinde ifade edilebilir.
+
+45
+00:02:31,040 --> 00:02:33,315
+Burada bu,
+
+46
+00:02:33,315 --> 00:02:34,480
+(b,b,...,b),
+
+47
+00:02:34,480 --> 00:02:38,980
+1 * m boyutlu bir vektör, başka bir deyişle,
+
+48
+00:02:38,980 --> 00:02:46,725
+m boyutlu satır vektörü şeklindeki 1 * m 'lik bir matris.
+
+49
+00:02:46,725 --> 00:02:50,495
+Matrisi çarpımı konusuna ne kadar aşina olduğunuza bağlı olarak,
+
+50
+00:02:50,495 --> 00:02:56,300
+görebilirsiniz ki, w'nun transpozu X1, 
+
+51
+00:02:56,300 --> 00:02:58,760
+X2 ve Xm'e kadar,
+
+52
+00:02:58,760 --> 00:03:05,755
+ve burada w'nun transpozu bir satır vektörü olabilir,
+
+53
+00:03:05,755 --> 00:03:10,655
+Evet yani buradaki w transpoz, bu şekilde bir satır vektörü olacak.
+
+54
+00:03:10,655 --> 00:03:18,614
+Ve bu ilk terim, w transpoz X1,
+
+55
+00:03:18,614 --> 00:03:22,970
+w transpoz X2, nokta nokta nokta,
+
+56
+00:03:22,970 --> 00:03:29,840
+w transpoz xm şeklinde çıkacak. Buna ikinci terim olan, (b,
+
+57
+00:03:29,840 --> 00:03:30,960
+b,b...,b)'yi eklediğimizde,
+
+58
+00:03:30,960 --> 00:03:33,565
+her elemana b eklemiş gibi olacaksınız.
+
+59
+00:03:33,565 --> 00:03:37,650
+Böylelikle başka bir 1*m'lik vektör elde etmiş olursunuz.
+
+60
+00:03:37,650 --> 00:03:38,955
+Ve evet, bu ilk eleman,
+
+61
+00:03:38,955 --> 00:03:40,590
+bu ikinci eleman, ve bu şekilde,
+
+62
+00:03:40,590 --> 00:03:42,810
+bu da m. eleman.
+
+63
+00:03:42,810 --> 00:03:45,605
+Ve yukardaki tanımlara bakarsanız,
+
+64
+00:03:45,605 --> 00:03:51,250
+aslında bu ilk eleman tam olarak z1'e
+
+65
+00:03:51,250 --> 00:03:57,305
+ikinci eleman tam olarak z2'ye,.. eşit olacak şekilde devam eder.
+
+66
+00:03:57,305 --> 00:04:00,035
+Dolayısıyla, aynı X matrisini daha önce elde ettiğimiz yolla,
+
+67
+00:04:00,035 --> 00:04:02,870
+(eğitim seti elemanlarımızı alıp,
+
+68
+00:04:02,870 --> 00:04:07,400
+yatay olarak, yan yana koyarak, oluşturmuştuk)
+
+69
+00:04:07,400 --> 00:04:11,069
+bu büyük Z'yi de,
+
+70
+00:04:11,069 --> 00:04:16,385
+küçük z'leri alıp yatay olarak yan yana koyduğumuz hali olarak tanımlayacağım.
+
+71
+00:04:16,385 --> 00:04:21,080
+Dolayısıyla, farklı eğitim seti elemanlarına tekabül eden küçük x'leri yan yana koyduğunuzda,
+
+72
+00:04:21,080 --> 00:04:24,350
+yatay olarak, büyük X matrisini elde ettiğiniz gibi;
+
+73
+00:04:24,350 --> 00:04:27,420
+aynı şekilde, bu küçük z değişkenlerini de
+
+74
+00:04:27,420 --> 00:04:28,805
+yatay olarak yan yana koyduğunuzda,
+
+75
+00:04:28,805 --> 00:04:34,050
+bu büyük Z değişkenini elde etmiş olursunuz.
+
+76
+00:04:34,050 --> 00:04:37,400
+Bunu uygulamak için kullanılacak olan
+
+77
+00:04:37,400 --> 00:04:45,773
+numpy komutu, büyük Z eşittir np.dot (w.T, X)
+
+78
+00:04:45,773 --> 00:04:51,095
+yani w transpoz, X ve artı b.
+
+79
+00:04:51,095 --> 00:04:53,645
+Python'da bu işlemle ilgili bir incelik mevcut;
+
+80
+00:04:53,645 --> 00:04:59,405
+Burada b bir reel sayı, ya da isterseniz buna 1 * 1'li matris de diyebilirsiniz,
+
+81
+00:04:59,405 --> 00:05:01,330
+normal bir reel sayı.
+
+82
+00:05:01,330 --> 00:05:06,230
+Fakat, bu vektörü bu reel sayıya eklediğinizde,
+
+83
+00:05:06,230 --> 00:05:13,235
+Pyton otomatik olarak bu b reel sayısını 1 * m'lik satır vektörü haline genişletiyor.
+
+84
+00:05:13,235 --> 00:05:16,490
+Her ne kadar bu işlem biraz garip gözükse de,
+
+85
+00:05:16,490 --> 00:05:20,120
+bu, Python'da "broadcasting" olarak tanımlanıyor,
+
+86
+00:05:20,120 --> 00:05:22,210
+ve bunu şu an için düşünmenize gerek yok,
+
+87
+00:05:22,210 --> 00:05:25,760
+ilerde daha sonra buna biraz daha deyineceğiz.
+
+88
+00:05:25,760 --> 00:05:29,180
+Önemli olan nokta şu ki, sadece bir satırlık kodla, bu kod satırıyla,
+
+89
+00:05:29,180 --> 00:05:33,290
+büyük Z'yi hesaplayabilirsiniz. Büyük Z,
+
+90
+00:05:33,290 --> 00:05:37,698
+tüm küçük z'leri içeren 1 * m'lik bir matris olacak,
+
+91
+00:05:37,698 --> 00:05:41,200
+küçük z1'den küçük zm'ye kadar.
+
+92
+00:05:41,200 --> 00:05:46,255
+Evet bu Z idi. Peki ya a değerleri?
+
+93
+00:05:46,255 --> 00:05:48,260
+Sıradaki yapmak istedğimiz şey,
+
+94
+00:05:48,260 --> 00:05:52,685
+a1,
+
+95
+00:05:52,685 --> 00:05:57,220
+a2 ve am'ye kadar,
+
+96
+00:05:57,220 --> 00:05:58,700
+hepsini tek bir seferde hesaplamak,
+
+97
+00:05:58,700 --> 00:06:03,350
+ve tıpkı küçük x'leri yanyana getirmenin
+
+98
+00:06:03,350 --> 00:06:08,870
+büyük X'i, küçük z'leri yatay olarak yan yana getirmenin büyük Z'yi oluşturmuş olması gibi,
+
+99
+00:06:08,870 --> 00:06:10,810
+küçük a'ları yan yana getirmek de
+
+100
+00:06:10,810 --> 00:06:12,470
+yeni bir değişken olan
+
+101
+00:06:12,470 --> 00:06:15,200
+büyük A'yı tanımlayacak.
+
+102
+00:06:15,200 --> 00:06:18,075
+Programlama ödevinde
+
+103
+00:06:18,075 --> 00:06:22,790
+vektör değerli bir sigmoid fonksiyonunu uygulamayı göreceğiz.
+
+104
+00:06:22,790 --> 00:06:24,480
+sigmoid fonksiyonu
+
+105
+00:06:24,480 --> 00:06:32,380
+büyük Z'yi bir değişken olarak girdi kabul edecek şekilde alıp büyük A'yı oluşturacak.
+
+106
+00:06:32,380 --> 00:06:36,620
+Dolayısıyla bunun ayrıntılarını programlama ödevinde göreceksiniz.
+
+107
+00:06:36,620 --> 00:06:38,110
+Genel olarak toparlamak gerekirse,
+
+108
+00:06:38,110 --> 00:06:42,655
+Bu sunumda gördüğümüz şey; bir döngü kurma ihtiyacı hissetmeden
+
+109
+00:06:42,655 --> 00:06:47,515
+m tane eğitim seti elemanı üzerinde küçük z ve küçük a'yı hesaplamak,
+
+110
+00:06:47,515 --> 00:06:52,090
+hepsi için tek seferde, ve tek satırlık bir kodla,
+
+111
+00:06:52,090 --> 00:06:54,290
+bütün bu z'leri aynı anda hesaplamak
+
+112
+00:06:54,290 --> 00:06:57,100
+ve daha sonra bu tek satır kod ile
+
+113
+00:06:57,100 --> 00:06:59,260
+küçük sigmanın buna doğru bir şekilde uygulanmasıyla
+
+114
+00:06:59,260 --> 00:07:04,115
+tüm bu küçük a'ları aynı anda hesaplamak.
+
+115
+00:07:04,115 --> 00:07:05,965
+Evet, işte bu işlem
+
+116
+00:07:05,965 --> 00:07:07,948
+vektörleştirme dediğimiz
+
+117
+00:07:07,948 --> 00:07:11,560
+m tane eğitim verisi için ileri doğru yayılımı tek seferde gerçekleştirme işlemi...
+
+118
+00:07:11,560 --> 00:07:13,985
+Özetle, 
+
+119
+00:07:13,985 --> 00:07:18,100
+mükemmel bir şekilde tüm aktivasyonları,
+
+120
+00:07:18,100 --> 00:07:21,700
+tüm küçük a'ları aynı anda hesaplamak için vektörleştirmeyi nasıl kullanacağımızı görmüş oldunuz.
+
+121
+00:07:21,700 --> 00:07:24,860
+Devamında, göreceğiz ki, vektörleştirmeyi ayrıca
+
+122
+00:07:24,860 --> 00:07:27,910
+geri yayılım hesaplamasında da
+
+123
+00:07:27,910 --> 00:07:29,650
+gradyanları hesaplamak için kullanacağız.
+
+124
+00:07:29,650 --> 00:07:32,000
+Şimdi bunu bir sonraki videoda nasıl yapacağımızı görelim...

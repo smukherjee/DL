@@ -1,0 +1,1407 @@
+1
+00:00:02,420 --> 00:00:04,575
+Muito obrigado, Pieter
+
+2
+00:00:04,575 --> 00:00:06,690
+por juntar-se a mim, hoje.
+
+3
+00:00:06,690 --> 00:00:08,560
+Eu acho que muitas pessoas conhecem você como
+
+4
+00:00:08,560 --> 00:00:12,150
+um renomado pesquisador sobre
+aprendizagem de máquina e robótica.
+
+5
+00:00:12,150 --> 00:00:15,550
+Gostaria que as pessoas ouvissem
+um pouco sobre a sua história
+
+6
+00:00:15,550 --> 00:00:18,220
+Como você acabou fazendo
+o trabalho que você faz, atualmente?
+
+7
+00:00:18,220 --> 00:00:22,300
+É uma boa pergunta, que se tivesse sido feita
+quando eu tinha 14 anos de idade,
+
+8
+00:00:22,300 --> 00:00:24,775
+o que eu gostaria de ser,
+
+9
+00:00:24,775 --> 00:00:26,775
+provavelmente não seria o que faço agora.
+
+10
+00:00:26,775 --> 00:00:28,285
+De fato, naquela época,
+
+11
+00:00:28,285 --> 00:00:32,565
+eu pensava que ser um jogador profissional
+de basquete, seria o caminho a seguir.
+
+12
+00:00:32,565 --> 00:00:34,680
+E eu não acho que seria capaz de segui-lo.
+
+13
+00:00:34,680 --> 00:00:36,430
+Acho que aprendizagem de máquina teve mais sorte,
+
+14
+00:00:36,430 --> 00:00:38,250
+já que a ideia do basquete não funcionou.
+
+15
+00:00:38,250 --> 00:00:39,510
+Sim, não funcionou.
+
+16
+00:00:39,510 --> 00:00:41,890
+Era muito divertido jogar basquete, mas não funcionou
+
+17
+00:00:41,890 --> 00:00:44,885
+tentar tornar isso uma carreira.
+
+18
+00:00:44,885 --> 00:00:48,530
+Então, o que eu realmente gostava
+na escola era de física e de matemática.
+
+19
+00:00:48,530 --> 00:00:50,005
+Então, daí
+
+20
+00:00:50,005 --> 00:00:52,120
+parecia completamente natural, estudar engenharia,
+
+21
+00:00:52,120 --> 00:00:55,735
+que é a aplicação de 
+física e matemática no mundo real.
+
+22
+00:00:55,735 --> 00:00:58,150
+E, na verdade, depois de minha
+graduação em engenharia elétrica,
+
+23
+00:00:58,150 --> 00:01:00,355
+eu realmente não estava certo sobre o que fazer, porque,
+
+24
+00:01:00,355 --> 00:01:03,981
+literalmente, qualquer coisa em engenharia,
+parecia interessante para mim.
+
+25
+00:01:03,981 --> 00:01:07,680
+Entender, como qualquer coisa funcionava,
+parecia interessante.
+
+26
+00:01:07,680 --> 00:01:09,595
+Tentar construir qualquer coisa, é interessante.
+
+27
+00:01:09,595 --> 00:01:11,470
+E, de alguma forma,
+
+28
+00:01:11,470 --> 00:01:13,690
+inteligência artificial venceu porque parecia que,
+
+29
+00:01:13,690 --> 00:01:18,280
+de alguma forma,
+ela ajudaria todas as disciplinas.
+
+30
+00:01:18,280 --> 00:01:22,370
+E também, parecia, de alguma forma, no centro de tudo.
+
+31
+00:01:22,370 --> 00:01:24,575
+Você pensa sobre como uma máquina pode pensar,
+
+32
+00:01:24,575 --> 00:01:30,160
+então, talvez esteja mais, no centro de qualquer coisa
+do que escolher alguma disciplina específica.
+
+33
+00:01:30,160 --> 00:01:33,260
+Venho dizendo que IA é a nova eletricidade,
+
+34
+00:01:33,260 --> 00:01:35,020
+soa como se a sua versão de "14 anos"
+
+35
+00:01:35,020 --> 00:01:37,923
+tinha uma visão antecipada disso.
+
+36
+00:01:37,923 --> 00:01:44,465
+Você sabe, nos últimos anos, você tem
+trabalhado com aprendizagem profunda por reforço.
+
+37
+00:01:44,465 --> 00:01:49,315
+O que está acontecendo? Por que a 
+aprendizagem profunda por reforço, de repente está decolando?
+
+38
+00:01:49,315 --> 00:01:51,030
+Antes de trabalhar com aprendizagem profunda por reforço,
+
+39
+00:01:51,030 --> 00:01:52,765
+eu trabalhei bastante na aprendizagem por reforço;
+
+40
+00:01:52,765 --> 00:01:56,115
+na verdade, com você e Durant em Stanford, com certeza.
+
+41
+00:01:56,115 --> 00:01:59,863
+E então, trabalhamos no voo autônomo do helicóptero,
+
+42
+00:01:59,863 --> 00:02:02,440
+então, mais tarde em Berkeley, 
+com alguns de meus alunos que trabalhavam
+
+43
+00:02:02,440 --> 00:02:05,440
+na construção de um robô que aprendesse a dobrar roupas.
+
+44
+00:02:05,440 --> 00:02:09,340
+E, de alguma forma, a caracterização do trabalho era uma combinação
+
+45
+00:02:09,340 --> 00:02:13,015
+de aprendizado, que proporcionaria coisas
+que não seriam possíveis sem o aprendizado,
+
+46
+00:02:13,015 --> 00:02:18,120
+mas também, muito domínio da expertise, em combinação
+com a aprendizagem, para fazer isso funcionar.
+
+47
+00:02:18,120 --> 00:02:20,975
+E isso era muito
+
+48
+00:02:20,975 --> 00:02:22,600
+interessante porque, você precisava dominar a expertise que,
+
+49
+00:02:22,600 --> 00:02:24,310
+era divertida obter mas, ao mesmo tempo,
+
+50
+00:02:24,310 --> 00:02:28,234
+consumia muito tempo para
+qualquer nova aplicação funcionar bem;
+
+51
+00:02:28,234 --> 00:02:31,060
+você precisava dominar o assunto além 
+da expertise em aprendizagem de máquina.
+
+52
+00:02:31,060 --> 00:02:34,240
+E, para mim foi em 2012 com,
+
+53
+00:02:34,240 --> 00:02:39,910
+os resultados das importantes descobertas
+do grupo de Geoff Hinton, no ImageNet, em Toronto,
+
+54
+00:02:39,910 --> 00:02:42,880
+AlexNet, mostrando que o 
+aprendizado supervisionado, de repente,
+
+55
+00:02:42,880 --> 00:02:48,220
+poderia ser feito com menos 
+"engenharia" para dominar do assunto.
+
+56
+00:02:48,220 --> 00:02:50,410
+Havia muito pouca "engenharia" na visão em AlexNet.
+
+57
+00:02:50,410 --> 00:02:53,075
+Isto me fez pensar que nós realmente deveríamos revisitar
+
+58
+00:02:53,075 --> 00:02:57,610
+a aprendizagem por reforço
+sob o mesmo prisma e ver se podíamos
+
+59
+00:02:57,610 --> 00:03:01,075
+fazer o desvio da aprendizagem por reforço
+ funcionar e fazer
+
+60
+00:03:01,075 --> 00:03:05,950
+coisas igualmente interessantes, da mesma forma 
+que aconteceu na aprendizagem profunda supervisionada.
+
+61
+00:03:05,950 --> 00:03:08,565
+Parece que você identificou, antes da
+
+62
+00:03:08,565 --> 00:03:12,250
+maioria das pessoas, o potencial
+da aprendizagem profunda por reforço.
+
+63
+00:03:12,250 --> 00:03:14,365
+E agora, olhando para o futuro,
+
+64
+00:03:14,365 --> 00:03:16,180
+O que você vê, na sequência?
+
+65
+00:03:16,180 --> 00:03:17,260
+Quais são as suas previsões para
+
+66
+00:03:17,260 --> 00:03:20,440
+os próximos caminhos a serem trabalhados
+na aprendizagem profunda por reforço?
+
+67
+00:03:20,440 --> 00:03:23,270
+Então, eu penso que o que é interessante
+sobre aprendizagem profunda por reforço é que,
+
+68
+00:03:23,270 --> 00:03:26,795
+de alguma forma, há muito mais perguntas
+do que no aprendizado supervisionado.
+
+69
+00:03:26,795 --> 00:03:29,817
+Aprendizado supervisionado, é sobre aprender
+e mapear as entradas e saídas.
+
+70
+00:03:29,817 --> 00:03:34,505
+Mas aprendizagem por reforço, existe a noção de: 
+De onde mesmo vêm os dados?
+
+71
+00:03:34,505 --> 00:03:36,580
+Então, este é o problema exploratório.
+
+72
+00:03:36,580 --> 00:03:38,470
+Quando você tem os dados, como credita as atribuições?
+
+73
+00:03:38,470 --> 00:03:43,315
+Como você entende que ações tomou antes
+para conseguir o resultado depois?
+
+74
+00:03:43,315 --> 00:03:44,830
+E então, há questões de segurança.
+
+75
+00:03:44,830 --> 00:03:47,335
+Quando você tem um sistema, 
+coletando dados autonomamente,
+
+76
+00:03:47,335 --> 00:03:50,140
+é, na verdade, mais perigoso
+na maioria dos casos.
+
+77
+00:03:50,140 --> 00:03:51,880
+Imagine uma empresa de
+carros autoconduzidos que diz,
+
+78
+00:03:51,880 --> 00:03:53,825
+nós executaremos só
+aprendizagem profunda por reforço.
+
+79
+00:03:53,825 --> 00:03:55,690
+É bem provável que este carro
+se envolva em um monte de
+
+80
+00:03:55,690 --> 00:03:57,985
+acidentes, antes de fazer algo útil.
+
+81
+00:03:57,985 --> 00:03:59,650
+Você, precisava de exemplos negativos disso,
+certo?
+
+82
+00:03:59,650 --> 00:04:02,000
+Sim, de alguma forma você
+precisa mesmo de exemplos negativos;
+
+83
+00:04:02,000 --> 00:04:04,930
+e positivos também, ainda bem.
+
+84
+00:04:04,930 --> 00:04:07,540
+Então, acho que ainda temos muitos desafios
+
+85
+00:04:07,540 --> 00:04:09,760
+na aprendizagem profunda por reforço
+em termos de
+
+86
+00:04:09,760 --> 00:04:12,635
+trabalhar nos detalhes de
+como colocar as coisas para funcionar.
+
+87
+00:04:12,635 --> 00:04:14,520
+Então, a parte mais profunda é a representação,
+
+88
+00:04:14,520 --> 00:04:18,455
+mas então, a aprendizagem por reforço, 
+por si só tem ainda muitas questões.
+
+89
+00:04:18,455 --> 00:04:20,485
+E o que eu penso é que,
+
+90
+00:04:20,485 --> 00:04:22,810
+com os avanços em aprendizagem profunda,
+
+91
+00:04:22,810 --> 00:04:27,430
+de alguma forma, uma parte do quebra-cabeças
+na aprendizagem por reforço tem sido amplamente abordada,
+
+92
+00:04:27,430 --> 00:04:29,075
+que é a parte da representação.
+
+93
+00:04:29,075 --> 00:04:31,540
+Então, se há um padrão, podemos
+
+94
+00:04:31,540 --> 00:04:34,795
+provavelmente representá-lo numa
+rede de aprendizagem profunda e capturá-lo.
+
+95
+00:04:34,795 --> 00:04:39,400
+E, como separar estes padrões, continua sendo
+um grande desafio na aprendizagem por reforço.
+
+96
+00:04:39,400 --> 00:04:41,740
+Então eu acho que os grandes desafios são,
+
+97
+00:04:41,740 --> 00:04:45,695
+como conseguir que os sistemas funcionem
+num horizonte de longo prazo.
+
+98
+00:04:45,695 --> 00:04:47,770
+Então, agora mesmo, muitos dos sucessos
+
+99
+00:04:47,770 --> 00:04:50,650
+em aprendizagem profunda por reforço
+estão num horizonte de curto prazo.
+
+100
+00:04:50,650 --> 00:04:52,000
+Existem problemas onde,
+
+101
+00:04:52,000 --> 00:04:54,445
+se você age adequadamente em um horizonte de 5 segundos,
+
+102
+00:04:54,445 --> 00:04:57,815
+você age adequadamente sobre o problema como um todo.
+
+103
+00:04:57,815 --> 00:05:02,599
+E então, uma escala de 5 segundos é algo
+bem diferente de uma escala de um dia inteiro,
+
+104
+00:05:02,599 --> 00:05:06,930
+ou, a habilidade de viver a vida como um robô
+ou como um agente de software.
+
+105
+00:05:06,930 --> 00:05:09,240
+Então, acho que ainda temos muitos desafios.
+
+106
+00:05:09,240 --> 00:05:12,790
+Acho que segurança tem
+vários desafios em termos de
+
+107
+00:05:12,790 --> 00:05:14,920
+como aprender de forma segura e também de como
+
+108
+00:05:14,920 --> 00:05:17,785
+você continua aprendendo, uma vez que você é razoavelmente bom?
+
+109
+00:05:17,785 --> 00:05:20,305
+Então, para dar, novamente, um exemplo que
+
+110
+00:05:20,305 --> 00:05:23,070
+muita gente estaria familiarizada,
+com carros autoconduzidos,
+
+111
+00:05:23,070 --> 00:05:26,375
+para um carro autoconduzido ser melhor
+que um dirigido por um ser humano,
+
+112
+00:05:26,375 --> 00:05:31,990
+os motoristas talvez se envolvam em acidentes graves
+ a cada 5 milhões de Km, aproximadamente.
+
+113
+00:05:31,990 --> 00:05:35,763
+E então, leva muito tempo para ver os dados negativos;
+
+114
+00:05:35,763 --> 00:05:37,510
+uma vez que você é, tão bom quanto um motorista "humano".
+
+115
+00:05:37,510 --> 00:05:40,835
+Mas você quer que o seu carro autoconduzido 
+seja melhor que um motorista "humano".
+
+116
+00:05:40,835 --> 00:05:43,930
+E então, naquele ponto, a coleção de dados
+torna-se realmente difícil obter
+
+117
+00:05:43,930 --> 00:05:48,175
+aqueles dados que interessam
+para fazer seu sistema melhorar.
+
+118
+00:05:48,175 --> 00:05:52,420
+Então, são muitos desafios relacionados à exploração,
+ que encontram-se interconectados.
+
+119
+00:05:52,420 --> 00:05:57,190
+Mas, uma das coisas que me deixa
+mais animado, agora, é ver
+
+120
+00:05:57,190 --> 00:06:02,720
+se podemos, realmente, dar um passo atrás
+e também aprender sobre o algoritmo de aprendizagem por reforço.
+
+121
+00:06:02,720 --> 00:06:05,030
+Então, o reforço é muito complexo,
+
+122
+00:06:05,030 --> 00:06:07,450
+atribuição de crédito é muito complexa,
+exploração é muito complexa.
+
+123
+00:06:07,450 --> 00:06:08,905
+E então, talvez, como
+
+124
+00:06:08,905 --> 00:06:13,795
+aprendizagem profunda na aprendizagem supervisionada
+ era capaz de substituir uma grande quantidade do domínio prático,
+
+125
+00:06:13,795 --> 00:06:17,320
+talvez possamos ter programas que sejam aprendidos,
+
+126
+00:06:17,320 --> 00:06:20,140
+que sejam programas de aprendizagem por reforço
+ que façam tudo isso,
+
+127
+00:06:20,140 --> 00:06:22,510
+em vez de nós termos que projetar os detalhes.
+
+128
+00:06:22,510 --> 00:06:25,560
+Durante a função de recompensa
+ou durante o programa todo?
+
+129
+00:06:25,560 --> 00:06:28,150
+Então, isso seria aprender todo o programa de aprendizagem por reforço.
+
+130
+00:06:28,150 --> 00:06:30,430
+Então, seria, imagine,
+
+131
+00:06:30,430 --> 00:06:34,255
+você ter um programa de aprendizagem por reforço
+, o que quer que isso signifique,
+
+132
+00:06:34,255 --> 00:06:38,320
+e você descarta algum problema e então vê,
+ quanto tempo leva para aprender.
+
+133
+00:06:38,320 --> 00:06:41,020
+Então, você diz, bem, demorou um pouco.
+
+134
+00:06:41,020 --> 00:06:44,950
+Agora, deixe um outro programa modificar este programa de aprendizagem por reforço.
+
+135
+00:06:44,950 --> 00:06:48,045
+Após a modificação, veja o quão rápido ele aprende.
+
+136
+00:06:48,045 --> 00:06:49,641
+Se ele aprende mais rapidamente,
+
+137
+00:06:49,641 --> 00:06:54,380
+significa que foi uma boa modificação e que 
+deva ser mantida e melhorada a partir deste ponto.
+
+138
+00:06:54,380 --> 00:06:57,630
+Bem, entendo, certo. Sim direcionamento ambicioso.
+
+139
+00:06:57,630 --> 00:06:59,290
+Eu acho que isso tem tudo a ver com, talvez
+
+140
+00:06:59,290 --> 00:07:01,510
+a quantidade de processamento
+ que está sendo disponibilizada.
+
+141
+00:07:01,510 --> 00:07:05,860
+Então, estaria rodando o programa 
+aprendizagem por reforço num laço de repetição interno.
+
+142
+00:07:05,860 --> 00:07:08,975
+Para nós, agora, rodamos o programa de 
+aprendizagem por reforço como última coisa.
+
+143
+00:07:08,975 --> 00:07:11,260
+E então, quanto mais processamento conseguimos,
+
+144
+00:07:11,260 --> 00:07:14,545
+mais possibilita para, talvez, executar algo
+
+145
+00:07:14,545 --> 00:07:19,160
+como a aprendizagem por reforço, 
+no laço de repetição interno de um algoritmo maior.
+
+146
+00:07:19,160 --> 00:07:22,080
+Começando pelos seus 14 anos,
+
+147
+00:07:22,080 --> 00:07:25,355
+você vem trabalhando em Inteligência Artificial,
+por algo além de 20 anos, até agora.
+
+148
+00:07:25,355 --> 00:07:32,795
+Então, me fale um pouco sobre como o
+seu entendimento sobre IA evoluiu neste período.
+
+149
+00:07:32,795 --> 00:07:35,280
+Quando comecei a pesquisar sobre IA,
+
+150
+00:07:35,280 --> 00:07:38,230
+foi muito interessante porque, na realidade
+
+151
+00:07:38,230 --> 00:07:41,445
+coincidiu com a minha ida para Stanford, 
+para fazer meu mestrado lá,
+
+152
+00:07:41,445 --> 00:07:46,998
+e haviam alguns ícones, como John McCarthy,
+com quem conversei,
+
+153
+00:07:46,998 --> 00:07:49,300
+mas que tinha uma abordagem bem diferente,
+
+154
+00:07:49,300 --> 00:07:50,460
+e no ano 2000,
+
+155
+00:07:50,460 --> 00:07:52,115
+para o que a maioria das pessoas 
+estava fazendo naquele momento.
+
+156
+00:07:52,115 --> 00:07:54,958
+E também conversando com Daphne Koller.
+
+157
+00:07:54,958 --> 00:07:59,320
+E acho que, muito do meu entendimento inicial, 
+sobre IA foi moldado pelo pensamento de Daphne.
+
+158
+00:07:59,320 --> 00:08:04,300
+Sua aula sobre IA, sua aula 
+sobre modelos gráficos probabilísticos.
+
+159
+00:08:04,300 --> 00:08:06,820
+me deixaram intrigado sobre
+
+160
+00:08:06,820 --> 00:08:11,450
+como a simples distribuição de suas muitas
+variáveis randômicas e, então, ser capaz de condicionar
+
+161
+00:08:11,450 --> 00:08:14,950
+alguns subconjuntos de variáveis e tirar conclusões sobre outras poderiam
+
+162
+00:08:14,950 --> 00:08:19,015
+na verdade, nos dar muito, se você puder,
+de alguma forma, torná-la computacionalmente atrativa,
+
+163
+00:08:19,015 --> 00:08:23,170
+o que era, definitivamente o desafio de 
+torná-la possível de se calcular.
+
+164
+00:08:23,170 --> 00:08:25,090
+E a partir dai,
+
+165
+00:08:25,090 --> 00:08:28,335
+quando comecei meu doutorado, e você chegou em Stanford
+
+166
+00:08:28,335 --> 00:08:30,910
+e acho que você me deu um 
+excelente choque de realidade,
+
+167
+00:08:30,910 --> 00:08:35,350
+de que não seria a métrica certa
+para avaliar o trabalho,
+
+168
+00:08:35,350 --> 00:08:38,470
+e de, realmente tentar ver a conexão com o que
+
+169
+00:08:38,470 --> 00:08:41,710
+você está trabalhando e que 
+impacto eles realmente podem ter,
+
+170
+00:08:41,710 --> 00:08:46,660
+que mudança pode causar, mais do que 
+a matemática que foi usada para que pudesse acontecer.
+
+171
+00:08:46,660 --> 00:08:48,425
+Certo. Isso é incrível.
+
+172
+00:08:48,425 --> 00:08:50,685
+Eu não me dei conta, me esqueci disso.
+
+173
+00:08:50,685 --> 00:08:54,267
+Sim, na verdade é uma das coisas, 
+que mais frequentemente as pessoas pedem,
+
+174
+00:08:54,267 --> 00:09:01,090
+se você citar, somente uma coisa que 
+você aprendeu, dos conselhos de Andrew,
+
+175
+00:09:01,090 --> 00:09:05,995
+é estar certo de ver a conexão de 
+onde isto realmente vai atuar.
+
+176
+00:09:05,995 --> 00:09:11,332
+Você teve, e continuará tendo, 
+uma carreira surpreendente na IA.
+
+177
+00:09:11,332 --> 00:09:14,750
+Então, para algumas das pessoas que 
+estão assistindo você em vídeo, agora,
+
+178
+00:09:14,750 --> 00:09:18,815
+se eles quiserem entrar e seguir carreira na IA,
+
+179
+00:09:18,815 --> 00:09:20,985
+que conselho você daria para eles?
+
+180
+00:09:20,985 --> 00:09:25,185
+Penso que é realmente uma boa hora 
+para entrar em Inteligência Artificial.
+
+181
+00:09:25,185 --> 00:09:28,965
+Se você olha a demanda por pessoas, é muito alta,
+
+182
+00:09:28,965 --> 00:09:30,741
+há muitas oportunidades de trabalho,
+
+183
+00:09:30,741 --> 00:09:32,365
+tantas coisas que pode fazer, pesquisas,
+
+184
+00:09:32,365 --> 00:09:34,735
+construir novas empresas e por ai em diante.
+
+185
+00:09:34,735 --> 00:09:39,240
+Então, eu diria que sim, é, definitivamente uma
+decisão inteligente em termos de ir adiante.
+
+186
+00:09:39,240 --> 00:09:41,140
+Muito disso, você pode estudar por si mesmo,
+
+187
+00:09:41,140 --> 00:09:42,635
+esteja, você ou não na escola.
+
+188
+00:09:42,635 --> 00:09:44,150
+Há uma grande quantidade de cursos on line, por exemplo,
+
+189
+00:09:44,150 --> 00:09:45,585
+seu curso sobre Aprendizagem de Máquina,
+
+190
+00:09:45,585 --> 00:09:48,400
+há também, por exemplo,
+
+191
+00:09:48,400 --> 00:09:52,030
+curso de Aprendizagem Profunda 
+de Andrej Karpathy, que tem vídeos on line,
+
+192
+00:09:52,030 --> 00:09:54,280
+que é uma grande maneira de começar,
+
+193
+00:09:54,280 --> 00:09:57,460
+Berkeley, que tem um curso de 
+Aprendizagem Profunda por Reforço,
+
+194
+00:09:57,460 --> 00:09:59,260
+que tem todas as palestras, on line.
+
+195
+00:09:59,260 --> 00:10:01,235
+Então, existem todos estes bons lugares para começar.
+
+196
+00:10:01,235 --> 00:10:06,470
+Acho que uma grande parte do que é 
+importante é estar certo de tentar coisas por você mesmo.
+
+197
+00:10:06,470 --> 00:10:10,055
+Então, não somente ler ou assistir vídeos mas, experimentar.
+
+198
+00:10:10,055 --> 00:10:14,347
+com estruturas como TensorFlow,
+
+199
+00:10:14,347 --> 00:10:16,040
+Chainer, Theano, PyTorch e assim por diante,
+
+200
+00:10:16,040 --> 00:10:17,350
+Quero dizer, qualquer que seja o seu favorito,
+
+201
+00:10:17,350 --> 00:10:21,980
+é muito fácil ir adiante e criar alguma coisa
+e fazê-la rodar muito rapidamente.
+
+202
+00:10:21,980 --> 00:10:24,669
+Para você mesmo praticar, certo?
+
+203
+00:10:24,669 --> 00:10:27,105
+Implementando e vendo o que funciona e o que não funciona.
+
+204
+00:10:27,105 --> 00:10:29,360
+Então, a semana passada, houve um artigo no
+
+205
+00:10:29,360 --> 00:10:31,715
+Mashable sobre um adolescente de 16 anos, no Reino Unido,
+
+206
+00:10:31,715 --> 00:10:34,580
+que é um dos líderes na competição de Kaggle.
+
+207
+00:10:34,580 --> 00:10:36,690
+E ele simplesmente disse,
+
+208
+00:10:36,690 --> 00:10:39,290
+que tinha ido e aprendido coisas,
+
+209
+00:10:39,290 --> 00:10:41,510
+que descobriu coisas on line, 
+aprendeu tudo sozinho e
+
+210
+00:10:41,510 --> 00:10:44,915
+na verdade, nunca fez um curso formal.
+
+211
+00:10:44,915 --> 00:10:49,180
+E há um adolescente de 16 anos, sendo muito competitivo no torneio de Kaggle,
+
+212
+00:10:49,180 --> 00:10:50,990
+então, é definitivamente possível.
+
+213
+00:10:50,990 --> 00:10:53,120
+Vivemos em bons tempos.
+
+214
+00:10:53,120 --> 00:10:54,560
+Se as pessoas querem aprender.
+
+215
+00:10:54,560 --> 00:10:55,940
+Absolutamente.
+
+216
+00:10:55,940 --> 00:10:57,980
+Uma pergunta que eu aposto deve surgir sempre
+
+217
+00:10:57,980 --> 00:11:00,160
+é, se alguém quer entrar para IA, Aprendizagem de
+máquina e Aprendizagem profunda,
+
+218
+00:11:00,160 --> 00:11:06,885
+deveria se candidatar a um programa de doutorado ou deveria conseguir um emprego em uma grande empresa?
+
+219
+00:11:06,885 --> 00:11:12,395
+Acho que muito disso, tem a ver, talvez, com a 
+quantidade de mentoring você pode ter.
+
+220
+00:11:12,395 --> 00:11:14,780
+Então, em um programa de doutorado,
+
+221
+00:11:14,780 --> 00:11:16,400
+você tem a garantia,
+
+222
+00:11:16,400 --> 00:11:17,787
+o trabalho do professor,
+
+223
+00:11:17,787 --> 00:11:18,830
+que é seu conselheiro,
+
+224
+00:11:18,830 --> 00:11:20,800
+que é de cuidar de você.
+
+225
+00:11:20,800 --> 00:11:21,950
+Tentar fazer com você tudo o que eles puderem fazer,
+
+226
+00:11:21,950 --> 00:11:23,565
+para de alguma forma, formá-lo,
+
+227
+00:11:23,565 --> 00:11:28,720
+ajudá-lo a tornar-se mais forte no que quer
+que você decida fazê-lo, por exemplo, IA.
+
+228
+00:11:28,720 --> 00:11:32,060
+E então, há uma pessoa claramente dedicada 
+a você, algumas vezes, duas pessoas.
+
+229
+00:11:32,060 --> 00:11:34,955
+E isso é, literalmente, o trabalho deles,
+e é por isso que são professores,
+
+230
+00:11:34,955 --> 00:11:37,755
+o que eles mais gostam em serem 
+professores, normalmente, é ajudar
+
+231
+00:11:37,755 --> 00:11:41,200
+formar os estudantes para serem 
+mais capazes nas áreas.
+
+232
+00:11:41,200 --> 00:11:43,250
+Agora, isto não significa não ser possível nas companhias,
+
+233
+00:11:43,250 --> 00:11:46,730
+e muitas empresas realmente têm 
+bons mentores e têm pessoas que adoram
+
+234
+00:11:46,730 --> 00:11:51,110
+ajudar a educar pessoas que entram, 
+fortalecê-las e assim por diante.
+
+235
+00:11:51,110 --> 00:11:55,515
+Apenas, pode não ser uma garantia e um dado concreto,
+
+236
+00:11:55,515 --> 00:12:00,540
+comparado com aplicar-se a um 
+programa de doutorado, ou será uma farsa
+
+237
+00:12:00,540 --> 00:12:06,020
+o programa é que, você irá aprender 
+e alguém irá a ajudar você a aprender.
+
+238
+00:12:06,020 --> 00:12:09,675
+Então, isto realmente depende da empresa 
+e depende do programa de doutorado.
+
+239
+00:12:09,675 --> 00:12:14,130
+Com certeza sim, mas penso que a questão central 
+é que você pode aprender muito, por conta própria.
+
+240
+00:12:14,130 --> 00:12:17,910
+Mas acho que você pode aprender mais rapidamente
+ se você tiver alguém que seja mais experiente,
+
+241
+00:12:17,910 --> 00:12:20,469
+que, na realidade o apoia como,
+
+242
+00:12:20,469 --> 00:12:24,945
+sua responsabilidade, passar o tempo com você 
+e ajudar a acelerar o seu progresso.
+
+243
+00:12:24,945 --> 00:12:28,780
+Então, você tem sido um dos mais visíveis lideres 
+na aprendizagem profunda por reforço,
+
+244
+00:12:28,780 --> 00:12:30,720
+o que são as coisas nas quais
+
+245
+00:12:30,720 --> 00:12:32,930
+a aprendizagem profunda por reforço 
+está realmente funcionando?
+
+246
+00:12:32,930 --> 00:12:37,450
+Acho que se procurar por sucessos 
+na aprendizagem profunda por reforço,
+
+247
+00:12:37,450 --> 00:12:39,000
+é muito, muito intrigante.
+
+248
+00:12:39,000 --> 00:12:42,810
+Por exemplo, aprender a jogar 
+jogos Atari através dos pixels,
+
+249
+00:12:42,810 --> 00:12:45,540
+processando estes pixels, que 
+são apenas números que estão sendo
+
+250
+00:12:45,540 --> 00:12:49,150
+processados e, de alguma forma, 
+transformados em ações de joystick.
+
+251
+00:12:49,150 --> 00:12:52,605
+Então, por exemplo, um dos trabalhos 
+que fizemos em Berkeley foi
+
+252
+00:12:52,605 --> 00:12:57,105
+ter estimulado a invenção de um robô 
+que andasse e, a recompensa
+
+253
+00:12:57,105 --> 00:12:59,340
+que foi dada foi tão simples quanto: 
+quanto mais você vai para o norte,
+
+254
+00:12:59,340 --> 00:13:02,170
+melhor e quanto menos duro for o seu impacto no chão, melhor.
+
+255
+00:13:02,170 --> 00:13:06,949
+E, de alguma forma, decide que 
+a corrida a pé é algo a ser inventado, considerando que,
+
+256
+00:13:06,949 --> 00:13:10,095
+ninguém mostrou o que andar ou correr é.
+
+257
+00:13:10,095 --> 00:13:14,220
+Ou robôs brincando com histórias infantis 
+e aprender um jeito de colocá-los juntos,
+
+258
+00:13:14,220 --> 00:13:16,935
+colocar um bloco em uma 
+abertura correspondente, e assim por diante
+
+259
+00:13:16,935 --> 00:13:20,280
+E então, eu acho que é realmente interessante que, 
+em tudo isso, é possível aprender.
+
+260
+00:13:20,280 --> 00:13:24,510
+de entrada por sensores, em estado 
+natural até controles, também em estado natural,
+
+261
+00:13:24,510 --> 00:13:27,990
+Por exemplo, os "torques" nos motores.
+
+262
+00:13:27,990 --> 00:13:29,225
+Mas, ao mesmo tempo,
+
+263
+00:13:29,225 --> 00:13:32,460
+é muito interessante que você, 
+possa ter um único algoritmo.
+
+264
+00:13:32,460 --> 00:13:35,310
+Por exemplo, você sabe que impulsão 
+é espontâneo e você pode aprender,
+
+265
+00:13:35,310 --> 00:13:36,745
+pode ter um robô que aprenda a correr,
+
+266
+00:13:36,745 --> 00:13:38,135
+pode ter um robô que aprenda a levantar-se,
+
+267
+00:13:38,135 --> 00:13:40,395
+pode ter, invés de um robô de duas pernas,
+
+268
+00:13:40,395 --> 00:13:42,445
+você pode trocar por um robô de quatro pernas
+
+269
+00:13:42,445 --> 00:13:46,465
+Você executa o mesmo algoritmo 
+de reforço e ele ainda aprende a executar.
+
+270
+00:13:46,465 --> 00:13:49,280
+E então, não há mudança no algoritmo de reforço.
+
+271
+00:13:49,280 --> 00:13:51,615
+É muito genérico. O mesmo que os jogos de Atari.
+
+272
+00:13:51,615 --> 00:13:54,565
+O DQN era o mesmo DQN para todos os jogos.
+
+273
+00:13:54,565 --> 00:13:56,640
+Mas então, quando realmente começa a bater
+
+274
+00:13:56,640 --> 00:14:00,060
+nas fronteiras do que ainda não é possível, bem como
+
+275
+00:14:00,060 --> 00:14:03,490
+é bom aprender a partir do zero para cada uma
+
+276
+00:14:03,490 --> 00:14:07,405
+destas tarefas mas, seria melhor ainda
+ se ele reutilizasse as coisas aprendidas no passado;
+
+277
+00:14:07,405 --> 00:14:09,640
+para aprender ainda mais rapidamente para a próxima a tarefa.
+
+278
+00:14:09,640 --> 00:14:13,100
+E isto é algo que está 
+na fronteira do que ainda não possível.
+
+279
+00:14:13,100 --> 00:14:16,490
+Sempre começa do zero, essencialmente.
+
+280
+00:14:16,490 --> 00:14:19,390
+Quão rapidamente, você acha, que verá a aprendizagem
+
+281
+00:14:19,390 --> 00:14:22,420
+profunda por reforço, implantada 
+nos robôs, à nossa volta,
+
+282
+00:14:22,420 --> 00:14:25,935
+os robôs que estão sendo 
+desenvolvidos no nosso mundo atual?
+
+283
+00:14:25,935 --> 00:14:29,380
+Acho que, na prática o cenário realista é aquele onde
+
+284
+00:14:29,380 --> 00:14:32,770
+começa com o aprendizado supervisionado,
+
+285
+00:14:32,770 --> 00:14:35,960
+comportamento clonado; os humanos fazem o trabalho.
+
+286
+00:14:35,960 --> 00:14:38,530
+E eu acho que vários negócios serão construídos
+
+287
+00:14:38,530 --> 00:14:41,790
+desta forma, onde é um ser humano que 
+está na retaguarda, fazendo um monte de trabalho.
+
+288
+00:14:41,790 --> 00:14:44,980
+Imagine o assistente do Facebook Messenger.
+
+289
+00:14:44,980 --> 00:14:47,980
+Assistente que poderia ser construído 
+com um ser humano na retaguarda
+
+290
+00:14:47,980 --> 00:14:51,310
+fazendo um monte de atividades e a máquina aprendendo,
+
+291
+00:14:51,310 --> 00:14:54,380
+de acordo com que o ser humano 
+faz e começa a dar sugestões para
+
+292
+00:14:54,380 --> 00:14:58,130
+o ser humano, de tal modo que, os humanos tenham 
+um pequeno número de opções e possam apenas clicar e selecionar.
+
+293
+00:14:58,130 --> 00:14:59,640
+E depois, ao longo do tempo,
+
+294
+00:14:59,640 --> 00:15:01,130
+à medida que vai melhorando,
+
+295
+00:15:01,130 --> 00:15:04,465
+você está começando a unir, algum 
+aprendizado por reforço, onde você fornece seus objetivos atuais,
+
+296
+00:15:04,465 --> 00:15:06,565
+Não apenas de modo a corresponder 
+ao ser humano na retaguarda
+
+297
+00:15:06,565 --> 00:15:09,040
+mas, dando objetivos de realização, como,
+
+298
+00:15:09,040 --> 00:15:14,110
+talvez, quão rapidamente, estas duas pessoas 
+foram capazes de planejar sua reunião?
+
+299
+00:15:14,110 --> 00:15:16,385
+Ou, quão rapidamente foram 
+capazes de reservar o seu voo?
+
+300
+00:15:16,385 --> 00:15:18,340
+Ou coisas deste tipo. Quanto tempo levou?
+
+301
+00:15:18,340 --> 00:15:20,065
+O quão contentes ficaram com isto?
+
+302
+00:15:20,065 --> 00:15:22,815
+Mas provavelmente 
+teria que ser reiniciado muitas vezes
+
+303
+00:15:22,815 --> 00:15:27,605
+com o comportamento clonado dos seres humanos, 
+mostrando como poderia ser feito.
+
+304
+00:15:27,605 --> 00:15:30,690
+Então, parece com clonagem comportamental,
+ apenas com a aprendizagem supervisionada para
+
+305
+00:15:30,690 --> 00:15:33,580
+imitar o que as pessoas estão fazendo 
+e então, gradualmente, mais tarde
+
+306
+00:15:33,580 --> 00:15:37,434
+a aprendizagem por reforço para que ele reflita num horizonte de tempo maior?
+
+307
+00:15:37,434 --> 00:15:38,500
+É um resumo adequado?
+
+308
+00:15:38,500 --> 00:15:39,715
+Eu diria que sim.
+
+309
+00:15:39,715 --> 00:15:43,540
+apenas porque, ir do zero à aprendizagem por reforço 
+é realmente divertido de assistir.
+
+310
+00:15:43,540 --> 00:15:46,780
+É super intrigante e poucas coisas 
+são mais divertidas de ver
+
+311
+00:15:46,780 --> 00:15:50,440
+do que o reforço de aprendizagem de um robô, 
+começando do zero e inventando coisas.
+
+312
+00:15:50,440 --> 00:15:54,280
+Mas toma muito tempo e, nem sempre é seguro.
+
+313
+00:15:54,280 --> 00:15:56,200
+Muito obrigado. Foi fascinante.
+
+314
+00:15:56,200 --> 00:15:58,005
+Estou muito contente por termo tido a chance de conversar.
+
+315
+00:15:58,005 --> 00:16:02,670
+Bem, Andrew, obrigado por me receber. Gostei muito.
+[Tradução: Humberto Souza | Revisão: Carlos Lage]

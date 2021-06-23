@@ -1,0 +1,103 @@
+No vídeo anterior, você viu como usar vetorização 
+para calcular suas predições. Os a's para conjunto completo de treinamento 
+estabelecidos todos ao mesmo tempo (de uma só vez). Neste vídeo, você vê como 
+usar vetorização para também executar cálculos de gradientes para 
+todos os m exemplos de treinamento . Novamente, tudo mais ou 
+menos ao mesmo tempo. E então, no final deste vídeo, iremos juntar tudo e mostrar 
+como você pode derivar uma implementação muito 
+eficiente de regressão logística. Então, lembra que para 
+o cálculo de gradiente, o que fizemos foi calcular 
+dz⁽¹⁾ para o primeiro exemplo, que era a⁽¹⁾ - y⁽¹⁾
+ e então dz⁽²⁾ dz⁽²⁾ = a⁽²⁾ - y⁽²⁾ 
+e assim por diante. E assim para todos os 
+m exemplos de treinamento. Então, o que faremos é 
+definir uma nova variável, dZ (Z maiúscula),
+que vai ser dz⁽¹⁾, dz⁽²⁾, dz⁽m⁾. Todos as variáveis dz (z minúscula)
+empilhadas horizontalmente. Então, isso seria uma matriz 1 x m, ou 
+alternativamente, um vetor linha com dimensão m. Agora, lembre-se que 
+no slide anterior, nós já havíamos descoberto como 
+calcular A, que seria: a⁽¹⁾ até a⁽m⁾ e nós teríamos que 
+encontrar Y como y⁽¹⁾ até y⁽m⁾. Também, você sabe,
+empilhados horizontalmente. Então, baseados nestas definições, talvez você pode ver por si mesmo 
+que dZ pode ser calculado como A - Y,
+porque será igual a a⁽¹⁾ - y⁽¹⁾ = primeiro elemento, depois 
+a⁽²⁾ - y⁽²⁾, que é o segundo elemento e assim por diante. Assim, este primeiro elemento 
+a⁽¹⁾ - y⁽¹⁾ é exatamente a definição de dz⁽¹⁾ . O segundo elemento é exatamente 
+a definição de dz⁽²⁾ e assim por diante. Então, com apenas uma linha de código, você pode calcular tudo 
+isso ao mesmo tempo. Agora, na implementação anterior, nos livramos de um laço de 
+repetição "for", mas ainda tínhamos este segundo laço "for" 
+sobre os m exemplos de treinamento. Então, nós iniciamos dw 
+com zero, logo, um vetor de zeros. Mas ainda temos que passar pelo laço 
+"for" nos exemplos de treinamento, onde temos dw += x⁽¹⁾ dz⁽¹⁾,
+para o primeiro exemplo de treinamento, 
+dw += x⁽²⁾ dz⁽²⁾, para o segundo, e assim por diante, então, fazemos isso m vezes e então 
+dw /= m, e da mesma forma para b, certo? db foi inicializado como 0 e db += dz⁽¹⁾. db += dz⁽²⁾, até você sabe, dz(m) e db /= m. 
+É isso que tínhamos na implementação anterior. Nós já havíamos nos livrado de 
+um laço de repetição "for", Então, pelo menos agora dw é um vetor, 
+e nós vamos atualizando separadamente dw₁, dw₂, e assim por diante. Então, nós já nos livramos 
+disso, mas nós ainda tínhamos um laço "for" sobre os 
+m exemplos no conjunto de treinamento. Então, vamos pegar estas 
+operações e vetorizá-las. Aqui está o que podemos fazer, para uma implementação vetorizada de 
+db, é basicamente o somatório de todos estes dzs e 
+depois dividindo por m. Então, db é basicamente 1 / m, somatório de i = 1 até m 
+de dz⁽ⁱ⁾ e bem, todos os dzs estão 
+naquele vetor linha, e em Python, o que você faz é 
+implementar, você sabe, 1 / m vezes np. sum(dZ) assim:
+1/m np.sum(dZ) Então, você só pega 
+esta variável dZ e chama a função np.sum, e divide por m, que lhe dará db. E dw? Ou só escreva as equações corretas que podem 
+verificar que é a coisa certa a fazer. dw resulta ser 1/m, vezes a matriz X vezes dZ transposta. E, veja porque é assim: Isso é igual 1/m e então a matriz X, x⁽¹⁾ até x⁽m⁾ empilhados 
+em colunas deste tipo e dZ⸆ transposta será dz⁽¹⁾ até dz⁽m⁾, assim. Então, se você descobrir o que 
+será esta matriz vezes este vetor, resulta ser 
+1/m vezes x⁽¹⁾dz⁽¹⁾ mais ... mais x⁽m⁾ dz⁽m⁾. Então esse é um vetor n por 1, 
+e isso é o você acaba obtendo, com dw, porque dw 
+estava pegando, você sabe, x⁽ⁱ⁾ dz⁽ⁱ⁾ e somando eles, 
+e isso é exatamente o que esta multiplicação de vetor por 
+matriz está fazendo, e outra vez, com uma linha de código, 
+você pode calcular dw. Então, isso é a implementação 
+vetorizada dos cálculos derivativos, você usa esta linha 
+para implementar db e usa esta linha para implementar dw e observe 
+que com todos os laços de repetição "for" 
+sobre os conjuntos de treinamento, você pode agora calcular as atualizações que 
+você deseja para os seus parâmetros. Agora, vamos colocar tudo junto e ver como 
+você na realidade implementaria regressão logística. Então, esta é a nossa implementação vetorizada 
+extremamente não eficiente. Então, a primeira coisa que fizemos no vídeo 
+anterior, foi nos livrarmos desta fórmula, ok? Então, ao invés de fazer um 
+laço de repetição sobre dw₁, dw₂, e assim por diante, nós substituímos isso com um 
+valor do vetor dw, que é dw += x⁽ⁱ⁾, que é agora é um vetor, vezes dz⁽ⁱ⁾, assim:
+ dw += x⁽ⁱ⁾dz⁽ⁱ⁾ Mas agora, veremos que 
+podemos nos livrar, não só deste laço "for" da linha, 
+mas também deste laço "for". Então, aqui está como fazê-lo. Então, usando o aprendemos 
+nos slides anteriores, você diria, Z = w⸆ X + b, e o código 
+que você escreve como sendo Z = np.dot(w.T, X) + b
+e A = σ(Z). Então, você agora calcula tudo isso e 
+tudo isso para todos os valores de i. Em seguida, no slide anterior, nós falamos que 
+iríamos calcular dz = A - Y. Então, agora você calculou tudo 
+isso para todos os valores de i. Finalmente,
+dw = 1/m X dZ⸆ e db = 1/m vezes sum(dZ), assim:
+db = 1/m np.sum(dZ) Então, você acabou de fazer 
+propagação para frente e retro-propagação, calculando na verdade as previsões (para frente) 
+e calculando as derivadas (retro-prop.) em todos os m exemplos sem 
+usar nenhum laço de repetição. E assim, a atualização do gradiente 
+decrescente seria, você sabe, W recebe w menos a taxa 
+de aprendizagem (alfa) vezes dw, que acabou de ser calculado acima e b 
+recebe b menos a taxa de aprendizagem vezes db. Algumas vezes, colocamos ":" para 
+denotar que isso é uma tarefa, mas eu acredito que não tenha sido 
+totalmente consistente com esta notação. Mas com isso, você acaba de implementar uma única elevação do gradiente 
+decrescente de uma regressão logística. Agora, eu sei que disse que 
+deveríamos nos livrar dos laços de repetição "for" explícitos sempre 
+que possível, mas se você quiser implementar múltiplas iterações como um gradiente decrescente, então você ainda 
+precisa de um laço "for" sobre os número de iterações. Então, se você quiser derivadas 
+de gradiente decrescente, você ainda pode precisar de um 
+laço "for" sobre o número de iterações. Há um laço de repetição 
+mais amplo, como esse, então penso que não haja uma forma 
+de se livrar deste laço "for". Mas eu acho que é muito 
+legal você poder implementar pelo menos uma iteração do gradiente decrescente 
+sem necessitar usar um laço de repetição "for". Então, é isso. Agora, você tem uma 
+implementação altamente vetorizada e altamente eficiente do gradiente 
+decrescente em uma regressão logística. Há só mais um detalhe que 
+eu quero falar no próximo vídeo, que está na nossa descrição, e que fiz uma breve 
+alusão a essa técnica chamada "broadcasting". "Broadcasting" é uma 
+técnica que Python e numpy permite que você use para fazer com que certas 
+partes do seu código fiquem muito mais eficiente. Então, vamos ver mais detalhes de "broadcasting" 
+no próximo vídeo. [Tradução: Renato Barata Gomes 
+| Revisão: Carlos Lage.]

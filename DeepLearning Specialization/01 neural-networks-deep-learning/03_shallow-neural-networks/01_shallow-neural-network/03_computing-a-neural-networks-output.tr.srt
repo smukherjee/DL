@@ -1,0 +1,555 @@
+1
+00:00:00,006 --> 00:00:04,743
+Son videoda tek bir gizli katmanlı yapay sinir ağının neye benzediğini gördünüz.
+
+2
+00:00:04,743 --> 00:00:08,175
+Bu videoda sinir ağlarının çıktılarını tam olarak nasıl
+
+3
+00:00:08,175 --> 00:00:10,361
+hesapladığını detaylarıyla inceleyelim.
+
+4
+00:00:10,361 --> 00:00:15,533
+Gördüğünüz şey biraz bağlanıma benzer ancak bunun defalarca tekrarlanması gibidir.
+
+5
+00:00:15,533 --> 00:00:16,423
+Hadi inceleyelim.
+
+6
+00:00:16,423 --> 00:00:19,364
+İşte iki katmanlı bir yapay sinir ağı.
+
+7
+00:00:19,364 --> 00:00:23,973
+Bu sinir ağının hesaplamaları nasıl yaptığını daha detaylıca görelim.
+
+8
+00:00:23,973 --> 00:00:26,653
+Daha önce söylediğimiz gibi S biçimli bağlanım
+
+9
+00:00:26,653 --> 00:00:31,035
+s biçimli regresyonun içindeki daire, hesaplamanın iki adımını temsil eder.
+
+10
+00:00:31,035 --> 00:00:34,498
+ilk olarak görüldüğü gibi ilk z hesaplanır sonra da
+
+11
+00:00:34,498 --> 00:00:37,754
+z nin sigmoid fonksiyonu ile aktivasyonu hesaplarız
+
+12
+00:00:37,754 --> 00:00:40,536
+böylece sinir ağı bunu defalarca tekrarlar
+
+13
+00:00:40,536 --> 00:00:43,953
+şimdi de gizli katmandaki bir düğüme odaklanalım
+
+14
+00:00:43,953 --> 00:00:46,320
+gizli katmandaki ilk düğüme bir bakalım
+
+15
+00:00:46,320 --> 00:00:48,079
+şimdilik diğer düğümleri gri yapıyorum
+
+16
+00:00:48,079 --> 00:00:50,820
+aynı şekilde soldaki s biçimli regresyonu da
+
+17
+00:00:50,820 --> 00:00:54,391
+gizli katmandaki bu düğümler hesaplamanın iki adımını oluşturur
+
+18
+00:00:54,391 --> 00:00:58,418
+ilk adım, bu düğümün sol yarısında olan
+
+19
+00:00:58,418 --> 00:01:02,754
+ki bu düğüm z=w yi x+b ye geri dönüştürme ve bu ilk gizli 
+
+20
+00:01:02,754 --> 00:01:08,253
+katmanla ilişkili tüm miktarları hesaplamasını yapar. bu yüzden
+
+21
+00:01:08,253 --> 00:01:13,458
+burada bir sürü köşeli parantezimiz vardır. işte bu gizli katmandaki ilk düğümdür
+
+22
+00:01:13,458 --> 00:01:16,597
+bu yüzden de buraya indis 1 yazarız.
+
+23
+00:01:16,597 --> 00:01:18,424
+ilk adım bunu yapar ve sonra
+
+24
+00:01:18,424 --> 00:01:24,419
+ikinci adım a[1],1 = sigmoid of z[1],1, gibi hesaplamaları yapar
+
+25
+00:01:24,419 --> 00:01:29,013
+yani hem z hem de a için işaretle anlatma kuralı bu şekildedir
+
+26
+00:01:29,013 --> 00:01:33,770
+bu köşeli parantez içindeki I sizin ilk katman numaranızdır
+
+27
+00:01:33,770 --> 00:01:37,720
+ve alt indis i ise bu katmandaki düğümü ifade eder.
+
+28
+00:01:37,720 --> 00:01:42,344
+yani incelediğimiz düğüm katman 1, yani gizli katman, düğüm 1
+
+29
+00:01:42,344 --> 00:01:45,878
+bu nedenle hem üssü hem de alt indis 1 dir.
+
+30
+00:01:45,878 --> 00:01:49,965
+böylece bu ilk daire, ilk düğüm, sinir ağındaki
+
+31
+00:01:49,965 --> 00:01:52,579
+iki aşamalı işlemin hesaplanmasını temsil eder.
+
+32
+00:01:52,579 --> 00:01:58,399
+şimdi de sinir ağının gizli katmanındaki ikinci düğüme bakalım.
+
+33
+00:01:58,399 --> 00:02:01,482
+Soldaki s biçimli bağlanım birimine benzer,
+
+34
+00:02:01,482 --> 00:02:04,781
+bu alttaki daire de hesaplamanın iki adımını ifade etmektedir.
+
+35
+00:02:04,781 --> 00:02:08,733
+ilk adım z yi işleme koyar ve bu hala katman birdir
+
+36
+00:02:08,733 --> 00:02:12,996
+ancak bu şimdi ikinci düğüm = W[1],2,T + b[1],2, ve
+
+37
+00:02:12,996 --> 00:02:17,880
+then a[1],2 = sigmoid of (z [1],20, ve tekrar. İsterseniz
+
+38
+00:02:17,880 --> 00:02:23,071
+videoyu duraklatabilirsiniz ya da kontrol edebilirsiniz ki burada morla 
+
+39
+00:02:23,071 --> 00:02:28,453
+yazdığımız üssü ve indis işaretlemeleri tutarlıdır.
+
+40
+00:02:28,453 --> 00:02:32,831
+Şimdi de sinir ağındaki ilk iki gizli birimden bahsedeceğiz ki
+
+41
+00:02:32,831 --> 00:02:36,940
+gizli birim üç ve dört de benzer şekilde işlem yapar.
+
+42
+00:02:36,940 --> 00:02:39,778
+Evet şimdi buradaki denklemlerden bahsedelim, 
+
+43
+00:02:39,778 --> 00:02:44,169
+buradaki denklem çiftini diğer kopyalayalım 
+
+44
+00:02:44,169 --> 00:02:48,921
+İşte bu bizim sinir ağımız, bu birinci, bu ikinci 
+
+45
+00:02:48,921 --> 00:02:54,050
+ve bu da önceden birinci ve ikinci birimler için çalıştığımız denklemlerdir
+
+46
+00:02:54,050 --> 00:02:59,022
+Eğer gözden geçirip üçüncü ve dördüncü birimler için uyuşan
+
+47
+00:02:59,022 --> 00:03:02,093
+tüm denklemleri yazarsanız, şunu elde edersiniz ve
+
+48
+00:03:02,093 --> 00:03:06,550
+işaretlemelerin doğru olduğundan emin olmalısınız, burada vector w [1] 1,
+
+49
+00:03:06,550 --> 00:03:09,430
+bu vektör yeri değiştirilmiş x , tamam?
+
+50
+00:03:09,430 --> 00:03:13,460
+İşte buradaki üssü T yeri değiştirilmiş vektörü temsil eder.
+
+51
+00:03:13,460 --> 00:03:17,585
+Şimdi tahmin edebileceğiniz üzere, eğer gerçekten bir sinir ağı çalışıyorsanız 
+
+52
+00:03:17,585 --> 00:03:20,209
+bunu sadece 4 döngü ile yapmanın etkisiz olduğunu göreceksiniz.
+
+53
+00:03:20,209 --> 00:03:25,174
+burada bu dört denklemi alıp vektörleştireceğiz.
+
+54
+00:03:25,174 --> 00:03:29,348
+burada Z nin nasıl vektör olarak işlem yapacağını ve dönüştürmeyi göreceğiz
+
+55
+00:03:29,348 --> 00:03:30,859
+ki siz de takip ederek yapabilirsiniz.
+
+56
+00:03:30,859 --> 00:03:34,843
+şimdi bu W ları alalım ve bir matrise yükleyelim
+
+57
+00:03:34,843 --> 00:03:38,767
+ve şimdi elimizde yer değiştiren have w[1], 1, var, bu bir dizin vektörü ya da
+
+58
+00:03:38,767 --> 00:03:42,231
+bu sütun vektörü, size yer değiştirmiş dizin vektörünü sağlar
+
+59
+00:03:42,231 --> 00:03:48,494
+ w[1], 2 transpoze, w[1], 3 transpoze, w[1],4 transpoze,
+
+60
+00:03:48,494 --> 00:03:54,499
+ve böylece 4 w vektörünü bir araya getirerek bir matris elde edersiniz.
+
+61
+00:03:54,499 --> 00:03:59,204
+böyle düşünmenin bir diğer yolu da şudur: burada dört s bağlanımlı birimimiz var
+
+62
+00:03:59,204 --> 00:04:03,913
+ve her bir s bağlanımlı biriminin karşılıklı W vektör parametresi var
+
+63
+00:04:03,913 --> 00:04:06,535
+ve bu dört vektörü bir araya getirerek
+
+64
+00:04:06,535 --> 00:04:08,842
+bu 4 e 3 matrisini elde ederiz.
+
+65
+00:04:08,842 --> 00:04:14,281
+eğer bu matrisi alır ve girdilerinizle çarparsanız 
+
+66
+00:04:14,281 --> 00:04:19,806
+x1, x2, x3, matrisin çarpma işlemini nasıl yaptığını görerek
+
+67
+00:04:19,806 --> 00:04:24,546
+W1[1] transpoze x , W2[1] transpoze x,
+
+68
+00:04:24,546 --> 00:04:30,995
+W3[1] transpoze x, W4[1] transpoze x elde edersiniz ve b'leri unutmayınız.
+
+69
+00:04:30,995 --> 00:04:35,997
+ve şimdi buna b[1],1, b[1], 2, 
+
+70
+00:04:35,997 --> 00:04:40,811
+b[1], 3 b[1],4, ekliyoruz ki temel olarak böyledir
+
+71
+00:04:40,811 --> 00:04:45,654
+sonra da b[1]1, b[1]2, b[1]3, and b[1]4, ve 
+
+72
+00:04:45,654 --> 00:04:50,579
+görüyouz ki buradaki dört çıktı dizini her bir çıktı dizini 
+
+73
+00:04:50,579 --> 00:04:55,772
+ile yukarıdakiler birbirine tamamen uyumlu.
+
+74
+00:04:55,772 --> 00:05:00,899
+diğer bir deyişle görüyoruz ki burası sonuç olarak z [1], 1
+
+75
+00:05:00,899 --> 00:05:05,303
+z[1], 2, z[1], 3, z[1],4, ye burada tanımlandığı gibi eşit 
+
+76
+00:05:05,303 --> 00:05:10,289
+ve doğal olarak buradaki her şeye z[1] diyeceğiz
+
+77
+00:05:10,289 --> 00:05:15,097
+çünkü hepsi sütun vektöründeki z'lerden alınarak bir araya getirilmiştir.
+
+78
+00:05:15,097 --> 00:05:19,524
+vektör oluştururken konumlama yapmakta size yardımcı olabilecek
+
+79
+00:05:19,524 --> 00:05:23,966
+şeylerden biri de katman içerisinde farklı düğümlerimizin olması ve bunları dikey olarak birleştireceğimizdir.
+
+80
+00:05:23,966 --> 00:05:27,656
+İşte bu yüzden Z[1]1 den Z[1]4, gizli katmanda birbiriyle iletişimli
+
+81
+00:05:27,656 --> 00:05:31,852
+dört farklı düğümümüz var ve 
+
+82
+00:05:31,852 --> 00:05:36,481
+biz bu dört numarayı z[1] vektöründen bir tane daha işaretleme kullanmak için
+
+83
+00:05:36,481 --> 00:05:40,457
+dikey olarak alırız, bu 4 e 3 matrisini
+
+84
+00:05:40,457 --> 00:05:45,233
+küçük w[1],1, w[1],2, ve diğerlerini yığınlayarak elde ettik ki
+
+85
+00:05:45,233 --> 00:05:49,860
+bu matrise W[1] diyeceğiz, benzer
+
+86
+00:05:49,860 --> 00:05:54,623
+olarak bu vektör b üssü köşeli parantez 1 olarak gösterilecek ki bu da (4,1) vektörüdür.
+
+87
+00:05:54,623 --> 00:05:59,584
+Şimdi vektör matris gösterimi ile Z yi işleme koyduk
+
+88
+00:05:59,584 --> 00:06:03,535
+yapmamız gereken son şey buradaki a değerlerini işleme koymak
+
+89
+00:06:03,535 --> 00:06:08,195
+ki doğal olarak bu gördüğünüzü a[1] diye tanımlayacağız
+
+90
+00:06:08,195 --> 00:06:13,019
+çünkü bu a[1],1 den a[1],4. e kadar olan değerlerden gelir.
+
+91
+00:06:13,019 --> 00:06:18,202
+şimdi bu dört değeri alıp a[1] de bir araya getirelim,
+
+92
+00:06:18,202 --> 00:06:21,122
+bu da (z[1]) in sigmoid i olacak,
+
+93
+00:06:21,122 --> 00:06:25,794
+çünkü bu z nin dört elementi sigmoid 
+
+94
+00:06:25,794 --> 00:06:30,761
+fonksiyonunun uygulanmasından gelmektedir.
+
+95
+00:06:30,761 --> 00:06:36,750
+Şimdi toparlayalım, anladık ki z[1] = W[1]
+
+96
+00:06:36,750 --> 00:06:41,883
+x + b[1] ve a[1] defa z[1].
+
+97
+00:06:41,883 --> 00:06:47,321
+Şimdi bunu bir sonraki slayta kopyalayalım
+
+98
+00:06:47,321 --> 00:06:52,156
+ve görüyoruz ki sinir ağının ilk katmanında x girdisi için
+
+99
+00:06:52,156 --> 00:06:56,286
+elimizde z[1] = W[1] x + b[1] ve
+
+100
+00:06:56,286 --> 00:07:01,526
+(z[1]) in sigmoid i a[1] var
+
+101
+00:07:01,526 --> 00:07:06,563
+ki bunlar da (4,1) = (4,3) x (3,1) + (4,1),
+
+102
+00:07:06,563 --> 00:07:11,297
+ve (4,1) gibi boyutlarıdır. Hatırlayalım ki 
+
+103
+00:07:11,297 --> 00:07:16,793
+x = a[0] tıpkı y-hat = a[2] dediğimiz gibi
+
+104
+00:07:16,793 --> 00:07:21,560
+bu yüzden isterseniz buradaki x'i alıp 0 ile yer değiştirebilirsiniz
+
+105
+00:07:21,560 --> 00:07:25,417
+ki isterseniz bu x girdisinin vektörünün diğer yanı, başka adıdır.
+
+106
+00:07:25,417 --> 00:07:30,968
+Şimdi benzer bir türetme ile bir sonraki katmanı anlayabiliriz
+
+107
+00:07:30,968 --> 00:07:35,972
+ki bu katman da çıktı katmanına çok benzerdir
+
+108
+00:07:35,972 --> 00:07:40,770
+başlangıç kısmıyla alakalı olarak w[2] ve b[2] diyoruz
+
+109
+00:07:40,770 --> 00:07:44,549
+bu durum için w[2] (1,4) matrisi olacaktır ve 
+
+110
+00:07:44,549 --> 00:07:47,529
+b[2] ise (1,1) gibi gerçek sayı olacaktır.
+
+111
+00:07:47,529 --> 00:07:51,982
+z[2] nin matris olarak gerçek sayı ile yazımı (1,1) dir 
+
+112
+00:07:51,982 --> 00:07:57,267
+burası ise (1,4) defa (4,1) artı b(1,1) olacak
+
+113
+00:07:57,267 --> 00:08:02,397
+ve bu sadece gerçek bir sayı verir ve bu son çıkış birimi 
+
+114
+00:08:02,397 --> 00:08:07,787
+w ve b parametreleri olan örneksel bir mantıksal ilerleme olarak düşünülebilir
+
+115
+00:08:07,787 --> 00:08:12,517
+W , w[2] devriğinin örneksel rolünü oynar ya da 
+
+116
+00:08:12,517 --> 00:08:16,675
+W2 gerçekten w'nin devriğidir ve b, b[2] ye eşittir.
+
+117
+00:08:16,675 --> 00:08:21,665
+şimdi bu soldaki ağı işaretleyelim ve şimdilik görmezden gelelim
+
+118
+00:08:21,665 --> 00:08:26,434
+evet şimdi bu son üst birim daha çok mantıksal regresyon gibidir
+
+119
+00:08:26,434 --> 00:08:30,010
+parametreleri w ve b olarak yazmanın dışında
+
+120
+00:08:30,010 --> 00:08:35,784
+bunun yerine biz onları (1,4 ve (1,1) boyutları ile w[2] ve b[2] olarak yazacağız.
+
+121
+00:08:35,784 --> 00:08:39,765
+Tekrarlamak adına; ayarlama regresyonunu çıktıya entegre etmek için
+
+122
+00:08:39,765 --> 00:08:44,620
+ya da tahmine entegre etmek için
+
+123
+00:08:44,620 --> 00:08:51,143
+z = w , x + b, ve y-hat = a = sigmoid of (z) yi işleme koyun
+
+124
+00:08:51,143 --> 00:08:55,499
+Gizli katmanlı bir sinir ağı biriminiz olduğunda çıktıyı işleyebilmek için
+
+125
+00:08:55,499 --> 00:09:00,131
+sadece bu dört denkliği uygulamanız gerekir.
+
+126
+00:09:00,131 --> 00:09:04,902
+Bunları gizli katmandaki bu dört mantıksal regresyon çıktısının
+
+127
+00:09:04,902 --> 00:09:09,329
+işleme konmasının uygulamasının
+
+128
+00:09:09,329 --> 00:09:13,867
+vektörleştirilmesi olarak düşünebilirsiniz ki öyledir
+
+129
+00:09:13,867 --> 00:09:18,401
+Umarım bu tanım size mantıklı gelmiştir ancak sinir ağı çıktısını
+
+130
+00:09:18,401 --> 00:09:22,001
+işleme koymanız için gereken her şey bu dört kod satırıdır.
+
+131
+00:09:22,001 --> 00:09:25,706
+Evet şimdi, dört satır kod ile tek x vektör girdisinin 
+
+132
+00:09:25,706 --> 00:09:30,278
+sinir ağı çıktısını nasıl işleme koyulduğunu gördünüz.
+
+133
+00:09:30,278 --> 00:09:34,575
+mantıksal regresyonda yaptığınıza benzer olarak çapraz çoklu
+
+134
+00:09:34,575 --> 00:09:39,002
+çalışma örneklerimizi vektörize etmek isteyebilirsiniz de ki bunu göreceğiz
+
+135
+00:09:39,002 --> 00:09:43,653
+bu da matristeki farklı sütunlardaki üç örneği bir araya getirerek az değişiklikle olur
+
+136
+00:09:43,653 --> 00:09:47,396
+Ek olarak, mantıksal regresyonda gördüğünüze benzer şekilde
+
+137
+00:09:47,396 --> 00:09:50,514
+sadece bir örnek üzerinden değil, tüm eğitiminiz boyunca örnekler üzerinden
+
+138
+00:09:50,514 --> 00:09:55,114
+sinir ağının çıktısının işleyebilir olacaksınız.
+
+139
+00:09:55,114 --> 00:09:57,939
+Şimdi detayları bir sonraki videoda görelim.

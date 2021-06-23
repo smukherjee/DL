@@ -1,0 +1,747 @@
+1
+00:00:00,000 --> 00:00:03,339
+Nós todos ouvimos que redes neurais profundas
+ funcionam muito bem em
+
+2
+00:00:03,339 --> 00:00:07,073
+vários problemas e isso não é apenas que
+ precisam ser grandes redes neurais,
+
+3
+00:00:07,073 --> 00:00:10,718
+é que, especificamente, precisam ser profundas
+ ou ter várias camadas ocultas.
+
+4
+00:00:10,718 --> 00:00:12,208
+Então por que isso?
+
+5
+00:00:12,208 --> 00:00:15,833
+Vamos analisar alguns exemplos e tentar
+ ver
+
+6
+00:00:15,833 --> 00:00:17,720
+porque as redes profundas 
+podem funcionar bem.
+
+7
+00:00:17,720 --> 00:00:22,181
+Primeiro, o que a rede profunda está calculando?
+
+8
+00:00:22,181 --> 00:00:25,393
+Se você está construindo um sistema de 
+reconhecimento facial ou
+
+9
+00:00:25,393 --> 00:00:29,631
+detecção facial, eis o que uma rede 
+neural profunda poderia estar fazendo:
+
+10
+00:00:29,631 --> 00:00:35,059
+Talvez você insira a imagem de um rosto,
+ então a primeira camada da rede neural
+
+11
+00:00:35,059 --> 00:00:40,000
+você pode pensar como sendo talvez um detector
+ de característica ou um detector de transições.
+
+12
+00:00:40,000 --> 00:00:45,519
+Neste exemplo, estou traçando o que uma 
+rede neural com talvez 20 unidades ocultas,
+
+13
+00:00:45,519 --> 00:00:48,017
+pode estar tentando calcular nesta imagem.
+
+14
+00:00:48,017 --> 00:00:52,357
+Então as 20 unidades ocultas visualizadas
+ por estas pequenas formas quadradas.
+
+15
+00:00:52,357 --> 00:00:57,325
+Assim, por exemplo, esta pequena visualização
+ representa uma unidade escondida que está
+
+16
+00:00:57,325 --> 00:01:01,978
+tentando descobrir aonde estão as 
+bordas dessa orientação na imagem.
+
+17
+00:01:01,978 --> 00:01:05,914
+E talvez esta unidade escondida
+ esteja tentando descobrir
+
+18
+00:01:05,914 --> 00:01:09,955
+aonde estão as bordas horizontais nesta imagem.
+
+19
+00:01:09,955 --> 00:01:13,184
+E quando falamos de redes 
+convolucionais em um curso posterior,
+
+20
+00:01:13,184 --> 00:01:16,129
+esta visualização particular fará 
+um pouco mais de sentido.
+
+21
+00:01:16,129 --> 00:01:19,562
+Mas o formato, você pode pensar da primeira 
+camada da rede neural como olhar para
+
+22
+00:01:19,562 --> 00:01:22,690
+a foto e tentar descobrir aonde
+ estão as bordas nesta foto.
+
+23
+00:01:22,690 --> 00:01:27,356
+Agora, vamos pensar aonde 
+ estão as bordas nesta foto agrupando
+
+24
+00:01:27,356 --> 00:01:28,730
+pixels para formar bordas.
+
+25
+00:01:28,730 --> 00:01:34,670
+Para que assim pegar as formas detectadas
+ e agrupar as bordas e formar partes de rostos.
+
+26
+00:01:34,670 --> 00:01:40,289
+Assim, por exemplo, você pode ter um neurônio aqui embaixo 
+tentando ver se encontra um olho,
+
+27
+00:01:40,289 --> 00:01:44,480
+ou um neurônio diferente tentando 
+encontrar a parte do nariz.
+
+28
+00:01:44,480 --> 00:01:47,463
+E assim, colocando muitas bordas juntas,
+
+29
+00:01:47,463 --> 00:01:50,970
+se pode começar a detectar 
+diferentes partes de faces.
+
+30
+00:01:50,970 --> 00:01:56,035
+E então, finalmente, unindo 
+diferentes partes das faces,
+
+31
+00:01:56,035 --> 00:02:01,006
+como um olho ou um nariz ou uma 
+orelha ou queixo, então pode tentar reconhecer ou
+
+32
+00:02:01,006 --> 00:02:03,564
+detectar diferentes tipos de rostos.
+
+33
+00:02:03,564 --> 00:02:07,755
+Então intuitivamente, você pode achar 
+que camadas anteriores da rede neural como
+
+34
+00:02:07,755 --> 00:02:10,190
+identificação de funções simples, como bordas.
+
+35
+00:02:10,190 --> 00:02:14,573
+E então juntá-las nas camadas 
+ posteriores da rede neural para
+
+36
+00:02:14,573 --> 00:02:17,625
+que possam aprender funções mais complexas.
+
+37
+00:02:17,625 --> 00:02:23,640
+Estas visualizações farão mais sentido 
+quando falarmos de redes convolucionais.
+
+38
+00:02:23,640 --> 00:02:26,203
+E um detalhe técnico desta 
+visualização,
+
+39
+00:02:26,203 --> 00:02:29,802
+os detectores de borda estão olhando em áreas 
+relativamente pequenas de uma imagem,
+
+40
+00:02:29,802 --> 00:02:31,703
+Talvez pequenas regiões como essa.
+
+41
+00:02:31,703 --> 00:02:36,616
+E então os detectores faciais podem olhar 
+para áreas muito maiores da imagem, mas
+
+42
+00:02:36,616 --> 00:02:41,308
+a mensagem principal que você deve entender
+ é só encontrar coisas simples
+
+43
+00:02:41,308 --> 00:02:43,675
+como as bordas e então acumulando-as.
+
+44
+00:02:43,675 --> 00:02:47,216
+Juntando tais coisas para detectar outras
+ mais complexas como um olho ou nariz e
+
+45
+00:02:47,216 --> 00:02:50,530
+então formando juntos com essas 
+para encontrar mais coisas complexas.
+
+46
+00:02:50,530 --> 00:02:55,665
+E este tipo representação
+ hierárquica simples-para-complexa,
+
+47
+00:02:55,665 --> 00:02:58,508
+ou representação composicional,
+
+48
+00:02:58,508 --> 00:03:04,114
+aplica-se também a outros tipos de dados
+além dos de imagens e dos de reconhecimento de face.
+
+49
+00:03:04,114 --> 00:03:08,593
+Por exemplo, se você está tentando construir 
+um sistema de reconhecimento de fala,
+
+50
+00:03:08,593 --> 00:03:10,908
+é difícil visualizar a fala, mas
+
+51
+00:03:10,908 --> 00:03:15,684
+se inserir um clipe de áudio então talvez 
+o primeiro nível de uma rede neural pode
+
+52
+00:03:15,684 --> 00:03:20,863
+aprender a detectar as características de onda 
+de áudio de nível baixo, como: esse tom está aumentando?
+
+53
+00:03:20,863 --> 00:03:21,703
+Está diminuindo?
+
+54
+00:03:21,703 --> 00:03:26,869
+É ruído branco ou som rastejante como [som].
+
+55
+00:03:26,869 --> 00:03:27,903
+E qual é o tom?
+
+56
+00:03:27,903 --> 00:03:31,124
+Quando se trata disso, detecta características de forma 
+de onda de nível baixo assim.
+
+57
+00:03:31,124 --> 00:03:34,233
+E depois pela composição 
+de formas de onda de nível baixo,
+
+58
+00:03:34,233 --> 00:03:37,937
+talvez você aprenda a detectar 
+unidades básicas do som.
+
+59
+00:03:37,937 --> 00:03:40,297
+Chamam-se fonemas em linguística.
+
+60
+00:03:40,297 --> 00:03:45,098
+Mas, por exemplo, o gato de palavra, 
+o Ca é um fonema, o A é um fonema,
+
+61
+00:03:45,098 --> 00:03:46,787
+o T é outro fonema.
+
+62
+00:03:46,787 --> 00:03:49,987
+Mas aprender a encontrar talvez as 
+unidades básicas de som e
+
+63
+00:03:49,987 --> 00:03:54,688
+então ajuntá-las, talvez aprender 
+a reconhecer palavras no áudio.
+
+64
+00:03:54,688 --> 00:03:58,270
+E então talvez agrupar tais palavras,
+
+65
+00:03:58,270 --> 00:04:02,912
+a fim de reconhecer as frases 
+ou as sentenças inteiras.
+
+66
+00:04:02,912 --> 00:04:07,572
+Assim, as redes neurais profundas com múltiplas 
+camadas ocultas poderiam nas camadas iniciais
+
+67
+00:04:07,572 --> 00:04:10,477
+aprender essas características simples 
+ de nível inferior e
+
+68
+00:04:10,477 --> 00:04:15,339
+depois, nas camadas seguintes, mais profundas, 
+juntar as coisas mais simples que detectaram
+
+69
+00:04:15,339 --> 00:04:19,392
+a fim de detectar as coisas mais complexas, 
+como reconhecer palavras específicas ou
+
+70
+00:04:19,392 --> 00:04:21,040
+mesmo frases ou sentenças,
+
+71
+00:04:21,040 --> 00:04:24,745
+que estão sendo pronunciadas
+para realizar o reconhecimento de fala.
+
+72
+00:04:24,745 --> 00:04:30,168
+E o que vemos é que, enquanto as outras 
+camadas são avaliadas, o que parece ser
+
+73
+00:04:30,168 --> 00:04:35,673
+funções relativamente simples da entrada 
+como onde a borda está, até o momento
+
+74
+00:04:35,673 --> 00:04:41,046
+que você aprofundar na rede, que pode 
+realmente fazer coisas surpreendentemente complexas.
+
+75
+00:04:41,046 --> 00:04:44,876
+Como detectar rostos ou detectar palavras
+ ou frases ou sentenças.
+
+76
+00:04:44,876 --> 00:04:48,767
+Algumas pessoas gostam de fazer uma analogia 
+entre redes neurais profundas e
+
+77
+00:04:48,767 --> 00:04:52,656
+o cérebro humano, onde acreditamos, 
+ou neurocientistas acreditam,
+
+78
+00:04:52,656 --> 00:04:57,162
+que o cérebro humano também começa 
+detectando coisas simples como bordas do que
+
+79
+00:04:57,162 --> 00:05:00,370
+seus olhos veem, então baseado nisso 
+detecta coisas mais complexas,
+
+80
+00:05:00,370 --> 00:05:02,440
+como os rostos que você vê.
+
+81
+00:05:02,440 --> 00:05:05,038
+Acho que as analogias entre 
+aprendizagem profunda e
+
+82
+00:05:05,038 --> 00:05:08,276
+o cérebro humano, às vezes,
+ são um pouco perigosas.
+
+83
+00:05:08,276 --> 00:05:13,301
+Mas há muita verdade nisto, sendo
+ como pensamos que funciona do cérebro humano e
+
+84
+00:05:13,301 --> 00:05:18,102
+que o cérebro humano detecta provavelmente
+ coisas simples como bordas e
+
+85
+00:05:18,102 --> 00:05:22,598
+em seguida, as coloca juntas para formar
+ objetos mais e mais complexos e isso
+
+86
+00:05:22,598 --> 00:05:27,430
+tem servido também como uma forma livre de 
+inspiração para algum aprendizado das pessoas.
+
+87
+00:05:27,430 --> 00:05:29,850
+Veremos um pouco mais sobre 
+o cérebro humano ou
+
+88
+00:05:29,850 --> 00:05:33,065
+sobre o cérebro biológico em
+ um vídeo mais adiante nesta semana.
+
+89
+00:05:35,534 --> 00:05:40,407
+A outra perspectiva sobre
+ por que redes profundas parecem
+
+90
+00:05:40,407 --> 00:05:42,756
+funcionar bem é o seguinte:
+
+91
+00:05:42,756 --> 00:05:47,868
+Este resultado vem da teoria do circuito
+ do qual vem do pensamento
+
+92
+00:05:47,868 --> 00:05:53,760
+sobre que tipos de funções que você pode calcular 
+com caso de lógica diferente.
+
+93
+00:05:53,760 --> 00:05:58,860
+Então informalmente, suas funções calculam
+com relativamente pequenas mas profundas redes
+
+94
+00:05:58,860 --> 00:06:03,595
+neurais e por pequenas unidades ocultas, quero dizer que
+o número de unidades ocultas é relativamente pequeno.
+
+95
+00:06:03,595 --> 00:06:07,553
+Mas se você tentar calcular a mesma
+ função com uma rede superficial,
+
+96
+00:06:07,553 --> 00:06:09,178
+sem camadas ocultas suficientes,
+
+97
+00:06:09,178 --> 00:06:13,296
+então você pode exponencialmente precisar de
+ mais unidades ocultas para calcular.
+
+98
+00:06:13,296 --> 00:06:18,109
+Então deixe-me dar um exemplo 
+e ilustrar isso, informalmente.
+
+99
+00:06:18,109 --> 00:06:21,423
+Mas digamos que você está tentando calcular
+ o 'ou exclusivo' XOR ou a paridade
+
+100
+00:06:21,423 --> 00:06:23,349
+das características de entrada do áudio.
+
+101
+00:06:23,349 --> 00:06:28,430
+Então você está tentando calcular X1 XOR X2 XOR
+
+102
+00:06:28,430 --> 00:06:33,064
+X3 XOR..., até Xn 
+se tiver n ou Xn características.
+
+103
+00:06:33,064 --> 00:06:39,924
+Então, se você construir XOR assim, 
+então, para nós, ele calcula o XOR de X1 e
+
+104
+00:06:39,924 --> 00:06:44,586
+X2, então X3 e 
+X4 e calcula XOR destes dois.
+
+105
+00:06:44,586 --> 00:06:49,392
+E, tecnicamente, se você está usando 
+portas 'AND' ou 'NOT...' para avaliar, talvez seja necessário
+
+106
+00:06:49,392 --> 00:06:54,196
+algumas camadas para computar a função de XOR
+ ao invés de apenas uma camada, mas
+
+107
+00:06:54,196 --> 00:06:58,791
+com um circuito relativamente pequeno, 
+você pode calcular o XOR e assim por diante.
+
+108
+00:06:58,791 --> 00:07:03,987
+E então você pode construir, realmente,
+ uma árvore XOR da seguinte forma,
+
+109
+00:07:03,987 --> 00:07:12,090
+até que finalmente, você tenha aqui um circuito 
+que gera a saída, bem, vamos chamar de Y.
+
+110
+00:07:12,090 --> 00:07:15,236
+As saídas de ŷ = Y.
+
+111
+00:07:15,236 --> 00:07:18,398
+O 'ou exclusivo', XOR, 
+ a paridade de todos estes bits de entrada.
+
+112
+00:07:18,398 --> 00:07:24,790
+Então para calcular o XOR, a profundidade 
+da rede neural será na ordem de Log n,
+
+113
+00:07:24,790 --> 00:07:27,410
+para este tipo de árvore XOR.
+
+114
+00:07:27,410 --> 00:07:30,836
+Portanto, o número de nós ou 
+o número de componentes de circuito ou
+
+115
+00:07:30,836 --> 00:07:33,929
+o número de portas nesta 
+rede não é tão grande.
+
+116
+00:07:33,929 --> 00:07:38,452
+Você não precisa que muitas portas a fim 
+de calcular o XOR.
+
+117
+00:07:38,452 --> 00:07:43,458
+Mas agora, se não pode usar uma 
+rede neural com múltiplas
+
+118
+00:07:43,458 --> 00:07:48,203
+camadas ocultas com, neste caso, 
+ordem de log n de camadas ocultas,
+
+119
+00:07:48,203 --> 00:07:53,382
+se você é forçado a calcular essa 
+função com apenas uma camada oculta,
+
+120
+00:07:53,382 --> 00:07:57,912
+você tem todas essas coisas entrando
+ em certas unidades ocultas.
+
+121
+00:07:57,912 --> 00:08:02,116
+E então essas coisas 
+então saída Y.
+
+122
+00:08:02,116 --> 00:08:07,120
+Então para calcular a paridade, ou esta função XOR, 
+esta camada oculta
+
+123
+00:08:07,120 --> 00:08:12,124
+precisará ser exponencialmente 
+grande, porque essencialmente,
+
+124
+00:08:12,124 --> 00:08:18,397
+você precisa enumerar exaustivamente
+ todas possíveis configurações, ou seja, 2 elevado a N.
+
+125
+00:08:18,397 --> 00:08:23,139
+Assim por diante a ordem de 2 elevado a N, 
+possíveis configurações dos
+
+126
+00:08:23,139 --> 00:08:27,898
+bits de entrada, que resultam no 
+XOR ser ou 1 ou 0.
+
+127
+00:08:27,898 --> 00:08:32,213
+Então você acaba precisando de uma camada 
+oculta que é exponencialmente maior em
+
+128
+00:08:32,213 --> 00:08:33,554
+número de bits.
+
+129
+00:08:33,554 --> 00:08:38,229
+Tecnicamente, acho que você poderia fazer isso 
+com 2 elevado a (N - 1) unidades ocultas.
+
+130
+00:08:38,229 --> 00:08:43,948
+Mas essa é a ordem de 2 elevado a N
+ processos exponencialmente maiores no número de bits.
+
+131
+00:08:43,948 --> 00:08:49,149
+Espero, com isso, que entenda que
+ existem funções matemáticas,
+
+132
+00:08:49,149 --> 00:08:55,275
+que são mais fáceis de calcular com redes
+ profundas do que com redes superficiais.
+
+133
+00:08:55,275 --> 00:09:01,028
+Na verdade, pessoalmente achei o resultado da 
+teoria de circuito menos útil para
+
+134
+00:09:01,028 --> 00:09:05,985
+ganhar perspectiva, mas 
+apenas um dos resultados que as pessoas muitas vezes
+
+135
+00:09:05,985 --> 00:09:11,223
+citam ao explicar o valor de ter
+ representações muito profundas.
+
+136
+00:09:11,223 --> 00:09:13,600
+Agora, além destas justificativas
+
+137
+00:09:13,600 --> 00:09:16,897
+para preferir redes neurais 
+profundas, para ser bem honesto,
+
+138
+00:09:16,897 --> 00:09:22,204
+acho que outra razão para o termo aprendizagem profunda
+ter decolado foi apenas por se tornar uma marca conhecida.
+
+139
+00:09:22,204 --> 00:09:26,776
+Essas coisas eram chamadas redes neurais
+ com muitas camadas ocultas, mas
+
+140
+00:09:26,776 --> 00:09:31,198
+a frase aprendizagem profunda é apenas
+ uma grande marca, é tão profundo.
+
+141
+00:09:31,198 --> 00:09:36,284
+Então acho que, uma vez que esse termo pegou
+ que realmente redes neurais foram renomeadas ou
+
+142
+00:09:36,284 --> 00:09:39,622
+redes neurais com muitas 
+camadas ocultas renomeadas,
+
+143
+00:09:39,622 --> 00:09:42,970
+ajudam a capturar a imaginação 
+popular também.
+
+144
+00:09:42,970 --> 00:09:47,479
+Independente da imagem de marca, 
+ as redes profunda funcionam bem.
+
+145
+00:09:47,479 --> 00:09:51,342
+Às vezes, as pessoas exageram e 
+insistem em usar toneladas de camadas ocultas.
+
+146
+00:09:51,342 --> 00:09:55,500
+Mas quando começo um novo problema,
+ muitas vezes realmente começo com
+
+147
+00:09:55,500 --> 00:09:58,803
+regressão logística,
+ então tento algo com uma ou
+
+148
+00:09:58,803 --> 00:10:01,722
+duas camadas escondidas e uso
+ isso como hiper parâmetro.
+
+149
+00:10:01,722 --> 00:10:05,731
+Use isso como um parâmetro ou 
+hiper parâmetro que ajusto a fim de tentar encontrar
+
+150
+00:10:05,731 --> 00:10:07,935
+a profundidade certa para a sua rede neural.
+
+151
+00:10:07,935 --> 00:10:12,800
+Mas nos últimos anos há uma tendência
+ para que pessoas encontrem
+
+152
+00:10:12,800 --> 00:10:17,590
+para certas aplicações, redes neurais muito, muito profundas, aqui talvez, com muitas
+
+153
+00:10:17,590 --> 00:10:22,264
+dezenas de camadas, às vezes, podendo 
+ser o melhor modelo para um problema.
+
+154
+00:10:22,264 --> 00:10:27,605
+Então é isso porque aprendizagem profunda parece funcionar bem.
+
+155
+00:10:27,605 --> 00:10:31,411
+Vamos agora dar uma olhada na mecânica 
+de como implementar não apenas
+
+156
+00:10:31,411 --> 00:10:33,769
+propagação para frente, mas também a retro-propagação.
+[Tradução: Cláudia Inoue | Revisão: Carlos Lage]

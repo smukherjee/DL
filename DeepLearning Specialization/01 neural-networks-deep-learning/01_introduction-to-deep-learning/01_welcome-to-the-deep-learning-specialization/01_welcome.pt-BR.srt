@@ -1,0 +1,488 @@
+1
+00:00:00,000 --> 00:00:02,395
+Olá e bem-vindo.
+
+2
+00:00:02,395 --> 00:00:03,810
+Como você provavelmente já sabe,
+
+3
+00:00:03,810 --> 00:00:05,640
+"deep learning" já transformou
+
+4
+00:00:05,640 --> 00:00:09,325
+os negócios na internet tradicional,
+tais como pesquisa na web e publicidade.
+
+5
+00:00:09,325 --> 00:00:11,160
+Mas a aprendizagem profunda
+também está permitindo
+
+6
+00:00:11,160 --> 00:00:15,085
+criar novos produtos e negócios e 
+novas maneiras de ajudar as pessoas.
+
+7
+00:00:15,085 --> 00:00:17,205
+Desde melhores serviços de saúde,
+
+8
+00:00:17,205 --> 00:00:19,410
+onde a aprendizagem profunda
+está ficando realmente boa em leitura
+
+9
+00:00:19,410 --> 00:00:22,935
+de imagens de raio-x,
+até na produção de uma educação personalizada,
+
+10
+00:00:22,935 --> 00:00:28,320
+e desde a agricultura de precisão, 
+até mesmo em carros autoconduzidos e muitos outros.
+
+11
+00:00:28,320 --> 00:00:30,790
+Se quiser aprender sobre
+as ferramentas de aprendizagem profunda e
+
+12
+00:00:30,790 --> 00:00:33,495
+ser capaz de aplicá-las na construção de coisas incríveis,
+
+13
+00:00:33,495 --> 00:00:35,675
+quero ajudá-lo a chegar lá.
+
+14
+00:00:35,675 --> 00:00:38,725
+Quando você terminar esta sequência de cursos na Coursera,
+
+15
+00:00:38,725 --> 00:00:41,190
+chamada de "especialização", você será capaz de colocar,
+
+16
+00:00:41,190 --> 00:00:44,455
+com bastante confiança, 
+a aprendizagem profunda em seu currículo.
+
+17
+00:00:44,455 --> 00:00:45,615
+Na próxima década,
+
+18
+00:00:45,615 --> 00:00:50,430
+creio que todos nós teremos uma oportunidade de 
+construir um mundo incrível, uma sociedade incrível,
+
+19
+00:00:50,430 --> 00:00:52,004
+que será movido, que será
+movida a Inteligência Artificial,
+
+20
+00:00:52,004 --> 00:00:57,364
+e espero que você tenha um papel importante na 
+criação desta sociedade movida a base de IA.
+
+21
+00:00:57,364 --> 00:01:00,782
+Isso posto, comecemos!
+
+22
+00:01:00,782 --> 00:01:03,690
+Creio que a IA é a nova eletricidade.
+
+23
+00:01:03,690 --> 00:01:05,485
+Começando a cerca de 100 anos atrás,
+
+24
+00:01:05,485 --> 00:01:10,055
+a eletrificação da nossa sociedade transformou
+ cada grande indústria,
+
+25
+00:01:10,055 --> 00:01:12,430
+tudo que vai desde transporte, manufatura,
+
+26
+00:01:12,430 --> 00:01:15,430
+até saúde, comunicação e muitas outras.
+
+27
+00:01:15,430 --> 00:01:18,280
+E hoje, vemos um surpreendente caminho claro
+
+28
+00:01:18,280 --> 00:01:22,225
+para a IA nos dar uma transformação igualmente grande!
+
+29
+00:01:22,225 --> 00:01:25,090
+E claro, a parte da IA que está aumentando
+
+30
+00:01:25,090 --> 00:01:29,530
+rapidamente e direcionando um monte destes 
+desenvolvimentos, é aprendizagem profunda.
+
+31
+00:01:29,530 --> 00:01:31,630
+Então hoje, aprendizagem profunda é uma das mais
+
+32
+00:01:31,630 --> 00:01:34,920
+altamente procuradas nos mundos 
+da tecnologia e das habilidades.
+
+33
+00:01:34,920 --> 00:01:37,795
+E através deste curso e alguns outros depois deste,
+
+34
+00:01:37,795 --> 00:01:40,900
+quero auxiliá-lo a ganhar e dominar tais habilidades.
+
+35
+00:01:40,900 --> 00:01:43,870
+Então aqui está o que 
+você aprenderá nesta sequência de
+
+36
+00:01:43,870 --> 00:01:47,290
+cursos, também chamados 
+de "especialização" aqui na Coursera.
+
+37
+00:01:47,290 --> 00:01:48,775
+No primeiro curso,
+
+38
+00:01:48,775 --> 00:01:51,925
+você aprenderá sobre os fundamentos das redes neurais,
+
+39
+00:01:51,925 --> 00:01:54,555
+aprenderá sobre redes neurais e aprendizagem profunda.
+
+40
+00:01:54,555 --> 00:01:56,650
+Este vídeo que você está vendo é parte
+
+41
+00:01:56,650 --> 00:01:59,895
+deste primeiro curso,
+ que dura quatro semanas, no total.
+
+42
+00:01:59,895 --> 00:02:05,450
+E cada um dos cinco cursos na especialização 
+terá cerca de duas a quatro semanas,
+
+43
+00:02:05,450 --> 00:02:08,490
+com a maioria deles, na verdade, 
+menor do que quatro semanas.
+
+44
+00:02:08,490 --> 00:02:09,685
+Mas neste primeiro curso,
+
+45
+00:02:09,685 --> 00:02:12,340
+você aprenderá como construir
+uma rede neural, incluindo
+
+46
+00:02:12,340 --> 00:02:15,520
+uma rede neural profunda, e 
+como direcioná-la aos dados.
+
+47
+00:02:15,520 --> 00:02:16,840
+Ao final deste curso,
+
+48
+00:02:16,840 --> 00:02:21,445
+você será capaz de construir uma 
+rede neural profunda para reconhecer, adivinhe...
+
+49
+00:02:21,445 --> 00:02:23,710
+Gatos. Por alguma razão,
+
+50
+00:02:23,710 --> 00:02:27,370
+há um gato correndo por aí 
+em aprendizagem profunda.
+
+51
+00:02:27,370 --> 00:02:30,020
+E, seguindo a tradição, neste primeiro curso,
+
+52
+00:02:30,020 --> 00:02:32,700
+construiremos um reconhecedor de gatos.
+
+53
+00:02:32,700 --> 00:02:35,395
+Em seguida, no segundo curso,
+
+54
+00:02:35,395 --> 00:02:38,420
+você aprenderá sobre os aspectos práticos 
+da aprendizagem profunda.
+
+55
+00:02:38,420 --> 00:02:40,810
+Então você aprenderá, agora que 
+já construiu sua rede,
+
+56
+00:02:40,810 --> 00:02:42,765
+como, de fato, fazê-la 
+ter um bom desempenho.
+
+57
+00:02:42,765 --> 00:02:46,295
+Depois você aprenderá sobre afinação de hiperparâmetro, 
+sobre regularização,
+
+58
+00:02:46,295 --> 00:02:49,060
+sobre como diagnosticar tendências e variantes e sobre
+
+59
+00:02:49,060 --> 00:02:54,755
+algoritmos de otimização avançados, como 
+Momentum, RMS prop e Algoritmo de autorização de Adam.
+
+60
+00:02:54,755 --> 00:02:56,645
+Às vezes, parece que há muito refinamento,
+
+61
+00:02:56,645 --> 00:02:59,925
+até mesmo magia negra,
+ em como construir sua rede neural.
+
+62
+00:02:59,925 --> 00:03:02,740
+Então, o segundo curso que será de três semanas,
+
+63
+00:03:02,740 --> 00:03:04,900
+desmitificará algumas destas magias negras.
+
+64
+00:03:04,900 --> 00:03:07,710
+No terceiro curso, que terá só duas semanas,
+
+65
+00:03:07,710 --> 00:03:10,930
+você aprenderá como estruturar seu projeto
+ de aprendizagem automática.
+
+66
+00:03:10,930 --> 00:03:13,270
+Acontece que a estratégia para construir
+
+67
+00:03:13,270 --> 00:03:16,820
+um sistema de aprendizagem automática 
+mudou na era da aprendizagem profunda.
+
+68
+00:03:16,820 --> 00:03:20,785
+Então, por exemplo, a forma de dividir os dados 
+para treinamento,
+
+69
+00:03:20,785 --> 00:03:26,095
+para desenvolvimento (ou dev) também chamado de
+ conjunto de validação cruzada e para conjunto de testes,
+
+70
+00:03:26,095 --> 00:03:29,005
+mudou na era da aprendizagem profunda.
+
+71
+00:03:29,005 --> 00:03:31,860
+Então se as novas melhores práticas estão fazendo isso
+
+72
+00:03:31,860 --> 00:03:36,215
+e, independentemente de seu conjunto de treinamento 
+e o de teste vir de diferentes distribuições,
+
+73
+00:03:36,215 --> 00:03:38,760
+isso vem acontecendo muito mais
+na era da aprendizagem profunda.
+
+74
+00:03:38,760 --> 00:03:40,710
+Então, como lidar com isso?
+
+75
+00:03:40,710 --> 00:03:44,700
+E se você já ouviu falar de aprendizagem profunda
+de ponta a ponta,
+
+76
+00:03:44,700 --> 00:03:48,375
+você também aprenderá mais sobre ela 
+neste terceiro curso
+
+77
+00:03:48,375 --> 00:03:51,690
+e verá quando deve usá-la e, talvez,
+quando não deveria.
+
+78
+00:03:51,690 --> 00:03:54,960
+O material neste terceiro curso
+é relativamente exclusivo.
+
+79
+00:03:54,960 --> 00:03:57,990
+Compartilharei com você
+muitas das lições difíceis que aprendi,
+
+80
+00:03:57,990 --> 00:04:01,860
+construindo e entregando
+muitos produtos usando aprendizagem profunda.
+
+81
+00:04:01,860 --> 00:04:03,075
+Tanto quanto sei,
+
+82
+00:04:03,075 --> 00:04:06,420
+é um material que não é ensinado na
+
+83
+00:04:06,420 --> 00:04:10,650
+maioria das universidades que têm cursos
+de aprendizagem profunda.
+
+84
+00:04:10,650 --> 00:04:15,266
+Mas eu realmente espero que você faça
+ seus sistemas de aprendizagem profunda funcionarem bem.
+
+85
+00:04:15,266 --> 00:04:16,755
+No próximo curso,
+
+86
+00:04:16,755 --> 00:04:22,530
+falaremos sobre redes neurais convolucionais, 
+frequentemente abreviados CNNs.
+
+87
+00:04:22,530 --> 00:04:28,670
+CNNs são frequentemente aplicadas
+ao processamento de imagens.
+
+88
+00:04:28,670 --> 00:04:31,440
+Então, você aprenderá a construir tais modelos
+no curso quatro.
+
+89
+00:04:31,440 --> 00:04:33,435
+Finalmente, no curso cinco,
+
+90
+00:04:33,435 --> 00:04:36,300
+você aprenderá sobre modelos de sequência
+e como aplicá-los
+
+91
+00:04:36,300 --> 00:04:40,080
+ao processamento de linguagem natural
+ e a outros problemas.
+
+92
+00:04:40,080 --> 00:04:42,600
+Modelos de sequência incluem modelos como
+
+93
+00:04:42,600 --> 00:04:47,465
+redes neurais recorrentes,
+abreviadas como RNNs e modelos LSTM,
+
+94
+00:04:47,465 --> 00:04:49,645
+estes últimos, para modelos de memória
+de curto e de longo prazos.
+
+95
+00:04:49,645 --> 00:04:52,740
+Você aprenderá o que esses termos significam
+ no curso cinco e será capaz de
+
+96
+00:04:52,740 --> 00:04:56,865
+aplicá-los aos problemas de processamento
+de linguagem natural.
+
+97
+00:04:56,865 --> 00:05:02,220
+Então você aprenderá tais modelos no curso cinco 
+e será capaz de aplicá-los aos dados de sequência.
+
+98
+00:05:02,220 --> 00:05:05,670
+Assim, por exemplo, a linguagem natural é 
+apenas uma sequência de palavras.
+
+99
+00:05:05,670 --> 00:05:10,505
+Também entenderá como tais modelos 
+podem ser aplicados ao reconhecimento da fala,
+
+100
+00:05:10,505 --> 00:05:14,140
+ou para criar música, e outros problemas.
+
+101
+00:05:14,140 --> 00:05:15,735
+Assim, nestes cursos
+
+102
+00:05:15,735 --> 00:05:17,705
+você aprenderá as 
+ferramentas de aprendizagem profunda;
+
+103
+00:05:17,705 --> 00:05:20,100
+será capaz de aplicá-las na 
+construção de coisas incríveis;
+
+104
+00:05:20,100 --> 00:05:24,810
+e espero que muitos de vocês, com isso,
+avancem em suas carreiras profissionais.
+
+105
+00:05:24,810 --> 00:05:26,910
+Isso posto, comecemos!
+
+106
+00:05:26,910 --> 00:05:29,145
+Por favor, siga para o próximo vídeo,
+onde falaremos sobre
+
+107
+00:05:29,145 --> 00:05:31,650
+aprendizagem profunda aplicada
+ao aprendizado supervisionado.
+Tradução: Carlos O. D. Lage|Revisão: Julia Yuri

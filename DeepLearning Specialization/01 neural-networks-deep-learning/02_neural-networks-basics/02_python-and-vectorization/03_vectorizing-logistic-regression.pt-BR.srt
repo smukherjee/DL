@@ -1,0 +1,562 @@
+1
+00:00:00,860 --> 00:00:05,760
+Nós falamos sobre como vetorização permite 
+acelerar seu código significativamente.
+
+2
+00:00:05,760 --> 00:00:08,160
+Neste vídeo, falaremos sobre 
+como você pode vetorizar
+
+3
+00:00:08,160 --> 00:00:10,545
+a implementação de regressão logística,
+
+4
+00:00:10,545 --> 00:00:12,960
+de forma a processar um 
+conjunto completo de treinamento,
+
+5
+00:00:12,960 --> 00:00:15,930
+que é implementar uma única iteração
+de gradiente decrescente com relação ao
+
+6
+00:00:15,930 --> 00:00:22,330
+conjunto completo de treinamento sem 
+usar nenhum um laço de repetição 'for...'.
+
+7
+00:00:22,330 --> 00:00:24,039
+Eu estou super entusiasmado 
+com esta técnica,
+
+8
+00:00:24,039 --> 00:00:26,670
+e quando falarmos mais 
+tarde sobre redes neurais,
+
+9
+00:00:26,670 --> 00:00:30,050
+sem o uso de nenhum 
+laço de repetição "for...".
+
+10
+00:00:30,050 --> 00:00:35,965
+Vamos começar. Primeiro, examinemos as 
+quatro etapas da propagação de regressão logística.
+
+11
+00:00:35,965 --> 00:00:37,860
+Então, se você tem "m" 
+exemplos de treinamento,
+
+12
+00:00:37,860 --> 00:00:40,605
+então, para fazer uma previsão 
+neste primeiro exemplo,
+
+13
+00:00:40,605 --> 00:00:42,105
+você necessita calcular isso,
+
+14
+00:00:42,105 --> 00:00:45,480
+calcular z. Estou usando 
+esta fórmula conhecida,
+
+15
+00:00:45,480 --> 00:00:47,370
+assim, calcula as ativações,
+
+16
+00:00:47,370 --> 00:00:49,485
+calcula ŷ no primeiro exemplo.
+
+17
+00:00:49,485 --> 00:00:52,705
+Então, para fazer uma previsão no 
+segundo exemplo de treinamento,
+
+18
+00:00:52,705 --> 00:00:54,405
+você precisa calcular isso.
+
+19
+00:00:54,405 --> 00:00:57,085
+Então, para fazer uma 
+previsão no terceiro exemplo,
+
+20
+00:00:57,085 --> 00:00:59,045
+você necessita calcular 
+isso, e assim por diante.
+
+21
+00:00:59,045 --> 00:01:01,020
+E você pode ter que 
+fazer isso "m" vezes,
+
+22
+00:01:01,020 --> 00:01:03,855
+se você tem "m" exemplos de treinamento.
+
+23
+00:01:03,855 --> 00:01:08,250
+Então, resulta que a fim de realizar 
+as quatro etapas de propagação,
+
+24
+00:01:08,250 --> 00:01:13,435
+isso é para calcular estas previsões 
+nos nossos "m" exemplos de treinamento,
+
+25
+00:01:13,435 --> 00:01:14,865
+há uma forma de fazer isso,
+
+26
+00:01:14,865 --> 00:01:17,925
+sem a necessidade de
+laços de repetição 'for...'.
+
+27
+00:01:17,925 --> 00:01:20,450
+Vamos ver como podemos fazer isso.
+
+28
+00:01:20,450 --> 00:01:26,455
+Primeiro, lembre-se que definimos a matriz X 
+como suas entradas de treinamento,
+
+29
+00:01:26,455 --> 00:01:30,895
+empilhadas juntas em 
+diferentes colunas, desta forma.
+
+30
+00:01:30,895 --> 00:01:33,810
+Então, esta é uma matriz,
+
+31
+00:01:33,810 --> 00:01:38,425
+é uma matriz nₓ por m.
+
+32
+00:01:38,425 --> 00:01:41,885
+Então, estou escrevendo isso no 
+Python como um gráfico pizza,
+
+33
+00:01:41,885 --> 00:01:50,350
+isso só significa que X é uma 
+matriz em R (números reais), de dimensões nₓ por m.
+
+34
+00:01:50,350 --> 00:01:54,670
+Agora, a primeira coisa que quero fazer é 
+mostrar como você pode calcular z⁽¹⁾ , z⁽²⁾ ,
+
+35
+00:01:54,670 --> 00:01:56,512
+z⁽³⁾ e assim por diante,
+
+36
+00:01:56,512 --> 00:01:58,665
+tudo em uma única etapa,
+
+37
+00:01:58,665 --> 00:02:01,195
+na verdade, com um linha de código.
+
+38
+00:02:01,195 --> 00:02:06,930
+Então, vou construir uma matriz
+
+39
+00:02:06,930 --> 00:02:13,100
+1 por m, que é na verdade um vetor 
+linha, enquanto eu vou calcular z⁽¹⁾ ,
+
+40
+00:02:13,100 --> 00:02:15,405
+z⁽²⁾, e assim por diante,
+
+41
+00:02:15,405 --> 00:02:18,480
+até z⁽m⁾,, tudo ao mesmo tempo.
+
+42
+00:02:18,480 --> 00:02:22,175
+Resulta que isso pode ser expressado como
+
+43
+00:02:22,175 --> 00:02:29,225
+W⸆ . X mais este vetor b,
+
+44
+00:02:29,225 --> 00:02:31,040
+b e assim por diante.
+
+45
+00:02:31,040 --> 00:02:33,315
+b, onde esta coisa,
+
+46
+00:02:33,315 --> 00:02:34,480
+este b, b, b, b,
+
+47
+00:02:34,480 --> 00:02:38,980
+b é um vetor 1 x m ou
+
+48
+00:02:38,980 --> 00:02:46,725
+uma matriz 1 x m ou isso é como um 
+vetor linha com dimensão m.
+
+49
+00:02:46,725 --> 00:02:50,495
+Então, pelo conhecimento 
+em multiplicação de matriz,
+
+50
+00:02:50,495 --> 00:02:56,300
+você pode ver que W transposta, 
+multiplicado pelo x⁽¹⁾,
+
+51
+00:02:56,300 --> 00:02:58,760
+x⁽²⁾, e assim por diante até x⁽m⁾,
+
+52
+00:02:58,760 --> 00:03:05,755
+W transposta pode ser um vetor linha.
+
+53
+00:03:05,755 --> 00:03:10,655
+Então, este W⸆ 
+será um vetor linha, desta forma.
+
+54
+00:03:10,655 --> 00:03:18,614
+E então, este primeiro 
+termo avaliará a W⸆ . x⁽¹⁾,
+
+55
+00:03:18,614 --> 00:03:22,970
+W⸆ . x⁽²⁾, e assim por diante, ...
+
+56
+00:03:22,970 --> 00:03:29,840
+W⸆ . x⁽m⁾, e então quando você 
+adiciona este segundo termo b,
+
+57
+00:03:29,840 --> 00:03:30,960
+b, b, e assim por diante,
+
+58
+00:03:30,960 --> 00:03:33,565
+você acaba adicionando 
+b para cada elemento.
+
+59
+00:03:33,565 --> 00:03:37,650
+Então, você termina 
+com outro vetor 1 x m.
+
+60
+00:03:37,650 --> 00:03:38,955
+Bem, este é o primeiro elemento,
+
+61
+00:03:38,955 --> 00:03:40,590
+este é o segundo elemento, 
+e assim por diante,
+
+62
+00:03:40,590 --> 00:03:42,810
+e este é o m-ésimo elemento.
+
+63
+00:03:42,810 --> 00:03:45,605
+E, se você verificar as definições acima,
+
+64
+00:03:45,605 --> 00:03:51,250
+este primeiro elemento é 
+exatamente a definição de z⁽¹⁾ .
+
+65
+00:03:51,250 --> 00:03:57,305
+O segundo elemento é exatamente a 
+definição de z⁽²⁾ e assim por diante.
+
+66
+00:03:57,305 --> 00:04:00,035
+Então, assim como X foi obtido uma vez,
+
+67
+00:04:00,035 --> 00:04:02,870
+quando você pegou seus 
+exemplos de treinamento e
+
+68
+00:04:02,870 --> 00:04:07,400
+os empilhou um ao lado do outro, 
+os empilhou horizontalmente.
+
+69
+00:04:07,400 --> 00:04:11,069
+Vou definir Z para ser isso onde
+
+70
+00:04:11,069 --> 00:04:16,385
+você pega os z's e 
+os empilha horizontalmente.
+
+71
+00:04:16,385 --> 00:04:21,080
+Então, quando você empilha as x's minúsculas, que 
+correspondem a exemplos de treinamento diferentes,
+
+72
+00:04:21,080 --> 00:04:24,350
+horizontalmente você 
+obtém esta variável X maiúscula e
+
+73
+00:04:24,350 --> 00:04:27,420
+da mesma forma, quando você 
+pega estas variáveis z's,
+
+74
+00:04:27,420 --> 00:04:28,805
+e as empilha horizontalmente,
+
+75
+00:04:28,805 --> 00:04:34,050
+você obtém esta variável Z maiúscula.
+
+76
+00:04:34,050 --> 00:04:37,400
+Resulta que, para implementar isso,
+
+77
+00:04:37,400 --> 00:04:45,773
+o comando numpy é Z = np.dot(W.T),
+
+78
+00:04:45,773 --> 00:04:51,095
+isso é W transposto 
+multiplicado por X mais b.
+
+79
+00:04:51,095 --> 00:04:53,645
+Agora, há uma sutileza em Python,
+
+80
+00:04:53,645 --> 00:04:59,405
+que está aqui, b é um número real 
+ou se quiser dizer, uma matriz 1x1,
+
+81
+00:04:59,405 --> 00:05:01,330
+é só um número real normal.
+
+82
+00:05:01,330 --> 00:05:06,230
+Mas, quando você adiciona 
+esse vetor a este número real,
+
+83
+00:05:06,230 --> 00:05:13,235
+Python automaticamente pega este número real b 
+e expande ele para este vetor linha 1xm.
+
+84
+00:05:13,235 --> 00:05:16,490
+Então, caso esta operação 
+pareça um pouco misteriosa,
+
+85
+00:05:16,490 --> 00:05:20,120
+isso se chama "broadcasting" em Python,
+
+86
+00:05:20,120 --> 00:05:22,210
+e você não precisa se 
+preocupar com isso agora,
+
+87
+00:05:22,210 --> 00:05:25,760
+nós vamos falar sobre isso um 
+pouco mais no próximo vídeo.
+
+88
+00:05:25,760 --> 00:05:29,180
+Mas a moral da história é que com apenas 
+uma linha de código, com esta linha de código,
+
+89
+00:05:29,180 --> 00:05:33,290
+você pode calcular Z, e Z será
+
+90
+00:05:33,290 --> 00:05:37,698
+uma matriz 1xm que contém 
+todos os z's (minúsculos),
+
+91
+00:05:37,698 --> 00:05:41,200
+z⁽¹⁾ até z⁽m⁾ .
+
+92
+00:05:41,200 --> 00:05:46,255
+Então, isso foi Z, mas e estes valores 'a'.
+
+93
+00:05:46,255 --> 00:05:48,260
+O que faremos a seguir,
+
+94
+00:05:48,260 --> 00:05:52,685
+é encontrar uma forma de calcular a⁽¹⁾ ,
+
+95
+00:05:52,685 --> 00:05:57,220
+a⁽²⁾, e assim por diante até a⁽m⁾,
+
+96
+00:05:57,220 --> 00:05:58,700
+tudo ao mesmo tempo,
+
+97
+00:05:58,700 --> 00:06:03,350
+e da mesma forma que 
+os x's resultaram em
+
+98
+00:06:03,350 --> 00:06:08,870
+X maiúsculo, e o empilhamento horizontal 
+dos z's resultaram em Z,
+
+99
+00:06:08,870 --> 00:06:10,810
+empilhando os a's,
+
+100
+00:06:10,810 --> 00:06:12,470
+resultará em uma nova variável,
+
+101
+00:06:12,470 --> 00:06:15,200
+que definiremos como A,
+maiúsculo.
+
+102
+00:06:15,200 --> 00:06:18,075
+E nos exercícios de programação,
+
+103
+00:06:18,075 --> 00:06:22,790
+você verá como implementar uma 
+função sigmoide de vetor de valor,
+
+104
+00:06:22,790 --> 00:06:24,480
+de forma que a função sigmoide,
+
+105
+00:06:24,480 --> 00:06:32,380
+entre com Z (maiúsculo) como variável e de 
+forma muito eficiente retorna A (maiúsculo).
+
+106
+00:06:32,380 --> 00:06:36,620
+Então, veremos os detalhes 
+disso nos exercícios de programação.
+
+107
+00:06:36,620 --> 00:06:38,110
+Então, apenas para recapitular,
+
+108
+00:06:38,110 --> 00:06:42,655
+O que vimos neste slide é que ao invés 
+de precisar fazer laços de repetição nos
+
+109
+00:06:42,655 --> 00:06:47,515
+'m' exemplos de treinamento , 
+para calcular "z" e "a",
+
+110
+00:06:47,515 --> 00:06:52,090
+um de cada vez, você pode implementar 
+esta única linha de código
+
+111
+00:06:52,090 --> 00:06:54,290
+para calcular todos esses 
+z's ao mesmo tempo.
+
+112
+00:06:54,290 --> 00:06:57,100
+E então, esta linha de código,
+
+113
+00:06:57,100 --> 00:06:59,260
+com uma implementação correta de
+
+114
+00:06:59,260 --> 00:07:04,115
+Sigma (minúsculo) para calcular 
+todos os a's, tudo ao mesmo tempo.
+
+115
+00:07:04,115 --> 00:07:05,965
+Então, é assim que você faz
+
+116
+00:07:05,965 --> 00:07:07,948
+uma implementação vetorizada das
+
+117
+00:07:07,948 --> 00:07:11,560
+quatro etapas de propagação para todos os 
+m exemplos de treinamento, tudo ao mesmo tempo.
+
+118
+00:07:11,560 --> 00:07:13,985
+Então para resumir, você viu como usar
+
+119
+00:07:13,985 --> 00:07:18,100
+vetorização para calcular de forma 
+muito eficiente todas as ativações,
+
+120
+00:07:18,100 --> 00:07:21,700
+todos os a's ao mesmo tempo.
+
+121
+00:07:21,700 --> 00:07:24,860
+A seguir, resulta que você 
+também pode usar vetorização
+
+122
+00:07:24,860 --> 00:07:27,910
+eficientemente para processar retro-propagação,
+
+123
+00:07:27,910 --> 00:07:29,650
+no cálculo de gradientes.
+
+124
+00:07:29,650 --> 00:07:32,000
+Vamos ver como você pode fazer isso no próximo 
+vídeo. [Tradução: Renato Barata Gomes 
+| Revisão: Carlos Lage]

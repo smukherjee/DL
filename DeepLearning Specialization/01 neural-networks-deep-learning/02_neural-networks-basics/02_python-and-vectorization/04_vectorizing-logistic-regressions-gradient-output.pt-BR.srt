@@ -1,0 +1,613 @@
+1
+00:00:00,000 --> 00:00:01,440
+No vídeo anterior,
+
+2
+00:00:01,440 --> 00:00:05,700
+você viu como usar vetorização 
+para calcular suas predições.
+
+3
+00:00:05,700 --> 00:00:11,485
+Os a's para conjunto completo de treinamento 
+estabelecidos todos ao mesmo tempo (de uma só vez).
+
+4
+00:00:11,485 --> 00:00:15,030
+Neste vídeo, você vê como 
+usar vetorização para também
+
+5
+00:00:15,030 --> 00:00:19,205
+executar cálculos de gradientes para 
+todos os m exemplos de treinamento .
+
+6
+00:00:19,205 --> 00:00:21,380
+Novamente, tudo mais ou 
+menos ao mesmo tempo.
+
+7
+00:00:21,380 --> 00:00:22,890
+E então, no final deste vídeo,
+
+8
+00:00:22,890 --> 00:00:26,175
+iremos juntar tudo e mostrar 
+como você pode derivar
+
+9
+00:00:26,175 --> 00:00:29,730
+uma implementação muito 
+eficiente de regressão logística.
+
+10
+00:00:29,730 --> 00:00:32,505
+Então, lembra que para 
+o cálculo de gradiente,
+
+11
+00:00:32,505 --> 00:00:36,910
+o que fizemos foi calcular 
+dz⁽¹⁾ para o primeiro exemplo,
+
+12
+00:00:36,910 --> 00:00:43,870
+que era a⁽¹⁾ - y⁽¹⁾
+ e então dz⁽²⁾
+
+13
+00:00:43,870 --> 00:00:52,134
+dz⁽²⁾ = a⁽²⁾ - y⁽²⁾ 
+e assim por diante.
+
+14
+00:00:52,134 --> 00:00:56,425
+E assim para todos os 
+m exemplos de treinamento.
+
+15
+00:00:56,425 --> 00:01:01,218
+Então, o que faremos é 
+definir uma nova variável,
+
+16
+00:01:01,218 --> 00:01:08,595
+dZ (Z maiúscula),
+que vai ser dz⁽¹⁾, dz⁽²⁾, dz⁽m⁾.
+
+17
+00:01:08,595 --> 00:01:13,910
+Todos as variáveis dz (z minúscula)
+empilhadas horizontalmente.
+
+18
+00:01:13,910 --> 00:01:21,200
+Então, isso seria uma matriz 1 x m, ou 
+alternativamente, um vetor linha com dimensão m.
+
+19
+00:01:21,200 --> 00:01:23,520
+Agora, lembre-se que 
+no slide anterior,
+
+20
+00:01:23,520 --> 00:01:28,405
+nós já havíamos descoberto como 
+calcular A, que seria: a⁽¹⁾ até
+
+21
+00:01:28,405 --> 00:01:36,735
+a⁽m⁾ e nós teríamos que 
+encontrar Y como y⁽¹⁾ até y⁽m⁾.
+
+22
+00:01:36,735 --> 00:01:39,200
+Também, você sabe,
+empilhados horizontalmente.
+
+23
+00:01:39,200 --> 00:01:42,780
+Então, baseados nestas definições,
+
+24
+00:01:42,780 --> 00:01:46,770
+talvez você pode ver por si mesmo 
+que dZ pode ser calculado como
+
+25
+00:01:46,770 --> 00:01:52,750
+A - Y,
+porque será igual a a⁽¹⁾ - y⁽¹⁾ = primeiro
+
+26
+00:01:52,750 --> 00:01:55,670
+elemento, depois 
+a⁽²⁾ - y⁽²⁾, que é
+
+27
+00:01:55,670 --> 00:01:59,980
+o segundo elemento e assim por diante.
+
+28
+00:01:59,980 --> 00:02:06,115
+Assim, este primeiro elemento 
+a⁽¹⁾ - y⁽¹⁾ é exatamente a definição de dz⁽¹⁾ .
+
+29
+00:02:06,115 --> 00:02:11,670
+O segundo elemento é exatamente 
+a definição de dz⁽²⁾ e assim por diante.
+
+30
+00:02:11,670 --> 00:02:13,965
+Então, com apenas uma linha de código,
+
+31
+00:02:13,965 --> 00:02:20,095
+você pode calcular tudo 
+isso ao mesmo tempo.
+
+32
+00:02:20,095 --> 00:02:24,010
+Agora, na implementação anterior,
+
+33
+00:02:24,010 --> 00:02:27,695
+nos livramos de um laço de 
+repetição "for", mas ainda tínhamos
+
+34
+00:02:27,695 --> 00:02:31,600
+este segundo laço "for" 
+sobre os m exemplos de treinamento.
+
+35
+00:02:31,600 --> 00:02:35,440
+Então, nós iniciamos dw 
+com zero, logo, um vetor de zeros.
+
+36
+00:02:35,440 --> 00:02:38,905
+Mas ainda temos que passar pelo laço 
+"for" nos exemplos de treinamento, onde temos
+
+37
+00:02:38,905 --> 00:02:43,015
+dw += x⁽¹⁾ dz⁽¹⁾,
+para
+
+38
+00:02:43,015 --> 00:02:50,440
+o primeiro exemplo de treinamento, 
+dw += x⁽²⁾ dz⁽²⁾, para o segundo, e assim por diante,
+
+39
+00:02:50,440 --> 00:02:56,980
+então, fazemos isso m vezes e então 
+dw /= m, e da mesma forma para b, certo?
+
+40
+00:02:56,980 --> 00:03:03,370
+db foi inicializado como 0 e db += dz⁽¹⁾.
+
+41
+00:03:03,370 --> 00:03:09,120
+db += dz⁽²⁾, até você sabe,
+
+42
+00:03:09,120 --> 00:03:16,835
+dz(m) e db /= m. 
+É isso que tínhamos na implementação anterior.
+
+43
+00:03:16,835 --> 00:03:18,700
+Nós já havíamos nos livrado de 
+um laço de repetição "for",
+
+44
+00:03:18,700 --> 00:03:25,045
+Então, pelo menos agora dw é um vetor, 
+e nós vamos atualizando separadamente dw₁,
+
+45
+00:03:25,045 --> 00:03:26,850
+dw₂, e assim por diante.
+
+46
+00:03:26,850 --> 00:03:29,860
+Então, nós já nos livramos 
+disso, mas nós ainda
+
+47
+00:03:29,860 --> 00:03:33,630
+tínhamos um laço "for" sobre os 
+m exemplos no conjunto de treinamento.
+
+48
+00:03:33,630 --> 00:03:36,290
+Então, vamos pegar estas 
+operações e vetorizá-las.
+
+49
+00:03:36,290 --> 00:03:38,380
+Aqui está o que podemos fazer, para
+
+50
+00:03:38,380 --> 00:03:42,745
+uma implementação vetorizada de 
+db, é basicamente o somatório
+
+51
+00:03:42,745 --> 00:03:47,940
+de todos estes dzs e 
+depois dividindo por m. Então,
+
+52
+00:03:47,940 --> 00:03:51,580
+db é basicamente 1 / m,
+
+53
+00:03:51,580 --> 00:03:56,530
+somatório de i = 1 até m 
+de dz⁽ⁱ⁾
+
+54
+00:03:56,530 --> 00:04:03,055
+e bem, todos os dzs estão 
+naquele vetor linha, e em Python,
+
+55
+00:04:03,055 --> 00:04:04,765
+o que você faz é 
+implementar, você sabe,
+
+56
+00:04:04,765 --> 00:04:08,155
+1 / m vezes np.
+
+57
+00:04:08,155 --> 00:04:12,210
+sum(dZ) assim:
+1/m np.sum(dZ)
+
+58
+00:04:12,210 --> 00:04:15,115
+Então, você só pega 
+esta variável dZ e chama a função
+
+59
+00:04:15,115 --> 00:04:19,195
+np.sum, e divide por m, que lhe dará db.
+
+60
+00:04:19,195 --> 00:04:22,330
+E dw? Ou só escreva
+
+61
+00:04:22,330 --> 00:04:26,375
+as equações corretas que podem 
+verificar que é a coisa certa a fazer.
+
+62
+00:04:26,375 --> 00:04:28,164
+dw resulta ser 1/m,
+
+63
+00:04:28,164 --> 00:04:34,485
+vezes a matriz X vezes dZ transposta.
+
+64
+00:04:34,485 --> 00:04:37,990
+E, veja porque é assim:
+
+65
+00:04:37,990 --> 00:04:41,806
+Isso é igual 1/m e então a matriz X,
+
+66
+00:04:41,806 --> 00:04:48,325
+x⁽¹⁾ até x⁽m⁾ empilhados 
+em colunas deste tipo e dZ⸆
+
+67
+00:04:48,325 --> 00:04:56,040
+transposta será dz⁽¹⁾ até dz⁽m⁾, assim.
+
+68
+00:04:56,040 --> 00:05:00,900
+Então, se você descobrir o que 
+será esta matriz vezes este vetor,
+
+69
+00:05:00,900 --> 00:05:05,585
+resulta ser 
+1/m vezes x⁽¹⁾dz⁽¹⁾
+
+70
+00:05:05,585 --> 00:05:12,523
+mais ... mais x⁽m⁾ dz⁽m⁾.
+
+71
+00:05:12,523 --> 00:05:21,405
+Então esse é um vetor n por 1, 
+e isso é o você acaba obtendo,
+
+72
+00:05:21,405 --> 00:05:24,725
+com dw, porque dw 
+estava pegando, você sabe,
+
+73
+00:05:24,725 --> 00:05:27,710
+x⁽ⁱ⁾ dz⁽ⁱ⁾ e somando eles, 
+e isso é exatamente
+
+74
+00:05:27,710 --> 00:05:32,300
+o que esta multiplicação de vetor por 
+matriz está fazendo, e outra vez,
+
+75
+00:05:32,300 --> 00:05:35,655
+com uma linha de código, 
+você pode calcular dw.
+
+76
+00:05:35,655 --> 00:05:40,010
+Então, isso é a implementação 
+vetorizada dos cálculos derivativos,
+
+77
+00:05:40,010 --> 00:05:44,540
+você usa esta linha 
+para implementar db e usa
+
+78
+00:05:44,540 --> 00:05:50,540
+esta linha para implementar dw e observe 
+que com todos os laços de repetição "for" 
+sobre os conjuntos de treinamento,
+
+79
+00:05:50,540 --> 00:05:55,265
+você pode agora calcular as atualizações que 
+você deseja para os seus parâmetros.
+
+80
+00:05:55,265 --> 00:06:01,185
+Agora, vamos colocar tudo junto e ver como 
+você na realidade implementaria regressão logística.
+
+81
+00:06:01,185 --> 00:06:02,550
+Então, esta é a nossa
+
+82
+00:06:02,550 --> 00:06:07,866
+implementação vetorizada 
+extremamente não eficiente.
+
+83
+00:06:07,866 --> 00:06:11,775
+Então, a primeira coisa que fizemos no vídeo 
+anterior, foi nos livrarmos desta fórmula, ok?
+
+84
+00:06:11,775 --> 00:06:14,400
+Então, ao invés de fazer um 
+laço de repetição sobre dw₁,
+
+85
+00:06:14,400 --> 00:06:15,755
+dw₂, e assim por diante,
+
+86
+00:06:15,755 --> 00:06:23,595
+nós substituímos isso com um 
+valor do vetor dw, que é dw += x⁽ⁱ⁾,
+
+87
+00:06:23,595 --> 00:06:28,775
+que é agora é um vetor, vezes dz⁽ⁱ⁾, assim:
+ dw += x⁽ⁱ⁾dz⁽ⁱ⁾
+
+88
+00:06:28,775 --> 00:06:32,000
+Mas agora, veremos que 
+podemos nos livrar, não só 
+
+89
+00:06:32,000 --> 00:06:36,670
+deste laço "for" da linha, 
+mas também deste laço "for".
+
+90
+00:06:36,670 --> 00:06:38,654
+Então, aqui está como fazê-lo.
+
+91
+00:06:38,654 --> 00:06:42,925
+Então, usando o aprendemos 
+nos slides anteriores,
+
+92
+00:06:42,925 --> 00:06:46,085
+você diria,
+
+93
+00:06:46,085 --> 00:06:57,625
+Z = w⸆ X + b, e o código 
+que você escreve como sendo
+
+94
+00:06:57,625 --> 00:07:07,315
+Z = np.dot(w.T, X) + b
+e A = σ(Z).
+
+95
+00:07:07,315 --> 00:07:12,710
+Então, você agora calcula tudo isso e 
+tudo isso para todos os valores de i.
+
+96
+00:07:12,710 --> 00:07:14,715
+Em seguida, no slide anterior,
+
+97
+00:07:14,715 --> 00:07:21,070
+nós falamos que 
+iríamos calcular dz = A - Y.
+
+98
+00:07:21,070 --> 00:07:24,460
+Então, agora você calculou tudo 
+isso para todos os valores de i.
+
+99
+00:07:24,460 --> 00:07:31,495
+Finalmente,
+dw = 1/m X dZ⸆
+
+100
+00:07:31,495 --> 00:07:39,700
+e db = 1/m vezes
+
+101
+00:07:39,700 --> 00:07:43,328
+sum(dZ), assim:
+db = 1/m np.sum(dZ)
+
+102
+00:07:43,328 --> 00:07:49,120
+Então, você acabou de fazer 
+propagação para frente e retro-propagação,
+
+103
+00:07:49,120 --> 00:07:53,030
+calculando na verdade as previsões (para frente) 
+e calculando as derivadas (retro-prop.) em
+
+104
+00:07:53,030 --> 00:07:57,340
+todos os m exemplos sem 
+usar nenhum laço de repetição.
+
+105
+00:07:57,340 --> 00:08:00,835
+E assim, a atualização do gradiente 
+decrescente seria, você sabe, W
+
+106
+00:08:00,835 --> 00:08:04,462
+recebe w menos a taxa 
+de aprendizagem (alfa) vezes
+
+107
+00:08:04,462 --> 00:08:12,020
+dw, que acabou de ser calculado acima e b 
+recebe b menos a taxa de aprendizagem vezes db.
+
+108
+00:08:12,020 --> 00:08:17,341
+Algumas vezes, colocamos ":" para 
+denotar que isso é uma tarefa,
+
+109
+00:08:17,341 --> 00:08:21,675
+mas eu acredito que não tenha sido 
+totalmente consistente com esta notação.
+
+110
+00:08:21,675 --> 00:08:25,450
+Mas com isso, você acaba de implementar
+
+111
+00:08:25,450 --> 00:08:29,635
+uma única elevação do gradiente 
+decrescente de uma regressão logística.
+
+112
+00:08:29,635 --> 00:08:32,308
+Agora, eu sei que disse que 
+deveríamos nos livrar dos
+
+113
+00:08:32,308 --> 00:08:35,260
+laços de repetição "for" explícitos sempre 
+que possível, mas se você quiser
+
+114
+00:08:35,260 --> 00:08:38,230
+implementar múltiplas iterações como
+
+115
+00:08:38,230 --> 00:08:42,880
+um gradiente decrescente, então você ainda 
+precisa de um laço "for" sobre os número de iterações.
+
+116
+00:08:42,880 --> 00:08:47,860
+Então, se você quiser derivadas 
+de gradiente decrescente,
+
+117
+00:08:47,860 --> 00:08:53,675
+você ainda pode precisar de um 
+laço "for" sobre o número de iterações.
+
+118
+00:08:53,675 --> 00:08:55,870
+Há um laço de repetição 
+mais amplo, como esse, então
+
+119
+00:08:55,870 --> 00:08:59,210
+penso que não haja uma forma 
+de se livrar deste laço "for".
+
+120
+00:08:59,210 --> 00:09:02,390
+Mas eu acho que é muito 
+legal você poder implementar
+
+121
+00:09:02,390 --> 00:09:07,117
+pelo menos uma iteração do gradiente decrescente 
+sem necessitar usar um laço de repetição "for".
+
+122
+00:09:07,117 --> 00:09:09,880
+Então, é isso. Agora, você tem uma 
+implementação altamente vetorizada e
+
+123
+00:09:09,880 --> 00:09:14,745
+altamente eficiente do gradiente 
+decrescente em uma regressão logística.
+
+124
+00:09:14,745 --> 00:09:18,850
+Há só mais um detalhe que 
+eu quero falar no próximo vídeo,
+
+125
+00:09:18,850 --> 00:09:24,155
+que está na nossa descrição, e que fiz uma breve 
+alusão a essa técnica chamada "broadcasting".
+
+126
+00:09:24,155 --> 00:09:28,240
+"Broadcasting" é uma 
+técnica que Python e
+
+127
+00:09:28,240 --> 00:09:32,915
+numpy permite que você use para fazer com que certas 
+partes do seu código fiquem muito mais eficiente.
+
+128
+00:09:32,915 --> 00:09:37,090
+Então, vamos ver mais detalhes de "broadcasting" 
+no próximo vídeo. [Tradução: Renato Barata Gomes 
+| Revisão: Carlos Lage.]

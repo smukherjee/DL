@@ -1,0 +1,101 @@
+Derin sinir ağlarının bir çok problem için 
+gerçekten çok iyi çalıştığından haberdarız. Sadece büyük sinir ağı olmaları yetmiyor 
+ aynı zamanda derin olmaları yani birden çok gizli katmandan 
+ oluşmaları da gerekiyor. Peki neden böyle olmalı? Hadi bununla ilgili bir kaç örnek inceleyelim ve derin ağların neden iyi çalışabileceğiyle 
+ ilgi biraz fikir edinelim. İlk olarak
+derin ağlar ne hesaplıyor? Varsayalım bir yüz tanıma ya da algılama 
+sistemi oluşturuyorsunuz derin sinir ağı bu sistemde ne yapıyor olacak. Muhtemelen sisteme bir yüz resmi gireceksiniz
+sonrada sinir ağının ilk katmanı gelecek bu katmanı öznitelik bulucu 
+ya da kenar bulucu gibi düşünebilirsiniz. Bu örnekte, resim üzerinde
+ bir tür hesaplama yöntemi olabilecek 20 gizli birimden oluşan 
+bir sinir ağı çiziyorum. Bu 20 gizli birim bu küçük 
+kare kutular ile görselleştirilir. Örneğin bu küçük görselleştirme 
+ DMH'deki oryantasyon kenarlarının nerede olduğunu bulmaya çalışan 
+gizli bir birimi temsil ediyor. Ve belki bu gizli birim, bu görüntünün yatay kenarlarını
+ anlamaya çalışıyor da olabilir. Sonraki derslerde 
+evrişimsel ağlardan konuşurken bu özel görselleştirme 
+biraz daha anlam kazanacak. Yapay sinir ağının ilk katmanını 
+resmi inceleyip resimdeki kenarları bulmaya çalışan
+ bir yapı olarak düşünebilirsiniz. Şimdi resimdeki pikselleri gruplayarak 
+resimdeki kenarların yerleri hakkında biraz düşünelim. Ardından kenarları ve grup kenarlarını birlikte 
+algılayarak yüzlerin parçalarını oluşturabilir. Örneğin bir nöronlardan biri 
+gözü bulmaya çalışırken farklı bir nöron 
+burnun bir parçasını bulmaya çalışabilir. Böylece bir çok kenarı bir araya getirerek yüzün farklı parçalarını algılamaya başlayabilir. Son olarak göz, burun, kulak veya çene gibi yüzün farklı parçalarını bir araya getirerek farklı tipteki yüzleri algılamaya 
+yada tespit etmeye çalışacaktır. Dolaysıyla sezgisel olarak,
+sinir ağının ilk katmanlarını kenar gibi basit işlevleri 
+tespit edici olarak düşünebilirsiniz. Ve onları 
+sinir ağının daha sonraki katmanlarında bir araya getirerek 
+daha karmaşık işlevleri öğrenebilir. Evrişimsel sinir ağları hakkında konuşurken 
+bu görselleştirme daha anlam kazanacak. Görselleştirmenin teknik detaylarından biri kenar detektörleri
+ resmin çok küçük alanlarına bakıyor, belki de bunun gibi çok küçük bölgelere bakıyor. Ve bakabileceğiniz yüz detektörleri 
+belki resmin daha büyük bir alanı olabilir ama buradan çıkartabileceğiniz ana ekleme
+sadece basit şeyler bulmanızdır kenarlar ve sonrasında inşa etmek gibi. Onları oluşturmak ve tespit 
+etmek oldukça karmaşıktır ve bir araya getirilmesi ve daha karmaşık şeyleri bulması gibi. Ve bu tür basitten karmaşığa hiyerarşisel gösterim veya yapısal gösterim resim görüntü işlemeden farklı
+ diğer türden verilerde de geçerlidir. Örneğin, eğer bir konuşma tanıma
+ sistemi kurmaya çalışıyorsanız Genelde konuşmayı görselleştirmek zordur fakat eğer bir ses klibini girdi olarak verirseniz 
+belki sinir ağlarının ilk seviyesi düşük seviyedeki ses dalga formları
+ özelliklerini öğrenilebilir. Yükseliyor mu? Düşüyor mu? Parazit sesi mi sürtünme sesi mi? Ve ses perdesi nedir Konu o olunca, düşük seviye dalga formu 
+özelliklerini bu şekilde tespit etmektir Ve sonrasında düşük seviye dalga
+ formlarını bir araya getirerek belki temel ses birimlerini tespit etmeyi öğreneceksiniz. Dil bilimde fonemler olarak adlandırılır. Ama, örneğin kedi kelimesinde C bir fonem, A bir fonem, ve T diğer bir fonem. Ama belki temel ses 
+birimlerini bulmayı öğrenir ve sonra bir araya getirerek belki sesteki kelimeleri tanımayı öğrenir. Ve sonra belki onları bir araya getirir Cümleleri veya kelime öbeklerini tanımak için. Derin sinir ağları çoklu gizli
+ katmanlarla ve önceki katmanlardaki düşük seviye 
+temel özellikleri öğrenerek çalışır ve ve sonraki daha derin katmanlarla bir 
+araya getirerek basit şeylerin tespiti ile daha kompleks şeylerin tespitini 
+gerçekleştirebilir örneğin spesifik kelimeler, hata sözcük öbekleri ya da cümlelerin konuşma algılama sisteminin
+ oluşturulması gibi. Gördüğümüz gibi diğer katmanlar hesaplarken, görünen o ki, girdideki nispeten basit fonksiyonlar örneğin kenarlar gibi, zamanla ağda daha derine indikçe aslında
+ şaşırtıcı karmaşık şeyleri yapabilirsiniz. Mesela yüz algılama veya kelime, kelime öbekleri veya cümleleri tespit etmek gibi. Bazı insanlar derin sinir ağları ile insan beyni arasında benzetme yapmak ister ve bizim veya nörologların söylediğine göre insan beyni de temel şeyleri tespit 
+etmekle başlar mesela kenarlar gibi gördüğünüz şeyleri inşa eder ve
+ daha karmaşık şeyleri tespit eder mesela gördüğünüz yüzler gibi. Bence insan beyni ve
+ derin öğrenme arasındaki benzerlikler bazen 
+biraz tehlikeli. Ama çok fazla doğruluk var ve bu insan beyninin nasıl çalıştığını ve insan beyninin muhtemelen kenarlar
+ gibi basit şeyleri tespit etmesi ve onları bir araya getirerek çok daha 
+kompleks objeleri oluşturur ve bu şekilde bazı insanlar için ilham ya da 
+öğrenme olarak hizmet eder. İnsan beyni veya biyolojik
+ beyin hakkında bu hafta önümüzdeki 
+videolarda biraz daha göreceğiz Videonun diğer bir parçası derin ağların çalışıyor gözükmesinin sebebi de şu şekilde. Yani bu sonuç farklı mantıksal 
+durumlarla ne tür fonksiyonlar oluşturabileceğinizi ve hesaplayabileceğini
+ düşünen devre teorisinden gelir. Yani sözde, işlevleri nispeten küçük fakat derin bir yapay sinir ağı ile hesaplanır. ve küçük olarak demek istediğim gizli 
+katman sayısının nispeten küçük olmasıdır. Ama eğer aynı işlemi daha 
+sığ bir ağ ile hesapladığınızda, yeterli olmayan gizli katman sayısı, sonrasında üstel olarak daha fazla
+ gizli katmana ihtiyaç duyabilirsiniz. İzninizle daha anlaşılır olması
+ için size bir örnek vereyim. Diyelim ki karmaşık veya 
+tüm giriş özelliklerinin eşitliği hesaplamaya çalıştığınızı varsayalım. Yani hesaplamaya çalışırken 
+X1, XOR, X2, XOR,X3, XOR X3, XOR, eğer n tane veya 
+nX özelliğiniz varsa Xn'e kadardır. Eğer XOR bu şekilde tanımlarsanız, 
+ hesap XOR ve X1 X2 ve sonra X3 ve X4 al ve bu
+ değerlerin XOR değeri hesaplanır. Ve teknik olarak, eğer sadece 'Ve' ve değil kapısı kullanıyorsanız 
+ XOR fonksiyonunu hesaplamak için sadece bir katmandan ziyade 
+birkaç katmana ihtiyacınız olabilir ama nispeten küçük bir devre ile
+siz XOR hesaplayabilirsiniz. ve o zaman, bu şekilde bir XOR ağacı inşa edebilirsiniz sonunda çıkış değeri Y olan bir
+ devreniz oluşur. Çıktı olarak Y(şapka) Y'ye eşittir. XOR tüm bu giriş değerlerinin bir kısmıdır. XOR değerini hesaplamak için ağlar log N
+ sırasında olur. bu şekilde bir XOR ağacımız olacak. Düğüm sayısı veya 
+ devredeki bileşen sayısı veya kapı sayısı o kadar da büyük değildir. XOR hesaplamak için 
+o kadar fazla kapı ihtiyacınız olmaz. Ama şimdi, eğer çoklu gizli sinir ağları
+ kullanma imkanınız yoksa bu örnekte O(log) ve salı katmanlar, eğer bu fonksiyonu sadece 1 gizli katman 
+ile hesaplamak zorunda kalırsanız tüm bu girişler gizli 
+katmana doğru gidecek. Ve bu katmanlar Y çıkışına gidecektir. Sonra bu XOR fonksiyonunu
+ hesaplamak için, bu gizli katmanın üstel olarak büyük 
+olması gerekir, çünkü sonunda 2'den N'e kadar olan muhtemel biçimleri
+ detaylıca yapılandırmanız gerekir. Sırayla 2'den N'e giriş bitlerinin
+ muhtemel biçimleri XOR'un 1 veya 0 
+olması ile sonuçlanır. Sonuçta bit sayısı içinde üstel 
+olarak daha büyük bir gizli katmana ihtiyaç duyarsınız. Bence teknik olarak, bunu 2 üzeri
+ N-1 gizli katman ile yapabilirsiniz. Ama üstel olarak daha büyük 
+bit sayısıyla bu O(2^N). Umarım bu video derin ağları hesaplamada 
+sığ ağlara göre kullanacağınız çok daha kolay matematiksel fonksiyonlar olduğu
+ noktasında size fikir vermiştir. İtiraf edeyim, devre teorisi sonucunu pratiklik kazanmak için çok kullanışlı bulmuyorum ama sıklıkla insanlar oldukça derin tasarımları açıklarken değinirler. Şimdi, buna ek olarak, derin sinir ağlarının oldukça
+ tercih edilmesinin ve derin öğrenmenin gündemde olmasının 
+diğer bir sebebi ise bence markalaşması. Birçok gizli katmanla derin ağlar 
+olarak isimlendirdiğimiz bu derin öğrenme ifadesi sadece harika
+ bir marka, sadece oldukça derin. Bence bir kez bu terim 
+kullanıldığında sinir ağları ve çoklu gizli katmanlar
+ tekrar isim ve markalaştı popüler düşünceyi yakalamak için de aslında. (Halkla İlişkiler) pazarlaması ne olursa olsun, derin ağlar iyi çalışıyor. Bazen insanlar oldukça ileri gidiyor ve çok
+ fazla gizli katman kullanmakta ısrar ediyorlar. Ama ben probleme başlarken,
+ gerçekten sıklıkla lojistik regresyon ile başlarım 
+sonra bir veya iki gizli katman denerim ve bunu üstün(hyper)
+ parametre olarak kullanırım. Bunu parametre veya üstün(hyper) 
+parametre olarak kullanarak sinir ağlarınız için doğru derinliği ayarlayabilirsiniz. Ama son birkaç yıldır, bir akım olarak insanlar bazı uygulamalar için oldukça
+ derin ağlar kullanıyorlar belki bazen düzinelerce katmanlar. Bu durum
+ bazen problem için en iyi model olabilir. Derin sinir ağlarının neden iyi
+ çalıştığını görmek için bu video bu kadar. Şimdi uygulanması noktasında sadece 
+ileri yayılım değil aynı zamanda geri yayılım için mekaniğine bir göz atalım.

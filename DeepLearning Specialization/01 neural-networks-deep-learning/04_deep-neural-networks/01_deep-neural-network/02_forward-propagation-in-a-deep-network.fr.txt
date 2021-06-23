@@ -1,0 +1,68 @@
+Dans la dernière vidéo, 
+nous avons décrit ce qu'est un réseau de neurones profond 
+à L couches et aussi discuté de la notation que nous utilisons
+ pour décrire de tels réseaux. Dans cette vidéo, vous verrez 
+comment vous pouvez effectuer la propagation directe 
+dans un réseau profond. Comme d’habitude, 
+nous allons tout d’abord voir à quoi ressemble la propagation directe 
+pour un seul exemple d'apprentissage x, puis , plus tard, nous verrons
+ la version vectorisée, pour effectuer la propagation directe sur l’ensemble des données 
+d'apprentissage en même temps. Pour un seul exemple d'apprentissage x, voici comment vous calculez 
+les activations de la première couche. Donc, pour cette première couche, vous calculez z[1] égal à W[1] * x plus b[1]. W[1] et b[1] sont les paramètres qui 
+affectent les activations dans la couche 1. Ceci est la couche 1 du réseau de neurones. et puis vous calculez les activations 
+de cette couche, qui valent g( z[1] ). La fonction d'activation g 
+dépend de la couche, donc on va peut être l'indexer comme étant
+ la fonction d'activation pour la couche 1. On vient de calculer
+ les activations pour la couche 1. Et pour la couche 2 ? Cette couche. Eh bien, vous calculez z[2], qui est égal à W[2] * a[1] + b[2]. Donc l'activation de la couche 2 est la matrice
+ des poids fois la sortie de la couche 1. C’est cette valeur, plus le vecteur des biais pour la couche 2. Puis a[2] = la fonction d'activation 
+appliquée à z[2]. OK ? Donc voilà pour la couche 2, et ainsi de suite, jusqu'à ce que vous arriviez à la couche 
+de sortie, qui est la couche 4, où vous aurez z[4] égal les paramètres pour cette couche fois
+ les activations de la couche précédente, plus ce vecteur de biais. Ensuite de la même façon, 
+a[4] est égal à g ( z[4] ). Voici comment vous calculez 
+votre estimation de sortie ŷ. Une chose à remarquer ici, x ici est aussi égal à a[0], puisque le vecteur de caractéristiques d'entrée
+ est aussi l'activation de la couche 0. Donc je vais barrer x, et mettre a[0] à la place, de sorte que 
+toutes ces équations se ressemblent. La règle générale est que le z[l] est égal à W[l] * a[l-1] + b[l] C'est un 1 ici. Puis les activations de cette couche
+ sont égales à la fonction d'activation appliquée 
+aux valeurs de z. Voici l'équation générale de
+ la propagation directe. Nous avons fait tout ça pour 
+un seul exemple d'apprentissage, comment le faire de façon vectorisée, pour 
+tout l'ensemble d'apprentissage d'un coup ? Les équations ressemblent beaucoup 
+à celles qu'on a déjà. Pour la première couche,
+ vous aurez grand Z[1] égal à W[1] fois X plus b[1]. Puis A[1] est égal à g de Z[1]. Gardez à l’esprit que X est égal à A[0].
+C'est juste les différents exemples d'apprentissage
+ empilés dans les différentes colonnes, vous pouvez barrer ce X et mettre A[0] à la place. Puis dans la couche suivante, même chose, Z[2] = W[2] * A[1] + b[2] Z[2] = W[2] * A[1] + b[2]
+ et A[2] = g( Z[2] ) On prend juste ces vecteurs
+ z, a, et ainsi de suite, et on les empile. Le vecteur z pour le premier
+ exemple d'apprentissage, Le vecteur z pour le second
+ exemple d'apprentissage, et ainsi de suite jusqu'au m-ième
+ exemple d'apprentissage, on les empile en colonne et 
+on appelle ça Z majuscule. Et de la même façon pour A majuscule, juste comme pour X majuscule, il contient tous les vecteurs colonnes, 
+les uns à côté des autres. Et à la fin, vous obtenez ŷ
+ qui est égal à g ( Z[4] ), c'est aussi égal à A[4], 
+et c'est la prédiction pour tous vos exemples d'apprentissage 
+empilés horizontalement. Donc, juste pour résumer, sur la notation, je vais modifier ça. Notre notation nous permet de simplement 
+remplacer les petits z et a par leurs
+ contreparties en majuscules, celui ci ressemble déjà à un Z majuscule. Cela vous donne la version vectorisée
+ dela propagation directe, que vous calculez sur tout l'ensemble 
+d'apprentissage d'un coup, avec A[0] = X. Si vous regardez cette implémentation
+ de la vectorisation, on dirait qu’il va y avoir une boucle for ici. Pour l de 1 à 4. Pour l de 1 à L. 
+Vous devez calculer les activations pour la couche 1, puis la 2, puis la 3, puis la 4. Donc on dirait bien
+ qu’il y a une boucle for ici. Et je sais que quand on implémente
+ un réseau de neurones, on essaie de se débarrasser 
+des boucles for explicites, mais ici, je ne pense pas 
+qu'il y ait un moyen d'implémenter ça sans
+ une boucle for explicite. Donc lors de l'implémentation 
+de la propagation directe, ce n'est pas un problème d'avoir une
+ boucle for pour calculer les activations pour les couches 1 puis 2 puis 3 puis 4. Je ne crois pas 
+qu'il soit possible de faire ça sans une boucle for qui va de 1 à L, de 1 jusqu'au nombre total de couches 
+dans votre réseau de neurones. Donc ce n'est pas du tout grave 
+d'avoir une boucle for explicite ici. C’est tout pour la notation pour 
+les réseaux de neurones profonds, ainsi que pour la propagation
+ directe pour ces réseaux. Si ce que nous venons de voir 
+vous parait un peu familier, c'est que nous faisons quelque chose 
+de très similaire à ce qu'on faisait pour un réseau de neurones avec une seule couche
+ cachée, mais on le répète plusieurs fois. Mais il s’avère que lorsque vous 
+implémentez un réseau de neurones, pour augmenter vos chances d'avoir
+ une implémentation sans bugs, il faut réfléchir de façon très systématique et très soigneusement aux dimensions 
+des matrices avec lesquelles vous travaillez. Quand je débuggue mon propre code, je prend souvent un bout de papier et je mets au clair toutes les dimensions des matrices avec lesquelles je travaille. Nous allons voir comment vous pouvez 
+faire ça dans la prochaine vidéo.

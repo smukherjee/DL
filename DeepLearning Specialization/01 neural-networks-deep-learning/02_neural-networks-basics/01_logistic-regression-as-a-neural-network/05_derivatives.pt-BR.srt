@@ -1,0 +1,534 @@
+1
+00:00:01,020 --> 00:00:05,960
+Neste vídeo, quero ajudá-lo a obter 
+um conhecimento intuitivo de cálculo e
+
+2
+00:00:05,960 --> 00:00:07,370
+derivadas.
+
+3
+00:00:07,370 --> 00:00:10,930
+Agora, talvez você esteja pensando que 
+não tenha visto cálculo desde a época
+
+4
+00:00:10,930 --> 00:00:11,900
+da faculdade.
+
+5
+00:00:11,900 --> 00:00:15,290
+E dependendo de quando você se 
+formou, talvez isso já faz algum tempo.
+
+6
+00:00:16,470 --> 00:00:19,120
+Se isto é o que está 
+pensando, não se preocupe.
+
+7
+00:00:19,120 --> 00:00:24,090
+Você não precisa de um conhecimento profundo 
+em cálculo para aplicar, de forma eficiente,
+
+8
+00:00:24,090 --> 00:00:26,500
+em redes neurais e aprendizagem profunda.
+
+9
+00:00:26,500 --> 00:00:29,240
+Se você está assistindo este vídeo 
+ou alguns vídeos posteriores e
+
+10
+00:00:29,240 --> 00:00:31,510
+está se perguntando: 
+Nossa! Isso é mesmo para mim?
+
+11
+00:00:31,510 --> 00:00:35,190
+Estes cálculos parecem muito complicados!
+Minha dica para você é a seguinte:
+
+12
+00:00:35,190 --> 00:00:39,470
+assista os vídeos e então, se você 
+conseguir fazer as tarefas e completar
+
+13
+00:00:39,470 --> 00:00:43,750
+os exercícios de programação com sucesso, 
+você sabe utilizar aprendizagem profunda.
+
+14
+00:00:43,750 --> 00:00:46,230
+Na verdade, o que você vê 
+mais tarde é que na semana 4,
+
+15
+00:00:46,230 --> 00:00:49,480
+nós definiremos alguns tipos de 
+funções que permitirão que você
+
+16
+00:00:49,480 --> 00:00:52,835
+encapsule tudo o que precisa 
+ser feito em relação a cálculo.
+
+17
+00:00:52,835 --> 00:00:56,160
+Que tais funções de propagação para 
+frente e as de retro-propagação que você já aprendeu,
+
+18
+00:00:56,160 --> 00:01:00,220
+permitirão que você coloque tudo o 
+que você precisa saber sobre cálculo
+
+19
+00:01:00,220 --> 00:01:04,300
+nestas funções, assim você não precisa 
+mais se preocupar com elas além de encapsular.
+
+20
+00:01:04,300 --> 00:01:08,910
+Mas pensei que nesta incursão em 
+aprendizagem profunda, deveríamos
+
+21
+00:01:08,910 --> 00:01:13,140
+nesta semana, abrir a caixa e mergulhar 
+um pouco mais sobre os detalhes do cálculo.
+
+22
+00:01:13,140 --> 00:01:17,080
+Mas realmente, tudo o que você precisa 
+é um conhecimento intuitivo para que possa
+
+23
+00:01:17,080 --> 00:01:19,850
+construir e aplicar estes 
+algorítimos com sucesso.
+
+24
+00:01:19,850 --> 00:01:24,380
+Finalmente, se você está entre 
+este grupo menor de pessoas que
+
+25
+00:01:24,380 --> 00:01:27,310
+é expert em cálculo, se você estiver 
+muito familiarizado com cálculo e
+
+26
+00:01:27,310 --> 00:01:30,650
+derivadas, não vejo nenhum 
+problema se quiser pular este vídeo.
+
+27
+00:01:30,650 --> 00:01:32,670
+Mas para os outros, vamos mergulhar e
+
+28
+00:01:32,670 --> 00:01:36,100
+tentar obter uma compreensão 
+intuitiva sobre derivadas.
+
+29
+00:01:36,100 --> 00:01:41,340
+Eu plotei aqui a função f(a) = 3a, 
+resultando em uma linha reta.
+
+30
+00:01:41,340 --> 00:01:45,470
+Para obter o conhecimento sobre derivadas, 
+vamos olhar alguns pontos desta função.
+
+31
+00:01:45,470 --> 00:01:48,066
+Digamos que "a" é igual a 2.
+
+32
+00:01:48,066 --> 00:01:52,890
+Nesse caso, "f" de "a" é igual 
+a 3 vezes "a", é igual a 6.
+
+33
+00:01:52,890 --> 00:01:57,740
+Então, se "a" é igual a 2, 
+então "f" é igual a 6.
+
+34
+00:01:57,740 --> 00:02:01,580
+Daremos o valor de "a"... 
+não vamos aumentar um pouco.
+
+35
+00:02:01,580 --> 00:02:06,720
+Vou aumentar um pouco 
+de modo que "a" agora é 2,001.
+
+36
+00:02:06,720 --> 00:02:10,610
+Então, eu vou dar um 
+empurrãozinho para a direita.
+
+37
+00:02:10,610 --> 00:02:17,087
+Agora, é, digamos, 2,001, este 
+gráfico não está em escala, 2,001.
+
+38
+00:02:17,087 --> 00:02:20,348
+A diferença de 0,001 é muito pequena 
+para mostrar neste gráfico, mas
+
+39
+00:02:20,348 --> 00:02:22,427
+ela dá um empurrãozinho nele 
+para a direita.
+
+40
+00:02:22,427 --> 00:02:27,856
+Agora f(a) = 3 vezes este valor. 
+Assim, 6,003.
+
+41
+00:02:27,856 --> 00:02:30,140
+Vamos plotar aqui.
+
+42
+00:02:30,140 --> 00:02:33,610
+Não está em escala. Isto é 6,003.
+
+43
+00:02:33,610 --> 00:02:38,010
+Se você olhar aqui para este pequeno 
+triângulo que eu estou destacando em verde,
+
+44
+00:02:38,010 --> 00:02:42,810
+o que vemos é que, se eu 
+empurrar o ponto "a" 0,001 para a direita,
+
+45
+00:02:42,810 --> 00:02:47,620
+então, f(a) sobe 0,003.
+
+46
+00:02:47,620 --> 00:02:51,200
+A quantidade que f(a) aumentou 
+foi 3 vezes maior
+
+47
+00:02:51,200 --> 00:02:54,540
+do que o quantidade que eu 
+empurrei "a" para a direita.
+
+48
+00:02:54,540 --> 00:02:58,700
+Então diremos que a 
+inclinação, ou a derivada
+
+49
+00:02:59,820 --> 00:03:06,460
+da função f(a) é 3, quando "a" é igual a 2.
+
+50
+00:03:06,460 --> 00:03:09,330
+O termo derivada basicamente 
+significa inclinação.
+
+51
+00:03:09,330 --> 00:03:12,800
+É apenas que derivada soa 
+assustador, intimidante,
+
+52
+00:03:12,800 --> 00:03:16,900
+enquanto inclinação é uma forma mais 
+amigável de descrever o conceito de derivada.
+
+53
+00:03:16,900 --> 00:03:20,530
+Então, sempre que você escutar derivada, 
+apenas pense que é a inclinação da função.
+
+54
+00:03:20,530 --> 00:03:24,790
+E mais formalmente, a inclinação 
+é definida como a altura
+
+55
+00:03:24,790 --> 00:03:29,330
+dividida pela largura deste 
+pequeno triângulo que temos em verde.
+
+56
+00:03:29,330 --> 00:03:33,961
+Então, é 0,003 dividido por 0,001.
+
+57
+00:03:33,961 --> 00:03:38,950
+E o fato de que a inclinação é 
+igual a 3, ou a derivada é igual a 3,
+
+58
+00:03:38,950 --> 00:03:43,863
+apenas representa o fato de que quando 
+você empurra "a" 0,001 para a direita,
+
+59
+00:03:43,863 --> 00:03:47,903
+uma pequena quantidade, o valor
+de f(a) sobe 3 vezes mais
+
+60
+00:03:47,903 --> 00:03:52,390
+que o valor que você 
+empurrou "a" na horizontal.
+
+61
+00:03:52,390 --> 00:03:54,430
+Isto é o que significa a inclinação de uma linha.
+
+62
+00:03:54,430 --> 00:03:57,270
+Agora, vamos dar uma olhada 
+nesta função de um outro ponto.
+
+63
+00:03:57,270 --> 00:03:59,610
+Digamos que "a" agora é igual a 5.
+
+64
+00:03:59,610 --> 00:04:03,320
+Neste caso, f(a), 3 vezes "a", 
+é igual a 15.
+
+65
+00:04:03,320 --> 00:04:07,441
+Digamos que eu novamente empurre 
+"a" para a direita, um pequeno empurrãozinho
+
+66
+00:04:07,441 --> 00:04:09,526
+que ela seja agora aumentada para 5,001.
+
+67
+00:04:09,526 --> 00:04:11,165
+f(a) é 3 vezes este valor.
+
+68
+00:04:11,165 --> 00:04:15,267
+Então, f(a) = 15,003.
+
+69
+00:04:15,267 --> 00:04:18,332
+E mais uma vez, quando 
+eu mover "a" para a direita,
+
+70
+00:04:18,332 --> 00:04:23,430
+empurrei "a" 0,001 para a direita, 
+f(a) subirá 3 vezes este valor.
+
+71
+00:04:23,430 --> 00:04:28,160
+Assim, mais uma vez a inclinação,
+em a = 5, é também 3.
+
+72
+00:04:28,160 --> 00:04:33,259
+A forma que escrevemos isso, em que 
+a inclinação da função "f" é igual a 3,
+
+73
+00:04:33,259 --> 00:04:37,750
+dizemos df(a)/da.
+
+74
+00:04:37,750 --> 00:04:41,760
+E isto só significa que a 
+inclinação da função f(a),
+
+75
+00:04:41,760 --> 00:04:47,630
+quando você altera um pequeno 
+valor da variável "a", é igual a 3.
+
+76
+00:04:47,630 --> 00:04:52,364
+E uma forma alternativa de escrever 
+esta fórmula de derivada é assim:
+
+77
+00:04:52,364 --> 00:04:58,340
+você também pode escrever d/da . f(a).
+
+78
+00:04:58,340 --> 00:05:02,190
+Se você colocar o f(a) em cima 
+ou se você escreve aqui em frente,
+
+79
+00:05:02,190 --> 00:05:03,310
+Isso não importa.
+
+80
+00:05:03,310 --> 00:05:08,350
+Mas toda esta equação significa que, 
+se eu mover "a" um pouquinho para a direita,
+
+81
+00:05:08,350 --> 00:05:12,300
+eu espero que f(a) suba 3 
+vezes a quantidade que eu
+
+82
+00:05:12,300 --> 00:05:14,700
+movi o valor de "a".
+
+83
+00:05:14,700 --> 00:05:19,874
+Neste vídeo, eu expliquei derivada falando
+
+84
+00:05:19,874 --> 00:05:25,498
+o que acontece quando 
+empurramos a variável "a" 0,001.
+
+85
+00:05:25,498 --> 00:05:30,087
+Se você quer uma definição 
+matemática formal de derivadas,
+
+86
+00:05:30,087 --> 00:05:34,222
+elas são definidas com um valor ainda menor 
+de quanto você empurra "a" para a direita.
+
+87
+00:05:34,222 --> 00:05:36,007
+Portanto, não é 0,001.
+
+88
+00:05:36,007 --> 00:05:38,409
+Não é 0,00000001.
+
+89
+00:05:38,409 --> 00:05:42,735
+Não é 0,0000000000...1 e assim por diante.
+
+90
+00:05:42,735 --> 00:05:44,470
+Mas um valor ainda menor do que isso.
+
+91
+00:05:44,470 --> 00:05:49,140
+E a definição formal de derivativa diz que, 
+sempre que você empurrar "a" para a direita,
+
+92
+00:05:49,140 --> 00:05:54,030
+por uma quantidade infinitesimal, basicamente 
+uma quantidade infinitamente pequena,
+
+93
+00:05:54,030 --> 00:05:58,970
+se você fizer isso, f(a) irá sempre 
+aumentar 3 vezes, independente do valor
+
+94
+00:05:58,970 --> 00:06:01,210
+que você empurre para a direita, 
+por menor menor que ele seja.
+
+95
+00:06:01,210 --> 00:06:04,680
+Então, esta é a definição 
+formal de uma derivativa.
+
+96
+00:06:04,680 --> 00:06:08,134
+Mas, para fins de nossa 
+compreensão intuitiva,
+
+97
+00:06:08,134 --> 00:06:12,716
+falaremos sobre empurrar "a" 
+para a direita em valores pequenos,
+
+98
+00:06:12,716 --> 00:06:18,390
+0,001, mesmo que 0,001 não seja 
+exatamente pequeno, pequenino, ou infinitesimal.
+
+99
+00:06:18,390 --> 00:06:22,451
+Uma propriedade da derivada 
+é que não importa onde você
+
+100
+00:06:22,451 --> 00:06:25,755
+meça a inclinação desta função, 
+ela será igual a 3.
+
+101
+00:06:25,755 --> 00:06:28,734
+Independentemente se "a" é igual a 2 
+ou se "a" é igual a 5,
+
+102
+00:06:28,734 --> 00:06:31,728
+a inclinação desta função é igual a 3.
+
+103
+00:06:31,728 --> 00:06:36,752
+Significa que, qualquer que seja o valor de "a", 
+se você aumentá-lo por 0,001,
+
+104
+00:06:36,752 --> 00:06:40,560
+o valo de f(a) aumentará 
+3 vezes este valor.
+
+105
+00:06:40,560 --> 00:06:42,770
+Assim, esta função tem 
+sempre a mesma inclinação.
+
+106
+00:06:42,770 --> 00:06:47,480
+Uma forma de ver isso é que, em qualquer 
+lugar que você desenhe este pequeno triângulo,
+
+107
+00:06:47,480 --> 00:06:52,920
+a altura divida pela largura terá 
+sempre a mesma relação de 3 para 1.
+
+108
+00:06:52,920 --> 00:06:55,150
+Espero que isso dê uma 
+noção do que é uma inclinação,
+
+109
+00:06:55,150 --> 00:06:58,540
+uma derivada de uma linha reta, onde,
+
+110
+00:06:58,540 --> 00:07:02,440
+neste exemplo, a inclinação 
+da função foi 3 em qualquer ponto.
+
+111
+00:07:02,440 --> 00:07:06,440
+No próximo vídeo, veremos um exemplo 
+um pouco mais complexo onde
+
+112
+00:07:06,440 --> 00:07:09,770
+a inclinação da função pode ser 
+diferente em pontos diferentes da função 
+[Tradução: Renato Barata Gomes | Revisão: Carlos Lage]

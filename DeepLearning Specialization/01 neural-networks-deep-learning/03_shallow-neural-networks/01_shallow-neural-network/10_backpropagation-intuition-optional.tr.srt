@@ -1,0 +1,855 @@
+1
+00:00:00,000 --> 00:00:01,230
+Son videoda,
+
+2
+00:00:01,230 --> 00:00:03,720
+geri yayılım denklemlerini gördünüz.
+
+3
+00:00:03,720 --> 00:00:06,900
+Bu videoda hesaplama grafiği kullanarak
+
+4
+00:00:06,900 --> 00:00:10,515
+bu denklemlerin nasıl elde edildiğini inceleyelim.
+
+5
+00:00:10,515 --> 00:00:12,385
+Bu videoyu izlemek tamamen isteğinize bağlı.
+
+6
+00:00:12,385 --> 00:00:14,106
+Yani, izleseniz de izlemeseniz de
+
+7
+00:00:14,106 --> 00:00:16,360
+ödevleri eksiksiz yapabileceksiniz.
+
+8
+00:00:16,360 --> 00:00:19,410
+Hatırlarsınız ki, lojistik regresyondan bahsederken
+
+9
+00:00:19,410 --> 00:00:23,685
+önce z'yi,
+
+10
+00:00:23,685 --> 00:00:26,145
+sonrasında ise A'yı ve kayıp fonksiyonunu<br /> hesapladığımız ileri yayılımdan bahsetmiştik.
+
+11
+00:00:26,145 --> 00:00:27,445
+Sonrasında ise türev alarak
+
+12
+00:00:27,445 --> 00:00:32,520
+öncelikle da,
+
+13
+00:00:32,520 --> 00:00:35,400
+sonrasında dz,
+
+14
+00:00:35,400 --> 00:00:40,720
+ve son olarak da dw ve db'yi hesapladığımız<br /> geri yayılımdan bahsetmiştik.
+
+15
+00:00:40,720 --> 00:00:46,970
+Kayıp(loss) fonksiyonunun tanımı şuydu:
+
+16
+00:00:46,970 --> 00:00:52,655
+L(a,y) = -ylog(a) - (1-y)log(1-a)
+
+17
+00:00:52,655 --> 00:00:57,440
+L(a,y) = -ylog(a) - (1-y)log(1-a)
+
+18
+00:00:57,440 --> 00:00:59,750
+Eğer calculusle aranız iyiyse
+
+19
+00:00:59,750 --> 00:01:03,600
+ve bunun a'ya göre türevini alırsanız
+
+20
+00:01:03,600 --> 00:01:06,156
+da'i elde edersiniz.
+
+21
+00:01:06,156 --> 00:01:09,060
+Yani da buna eşit.
+
+22
+00:01:09,060 --> 00:01:12,750
+Ve eğer calculus kısmını tam olarak kavrarsak
+
+23
+00:01:12,750 --> 00:01:18,808
+-(y/a) + (1-y)/(1-a)
+
+24
+00:01:18,808 --> 00:01:23,040
+Türevin sonucu bu.
+
+25
+00:01:23,040 --> 00:01:26,680
+Bir adım daha geri gidip dz'yi hesaplarsanız
+
+26
+00:01:26,680 --> 00:01:32,430
+dZ'nin a - y'ye eşit olduğunu görürsünüz.
+
+27
+00:01:32,430 --> 00:01:37,920
+Calculusteki zincir kuralına göre dz
+
+28
+00:01:37,920 --> 00:01:45,425
+da . g'(z)'ye eşittir.
+
+29
+00:01:45,425 --> 00:01:50,535
+g(z) = sigmoid(z), burada
+
+30
+00:01:50,535 --> 00:01:56,245
+lojistik regresyondaki sonuç ünitemizin <br />aktivasyon fonksiyonudur
+
+31
+00:01:56,245 --> 00:02:00,570
+Unutmayalım ki bu hala x1, x2, <br />x3'ün olduğu lojistik regresyon
+
+32
+00:02:00,570 --> 00:02:05,757
+bir sigmoid ünitesi ve bu bize a'yı
+
+33
+00:02:05,757 --> 00:02:07,400
+yani y-şapka'yı verir.
+
+34
+00:02:07,400 --> 00:02:11,400
+Yani burada aktivasyon fonksiyonu bir sigmoid fonksiyondu.
+
+35
+00:02:11,400 --> 00:02:12,960
+Ek olarak,
+
+36
+00:02:12,960 --> 00:02:17,205
+calculusü gerçekten iyi olanlar için söylüyorum,
+
+37
+00:02:17,205 --> 00:02:22,520
+bunun sebebi a'nın z'nin sigmoidine eşit olması
+
+38
+00:02:22,520 --> 00:02:29,310
+ve bu yüzden L'nin Z'ye göre kısmi türevi
+
+39
+00:02:29,310 --> 00:02:36,800
+L'nin a'ya göre kısmi türevi <br />çarpı a'nın z'ye göre türevine eşit
+
+40
+00:02:36,800 --> 00:02:39,611
+Burada a = sigmoid(z)
+
+41
+00:02:39,611 --> 00:02:42,970
+ve bu (d/dz)(g(z))'ye eşit
+
+42
+00:02:42,970 --> 00:02:49,080
+ve o da g'nin türevi z'ye [ g'(z) ] eşit.
+
+43
+00:02:49,080 --> 00:02:54,060
+Bu yüzden kodumuzda 'dz' olarak adlandırdığımız bu değer
+
+44
+00:02:54,060 --> 00:02:59,484
+kodumuzda da olarak adlandırdığımız<br /> 'da' ile g'(z)'nin çarpımına eşit.
+
+45
+00:02:59,484 --> 00:03:05,860
+Yani bu sadece şu.
+
+46
+00:03:05,860 --> 00:03:09,172
+Aldığımız son türev
+
+47
+00:03:09,172 --> 00:03:13,510
+calculus ile, özellikle zincir kuralıyla, aranız iyiyse mantıklı gelecektir.
+
+48
+00:03:13,510 --> 00:03:15,325
+Fakat aranız iyi değilse, endişelenmeyin.
+
+49
+00:03:15,325 --> 00:03:18,853
+Gerektiğinde bunları açıklamaya çalışacağım.
+
+50
+00:03:18,853 --> 00:03:22,315
+Lojistik regresyon için dz'yi hesapladıktan sonra
+
+51
+00:03:22,315 --> 00:03:26,335
+tek öğretme örneğimiz olduğunda <br />dz çarpı x şeklinde hesaplayacağımız dw'yi ve
+
+52
+00:03:26,335 --> 00:03:31,470
+direkt dz diyeceğimiz db'yi hesaplayacağız.
+
+53
+00:03:31,470 --> 00:03:33,822
+İşte bu, lojistik regresyon.
+
+54
+00:03:33,822 --> 00:03:36,700
+Bir nöral ağ için geri yayılım hesaplarken
+
+55
+00:03:36,700 --> 00:03:40,090
+buna çok benzer işlemler yapacağız
+
+56
+00:03:40,090 --> 00:03:46,995
+fakat bunu iki kere yapacağız, çünkü x bu sefer direkt sonuç ünitesine değil
+
+57
+00:03:46,995 --> 00:03:50,930
+önce saklı katmana, sonrasında sonuç ünitesine gidecek.
+
+58
+00:03:50,930 --> 00:03:58,405
+Bu yüzden, işlemlerimiz burada olduğu gibi tek aşama değil,
+
+59
+00:03:58,405 --> 00:04:04,483
+iki katmanlı bir nöral ağda iki aşamada olacak.
+
+60
+00:04:04,483 --> 00:04:08,586
+Bu iki katmanlı nöral ağda: girdi katmanı,
+
+61
+00:04:08,586 --> 00:04:10,138
+saklı katman ve çıktı katmanı var.
+
+62
+00:04:10,138 --> 00:04:12,070
+İşlem adımlarını hatırlayın.
+
+63
+00:04:12,070 --> 00:04:17,210
+Öncelikle bu denklemi kullanarak z1'i hesaplıyoruz,
+
+64
+00:04:17,210 --> 00:04:22,177
+sonrasında a1'i, ardından da z2'yi hesaplıyoruz.
+
+65
+00:04:22,177 --> 00:04:25,505
+Dikkat edin, z2 aynı zamanda w2 ve b2 parametrelerine de bağlı.
+
+66
+00:04:25,505 --> 00:04:27,530
+z2'yi hesapladıktan sonra z2'yi kullanarak
+
+67
+00:04:27,530 --> 00:04:32,815
+a2'yi hesaplıyoruz ve bu da bize kayıp fonksiyonumuzu veriyor.
+
+68
+00:04:32,815 --> 00:04:41,560
+Geri yayılımın yaptığı şey geri giderek önce da2'yi sonrasında dz2'yi
+
+69
+00:04:41,560 --> 00:04:48,805
+daha sonra dw2 ve db2'yi,
+
+70
+00:04:48,805 --> 00:04:53,232
+geriye gitmeye devam ederek da1'i
+
+71
+00:04:53,232 --> 00:04:57,278
+dz1'i ve daha geridekileri hesaplamak.
+
+72
+00:04:57,278 --> 00:05:00,290
+Girdi x'e göre türev almamıza gerek yok,
+
+73
+00:05:00,290 --> 00:05:03,745
+çünkü gözetimli öğrenmede x bir sabit.
+
+74
+00:05:03,745 --> 00:05:07,845
+Bu yüzden x'i optimize etmek istemiyoruz <br />dolayısıyla da türev almamıza gerek yok
+
+75
+00:05:07,845 --> 00:05:09,655
+En azından gözetimli öğrenme için.
+
+76
+00:05:09,655 --> 00:05:15,605
+da2'yı ayriyeten hesaplamayı atlayacağım.
+
+77
+00:05:15,605 --> 00:05:18,110
+Eğer isterseniz öncelikle da2'yi hesaplayıp
+
+78
+00:05:18,110 --> 00:05:20,750
+sonrasında onu kullanarak dz2'yi hesaplayabilirsiniz.
+
+79
+00:05:20,750 --> 00:05:25,760
+Fakat uygulamada, bu iki adımı önceden <br />gördüğümüz gibi dz2 = a - y diyerek
+
+80
+00:05:25,760 --> 00:05:31,715
+tek adımda birleştirebilirsiniz.
+
+81
+00:05:31,715 --> 00:05:33,620
+dw2 ve db2'yi
+
+82
+00:05:33,620 --> 00:05:38,615
+buraya yazacağım.
+
+83
+00:05:38,615 --> 00:05:46,700
+dw2 eşittir dz2 çarpı a1'in devriği(transpozu)
+
+84
+00:05:46,700 --> 00:05:52,040
+ve db2 eşittir dz2.
+
+85
+00:05:52,040 --> 00:05:55,990
+Bu aşama lojistik regresyonda
+
+86
+00:05:55,990 --> 00:06:03,550
+dw eşittir dz çarpı x dediğimiz aşamaya çok benziyor.
+
+87
+00:06:03,550 --> 00:06:08,770
+Fakat burada x'in rolünü a1 üstleniyor. Devriğini almamızın sebebi de
+
+88
+00:06:08,770 --> 00:06:14,125
+W ile w'lar arasında geçiş yaparken de
+
+89
+00:06:14,125 --> 00:06:16,660
+devriğini alıyor olmamız.
+
+90
+00:06:16,660 --> 00:06:24,370
+Çünkü tek çıktılı lojistik regresyonda W bir satır vektörü.
+
+91
+00:06:24,370 --> 00:06:26,980
+dw2 da öyle fakat
+
+92
+00:06:26,980 --> 00:06:32,440
+W sütun vektörü olduğu için a1'in devriğini alıyoruz,
+
+93
+00:06:32,440 --> 00:06:36,980
+lojistik regresyon yaparken x'te böyle bir işleme ihtiyaç duymamıştık.
+
+94
+00:06:36,980 --> 00:06:40,335
+Geri yayılımın yarısını tamamladık. 
+
+95
+00:06:40,335 --> 00:06:44,045
+Tekrar belirteyim, eğer isterseniz da1'i hesaplayabilirsiniz.
+
+96
+00:06:44,045 --> 00:06:49,440
+Fakat uygulamada genelde da1'ın ve
+
+97
+00:06:49,440 --> 00:06:52,330
+dz1'in hesabı tek aşamada birleştirilir
+
+98
+00:06:52,330 --> 00:06:57,130
+ve dz1 eşittir w2'nin transpozu çarpı dz2 
+
+99
+00:06:57,130 --> 00:07:03,480
+çarpı (element bazında) 
+
+100
+00:07:03,480 --> 00:07:10,383
+g1'(z1)
+
+101
+00:07:10,383 --> 00:07:13,960
+Boyutları kontrol edelim.
+
+102
+00:07:13,960 --> 00:07:19,510
+Eğer böyle görünen bir nöral ağınız varsa
+
+103
+00:07:19,510 --> 00:07:23,000
+y-şapka çıktısı versin.
+
+104
+00:07:23,000 --> 00:07:28,265
+nx = n0 tane girdi özniteliğiniz,
+
+105
+00:07:28,265 --> 00:07:30,230
+n1 saklı üniteniz
+
+106
+00:07:30,230 --> 00:07:34,275
+ve n2 varsa.
+
+107
+00:07:34,275 --> 00:07:36,740
+bu durumda n2
+
+108
+00:07:36,740 --> 00:07:38,565
+sadece bir çıktı ünitesi.
+
+109
+00:07:38,565 --> 00:07:48,795
+W2 matrisi (n2, n1) boyutundadır.
+
+110
+00:07:48,795 --> 00:07:57,490
+z2 ve dolayısıyla dz2 (n2, 1) boyutunda olacaktır.
+
+111
+00:07:57,490 --> 00:07:59,850
+İkili sınıflandırma yaparken bu (1,1) olacaktır.
+
+112
+00:07:59,850 --> 00:08:04,750
+z1 ile dz1 
+
+113
+00:08:04,750 --> 00:08:10,045
+ise (n1, 1) boyutunda olacaklardır.
+
+114
+00:08:10,045 --> 00:08:16,115
+foo ve dfoo değişkenleri her zaman aynı boyutta olacaklardır.
+
+115
+00:08:16,115 --> 00:08:20,850
+Bu yüzden w ve dw her zaman aynı boyuttadır, 
+
+116
+00:08:20,850 --> 00:08:23,680
+aynı şekilde b ve db, z ve dz, vb.
+
+117
+00:08:23,680 --> 00:08:26,895
+Tüm boyutların eşit olduğundan emin olmak için
+
+118
+00:08:26,895 --> 00:08:35,430
+dz1 = w2.T * dz2 *(element bazında çarpım) g1'(z1)
+
+119
+00:08:35,430 --> 00:08:44,490
+dz1 = w2.T * dz2 *(element bazında çarpım) g1'(z1)
+
+120
+00:08:44,490 --> 00:08:47,040
+Yukarıdaki boyutları kullanınca 
+
+121
+00:08:47,040 --> 00:08:52,575
+dz1'in boyutu (n1, 1) eşittir
+
+122
+00:08:52,575 --> 00:08:57,945
+w2'nin transpozunun boyutu (n1, n2) çarpı
+
+123
+00:08:57,945 --> 00:09:05,790
+dz2'nin boyutu (n2, 1) çarpı bu fonksiyondur.
+
+124
+00:09:05,790 --> 00:09:07,230
+Bu fonksiyonun sonucunun boyutu z1'in boyutuyla aynıdır,
+
+125
+00:09:07,230 --> 00:09:11,820
+yani bu da (n1, 1) boyutundadır.
+
+126
+00:09:11,820 --> 00:09:14,350
+Boyutların birbiriyle ilişkisi mantıklı, değil mi?
+
+127
+00:09:14,350 --> 00:09:18,330
+(n1,1) boyutlu vektör
+
+128
+00:09:18,330 --> 00:09:23,520
+(n1,n2) boyutlu matris ve (n2,1) boyutlu matrisin çarpımından elde edilebilir
+
+129
+00:09:23,520 --> 00:09:28,890
+çünkü bu ikisinin çarpımı (n1,1) boyutlu matrisi verir.
+
+130
+00:09:28,890 --> 00:09:34,618
+Yani dz1, iki (n1,1) boyutunda iki vektörün element bazında çarpımına eşit oluyor
+
+131
+00:09:34,618 --> 00:09:36,060
+ve boyutlar sonucun boyutuyla eşleşmiş oluyor.
+
+132
+00:09:36,060 --> 00:09:40,620
+Size geri yayılım hesabı için bir ipucu vereyim,
+
+133
+00:09:40,620 --> 00:09:44,790
+eğer matrislerinizin boyutlarının birbirleriyle eşleştiğinden emin olursanız,
+
+134
+00:09:44,790 --> 00:09:47,190
+yani matrislerinizin W1,W2,Z1, Z2,A1,A2 gibi ve daha farklı matrislerin
+
+135
+00:09:47,190 --> 00:09:50,430
+boyutlarının ne olduğunu düşünürseniz
+
+136
+00:09:50,430 --> 00:09:54,180
+sadece matrislerin boyutunun operasyonlar sırasında eşleştiğinden emin olun,
+
+137
+00:09:54,180 --> 00:09:58,642
+bazen bu yöntem
+
+138
+00:09:58,642 --> 00:10:03,390
+sayesinde geri yayılımda yapabileceğiniz çoğu hatanın önüne geçmiş olursunuz.
+
+139
+00:10:03,390 --> 00:10:06,960
+Tamamdır, bu bize dz1'ı veriyor ve
+
+140
+00:10:06,960 --> 00:10:12,160
+sadece dw1'ı ve db1'ı toparlamak amacıyla,
+
+141
+00:10:12,160 --> 00:10:13,965
+onları da buraya yazayım çünkü
+
+142
+00:10:13,965 --> 00:10:17,200
+burada yazabileceğim alan azaldı. 
+
+143
+00:10:17,200 --> 00:10:21,965
+dw1 ve db1 size birazdan vereceğim formüller ile hesaplanıyor:
+
+144
+00:10:21,965 --> 00:10:25,950
+dw1 dz1 ile x'in devriğinin çarpımına ve
+
+145
+00:10:25,950 --> 00:10:28,905
+db1 ise dz1'e eşit oluyor.
+
+146
+00:10:28,905 --> 00:10:34,045
+Az önce açıkladığım eşitlikler ile bu eşitlikler arasında bir benzerlik farkedebilirsiniz
+
+147
+00:10:34,045 --> 00:10:37,095
+ve bu rastlantı değil çünkü X
+
+148
+00:10:37,095 --> 00:10:41,660
+a0 rolü oynuyor, yani a0'nun devriği X'in devriğine eşit.
+
+149
+00:10:41,660 --> 00:10:45,484
+Bu eşitlikler aslında birbirlerine baya benzer. 
+
+150
+00:10:45,484 --> 00:10:50,260
+Açıkladıklarım bize geri yayılımın nasıl bulunduğuna dair bir fikir veriyor.
+
+151
+00:10:50,260 --> 00:10:54,530
+Elimizde 6 önemli denklem var: dz2,dw2,
+
+152
+00:10:54,530 --> 00:11:00,190
+db2,dz1,dw1 ve db1.
+
+153
+00:11:00,190 --> 00:11:05,767
+Bu 6 eşitliği diğer slayta kopyalayayım. İşte buradalar:
+
+154
+00:11:05,767 --> 00:11:08,950
+Buraya kadar, geri yayılım denklemini
+
+155
+00:11:08,950 --> 00:11:13,959
+eğer bir seferde tek örnek üzerinden eğittiysek çıkarttık.
+
+156
+00:11:13,959 --> 00:11:21,530
+Ama bariz nedenlerden dolayı bir <br /> seferde tek örnek üzerinden eğitmek yerine,
+
+157
+00:11:21,530 --> 00:11:27,810
+farklı farklı eğitim örnek vektörleri kullanarak eğitmek istiyoruz.
+
+158
+00:11:27,810 --> 00:11:30,971
+Hatırladığınız üzere, ileri yayılım için
+
+159
+00:11:30,971 --> 00:11:33,545
+tek seferde bir örnek üzerinden eğittiğimizde
+
+160
+00:11:33,545 --> 00:11:41,665
+Bunun gibi eşitliklerimiz vardı, a1 = g1(z1) gibi.
+
+161
+00:11:41,665 --> 00:11:43,655
+Vektörleştirmek için,
+
+162
+00:11:43,655 --> 00:11:51,260
+z'leri alıp kümeliyoruz,
+
+163
+00:11:51,260 --> 00:12:00,775
+bu şekilde sütunlarda z1m'e kadar istifliyoruz ve buna büyük Z diyoruz.
+
+164
+00:12:00,775 --> 00:12:04,960
+Sonrasında z'leri sütunlarda kümeleyerek
+
+165
+00:12:04,960 --> 00:12:10,240
+ve bunun büyük harfli versiyonunu tanımlayarak
+
+166
+00:12:10,240 --> 00:12:17,093
+denklemi Z1 eşittir W1 çarpı X artı B'ye
+
+167
+00:12:17,093 --> 00:12:24,700
+ve A1 eşittir g1(Z1)'e indirgemiş oluyoruz, değil mi?
+
+168
+00:12:24,700 --> 00:12:28,645
+Bu kursta gösterimlere özellikle özen gösteriyoruz
+
+169
+00:12:28,645 --> 00:12:35,550
+çünkü örnekleri istifleme işlemi <br />bunların hepsinin çalışmasını sağlıyor.
+
+170
+00:12:35,550 --> 00:12:40,105
+Matematiğin üzerinden dikkatlice geçerseniz, göreceksiniz ki
+
+171
+00:12:40,105 --> 00:12:46,645
+aynı işlemler geri yayılım için de kullanılabiliyor, <br />vektörize edilmiş denklemler ise şöyle:
+
+172
+00:12:46,645 --> 00:12:52,250
+öncelikle farklı örnekler için hesaplanan dz'leri
+
+173
+00:12:52,250 --> 00:12:58,339
+bir matrisin farklı sütunlarına denk gelecek <br />şekilde kümelersek ve bunu diğerleri için de yaparsak
+
+174
+00:12:58,339 --> 00:13:03,070
+burada gördüğünüz vektörize edilmiş <br /> uygulama ve bu da dW2'yi hesaplamanız
+
+175
+00:13:03,070 --> 00:13:05,569
+için gereken denklem.
+
+176
+00:13:05,569 --> 00:13:11,130
+Ekstra olarak bir m'e bölme işlemi var çünkü maliyet fonksiyonumuz
+
+177
+00:13:11,130 --> 00:13:18,410
+1'den m'e kadar olan kayıp fonksiyonlarının toplamı.
+
+178
+00:13:18,410 --> 00:13:20,615
+Türevini alırken ise
+
+179
+00:13:20,615 --> 00:13:23,885
+yine (1/m) çarpanını görüyoruz,
+
+180
+00:13:23,885 --> 00:13:27,982
+lojistik regresyonda ağırlık güncellemelerini gördüğümüzdeki gibi.
+
+181
+00:13:27,982 --> 00:13:31,790
+Bu da db2 için güncelleme fonksiyonumuz.
+
+182
+00:13:31,790 --> 00:13:40,640
+DZ'lerin toplamı ve 1/m'ye bölümü sonrasında DZ1 hesaplanır.
+
+183
+00:13:40,640 --> 00:13:49,109
+Önceden de söylediğim gibi bu element bazında bir çarpım işlemi
+
+184
+00:13:49,109 --> 00:13:56,595
+önceki slaytta da gördüğümüz gibi bu (n1, 1) boyutunda bir vektör.
+
+185
+00:13:56,595 --> 00:14:03,185
+Şimdi bu (n1, m) boyutlarında bir matris
+
+186
+00:14:03,185 --> 00:14:09,045
+ve bu ikisi de (n1, m) boyutunda matrisler.
+
+187
+00:14:09,045 --> 00:14:19,310
+Bu yüzden asterisk burada element bazında çarpımı temsil ediyor.
+
+188
+00:14:19,310 --> 00:14:21,454
+Ve son olarak kalan iki güncelleme,
+
+189
+00:14:21,454 --> 00:14:25,836
+belki de o kadar şaşırtıcı görünmemeliler.
+
+190
+00:14:25,836 --> 00:14:29,510
+Umarım bu size geri yayılım algoritmasının <br />çıkarılması konusunda biraz sezi kazandırmıştır.
+
+191
+00:14:29,510 --> 00:14:32,205
+Bence, makine öğrenmesi konusunda
+
+192
+00:14:32,205 --> 00:14:34,820
+geri yayılım algoritmasının çıkartılması
+
+193
+00:14:34,820 --> 00:14:38,465
+benim gördüğüm en karışık matematik işlemlerinden bir tanesi
+
+194
+00:14:38,465 --> 00:14:42,470
+ve sıfırdan oluşturmak hem lineer cebir bilmeyi hem de
+
+195
+00:14:42,470 --> 00:14:46,830
+matrislerin türevini almayı iyi bilmeyi gerektiriyor.
+
+196
+00:14:46,830 --> 00:14:50,165
+Eğer matris calculusunde gerçekten iyiyseniz,
+
+197
+00:14:50,165 --> 00:14:54,255
+bu süreci takip ederek, algoritmayı kendiniz çıkartabilirsiniz
+
+198
+00:14:54,255 --> 00:14:57,500
+ama bence derin öğrenme üzerine çalışan ve
+
+199
+00:14:57,500 --> 00:15:01,060
+bu videoda gördüğünüz seviyede türev görmüş
+
+200
+00:15:01,060 --> 00:15:04,100
+birçok insan şimdiden
+
+201
+00:15:04,100 --> 00:15:08,580
+bu algoritmayı etkili bir şekilde uygulayabiliyorlar.
+
+202
+00:15:08,580 --> 00:15:10,070
+Calculus'ta uzman iseniz,
+
+203
+00:15:10,070 --> 00:15:13,395
+her şeyi sıfırdan çıkartıp çıkartamayacağınıza bakın.
+
+204
+00:15:13,395 --> 00:15:15,665
+Bu matematiğin en zor parçalarından biri.
+
+205
+00:15:15,665 --> 00:15:20,010
+Makine öğrenmesinde gördüğüm en zor türevlerden biri.
+
+206
+00:15:20,010 --> 00:15:22,861
+Sıfırdan çıkartamasanız da, çıkarttıklarımızı uygularsanız
+
+207
+00:15:22,861 --> 00:15:27,260
+çalışacaktır ve bence şu an gerektiğinde <br />değişiklik yapacak kadar seziye sahipsiniz.
+
+208
+00:15:27,260 --> 00:15:30,830
+Nöral ağınızı oluşturmaya başlamadan önce
+
+209
+00:15:30,830 --> 00:15:34,190
+sizlerle paylaşmak istediğim son bir detay var,
+
+210
+00:15:34,190 --> 00:15:37,720
+bu da nöral ağınızın ilk ağırlıklarını nasıl atayacağınız.
+
+211
+00:15:37,720 --> 00:15:40,600
+Parametrelerinizin ilk değerlerini
+
+212
+00:15:40,600 --> 00:15:42,560
+sıfır yerine rastgele şekilde atamak
+
+213
+00:15:42,560 --> 00:15:45,515
+nöral ağınızı eğitmek için çok önemli.
+
+214
+00:15:45,515 --> 00:15:48,000
+Sonraki videoda nedenini göreceksiniz.

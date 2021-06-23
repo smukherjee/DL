@@ -1,0 +1,321 @@
+1
+00:00:00,000 --> 00:00:02,190
+Bem-vindo de volta. Nesta semana,
+
+2
+00:00:02,190 --> 00:00:04,530
+você aprendeu a implementar uma rede neural.
+
+3
+00:00:04,530 --> 00:00:06,885
+Antes de mergulhar nos detalhes técnicos,
+
+4
+00:00:06,885 --> 00:00:08,070
+eu quero, neste vídeo,
+
+5
+00:00:08,070 --> 00:00:12,000
+dar a você uma rápida visão geral do que
+ veremos nos vídeos desta semana.
+
+6
+00:00:12,000 --> 00:00:14,910
+Então, se você não entender todos os detalhes neste vídeo,
+
+7
+00:00:14,910 --> 00:00:18,810
+não se preocupe, nós nos aprofundaremos
+ nos detalhes técnicos nos próximos vídeos.
+
+8
+00:00:18,810 --> 00:00:23,490
+Mas, por agora, vamos dar uma rápida olhada
+ em como você implementa em sua rede.
+
+9
+00:00:23,490 --> 00:00:26,250
+Na semana passada, conversamos
+ sobre regressão logística
+
+10
+00:00:26,250 --> 00:00:31,965
+e vimos como este modelo corresponde ao seguinte projeto de cálculo,
+
+11
+00:00:31,965 --> 00:00:35,640
+onde você não colocou
+ os elementos x e os parâmetros
+
+12
+00:00:35,640 --> 00:00:40,140
+'w' e 'b' que permitem que você calcule z,
+ que é, então, utilizado para calcular 'a'
+
+13
+00:00:40,140 --> 00:00:43,280
+e estávamos utilizando 'a' alternadamente com
+
+14
+00:00:43,280 --> 00:00:48,065
+esta saída ŷ e, então, você
+ pode calcular a função de perda,
+
+15
+00:00:48,065 --> 00:00:51,390
+que chamamos de ʆ. Uma rede neural se parace com isso.
+
+16
+00:00:51,390 --> 00:00:53,415
+Como já me referi anteriormente,
+
+17
+00:00:53,415 --> 00:00:58,640
+você pode formar uma rede neural
+ empilhando juntas muitas pequenas unidades de sigmoide.
+
+18
+00:00:58,640 --> 00:01:03,785
+Considerando que, previamente,
+ este nó corresponde a dois passos para cálculos.
+
+19
+00:01:03,785 --> 00:01:05,975
+O primeiro calcula o valor de 'z',
+
+20
+00:01:05,975 --> 00:01:08,630
+o segundo calcula o valor de 'a'.
+
+21
+00:01:08,630 --> 00:01:10,460
+Nesta rede neural,
+
+22
+00:01:10,460 --> 00:01:16,565
+esta pilha de notas corresponderá
+ ao cálculo de z como esse,
+
+23
+00:01:16,565 --> 00:01:20,165
+assim como um cálculo de 'a' como esse.
+
+24
+00:01:20,165 --> 00:01:26,270
+Assim, aquele nó corresponde a um
+ outro cálculo de z e um outro cálculo de a.
+
+25
+00:01:26,270 --> 00:01:30,380
+Então, a notação que introduziremos
+ mais tarde se parecerá com isso.
+
+26
+00:01:30,380 --> 00:01:33,365
+Primeiro, forneceremos as entradas das características x,
+
+27
+00:01:33,365 --> 00:01:36,190
+junto com alguns parâmetros w e b,
+
+28
+00:01:36,190 --> 00:01:39,840
+e isso permitirá que você calcule z'¹'.
+
+29
+00:01:39,840 --> 00:01:43,625
+Então, a nova notação que introduziremos
+ é que usaremos
+
+30
+00:01:43,625 --> 00:01:47,060
+um colchete sobrescrito
+ para nos referirmos a
+
+31
+00:01:47,060 --> 00:01:51,185
+quantidades associadas a essa
+ pilha de nós, chamada de camada.
+
+32
+00:01:51,185 --> 00:01:54,080
+Depois, mais tarde, utilizaremos
+ colchetes sobrescritos 2, '²'
+
+33
+00:01:54,080 --> 00:01:58,355
+para nos referirmos a quantidades
+ associadas àquele nó.
+
+34
+00:01:58,355 --> 00:02:01,445
+Isso é chamado de
+ uma outra camada de rede neural.
+
+35
+00:02:01,445 --> 00:02:03,680
+Os colchetes sobrescritos,
+
+36
+00:02:03,680 --> 00:02:05,135
+como os que temos aqui,
+
+37
+00:02:05,135 --> 00:02:06,905
+não devem ser confundidos com
+
+38
+00:02:06,905 --> 00:02:12,980
+os parênteses, os quais utilizamos para
+ nos referirmos a exemplos de exercícios individuais.
+
+39
+00:02:12,980 --> 00:02:17,885
+Então, considerando x sobrescrito i entre parênteses, ⁽ⁱ⁾, 
+ eu me refiro ao i-ésimo exemplo de treino,
+
+40
+00:02:17,885 --> 00:02:23,180
+colchetes [1] e [2] se referem
+ a essas duas camadas;
+
+41
+00:02:23,180 --> 00:02:27,530
+a camada um e a camada dois nesta rede neural.
+
+42
+00:02:27,530 --> 00:02:33,920
+Mas, então, após o cálculo de z'¹'
+ similar à regressão logística,
+
+43
+00:02:33,920 --> 00:02:37,715
+haverá um cálculo para calcular a'¹'
+
+44
+00:02:37,715 --> 00:02:40,970
+e isso é justamente o sigmoide de z'¹';
+
+45
+00:02:40,970 --> 00:02:51,530
+depois, você calcula z'²' utilizando uma
+ outra equação linear e, em seguida, calcula a'²'.
+
+46
+00:02:51,530 --> 00:02:55,325
+A'²' é a saída final
+
+47
+00:02:55,325 --> 00:02:59,270
+da rede neural e também será utilizado
+ com ŷ alternadamente.
+
+48
+00:02:59,270 --> 00:03:02,390
+Assim, eu sei que havia muitos detalhes,
+ mas a ideia principal para
+
+49
+00:03:02,390 --> 00:03:05,925
+guardar é que, considerando
+ a regressão logística,
+
+50
+00:03:05,925 --> 00:03:09,435
+tivemos esse 'z' seguido do cálculo de 'a'.
+
+51
+00:03:09,435 --> 00:03:10,665
+Nesta rede neural,
+
+52
+00:03:10,665 --> 00:03:12,830
+aqui nós apenas
+ fizemos isso várias vezes,
+
+53
+00:03:12,830 --> 00:03:14,870
+como um z seguido do cálculo de a,
+
+54
+00:03:14,870 --> 00:03:17,745
+um z seguido do cálculo de a
+
+55
+00:03:17,745 --> 00:03:21,590
+e, depois, finalmente,
+ calcular a perda no fim.
+
+56
+00:03:21,590 --> 00:03:24,200
+Você se lembra que, para a regressão logística,
+
+57
+00:03:24,200 --> 00:03:27,800
+deixamos esse cálculo para trás a fim de
+
+58
+00:03:27,800 --> 00:03:32,045
+calcular derivadas ou, como
+ você está calculando sua dₐ ,
+
+59
+00:03:32,045 --> 00:03:33,365
+dz e assim por diante.
+
+60
+00:03:33,365 --> 00:03:34,805
+Logo, do mesmo modo,
+
+61
+00:03:34,805 --> 00:03:38,990
+uma rede neural acabará fazendo um
+ cálculo da retro-propagação, que se parece com
+
+62
+00:03:38,990 --> 00:03:47,370
+isso, no qual você acaba calculando dₐ'²',
+
+63
+00:03:47,370 --> 00:03:51,060
+dz'²', que permite que você calcule dw'²',
+
+64
+00:03:51,060 --> 00:03:56,130
+db'²' e assim por diante.
+
+65
+00:03:56,130 --> 00:04:04,060
+Da direita para a esquerda, o cálculo para trás, 
+que está marcado com setas vermelhas.
+
+66
+00:04:04,060 --> 00:04:08,750
+Então, isso te dá uma rápida visão
+ de como uma rede neural parece.
+
+67
+00:04:08,750 --> 00:04:12,470
+É basicamente regressão logística
+ e repeti-la duas vezes.
+
+68
+00:04:12,470 --> 00:04:14,780
+Eu sei que havia muitas leis novas de notação,
+
+69
+00:04:14,780 --> 00:04:16,910
+novos detalhes, mas não se preocupe com eles;
+
+70
+00:04:16,910 --> 00:04:21,575
+siga tudo que os detalharemos,
+provavelmente, já nos próximos vídeos.
+
+71
+00:04:21,575 --> 00:04:23,060
+Então, vamos ao próximo vídeo.
+
+72
+00:04:23,060 --> 00:04:26,270
+Começaremos a falar sobre a representação da rede neural.

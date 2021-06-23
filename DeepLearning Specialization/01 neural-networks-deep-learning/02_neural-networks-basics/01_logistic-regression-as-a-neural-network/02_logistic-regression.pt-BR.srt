@@ -1,0 +1,422 @@
+1
+00:00:00,000 --> 00:00:03,475
+Neste vídeo, abordaremos 
+regressão logística.
+
+2
+00:00:03,475 --> 00:00:07,080
+Este é um algoritmo de aprendizagem 
+que usamos quando o rótulos de saída Y
+
+3
+00:00:07,080 --> 00:00:10,690
+em um problema de aprendizado 
+supervisionado são ou 0 ou 1,
+
+4
+00:00:10,690 --> 00:00:13,600
+portanto, problemas de classificação binária.
+
+5
+00:00:13,600 --> 00:00:18,350
+Dado um vetor de característica X, 
+que poderia estar relacionado a
+
+6
+00:00:18,350 --> 00:00:23,150
+uma imagem que você queira reconhecer 
+como sendo ou não a de um gato,
+
+7
+00:00:23,150 --> 00:00:26,525
+você quer um algoritmo que 
+possa produzir uma previsão,
+
+8
+00:00:26,525 --> 00:00:28,254
+que chamaremos de ŷ
+(y circunflexo),
+
+9
+00:00:28,254 --> 00:00:31,130
+que é a sua
+estimativa de y.
+
+10
+00:00:31,130 --> 00:00:35,896
+Mais formalmente, você quer que 
+ŷ seja a probabilidade de que
+
+11
+00:00:35,896 --> 00:00:40,630
+y seja igual a 1, dado as 
+características de entradas x.
+
+12
+00:00:40,630 --> 00:00:43,880
+Em outras palavras, se x é uma imagem,
+
+13
+00:00:43,880 --> 00:00:45,530
+como vimos o último vídeo,
+
+14
+00:00:45,530 --> 00:00:47,300
+você quer que o ŷ lhe informe,
+
+15
+00:00:47,300 --> 00:00:49,820
+qual é a chance de que esta 
+seja uma imagem de gato?
+
+16
+00:00:49,820 --> 00:00:53,420
+Então x, como dissemos no vídeo anterior,
+
+17
+00:00:53,420 --> 00:00:56,960
+é um vetor x de dimensão nₓ,
+
+18
+00:00:56,960 --> 00:01:02,000
+dados que os parâmetros de 
+regressão logística serão
+
+19
+00:01:02,000 --> 00:01:07,745
+w, que também é um vetor de dimensões nₓ,
+
+20
+00:01:07,745 --> 00:01:11,670
+junto com b, que é apenas um número real.
+
+21
+00:01:11,670 --> 00:01:16,055
+Então, dados uma entrada X
+e os parâmetros W e b,
+
+22
+00:01:16,055 --> 00:01:20,595
+como geramos a saída ŷ?
+
+23
+00:01:20,595 --> 00:01:22,970
+Bem, uma coisa que você poderia 
+tentar, e que não funciona,
+
+24
+00:01:22,970 --> 00:01:27,590
+seria fazer o ŷ receber 
+"w" transposto vezes "X" mais "b",
+
+25
+00:01:27,590 --> 00:01:33,045
+tipo uma função linear da entrada X.
+
+26
+00:01:33,045 --> 00:01:37,145
+E na verdade, isso é o que você usa, se 
+você estivesse fazendo regressão linear.
+
+27
+00:01:37,145 --> 00:01:41,345
+Mas este não é um bom 
+algoritmo para classificação binária
+
+28
+00:01:41,345 --> 00:01:45,575
+porque você quer que ŷ possibilite 
+a chance de y ser igual a 1.
+
+29
+00:01:45,575 --> 00:01:50,480
+Então, ŷ deveria na verdade 
+estar entre zero e um,
+
+30
+00:01:50,480 --> 00:01:54,697
+e é difícil de aplicar isso 
+porque W transposta vezes X (W⸆.X) + b
+
+31
+00:01:54,697 --> 00:01:58,475
+(W⸆.X) + b pode ser muito maior que 1 
+ou pode ser até mesmo negativa,
+
+32
+00:01:58,475 --> 00:02:00,905
+o que não faz muito sentido em probabilidade,
+
+33
+00:02:00,905 --> 00:02:03,620
+onde você quer que os resultados
+estejam entre zero e um.
+
+34
+00:02:03,620 --> 00:02:07,670
+Então, em regressão logística, 
+nossa saída em vez disso, será
+
+35
+00:02:07,670 --> 00:02:12,050
+ŷ = a função σ aplicada a esta quantidade.
+
+36
+00:02:12,050 --> 00:02:14,850
+É assim que função σ se parece.
+
+37
+00:02:14,850 --> 00:02:24,000
+Se no eixo horizontal eu ploto z, então 
+a função σ de Z se parece assim.
+
+38
+00:02:24,000 --> 00:02:28,050
+Então, ela vai suavemente de zero até um.
+
+39
+00:02:28,050 --> 00:02:30,120
+Deixe-me rotular meus eixos aqui.
+
+40
+00:02:30,120 --> 00:02:34,915
+Este é 0 e cruza o eixo vertical em 0,5.
+
+41
+00:02:34,915 --> 00:02:41,305
+Então, isso é como σ(z) se parece e
+usaremos z para denotar esta quantidade.
+
+42
+00:02:41,305 --> 00:02:43,020
+W⸆.X + b.
+
+43
+00:02:43,020 --> 00:02:46,230
+Aqui está a fórmula para a função σ.
+
+44
+00:02:46,230 --> 00:02:49,380
+σ de z, onde
+z é um número real,
+
+45
+00:02:49,380 --> 00:02:52,510
+é igual a 1/(1 + e^-z).
+Um dividido por (1 + e elevado -z).
+
+46
+00:02:52,510 --> 00:02:54,695
+Então observe algumas coisas.
+
+47
+00:02:54,695 --> 00:03:01,255
+Se Z é muito grande, 
+então e^-z será próximo de zero.
+
+48
+00:03:01,255 --> 00:03:03,420
+Então, σ de z será
+
+49
+00:03:03,420 --> 00:03:07,255
+aproximadamente 1 dividido por 
+1 mais algo muito próximo a zero
+
+50
+00:03:07,255 --> 00:03:11,280
+porque e elevado a um número negativo
+muito grande será próximo de zero.
+
+51
+00:03:11,280 --> 00:03:13,505
+Então, isso é próximo de 1.
+
+52
+00:03:13,505 --> 00:03:16,255
+E de fato, se você observar o gráfico à esquerda,
+
+53
+00:03:16,255 --> 00:03:20,475
+se z é muito grande,
+σ(z) é muito próximo de 1.
+
+54
+00:03:20,475 --> 00:03:24,105
+Inversamente, se Z é muito pequeno,
+
+55
+00:03:24,105 --> 00:03:28,970
+ou é um número negativo muito grande,
+
+56
+00:03:29,180 --> 00:03:39,640
+então o σ(z) torna-se 1/(1 + e^-z),
+
+57
+00:03:39,640 --> 00:03:42,565
+e isso torna-se um número enorme.
+
+58
+00:03:42,565 --> 00:03:47,944
+Isso torna-se, pense como 1 dividido 
+por 1 mais um número que é
+
+59
+00:03:47,944 --> 00:03:54,473
+muito grande, e assim,
+
+60
+00:03:54,473 --> 00:03:56,570
+isto será próximo de zero.
+
+61
+00:03:56,570 --> 00:04:00,325
+E de fato, você vê que conforme z 
+torna-se um número negativo muito grande,
+
+62
+00:04:00,325 --> 00:04:03,505
+σ(z) tenderá a zero.
+
+63
+00:04:03,505 --> 00:04:06,070
+Então, quando você implementa regressão logística,
+
+64
+00:04:06,070 --> 00:04:10,350
+seu trabalho é tentar aprender parâmetros W e b de forma que
+
+65
+00:04:10,350 --> 00:04:15,220
+ŷ seja uma boa estimativa
+da chance de y ser igual a 1.
+
+66
+00:04:15,220 --> 00:04:18,955
+Antes de seguir, apenas
+ mais uma observação sobre notação.
+
+67
+00:04:18,955 --> 00:04:20,830
+Quando programamos redes neurais,
+
+68
+00:04:20,830 --> 00:04:26,855
+nós normalmente mantemos o 
+parâmetro W e o parâmetro b separados,
+
+69
+00:04:26,855 --> 00:04:30,000
+onde aqui, b corresponde
+a um inter-espectro.
+
+70
+00:04:30,000 --> 00:04:31,295
+Em outros cursos,
+
+71
+00:04:31,295 --> 00:04:35,110
+você pode ter visto alguma notação 
+que lida com isso de forma distinta.
+
+72
+00:04:35,110 --> 00:04:42,205
+Em algumas convenções, você define uma 
+característica extra chamada xₒ, igual a 1.
+
+73
+00:04:42,205 --> 00:04:47,250
+Sendo que agora, X
+pertence a R de nₓ+₁.
+
+74
+00:04:47,250 --> 00:04:53,865
+E então, você define
+ŷ = σ de Teta (Θ) transposta vezes X.
+
+75
+00:04:53,865 --> 00:04:56,685
+Nesta convenção notacional alternativa,
+
+76
+00:04:56,685 --> 00:05:00,510
+você tem vetor Θ de parâmetros,
+
+77
+00:05:00,510 --> 00:05:03,175
+Θ₀, Θ₁, Θ₂,
+
+78
+00:05:03,175 --> 00:05:09,520
+até o Θnₓ 
+e assim,
+
+79
+00:05:09,520 --> 00:05:11,723
+Θ₀, substitui o b,
+age como ele
+
+80
+00:05:11,723 --> 00:05:13,663
+e é só um número real,
+
+81
+00:05:13,663 --> 00:05:18,505
+e Θ₁ até Θnₓ fazem
+o papel de W. Resulta que,
+
+82
+00:05:18,505 --> 00:05:20,350
+quando você implementa sua rede neural,
+
+83
+00:05:20,350 --> 00:05:26,145
+será mais fácil manter
+ b e W como parâmetros separados.
+
+84
+00:05:26,145 --> 00:05:27,430
+E assim, nesta aula,
+
+85
+00:05:27,430 --> 00:05:32,087
+não usaremos nenhuma destas convenções 
+que acabei de escrever em vermelho.
+
+86
+00:05:32,087 --> 00:05:36,330
+Se você não viu esta notação antes 
+em outros cursos, não se preocupe.
+
+87
+00:05:36,330 --> 00:05:39,610
+É só que eu queria, para aqueles que já viram esta notação,
+
+88
+00:05:39,610 --> 00:05:43,730
+mencionar explicitamente que nós 
+não usaremos esta notação neste curso.
+
+89
+00:05:43,730 --> 00:05:45,235
+Mas se você não viu isso antes,
+
+90
+00:05:45,235 --> 00:05:48,430
+não é importante e você não precisa se preocupar com isso.
+
+91
+00:05:48,430 --> 00:05:52,465
+Bem, agora você viu como o modelo 
+de regressão logística se parece.
+
+92
+00:05:52,465 --> 00:05:57,140
+A seguir, para mudar os parâmetros W e b, 
+você precisa definir uma função de custo.
+
+93
+00:05:57,140 --> 00:05:58,830
+Faremos isso no próximo vídeo.
+[Tradução: Renato Barata Gomes | Revisão: Carlos Lage.]

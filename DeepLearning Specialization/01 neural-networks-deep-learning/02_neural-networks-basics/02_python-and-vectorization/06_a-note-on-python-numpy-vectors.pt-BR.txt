@@ -1,0 +1,78 @@
+A capacidade do python para 
+permitir a utilização de "broadcasting" e, de forma mais ampla, a grande flexibilidade da 
+linguagem de programação python/numpy é, penso, tanto uma força como também 
+uma fraqueza da linguagem de programação. Penso que é uma força porque eles 
+criam a expressividade da linguagem. Uma grande flexibilidade da linguagem é que ela 
+permite que você faça muita coisa com apenas uma linha de código. Mas é também uma fraqueza 
+porque com "broadcasting" e esta grande flexibilidade, às vezes, é possível 
+você introduzir bugs muito sutis ou bugs muito estranhos, se você não está 
+familiarizado com todos os meandros de "broadcasting" e suas características. Por exemplo, se você pegar um vetor coluna 
+e adicionar isso a um vetor linha, espera-se um erro de incompatibilidade de 
+dimensão ou algum tipo de erro deste tipo. Mas você realmente pode obter uma matriz 
+como uma soma de um vetor linha e um vetor coluna. Então, há uma lógica interna 
+para estes efeitos estranhos do Python. Mas se você não está familiarizado com Python, 
+eu já vi estudantes que acham bem estranho, bem difícil de encontrar bugs. O que eu quero fazer neste vídeo é 
+compartilhar com vocês algumas dicas e truques que têm sido bem 
+úteis para mim, para eliminar, simplificar e acabar como todos 
+estes bugs estranhos no meu código. E espero que, com todos 
+estas dicas e truques,s você também será capaz de escrever um código 
+python/numpy sem bugs, muito mais facilmente. Para ilustrar um dos efeitos 
+menos intuitivos do Python-Numpy, especialmente como construir vetores em Python-Numpy, 
+deixe-me fazer uma demonstração rápida. Vamos definir a = np.random.randn(5), então isso cria cinco variáveis gaussianas aleatórias armazenadas na matriz a. Então, vamos fazer print(a) 
+e agora resulta que print(a.shape), quando você faz 
+isso, é essa estrutura de cinco colunas (5,). E então, isso é chamado de 
+uma matriz de ordem 1 em Python e não é nem um vetor 
+linha nem um vetor coluna. E isso leva-o a ter 
+efeitos não muito intuitivos. Por exemplo, se eu imprimir "a Transposta",
+acaba parecendo igual a "a". Então "a" e "a" transposta 
+acabam parecendo o mesmo. E se imprimir o produto interno entre "a" 
+e "a" transposto, você poderia pensar que "a" vezes "a" transposto é, talvez, o produto 
+externo e deveria dar-lhe talvez uma matriz.s Mas se eu fizer isso, você 
+obterá um número. Então, o que eu recomendo é que 
+quando você está programando redes neurais, que você não utilize estrutura de dados, onde 
+a forma é 5, ou n, ou uma matriz de ordem 1. Ao invés, se você definir "a" como (5,1),sq então isso faz de "a" um vetor coluna (5,1).s E enquanto previamente, "a" 
+e "a" transposto eram iguais,s agora ela tornou-se uma transposição, 
+agora "a" transposto é um vetor linha. Note uma diferença sútil.\ Nesta estrutura de dados, existem dois 
+colchetes quando imprimimos o "a" transposto. Em que previamente, 
+havia apenas um colchete. Então essa é a diferença 
+entre uma matriz 1 x 5, versus uma matriz de ordem 1. E se você imprimir, digamos, o 
+produto entre "a" e "a" transposto, então isso lhe dá o produto 
+externo de um vetor, certo? E então, o produto externo 
+de um vetor lhe dá uma matriz. Então, vamos analisar mais 
+detalhadamente o que acabamos de ver aqui. O primeiro comando que 
+rodamos, agora, foi esse. E isso criou uma estrutura de dados com a.shape, esta coisa engraçada (5,)
+ então isso é chamado uma matriz de ordem 1. E essa é uma estrutura de dados bem engraçada. Ela não tem um comportamento consistente 
+como um vetor linha e nem como um vetor coluna, o que faz alguns de 
+seus efeitos não intuitivos. Então, o que vou recomendar é que 
+quando você estiver fazendo seus exercícios de programação, ou de fato, quando 
+estiver implementando regressão logística ou redes neurais, que você não 
+utilize estas matrizes de ordem 1. Em vez disso, toda vez 
+que você criar uma matriz, faça ou um vetor coluna, isso cria um vetor (5,1), 
+ou faça um vetor linha, assim o comportamento dos seus 
+vetores serão mais fáceis de entender. Neste caso, a.shape 
+será igual a (5,1). Assim, isso comporta-se muito parecido com "a", 
+mas na verdade, isso é um vetor coluna. E é por isso que você pode pensar nisso como 
+uma matriz (5,1), onde na verdade é um vetor coluna. E aqui, a.shape será (1,5), e isso comporta-se 
+consistentemente como um vetor linha. Então, quando você precisar de um 
+vetor, eu diria use ou isso ou isso, mas não um matriz de ordem 1. Uma outra coisa que eu faço bastante no 
+meu código é, se eu não tenho certeza qual a dimensão de um dos meus vetores, 
+eu geralmente colocarei uma declaração "assert", como esta, para ter certeza, 
+que este é um vetor (5,1). Então, este é um vetor coluna. Não custa muito para 
+executar estas afirmações, e elas ajudam a servir como 
+documentação para o seu código. Então, não hesite em colocar declarações 
+de "assert" como esta, sempre que quiser. Finalmente, se por algum motivo, você acabe 
+tendo que usar uma matriz de ordem 1, você pode remodelar isso, a = a.reshape em digamos uma matriz (5,1) ou (1,5), para que ela se comporte mais consistentemente 
+como um vetor coluna ou um vetor linha. Às vezes, eu vejo alunos com 
+dificuldade de rastrear bugs por causa dos efeitos não 
+intuitivos de matrizes de ordem 1. Eliminando matrizes de ordem 1 no 
+meu código, ele torna-se mais simples. E eu não acho isso restritivo 
+em termos de coisas que eu poderia expressar no código. E, simplesmente, nunca uso uma matriz de ordem 1. Então, as dicas que ficam são: simplifique 
+o seu código, não use matrizes de ordem 1. Sempre use matrizes n x 1, basicamente vetores colunas, ou 
+matrizes 1 x n, basicamente vetores linha. Fique à vontade para 
+incluir declarações "assert", para confirmar as dimensões 
+de suas matrizes e vetores. E também, não tenha vergonha de chamar a 
+operação "reshape", para assegurar-se que suas matrizes ou seus vetores 
+sejam da dimensão que você precisa. De forma que, espero que este conjunto de sugestões 
+o ajudem a eliminar a causa dos bugs no código Python, e torne os exercícios mais 
+fáceis de serem completados por você. 
+[Tradução: Renato Barata Gomes | Revisão: Carlos Lage.]

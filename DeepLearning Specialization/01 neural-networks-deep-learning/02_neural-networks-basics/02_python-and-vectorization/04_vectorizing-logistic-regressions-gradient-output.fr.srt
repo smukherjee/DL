@@ -1,0 +1,598 @@
+1
+00:00:00,000 --> 00:00:01,440
+Dans la précédente vidéo,
+
+2
+00:00:01,440 --> 00:00:05,700
+vous avez vu comment vous pouvez utiliser 
+la vectorisation pour calculer les prédictions
+
+3
+00:00:05,700 --> 00:00:11,485
+des petits a pour un set d'apprentissage
+ entier, tous en même temps.
+
+4
+00:00:11,485 --> 00:00:15,030
+Dans cette vidéo, vous verrez comment 
+vous pouvez aussi utiliser la vectorisation pour
+
+5
+00:00:15,030 --> 00:00:19,205
+effectuer les calculs de gradient pour
+ tous les m exemples d'apprentissage
+
+6
+00:00:19,205 --> 00:00:21,380
+encore une fois, tous en même temps.
+
+7
+00:00:21,380 --> 00:00:22,890
+Et puis à la fin de cette vidéo,
+
+8
+00:00:22,890 --> 00:00:26,175
+Nous allons tout mettre ensemble et 
+montrer comment vous pouvez faire
+
+9
+00:00:26,175 --> 00:00:29,730
+une implémentation très efficace
+ de la régression logistique.
+
+10
+00:00:29,730 --> 00:00:32,505
+Vous vous souvenez peut-être que
+ pour le calcul du gradient,
+
+11
+00:00:32,505 --> 00:00:36,910
+ce que nous avons fait est que nous avons
+ calculé dz1 pour le premier exemple,
+
+12
+00:00:36,910 --> 00:00:43,870
+qui peut valoir a1 moins y1 
+et puis dz2 qui est égal à
+
+13
+00:00:43,870 --> 00:00:52,134
+a2-y2 et ainsi de suite.
+
+14
+00:00:52,134 --> 00:00:56,425
+Et ainsi de suite pour tous 
+les m exemples d'apprentissage.
+
+15
+00:00:56,425 --> 00:01:01,218
+Donc, ce que nous allons faire est
+ définir une nouvelle variable,
+
+16
+00:01:01,218 --> 00:01:08,595
+dZ majuscule qui va contenir
+ dz1, dz2, ... , dzm.
+
+17
+00:01:08,595 --> 00:01:13,910
+Encore une fois, toutes les variables dz minuscule
+ empilées horizontalement.
+
+18
+00:01:13,910 --> 00:01:21,200
+Donc, ce sera une matrice de 1 par m, 
+c'est à dire un vecteur ligne de dimension m.
+
+19
+00:01:21,200 --> 00:01:23,520
+Maintenant, rappelons que 
+dans la diapositive précédente,
+
+20
+00:01:23,520 --> 00:01:28,405
+Nous avions déjà calculé A majuscule
+ qui était a1 à am
+
+21
+00:01:28,405 --> 00:01:36,735
+et nous avons défini Y majuscule 
+comme y1 à ym
+
+22
+00:01:36,735 --> 00:01:39,200
+également empilés horizontalement.
+
+23
+00:01:39,200 --> 00:01:42,780
+Donc, sur la base de ces définitions,
+
+24
+00:01:42,780 --> 00:01:46,770
+peut-être que vous pouvez voir vous-même 
+que dZ peut être calculé comme
+
+25
+00:01:46,770 --> 00:01:52,750
+simplement A moins Y
+ parce que ceci va être égal à
+
+26
+00:01:52,750 --> 00:01:55,670
+a1 - y1 pour le premier élément,
+
+27
+00:01:55,670 --> 00:01:59,980
+a2 - y2 pour le deuxième élément 
+et ainsi de suite.
+
+28
+00:01:59,980 --> 00:02:06,115
+Et donc ce premier élément a1 - y1 
+est exactement la définition de dz1.
+
+29
+00:02:06,115 --> 00:02:11,670
+Le deuxième élément est exactement
+ la définition de dz2 et ainsi de suite.
+
+30
+00:02:11,670 --> 00:02:13,965
+Ainsi, avec une seule ligne de code,
+
+31
+00:02:13,965 --> 00:02:20,095
+vous pouvez calculer tout cela en même temps.
+
+32
+00:02:20,095 --> 00:02:24,010
+Maintenant, dans l’implémentation précédente,
+
+33
+00:02:24,010 --> 00:02:27,695
+nous nous sommes déjà débarrassés d’une
+ boucle for, mais nous avons encore
+
+34
+00:02:27,695 --> 00:02:31,600
+cette deuxième boucle for
+ sur les exemples d'entrainement.
+
+35
+00:02:31,600 --> 00:02:35,440
+Donc, nous initialisons dw 
+à un vecteur de zéros.
+
+36
+00:02:35,440 --> 00:02:38,905
+Mais ensuite nous devons encore boucler sur
+ les exemples d'entrainement où nous avons
+
+37
+00:02:38,905 --> 00:02:43,015
+dw += x1*dz1 pour le premier
+
+38
+00:02:43,015 --> 00:02:50,440
+exemple d'apprentissage, 
+dw += x2*dz2, et ainsi de suite.
+
+39
+00:02:50,440 --> 00:02:56,980
+Donc nous faisons ça m fois puis nous divisons
+ le résultat par m et de même pour b, OK ?
+
+40
+00:02:56,980 --> 00:03:03,370
+db est initialisé à 0 et db += dz1
+
+41
+00:03:03,370 --> 00:03:09,120
+db += dz2 jusqu'à dzm
+
+42
+00:03:09,120 --> 00:03:16,835
+puis db /=m. Voilà donc ce que nous avions
+ dans l’implémentation précédente.
+
+43
+00:03:16,835 --> 00:03:18,700
+Nous nous nous sommes déjà
+ débarrassés d’une boucle for,
+
+44
+00:03:18,700 --> 00:03:25,045
+au moins, maintenant dw est un vecteur, 
+et nous allons mettre à jour séparément dw1,
+
+45
+00:03:25,045 --> 00:03:26,850
+dw2 et ainsi de suite.
+
+46
+00:03:26,850 --> 00:03:29,860
+Donc, nous nous sommes déjà débarrassés
+ de cela, mais nous avons encore
+
+47
+00:03:29,860 --> 00:03:33,630
+la boucle for sur les m exemples 
+du set d'apprentissage.
+
+48
+00:03:33,630 --> 00:03:36,290
+Alors, prenons ces opérations et vectorisons les.
+
+49
+00:03:36,290 --> 00:03:38,380
+Voici ce que nous pouvons faire.
+
+50
+00:03:38,380 --> 00:03:42,745
+Pour l'implémentation vectorisée de db, 
+ce qu'on faisait est simplement la somme
+
+51
+00:03:42,745 --> 00:03:47,940
+de tous ces dz et on divisait ensuite par m.
+
+52
+00:03:47,940 --> 00:03:51,580
+Donc db vaut fondamentalement
+
+53
+00:03:51,580 --> 00:03:56,530
+1/m fois la somme pour i de 1 à m des dzi
+
+54
+00:03:56,530 --> 00:04:03,055
+Et tous les dz sont dans ce vecteur ligne
+ et donc en Python,
+
+55
+00:04:03,055 --> 00:04:04,765
+ce que vous faites est d'implémenter
+
+56
+00:04:04,765 --> 00:04:08,155
+1/m fois np.sum(dZ)
+
+57
+00:04:08,155 --> 00:04:12,210
+db = 1/m np.sum(dZ)
+
+58
+00:04:12,210 --> 00:04:15,115
+On prend juste cette variable 
+et on appelle la fonction
+
+59
+00:04:15,115 --> 00:04:19,195
+np.sum dessus et ça vous donne db.
+
+60
+00:04:19,195 --> 00:04:22,330
+Et pour dW ? Je vais juste écrire
+
+61
+00:04:22,330 --> 00:04:26,375
+l'équation correcte, vous pourrez vérifier 
+que c'est la bonne chose à faire.
+
+62
+00:04:26,375 --> 00:04:28,164
+Et dW vaut 1 sur m fois
+
+63
+00:04:28,164 --> 00:04:34,485
+la matrice X fois la transposée de dZ.
+
+64
+00:04:34,485 --> 00:04:37,990
+Et, pour voir un peu pourquoi c’est le cas,
+
+65
+00:04:37,990 --> 00:04:41,806
+c'est égal à 1/m puis la matrice X,
+
+66
+00:04:41,806 --> 00:04:48,325
+x1 jusqu'à xm empilés en colonnes comme ça et
+
+67
+00:04:48,325 --> 00:04:56,040
+transposée de dZ va être dz1
+ jusqu'à dzm comme ceci.
+
+68
+00:04:56,040 --> 00:05:00,900
+Et donc, si vous calculez ce que vaut
+ cette matrice fois ce vecteur,
+
+69
+00:05:00,900 --> 00:05:05,585
+vous trouvez qu'elle vaut
+
+70
+00:05:05,585 --> 00:05:12,523
+1/m * [x1*dz1+...+xm*dzm]
+
+71
+00:05:12,523 --> 00:05:21,405
+Et ceci est un vecteur de n par 1
+ et c’est le résultat que vous obtenez
+
+72
+00:05:21,405 --> 00:05:24,725
+pour dW parce que dW prenait
+
+73
+00:05:24,725 --> 00:05:27,710
+les xi*dzi et les additionnait et
+ c’est exactement
+
+74
+00:05:27,710 --> 00:05:32,300
+ce que fait cette multiplication
+ d'une matrice par un vecteur,
+
+75
+00:05:32,300 --> 00:05:35,655
+Donc, de nouveau, avec une ligne de code, 
+vous pouvez calculer dW.
+
+76
+00:05:35,655 --> 00:05:40,010
+Ainsi, l'implémentation vectorisée 
+des calculs dérivés est juste cela,
+
+77
+00:05:40,010 --> 00:05:44,540
+vous utilisez cette ligne
+ pour implémenter db et
+
+78
+00:05:44,540 --> 00:05:50,540
+cette ligne pour implémenter dW
+ et notez que, sans aucune boucle for
+ sur le set d'apprentissage,
+
+79
+00:05:50,540 --> 00:05:55,265
+vous pouvez maintenant calculer les mises à jour
+ que vous voulez de vos paramètres.
+
+80
+00:05:55,265 --> 00:06:01,185
+Alors maintenant, nous allons tout mettre 
+ensemble pour voir comment on implémente
+ efficacement la régression logistique.
+
+81
+00:06:01,185 --> 00:06:02,550
+Voici donc notre implémentation
+
+82
+00:06:02,550 --> 00:06:07,866
+d'origine, non vectorisée et très inefficace.
+
+83
+00:06:07,866 --> 00:06:11,775
+La première chose que nous avons faite
+ dans la vidéo précédente a été de 
+se débarrasser de cette boucle for.
+
+84
+00:06:11,775 --> 00:06:14,400
+Ainsi, au lieu d’une boucle sur dw1,
+
+85
+00:06:14,400 --> 00:06:15,755
+dw2 et ainsi de suite,
+
+86
+00:06:15,755 --> 00:06:23,595
+Nous avons remplacé cela par un vecteur dW,
+ donc on a dW += X(i),
+
+87
+00:06:23,595 --> 00:06:28,775
+qui est maintenant un vecteur, fois dz(i).
+
+88
+00:06:28,775 --> 00:06:32,000
+Mais maintenant, nous avons vu que, 
+en plus de la boucle du bas,
+
+89
+00:06:32,000 --> 00:06:36,670
+nous pouvons également 
+nous débarrasser de cette boucle for.
+
+90
+00:06:36,670 --> 00:06:38,654
+Voici comment le faire.
+
+91
+00:06:38,654 --> 00:06:42,925
+Ainsi, en utilisant ce que nous avons vu
+dans les diapositives précédentes,
+
+92
+00:06:42,925 --> 00:06:46,085
+c'est-à-dire
+
+93
+00:06:46,085 --> 00:06:57,625
+Z = W.t * X + b 
+et le code vous écrivez est
+
+94
+00:06:57,625 --> 00:07:07,315
+Z = np.dot(W.T, X) +b,
+ puis A = sigmoid(Z)
+
+95
+00:07:07,315 --> 00:07:12,710
+Donc, vous avez maintenant calculé tout cela
+ pour toutes les valeurs de i.
+
+96
+00:07:12,710 --> 00:07:14,715
+Ensuite, dans la diapositive précédente,
+
+97
+00:07:14,715 --> 00:07:21,070
+nous avons dit qu'on calcule dZ égal à A - Y.
+
+98
+00:07:21,070 --> 00:07:24,460
+Donc, maintenant vous avez calculé tout cela
+ pour toutes les valeurs de i.
+
+99
+00:07:24,460 --> 00:07:31,495
+Puis, enfin dw est égal à 1/m * X * dZ.T
+
+100
+00:07:31,495 --> 00:07:39,700
+et db vaut 1/m * np.sum(dZ)
+
+101
+00:07:39,700 --> 00:07:43,328
+db = 1/m np.sum(dZ)
+
+102
+00:07:43,328 --> 00:07:49,120
+Donc, vous venez de faire la propagation 
+vers l'avant et la rétro propagation,
+
+103
+00:07:49,120 --> 00:07:53,030
+c'est à dire le calcul des prédictions
+ et des dérivées
+
+104
+00:07:53,030 --> 00:07:57,340
+sur tous les m exemples d'apprentissage
+ sans utiliser de boucle for.
+
+105
+00:07:57,340 --> 00:08:00,835
+Et ainsi la mise à jour de
+ la descente de gradient sera alors
+
+106
+00:08:00,835 --> 00:08:04,462
+W est remplacé par 
+W moins le taux d'apprentissage fois dW
+
+107
+00:08:04,462 --> 00:08:12,020
+dW a été calculé juste au-dessus et
+ b est mis à jour comme 
+b moins le taux d’apprentissage fois db.
+
+108
+00:08:12,020 --> 00:08:17,341
+Parfois, on met des double points 
+pour noter une assignation
+
+109
+00:08:17,341 --> 00:08:21,675
+mais je suppose que je n’ai pas été 
+totalement conforme à cette notation.
+
+110
+00:08:21,675 --> 00:08:25,450
+Mais avec cela, vous venez d'implémenter
+
+111
+00:08:25,450 --> 00:08:29,635
+une itération unique de descente de gradient
+ pour la régression logistique.
+
+112
+00:08:29,635 --> 00:08:32,308
+Maintenant, je sais que j’ai dit que
+ nous devrions nous débarrasser
+
+113
+00:08:32,308 --> 00:08:35,260
+des boucles for explicites à chaque fois que
+ vous le pouvez, mais si vous voulez
+
+114
+00:08:35,260 --> 00:08:38,230
+implémenter plusieurs itérations de
+
+115
+00:08:38,230 --> 00:08:42,880
+descente de gradient, il vous faut quand même
+ une boucle for sur le nombre d’itérations.
+
+116
+00:08:42,880 --> 00:08:47,860
+Donc, si vous voulez avoir un millier
+ d'itérations de descente de gradient,
+
+117
+00:08:47,860 --> 00:08:53,675
+vous avez encore besoin d'une boucle for
+ sur le nombre d’itération.
+
+118
+00:08:53,675 --> 00:08:55,870
+Une boucle for qui englobe
+ tout le reste comme ça.
+
+119
+00:08:55,870 --> 00:08:59,210
+Je ne pense pas qu’il y ait un moyen 
+de se débarrasser de cette boucle for.
+
+120
+00:08:59,210 --> 00:09:02,390
+Mais je pense que c’est incroyablement cool
+ que vous puissiez implémenter
+
+121
+00:09:02,390 --> 00:09:07,117
+au moins une itération de descente de gradient 
+sans avoir besoin d’utiliser une boucle for.
+
+122
+00:09:07,117 --> 00:09:09,880
+Donc voilà, vous avez 
+maintenant une implémentation
+
+123
+00:09:09,880 --> 00:09:14,745
+très vectorisée et très efficace de descente de
+ gradient pour la régression logistique.
+
+124
+00:09:14,745 --> 00:09:18,850
+Il y a juste encore un détail dont
+ je veux parler dans la vidéo suivante,
+
+125
+00:09:18,850 --> 00:09:24,155
+qui est dans notre description ici
+ j’ai brièvement fait allusion à 
+cette technique de broadcasting.
+
+126
+00:09:24,155 --> 00:09:28,240
+Le broadcasting est
+ une technique que Python et numpy
+
+127
+00:09:28,240 --> 00:09:32,915
+vous permettent d’utiliser pour améliorer
+ l'efficacité de certaines parties de votre code.
+
+128
+00:09:32,915 --> 00:09:37,000
+Donc, nous allons voir plus de détails 
+sur le broadcasting dans la prochaine vidéo.

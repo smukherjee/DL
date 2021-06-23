@@ -1,0 +1,67 @@
+Nous avons vu comment la vectorisation 
+vous permet d’accélérer votre code
+ de manière significative. Dans cette vidéo, nous allons parler de
+ comment vous pouvez vectoriser l'implémentation de la régression logistique, pour pouvoir traiter 
+un ensemble d'apprentissage complet, c'est à dire implémenter une unique 
+itération de descente de gradient pour un ensemble d'apprentissage entier
+ sans utiliser une seule boucle FOR explicite. Je suis très enthousiasmé
+ par cette technique, et lorsque nous parlerons de
+ réseaux de neurones plus tard nous n'utiliserons aucune boucle FOR explicite. Allons-y. Examinons d’abord l'étape de 
+ propagation directe de la régression logistique. Donc, si vous avez m exemples d'apprentissage, pour faire une prédiction
+ sur le premier exemple, vous devez calculer ceci, calculer z, 
+en utilisant cette formule familière, puis calculer les activations, vous calculez ŷ pour le premier exemple. Puis pour faire une prédiction sur
+ le deuxième exemple d'apprentissage, vous devez calculer ceci. Puis, pour faire une prédiction 
+sur le troisième exemple, vous devez calculer ça et ainsi de suite. Et vous devez faire ça m fois, si vous avez m exemples d'apprentissage. Donc, il s’avère que pour réaliser 
+l'étape de la propagation directe, c’est-à-dire pour calculer ces prédictions 
+sur nos m exemples d'apprentissage, il existe un moyen de le faire sans avoir besoin d’une boucle FOR explicite. Nous allons voir comment
+ vous pouvez faire ça. Tout d’abord, rappelez vous que nous
+ avons défini une matrice grand X
+ constituant vos entrées d'apprentissage rangées en colonnes comme ceci. C’est donc une matrice, c’est une matrice nx par m. Alors, j’ai écrit ceci comme
+ une "shape" en Python numpy, Cela signifie simplement que X est
+ une matrice de dimensions nx par m Je veux premièrement vous montrer 
+comment vous pouvez calculer z1, z2, z3 et ainsi de suite, en une seule étape, en fait, avec une seule ligne de code. Donc, je vais construire une matrice 1 par m, c’est-à-dire un vecteur
+ simple, dans laquelle je vais calculer z1, z2 et ainsi de suite, jusqu'à zm, tous en même temps. Il s’avère que ceci peut s'écrire Transposée de w fois la matrice grand X 
+plus ce vecteur [b, b, ..., b] [b, b, ..., b] et ainsi de suite... b b où ceci, ce vecteur [b, b, ..., b] est un vecteur 1 par m, ou une matrice 1 par m, ou 
+un vecteur ligne de dimension m. Donc si vous êtes à l'aise avec 
+la multiplication de matrices, vous pouvez voir que W transpose x1, x2 et ainsi de suite jusqu'à xm, que la transposée de W peut
+ être un vecteur ligne. Donc la transposée de W sera 
+un vecteur ligne comme ça. Et donc ce premier terme sera égal
+ à W transpose fois x1, W transpose fois x2, et ainsi de suite, 
+trois petits points, W transpose fois xm, 
+puis lorsque vous ajoutez ce second terme b, b, b et ainsi de suite vous vous retrouvez à
+ ajouter b à chaque élément. Si vous vous retrouvez avec
+ un autre vecteur 1 par m, avec ceci comme premier élément, ceci comme deuxième élément,
+ et ainsi de suite et ceci est le m-ième élément. Et si vous vous référez
+ aux définitions ci-dessus, ce premier élément est exactement
+ la définition de z1, le deuxième élément est exactement 
+la définition de z2 et ainsi de suite. De la même façon que X était
+ ce que vous obteniez lorsque vous avez pris 
+vos exemples d'apprentissage et et les avez empilés l'un près de l'autre, 
+empilés horizontalement, Je vais définir grand Z égal à ceci, où vous prenez tous les z minuscules 
+et les empilez horizontalement. Donc, quand vous juxtaposez les x correspondant
+ aux différents exemples d'apprentissage, vous obtenez cette variable grand X et de la même manière, lorsque vous prenez
+ ces variables z minuscule, et que vous les empilez horizontalement, vous obtenez cette variable grand Z. Et il s’avère que pour implémenter ça, la commande numpy est
+ grand Z égal à np.dot(w.T,X) c'est la transposée w de X, puis + b Maintenant, il y a une subtilité en Python, qui est que ici, b est un nombre réel ou,
+ si vous voulez, une matrice 1 x 1, c'est juste un nombre réel normal. Mais, lorsque vous ajoutez
+ ce vecteur à ce nombre réel, Python prend automatiquement ce nombre réel b
+ et l'étend  pour en faire ce vecteur de 1 par m. Si cette opération vous semble 
+un peu mystérieuse, cela s'appelle le "broadcasting" en Python, et il ne faut pas
+ vous en inquiéter pour l’instant, nous allons en parler un peu plus 
+dans la prochaine vidéo. Mais ce qu'il faut retenir est qu’avec une seule 
+ligne de code, avec cette ligne de code, vous pouvez calculer grand Z et grand Z sera une matrice 1 par m qui contiendra 
+tous les z minuscule. De petit z1 jusqu'à petit zm. Donc voilà pour z, 
+qu'en est il de ces valeurs a ? Ce que nous allons faire ensuite, est de trouver un moyen de calculer a1, a2 et ainsi de suite jusqu'à am, tous en même temps, et, de même qu'en juxtaposant
+les x minuscules, on a obtenu grand X et 
+grand Z en empilant horizontalement les petits z, l'empilement des a minuscules, va nous donner une nouvelle variable, que nous allons définir comme grand A. Dans l'exercice de programmation, vous voyez comment implémenter une 
+fonction sigmoïde à partir d'un vecteur, pour que la fonction sigmoïde prenne comme variable d'entrée ce grand Z et
+ calcule très efficacement la sortie grand A. Donc, vous verrez les détails de cela
+ dans l’exercice de programmation. Donc juste pour résumer, ce que nous avons vu sur cette diapositive 
+est qu’au lieu de devoir boucler sur m exemples d'apprentissage pour
+ calculer z minuscule et a minuscule, un par un, vous pouvez implémenter
+ cette seule ligne de code, pour calculer tous les z en même temps. Et puis, cette ligne de code, avec l’implémentation appropriée de sigma minuscule pour calculer tous 
+les a minuscules en même temps. Donc, voilà comment implémenter une implémentation vectorisée de la propagation directe pour tous les m exemples
+ d'apprentissage en même temps. Donc pour résumer, vous venez de voir 
+comment vous pouvez utiliser la vectorisation pour calculer très 
+efficacement toutes les activations, tous les a minuscules en même temps. Ensuite, il s’avère, vous pouvez également
+ utiliser la vectorisation pour calculer efficacement la propagation inverse, pour calculer les gradients. Nous allons voir comment vous pouvez 
+faire ça dans la prochaine vidéo.

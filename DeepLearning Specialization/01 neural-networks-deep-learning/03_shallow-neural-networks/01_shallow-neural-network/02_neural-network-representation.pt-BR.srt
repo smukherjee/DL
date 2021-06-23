@@ -1,0 +1,433 @@
+1
+00:00:00,000 --> 00:00:03,116
+Vocês me veem 
+desenhando algumas redes neurais.
+
+2
+00:00:03,116 --> 00:00:05,712
+Neste vídeo, falaremos sobre o que 
+exatamente significam tais desenhos.
+
+3
+00:00:05,712 --> 00:00:06,728
+Em outras palavras,
+
+4
+00:00:06,728 --> 00:00:11,235
+o que exatamente essas redes neurais 
+que temos desenhado representam.
+
+5
+00:00:11,235 --> 00:00:15,014
+E, começaremos focando no caso 
+das redes neurais com
+
+6
+00:00:15,014 --> 00:00:17,290
+o que foi chamado uma 
+única camada oculta.
+
+7
+00:00:17,290 --> 00:00:19,667
+Este é um desenho de uma rede neural.
+
+8
+00:00:19,667 --> 00:00:22,986
+Vamos nomear as diferentes 
+partes destas figuras.
+
+9
+00:00:22,986 --> 00:00:27,447
+Temos as características de entrada, x₁,
+ x₂, x₃ empilhadas verticalmente.
+
+10
+00:00:27,447 --> 00:00:30,694
+E, isso é chamado de camada de 
+entrada da rede neural.
+
+11
+00:00:30,694 --> 00:00:35,764
+Talvez não surpreendentemente, ela contenha 
+as entradas para a rede neural.
+
+12
+00:00:35,764 --> 00:00:37,990
+Então, há uma outra camada de círculos.
+
+13
+00:00:37,990 --> 00:00:41,663
+E, esta é chamada de 'camada 
+oculta' da rede neural.
+
+14
+00:00:41,663 --> 00:00:45,414
+Eu voltarei em um segundo para dizer 
+o que a palavra 'oculta' significa.
+
+15
+00:00:45,414 --> 00:00:49,509
+Mas a camada final aqui é formada, 
+neste caso, por apenas um nó.
+
+16
+00:00:49,509 --> 00:00:53,894
+E essa camada de nó único é chamada de 
+camada de saída, e é responsável pela
+
+17
+00:00:53,894 --> 00:00:56,059
+geração do valor previsto ŷ.
+
+18
+00:00:56,059 --> 00:00:59,932
+Numa rede neural sendo treinada via
+ aprendizado supervisionado,
+
+19
+00:00:59,932 --> 00:01:05,237
+o conjunto de treinamento contém 
+valores das entradas de x, bem como 
+as saídas esperadas em y.
+
+20
+00:01:05,237 --> 00:01:09,239
+Então, o termo camada oculta refere-se ao 
+fato que na formação do conjunto,
+
+21
+00:01:09,239 --> 00:01:12,702
+os valores verdadeiros para estes nós no 
+meio não são observados.
+
+22
+00:01:12,702 --> 00:01:15,185
+Isto é, você não vê o que eles deveriam ser no 
+conjunto de treinamento.
+
+23
+00:01:15,185 --> 00:01:16,640
+Você vê quais são as entradas.
+
+24
+00:01:16,640 --> 00:01:18,094
+Você vê o que a saída deveria ser.
+
+25
+00:01:18,094 --> 00:01:20,992
+Mas as coisas na camada oculta não são
+ vistas no conjunto de treinamento.
+
+26
+00:01:20,992 --> 00:01:25,542
+Então, isso explica o nome camada oculta 
+ porque você
+
+27
+00:01:25,542 --> 00:01:28,088
+não a vê no conjunto de treinamento.
+
+28
+00:01:28,088 --> 00:01:30,262
+Vamos apresentar um pouco mais de notação.
+
+29
+00:01:30,262 --> 00:01:35,542
+Anteriormente, estávamos usando o vetor X 
+para designar as características de entrada e
+
+30
+00:01:35,542 --> 00:01:37,226
+uma notação alternativa para
+
+31
+00:01:37,226 --> 00:01:41,987
+os valores das características de entrada seria
+a sobrescrito [0].
+
+32
+00:01:41,987 --> 00:01:44,934
+E o termo 'a' também quer dizer 
+ativações, e
+
+33
+00:01:44,934 --> 00:01:47,733
+refere-se aos valores que 
+diferentes camadas
+
+34
+00:01:47,733 --> 00:01:51,651
+da rede neural estão passando 
+para as camadas subsequentes.
+
+35
+00:01:51,651 --> 00:01:55,998
+Portanto, a camada de entrada passa o
+ valor x para a camada oculta, então
+
+36
+00:01:55,998 --> 00:02:01,110
+chamaremos isso de ativações da 
+camada de entrada 'a' sobrescrito [0].
+
+37
+00:02:01,110 --> 00:02:05,990
+A próxima camada, a camada oculta por sua 
+vez irá gerar um conjunto de ativações,
+
+38
+00:02:05,990 --> 00:02:09,601
+que escreverei como 
+'a' sobrescrito [1].
+
+39
+00:02:09,601 --> 00:02:13,306
+Então, particularmente, nesta primeira 
+unidade ou neste primeiro nó,
+
+40
+00:02:13,306 --> 00:02:17,824
+geramos um valor 'a' sobrescrito 
+[1] subscrito 1.
+
+41
+00:02:17,824 --> 00:02:20,735
+Neste segundo geramos um valor,
+
+42
+00:02:20,735 --> 00:02:23,311
+Agora no subscrito 2 e 
+assim por diante.
+
+43
+00:02:23,311 --> 00:02:26,488
+E então, 'a' sobrescrito [1],
+
+44
+00:02:26,488 --> 00:02:30,120
+é um vetor de quatro dimensões, 
+ou se você preferir, em
+
+45
+00:02:30,120 --> 00:02:34,707
+Python uma matriz 4 x 1, vetor coluna, 
+que se parece com isto.
+
+46
+00:02:34,707 --> 00:02:39,205
+E tem quatro dimensões, porque neste caso 
+temos quatro nós, ou
+
+47
+00:02:39,205 --> 00:02:42,684
+quatro unidades ou quatro unidades
+ ocultas nesta camada oculta.
+
+48
+00:02:42,684 --> 00:02:46,302
+E então, finalmente, a camada de saída
+, a qual gera algum valor a[2],
+
+49
+00:02:46,302 --> 00:02:47,948
+o que é apenas um número real.
+
+50
+00:02:47,948 --> 00:02:51,658
+E então ŷ receberá o valor de A[2].
+
+51
+00:02:51,658 --> 00:02:55,885
+Então, isto é, tal como usamos na 
+regressão logística, temos ŷ = a
+
+52
+00:02:55,885 --> 00:03:00,349
+e, na regressão logística só tínhamos
+ aquela única camada de saída, portanto,
+
+53
+00:03:00,349 --> 00:03:03,583
+não usamos colchetes nos sobrescritos.
+
+54
+00:03:03,583 --> 00:03:07,916
+Mas com a nossa rede neural, agora 
+usaremos o colchete sobrescrito
+
+55
+00:03:07,916 --> 00:03:11,653
+para indicar explicitamente de 
+qual camada ele é.
+
+56
+00:03:11,653 --> 00:03:15,468
+Uma coisa engraçada sobre convenções
+ das notações em redes neurais
+
+57
+00:03:15,468 --> 00:03:20,194
+é que esta rede que você viu aqui chama-se 
+rede neural de duas camadas.
+
+58
+00:03:20,194 --> 00:03:23,541
+Explico: é que quando contamos camadas 
+em redes neurais,
+
+59
+00:03:23,541 --> 00:03:25,321
+não contamos a camada de entrada.
+
+60
+00:03:25,321 --> 00:03:28,858
+Então a camada oculta é a camada um e a 
+camada de saída é a camada 2.
+
+61
+00:03:28,858 --> 00:03:32,661
+Na nossa convenção notacional, 
+chamamos a camada de entrada de camada zero, portanto
+
+62
+00:03:32,661 --> 00:03:35,887
+talvez tecnicamente hajam três camadas 
+nesta rede neural,
+
+63
+00:03:35,887 --> 00:03:39,649
+porque existe a camada de entrada, a 
+camada oculta e a camada de saída.
+
+64
+00:03:39,649 --> 00:03:43,357
+Mas no uso convencional, se você ler artigos
+ de pesquisas e em outros lugares neste
+
+65
+00:03:43,357 --> 00:03:47,489
+curso, você verá as pessoas se referirem
+ a esta rede neural específica 
+como uma rede neural de
+
+66
+00:03:47,489 --> 00:03:51,602
+duas camadas, porque não contamos 
+a camada de entrada como 
+uma camada oficial.
+
+67
+00:03:51,602 --> 00:03:55,912
+Finalmente, algo que veremos mais tarde, 
+é que a camada oculta e
+
+68
+00:03:55,912 --> 00:03:59,670
+as camadas de saída terão 
+parâmetros associados a elas.
+
+69
+00:03:59,670 --> 00:04:03,447
+Então a camada oculta terá os parâmetros w e b
+associados a ela.
+
+70
+00:04:03,447 --> 00:04:08,218
+E escreverei sobrescritos [1] 
+para indicar que estes
+
+71
+00:04:08,218 --> 00:04:12,395
+são parâmetros associados à camada um,
+ ou seja, associados à camada oculta um.
+
+72
+00:04:12,395 --> 00:04:15,416
+Veremos mais tarde que w será uma 
+matriz 4 por 3 e
+
+73
+00:04:15,416 --> 00:04:18,016
+b será um vetor de 4 por 1 neste exemplo,
+
+74
+00:04:18,016 --> 00:04:21,754
+onde a primeira coordenada quatro vem 
+do fato de que temos
+
+75
+00:04:21,754 --> 00:04:24,503
+quatro nós ou quatro unidades ocultas e 
+uma camada, e
+
+76
+00:04:24,503 --> 00:04:28,120
+três vem do fato de que temos 
+três características de entrada.
+
+77
+00:04:28,120 --> 00:04:31,980
+Falaremos mais tarde sobre as 
+dimensões destas matrizes,
+
+78
+00:04:31,980 --> 00:04:33,844
+quando acho que então isso fará mais sentido.
+
+79
+00:04:33,844 --> 00:04:37,813
+Mas em algumas das camadas de saída, 
+como associados a ela, 
+também parâmetros
+
+80
+00:04:37,813 --> 00:04:41,663
+w sobrescrito [2] e b sobrescrito[2].
+
+81
+00:04:41,663 --> 00:04:45,747
+E acontece que as dimensões destes 
+são 1 por 4 e 1 por 1.
+
+82
+00:04:45,747 --> 00:04:49,297
+E esse 1 por 4 é porque a camada oculta 
+possui quatro unidades ocultas,
+
+83
+00:04:49,297 --> 00:04:51,177
+a camada de saída tem apenas 
+uma unidade.
+
+84
+00:04:51,177 --> 00:04:56,378
+Mas nós veremos a dimensão dessas 
+matrizes e vetores num vídeo mais adiante.
+
+85
+00:04:56,378 --> 00:04:59,839
+Então você viu o que uma rede neural de
+duas camadas parece.
+
+86
+00:04:59,839 --> 00:05:03,108
+Esta é uma rede neural de 
+uma camada oculta.
+
+87
+00:05:03,108 --> 00:05:04,260
+No próximo vídeo,
+
+88
+00:05:04,260 --> 00:05:08,513
+aprofundaremos exatamente no que 
+esta rede neural está calculando.
+
+89
+00:05:08,513 --> 00:05:11,223
+Isto é, como esta rede 
+neural entra com o x e
+
+90
+00:05:11,223 --> 00:05:14,169
+vai calculando até chegar na saída ŷ.

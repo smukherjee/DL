@@ -1,0 +1,275 @@
+1
+00:00:00,000 --> 00:00:02,070
+Con todo lo que han aprendido ya están listos para
+
+2
+00:00:02,070 --> 00:00:04,745
+encarar la primera tarea de programación.
+
+3
+00:00:04,745 --> 00:00:10,130
+Antes de hacerlo, haremos un breve recorrido por los Notebooks iPython en Coursera.
+
+4
+00:00:10,130 --> 00:00:14,545
+Éste es el Notebook iPython de Jupyter al que puedes acceder en Coursera.
+
+5
+00:00:14,545 --> 00:00:17,520
+Te mostraré rápidamente algunas de sus características.
+
+6
+00:00:17,520 --> 00:00:21,885
+Las instrucciones están escritas aquí en el texto del iPython Notebook.
+
+7
+00:00:21,885 --> 00:00:25,460
+Y estos bloques grises grandes son bloques de código.
+
+8
+00:00:25,460 --> 00:00:27,030
+Ocasionalmente verán
+
+9
+00:00:27,030 --> 00:00:29,255
+estos bloques que dicen: START CODE HERE y END CODE HERE.
+
+10
+00:00:29,255 --> 00:00:31,860
+Para hacer el ejercicio por favor asegúrate
+
+11
+00:00:31,860 --> 00:00:36,755
+de escribir el código entre START CODE HERE y END CODE HERE.
+
+12
+00:00:36,755 --> 00:00:41,485
+Por ejemplo, print Hello world
+
+13
+00:00:41,485 --> 00:00:44,085
+y luego para ejecutar el bloque de código
+
+14
+00:00:44,085 --> 00:00:49,355
+se puede presionar shift+enter para ejecutar el bloque.
+
+15
+00:00:49,355 --> 00:00:51,265
+Supongo que simplemente escribimos print Hello world.
+
+16
+00:00:51,265 --> 00:00:53,355
+Y eso da como salida Hello world.
+
+17
+00:00:53,355 --> 00:00:55,140
+Para ejecutar una celda,
+
+18
+00:00:55,140 --> 00:00:56,940
+además, para ejecutar uno de estos bloques de código,
+
+19
+00:00:56,940 --> 00:01:01,200
+se puede hacer click en la celda y después en run cell. Con eso ejecutamos esto.
+
+20
+00:01:01,200 --> 00:01:05,275
+Es posible que en algunas computadoras
+
+21
+00:01:05,275 --> 00:01:07,364
+el atajo de teclado para Cell
+
+22
+00:01:07,364 --> 00:01:09,105
+o Run Cell sea diferente que shift+enter.
+
+23
+00:01:09,105 --> 00:01:14,070
+En Mac y en mi PC es shift+enter,
+
+24
+00:01:14,070 --> 00:01:16,550
+así debería ser para ti también.
+
+25
+00:01:16,550 --> 00:01:18,480
+Ahora, cuando lees las instrucciones,
+
+26
+00:01:18,480 --> 00:01:20,960
+Si accidentalmente hace doble clic en ellas,
+
+27
+00:01:20,960 --> 00:01:24,270
+podrías terminar con este lenguaje tipo markdown
+
+28
+00:01:24,270 --> 00:01:26,700
+Si terminas con este texto de aspecto raro,
+
+29
+00:01:26,700 --> 00:01:30,390
+para convertirlo de nuevo al texto de aspecto agradable, solo ejecuta esta celda.
+
+30
+00:01:30,390 --> 00:01:34,740
+Asi que puedes ir a Cell, Run Cell, o en mi caso, presionaré shift+enter y
+
+31
+00:01:34,740 --> 00:01:39,630
+eso básicamente ejecuta el mark down y lo convierte nuevamente al texto de aspecto agradable.
+
+32
+00:01:39,630 --> 00:01:41,565
+Solo un par de consejos más.
+
+33
+00:01:41,565 --> 00:01:43,795
+Cuando ejecutas código como este,
+
+34
+00:01:43,795 --> 00:01:48,333
+realmente se ejecuta en un kernel,
+
+35
+00:01:48,333 --> 00:01:51,947
+en un fragmento de código que se ejecuta en el servidor.
+
+36
+00:01:51,947 --> 00:01:54,900
+Si estas ejecutando un trabajo excesivamente grande o si
+
+37
+00:01:54,900 --> 00:01:59,121
+dejas la computadora por un tiempo muy largo o algo sale mal,
+
+38
+00:01:59,121 --> 00:02:00,505
+como tu conexión a internet o algo así,
+
+39
+00:02:00,505 --> 00:02:03,160
+hay una pequeña posibilidad de que el kernel en el back end muera,
+
+40
+00:02:03,160 --> 00:02:06,690
+en cuyo caso, solo haz click en Kernel y luego en Restart Kernel.
+
+41
+00:02:06,690 --> 00:02:10,415
+Y con suerte, eso reiniciará el kernel y lo hará funcionar de nuevo.
+
+42
+00:02:10,415 --> 00:02:13,080
+Así que esto no debería de suceder si sólo estas ejecutando
+
+43
+00:02:13,080 --> 00:02:16,858
+trabajos relativamente pequeños y sólo estas iniciando el notebook iPython.
+
+44
+00:02:16,858 --> 00:02:19,995
+Si ves un mensaje de error que el kernel ha muerto o algo así,
+
+45
+00:02:19,995 --> 00:02:21,310
+puedes tratar Kernel, Restart.
+
+46
+00:02:21,310 --> 00:02:25,362
+Finalmente, en un notebook iPython
+
+47
+00:02:25,362 --> 00:02:27,845
+como este, puede haber varios bloques de código.
+
+48
+00:02:27,845 --> 00:02:33,255
+Así que, incluso si un bloque de código anterior, no tiene código calificado
+
+49
+00:02:33,255 --> 00:02:35,550
+asegúrate de ejecutar este bloque de código porque,
+
+50
+00:02:35,550 --> 00:02:39,698
+en este ejemplo, importa numpy como np y así sucesivamente
+
+51
+00:02:39,698 --> 00:02:42,360
+e inicializa algunas de las variables que puede que necesites para poder
+
+52
+00:02:42,360 --> 00:02:45,570
+ejecutar los siguientes bloques de código.
+
+53
+00:02:45,570 --> 00:02:50,845
+Así que, asegúrate de ejecutar lo que estan en la parte superior, incluso si no se te pide escribir ningún código en ellos.
+
+54
+00:02:50,845 --> 00:02:53,705
+Y finalmente, cuando termines de implementar tus soluciones,
+
+55
+00:02:53,705 --> 00:02:57,920
+está este botón azul de enviar asignación en la parte superior derecha, al cual
+
+56
+00:02:57,920 --> 00:03:02,130
+daremos click para enviar tus soluciones y que sean calificadas.
+
+57
+00:03:02,130 --> 00:03:05,520
+Pienso que la naturaleza interactiva de la línea de comandos
+
+58
+00:03:05,520 --> 00:03:09,008
+de los notebooks iPython es muy útil para aprender rápidamente,
+
+59
+00:03:09,008 --> 00:03:10,520
+implementar unas cuantas lineas de código,
+
+60
+00:03:10,520 --> 00:03:13,450
+observar un resultado e iterar rápidamente.
+
+61
+00:03:13,450 --> 00:03:17,430
+Y de este modo, espero que de los ejercicios de programación en Coursera,
+
+62
+00:03:17,430 --> 00:03:20,775
+en los notebooks de Jupyter iPython te ayuden a aprender de forma mas rápida
+
+63
+00:03:20,775 --> 00:03:24,535
+y experimentar y observar como implementar estos algoritmos de aprendizaje.
+
+64
+00:03:24,535 --> 00:03:26,325
+Hay un video adicional después de este.
+
+65
+00:03:26,325 --> 00:03:28,695
+Este es un video adicional que habla sobre
+
+66
+00:03:28,695 --> 00:03:32,210
+la función de costo para regresión logística. Puedes verlo o no.
+
+67
+00:03:32,210 --> 00:03:33,745
+De cualquier manera está perfectamente bien.
+
+68
+00:03:33,745 --> 00:03:38,140
+Pero de cualquier manera, mucha suerte en las tareas de programación de la semana 2.
+
+69
+00:03:38,140 --> 00:03:42,720
+Y también espero verte al comienzo de la semana 3.

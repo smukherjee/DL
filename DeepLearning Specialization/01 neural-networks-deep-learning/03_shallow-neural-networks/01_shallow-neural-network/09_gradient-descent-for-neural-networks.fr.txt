@@ -1,0 +1,79 @@
+Je pense que cette vidéo 
+va être très intéressante. Dans cette vidéo, vous allez voir 
+comment implémenter la descente de gradient pour un réseau 
+de neurones avec une couche cachée. Dans cette vidéo, je vais juste vous
+ donner les équations nécessaires pour implémenter la rétro propagation,
+ c'est à dire pour faire fonctionner
+ une descente de gradient. Puis dans la vidéo suivante, Je vais vous donner une compréhension 
+plus intuitive de pourquoi ces équations sont en effet 
+les bonnes équations pour calculer les gradients nécessaires
+ pour votre réseau de neurones. Bien, votre réseau de neurones, avec une seule couche cachée pour l’instant, aura les paramètres W[1], b[1], W[2] et b[2]. Ainsi, à titre de rappel, Si vous avez nx, ou autrement n[0] 
+caractéristiques en entrée, et n[1] unités cachées et n[2] unités de sortie dans notre exemple. Jusqu'ici on avait toujours n[2] = 1, alors la matrice W[1] sera 
+de dimensions n[1] par n[0]. b[1] sera un vecteur de dimension n[1], Donc je vais l'écrire comme
+ une matrice de dimensions n[1] par 1, c'est à dire un vecteur colonne. Les dimensions de W[2] seront n[2] par n[1], et les dimensions de b[2] seront n[2] par 1. Jusqu'ici, nous avons toujours eu n[2] = 1, où vous n'avez qu'une seule 
+unité cachée. Vous avez également une fonction
+ de coût pour le réseau de neurones. Pour le moment je suppose que
+ vous faites de la classification binaire. Dans ce cas, le coût de vos paramètres va être 1 sur m fois la moyenne
+ de cette fonction de perte. L ici est la perte quand 
+votre réseau de neurones prédit ŷ, qui est égal à a[2], quand l'étiquette vaut Y. Si vous faites de
+ la classification binaire, la fonction de perte peut être la même 
+que pour la régression logistique. Donc pour entrainer
+ les paramètres de votre algorithme, vous devrez faire une descente de gradient. Lors de l'entraînement
+ d'un réseau de neurones, il est important d’initialiser les poids
+ au hasard, plutôt que tous à zéro. Nous verrons plus tard pourquoi, mais après l'initialisation des paramètres, chaque boucle de descente de gradients 
+va calculer des prédictions. C'est à dire que vous calculez ŷ(i) pour i de 1 à m, et puis vous devez calculer les dérivées. Vous devez calculer dW[1], qui est la dérivée de la fonction de coût 
+par rapport au paramètre W[1]. Vous devez calculer une autre variable, qu'on appellera db[1], la dérivée,
+ ou la pente, de la fonction de coûts par rapport à la valeur b[1] et ainsi de suite. Même chose pour
+ les autres paramètres W[2] et b[2]. Enfin, la mise à jour de la descente 
+de gradient sera de remplacer W[1]par W[1] moins alpha, le taux d'apprentissage, fois dW[1]. b[1] est remplacé par b[1] - le taux 
+d'apprentissage fois db[1] et c'est la même chose pour W[2] et b[2]. Et parfois, j'utilise deux points égal, les deux notations sont biens. Voilà donc une itération 
+de descente de gradient. puis vous répétez ça 
+un certain nombre de fois jusqu'à ce que vos paramètres convergent. Dans une vidéo précédente, nous avons parlé de comment
+ calculer les prédictions, comment calculer les sorties, et nous avons aussi vu 
+comment le faire de façon vectorisée. Donc, la clé est de savoir comment 
+calculer ces termes de dérivées partielles, dW[1], db[1] et les dérivées dW[2] et db[2]. Donc, ce que je voudrais faire, 
+c’est juste vous donner les équations dont vous avez besoin
+ afin de calculer ces dérivés. Je reporte à la vidéo suivante, 
+qui est une vidéo optionnelle, l'explication détaillée de comment 
+nous avons trouvé ces formules. Donc, je voudrais juste résumer à nouveau
+ les équations de propagation vers l'avant. Donc, vous avez Z[1] égal à W[1] * X + b[1], et puis A[1] est égal à la fonction d’activation 
+dans cette couche appliquée à chaque élément de Z[1], et puis Z[2] est égal à W[2]* A[1] + b[2], et puis enfin, tout ça est vectorisé sur
+ tout le set d'apprentissage, A[2] est égal à g[2] de Z[2].
+Encore une fois, pour l’instant, nous supposons que
+ nous faisons de la classification binaire, alors cette fonction d'activation
+ devrait être la fonction sigmoïde, au moins pour ce neurone de sortie. Donc, voilà la propagation vers l’avant,
+ de la gauche vers la droite pour le calcul de votre réseau de neurones. Ensuite, nous allons calculer les dérivées. Donc, c’est l’étape de rétro propagation. Alors je calcule dZ[2], égal à
+ A[2] moins Y, et juste pour rappel, tout cela est vectorisé sur les exemples. Ainsi, la matrice Y est de dimensions 1 par m, elle contient les m exemples 
+empilés horizontalement. On trouve que dW[2] est égal à ceci. Et en fait ces trois premières équations sont très similaires à la descente de gradient 
+pour la régression logistique. axis = 1, virgule, keepdims=true Juste un petit détail, ce np.sum est une commande de Python NumPy pour
+ sommer sur une dimension d'une matrice. Dans ce cas, on va sommer horizontalement et keepdims empêche Python de retourner un de
+ ces bizarres tableaux de rang 1 avec la dimension (n, ). Donc ce keepdims=True nous assure que Python retourne pour db[2] 
+un vecteur de dimension (n,1). En fait, techniquement ça va être (n[2], 1), et dans ce cas,
+ c'est juste un nombre, donc (1, 1), donc ça n'a peut être pas d'importance. Mais plus tard, nous verrons 
+que c’est vraiment important. Jusqu'ici, ce que nous avons fait est 
+très proche d'une régression logistique. Mais pour poursuivre la rétro propagation, vous devez calculer ceci : dZ[1] = (W[2].T*dZ[2]) .* (g[1]'(Z[1]) donc cette quantité g[1] prime est la dérivée de la fonction d'activation
+ de la couche cachée. Pour la couche de sortie, j'ai supposé que vous faisiez une classification
+ binaire avec la fonction sigmoïde, donc la dérivée est déjà inclue 
+dans la formule pour dZ[2]. Rappelez vous bien, ce fois est 
+un produit élément par élément, donc ceci sera une matrice n[1] par m, et ceci cette dérivée élément par élément sera
+ également une matrice n[1] par m, et ce fois ici est la multiplication
+ élément par élément de deux matrices. Enfin, dW[1] est égal à ça, et db[1] est égal à : np.sum( dZ[1], axis=1, keepdims=True) np.sum( dZ[1], axis=1, keepdims=True) Ce keepdims avait avant peu 
+d'importance car n[2] est égal à 1, donc le résultat était une matrice
+ de 1 par 1, un nombre réel. Ici, db[1] sera un vecteur 
+de dimensions n[1] par 1 donc on veut que np.sum retourne quelque chose de cette dimension
+ plutôt qu'un bizarre tableau de rang 1 de cette dimension qui pourrait gêner
+ certains de vos calculs de données. Une autre façon serait de ne pas
+ utiliser le paramètre keepdims, mais d'appeler explicitement reshape 
+sur le résultat de np.sum pour s'assurer que db ait les bonnes dimensions. Donc c'était la propagation vers 
+l'avant en quatre équations, et la rétro propagation en six équations. Je sais que je n'ai fait 
+qu'écrire ces équations, mais dans la prochaine vidéo, optionnelle, nous verrons quelques 
+intuitions de comment on trouve les 6 équations
+ de la rétro propagation. Vous pouvez choisir de la regarder ou pas, mais de toutes façons, 
+si vous implémentez ça, vous aurez une implémentation correcte de la propagation 
+directe et de la rétro propagation et vous pourrez calculer toutes les dérivées pour 
+mettre en place la descente de gradient, et faire apprendre ses paramètres 
+à votre réseau de neurones. Il est possible d'implémenter
+ cet algorithme et de la faire fonctionner sans pour autant 
+comprendre en profondeur les dérivées. Beaucoup de praticiens de
+ l’apprentissage profond le font. Mais, si vous le voulez, regardez la vidéo suivante pour avoir un peu plus d’intuition sur
+ la façon d'obtenir ces équations.

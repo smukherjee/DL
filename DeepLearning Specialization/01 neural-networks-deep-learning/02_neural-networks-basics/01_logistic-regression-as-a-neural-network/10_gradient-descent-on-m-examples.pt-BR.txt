@@ -1,0 +1,89 @@
+No vídeo anterior, você viu
+ como calcular derivadas e implementar o gradiente descendente em relação a
+ apenas um exemplo de treino da regressão logística. Agora, queremos fazê-lo
+ para m exemplos de treino. Para começar, vamos nos lembrar
+ da definição de função de custo J, em função de w, b, 
+que é esta média que te interessa: um sobre m de da somatória de i 
+ iniciando em 1, até m, da perda quando seu algoritmo
+ resulta em a⁽ⁱ⁾ no exemplo y⁽ⁱ⁾, onde a⁽ⁱ⁾ é a previsão sobre o i-ésimo exemplo
+ de treino, que é sigma de z⁽ⁱ⁾, que é igual ao sigma de
+ [(w transposta vezes x⁽ⁱ⁾) + b]. Então, o que mostramos no slide anterior é
+ para qualquer exemplo de treino unitário, de como calcular as derivadas quando
+ você tem apenas um exemplo de treino. Então, 
+dw₁⁽ⁱ⁾, dw₂⁽ⁱ⁾ e db⁽ⁱ⁾, agora, com i sobrescrito,
+ para denotar os valores correspondentes que você obtém
+ se estiver fazendo o que fizemos no slide anterior, mas usando apenas
+ o único exemplo de treino, x⁽ⁱ⁾, y⁽ⁱ⁾, desculpe-me, falta um i aqui também. Então, agora, você nota que a função de
+ custo total, como uma soma, era, na verdade, a média por causa do um sobre o
+ termo m das perdas individuais. Assim, verifica-se
+ que a derivada, em relação a w₁ da função de
+ custo total também vai ser a média das derivadas em relação a w₁
+ dos termos das perdas individuais. Mas, previamente, já mostramos como
+ calcular esse termo, como o dw₁⁽ⁱ⁾, que nós, no slide anterior, mostramos como calcular isso
+ num exemplo de treino único. Então, o que você precisa fazer é,
+ na verdade, calcular essas derivadas como mostramos no exemplo 
+de exercício anterior, suas médias e isso lhe dará o gradiente total, o qual você pode utilizar
+ para implementar o gradiente descendente. Então, eu sei que havia muitos detalhes, mas vamos pegar tudo isso e colocar num algoritmo concreto até quando
+ você puder implementar a regressão logística com
+ gradiente descendente funcionando. Aqui está o que você pode fazer:
+ vamos inicializar j = a zero, dw₁ = a zero, dw₂ = a zero,
+ db = a zero. O que faremos: usaremos um loop
+ sobre o conjunto de treino, calcularemos a derivada em relação a cada
+ exemplo de treino e, depois, adicioná-los-emos. Então, aqui está como faremos:
+ para i igual a um até m, então m é o número de
+ exemplos de treino; calculamos z⁽ⁱ⁾ igual a
+ w transposta vezes x⁽ⁱ⁾ + b. A previsão a⁽ⁱ⁾ é igual a
+ sigma de z⁽ⁱ⁾ e, depois, vamos adicionar J, J+ = -[ y⁽ⁱ⁾ log a⁽ⁱ⁾ + (1 - y⁽ⁱ⁾) log (1 - a⁽ⁱ⁾)] depois, colocamos o sinal de
+ negativo na frente de tudo e, então, como vimos anteriormente, temos 
+dz⁽ⁱ⁾ = a⁽ⁱ⁾ - y⁽ⁱ⁾ e dw fica 
++= x₁⁽ⁱ⁾ dz⁽ⁱ⁾, dw₂ += x₂⁽ⁱ⁾ dz⁽ⁱ⁾ e eu estou fazendo esse cálculo supondo que
+ você tem apenas duas características, a fim de que n seja igual a dois;
+ caso contrário, você faz isso para dw₁, dw₂, dw₃
+ e assim por diante. Em seguida, 
+db += dz⁽ⁱ⁾ e acho que é o fim do loop. Depois, finalmente, tendo feito isso para
+ todos os m exemplos de treino, você ainda precisará dividir por m porque
+ estamos calculando médias. Logo, dw₁ divide igual a m, dw₂ divide igual a m, db divide igual a m, a fim de calcular as médias. Então, com todos esses cálculos, você acabou de calcular as derivadas
+ da função J de custo em relação a cada um de seus parâmetros
+ w₁, w₂ e b. Apenas alguns detalhes sobre
+ o que estamos fazendo: estamos usando dw₁, dw₂ e db como acumuladores, a fim de que, depois desse cálculo, dw₁ seja igual à derivada da função de custo total em relação
+ a w₁ e, da mesma forma, para dw₂ e db. Então, note que dw₁ e dw₂ não
+ têm um i sobrescrito porque estamos usando-os neste código como acumuladores para somar
+ ao longo de todo a série de exercícios. Considerando que, ao contrário, 
+o dz⁽ⁱ⁾ aqui, este foi o dz em relação a apenas
+ um único exemplo de treino. Assim, é por isso que tinha um i sobrescrito
+ para referir-se a um exemplo de treino, o i-ésimo, que é computado. Então, tendo finalizado todos esses cálculos, para implementar um passo
+ de descendente em gradiente, você implementará w₁, que ficará atualizado como w₁ menos
+ a taxa de aprendizagem vezes dw₁, w₂; isso termina como w₂ menos
+ a taxa de aprendizagem vezes dw₂ e b é atualizado como b menos
+ a taxa de aprendizagem vezes db, onde dw₁, dw₂ e db são tal como foram computados. Finalmente, o J aqui também será
+ um valor correto para a sua função de custo. Assim, tudo no slide implementa apenas
+ um único passo de gradiente descendente e, então, você tem que repetir tudo desse slide várias vezes, a fim de realizar vários
+ passos de gradiente descendente. No caso desses detalhes parecerem
+ complicados demais, novamente, não se preocupe demais com isso agora, pois, com certeza, tudo ficará mais claro
+ quando você for implementar isso nos exercícios de programação. Mas acontece que há dois pontos fracos com o cálculo,
+ tal como implementamos aqui; um deles é implementar a regressão logística de modo que você precise escrever dois loops 'for'. O primeiro loop 'for' é esse loop
+ sobre os m exemplos de treino e o segundo loop 'for' é o loop 'for' 
+ sobre todos os elementos aqui. Assim, neste exemplo, tivemos apenas
+ duas características x ; logo, n é igual a dois e x é igual a dois, mas, talvez, nós tenhamos mais elementos, se finalizarmos escrevendo aqui dw₁, dw₂ e seus cálculos semelhantes para dwₜ, e assim por diante, 
+até dwₙ. Então, parece que você precisa ter um loop 'for'
+ sobre as características, sobre todas as n características. Quando você está implementando
+ algoritmos de aprendizagem profunda, você acha que ter
+ loops 'for' explícitos no seu código faz com que seu algoritmo
+ execute com menos eficiência. Então, na era da aprendizagem profunda, mudamos para conjuntos
+ de dados cada vez maiores, então, ser capaz de implementar
+ seus algoritmos sem usar loops 'for' explícitos é, de fato, importante e lhe ajudará
+ a usar conjuntos de dados muito maiores. Então, acontece que há uma série de
+ técnicas chamadas de técnicas de vetorização que permitem que
+ você se livre desses loops 'for' explícitos em seu código. Eu acho que, na época da pré-aprendizagem profunda, isto é, antes da ascensão da aprendizagem profunda, foi legal ter a vetorização, pois você podia, às vezes,
+ agilizar seu código e, às vezes, não. Mas na época da aprendizagem profunda,
+ a vetorização, que é livrar-se dos loops 'for' assim e assim, tornou-se, de fato, muito importante porque estamos, mais e mais,
+ exercitando conjuntos de dados muito grandes e, então, você, na verdade, precisa de
+ seu código para ser muito eficiente. Assim, nos próximos vídeos, nós falaremos sobre
+ a vetorização e como implementar tudo isso sem utilizar
+ nem mesmo um único loop 'for'. Logo, com isso, eu espero que
+ você tenha um senso de como implementar a regressão logística ou
+ o gradiente descendente para a regressão logística. As coisas ficarão mais claras quando
+ você implementar o exercício de programação. Mas, antes de fazer isso, na verdade, vamos, primeiro, falar sobre vetorização,
+ a fim de que possa implementar tudo isso, implementar uma única iteração de gradiente descendente
+sem utilizar quaisquer loops.
+[Tradução: Helena Lucas Rosa | Revisão: Carlos Lage.]

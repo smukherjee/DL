@@ -1,0 +1,602 @@
+1
+00:00:00,028 --> 00:00:04,605
+Derin sinir ağı uygularken sıklıkla kullandığım
+ hata ayıklama araçlarından biri
+
+2
+00:00:04,605 --> 00:00:08,118
+kodun doğruluğunu kontrol etmek 
+için kağıt kalem kullanmak ve
+
+3
+00:00:08,118 --> 00:00:11,727
+çalıştığım matris ve boyutları detaylı incelemektir.
+
+4
+00:00:11,727 --> 00:00:15,895
+O yüzden size bunun nasıl yapılacağını göstereyim,
+ çünkü bunun sizin de daha kolay
+
+5
+00:00:15,895 --> 00:00:18,275
+bir şekilde derin ağlarınızı uygulamanızı 
+sağlayacağını umuyorum.
+
+6
+00:00:18,275 --> 00:00:23,174
+Büyük harfle L eşittir 5, girdi katmanı hariç hızlıca sayarsak
+
+7
+00:00:23,174 --> 00:00:27,390
+burada 5 katman var: 
+dört saklı katman ve bir çıktı katmanı.
+
+8
+00:00:27,390 --> 00:00:34,878
+Ve dolayısıyla ileri yayılım uygularsanız,
+
+9
+00:00:34,878 --> 00:00:41,408
+ilk adım z1 = w1x + b1 olacaktır.
+
+10
+00:00:41,408 --> 00:00:48,144
+Ek girdi terimleri b'yi şimdilik göz ardı edelim
+ve w parametrelerine yoğunlaşalım.
+
+11
+00:00:48,144 --> 00:00:54,501
+Şimdi bu ilk saklı katmanın üç saklı birimi var,
+ yani bu
+
+12
+00:00:54,501 --> 00:00:59,517
+katman 0, katman 1, katman 2, katman 3,
+ katman 4, ve katman 5.
+
+13
+00:00:59,517 --> 00:01:05,741
+Bir önceki videodaki gösterimi kullanarak, n1
+
+14
+00:01:05,741 --> 00:01:11,265
+katman 1'deki saklı birimlerin
+ sayısını gösterir, 3'e eşittir.
+
+15
+00:01:11,265 --> 00:01:16,202
+Ve burada 5'e eşit olan n2 var,
+
+16
+00:01:16,202 --> 00:01:23,018
+n3, 4'e eşit, n4 2'ye eşit, ve n5 1'e eşittir.
+
+17
+00:01:23,018 --> 00:01:27,715
+Ve şimdiye kadar yalnız tek bir çıktı birimine
+ sahip olan sinir ağlarını gördük, ama sonraki
+
+18
+00:01:27,715 --> 00:01:32,497
+derslerde çoklu çıktı birimi olan
+ sinir ağları hakkında konuşacağız.
+
+19
+00:01:32,497 --> 00:01:36,989
+Ve son olarak, girdi katmanı için
+
+20
+00:01:36,989 --> 00:01:40,443
+n0 = nx = 2 var.
+
+21
+00:01:40,443 --> 00:01:45,860
+Öyleyse şimdi z, w ve x'in
+ boyutlarını düşünelim.
+
+22
+00:01:45,860 --> 00:01:49,120
+z aktivasyonlar vektörü
+
+23
+00:01:49,120 --> 00:01:54,244
+buradaki ilk saklı katman içindir;
+ öyleyse z, 3'e 1
+
+24
+00:01:54,244 --> 00:01:58,675
+boyutu 3 olan bir vektör olacaktır.
+
+25
+00:01:58,675 --> 00:02:03,093
+Bunu bir n1'e 1 boyutlu bir vektör olarak yazacağım,
+
+26
+00:02:03,093 --> 00:02:08,546
+n1'e 1 boyutlu matris, yani bu durumda 3'e 1.
+
+27
+00:02:08,546 --> 00:02:12,319
+Peki girdi öznitelikleri x'in durumu nasıl,
+ x'te iki girdi özniteliği var.
+
+28
+00:02:12,319 --> 00:02:18,622
+Bu örnekteki x 2'ye 1, 
+daha genel olarak, n0'a 1 olur.
+
+29
+00:02:18,622 --> 00:02:24,082
+Böylece matris w1 için gereken şey
+
+30
+00:02:24,082 --> 00:02:30,181
+n0'a 1 vektörü bunula çarptığımızda, 
+n1'e 1 vektör elde etmemizdir, değil mi?
+
+31
+00:02:30,181 --> 00:02:34,747
+Yani bir üç boyutlu bir vektörünüz var
+
+32
+00:02:34,747 --> 00:02:38,600
+bu bir şey çarpı iki boyutlu vektöre eşit.
+
+33
+00:02:38,600 --> 00:02:42,993
+Ve dolayısıyla, 
+matris çapımı kuralları gereğince
+
+34
+00:02:42,993 --> 00:02:46,041
+bunun 3'e 2'lik bir matris olması gerekir.
+
+35
+00:02:46,041 --> 00:02:51,138
+Doğru, çünkü 3'e 2'lik bir matris
+ çarpı 2'ye 1 matris, yada
+
+36
+00:02:51,138 --> 00:02:56,249
+2'ye 1 vektör ile çarpıldığında, 
+3'e 1 bir vektör sonucu verir.
+
+37
+00:02:56,249 --> 00:03:02,771
+Ve daha genel olarak, bu n1'e n0 
+boyutlarında bir matris olacaktır.
+
+38
+00:03:02,771 --> 00:03:07,167
+Yani burada hesapladığımız
+
+39
+00:03:07,167 --> 00:03:12,665
+w1'in boyuylarının n1'e n0 olduğudur.
+
+40
+00:03:12,665 --> 00:03:20,191
+Ve daha genel olarak, 
+wL'nin boyutları nL'e nL eksi 1 olmalı.
+
+41
+00:03:20,191 --> 00:03:26,021
+Yani örneğin, w2'nin boyutları
+
+42
+00:03:26,021 --> 00:03:31,508
+bunun için 5'e 3 olmalıdır,
+
+43
+00:03:31,508 --> 00:03:35,119
+yada n2'ye n1 olacaktır.
+
+44
+00:03:35,119 --> 00:03:40,036
+Hesaplarken z2 için
+
+45
+00:03:40,036 --> 00:03:45,132
+w2 çarpı a1, ve yine,
+
+46
+00:03:45,132 --> 00:03:50,059
+bu ek girdiyi şimdilik göz ardı edelim.
+
+47
+00:03:50,059 --> 00:03:54,584
+Ve böylece bu 3'e 1 olacak,
+
+48
+00:03:54,584 --> 00:03:59,432
+ve bunun 5'e 1 olması gerekir, ve demek ki
+
+49
+00:03:59,432 --> 00:04:03,169
+bunun 5'e 3 olması gerekir.
+
+50
+00:04:03,169 --> 00:04:10,273
+Ve benzer şekilde, 
+w3 kesinlikle bir sonraki katmanın boyutu,
+
+51
+00:04:10,273 --> 00:04:15,501
+virgül, önceki katmanın boyutudur
+
+52
+00:04:15,501 --> 00:04:19,266
+yani bu 4'e 5, w4
+
+53
+00:04:22,055 --> 00:04:27,489
+2'ye 4 olacak, ve
+
+54
+00:04:27,489 --> 00:04:34,405
+w5 1'e 2 olacak, tamam mı?
+
+55
+00:04:34,405 --> 00:04:38,730
+Kontrol edilmesi gereken genel formül,
+
+56
+00:04:38,730 --> 00:04:43,416
+L katmanı için matris uygularken
+
+57
+00:04:43,416 --> 00:04:48,475
+matris boyutunun nL'e nL-1 olmasıdır.
+
+58
+00:04:48,475 --> 00:04:55,362
+Şimdi b vektörünün boyutu üzerine düşünelim.
+
+59
+00:04:55,362 --> 00:05:01,017
+Bu vektörü 3*1 boyutundaki diğer vektörle toplayıp çıkış olarak yine 
+
+60
+00:05:01,017 --> 00:05:06,008
+3*1 boyutunda bir vektör elde etmek için, b vektörü de 3*1 boyutunda olacaktır.
+
+61
+00:05:06,008 --> 00:05:11,287
+Veya bu örnekte, bunu eklememiz gerekir,bu 5*1 boyutunda olacak
+
+62
+00:05:11,287 --> 00:05:14,823
+böylece 5*1 boyutunda diğer bir vektörümüz daha olacak
+
+63
+00:05:14,823 --> 00:05:19,122
+Kutu içerisinde belirttiğim bu iki ifadenin toplanabilmesi için
+
+64
+00:05:19,122 --> 00:05:22,767
+vektörlerin 5*1 boyutunda olması gerekmektedir.
+
+65
+00:05:22,767 --> 00:05:30,090
+Yani soldaki örnek için daha genel kural olarak,
+
+66
+00:05:30,090 --> 00:05:35,470
+b1 vektörü, n1'e 1 değil mi, bu örnekte 3'e 1,
+
+67
+00:05:35,470 --> 00:05:41,156
+ve bu ikinci örnekte n2'ye 1 boyutlarında.
+
+68
+00:05:41,156 --> 00:05:45,891
+Ve dolayısıyla daha genel durumda
+
+69
+00:05:45,891 --> 00:05:50,637
+bL'nin boyutları nL'e 1 boyutlarında olmalı.
+
+70
+00:05:50,637 --> 00:05:56,402
+Umarım bu iki eşitlik, 
+w matrislerinizin ve b vektörlerinizin
+
+71
+00:05:56,402 --> 00:06:02,091
+doğru boyutlarda olduğunu 
+tekrar kontrol etmenize yardımcı olur.
+
+72
+00:06:02,091 --> 00:06:06,206
+Ve tabii ki, geriye doğru yayılım 
+algoritması uyguluyorsanız
+
+73
+00:06:06,206 --> 00:06:10,657
+dw'nin boyutlarının w'nun 
+boyutuyla aynı olması gerekir.
+
+74
+00:06:10,657 --> 00:06:16,373
+Yani dw boyutlarının w ile aynı olması,
+
+75
+00:06:16,373 --> 00:06:22,276
+ve db'nin boyutunun b ile aynı olması gerekir.
+
+76
+00:06:22,276 --> 00:06:28,399
+Şimdi kontrol edilmesi gereken 
+diğer nicelikler kümesi
+
+77
+00:06:28,399 --> 00:06:33,658
+burada üzerine çok konuşmadığımız 
+z, x, ve a üzeri L.
+
+78
+00:06:33,658 --> 00:06:39,856
+z üzeri L, g parantez a üzere L'nin
+
+79
+00:06:39,856 --> 00:06:46,914
+eleman bazında uygulanması olduğu için,
+ bu tür ağlarda z ve a aynı boyuta sahip olmalıdır.
+
+80
+00:06:46,914 --> 00:06:51,582
+Şimdi tek seferde birden fazla 
+örneğe bakan vektörleştirilmiş
+
+81
+00:06:51,582 --> 00:06:53,258
+bir uygulamaya sahip olduğunuzda 
+neler olduğunu görelim.
+
+82
+00:06:53,258 --> 00:06:56,092
+Vektörleştirilmiş bir uygulama için bile
+
+83
+00:06:56,092 --> 00:07:00,687
+tabii ki wb, dw ve db'nin boyutları değişmeyecektir.
+
+84
+00:07:00,687 --> 00:07:04,929
+Ama z ve a'nın yanı sıra x'in boyutları
+
+85
+00:07:04,929 --> 00:07:09,771
+vektörleştirilmiş uygulamanızda biraz değişecektir.
+
+86
+00:07:09,771 --> 00:07:13,420
+Daha önce
+
+87
+00:07:13,420 --> 00:07:18,372
+elimizdeki z1 = w1 . x + b1 formülünde
+
+88
+00:07:18,372 --> 00:07:23,845
+bu n1'e 1,
+
+89
+00:07:23,845 --> 00:07:28,276
+bu n1'e n0,
+
+90
+00:07:28,276 --> 00:07:35,846
+x n0'a 1, ve b n1'e 1 idi.
+
+91
+00:07:35,846 --> 00:07:40,979
+Şimdi vektörleştirilmiş
+
+92
+00:07:40,979 --> 00:07:46,398
+uygulamada elinizde
+
+93
+00:07:46,398 --> 00:07:53,536
+z1 = w1 . x + b1 olur.
+
+94
+00:07:53,536 --> 00:07:58,023
+Şimdi z1, bireysel örnekler için
+
+95
+00:07:58,023 --> 00:08:03,575
+z1'ler ele alınarak elde edilir, 
+z böylece z11, z12,
+
+96
+00:08:03,575 --> 00:08:10,207
+z1m'ye kadar bu şekilde yığılır, 
+ve bu size z1'i verir.
+
+97
+00:08:10,207 --> 00:08:15,042
+Böylece z1'in boyutu, n1'e 1 yerine
+
+98
+00:08:15,042 --> 00:08:20,285
+n1'e m olur, ve m burada 
+eğitim kümenizin büyüklüğünü belirtir.
+
+99
+00:08:20,285 --> 00:08:26,140
+w1'in boyutları aynı kalır, 
+yani bu hâlâ n1'e n0.
+
+100
+00:08:26,140 --> 00:08:29,201
+Ve x, n0'a 1 değil, artık
+
+101
+00:08:29,201 --> 00:08:33,431
+tüm eğitim örnekleri yatay olarak yığılmış durumda.
+
+102
+00:08:33,431 --> 00:08:38,565
+Yani şimdi bu n0'a m, 
+ve dolayısıyla fark edeceksiniz ki
+
+103
+00:08:38,565 --> 00:08:43,833
+n1'e n0 bir matris alıp bunu
+ n0'a m bir matris ile çarptığınızda
+
+104
+00:08:43,833 --> 00:08:50,160
+beklediğiniz üzere n1'e m 
+boyutlarında bir matris ile sonuçlanır.
+
+105
+00:08:50,160 --> 00:08:55,030
+Şimdi son bir detay olarak; 
+b1 hâlâ n1'e 1, fakat
+
+106
+00:08:55,030 --> 00:09:01,147
+bunu alıp b'ye eklediğinizde, Python yayımı nedeniyle,
+
+107
+00:09:01,147 --> 00:09:08,218
+bu kopyalanacak ve n1'e m matrise dönüşecek, 
+ve sonra eleman bazında eklenecek.
+
+108
+00:09:08,218 --> 00:09:14,977
+Bir önceki sunum sayfasında 
+wb, dw ve db'nin boyutları hakkında konuştuk.
+
+109
+00:09:14,977 --> 00:09:21,143
+Burada gördüğümüz, zL
+
+110
+00:09:21,143 --> 00:09:26,922
+zL ve aL boyutları nL'e 1 olurken,
+
+111
+00:09:26,922 --> 00:09:34,650
+artık bunun yerine, nL'e m boyutlarında
+ büyük harfle ZL ve AL var.
+
+112
+00:09:34,650 --> 00:09:40,410
+Ve bunun özel bir durumu olarak, 
+L sıfıra eşit olduğunda
+
+113
+00:09:40,410 --> 00:09:45,188
+bu durumda A0
+
+114
+00:09:45,188 --> 00:09:49,543
+eğitim kümenizdeki girdi öznitelikleri X'e,
+
+115
+00:09:49,543 --> 00:09:54,616
+dolayısıyla beklendiği üzere
+ boyutları n0'a m olacaktır.
+
+116
+00:09:54,616 --> 00:10:01,259
+Ve tabii ki bunu geriye yayılımda uygularken,
+
+117
+00:10:01,259 --> 00:10:06,749
+daha sonra göreceğimiz üzere, 
+dZ ve dA'yı hesaplayacaksınız.
+
+118
+00:10:06,749 --> 00:10:11,327
+Ve bunlar tabii ki
+
+119
+00:10:11,327 --> 00:10:15,736
+Z ve A ile aynı boyutlara sahip olacaktır.
+
+120
+00:10:15,736 --> 00:10:19,467
+Böylece umarım üzerinden gittiğimiz
+ bu küçük alıştırma çalıştığınız
+
+121
+00:10:19,467 --> 00:10:21,685
+çeşitli matrislerin boyutlarını 
+anlamanıza yardımcı olur.
+
+122
+00:10:21,685 --> 00:10:25,947
+Derin bir sinir ağında 
+geriye yayılım uygularken, kod üzerinde
+
+123
+00:10:25,947 --> 00:10:30,350
+çalıştığınız ve tüm matrislerinizin 
+boyutlarının tutarlı olduğunu
+
+124
+00:10:30,350 --> 00:10:31,825
+kontrol ettiğiniz sürece
+
+125
+00:10:31,825 --> 00:10:35,908
+bazı muhtemel hataların 
+nedenini elemenize yardımcı olacaktır.
+
+126
+00:10:35,908 --> 00:10:40,325
+Umarım çeşitli matrislerin 
+boyutlarını çözmeye dair
+
+127
+00:10:40,325 --> 00:10:41,979
+üzerinde çalıştığınız bu örnek faydalı olmuştur.
+
+128
+00:10:41,979 --> 00:10:44,788
+Derin sinir ağı uyguladığınızda, 
+çalıştığınız bu çeşitli
+
+129
+00:10:44,788 --> 00:10:48,241
+matrislerin ve vektörlerin 
+boyutlarını doğruladığınız zaman
+
+130
+00:10:48,241 --> 00:10:52,162
+bazı muhtemel hata kaynaklarını 
+elemenize yardımcı olacağını umuyorum.
+
+131
+00:10:52,162 --> 00:10:54,467
+Bu kesinlikle benim kodumun 
+doğruluğunu kontrol etmeme yardımcı oluyor.
+
+132
+00:10:54,467 --> 00:10:58,882
+Artık sinir ağında 
+ileriye doğru yayılımın nasıl olduğuna dair
+
+133
+00:10:58,882 --> 00:11:01,227
+mekanizmayı gördük.
+
+134
+00:11:01,227 --> 00:11:04,163
+Fakat derin sinir ağları neden 
+bu kadar etkili, ve
+
+135
+00:11:04,163 --> 00:11:07,243
+neden derin olmayan 
+temsillerden daha iyiler?
+
+136
+00:11:07,243 --> 00:11:09,939
+Sonraki videoda birkaç 
+dakika bundan bahsedeceğiz.

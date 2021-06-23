@@ -1,0 +1,279 @@
+1
+00:00:00,000 --> 00:00:03,050
+Mais qu'a donc à voir l'apprentissage
+ profond avec le cerveau ?
+
+2
+00:00:03,050 --> 00:00:05,005
+Au risque de divulguer la conclusion,
+
+3
+00:00:05,005 --> 00:00:06,885
+je dirais, pas grand chose.
+
+4
+00:00:06,885 --> 00:00:09,750
+Mais voyons rapidement pourquoi
+ les gens font l'analogie
+
+5
+00:00:09,750 --> 00:00:13,185
+entre l'apprentissage profond
+ et le cerveau humain.
+
+6
+00:00:13,185 --> 00:00:15,345
+Lorsque vous implémentez un
+ réseau de neurones,
+
+7
+00:00:15,345 --> 00:00:16,470
+voici ce que vous faites,
+
+8
+00:00:16,470 --> 00:00:18,270
+propagation directe et inverse.
+
+9
+00:00:18,270 --> 00:00:21,930
+Je pense que puisqu'il est difficile
+ de transmettre intuitivement ce que
+
+10
+00:00:21,930 --> 00:00:26,850
+ces équations font réellement, la
+ descente de gradient est
+ une fonction réellement complexe,
+
+11
+00:00:26,850 --> 00:00:29,940
+l'analogie qui dit
+ que c'est comme le cerveau est
+
+12
+00:00:29,940 --> 00:00:34,365
+devenue une explication sur-simplifiée
+ de ce qui se passe,
+
+13
+00:00:34,365 --> 00:00:40,010
+mais cette simplicité la rend séduisante 
+pour les gens qui en parlent en public,
+
+14
+00:00:40,010 --> 00:00:42,275
+et pour les médias,
+
+15
+00:00:42,275 --> 00:00:44,825
+et capture certainement
+ l'imagination populaire.
+
+16
+00:00:44,825 --> 00:00:48,020
+Il y a une analogie très faible entre
+
+17
+00:00:48,020 --> 00:00:53,315
+disons une unité de régression logistique
+ avec une fonction d'activation sigmoïdale,
+
+18
+00:00:53,315 --> 00:00:58,130
+et cette esquisse d'un seul
+ neurone du cerveau.
+
+19
+00:00:58,130 --> 00:01:02,555
+Sur cette image d’un neurone
+ biologique, ce neurone,
+
+20
+00:01:02,555 --> 00:01:03,905
+qui est une cellule dans votre cerveau,
+
+21
+00:01:03,905 --> 00:01:07,945
+reçoit des signaux de vos autres neurones,
+
+22
+00:01:07,945 --> 00:01:11,100
+X1, X2, X3 ou peut-être d'autres
+ neurones, A1, A2,
+
+23
+00:01:11,100 --> 00:01:14,595
+A3, calcule un seuil de
+ déclenchement simple,
+
+24
+00:01:14,595 --> 00:01:17,110
+et ensuite si ce neurone se déclenche,
+
+25
+00:01:17,110 --> 00:01:20,150
+il envoie une impulsion électrique
+ dans son axone,
+
+26
+00:01:20,150 --> 00:01:23,330
+le long de ce long fil vers
+ potentiellement d'autres neurones.
+
+27
+00:01:23,330 --> 00:01:27,540
+Ainsi il y a une analogie
+ réellement simpliste entre
+
+28
+00:01:27,540 --> 00:01:34,540
+un seul neurone dans un réseau de
+ neurones et un neurone biologique
+ tel qu'illustré sur la droite,
+
+29
+00:01:34,540 --> 00:01:37,865
+mais je pense qu'aujourd'hui même
+ les neuroscientifiques n'ont 
+
+30
+00:01:37,865 --> 00:01:41,390
+à peu près aucune idée de ce
+ qu'un seul neurone fait.
+
+31
+00:01:41,390 --> 00:01:44,120
+Un simple neurone apparaît
+ bien plus complexe
+
+32
+00:01:44,120 --> 00:01:47,545
+que ce que nous pouvons caractériser
+ par les neurosciences,
+
+33
+00:01:47,545 --> 00:01:52,595
+et bien qu'une partie de ce qu'il fait
+ ressemble un peu à
+ une régression logistique,
+
+34
+00:01:52,595 --> 00:01:58,795
+il reste beaucoup de ce qu'un seul
+ neurone fait qu'aucun humain
+ ne comprend aujourd'hui.
+
+35
+00:01:58,795 --> 00:02:02,210
+Par exemple la manière exacte dont
+ les neurones du cerveau apprennent
+
+36
+00:02:02,210 --> 00:02:05,155
+est encore un processus très mystérieux.
+
+37
+00:02:05,155 --> 00:02:09,410
+Il n'est absolument pas clair aujourd'hui
+ de savoir si le cerveau
+ utilise un algorithme,
+
+38
+00:02:09,410 --> 00:02:12,590
+quelque chose comme la rétro-propagation
+ et la descente de gradient, ou si 
+
+39
+00:02:12,590 --> 00:02:17,915
+le cerveau utilise un principe
+ d'apprentissage fondamentalement différent.
+
+40
+00:02:17,915 --> 00:02:20,635
+Lorsque je réfléchis à
+ l'apprentissage profond, 
+
+41
+00:02:20,635 --> 00:02:25,160
+je pense à lui comme étant très bon
+ pour l'apprentissage
+ de fonctions très flexibles,
+
+42
+00:02:25,160 --> 00:02:29,090
+des fonctions très complexes pour
+ apprendre à relier X à Y,
+
+43
+00:02:29,090 --> 00:02:32,320
+pour apprendre à relier des entrées
+-sorties par un apprentissage supervisé.
+
+44
+00:02:32,320 --> 00:02:35,199
+Alors que cela évoque l'analogie cérébrale,
+
+45
+00:02:35,199 --> 00:02:36,965
+peut-être que cela a été utile
+ à un moment donné,
+
+46
+00:02:36,965 --> 00:02:40,040
+mais je pense que le domaine
+ a évolué au point où
+
+47
+00:02:40,040 --> 00:02:45,135
+cette analogie ne tient plus et
+ je ne l'utilise plus aujourd'hui.
+
+48
+00:02:45,135 --> 00:02:48,620
+Bien, voici pour les réseaux de
+ neurones et le cerveau.
+
+49
+00:02:48,620 --> 00:02:51,830
+Je pense que peut-être que le champ de
+ la vision par ordinateur s'est un peu 
+
+50
+00:02:51,830 --> 00:02:54,455
+plus inspiré du cerveau humain que 
+
+51
+00:02:54,455 --> 00:02:57,290
+d'autres disciplines qui appliquent
+ aussi l'apprentissage profond,
+
+52
+00:02:57,290 --> 00:03:02,465
+mais personnellement j'utilise moins
+ l'analogie du cerveau humain
+ que je ne le faisais.
+
+53
+00:03:02,465 --> 00:03:05,090
+Bien, voici pour cette vidéo.
+
+54
+00:03:05,090 --> 00:03:07,940
+Vous savez maintenant comment 
+implémenter la propagation directe
+ et la rétro-propagation
+
+55
+00:03:07,940 --> 00:03:10,940
+et la descente de gradient même pour
+ les réseaux de neurones profonds.
+
+56
+00:03:10,940 --> 00:03:12,905
+Bonne chance
+ pour les problèmes d'exercice,
+
+57
+00:03:12,905 --> 00:03:17,130
+et je me réjouis de partager plus sur
+ ces idées dans le second cours.

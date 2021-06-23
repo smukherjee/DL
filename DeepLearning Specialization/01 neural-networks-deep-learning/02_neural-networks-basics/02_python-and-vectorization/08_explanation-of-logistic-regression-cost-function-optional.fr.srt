@@ -1,0 +1,476 @@
+1
+00:00:00,390 --> 00:00:03,860
+Dans une précédente vidéo, j’ai écrit une
+ formule pour la fonction de coût
+
+2
+00:00:03,860 --> 00:00:05,230
+pour la régression logistique.
+
+3
+00:00:05,230 --> 00:00:09,370
+Dans cette vidéo optionnelle, je veux vous 
+donner une justification rapide de
+
+4
+00:00:09,370 --> 00:00:13,490
+pourquoi nous aimons utiliser cette fonction
+ de coût pour la régression logistique.
+
+5
+00:00:13,490 --> 00:00:16,060
+Pour résumer rapidement, 
+en régression logistique,
+
+6
+00:00:16,060 --> 00:00:22,000
+Nous avons la prédiction
+ y_chapeau (ŷ) qui est égale à 
+la sigmoïde de la transposée de W fois x + b,
+
+7
+00:00:22,000 --> 00:00:27,711
+où la sigmoïde est cette fonction familière.
+
+8
+00:00:27,711 --> 00:00:37,250
+Et nous avons dit que nous voulons
+ interpréter ŷ comme la 
+probabilité que y soit égal à 1, connaissant x.
+
+9
+00:00:37,250 --> 00:00:40,170
+Donc, nous voulons que notre algorithme
+ sorte ŷ, c'est à dire la chance
+
+10
+00:00:40,170 --> 00:00:45,030
+que y vaille 1, étant données 
+les caractéristiques d'entrée x.
+
+11
+00:00:45,030 --> 00:00:50,090
+Une autre façon de dire ça,
+ c’est que si y est égal à 1,
+
+12
+00:00:50,090 --> 00:00:56,020
+alors la plausibilité de
+ y sachant x est égale à ŷ.
+
+13
+00:00:56,020 --> 00:00:59,170
+Et inversement si y est égal à 0, alors
+
+14
+00:01:00,310 --> 00:01:05,840
+la probabilité que y soit 0 
+est de 1-ŷ, OK ?
+
+15
+00:01:05,840 --> 00:01:09,150
+Donc, si ŷ est 
+une probabilité que y = 1,
+
+16
+00:01:09,150 --> 00:01:13,620
+alors 1 - ŷ est
+ la probabilité que y = 0.
+
+17
+00:01:13,620 --> 00:01:18,057
+Laissez-moi de prendre ces deux équations 
+et les copier sur la diapositive suivante.
+
+18
+00:01:18,057 --> 00:01:22,684
+Donc ce que je vais faire est
+ prendre ces deux équations qui
+
+19
+00:01:22,684 --> 00:01:28,010
+en fait définissent p(y|x)
+ dans les deux cas de y = 0 et y = 1.
+
+20
+00:01:28,010 --> 00:01:33,110
+Je vais prendre ces deux équations 
+et les résumer en une seule équation.
+
+21
+00:01:33,110 --> 00:01:37,543
+Et juste pour vous faire remarquer,
+ y doit être 0 ou 1, parce que 
+dans la classification binaire,
+
+22
+00:01:37,543 --> 00:01:41,110
+y = 0 et y=1 sont
+ les deux seuls cas possibles.
+
+23
+00:01:41,110 --> 00:01:44,653
+On peux prendre ces deux équations
+ et les résumer comme ceci.
+
+24
+00:01:44,653 --> 00:01:48,774
+Je vais juste écrire à quoi ça ressemble,
+ après je vous expliquerai 
+pourquoi ça ressemble à ça.
+
+25
+00:01:48,774 --> 00:01:54,040
+Donc (1 – ŷ) à la puissance (1 – y).
+
+26
+00:01:54,040 --> 00:01:58,920
+Donc il se trouve que cette unique ligne
+ résume les deux équations au dessus.
+
+27
+00:01:58,920 --> 00:02:00,500
+Laissez-moi vous expliquer pourquoi.
+
+28
+00:02:00,500 --> 00:02:04,643
+Ainsi, dans le premier cas, 
+supposons que y = 1.
+
+29
+00:02:04,643 --> 00:02:09,562
+Donc si y = 1, ce terme vaut ŷ,
+
+30
+00:02:09,562 --> 00:02:13,970
+parce que c’est ŷ à la puissance 1.
+
+31
+00:02:13,970 --> 00:02:21,120
+Ce terme vaut 1-ŷ puissance 1-1,
+ c’est-à-dire puissance 0.
+
+32
+00:02:21,120 --> 00:02:26,320
+Mais, n'importe quoi à la puissance 0 
+est égal à 1, donc ça s'en va.
+
+33
+00:02:26,320 --> 00:02:33,030
+Et donc, cette équation dit juste 
+p(y|x) = ŷ, quand y = 1.
+
+34
+00:02:33,030 --> 00:02:37,480
+C’est exactement ce que nous voulions.
+
+35
+00:02:37,480 --> 00:02:40,250
+Maintenant qu’en est-il du seconde cas, 
+que se passe-t-il si y = 0 ?
+
+36
+00:02:40,250 --> 00:02:47,057
+Si y = 0, cette équation ci-dessus 
+est p(y|x) = ŷ puissance 0,
+
+37
+00:02:47,057 --> 00:02:51,920
+mais quelque chose à la puissance 0 
+est égal à 1, alors
+
+38
+00:02:51,920 --> 00:02:58,267
+ça c’est juste égal à 1, 
+fois 1-ŷ puissance 1-y.
+
+39
+00:02:58,267 --> 00:03:02,770
+1-y est 1-0, donc c’est juste 1.
+
+40
+00:03:02,770 --> 00:03:07,610
+Et donc ceci est égal à 
+1 fois (1-ŷ) = 1-ŷ.
+
+41
+00:03:10,700 --> 00:03:17,230
+Et donc ici nous avons que
+ si y = 0, p (y | x) = 1-ŷ,
+
+42
+00:03:17,230 --> 00:03:21,570
+ce qui est exactement 
+ce que nous voulions.
+
+43
+00:03:21,570 --> 00:03:23,690
+Donc ce que nous venons de montrer
+ est que cette équation
+
+44
+00:03:25,330 --> 00:03:30,331
+est une définition correcte pour p(ylx).
+
+45
+00:03:30,331 --> 00:03:36,513
+Enfin, puisque la fonction log
+ est une fonction strictement croissante,
+
+46
+00:03:36,513 --> 00:03:43,223
+maximiser log( p(y|x) ) devrait 
+vous donner le même résultat qui si
+
+47
+00:03:43,223 --> 00:03:48,672
+vous maximisez p(y|x) et si vous calculez
+ le logarithme de p(y|x), il vaut
+
+48
+00:03:48,672 --> 00:03:54,330
+log de ŷ puissance y fois 
+1 - ŷ puissance 1 - y.
+
+49
+00:03:54,330 --> 00:04:00,810
+Ce qui se simplifie en y log de ŷ
+
+50
+00:04:00,810 --> 00:04:07,430
+plus 1 - y fois log de 1 - ŷ.
+
+51
+00:04:07,430 --> 00:04:10,830
+Et c'est l'opposé de la fonction
+
+52
+00:04:10,830 --> 00:04:14,310
+de perte que nous voulions trouver.
+
+53
+00:04:14,310 --> 00:04:17,470
+Et il y a un signe moins là parce 
+qu’habituellement, quand vous entraînez
+
+54
+00:04:17,470 --> 00:04:20,460
+un algorithme d'apprentissage, 
+vous voulez augmenter les probabilités
+
+55
+00:04:20,460 --> 00:04:23,980
+tandis que, dans la régression logistique,
+ nous allons exprimer ça
+
+56
+00:04:23,980 --> 00:04:25,820
+et nous voulons minimiser 
+la fonction de perte.
+
+57
+00:04:25,820 --> 00:04:30,640
+Et minimiser la perte correspond à 
+maximiser le logarithme de la probabilité.
+
+58
+00:04:30,640 --> 00:04:33,925
+Voici donc à quoi ressemble 
+la fonction de perte sur un seul exemple.
+
+59
+00:04:33,925 --> 00:04:35,435
+Qu'en est il de la fonction de coût,
+
+60
+00:04:35,435 --> 00:04:40,435
+la fonction de coût global sur les m 
+exemples du set d'apprentissage complet ?
+
+61
+00:04:40,435 --> 00:04:41,385
+Voyons ça.
+
+62
+00:04:41,385 --> 00:04:45,710
+La probabilité de toutes les étiquettes
+ dans le set d'apprentissage,
+
+63
+00:04:45,710 --> 00:04:47,750
+je l'écris un peu informellement...
+
+64
+00:04:47,750 --> 00:04:51,945
+Si l'on suppose que les exemples 
+d'apprentissage sont pris de façon
+ indépendante,
+
+65
+00:04:51,945 --> 00:04:54,198
+IID : indépendants et
+ identiquement distribués
+
+66
+00:04:54,198 --> 00:04:57,810
+alors la probabilité des exemples est 
+le produit des probabilités.
+
+67
+00:04:57,810 --> 00:05:03,143
+Le produit d’i = 1 à m de
+ p(y(i)) sachant x(i).
+
+68
+00:05:03,143 --> 00:05:07,970
+Et donc, si vous souhaitez procéder à 
+l’estimation du maximum de vraisemblance,
+
+69
+00:05:07,970 --> 00:05:12,476
+alors vous voulez maximiser,
+ trouver les paramètres qui maximisent
+
+70
+00:05:12,476 --> 00:05:15,948
+la probabilité de vos ensembles 
+d'apprentissage et d'observation.
+
+71
+00:05:15,948 --> 00:05:20,200
+Mais maximiser ça c’est pareil 
+que maximiser son log,
+
+72
+00:05:20,200 --> 00:05:22,990
+donc nous ajoutons un log des deux côtés.
+
+73
+00:05:22,990 --> 00:05:28,640
+Donc le log de la probabilité des étiquettes 
+dans l'ensemble d’apprentissage est égal
+
+74
+00:05:28,640 --> 00:05:30,990
+au log du produit, c'est à dire
+ la somme des log.
+
+75
+00:05:30,990 --> 00:05:39,000
+C'est-à-dire somme de i = 1 à m 
+des log(p(y(i) sachant x(i))
+
+76
+00:05:39,000 --> 00:05:43,582
+Et nous avons vu 
+sur la diapositive précédente que
+
+77
+00:05:43,582 --> 00:05:47,630
+ceci est - L(ŷ(i), y(i))
+
+78
+00:05:48,850 --> 00:05:55,220
+En statistiques, il y a un principe appelé 
+le principe d'estimation du maximum
+
+79
+00:05:55,220 --> 00:06:00,720
+de vraisemblance, qui signifie simplement 
+choisir les paramètres 
+qui maximisent cette chose.
+
+80
+00:06:00,720 --> 00:06:04,220
+Ou en d’autres termes, 
+qui maximisent cette chose :
+
+81
+00:06:04,220 --> 00:06:09,510
+moins somme de i = 1 à m 
+de L(ŷ(i), y(i)),
+
+82
+00:06:09,510 --> 00:06:11,840
+on a juste sorti le signe moins
+ de la somme.
+
+83
+00:06:11,840 --> 00:06:15,749
+Donc cela justifie le coût 
+que nous avions pour
+
+84
+00:06:15,749 --> 00:06:21,235
+la régression logistique qui est
+ J(W,b), égal à cela.
+
+85
+00:06:21,235 --> 00:06:27,349
+Et parce que nous voulons 
+maintenant minimiser le coût plutôt 
+que de maximiser la vraisemblance,
+
+86
+00:06:27,349 --> 00:06:30,095
+nous avons enlevé le signe moins.
+
+87
+00:06:30,095 --> 00:06:35,467
+Et puis enfin pour plus de commodité,
+ nous nous assurons que 
+nos quantités sont plus à l'échelle,
+
+88
+00:06:35,467 --> 00:06:39,310
+et nous ajoutons un facteur 
+de mise à l’échelle de 1/m là.
+
+89
+00:06:39,310 --> 00:06:43,960
+Mais pour résumer, en minimisant 
+cette fonction de coût J(w,b),
+
+90
+00:06:43,960 --> 00:06:48,430
+nous réalisation l’estimation 
+du maximum de vraisemblance avec
+ le modèle de la régression logistique,
+
+91
+00:06:48,430 --> 00:06:53,120
+sous l’hypothèse que nos exemples 
+d'apprentissage étaient IID, c'est à dire
+
+92
+00:06:53,120 --> 00:06:55,530
+indépendants et
+ identiquement distribués.
+
+93
+00:06:55,530 --> 00:06:59,550
+Alors merci d'avoir regardé cette vidéo,
+ même si elle est facultative.
+
+94
+00:06:59,550 --> 00:07:03,845
+J’espère que cela vous donne une idée de 
+pourquoi nous utilisons cette fonction
+
+95
+00:07:03,845 --> 00:07:05,200
+de coût pour la régression logistique.
+
+96
+00:07:05,200 --> 00:07:09,287
+Et avec cela, j’espère que vous allez
+ faire les exercices de programmation et
+
+97
+00:07:09,287 --> 00:07:11,277
+les questions de quiz de cette semaine.
+
+98
+00:07:11,277 --> 00:07:14,735
+Et bonne chance avec les quizz 
+et l’exercice de programmation.

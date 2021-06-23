@@ -1,0 +1,337 @@
+1
+00:00:00,000 --> 00:00:04,360
+Por que uma rede neural precisa de<br />uma função de ativação não linear?
+
+2
+00:00:04,360 --> 00:00:07,425
+Isso acontece porque para computar<br />funções interessantes,
+
+3
+00:00:07,425 --> 00:00:10,335
+você precisa mesmo de uma função<br />de ativação não-linear.
+
+4
+00:00:10,335 --> 00:00:15,830
+Vamos ver o porquê. Aqui estão as equações de 
+propagação para frente, de uma rede neural.
+
+5
+00:00:15,830 --> 00:00:17,770
+Por que apenas não nos livramos disto?
+
+6
+00:00:17,770 --> 00:00:22,315
+Nos livramos da função g<br />e definir a1 igual a z1.
+
+7
+00:00:22,315 --> 00:00:27,690
+Ou de maneira alternativa, você pode dizer<br />que g de z é igual a z, certo?
+
+8
+00:00:27,690 --> 00:00:31,813
+Às vezes, isto é chamado de função de ativação linear.
+
+9
+00:00:31,813 --> 00:00:33,205
+Talvez um nome melhor para isso fosse
+
+10
+00:00:33,205 --> 00:00:37,800
+função identidade de ativação, porque<br />ela apenas retorna a própria entrada.
+
+11
+00:00:37,800 --> 00:00:39,600
+Com esse propósito,
+
+12
+00:00:39,600 --> 00:00:43,310
+e se a'²' fosse apenas igual a z'²'?
+
+13
+00:00:43,310 --> 00:00:45,183
+Acontece que se você fizer isso,
+
+14
+00:00:45,183 --> 00:00:53,620
+então este modelo estará apenas computando<br />y ou ŷ como uma função linear das características x de entrada.
+
+15
+00:00:53,620 --> 00:00:55,940
+Analisando as duas primeiras equações,
+
+16
+00:00:55,940 --> 00:01:04,547
+se você tiver a'¹' = z'¹' = (w'¹'. x + b'¹')
+
+17
+00:01:04,547 --> 00:01:15,965
+z'¹' = (w'¹'. x + b'¹') e só depois disso,
+ a'²' = z'²' = (w'²'. a'¹' + b'²')
+
+18
+00:01:15,965 --> 00:01:25,370
+z'²' = (w'²'. a'¹' + b'²'), então se você pegar<br />a definição de a'¹' e substituir aqui,
+
+19
+00:01:25,370 --> 00:01:32,585
+você descobre que a'²' = w'²'.(w'¹'.x + b'¹') + b'²'
+
+20
+00:01:32,585 --> 00:01:35,695
+a'²' = w'²'.(w'¹'.x + b'¹') + b'²', certo?
+
+21
+00:01:35,695 --> 00:01:40,985
+Então, isto é a'¹'
+
+22
+00:01:40,985 --> 00:01:47,460
++ b'²' e então podemos simplificar para
+
+23
+00:01:47,460 --> 00:01:53,120
+(w'²'.w'¹').x + (w'²'.b'¹' + b'²')
+
+24
+00:01:53,120 --> 00:01:57,966
+(w'²'.w'¹').x + (w'²'.b'¹' + b'²')
+
+25
+00:01:57,966 --> 00:02:01,930
+Então isto é apenas,
+
+26
+00:02:01,930 --> 00:02:06,726
+vamos chamar disso de
+w-linha e b-linha.
+
+27
+00:02:06,726 --> 00:02:10,935
+Que é igual a
+w'. x + b'
+
+28
+00:02:10,935 --> 00:02:13,720
+Se você usar funções de ativação lineares
+
+29
+00:02:13,720 --> 00:02:17,095
+também chamadas de funções identidade de ativação,
+
+30
+00:02:17,095 --> 00:02:23,335
+então, a rede neural está apenas<br />retornando uma função linear da entrada.
+
+31
+00:02:23,335 --> 00:02:26,260
+E falaremos sobre redes profundas mais tarde.
+
+32
+00:02:26,260 --> 00:02:27,460
+Redes neurais de muitas,
+
+33
+00:02:27,460 --> 00:02:29,167
+e muitas camadas, muitas camadas ocultas.
+
+34
+00:02:29,167 --> 00:02:34,460
+E acontece que, se você utilizar uma<br />função de ativação linear ou, de modo alternativo,
+
+35
+00:02:34,460 --> 00:02:36,760
+se você não tiver uma função de ativação, então não
+
+36
+00:02:36,760 --> 00:02:39,250
+importa quantas camadas sua rede neural tenha,
+
+37
+00:02:39,250 --> 00:02:42,970
+tudo que ela está fazendo é apenas<br />computar uma função de ativação linear.
+
+38
+00:02:42,970 --> 00:02:45,905
+Então você pode apenas não ter nenhuma camada oculta.
+
+39
+00:02:45,905 --> 00:02:49,335
+Em alguns dos casos, brevemente mencionados,
+
+40
+00:02:49,335 --> 00:02:50,880
+se você tiver apenas
+
+41
+00:02:50,880 --> 00:02:55,170
+uma função linear de ativação aqui e<br />uma função sigmoide aqui,
+
+42
+00:02:55,170 --> 00:02:58,275
+então este modelo não é mais expressivo do que
+
+43
+00:02:58,275 --> 00:03:02,505
+uma regressão logística padrão sem nenhuma camada oculta.
+
+44
+00:03:02,505 --> 00:03:05,910
+Não vou tentar provar isso,<br />mas você pode tentar, se quiser.
+
+45
+00:03:05,910 --> 00:03:07,465
+Então, a mensagem para guardar é:
+
+46
+00:03:07,465 --> 00:03:11,265
+uma camada linear oculta
+é mais ou menos inútil
+
+47
+00:03:11,265 --> 00:03:17,130
+porque a composição de duas funções lineares<br />é uma função linear.
+
+48
+00:03:17,130 --> 00:03:19,950
+Então, a menos que você aplique<br />não-linearidade aqui,
+
+49
+00:03:19,950 --> 00:03:21,235
+você não está computando
+
+50
+00:03:21,235 --> 00:03:25,350
+funções mais interessantes, mesmo que<br />você aprofunde sua rede.
+
+51
+00:03:25,350 --> 00:03:29,820
+Há apenas um lugar que você pode usar funções lineares de ativação,
+
+52
+00:03:29,820 --> 00:03:36,810
+g(z) = z, e isso se você estiver fazendo<br />aprendizado de máquina nos problemas de regressão.
+
+53
+00:03:36,810 --> 00:03:39,420
+Então, se y é um número real.
+
+54
+00:03:39,420 --> 00:03:42,675
+Por exemplo, se você estiver tentando prever preços de casas,
+
+55
+00:03:42,675 --> 00:03:46,935
+y não é 0, nem é 1,
+ mas um número real,
+
+56
+00:03:46,935 --> 00:03:54,660
+e você está na faixa de 0 dólares até quão<br />cara uma casa possa custar.
+
+57
+00:03:54,660 --> 00:03:58,640
+Eu acho que casas podem custar, potencialmente,<br />milhões de dólares.
+
+58
+00:03:58,640 --> 00:04:04,580
+Porém, não importa o quanto as casas<br />custem no seu conjunto de dados,
+
+59
+00:04:04,580 --> 00:04:09,705
+mas se y se basear nesses valores
+em números reais,
+
+60
+00:04:09,705 --> 00:04:14,700
+então, tudo bem ter uma função linear 
+de ativação aqui para que
+
+61
+00:04:14,700 --> 00:04:17,805
+seu resultado, ŷ seja
+
+62
+00:04:17,805 --> 00:04:24,215
+também um número real indo<br />de menos infinito até mais infinito.
+
+63
+00:04:24,215 --> 00:04:28,700
+Mas então, as unidades ocultas 
+não devem usar funções lineares de ativação.
+
+64
+00:04:28,700 --> 00:04:34,380
+Elas podem usar ReLU, ou Tanh, ou Leaky ReLU<br />ou talvez outra função diferente.
+
+65
+00:04:34,380 --> 00:04:39,995
+Então, o único lugar que você pode usar uma 
+função de ativação linear é, geralmente, na camada de saída.
+
+66
+00:04:39,995 --> 00:04:41,595
+Mas, fora isso,
+
+67
+00:04:41,595 --> 00:04:44,730
+usar uma função linear de ativação em
+
+68
+00:04:44,730 --> 00:04:50,135
+uma camada oculta exceto em<br />circunstâncias muito especiais,
+
+69
+00:04:50,135 --> 00:04:52,320
+relativas à compressão que nós falamos a respeito,
+
+70
+00:04:52,320 --> 00:04:56,250
+usar uma função de ativação linear <br />é extremamente raro (em camadas ocultas).
+
+71
+00:04:56,250 --> 00:04:59,130
+E, é claro, se você estiver realmente prevendo<br />preços de residências, como vimos
+
+72
+00:04:59,130 --> 00:05:03,795
+no vídeo da primeira semana, dado que os preços de casas<br />são valores não negativos, talvez nestes casos
+
+73
+00:05:03,795 --> 00:05:07,060
+você possa usar ReLU <br />como função de ativação para que
+
+74
+00:05:07,060 --> 00:05:11,580
+seu resultado ŷ
+ seja maior ou igual a zero.
+
+75
+00:05:11,580 --> 00:05:13,980
+Espero que isso 
+dê uma noção do motivo por que ter
+
+76
+00:05:13,980 --> 00:05:19,290
+uma função não-linear de ativação é uma
+parte crítica das redes neurais.
+
+77
+00:05:19,290 --> 00:05:23,945
+A seguir, começaremos a falar sobre<br />descidas do gradiente, e para
+
+78
+00:05:23,945 --> 00:05:27,440
+termos uma discussão sobre gradiente decrescente, <br />no próximo video
+
+79
+00:05:27,440 --> 00:05:29,230
+eu quero mostrar como estimar,
+
+80
+00:05:29,230 --> 00:05:34,105
+como computar a inclinação ou as derivadas<br />das funções de ativação.
+
+81
+00:05:34,105 --> 00:05:35,600
+Então vamos para o próximo vídeo.
+[Tradução: Plínio Almeida de Oliveira | Revisão: Carlos Lage]

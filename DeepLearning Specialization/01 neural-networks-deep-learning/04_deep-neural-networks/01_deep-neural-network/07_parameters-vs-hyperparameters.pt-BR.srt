@@ -1,0 +1,830 @@
+1
+00:00:00,060 --> 00:00:04,380
+Desenvolvendo de forma eficiente sua rede
+
+2
+00:00:02,669 --> 00:00:06,870
+neural profunda,
+exigirá de você que não apenas
+
+3
+00:00:04,380 --> 00:00:09,269
+organize bem seus parâmetros, mas
+
+4
+00:00:06,870 --> 00:00:11,759
+também seus hiperparâmetros.
+Porém, o que são hiperparâmetros?
+
+5
+00:00:09,269 --> 00:00:15,170
+Vamos dar uma olhada nos
+
+6
+00:00:11,759 --> 00:00:17,820
+parâmetros do seu modelo: 'W' e 'b' e
+
+7
+00:00:15,170 --> 00:00:21,720
+há outras coisas
+que você precisa dizer ao
+
+8
+00:00:17,820 --> 00:00:26,220
+seu algorítimo de aprendizagem, tais como:
+
+9
+00:00:21,720 --> 00:00:28,920
+porque precisamos da
+taxa de aprendizagem α (alfa),
+
+10
+00:00:26,220 --> 00:00:32,329
+definimos α, pois, 
+esta taxa de aprendizagem irá
+
+11
+00:00:28,920 --> 00:00:34,890
+determinar como evoluem seus parâmetros, ou
+
+12
+00:00:32,329 --> 00:00:38,190
+talvez o número de iterações de
+
+13
+00:00:34,890 --> 00:00:40,170
+descida gradiente
+que serão realizadas.
+
+14
+00:00:38,190 --> 00:00:42,629
+Seu algoritmo de aprendizagem
+ tem outros
+
+15
+00:00:40,170 --> 00:00:47,340
+números que você necessita especificar
+tais como
+
+16
+00:00:42,629 --> 00:00:50,629
+o número de unidades escondidas,
+ o qual chamamos de
+
+17
+00:00:47,340 --> 00:00:56,039
+L maiúscula. 
+Há também o número de unidades escondidas,
+
+18
+00:00:50,629 --> 00:00:59,670
+n'¹' , n'²'
+
+19
+00:00:56,039 --> 00:01:03,329
+e assim por diante.
+E então, você também tem a escolha da
+
+20
+00:00:59,670 --> 00:01:05,610
+função de ativação - quer usar
+
+21
+00:01:03,329 --> 00:01:06,869
+RElu, ou Tanh, ou sigmoide,
+
+22
+00:01:05,610 --> 00:01:11,760
+especialmente nas
+
+23
+00:01:06,869 --> 00:01:13,590
+camadas ocultas,
+e então todas essas coisas
+
+24
+00:01:11,760 --> 00:01:15,990
+são coisas que você precisa
+para chamar seus
+
+25
+00:01:13,590 --> 00:01:19,640
+algorítimos de aprendizado e que estes são
+
+26
+00:01:15,990 --> 00:01:22,200
+parâmetros que controlam
+
+27
+00:01:19,640 --> 00:01:25,640
+os parâmetros W e b e
+então chamamos todas
+
+28
+00:01:22,200 --> 00:01:29,340
+estas coisas abaixo de hiperparâmetros.
+
+29
+00:01:25,640 --> 00:01:30,750
+Porque estas coisas como alfa,
+
+30
+00:01:29,340 --> 00:01:32,369
+taxa de aprendizagem,
+o número de iterações,
+
+31
+00:01:30,750 --> 00:01:36,000
+número de camadas ocultas e assim estes
+
+32
+00:01:32,369 --> 00:01:39,290
+são todos parâmetros que controlam W e b.
+
+33
+00:01:36,000 --> 00:01:41,970
+Então, chamamos essas coisas
+de hiperparâmetros
+
+34
+00:01:39,290 --> 00:01:44,250
+porque eles são os hiperparâmetros que
+
+35
+00:01:41,970 --> 00:01:46,950
+você sabe, de alguma
+forma determinam o valor
+
+36
+00:01:44,250 --> 00:01:50,100
+final dos parâmetros W e b que você
+
+37
+00:01:46,950 --> 00:01:53,520
+usa. De fato, aprendizagem
+profunda tem
+
+38
+00:01:50,100 --> 00:01:55,470
+muitos hiperparâmetros diferentes. Mais tarde
+
+39
+00:01:53,520 --> 00:01:57,899
+em um curso posterior veremos outros
+
+40
+00:01:55,470 --> 00:02:02,990
+hiperparâmetros, como
+
+41
+00:01:57,899 --> 00:02:02,990
+o termo Momentum,
+o tamanho do 'mini batch'
+
+42
+00:02:05,150 --> 00:02:13,020
+várias formas 
+de parâmetros de regularização,
+
+43
+00:02:07,220 --> 00:02:14,700
+e assim
+por diante, e se nenhum destes
+
+44
+00:02:13,020 --> 00:02:16,020
+termos ainda não fazem sentido,
+
+45
+00:02:14,700 --> 00:02:18,810
+não se preocupe com isto
+que nós falaremos depois
+
+46
+00:02:16,020 --> 00:02:21,870
+no segundo curso. Por conta da aprendizagem
+
+47
+00:02:18,810 --> 00:02:24,120
+profunda ter muitos hiperparâmetros em
+
+48
+00:02:21,870 --> 00:02:26,370
+contraste com erros anteriores
+ de aprendizagem automática (ou aprendizagem de máquina),
+
+49
+00:02:24,120 --> 00:02:28,890
+tentarei ser bastante
+
+50
+00:02:26,370 --> 00:02:31,050
+consistente chamado de taxa de aprendizagem
+
+51
+00:02:28,890 --> 00:02:33,480
+alfa de hiperparâmetro, ao invés de
+
+52
+00:02:31,050 --> 00:02:35,250
+chamá-la de parâmetro.
+Pensei que nas
+
+53
+00:02:33,480 --> 00:02:37,920
+eras iniciais de aprendizagem de máquina
+ quando não tínhamos
+
+54
+00:02:35,250 --> 00:02:39,600
+tantos hiperparâmetros,
+ a maioria de nós
+
+55
+00:02:37,920 --> 00:02:42,120
+costumava ser
+um pouco descuidada aqui e
+
+56
+00:02:39,600 --> 00:02:44,610
+chamávamos o alfa de parâmetro,
+ e tecnicamente
+
+57
+00:02:42,120 --> 00:02:47,580
+alfa é um parâmetro
+porém é um parâmetro
+
+58
+00:02:44,610 --> 00:02:50,280
+que determina nossos parâmetros reais
+
+59
+00:02:47,580 --> 00:02:51,570
+e tentamos, de modo consistente 
+chamar estas
+
+60
+00:02:50,280 --> 00:02:54,180
+coisas como alfa, o número de
+
+61
+00:02:51,570 --> 00:02:55,769
+iterações, assim por diante
+de hiperparâmetros,
+
+62
+00:02:54,180 --> 00:02:57,810
+assim, quando você está treinando a
+rede profunda para sua
+
+63
+00:02:55,769 --> 00:02:59,940
+própria aplicação, você descobre
+que pode haver
+
+64
+00:02:57,810 --> 00:03:01,560
+um monte de configurações possíveis para os
+
+65
+00:02:59,940 --> 00:03:04,440
+hiperparâmetros que você
+precisa, só para
+
+66
+00:03:01,560 --> 00:03:07,230
+testar, então aplicar a
+aprendizagem profunda é hoje
+
+67
+00:03:04,440 --> 00:03:09,840
+um grande processo empírico
+onde muitas vezes você
+
+68
+00:03:07,230 --> 00:03:12,150
+poderia ter uma ideia, por exemplo, poderia
+
+69
+00:03:09,840 --> 00:03:13,549
+pensar que o melhor valor para a
+
+70
+00:03:12,150 --> 00:03:16,739
+taxa de aprendizagem, que
+ pode-se dizer bem, talvez
+
+71
+00:03:13,549 --> 00:03:20,670
+alfa igual 0,01 e eu quero tentar isso.
+
+72
+00:03:16,739 --> 00:03:22,530
+Então você implementa, tenta e depois
+
+73
+00:03:20,670 --> 00:03:23,910
+vê como isso funciona e 
+em seguida, com base nesse
+
+74
+00:03:22,530 --> 00:03:25,890
+resultado, você pode dizer que sabe o que 
+
+75
+00:03:23,910 --> 00:03:28,620
+mudou meu pensamento,
+eu quero aumentar
+
+76
+00:03:25,890 --> 00:03:30,930
+a taxa de aprendizagem para 0,05 e então se
+
+77
+00:03:28,620 --> 00:03:32,970
+você não tem certeza
+de que é o melhor valor
+
+78
+00:03:30,930 --> 00:03:35,010
+para a taxa de aprendizagem,
+ você pode
+
+79
+00:03:32,970 --> 00:03:37,680
+tentar um valor para a
+ taxa de aprendizagem alfa
+
+80
+00:03:35,010 --> 00:03:39,690
+e ver sua função de custo decair
+
+81
+00:03:37,680 --> 00:03:41,820
+como esta, então,
+você tenta um parâmetro maior
+
+82
+00:03:39,690 --> 00:03:43,650
+maior para a 
+taxa de aprendizagem alfa e
+
+83
+00:03:41,820 --> 00:03:45,060
+veja que 
+a função custo dispara e
+
+84
+00:03:43,650 --> 00:03:47,250
+diverge.
+Então, você testa outra
+
+85
+00:03:45,060 --> 00:03:49,709
+versão e vê isto descer rapidamente.
+
+86
+00:03:47,250 --> 00:03:51,780
+Isto é a inversão para um
+valor maior, que você pode
+
+87
+00:03:49,709 --> 00:03:53,670
+tentar outra versão
+e ver isto, você sabe,
+
+88
+00:03:51,780 --> 00:03:55,530
+ver a função de custo J
+ fazer isso e então
+
+89
+00:03:53,670 --> 00:03:57,840
+tentar estabelecer
+os valores que você pode
+
+90
+00:03:55,530 --> 00:04:00,870
+dizer ok,
+parece que com este, o valor de
+
+91
+00:03:57,840 --> 00:04:02,790
+alfa me dá um aprendizado muito rápido
+
+92
+00:04:00,870 --> 00:04:04,290
+e me permite convergir
+ para uma função de custos
+
+93
+00:04:02,790 --> 00:04:06,720
+mais baixa,
+então usarei
+
+94
+00:04:04,290 --> 00:04:08,040
+este valor de alfa.
+Você viu no slide
+
+95
+00:04:06,720 --> 00:04:10,170
+anterior que existe muitos hiperparâmetros
+
+96
+00:04:08,040 --> 00:04:11,489
+diferentes.
+E ocorre que
+
+97
+00:04:10,170 --> 00:04:13,830
+quando se inicia em uma
+
+98
+00:04:11,489 --> 00:04:15,450
+nova aplicação, encontra-se muita
+
+99
+00:04:13,830 --> 00:04:17,940
+dificuldade para saber,
+de antemão, exatamente
+
+100
+00:04:15,450 --> 00:04:20,580
+qual é o melhor valor dos hiperparâmetros.
+
+101
+00:04:17,940 --> 00:04:22,169
+e aí, o que muitas vezes
+acontece, é que você
+
+102
+00:04:20,580 --> 00:04:24,570
+precisa tentar muitos valores distintos
+
+103
+00:04:22,169 --> 00:04:26,970
+e ir progredindo neste círculo
+ (Ideia, Codificação, Experimentação)
+
+104
+00:04:24,570 --> 00:04:28,440
+tentando alguns valores. 
+Tentarei com cinco camadas ocultas
+
+105
+00:04:26,970 --> 00:04:31,140
+com este número 'n'
+de unidades ocultas,
+
+106
+00:04:28,440 --> 00:04:34,140
+implementar e ver se isso funciona e
+
+107
+00:04:31,140 --> 00:04:36,180
+aí então reiterar,
+assim, o título desse slide,
+
+108
+00:04:34,140 --> 00:04:38,340
+"Aprendizagem profunda aplicada
+é um processo muito empírico"
+
+109
+00:04:36,180 --> 00:04:40,740
+E processo empírico, é talvez
+
+110
+00:04:38,340 --> 00:04:42,419
+uma maneira extravagante para
+te dizer que você deva
+
+111
+00:04:40,740 --> 00:04:45,330
+tentar muitas coisas
+e ver se elas funcionam.
+
+112
+00:04:42,419 --> 00:04:47,190
+Outra forma efetiva que tenho visto é que
+
+113
+00:04:45,330 --> 00:04:48,810
+aprendizagem profunda hoje é aplicada para tantos
+
+114
+00:04:47,190 --> 00:04:51,990
+problemas que vão deste a
+visão do computador
+
+115
+00:04:48,810 --> 00:04:53,789
+até reconhecimento da fala,
+ e no processamento de
+
+116
+00:04:51,990 --> 00:04:55,500
+linguagem natural.
+Para muitas estruturas
+
+117
+00:04:53,789 --> 00:04:59,250
+de aplicação de dados tal como
+
+118
+00:04:55,500 --> 00:05:02,430
+talvez uma propaganda online,
+ou pesquisa na internet,
+
+119
+00:04:59,250 --> 00:05:05,640
+ou recomendações de produtos
+e assim por diante.
+
+120
+00:05:02,430 --> 00:05:08,190
+O que tenho v, é que a primeira vez que vi
+
+121
+00:05:05,640 --> 00:05:10,080
+pesquisadores de uma disciplina qualquer,
+
+122
+00:05:08,190 --> 00:05:12,060
+um desses tentar ir para uma diferente
+
+123
+00:05:10,080 --> 00:05:14,400
+e, às vezes, a intuição sobre o hiperparâmetro
+
+124
+00:05:12,060 --> 00:05:16,590
+pode ser transferida e, algumas vezes,
+
+125
+00:05:14,400 --> 00:05:17,849
+não é dessa forma que
+eu costumo aconselhar pessoas,
+
+126
+00:05:16,590 --> 00:05:20,970
+especialmente quando iniciam um novo
+
+127
+00:05:17,849 --> 00:05:23,550
+problema, para justamente
+experimentar uma série
+
+128
+00:05:20,970 --> 00:05:25,500
+de valores e ver que funcionam e então, no próximo
+
+129
+00:05:23,550 --> 00:05:27,930
+curso, veremos uma
+forma sistemática,
+
+130
+00:05:25,500 --> 00:05:30,780
+alguns modos sistemáticos para tentar
+
+131
+00:05:27,930 --> 00:05:32,070
+uma variedade de valores. 
+E segundo, mesmo
+
+132
+00:05:30,780 --> 00:05:33,570
+se você está trabalhando em uma
+
+133
+00:05:32,070 --> 00:05:35,220
+aplicação por um longo tempo, você sabe
+
+134
+00:05:33,570 --> 00:05:37,979
+que talvez você esteja trabalhando em
+
+135
+00:05:35,220 --> 00:05:39,930
+propagandas online.
+Como seu progresso no problema
+
+136
+00:05:37,979 --> 00:05:41,580
+é bem possível que o melhor
+
+137
+00:05:39,930 --> 00:05:43,830
+valor para um número
+da taxa de aprendizado, de
+
+138
+00:05:41,580 --> 00:05:46,440
+unidades escondidas, e assim por
+diante podem mudar
+
+139
+00:05:43,830 --> 00:05:49,229
+até se você afina seu
+sistema para o melhor
+
+140
+00:05:46,440 --> 00:05:51,750
+valor de hiperparâmetros
+diariamente ao máximo
+
+141
+00:05:49,229 --> 00:05:53,430
+é possível, encontra o melhor valor
+
+142
+00:05:51,750 --> 00:05:55,650
+pode mudar daqui a um ano,
+talvez
+
+143
+00:05:53,430 --> 00:05:57,840
+porque a infraestrutura do computador,
+
+144
+00:05:55,650 --> 00:05:59,789
+seria o que você conhece
+como CPUs ou o tipo de GPU
+
+145
+00:05:57,840 --> 00:06:01,560
+onde executa seu algoritmo, ou algo mudou, ou então,
+
+146
+00:05:59,789 --> 00:06:03,659
+talvez uma regra básica que você conhece
+
+147
+00:06:01,560 --> 00:06:05,070
+desde sempre e
+, talvez, a cada poucos
+
+148
+00:06:03,659 --> 00:06:06,659
+meses se você está
+trabalhando em um problema
+
+149
+00:06:05,070 --> 00:06:09,030
+por um longo período de tempo
+ há muitos anos,
+
+150
+00:06:06,659 --> 00:06:10,800
+tentar alguns valores para os
+
+151
+00:06:09,030 --> 00:06:12,570
+hiperparâmetros e 
+uma dupla checagem se
+
+152
+00:06:10,800 --> 00:06:15,150
+existe um valor melhor para os
+
+153
+00:06:12,570 --> 00:06:17,280
+hiperparâmetros e ao fazê-lo, você lentamente
+
+154
+00:06:15,150 --> 00:06:18,779
+ganha intuição também sobre o
+
+155
+00:06:17,280 --> 00:06:19,870
+parâmetro que funciona melhor para os
+
+156
+00:06:18,779 --> 00:06:21,820
+seus problemas.
+
+157
+00:06:19,870 --> 00:06:24,010
+E eu sei que isto pode parecer como uma
+
+158
+00:06:21,820 --> 00:06:25,510
+parte insatisfatória da
+aprendizagem profunda que
+
+159
+00:06:24,010 --> 00:06:27,940
+você deve testar com todos os valores
+
+160
+00:06:25,510 --> 00:06:30,160
+esses hiperparâmetros, porém, talvez
+
+161
+00:06:27,940 --> 00:06:32,200
+esta seja uma área onde a
+ pesquisa da aprendizagem profunda
+
+162
+00:06:30,160 --> 00:06:33,850
+está ainda avançando e, talvez,
+
+163
+00:06:32,200 --> 00:06:36,190
+ao longo do tempo
+poderemos ter uma melhor
+
+164
+00:06:33,850 --> 00:06:38,350
+orientação para melhores
+hiperparâmetros para usar.
+
+165
+00:06:36,190 --> 00:06:41,260
+Mas, isto também é possível
+
+166
+00:06:38,350 --> 00:06:43,630
+por conta de CPUs, GPUs, redes e
+
+167
+00:06:41,260 --> 00:06:45,910
+conjuntos de dados, todos estão mudando, e é
+
+168
+00:06:43,630 --> 00:06:47,680
+possível que a orientação não
+
+169
+00:06:45,910 --> 00:06:49,360
+convergirá por enquanto, então, você precisa
+
+170
+00:06:47,680 --> 00:06:50,860
+continuar experimentando valores diferentes e
+
+171
+00:06:49,360 --> 00:06:52,479
+avaliá-los em todo o
+
+172
+00:06:50,860 --> 00:06:54,100
+conjunto de validação cruzada ou algo assim, e
+
+173
+00:06:52,479 --> 00:06:56,350
+selecionar o valor que funciona
+para seus problemas.
+
+174
+00:06:54,100 --> 00:06:58,870
+Isso, foi uma breve discussão, dos
+
+175
+00:06:56,350 --> 00:07:01,030
+hiperparâmetros.
+Em um segundo curso, iremos
+
+176
+00:06:58,870 --> 00:07:03,280
+dar também algumas sugestões de como
+
+177
+00:07:01,030 --> 00:07:06,040
+explorar sistematicamente o espaço para os
+
+178
+00:07:03,280 --> 00:07:07,570
+hiperparâmetros mas
+por hora você realmente
+
+179
+00:07:06,040 --> 00:07:09,430
+tem praticamente todas
+as ferramentas que você precisa
+
+180
+00:07:07,570 --> 00:07:11,470
+para fazer seus
+exercícios de programação. Antes
+
+181
+00:07:09,430 --> 00:07:14,050
+de você fazer isso, eu gostaria de compartilhar
+
+182
+00:07:11,470 --> 00:07:16,150
+mais um conjunto de ideias,
+que sou frequentemente perguntado:
+
+183
+00:07:14,050 --> 00:07:18,660
+"O que a aprendizagem profunda
+tem a ver com
+
+184
+00:07:16,150 --> 00:07:18,660
+o cérebro humano?"

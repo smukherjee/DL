@@ -1,0 +1,62 @@
+Me ves dibujar algunas imágenes de redes neuronales. En este video, hablaremos sobre 
+exactamente lo que significan esas fotos. De otro modo, exactamente lo que representan esas redes 
+neuronales que hemos estado dibujando. Y empezaremos por centrarnos en 
+ el caso de las redes neuronales con lo que se llamó una sola capa oculta. Aquí hay una foto de una red neuronal. Vamos a darle nombre a algunas partes de esta imagen. Tenemos las características de entrada, x1, 
+ x2, x3 apiladas verticalmente, esto se llama la capa de entrada de la red neuronal. Tal vez no sea sorprendente, esto 
+contiene las entradas a la red neuronal. Luego hay otra capa de círculos, esto se llama una capa 
+oculta de la red neuronal. Regresaré en un segundo para decir
+ lo que significa la palabra oculto. Pero la capa final aquí está formada por
+, en este caso, solo un nodo, y esta capa de un solo nodo se llama 
+la capa de salida, y es responsable de entregar el valor de predicción (ŷ). En una red neuronal que entrenas 
+con aprendizaje supervisado, el conjunto de entrenamiento contiene valores para 
+ entradas "x" así como para las salidas "y". Así que el término "capa oculta" se refiere al 
+hecho de que en el conjunto de entrenamiento, los valores verdaderos para estos 
+nodos en el medio no se observan. Es decir, no ves lo que debería estar
+ en el conjunto de entrenamiento. Ves cuáles son las entrada y ves lo que debería ser salida, pero las cosas en la capa oculta no se
+ ven en el conjunto de entrenamiento. Así que eso explica el termino de
+ capa oculta, por qué tu no lo ves en el set de entrenamiento. Vamos a introducir un poco más de notación. Mientras que anteriormente, estábamos usando 
+el vector "X" para denotar las características de entrada y notación alternativa para los valores de las entradas serán 
+ a[0]. El término A también significa 
+ activaciones, y se refiere a los valores 
+que las diferentes capas de la red neuronal están pasando 
+ a las capas posteriores. Así que la capa de entrada pasa 
+ el valor x a la capa oculta, por lo que vamos a llamar a eso activaciones 
+ de la capa de entrada a[0] La siguiente capa, la capa oculta, generará 
+a su vez algún conjunto de activaciones, que voy a escribir como [1]. Entonces, en particular, esta
+ primera unidad o este primer nodo, genera un valor a1[1]. Este segundo nodo genera un valor. Ahora tenemos un subíndice 2 y así sucesivamente. Y a[1] es un vector de cuatro dimensiones 
+ en Python porque la matriz 4x1, o un vector de 4
+ columnas, tiene este aspecto. este es de cuatro dimensiones, porque 
+en este caso tenemos cuatro nodos, o cuatro unidades, o cuatro unidades
+ ocultas en esta capa oculta. Y finalmente, la capa de salida
+ regenera un valor a[2], que es sólo un número real. Y así, ŷ va a tomar el valor de a[2]. Así que esto es análogo a cómo en regresión
+ logística, tenemos "ŷ = a", en regresión logística solo teníamos 
+una capa de salida, por lo que no usamos "[]" pero ahora con nuestra red neuronal, 
+ vamos a utilizar los "[]" para indicar explícitamente 
+la capa de la qué proviene. Algo gracioso acerca de las notaciones 
+en redes neuronales es que esta red que has visto aquí se 
+llama red neuronal de dos capas. Y la razón es que, cuando contamos 
+ capas en redes neuronales, no contamos la capa de entrada. Así que la capa oculta es la capa uno y 
+la capa de salida es la capa dos. En nuestra notación, estamos
+ llamando a la capa de entrada capa cero, por lo que técnicamente quizás hay tres capas 
+en esta red neuronal. Esta la capa de entrada, 
+la capa oculta y la capa de salida. Pero en el uso convencional, si 
+lees documentos de investigación y en otras partes del curso, ves que la gente se refiere a esta 
+red neuronal en particular como una red de dos capas, porque no contamos 
+la capa de entrada como una capa oficial. Finalmente, algo a lo que llegaremos 
+más tarde es que la capa oculta y Las capas de salida tendrán 
+parámetros asociados con ellas. Por lo tanto, la capa oculta tendrá 
+asociados parámetros w y b. Y voy a escribir [1] para indicar que estos son parámetros asociados con 
+la capa uno, con la capa oculta. Más adelante veremos que w será 
+una matriz de (4, 3) y b será un vector de (4, 1) en este ejemplo. Donde la primera coordenada "4"
+ viene del hecho de que tenemos cuatro nodos en nuestras unidades ocultas
+ de una capa, y "3" viene del hecho de que 
+tenemos tres características de entrada. Más adelante hablaremos sobre 
+ las dimensiones de estas matrices. Y podría tener más sentido en ese momento. Pero en algunas de las capas de salida 
+también se asociado con parámetros w[2] y b[2] Y resulta que las dimensiones 
+de estas son (1, 4) y (1,1). Y este (1, 4) se debe a que la capa 
+oculta tiene cuatro unidades ocultas, la capa de salida tiene una sola unidad. Pero veremos la dimensión de estas 
+matrices y vectores en un video posterior Así que acabas de ver cómo es 
+una red neuronal de dos capas. Esta es una red neuronal 
+con una capa oculta. En el siguiente video, profundicemos qué es exactamente lo que esta red neuronal está computando. como esta red neural
+ toma las entradas "x" y va todo el camino 
+calculando la salida ŷ.

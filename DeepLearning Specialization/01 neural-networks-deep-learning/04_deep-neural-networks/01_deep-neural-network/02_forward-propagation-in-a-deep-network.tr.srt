@@ -1,0 +1,563 @@
+1
+00:00:00,060 --> 00:00:04,380
+Son videoda, şu konuları tarif etmiştik
+
+2
+00:00:02,250 --> 00:00:06,150
+genel derin yapay sinir ağlarında ve
+
+3
+00:00:04,380 --> 00:00:08,550
+bu gibi ağlarda kullanılan gösterim hakkında
+
+4
+00:00:06,150 --> 00:00:10,650
+konuştuk. Bu videoda
+
+5
+00:00:08,550 --> 00:00:13,769
+ve ileri yayılmayı nasıl yapacağınızı
+
+6
+00:00:10,650 --> 00:00:16,440
+her zamanki gibi derin ağlar olacak. Gelin önce
+
+7
+00:00:13,769 --> 00:00:18,660
+ileri yayılım nedir, nasıl yapılır
+
+8
+00:00:16,440 --> 00:00:21,330
+Verilen tek X girdisine göre nasıl hesaplanır
+
+9
+00:00:18,660 --> 00:00:22,920
+ üzerinde konuşacağız.
+
+10
+00:00:21,330 --> 00:00:24,810
+vektör halindeki girdi üzerinde
+
+11
+00:00:22,920 --> 00:00:26,849
+ileri yayılımın nereye uygulanacağını
+
+12
+00:00:24,810 --> 00:00:29,660
+tüm eğitim seti aynı zamanda
+
+13
+00:00:26,849 --> 00:00:32,579
+Verilen tek X girdisinde 
+
+14
+00:00:29,660 --> 00:00:34,800
+inceleyeceğiz. Daha sonra aktivasyon değerlerini nasıl hesaplayacağımızı göreceğiz,
+
+15
+00:00:32,579 --> 00:00:42,329
+İlk katmanda aktivasyon hesaplarken
+
+16
+00:00:34,800 --> 00:00:48,239
+z1 eşittir W1 çarpı X 
+
+17
+00:00:42,329 --> 00:00:51,120
+artı b1, yani W1 ve b1 parametreleri
+
+18
+00:00:48,239 --> 00:00:53,879
+bu birinci katmanda aktivasyonları etkiler.
+
+19
+00:00:51,120 --> 00:00:56,899
+burada tam yerinde onlardan bir tanesi
+
+20
+00:00:53,879 --> 00:00:59,280
+yapay sinir ağıdır, ve hesaplayacağınız
+
+21
+00:00:56,899 --> 00:01:04,979
+ilgili katmana ait aktivasyonlar 
+
+22
+00:00:59,280 --> 00:01:06,810
+Z1'in G'sine eşit olmalıdır ve hedef fonksiyon
+
+23
+00:01:04,979 --> 00:01:09,090
+G, bulunduğun katmana bağlıdır ve 
+
+24
+00:01:06,810 --> 00:01:11,010
+AB indeksinin aktivasyon fonksiyonu 
+
+25
+00:01:09,090 --> 00:01:12,689
+1. tabakadan başlar. Eğer 
+
+26
+00:01:11,010 --> 00:01:13,320
+ilk katmandan başlayarak aktivasyonları hesapladıysanız
+
+27
+00:01:12,689 --> 00:01:18,360
+2. katman ne olacak?
+
+28
+00:01:13,320 --> 00:01:24,470
+Bu katman için
+
+29
+00:01:18,360 --> 00:01:32,189
+Z2'yi hesaplamak gerekir bu da W2 ile A1 ve B2'nin toplanmasıdır.
+
+30
+00:01:24,470 --> 00:01:34,950
+Sonuçta 2. katmanın aktivasyonu
+
+31
+00:01:32,189 --> 00:01:39,180
+Ağırlık (W) matrisi ile 
+
+32
+00:01:34,950 --> 00:01:44,270
+1. katman sonuçlarının çarpılmına .
+
+33
+00:01:39,180 --> 00:01:49,579
+2. katmanın bias vektörünün eklenmesiyle bulunur.  
+
+34
+00:01:44,270 --> 00:01:55,770
+A2, aktivasyon fonksiyonudur ve z2'ye uygulanır. 
+
+35
+00:01:49,579 --> 00:01:57,990
+Bu 2. katman için böyledir, diğer katmanlar için de
+
+36
+00:01:55,770 --> 00:02:00,299
+çıktı katmanına gelene kadar aynı şekilde devam edilir.
+
+37
+00:01:57,990 --> 00:02:06,240
+Burada çıktı katmanı 4. katmanda
+
+38
+00:02:00,299 --> 00:02:09,959
+Z4, 4. katmanın 
+
+39
+00:02:06,240 --> 00:02:11,780
+bu katmana özgü parametreleri ile 
+
+40
+00:02:09,959 --> 00:02:14,569
+önceki katmandan gelen aktivasyonların çarpımının
+
+41
+00:02:11,780 --> 00:02:23,930
+ile bias vektörüyle toplanması ve
+
+42
+00:02:14,569 --> 00:02:26,720
+A4, G(z4) fonksiyonuna eşittir.
+
+43
+00:02:23,930 --> 00:02:29,900
+Bu şekilde tahmini 
+
+44
+00:02:26,720 --> 00:02:35,390
+Y (şapkalı) çıktısını hesaplarsınız.
+
+45
+00:02:29,900 --> 00:02:38,270
+Buradaki X sıfıra eşittir,
+
+46
+00:02:35,390 --> 00:02:41,209
+çünkü girdi olan özellik vektörü aynı zamanda
+
+47
+00:02:38,270 --> 00:02:44,000
+0. katmanın aktivasyonlarıdır.
+
+48
+00:02:41,209 --> 00:02:47,000
+Burada X'in üzerini çizip yerine 0
+
+49
+00:02:44,000 --> 00:02:48,709
+yazarsak tüm bu 
+
+50
+00:02:47,000 --> 00:02:53,980
+denklemler aynı görünecektir.
+
+51
+00:02:48,709 --> 00:03:02,750
+Genel bir kural olarak, Z[L]
+
+52
+00:02:53,980 --> 00:03:05,750
+W[L] ile a[L-1]'in çarpımına B[L] eklenmesidir.
+
+53
+00:03:02,750 --> 00:03:10,630
+Ve bu katmanın aktivasyonları 
+
+54
+00:03:05,750 --> 00:03:16,850
+Z değerlerine uygulanan aktivasyonlara eşittir.
+
+55
+00:03:10,630 --> 00:03:20,120
+Bu yayılım denklemleri için genel kuraldır.
+
+56
+00:03:16,850 --> 00:03:23,540
+Tek öğrenme örneği için 
+
+57
+00:03:20,120 --> 00:03:26,299
+tüm bu işlemleri yaptık.
+
+58
+00:03:23,540 --> 00:03:29,660
+Bütün veriseti için bu işlemleri 
+
+59
+00:03:26,299 --> 00:03:32,720
+vektör olarak nasıl yapmalıyız?
+
+60
+00:03:29,660 --> 00:03:35,030
+Denklemler öncekiler gibi görünecektir,
+
+61
+00:03:32,720 --> 00:03:40,060
+ilk katman için
+
+62
+00:03:35,030 --> 00:03:48,410
+büyük harf Z1, büyük harf W1 ile  
+
+63
+00:03:40,060 --> 00:03:54,650
+büyük harf X ile çarpılarak B1 ile toplanmasıdır, ve A1
+
+64
+00:03:48,410 --> 00:03:57,920
+G(Z1) fonksiyonudur. Burada aklınızda X'in
+
+65
+00:03:54,650 --> 00:03:59,959
+0'a eşit olduğunu aklınızda bulundurun ve bunlar sadece
+
+66
+00:03:57,920 --> 00:04:01,850
+ eğitim örnekleridir. 
+
+67
+00:03:59,959 --> 00:04:05,450
+farklı sütunlarda bulunan
+
+68
+00:04:01,850 --> 00:04:08,269
+X'in üzerini çizelim ve yerine 0
+
+69
+00:04:05,450 --> 00:04:08,720
+koyalım, sonraki katman
+
+70
+00:04:08,269 --> 00:04:16,720
+benzerdir
+
+71
+00:04:08,720 --> 00:04:21,980
+Z2, W2 ile A2 çarpımına B2 eklenmesi ve a2
+
+72
+00:04:16,720 --> 00:04:24,530
+G(Z2) dir.
+
+73
+00:04:21,980 --> 00:04:28,370
+Bu Z ve A vektörlerini alıp 
+
+74
+00:04:24,530 --> 00:04:29,810
+üst üste yuğduktan sonra bu
+
+75
+00:04:28,370 --> 00:04:34,310
+ilk eğitim örneği için Z vektörü
+
+76
+00:04:29,810 --> 00:04:37,310
+ikinci eğitim örneği için ve böyle devam eder
+
+77
+00:04:34,310 --> 00:04:39,830
+ta ki M. eğitim örneğine kadar
+
+78
+00:04:37,310 --> 00:04:43,700
+bunlar sütunlar halinde birikir
+
+79
+00:04:39,830 --> 00:04:47,390
+ve büyük harf Z ile gösterilir.
+
+80
+00:04:43,700 --> 00:04:50,000
+Büyük harf A, ve büyük harf X için de benzer şekildedir.
+
+81
+00:04:47,390 --> 00:04:52,040
+Bütün eğitim örnekleri sütun vektörüdür.
+
+82
+00:04:50,000 --> 00:04:53,720
+Soldan sağa doğru birbirine eklenerek büyürler ve
+
+83
+00:04:52,040 --> 00:04:59,450
+bu işlemler sonunda 
+
+84
+00:04:53,720 --> 00:05:03,200
+Y(şapka) elde edilir bu da G(Z4)
+
+85
+00:04:59,450 --> 00:05:04,670
+ve bu da A4'a eşittir. Bu
+
+86
+00:05:03,200 --> 00:05:08,000
+tahminlerdir ki onlar 
+
+87
+00:05:04,670 --> 00:05:09,980
+horizontal olarak dizilen eğitim örneklerinin birikimidir.
+
+88
+00:05:08,000 --> 00:05:12,590
+Notasyonu özetlemek için
+
+89
+00:05:09,980 --> 00:05:17,720
+burada bazı şeyleri değiştireceğim,
+
+90
+00:05:12,590 --> 00:05:19,820
+küçük harf z ve a'yı 
+
+91
+00:05:17,720 --> 00:05:22,070
+büyük harf karşılıklarıyla değiştireceğim bu
+
+92
+00:05:19,820 --> 00:05:23,810
+da büyük Z'nin karşılığı ve
+
+93
+00:05:22,070 --> 00:05:25,790
+ileri yayılımın hesapladığınız vektör halini
+
+94
+00:05:23,810 --> 00:05:29,060
+verecektir,
+
+95
+00:05:25,790 --> 00:05:32,990
+tüm veri seti için, A0'ın 
+
+96
+00:05:29,060 --> 00:05:35,240
+X olduğu durumda. Eğer
+
+97
+00:05:32,990 --> 00:05:37,670
+bu vektör yapma kodlamasına bakarsanız
+
+98
+00:05:35,240 --> 00:05:40,370
+burada bir "for "
+
+99
+00:05:37,670 --> 00:05:44,360
+döngüsü olması gerekir. L 
+
+100
+00:05:40,370 --> 00:05:47,000
+eşittir 1'den 4'e, L 1'e eşitken 
+
+101
+00:05:44,360 --> 00:05:48,950
+büyük L iken ve hesaplanmalıdır ki
+
+102
+00:05:47,000 --> 00:05:51,860
+(her katman) katman 1, sonra katman 2 için aktivasyonlar
+
+103
+00:05:48,950 --> 00:05:54,370
+sonra katman 3 ve katman 4 için bu nedenle
+
+104
+00:05:51,860 --> 00:05:56,660
+"for" döngüsüne ihtiyaç vardır.
+
+105
+00:05:54,370 --> 00:05:58,550
+Biliyorum ki ağlarınızı kodlarken
+
+106
+00:05:56,660 --> 00:06:00,770
+biz genellikle belirgin "for" döngülerinden kurtulmayı isteriz
+
+107
+00:05:58,550 --> 00:06:03,290
+ama bu örnek tek yerdir ki burada
+
+108
+00:06:00,770 --> 00:06:05,060
+bence başka alternatifi yoktur 
+
+109
+00:06:03,290 --> 00:06:06,590
+belirgin "for" döngüsünden bence başka kodlama haricinde.
+
+110
+00:06:05,060 --> 00:06:09,080
+İleri yayılımı kodlarken
+
+111
+00:06:06,590 --> 00:06:10,700
+bu durum tam olarak doğrudur,
+
+112
+00:06:09,080 --> 00:06:12,740
+for döngüsünün aktivasyonları hesaplamada kullanımı
+
+113
+00:06:10,700 --> 00:06:15,050
+1. katman, sonra 2. katman ve 
+
+114
+00:06:12,740 --> 00:06:17,210
+sonra 3. katman ve bu nedenle
+
+115
+00:06:15,050 --> 00:06:19,970
+bu işi yapmanın başka yolu olduğunu sanmıyorum
+
+116
+00:06:17,210 --> 00:06:23,060
+"for" döngüsü kullanmadan
+
+117
+00:06:19,970 --> 00:06:24,620
+1 den büyük harf L'ye, 1'den
+
+118
+00:06:23,060 --> 00:06:27,830
+tüm katmanlara
+
+119
+00:06:24,620 --> 00:06:30,980
+ağınızda bulunan, yani bu yer için 
+
+120
+00:06:27,830 --> 00:06:32,690
+belirgin for döngüleri normaldir.
+
+121
+00:06:30,980 --> 00:06:35,300
+Derin sinir ağları için notasyon bu kadar,
+
+122
+00:06:32,690 --> 00:06:37,760
+aynı şekilde nasıl ileri  
+
+123
+00:06:35,300 --> 00:06:39,680
+yayılım hesaplanacağını gösterdik.
+
+124
+00:06:37,760 --> 00:06:41,900
+Gösterdiğimiz parçalar 
+
+125
+00:06:39,680 --> 00:06:44,000
+size biraz tanıdık geliyorsa sebebi
+
+126
+00:06:41,900 --> 00:06:45,830
+bahsettiğimiz her parça
+
+127
+00:06:44,000 --> 00:06:47,750
+daha önce gördüklerinize
+
+128
+00:06:45,830 --> 00:06:50,750
+tek katmanlı sinir ağına
+
+129
+00:06:47,750 --> 00:06:53,420
+benzerdir ve bunu çok kere tekrarlıyoruz.
+
+130
+00:06:50,750 --> 00:06:55,420
+Sonuçta biz derin 
+
+131
+00:06:53,420 --> 00:06:57,860
+sinir ağını kodladık, diğer bir yol olarak
+
+132
+00:06:55,420 --> 00:06:59,450
+bug ihtimalini artırmamak için
+
+133
+00:06:57,860 --> 00:07:01,580
+kodlamada düşünmeliyiz
+
+134
+00:06:59,450 --> 00:07:03,500
+çok sistematik ve dikkatli bir şekilde
+
+135
+00:07:01,580 --> 00:07:05,300
+çalıştığınız matris boyutları hakkında
+
+136
+00:07:03,500 --> 00:07:07,280
+Kendi kodumu debug ederken
+
+137
+00:07:05,300 --> 00:07:08,960
+genelde bir kağıt alıp
+
+138
+00:07:07,280 --> 00:07:11,480
+dikkatlice düşünürüm
+
+139
+00:07:08,960 --> 00:07:13,940
+çalıştığım matrisin boyutları üzerinde
+
+140
+00:07:11,480 --> 00:07:16,570
+Bunu nasıl yapacağınızı
+
+141
+00:07:13,940 --> 00:07:16,570
+sonraki videoda öğrenelim.

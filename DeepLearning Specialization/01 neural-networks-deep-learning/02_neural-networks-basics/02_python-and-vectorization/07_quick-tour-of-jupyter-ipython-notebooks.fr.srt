@@ -1,0 +1,326 @@
+1
+00:00:00,000 --> 00:00:02,070
+Avec tout ce que vous avez appris, 
+vous êtes presque prêts
+
+2
+00:00:02,070 --> 00:00:04,745
+à vous attaquer à votre premier
+ exercice de programmation.
+
+3
+00:00:04,745 --> 00:00:10,130
+Avant de le faire, permettez-moi 
+de vous faire faire un tour rapide 
+des notebooks iPython dans Coursera.
+
+4
+00:00:10,130 --> 00:00:14,545
+Ici vous voyez un Jupyter iPython notebood
+auquel vous pouvez accéder sur Coursera.
+
+5
+00:00:14,545 --> 00:00:17,520
+Laissez moi vous montrer rapidement 
+quelques-unes de ses fonctionnalités.
+
+6
+00:00:17,520 --> 00:00:21,885
+Les instructions sont écrites ici dans le texte
+ dans le notebook iPython.
+
+7
+00:00:21,885 --> 00:00:25,460
+Et ces longs blocs gris clairs
+ sont des blocs de code.
+
+8
+00:00:25,460 --> 00:00:27,030
+De temps en temps, vous verrez dans
+
+9
+00:00:27,030 --> 00:00:29,255
+ces blocs quelque chose qui va dire 
+START CODE HERE et END CODE HERE.
+
+10
+00:00:29,255 --> 00:00:31,860
+Pour faire votre exercice, assurez-vous que
+
+11
+00:00:31,860 --> 00:00:36,755
+vous écrivez votre code entre 
+le START CODE HERE et le END CODE HERE.
+
+12
+00:00:36,755 --> 00:00:41,485
+Ainsi, par exemple,
+ print Hello world.
+
+13
+00:00:41,485 --> 00:00:44,085
+Et puis pour exécuter un bloc de code,
+
+14
+00:00:44,085 --> 00:00:49,355
+vous appuyez sur Maj + Entrée, 
+ce qui va exécuter ce bloc de code,
+
+15
+00:00:49,355 --> 00:00:51,265
+qui contient seulement print("Hello world").
+
+16
+00:00:51,265 --> 00:00:53,355
+Et ça écrit Hello World.
+
+17
+00:00:53,355 --> 00:00:55,140
+Pour exécuter une cellule,
+
+18
+00:00:55,140 --> 00:00:56,940
+vous pouvez également, pour exécuter
+ l’une de ces cellules de blocs de code,
+
+19
+00:00:56,940 --> 00:01:01,200
+vous pouvez également cliquer sur cell 
+et puis run cell. Et ça exécute ceci.
+
+20
+00:01:01,200 --> 00:01:05,275
+Il est possible que sur votre ordinateur,
+
+21
+00:01:05,275 --> 00:01:07,364
+le raccourci clavier pour exécuter
+
+22
+00:01:07,364 --> 00:01:09,105
+la cellule puisse être différent
+ de Maj + Entrée.
+
+23
+00:01:09,105 --> 00:01:14,070
+Mais sur mon Mac ainsi que sur mon PC,
+ c'est Maj + entrée,
+
+24
+00:01:14,070 --> 00:01:16,550
+alors ça peut être la même chose pour vous.
+
+25
+00:01:16,550 --> 00:01:18,480
+Quand vous lisez les instructions,
+
+26
+00:01:18,480 --> 00:01:20,960
+si vous double-cliquez 
+accidentellement dessus,
+
+27
+00:01:20,960 --> 00:01:24,270
+vous pouvez vous retrouver avec
+ ce texte en langage markdown.
+
+28
+00:01:24,270 --> 00:01:26,700
+Si vous vous retrouvez
+ avec ce genre de texte bizarre,
+
+29
+00:01:26,700 --> 00:01:30,390
+pour le reconvertir en joli texte,
+ il suffit d’exécuter cette cellule.
+
+30
+00:01:30,390 --> 00:01:34,740
+Donc vous pouvez aller à cell, run cell
+ ou je vais Appuyez sur Maj + Entrée et
+
+31
+00:01:34,740 --> 00:01:39,630
+ça exécute simplement le markdown 
+et le retransforme en joli texte.
+
+32
+00:01:39,630 --> 00:01:41,565
+Quelques autres astuces.
+
+33
+00:01:41,565 --> 00:01:43,795
+Lorsque vous exécutez le code comme ceci,
+
+34
+00:01:43,795 --> 00:01:48,333
+il s'exécute en fait sur un noyau,
+
+35
+00:01:48,333 --> 00:01:51,947
+sur un morceau de code 
+qui s’exécute sur le serveur.
+
+36
+00:01:51,947 --> 00:01:54,900
+Si vous exécutez un calcul 
+trop gros ou si
+
+37
+00:01:54,900 --> 00:01:59,121
+vous quittez votre ordinateur pendant très 
+longtemps, ou si quelque chose tourne mal,
+
+38
+00:01:59,121 --> 00:02:00,505
+votre connexion internet 
+ou quelque chose comme ça,
+
+39
+00:02:00,505 --> 00:02:03,160
+il y a une petite chance que le noyau 
+sur le serveur principal puisse mourir,
+
+40
+00:02:03,160 --> 00:02:06,690
+dans ce cas, il suffit de cliquer sur
+ kernel et puis restart kernel.
+
+41
+00:02:06,690 --> 00:02:10,415
+Et si tout va bien, ça va redémarrer le
+ noyau et le faire fonctionner à nouveau.
+
+42
+00:02:10,415 --> 00:02:13,080
+Ca ne devrait pas arriver
+ si vous lancez seulement
+
+43
+00:02:13,080 --> 00:02:16,858
+des calculs relativement petits et que 
+vous venez de lancer le notebook iPython.
+
+44
+00:02:16,858 --> 00:02:19,995
+Si vous voyez un message d’erreur
+ comme quoi le noyau est mort 
+ou quelque chose comme ça,
+
+45
+00:02:19,995 --> 00:02:21,310
+vous pouvez essayer kernel, restart.
+
+46
+00:02:21,310 --> 00:02:25,362
+Enfin, dans le notebook iPython,
+
+47
+00:02:25,362 --> 00:02:27,845
+comme ça, il peut y avoir 
+plusieurs blocs de code.
+
+48
+00:02:27,845 --> 00:02:33,255
+Ainsi, même si un bloc de code antérieur 
+ne contient pas de code saisi par vous,
+
+49
+00:02:33,255 --> 00:02:35,550
+veillez à exécuter ce bloc de code parce que,
+
+50
+00:02:35,550 --> 00:02:39,698
+dans cet exemple, 
+il importe numpy as np et ainsi de suite,
+
+51
+00:02:39,698 --> 00:02:42,360
+et met en place certaines des variables 
+dont vous pourriez avoir besoin afin
+
+52
+00:02:42,360 --> 00:02:45,570
+d'exécuter des blocs de code plus bas.
+
+53
+00:02:45,570 --> 00:02:50,845
+Donc n’oubliez pas d’exécuter ceux 
+d'en haut, même si on ne vous demande pas
+ d'y écrire du code.
+
+54
+00:02:50,845 --> 00:02:53,705
+Et enfin, lorsque vous avez terminé
+ d'implémenter vos solutions,
+
+55
+00:02:53,705 --> 00:02:57,920
+Il y a ce bouton bleu 'submit assignment'
+ en haut à droite et
+
+56
+00:02:57,920 --> 00:03:02,130
+il faut cliquer dessus pour soumettre
+ vos solutions pour la notation.
+
+57
+00:03:02,130 --> 00:03:05,520
+J’ai constaté que la nature interactive
+ de la console de commande
+
+58
+00:03:05,520 --> 00:03:09,008
+des notebooks iPython est très utile
+ pour apprendre rapidement.
+
+59
+00:03:09,008 --> 00:03:10,520
+Implémenter quelques lignes de code,
+
+60
+00:03:10,520 --> 00:03:13,450
+voir un résultat, 
+apprendre et ajouter très rapidement.
+
+61
+00:03:13,450 --> 00:03:17,430
+Et j’espère donc que les exercices 
+de programmation dans Coursera,
+
+62
+00:03:17,430 --> 00:03:20,775
+et les notebooks Jupyter iPython 
+vous aideront à apprendre rapidement
+
+63
+00:03:20,775 --> 00:03:24,535
+à expérimenter et à voir comment
+ implémenter ces algorithmes.
+
+64
+00:03:24,535 --> 00:03:26,325
+Il y a encore une vidéo après celle-là.
+
+65
+00:03:26,325 --> 00:03:28,695
+C'est une vidéo optionnelle qui parle de
+
+66
+00:03:28,695 --> 00:03:32,210
+la fonction de coût pour la régression
+ logistique. Vous pouvez la regarder ou pas.
+
+67
+00:03:32,210 --> 00:03:33,745
+Comme vous préférez.
+
+68
+00:03:33,745 --> 00:03:38,140
+Mais quoi qu’il en soit, bonne chance avec les
+ exercices de programmation de la semaine 2.
+
+69
+00:03:38,140 --> 00:03:42,720
+Et j’ai hâte de vous voir 
+au début de la troisième semaine.

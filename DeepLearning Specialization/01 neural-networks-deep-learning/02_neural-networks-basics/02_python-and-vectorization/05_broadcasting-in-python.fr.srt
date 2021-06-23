@@ -1,0 +1,768 @@
+1
+00:00:00,210 --> 00:00:03,240
+Dans la vidéo précédente,
+ j’ai mentionné que le broadcasting
+
+2
+00:00:03,240 --> 00:00:07,040
+est une autre technique que vous pouvez
+ utiliser pour faire tourner
+ votre code Python plus vite.
+
+3
+00:00:07,040 --> 00:00:11,860
+Dans cette vidéo, nous allons voir
+ en profondeur comment le broadcasting
+ en Python fonctionne réellement.
+
+4
+00:00:11,860 --> 00:00:14,240
+Voyons cela avec un exemple.
+
+5
+00:00:14,240 --> 00:00:18,730
+Dans cette matrice, j’ai montré
+ le nombre de calories de glucides,
+
+6
+00:00:18,730 --> 00:00:22,320
+de protéines et de lipides pour 
+100 grammes de quatre différents aliments.
+
+7
+00:00:22,320 --> 00:00:25,380
+Ainsi, par exemple,
+100 grammes de pommes contiennent
+
+8
+00:00:25,380 --> 00:00:29,690
+56 calories de glucides et beaucoup moins
+ de protéines et de lipides.
+
+9
+00:00:29,690 --> 00:00:35,110
+En revanche, 100 grammes de bœuf
+ contiennent 104 calories provenant
+ des protéines et
+
+10
+00:00:35,110 --> 00:00:37,620
+135 calories provenant des lipides.
+
+11
+00:00:37,620 --> 00:00:43,330
+Maintenant, supposons que votre but est
+ de calculer le pourcentage de calories
+
+12
+00:00:43,330 --> 00:00:48,440
+de glucides, de protéines et de lipides
+ pour chacun des quatre aliments.
+
+13
+00:00:48,440 --> 00:00:52,338
+Ainsi, par exemple, si vous regardez
+ cette colonne et
+
+14
+00:00:52,338 --> 00:00:57,697
+additionnez les chiffres de cette colonne,
+ vous obtenez que 100 grammes de pomme
+
+15
+00:00:57,697 --> 00:01:02,580
+ont 56 plus 1,2 plus 1,8 
+c’est-à-dire 59 calories.
+
+16
+00:01:02,580 --> 00:01:06,806
+Et donc en pourcentage la proportion de
+
+17
+00:01:06,806 --> 00:01:11,800
+calories des glucides dans une pomme sera
+
+18
+00:01:11,800 --> 00:01:16,932
+de 56 sur 59, c’est environ 94,9 %.
+
+19
+00:01:16,932 --> 00:01:22,399
+Donc la majorité des calories dans une pomme
+ viennent des glucides, alors qu’au contraire,
+
+20
+00:01:22,399 --> 00:01:27,630
+la plupart des calories du bœuf proviennent 
+des protéines et des lipides et ainsi de suite.
+
+21
+00:01:27,630 --> 00:01:33,630
+Donc le calcul que vous voulez faire est 
+la somme de chacune des quatre colonnes
+
+22
+00:01:33,630 --> 00:01:38,740
+de cette matrice pour obtenir le nombre total
+ de calories pour 100 grammes de pommes,
+
+23
+00:01:38,740 --> 00:01:40,920
+de bœuf, d'œufs et de pommes de terre.
+
+24
+00:01:40,920 --> 00:01:45,090
+Et ensuite de diviser
+ chaque terme de la matrice,
+
+25
+00:01:47,230 --> 00:01:51,230
+afin d’obtenir le pourcentage
+ de calories de glucides, protéines et
+
+26
+00:01:51,230 --> 00:01:54,870
+lipides pour chacun des quatre aliments.
+
+27
+00:01:54,870 --> 00:02:01,370
+Donc la question est, pouvez-vous faire
+ cela sans une boucle FOR explicite ?
+
+28
+00:02:01,370 --> 00:02:03,290
+Nous allons voir comment vous pouvez le faire.
+
+29
+00:02:04,450 --> 00:02:08,602
+Ce que je vais faire est vous montrer
+ comment vous pouvez définir,
+
+30
+00:02:08,602 --> 00:02:12,990
+par exemple, cette matrice A,
+une matrice de trois par quatre
+
+31
+00:02:12,990 --> 00:02:18,300
+et puis avec une seule ligne de code Python 
+nous allons faire la somme des colonnes.
+
+32
+00:02:18,300 --> 00:02:22,078
+Donc nous allons obtenir quatre nombres
+ correspondant au nombre total
+
+33
+00:02:22,078 --> 00:02:25,046
+de calories dans ces quatre différents
+ types d’aliments,
+
+34
+00:02:25,046 --> 00:02:28,095
+100 grammes de ces quatre types d’aliments,
+
+35
+00:02:28,095 --> 00:02:32,113
+et je vais utiliser une deuxième ligne
+ de code Python pour diviser chacune des
+
+36
+00:02:32,113 --> 00:02:35,390
+quatre colonnes par
+ leur somme correspondante.
+
+37
+00:02:35,390 --> 00:02:37,250
+Si cette description verbale
+ n’a pas été très claire,
+
+38
+00:02:37,250 --> 00:02:40,670
+J’espère que ce sera plus clair dans une
+ seconde quand vous verrez le code Python.
+
+39
+00:02:40,670 --> 00:02:42,460
+Nous voici donc dans Jupyter notebook.
+
+40
+00:02:42,460 --> 00:02:46,150
+J’ai déjà écrit cette première partie
+ du code pour préremplir
+
+41
+00:02:46,150 --> 00:02:49,860
+la matrice A avec les nombres que nous 
+avions tout à l’heure, alors nous allons
+ faire Maj + Entrée et
+
+42
+00:02:49,860 --> 00:02:51,220
+lancer cela, donc voilà la matrice A.
+
+43
+00:02:51,220 --> 00:02:55,080
+Et maintenant, voici les deux lignes
+ de code Python.
+
+44
+00:02:55,080 --> 00:02:59,983
+Tout d’abord, nous allons calculer
+ cal = A.sum(axis=0)
+
+45
+00:02:59,983 --> 00:03:02,280
+axis = 0 signifie sommer verticalement.
+
+46
+00:03:02,280 --> 00:03:05,280
+Nous en reparlerons un peu plus tard.
+
+47
+00:03:05,280 --> 00:03:06,076
+Et puis print cal
+
+48
+00:03:06,076 --> 00:03:07,825
+Donc, nous allons faire la somme
+ verticalement.
+
+49
+00:03:07,825 --> 00:03:13,735
+59 est le nombre total de calories
+ dans la pomme, 239 est
+
+50
+00:03:13,735 --> 00:03:19,575
+le nombre total de calories dans le bœuf
+ puis les œufs et les pommes de terre
+ et ainsi de suite.
+
+51
+00:03:19,575 --> 00:03:25,151
+Et puis nous allons calculer le pourcentage
+
+52
+00:03:25,151 --> 00:03:30,733
+pourcentage = A/cal.reshape( 1,4).
+
+53
+00:03:30,733 --> 00:03:33,927
+En fait, nous voulons des pourcentages,
+ donc nous allons multiplier par 100 ici.
+
+54
+00:03:35,913 --> 00:03:38,860
+Et puis nous allons imprimer pourcentage.
+
+55
+00:03:40,800 --> 00:03:41,950
+Exécutons ça.
+
+56
+00:03:41,950 --> 00:03:46,870
+Et donc avec cette commande
+ nous avons pris la matrice A et
+
+57
+00:03:46,870 --> 00:03:50,820
+nous l'avons divisée 
+par cette matrice un par quatre.
+
+58
+00:03:50,820 --> 00:03:52,672
+Et cela nous donne
+ la matrice des pourcentages.
+
+59
+00:03:52,672 --> 00:03:57,327
+Comme quand nous avons fait les calculs
+ à la main tout à l’heure, pour la pomme
+
+60
+00:03:57,327 --> 00:04:02,480
+dans la première colonne,
+ 94,9 % des calories proviennent des glucides.
+
+61
+00:04:02,480 --> 00:04:04,000
+Revenons sur les diapositives.
+
+62
+00:04:04,000 --> 00:04:06,310
+Alors juste pour répéter 
+les deux lignes de code que nous avons,
+
+63
+00:04:06,310 --> 00:04:09,940
+voici ce qu’on a écrit dans Jupyter notebook.
+
+64
+00:04:09,940 --> 00:04:13,306
+Pour ajouter un peu de détails, ce paramètre,
+
+65
+00:04:13,306 --> 00:04:18,540
+(axis = 0), signifie que vous voulez que
+ Python calcule la somme verticalement.
+
+66
+00:04:18,540 --> 00:04:21,567
+Donc, si c'est axis = 0 cela signifie 
+calculer la somme verticalement,
+
+67
+00:04:21,567 --> 00:04:24,029
+alors que l’axe horizontal est l’axe 1.
+
+68
+00:04:24,029 --> 00:04:28,050
+Donc on écrirait axis = 1 pour faire la somme
+ horizontalement au lieu de verticalement.
+
+69
+00:04:28,050 --> 00:04:30,670
+Et puis cette commande ici,
+
+70
+00:04:30,670 --> 00:04:35,210
+c'est l'exemple du broadcasting de Python,
+ où vous prenez une matrice A,
+
+71
+00:04:35,210 --> 00:04:43,330
+c’est une matrice de trois par quatre et vous
+ la divisez par une matrice un par quatre.
+
+72
+00:04:43,330 --> 00:04:47,370
+Et techniquement, 
+après cette première ligne de code, cal,
+
+73
+00:04:47,370 --> 00:04:49,590
+la variable cal
+ est déjà une matrice un par quatre.
+
+74
+00:04:49,590 --> 00:04:52,616
+Donc, techniquement, il n'y a pas besoin 
+d'appeler reshape ici encore une fois, donc
+
+75
+00:04:52,616 --> 00:04:54,722
+c’est en fait un peu redondant.
+
+76
+00:04:54,722 --> 00:04:59,140
+Mais quand j’écris du code Python, si je
+ ne suis pas entièrement sûr de la matrice,
+
+77
+00:04:59,140 --> 00:05:04,056
+des dimensions d’une matrice j’appelle
+ souvent une commande reshape juste pour
+
+78
+00:05:04,056 --> 00:05:07,833
+être sûr que c'est bien
+ un vecteur colonne ou lun vecteur ligne ou
+
+79
+00:05:07,833 --> 00:05:09,500
+ce que vous voulez qu’il soit.
+
+80
+00:05:09,500 --> 00:05:11,840
+La commande reshape est 
+exécutée en temps constant.
+
+81
+00:05:11,840 --> 00:05:15,150
+C’est une un opération d'ordre 1 qui 
+ne coute presque rien en temps de calcul.
+
+82
+00:05:15,150 --> 00:05:18,404
+Alors n'hésitez pas à utiliser la commande
+ reshape pour vous assurer que vos matrices
+
+83
+00:05:18,404 --> 00:05:20,830
+sont de la taille qu'il faut qu’elles soient.
+
+84
+00:05:21,920 --> 00:05:27,272
+Maintenant, nous allons expliquer plus en
+ détail comment fonctionne ce type d’opération.
+
+85
+00:05:27,272 --> 00:05:33,780
+Nous avons une matrice 3 x 4 et 
+nous la divisons par une matrice 1 x 4.
+
+86
+00:05:33,780 --> 00:05:37,840
+Alors, comment peut-on diviser une
+ matrice 3 x 4 par une matrice 1 x 4,
+
+87
+00:05:37,840 --> 00:05:38,860
+c'est à dire par un vecteur 1 x 4 ?
+
+88
+00:05:40,130 --> 00:05:43,160
+Examinons quelques autres
+ exemples de broadcasting.
+
+89
+00:05:43,160 --> 00:05:47,920
+Si vous prenez un vecteur 4 x 1 et
+ que vous lui ajoutez un nombre,
+
+90
+00:05:47,920 --> 00:05:53,011
+ce que Python va faire est de prendre
+ ce nombre et automatiquement l'étendre
+
+91
+00:05:53,011 --> 00:05:58,180
+pour en faire un vecteur 4 x 1 comme ceci.
+
+92
+00:05:58,180 --> 00:06:00,257
+Et donc le vecteur [1, 2, 3, 4]
+
+93
+00:06:00,257 --> 00:06:04,450
+plus le nombre 100 donne
+ ce vecteur sur la droite.
+
+94
+00:06:04,450 --> 00:06:09,280
+Vous ajoutez 100 à chaque élément. 
+En fait, nous avons utilisé cette forme de
+
+95
+00:06:09,280 --> 00:06:14,365
+broadcasting où cette constante était
+ le paramètre b dans une vidéo précédente.
+
+96
+00:06:14,365 --> 00:06:19,414
+Et ce type de broadcasting fonctionne avec 
+des vecteurs colonnes et des vecteurs lignes,
+
+97
+00:06:19,414 --> 00:06:24,157
+et en fait nous avons utilisé plus tôt une
+ forme similaire de broadcasting en ajoutant
+
+98
+00:06:24,157 --> 00:06:29,330
+à un vecteur une constante qui était 
+le paramètre b dans la régression logistique.
+
+99
+00:06:29,330 --> 00:06:31,610
+Voici un autre exemple : 
+
+100
+00:06:31,610 --> 00:06:35,900
+Imaginons que vous ayez une matrice 2 x 3 et
+
+101
+00:06:35,900 --> 00:06:39,420
+et que vous l’ajoutez à cette matrice 1 x n.
+
+102
+00:06:40,950 --> 00:06:45,682
+Le cas général serait d'avoir
+
+103
+00:06:45,682 --> 00:06:50,583
+une matrice (m, n) ici et
+
+104
+00:06:50,583 --> 00:06:55,330
+vous y ajoutez à une matrice (1, n) .
+
+105
+00:06:55,330 --> 00:06:58,667
+Ce que fera Python, c’est copier la matrice
+
+106
+00:06:58,667 --> 00:07:03,672
+m fois pour la transformer en 
+une matrice (m, n), au lieu de
+
+107
+00:07:03,672 --> 00:07:09,980
+cette matrice (1, 3), il la va copier une fois 
+dans cet exemple, pour qu’elle devienne ceci,
+
+108
+00:07:09,980 --> 00:07:14,092
+qui est aussi une matrix (2, 3) et 
+nous ajouterons ces deux matrices
+
+109
+00:07:14,092 --> 00:07:18,270
+pour obtenir la somme sur la droite, OK ?
+
+110
+00:07:18,270 --> 00:07:21,583
+Donc, vous avez ajouté 100
+ à la première colonne,
+
+111
+00:07:21,583 --> 00:07:25,812
+200 à la deuxième colonne et
+ 300 à la troisième colonne.
+
+112
+00:07:25,812 --> 00:07:28,796
+Et c’est essentiellement ce que nous
+ avons fait sur la diapositive précédente,
+
+113
+00:07:28,796 --> 00:07:32,810
+sauf que nous avons utilisé une opération
+ de division au lieu d’une opération d’addition.
+
+114
+00:07:34,180 --> 00:07:40,402
+Un dernier exemple,
+ si vous avez une matrice (m, n) et
+
+115
+00:07:40,402 --> 00:07:46,260
+que vous l'ajoutez à
+ un vector (m, 1), une matrice (m, 1)
+
+116
+00:07:47,310 --> 00:07:50,760
+alors ça va le copier n fois horizontalement,
+
+117
+00:07:50,760 --> 00:07:53,510
+pour que vous vous retrouviez
+ avec une matrice (m, n).
+
+118
+00:07:53,510 --> 00:07:56,990
+Donc, comme vous pouvez imaginer,
+ on copie horizontalement trois fois.
+
+119
+00:07:56,990 --> 00:07:58,650
+Et vous les ajoutez.
+
+120
+00:07:58,650 --> 00:08:01,070
+Donc lorsque vous les ajoutez 
+vous vous retrouvez avec ceci.
+
+121
+00:08:01,070 --> 00:08:06,890
+Nous avons ajouté 100 à la première ligne
+ et ajouté 200 à la deuxième ligne.
+
+122
+00:08:08,270 --> 00:08:12,061
+Voici le principe plus général
+ du broadcasting en Python.
+
+123
+00:08:12,061 --> 00:08:17,353
+Si vous avez une matrice (m, n) 
+et que vous y ajoutez ou
+
+124
+00:08:17,353 --> 00:08:24,409
+soustrayez, multipliez ou divisez par une matrice (1, n),
+
+125
+00:08:24,409 --> 00:08:31,177
+alors ceci la copiera n fois dans une matrice (m, n).
+
+126
+00:08:31,177 --> 00:08:33,781
+Puis l’addition, la soustraction, la multiplication
+
+127
+00:08:33,781 --> 00:08:36,140
+ou la division seront appliquées
+ élément par élément.
+
+128
+00:08:37,250 --> 00:08:42,250
+Si à l’inverse, vous aviez une matrice (m, n) 
+et que vous ajoutez, soustrayez, multipliez,
+
+129
+00:08:42,250 --> 00:08:49,060
+divisez par une matrice (m, 1), 
+de la même manière, elle serait copiée n fois
+
+130
+00:08:49,060 --> 00:08:54,740
+et transformée en une matrice (m, n) et
+ l'opération serait ensuite appliquée
+ élément par élément.
+
+131
+00:08:54,740 --> 00:09:00,327
+Une autre forme de broadcasting est que,
+ si vous avez une matrice (m,1),
+
+132
+00:09:00,327 --> 00:09:05,175
+donc c’est en fait un vecteur colonne 
+comme [1,2,3], et que vous ajoutez,
+
+133
+00:09:05,175 --> 00:09:08,482
+soustrayez, multipliez ou divisez
+ par un nombre réel,
+
+134
+00:09:08,482 --> 00:09:11,080
+peut-être une matrice (1,1),
+
+135
+00:09:11,080 --> 00:09:16,117
+par exemple plus 100, alors le nombre réel est
+
+136
+00:09:16,117 --> 00:09:23,512
+copié m fois jusqu'à ce que vous ayez
+ une autre matrice (m,1).
+
+137
+00:09:23,512 --> 00:09:29,700
+Et puis vous effectuez l’opération, 
+l’addition dans cet exemple,
+ élément par élément.
+
+138
+00:09:29,700 --> 00:09:35,823
+Et quelque chose de similaire fonctionne 
+également pour les vecteurs lignes.
+
+139
+00:09:38,281 --> 00:09:43,730
+La version entièrement généralisée
+ du broadcasting peut faire
+ même un peu plus que cela.
+
+140
+00:09:43,730 --> 00:09:49,080
+Si vous êtes intéressé, 
+vous pouvez lire la documentation de
+
+141
+00:09:49,080 --> 00:09:52,240
+NumPy et jeter un œil au broadcasting
+ dans cette documentation.
+
+142
+00:09:52,240 --> 00:09:56,380
+Cela donne une définition légèrement 
+plus générale du broadcasting.
+
+143
+00:09:56,380 --> 00:10:00,140
+Mais les cas de la diapositive sont 
+les principales formes de broadcasting dont
+
+144
+00:10:00,140 --> 00:10:02,560
+vous aurez besoin lorsque 
+vous implémenterez un réseau de neurones.
+
+145
+00:10:03,890 --> 00:10:06,840
+Avant de conclure,
+ juste une dernière remarque, qui est pour
+
+146
+00:10:06,840 --> 00:10:10,210
+ceux d'entre vous qui 
+savent programmer en MATLAB ou
+
+147
+00:10:10,210 --> 00:10:15,760
+en Octave, si vous avez déjà utilisé 
+la fonction MATLAB ou Octave bsxfun
+
+148
+00:10:15,760 --> 00:10:20,590
+pour programmer un réseau neuronal,
+ bsxfun fait quelque chose de semblable,
+ pas tout à fait la même chose.
+
+149
+00:10:20,590 --> 00:10:25,750
+Mais il est souvent utilisé pour le même
+ résultat que lorsque nous utilisons
+ le broadcasting en Python.
+
+150
+00:10:25,750 --> 00:10:28,505
+Mais c’est vraiment seulement pour
+ les utilisateurs avancés
+
+151
+00:10:28,505 --> 00:10:31,600
+en MATLAB et Octave, si vous ne connaissez
+ pas cela, ne vous inquiétez pas à ce sujet.
+
+152
+00:10:31,600 --> 00:10:35,524
+Vous n’avez pas besoin de le savoir
+ lorsque vous implémentez
+ des réseaux neuronaux en Python.
+
+153
+00:10:35,524 --> 00:10:38,720
+Alors, c'était le broadcasting en Python.
+
+154
+00:10:38,720 --> 00:10:42,360
+J’espère que lorsque vous ferez l'exercice 
+de programmation, le broadcasting
+ vous permettra
+
+155
+00:10:42,360 --> 00:10:44,580
+d'avoir un code qui s’exécute plus vite,
+
+156
+00:10:44,580 --> 00:10:48,920
+mais aussi de faire ce que vous voulez
+ faire avec moins de lignes de code.
+
+157
+00:10:50,360 --> 00:10:53,630
+Avant de vous plonger dans l’exercice de
+ programmation, je veux partager avec vous
+
+158
+00:10:53,630 --> 00:10:56,290
+quelques idées de plus, quelques conseils et
+
+159
+00:10:56,290 --> 00:11:00,700
+astuces qui m'ont permis de réduire le nombre
+ de bogues dans mon code Python et
+
+160
+00:11:00,700 --> 00:11:02,640
+J’espère que cela vous aidera aussi.
+
+161
+00:11:02,640 --> 00:11:05,550
+Donc, nous allons parler de cela
+ dans la prochaine vidéo.

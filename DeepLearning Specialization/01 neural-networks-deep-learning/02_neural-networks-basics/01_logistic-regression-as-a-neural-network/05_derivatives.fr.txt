@@ -1,0 +1,75 @@
+Dans cette vidéo, je vais vous aider
+ à acquérir une compréhension intuitive de l'analyse et des dérivées. Vous vous dites peut-être que vous n'avez 
+pas fait d'analyse depuis vos études, et selon quand vous avez obtenu
+ votre diplôme, ça peut remonter à pas mal de temps. Si c'est ce que vous pensez,
+ ne vous inquiétez pas, vous n'avez pas besoin d'une compréhension
+ profonde de l'analyse pour l'appliquer aux réseaux de neurones et
+ à l'apprentissage profond très efficacement. Donc, si vous regardez cette vidéo ou l'une 
+des suivantes et que vous vous demandez, mais est-ce que tout ça est bien pour moi, cette analyse semble vraiment compliquée, je vous recommande de regarder les vidéos et si vous pouvez faire les devoirs et les exercices de
+ programmation avec succès, alors vous pouvez appliquer
+ l'apprentissage profond. En fait, vous verrez plus tard dans la
+ quatrième semaine que nous définirons quelques types de
+ fonctions qui vous permettront d'encapsuler tout ce qui touche à l'analyse, que ces fonctions nommées fonctions
+ directes et rétro-fonctions que vous avez
+ vues auparavant, qui vous permettrons de mettre tout ce
+ que vous avez besoin de savoir sur
+ l'analyse dans ces fonctions, de sorte que vous n'aurez plus besoin
+ de vous en soucier au-delà de cela. Mais je pense que dans cette exploration
+ de l'apprentissage profond nous
+ devons cette semaine ouvrir la boîte et examiner d'un peu plus
+ près certains détails de l'analyse. Mais réellement, vous n'avez besoin que 
+d'une compréhension intuitive de cela pour construire et appliquer ces
+ algorithmes avec succès. Finalement, si vous faites partie de ce
+ petit groupe de gens experts en analyse, si vous êtes vraiment familier de l'analyse
+ et des dérivées, vous pouvez probablement sauter cette vidéo. Mais pour les autres, allons-y et tentons d'acquérir une compréhension
+ intuitive de la dérivée. J'ai tracé la fonction f(a) = 3a. C'est juste une ligne droite. Pour construire notre intuition
+ sur les dérivées, examinons certains points de cette fonction. Disons que a est égal à 2. Dans ce cas, f(a) qui est égal à trois fois a, est égale à six. Donc, si a = 2, alors f(a) sera égal à 6. Disons que nous changeons 
+la valeur de a juste un petit peu. Je vais juste décaler a un tout petit peu, de sorte qu'il vaut maintenant 2.001. C'est comme si je lui donnais un tout
+ petit coup de pouce vers la droite. Donc, maintenant il vaut 2.001. Ce graphe n'est pas à l'échelle, 2.001, cette différence est trop petite
+ pour apparaître sur ce graphe, donnons juste une pichenette
+ vers la droite. Maintenant f(a) est égale à trois fois ceci. Donc 6.003, que nous dessinons ici. Ce n’est pas à l’échelle, voici 6.003. Bien, si vous observez ce petit
+ triangle ici, que je trace en vert, ce que nous constatons est que si je
+ décale a de 0.001 vers la droite, alors f(a) monte de 0.003. La quantité par laquelle f(a) a augmenté vaut trois fois la quantité
+ par laquelle j'ai décalé a vers la droite. Donc nous dirons que la pente, ou la dérivée, de la fonction f(a) pour a égal 2 ou quand a vaut 2,
+ la pente vaut 3. Le terme dérivée fondamentalement
+ veut dire pente, c'est juste que dérivée sonne
+ comme un terme plus effrayant, plus intimidant, alors que
+ pente est une manière plus conviviale
+ de décrire le concept de dérivée. Donc, lorsque vous entendez dérivée, pensez juste à la pente de la fonction. Plus formellement, la pente
+ est définie comme la hauteur divisée par la largeur de ce petit triangle 
+que nous avons en vert. Donc, c'est 0.003 sur 0.001, et le fait que la pente soit égale à 3
+ ou que la dérivée vaille 3 représente juste le fait que lorsque vous
+ décalez a vers la droite par 0.001,
+ par une très petite quantité, la valeur de f(a) augmente de trois fois
+ la quantité par laquelle vous l'avez décalé que vous avez décalé a sur l'axe horizontal. Donc, c'est tout pour la définition
+ de la pente de la ligne. Maintenant examinons cette fonction
+ en un point différent. Disons que a est maintenant égal à 5. Dans ce cas, f(a), trois fois a, est égal à 15. Donc, de nouveau donnons à a une pichenette vers la droite. Une toute petite pichenette,
+ il vaut maintenant 5.001. f(a) vaut trois fois ceci, donc f(a) vaut 15.003. Donc cette fois aussi, lorsque
+ je décale a vers la droite, je donne une pichenette à a de 0.001, f(a) augmente de trois fois cette valeur. Donc la pente, de nouveau,
+ lorsque a vaut 5 est égale à 3. Donc, nous écrivons ceci comme la pente de la fonction f est égale à 3, Nous disons d f(a) / da, ce qui signifie juste que la pente de la fonction f(a) lorsque vous décalez la variable a d'une très petite valeur, est égale à 3. Une autre façon de formuler
+ une dérivée est la suivante, vous pouvez aussi l'écrire comme d/da de f(a) Donc, que vous placiez f(a) en haut ou
+ que vous l'écriviez ici en bas
+ n'a pas d'importance. Tout ce que cette équation signifie est que si je décale a un petit peu vers la droite, je m'attends à voir f(a) augmenter de 
+trois fois la valeur dont j'ai décalé a. Maintenant, dans cette vidéo, 
+j'ai expliqué les dérivées en parlant de ce qui se passe si vous décalez
+ la variable a de 0.001. Si vous voulez la définition mathématique
+ formelle de la dérivée, les dérivées sont définies par des valeurs 
+encore plus petites de décalage de a
+ vers la droite. Ce n'est pas 0.001, ce n'est pas 0.000001, Ce n’est pas 0.00000000, 
+et ainsi de suite, 1. c'est encore plus petit que cela, et la définition formelle de la dérivée dit que lorsque que vous décalez a 
+vers la droite d'une quantité infinitésimale, fondamentalement une quantité
+ infiniment petite, si vous faites cela, f(a) augmentera de
+ trois fois la valeur de cette toute petite quantité dont vous avez décalé
+ a vers la droite. Ceci est donc la définition formelle
+ de la dérivée. Mais pour acquérir notre
+ compréhension intuitive, nous allons juste parler de décaler a vers
+ la droite de cette toute petite quantité, 0.001. Même si 0.001 n'est pas vraiment
+ infiniment petit. Maintenant une propriété
+ de la dérivée est que où que vous mesuriez la pente
+ de cette fonction, elle est égale à 3. Que a soit égal à 2, qu'il soit égal à 5, la pente de la fonction est égale à 3. Ce qui veut dire que
+ quelle que soit la valeur de a, si vous l'augmentez de 0.001, la valeur de f(a) augmente de 3 fois autant. Donc, cette fonction a la même pente partout. Une manière de le voir est de où que vous dessiniez ce petit triangle, la hauteur divisée par la largeur donnera toujours un rapport de 3 à 1. Donc j'espère que ceci vous donne
+ une idée de ce qu'est la pente ou la dérivée d'une fonction
+ pour une ligne droite, où dans cet exemple la pente
+ de la fonction valait 3 partout. Dans la prochaine vidéo nous verrons
+ un exemple un peu plus complexe, où la pente de la fonction pourra être
+ différente en différents points de la fonction.

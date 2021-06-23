@@ -1,0 +1,563 @@
+1
+00:00:00,920 --> 00:00:02,860
+Olá e bem vindos de volta
+
+2
+00:00:02,860 --> 00:00:08,860
+Nesta semana, vamos repassar os conceitos 
+básicos de programação de redes neurais.
+
+3
+00:00:08,860 --> 00:00:11,990
+Quando você implementa uma 
+rede neural, resulta que
+
+4
+00:00:11,990 --> 00:00:16,260
+há algumas técnicas que 
+serão realmente importantes.
+
+5
+00:00:16,260 --> 00:00:21,150
+Por exemplo, se você tem um conjunto de 
+treinamento contendo "m" exemplos de treinamento,
+
+6
+00:00:21,150 --> 00:00:25,110
+você pode estar acostumado a processar 
+o conjunto de treinamento com um laço de repetição 'for...'
+
+7
+00:00:25,110 --> 00:00:28,240
+em passos repetidos sobre seus 
+exemplos de treinamento "m".
+
+8
+00:00:28,240 --> 00:00:31,260
+Mas resulta que quando você está 
+implementando uma rede neural,
+
+9
+00:00:31,260 --> 00:00:34,540
+você normalmente quer processar 
+seu conjunto de treinamento inteiro,
+
+10
+00:00:34,540 --> 00:00:39,040
+sem ter que, necessariamente, 
+usar um laço de repetição 'for...' ao longo 
+de todo o seu conjunto de treinamento.
+
+11
+00:00:39,040 --> 00:00:42,940
+Então, você verá como fazer 
+isso no conteúdo desta semana.
+
+12
+00:00:42,940 --> 00:00:47,700
+Outra ideia, quando você 
+organiza os cálculos na sua rede,
+
+13
+00:00:47,700 --> 00:00:51,670
+normalmente você tem um passo chamado 
+de passe para frente ou propagação para frente,
+
+14
+00:00:51,670 --> 00:00:56,100
+seguido de um passe para trás, que é 
+um passo chamado de retro-propagação.
+
+15
+00:00:56,100 --> 00:01:00,010
+Assim, nos materiais desta semana, você 
+também terá uma introdução do porquê
+
+16
+00:01:00,010 --> 00:01:04,830
+os cálculos, no processo de aprendizagem em uma 
+rede neural, podem ser organizados nesta forma
+
+17
+00:01:04,830 --> 00:01:08,010
+de propagação e numa forma 
+separada de retro-propagação.
+
+18
+00:01:09,100 --> 00:01:12,620
+Para os materiais desta semana eu 
+quero transmitir estas ideias usando
+
+19
+00:01:12,620 --> 00:01:16,170
+regressão logística, a fim de tornar 
+as ideias mais fáceis de entender.
+
+20
+00:01:16,170 --> 00:01:19,970
+Mas mesmo se você já viu regressão 
+logística antes, penso que haverá
+
+21
+00:01:19,970 --> 00:01:23,845
+ideias novas e interessantes para 
+você aprender nos materiais desta semana.
+
+22
+00:01:23,845 --> 00:01:25,815
+Então com isso, vamos começar.
+
+23
+00:01:25,815 --> 00:01:30,605
+Regressão logística é um 
+algoritmo de classificação binária.
+
+24
+00:01:30,605 --> 00:01:33,145
+Então, vamos começar 
+estabelecendo o problema.
+
+25
+00:01:33,145 --> 00:01:36,925
+Aqui está um exemplo de um 
+problema de classificação binária.
+
+26
+00:01:36,925 --> 00:01:41,545
+Você pode ter uma entrada 
+de uma imagem, como esta, e
+
+27
+00:01:41,545 --> 00:01:47,260
+quer retornar um rótulo reconhecendo 
+esta imagem como sendo a de um gato,
+
+28
+00:01:47,260 --> 00:01:52,140
+neste caso a saída será 1, 
+ou não-gato, neste caso a saída é 0.
+
+29
+00:01:52,140 --> 00:01:57,740
+Nós vamos usar "y" para 
+nomear o rótulo de saída.
+
+30
+00:01:57,740 --> 00:02:01,550
+Vejamos como uma imagem é 
+representada em um computador.
+
+31
+00:02:01,550 --> 00:02:05,680
+Para guardar uma imagem, seu computador 
+armazena três matrizes separadas
+
+32
+00:02:05,680 --> 00:02:09,890
+que correspondem aos canais de cor 
+vermelho, verde e azul,  desta imagem.
+
+33
+00:02:10,990 --> 00:02:15,900
+Assim, se sua imagem de 
+entrada tem 64 x 64 pixels,
+
+34
+00:02:15,900 --> 00:02:21,700
+então você teria 3 matrizes de 64 por 64,
+
+35
+00:02:21,700 --> 00:02:27,230
+correspondendo aos valores de intensidade 
+de pixel vermelho, verde e azul das suas imagens.
+
+36
+00:02:27,230 --> 00:02:31,290
+Embora, para fazer este pequeno slide, 
+desenhei isso como matrizes muito menores,
+
+37
+00:02:31,290 --> 00:02:35,320
+essas são na verdade 
+matrizes 5x4 ao invés de 64x64.
+
+38
+00:02:35,320 --> 00:02:41,640
+Então, para transformar estes valores de 
+intensidade de pixel em um vetor de característica,
+
+39
+00:02:41,640 --> 00:02:48,000
+o que faremos é desenrolar todos estes valores 
+de pixel em um vetor de característica de entrada x.
+
+40
+00:02:48,000 --> 00:02:53,782
+Então, para transformar todos estes valores de 
+intensidade de pixel em um vetor de característica,
+
+41
+00:02:53,782 --> 00:02:59,580
+o que faremos é definir um vetor de característica 
+"x", que corresponda a esta imagem, como segue.
+
+42
+00:02:59,580 --> 00:03:03,960
+Vamos pegar todos os valores dos 
+pixels 255, 231, e assim por diante.
+
+43
+00:03:03,960 --> 00:03:10,827
+255, 231, e assim por diante, até que 
+tenhamos listado todos os pixels vermelhos.
+
+44
+00:03:10,827 --> 00:03:15,737
+E depois, eventualmente, 255, 134, 
+255, 134, e assim por diante,
+
+45
+00:03:15,737 --> 00:03:20,952
+até que obtenhamos um longo vetor 
+de característica, listando todos
+
+46
+00:03:20,952 --> 00:03:25,570
+os valores de intensidade de pixel, correspondentes 
+ao vermelho, ao verde e ao azul desta imagem.
+
+47
+00:03:25,570 --> 00:03:31,043
+Se esta é uma imagem 64x64, 
+a dimensão total
+
+48
+00:03:31,043 --> 00:03:36,401
+deste vetor x será 64x64x3 porque este é
+
+49
+00:03:36,401 --> 00:03:41,320
+os números totais que temos 
+em todas estas matrizes.
+
+50
+00:03:41,320 --> 00:03:44,097
+Neste caso, resulta em 12288,
+
+51
+00:03:44,097 --> 00:03:47,330
+que você obtém se 
+multiplicar todos estes números.
+
+52
+00:03:47,330 --> 00:03:51,870
+Então, usaremos nx=12288
+
+53
+00:03:51,870 --> 00:03:55,080
+para representar a dimensão 
+das características de entrada x.
+
+54
+00:03:55,080 --> 00:03:59,280
+E às vezes, por questões de brevidade, 
+eu também usarei "n" minúsculo
+
+55
+00:03:59,280 --> 00:04:02,720
+para representar a dimensão 
+deste vetor de característica.
+
+56
+00:04:02,720 --> 00:04:07,510
+Assim, em classificação binária, nosso objetivo 
+é aprender um classificador que possa dar entrada
+
+57
+00:04:07,510 --> 00:04:10,760
+em uma imagem representada 
+pelo vetor de característica x
+
+58
+00:04:10,760 --> 00:04:15,460
+e prever se o rótulo y correspondente é 1 ou 0,
+
+59
+00:04:15,460 --> 00:04:19,000
+isto é, se é uma imagem de gato ou não.
+
+60
+00:04:19,000 --> 00:04:21,560
+Vamos estabelecer as 
+notações que vamos
+
+61
+00:04:21,560 --> 00:04:23,820
+usar ao longo do curso.
+
+62
+00:04:23,820 --> 00:04:29,453
+Um exemplo de treinamento 
+único é representado por um par,
+
+63
+00:04:29,453 --> 00:04:34,446
+(x,y) onde "x" é uma vetor de 
+característica com dimensão "nₓ",
+
+64
+00:04:34,446 --> 00:04:39,320
+e "y", o rótulo, é 0 ou 1.
+
+65
+00:04:39,320 --> 00:04:44,550
+Seus conjuntos de treinamento irão 
+conter "m" exemplos de treinamento.
+
+66
+00:04:44,550 --> 00:04:50,320
+E então os conjuntos de treinamento serão gravados (x⁽¹⁾, y⁽¹⁾) que é a entrada e
+
+67
+00:04:50,320 --> 00:04:55,370
+e a saída para o seu primeiro exemplo 
+de treinamento, (x⁽²⁾, y⁽²⁾) para
+
+68
+00:04:55,370 --> 00:05:01,980
+o segundo exemplo de treinamento até (x⁽m⁾, y⁽m⁾), 
+que será o último exemplo de treinamento.
+
+69
+00:05:01,980 --> 00:05:05,650
+E então, todos os exemplos juntos serão 
+o conjunto de treinamento completo.
+
+70
+00:05:05,650 --> 00:05:10,170
+Eu vou usar o m minúsculo para descrever 
+o número de amostras de treinamento.
+
+71
+00:05:10,170 --> 00:05:14,418
+E alguma vezes, para enfatizar que este 
+é o número de exemplos de treinamento,
+
+72
+00:05:14,418 --> 00:05:16,437
+eu poderei escrever M como "M tra
+
+73
+00:05:16,437 --> 00:05:18,692
+E quado falarmos sobre um conjunto de teste,
+
+74
+00:05:18,692 --> 00:05:24,430
+às vezes podemos usar "Mtest" para 
+denotar o número de exemplos de teste.
+
+75
+00:05:24,430 --> 00:05:27,430
+Então, este é o número 
+de exemplos de teste.
+
+76
+00:05:27,430 --> 00:05:33,440
+Finalmente, para colocar todos os exemplos 
+de teste em uma notação mais compacta,
+
+77
+00:05:33,440 --> 00:05:36,840
+vamos definir uma matriz, X maiúsculo.
+
+78
+00:05:36,840 --> 00:05:41,592
+Conforme definido, tomando seus 
+conjuntos de testes x⁽¹⁾, x⁽²⁾ e
+
+79
+00:05:41,592 --> 00:05:44,568
+assim por diante, e os 
+empilhamos em colunas.
+
+80
+00:05:44,568 --> 00:05:49,958
+Então, nós pegamos x⁽¹⁾ e colocamos 
+como a primeira coluna desta matriz,
+
+81
+00:05:49,958 --> 00:05:54,798
+x⁽²⁾, colocamos como a segunda 
+coluna, e assim por diante até x⁽m⁾,
+
+82
+00:05:54,798 --> 00:05:58,000
+então esta é a matriz X
+(maiúsculo).
+
+83
+00:05:58,000 --> 00:06:03,005
+Assim, esta matriz X terá m colunas, 
+onde m é o número de exemplos
+
+84
+00:06:03,005 --> 00:06:08,665
+de treinamentos, e nₓ é o número 
+de linhas, ou a altura desta matriz.
+
+85
+00:06:08,665 --> 00:06:14,400
+Note que em outros cursos, 
+você pode ver a matriz X
+
+86
+00:06:14,400 --> 00:06:19,390
+definida empilhando os exemplos 
+de teste em linhas, desta forma,
+
+87
+00:06:19,390 --> 00:06:23,940
+transpondo assim, x⁽¹⁾⸆ até x⁽m⁾⸆.
+
+88
+00:06:23,940 --> 00:06:27,704
+Resulta que, quando você está 
+implementando redes neurais usando
+
+89
+00:06:27,704 --> 00:06:32,218
+esta convenção que eu tenho à esquerda, 
+tornará a implementação muito mais fácil.
+
+90
+00:06:32,218 --> 00:06:37,171
+Somente para recapitular, X é uma 
+matriz com dimensões nₓ por m, e
+
+91
+00:06:37,171 --> 00:06:40,404
+quando você implementa isto em Python,
+
+92
+00:06:40,404 --> 00:06:45,362
+você vê que X.shape é 
+o comando em Python para
+
+93
+00:06:45,362 --> 00:06:50,325
+encontrar a forma da matriz, que é (nₓ , m).
+
+94
+00:06:50,325 --> 00:06:53,255
+Isto significa que é uma 
+matriz de dimensões nₓ por m.
+
+95
+00:06:53,255 --> 00:06:58,785
+Então, assim é como você agrupa os exemplos 
+de treino, colocando X em formato de matriz.
+
+96
+00:06:58,785 --> 00:07:01,315
+E os rótulos de saída y?
+
+97
+00:07:01,315 --> 00:07:04,815
+Resulta que, para tornar a implementação 
+de redes neurais mais simples,
+
+98
+00:07:04,815 --> 00:07:10,030
+seria conveniente também 
+empilhar Y em colunas.
+
+99
+00:07:10,030 --> 00:07:14,650
+Então, vamos definir Y (maiúsculo) 
+para ser igual y⁽¹⁾, y⁽²⁾,
+
+100
+00:07:14,650 --> 00:07:18,580
+até y⁽m⁾, desta forma.
+
+101
+00:07:18,580 --> 00:07:24,980
+Então, Y aqui será uma 
+matriz de dimensão 1 por m.
+
+102
+00:07:24,980 --> 00:07:30,530
+E mais uma vez, para usar a notação em Python:
+Y.shape = (1,m)
+
+103
+00:07:30,530 --> 00:07:34,810
+que significa que ela
+é uma matriz 1 por m.
+
+104
+00:07:34,810 --> 00:07:39,660
+Conforme for implementando a sua rede neural, mais 
+tarde neste curso, você verá que uma convenção
+
+105
+00:07:39,660 --> 00:07:43,630
+útil é pegar os dados 
+associados com outros exemplos
+
+106
+00:07:43,630 --> 00:07:48,580
+de teste e, quando digo dados, quero dizer tanto X ou Y, 
+ou outras quantidades que veremos mais tarde.
+
+107
+00:07:48,580 --> 00:07:49,900
+Mas pegar as coisas ou
+
+108
+00:07:49,900 --> 00:07:52,990
+ou os dados associados com 
+exemplos de teste distintos e
+
+109
+00:07:52,990 --> 00:07:57,430
+e empilhá-los em colunas diferentes, 
+como nós fizemos aqui, para ambos X e Y.
+
+110
+00:07:58,450 --> 00:08:01,380
+Então, estas são as notações que 
+usaremos para regressão logística e
+
+111
+00:08:01,380 --> 00:08:04,060
+redes neurais mais tarde neste curso.
+
+112
+00:08:04,060 --> 00:08:07,430
+Caso você esqueça o que significa 
+uma notação, tal como "o que é m" ou
+
+113
+00:08:07,430 --> 00:08:08,300
+"o que é n" ou
+
+114
+00:08:08,300 --> 00:08:12,630
+o significado de outra coisa, também postamos no 
+website do curso um manual de notações
+
+115
+00:08:12,630 --> 00:08:17,430
+que você pode usar para pesquisar rapidamente 
+o que significa uma determinada notação.
+
+116
+00:08:17,430 --> 00:08:20,890
+Assim, vamos para o próximo 
+vídeo onde começaremos a usar
+
+117
+00:08:20,890 --> 00:08:23,190
+regressão logística com esta notação. 
+[Tradução: Renato Barata Gomes | Revisão: Carlos Lage]

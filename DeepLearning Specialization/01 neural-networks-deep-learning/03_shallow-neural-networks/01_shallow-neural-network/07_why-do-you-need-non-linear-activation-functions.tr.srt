@@ -1,0 +1,323 @@
+1
+00:00:00,000 --> 00:00:04,360
+Bir sinir ağı neden lineer olmayan bir etkinleştirme fonksiyonuna ihtiyaç duyar?
+
+2
+00:00:04,360 --> 00:00:07,425
+Sinir ağınızın ilginç fonksiyonları hesaplayabilmesi için
+
+3
+00:00:07,425 --> 00:00:10,335
+lineer olmayan bir etkinleştirme fonksiyonuna ihtiyaç duyduğu ortaya çıkar.
+
+4
+00:00:10,335 --> 00:00:15,830
+Peki neden? Burada sinir ağının dayanak denklemlerini görelim.
+
+5
+00:00:15,830 --> 00:00:17,770
+Bunlardan neden kurtulmuyoruz?
+
+6
+00:00:17,770 --> 00:00:22,315
+g fonksiyonundan kurtulalım ve a1 eşittir z1 diyelim.
+
+7
+00:00:22,315 --> 00:00:27,690
+Ya da alternatif olarak g(z) eşittir z diyelim, doğru mu?
+
+8
+00:00:27,690 --> 00:00:31,813
+Bazen buna lineer etkinleştirme fonksiyonu denir.
+
+9
+00:00:31,813 --> 00:00:33,205
+Belki bunun için daha iyi bir isim olarak
+
+10
+00:00:33,205 --> 00:00:37,800
+kimlik etkinleştirme fonksiyonunu kullanabiliriz çünkü girdi neyse çıktı da odur.
+
+11
+00:00:37,800 --> 00:00:39,600
+Bu doğrultuda,
+
+12
+00:00:39,600 --> 00:00:43,310
+ya a2 z2'ye eşit olsaydı?
+
+13
+00:00:43,310 --> 00:00:45,183
+Görünüyor ki, bunu yaparsanız,
+
+14
+00:00:45,183 --> 00:00:53,620
+bu model x verildiğinde lineer bir fonksiyon olarak sadece y veya y-şapkayı hesaplar.
+
+15
+00:00:53,620 --> 00:00:55,940
+İlk iki fonksiyonu ele aldığımızda
+
+16
+00:00:55,940 --> 00:01:04,547
+a1 eşittir z1 o da eşittir w1 ise,
+
+17
+00:01:04,547 --> 00:01:15,965
+x artı b ve buradan a2 eşittir z2 o da eşittir w2,
+
+18
+00:01:15,965 --> 00:01:25,370
+a1 artı b, sonrasında a1'in tanımını alıp buraya yerleştirirseniz
+
+19
+00:01:25,370 --> 00:01:32,585
+a2'nin w2 çarpı w1'e eşit olduğunu bulursunuz.
+
+20
+00:01:32,585 --> 00:01:35,695
+x artı b1, doğru mu?
+
+21
+00:01:35,695 --> 00:01:40,985
+Öyleyse bu a1 artı
+
+22
+00:01:40,985 --> 00:01:47,460
+b2' dir ve w2'ye sadeleştirilir.
+
+23
+00:01:47,460 --> 00:01:53,120
+w1, x artı w2,
+
+24
+00:01:53,120 --> 00:01:57,966
+b1 artı b2.
+
+25
+00:01:57,966 --> 00:02:01,930
+O zaman, bu sadece,
+
+26
+00:02:01,930 --> 00:02:06,726
+hadi buna w', b' diyelim.
+
+27
+00:02:06,726 --> 00:02:10,935
+O zaman bu w'x artı b' olur.
+
+28
+00:02:10,935 --> 00:02:13,720
+Eğer lineer etkinleştirme fonksiyonlarını kullanacak olsaydınız,
+
+29
+00:02:13,720 --> 00:02:17,095
+kimlik etkinleştirme fonksiyonu da dediğimiz,
+
+30
+00:02:17,095 --> 00:02:23,335
+o zaman sinir ağı sadece girdinin lineer fonksiyonunun çıktısını üretirdi.
+
+31
+00:02:23,335 --> 00:02:26,260
+Derin ağlar hakkında daha sonra konuşacağız.
+
+32
+00:02:26,260 --> 00:02:27,460
+Birçok katmanın,
+
+33
+00:02:27,460 --> 00:02:29,167
+birçok gizli katmanın sinir ağları.
+
+34
+00:02:29,167 --> 00:02:34,460
+Öyle görünüyor ki eğer lineer etkinleştirme fonksiyonunu kullanırsanız ya da alternatif olarak
+
+35
+00:02:34,460 --> 00:02:36,760
+etkinleştirme fonksiyonunuz yoksa
+
+36
+00:02:36,760 --> 00:02:39,250
+sinir ağınızın kaç katmanının bulunduğunun bir önemi yoktur,
+
+37
+00:02:39,250 --> 00:02:42,970
+sinir ağınızın bütün yaptığı sadece lineer etkinleştirme fonksiyonunu hesaplamaktır.
+
+38
+00:02:42,970 --> 00:02:45,905
+Hiç gizli katmanınız da olmayabilir.
+
+39
+00:02:45,905 --> 00:02:49,335
+Bazı durumlarda kısaca bahsedildiği gibi,
+
+40
+00:02:49,335 --> 00:02:50,880
+Görünen o ki, eğer
+
+41
+00:02:50,880 --> 00:02:55,170
+burada bir lineer etkinleştirme fonksiyonu ve şurada bir sigmoid (s-biçimli) fonksiyonu varsa,
+
+42
+00:02:55,170 --> 00:02:58,275
+o zaman bu model gizli katmanı olmayan
+
+43
+00:02:58,275 --> 00:03:02,505
+standart lojistik regresyondan daha anlamlı değildir.
+
+44
+00:03:02,505 --> 00:03:05,910
+Bu yüzden bunu kanıtlamak için uğraşmayacağım ama istersen bunu yapmaya çalışabilirsiniz.
+
+45
+00:03:05,910 --> 00:03:07,465
+Alınması gereken ders,
+
+46
+00:03:07,465 --> 00:03:11,265
+lineer bir gizli katman üç aşağı beş yukarı işe yaramazdır.
+
+47
+00:03:11,265 --> 00:03:17,130
+çünkü iki lineer fonksiyonun birleşimi kendisine yani bir lineer fonksiyona eşittir.
+
+48
+00:03:17,130 --> 00:03:19,950
+Yani buraya bir lineersizlik atmazsanız
+
+49
+00:03:19,950 --> 00:03:21,235
+ağda daha derine gitmenize rağmen
+
+50
+00:03:21,235 --> 00:03:25,350
+daha ilginç fonksiyonları hesaplamıyor olursunuz.
+
+51
+00:03:25,350 --> 00:03:29,820
+Lineer etkinleştirme fonksiyonunu kullanabileceğiniz sadece bir yer olabilir,
+
+52
+00:03:29,820 --> 00:03:36,810
+g(z) eşittir z ve bu sadece regresyon probleminde makine öğrenmesi uygulamak.
+
+53
+00:03:36,810 --> 00:03:39,420
+yani eğer y bir reel sayı ise,
+
+54
+00:03:39,420 --> 00:03:42,675
+Örneğin, konut fiyatlarını tahmin ediyorsanız,
+
+55
+00:03:42,675 --> 00:03:46,935
+y sıfır değildir, ama bir reel sayıdır,
+
+56
+00:03:46,935 --> 00:03:54,660
+sıfır TL' den bir evin fiyatı nereye kadar çıkıyorsa kadardır.
+
+57
+00:03:54,660 --> 00:03:58,640
+Tahminimce evler milyonlarca TL olabilir.
+
+58
+00:03:58,640 --> 00:04:04,580
+Bununla birlikte, veri kümenizde ne kadar ev fiyatı olursa,
+
+59
+00:04:04,580 --> 00:04:09,705
+eğer y bu reel değerleri alırsa
+
+60
+00:04:09,705 --> 00:04:14,700
+o zaman burada lineer etkinleştirme fonksiyonunu kullanmak normal olabilir, böylece
+
+61
+00:04:14,700 --> 00:04:17,805
+çıktınız y'
+
+62
+00:04:17,805 --> 00:04:24,215
+da eksi sonsuzla artı sonsuz arasında bir reel sayı olur.
+
+63
+00:04:24,215 --> 00:04:28,700
+Ama sonra gizli birimler lineer etkinleştirme fonksiyonunu kullanmamalıdır.
+
+64
+00:04:28,700 --> 00:04:34,380
+Gizli birimler Relu, Tanh veya Lihi değeri ya da başka bir şey kullanabilir.
+
+65
+00:04:34,380 --> 00:04:39,995
+Yani lineer etkinleştirme fonksiyonunu kullanabileceğiniz yer genellikle çıktı katmanıdır.
+
+66
+00:04:39,995 --> 00:04:41,595
+Bunun yanı sıra
+
+67
+00:04:41,595 --> 00:04:44,730
+lineer etkinleştirme fonksiyonunu,
+
+68
+00:04:44,730 --> 00:04:50,135
+bazı çok özel durumlar sıkıştırmayla ilgili daha önce
+
+69
+00:04:50,135 --> 00:04:52,320
+konuştuğumuz kullanım şekli haricinde, gizli bir
+
+70
+00:04:52,320 --> 00:04:56,250
+katmanda kullanımı çok nadirdir.
+
+71
+00:04:56,250 --> 00:04:59,130
+Tabi, eğer gerçekten ev fiyatlarını birinci hafta videolarında gördüğünüz
+
+72
+00:04:59,130 --> 00:05:03,795
+gibi tahmin ediyorsanız, çünkü ev fiyatları negatif değildir, belki o zaman
+
+73
+00:05:03,795 --> 00:05:07,060
+onların değer etkinleştirme fonksiyonlarını kullanabilirsiniz,
+
+74
+00:05:07,060 --> 00:05:11,580
+böylece çıktılarınız y' sıfıra eşit veya sıfırdan büyük olur.
+
+75
+00:05:11,580 --> 00:05:13,980
+Umarım bu size lineer olmayan bir etkinleştirme fonksiyonuna
+
+76
+00:05:13,980 --> 00:05:19,290
+sahip olmanın sinir ağlarının önemli bir parçası olduğuna dair bir anlayış kazandırmıştır.
+
+77
+00:05:19,290 --> 00:05:23,945
+Devamında, azalan eğim hakkında konuşmaya başlayacağız ve bunu yapmak için,
+
+78
+00:05:23,945 --> 00:05:27,440
+azalan eğim hakkında bir tartışma başlatmak için, sıradaki videoda,
+
+79
+00:05:27,440 --> 00:05:29,230
+eğimi veya etkinleştirme fonksiyonlarını nasıl
+
+80
+00:05:29,230 --> 00:05:34,105
+tahmin edeceğinizi, hesaplayacağınızı göstermek istiyorum.
+
+81
+00:05:34,105 --> 00:05:35,600
+Hadi sıradaki videoya devam edelim.

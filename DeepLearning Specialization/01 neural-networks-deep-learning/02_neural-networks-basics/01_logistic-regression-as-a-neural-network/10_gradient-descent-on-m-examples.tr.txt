@@ -1,0 +1,43 @@
+Önceki videoda, türevlerin nasıl hesaplanacağını ve lojistik bağlanım için bir eğitim örneğinde bir eğitim örneğine gradyent düşümünün gradyan düşümünün nasıl uygulanacağını gördünüz. Şimdi bunu m için yapmak istiyoruz. eğitim örneklerine başlamak için Eğitim örneklerine başlamak için 
+J maliyet fonksiyonunu hatırlayalım. "w" ve "b" değişkenlerine bağlı, - J maliyet fonksiyonu, 1/m çarpı 1'den M'ye kadar olan toplama eşittir. 
+Algoritma çıktısı - "y" ve "a üssü i" örneği üzerinden olduğunda kaybı bilirsiniz. - "a üssü i" ve "y-şapka" birbirine eşittir. Bu ifade de, "W transpoz" çarpı "X üssü i" artı "B" sigmalarına eşit olacak şekilde tanımlanır.
+ Dolayısıyla, önceki slaytta, tek bir eğitim örneği olduğunda - LD türevlerinin nasıl hesaplandığı gösterilmiştir.
+Yani şimdi, dw1, dw2 ve - db ile bir önceki slaytta yaptığımız şeyi yapıyoruz. Ancak sadece bir eğitim örneğini kullanarak alınan 
+değerlere karşılık gelen değerleri belirtmek için
+üst-indis ile birlikte - "xi" ve "yi" kullanıyoruz. 
+ Yani şimdi, genel olarak maliyet fonksiyonu, - 1/m ifadesi bireysel kayıpların terimi olduğu için toplamın ortalama olduğunu görüyorsunuz.
+ Dolayısıyla bu maliyet fonksiyonunun w1'e göre türevinin alınması - bireysel kayıpların w1'e göre türevinin toplamının - ortalamasına eşittir.
+Ancak daha önce bu terimi nasıl hesaplayacağımızı - zaten gösterdik. 
+Önceki slaytta, tek bir eğitim örneğinde bilgisayarların nasıl hesapladığını gördünüz.
+Öyleyse, yapmanız gereken şey, 
+önceki eğitim örneğinde gösterdiğimiz gibi, - türevleri hesaplamak ve ortalamalarını almaktır. Bu, gradyan düşümünü uygulamak için - kullanacağımız genel gradyanı verecektir.
+Çok fazla ayrıntı olduğunu biliyorum. - Ama hadi hepsini toplayıp 
+somut bir algoritma haline getirelim. Lojistik bağlanım ile gradyan düşümünü - birlikte uygulayabilmeniz için yapmanız gereken şey: "J =0", "dw1=0", "dw2=0", "db=0 "olarak yazalım. - Şöyle yapacağız, 
+eğitim seti üzerinde - bir döngü kullanacağız ve her bir eğitim örneğinin türevlerini hesaplayıp sonra ekleyeceğiz. "i" birden başlayacak M'e kadar devam edecek. - Yani M, hesapladığımız eğitim örneklerinin sayısıdır. - tahmini "a üst-indis i", sigma "z üst indis i"ye eşittir. - "J+" ifadesi (yi çarpı log ai ) + (1-yi) çarpı (1-ai) ifadesine eşittir. Ardından bu ifadenin sonucunun negatif işareti alınır. - "dzi" ifadesi "ai"eksi "yi" işlemine,
+"dw1+" ifadesi "x1i" çarpı "dzi" işlemine eşittir.
+"dw2" ifadesi de "x2i" çarpı dzi işlemine eşittir. - Ben sadece iki özellik olduğunu varsayarak bu hesaplamayı yapıyorum. Aksi takdirde, bunu "dw1, dw2, dw3" için yaparsınız 
+ve bu şekilde devam eder. - "db+" ifadesi "dzi"ye eşittir.
+Sanırım bu döngünün sonu. Son olarak tüm M eğitim örnekleri için tamamlanır. Hala M ile bölmeliyiz. 
+Çünkü biz ortalamayı hesaplıyoruz. Bu nedenle, "dw1/" - ifadesi m'e eşit olacaktır. 
+"dw2/" ifadesi de m'e eşittir. Tüm ortalamalarda "db/" ifadesi m'e eşittir. Dolayısıyla, tüm bu hesaplamalarda her bir parametreye (w1, w2 ve b) 
+bağlı olarak - J maliyet fonksiyonunun türevini hesapladınız. Bu nedenle yorumun detayları, ne yaptığımızı açıklıyor. - Toplayıcı (akümülatör) olarak, DW 1, DW2 ve DB'yi kullanıyoruz. Bu hesaplamalardan sonra, "dw1" ifadesinin maliyet fonksiyonunun w1'e göre türevine
+ eşit olduğunu biliyoruz. - dw2 ve db için de benzer şekilde olduğunu biliyoruz. DW 1 ve DW 2'nin "i" üst simgesini içermediğine dikkat edin. 
+Çünkü, tüm eğitim setini - toplamak için 
+bu kodda onları toplayıcı (akümülatör) olarak kullanacağız. - Oysa burada dzi, sadece tek bir eğitim örneği ile dz üzerineydi. - Bu yüzden, bilgisayardaki bir "i" örneğine başvurmak için üst indis "i" bulunmaktadır. Bu nedenle, tüm bu hesaplamaları gradyan düşümünün ilk adımını uygulamak için bitirdim. Uyguladığınız w1, 
+"w1-öğrenme oranı süreleri çarpı dw1" olarak güncellenir. 
+w2 de aynı şekilde, "w2-öğrenme oranı süreleri çarpı dw2" olarak güncellenir. - Ve, B'de "B eksi öğrenim oranı süreleri çarpı db" 
+olarak güncellenir. - Bildiğiniz gibi ve sonunda J burada,
+ maliyet fonksiyonunuz için doğru bir değer olacaktır. - Bu nedenle, slayttaki her şey, yalnızca tek aşamalı gradyan düşümünü gerçekleştirir. Yani, 
+ gradyan düşümünün birden çok adımını sırayla - gerçekleştirmek için bu slayttaki her şeyi 
+birçok kez tekrarlamanız gerekiyor.
+Bu durumda - bu detaylar tekrar çok karmaşık görünüyor. - Bunun için fazla endişelenmeyin.
+ Umuyorum ki, D programlama atamasına gidip bunu uyguladığınızda her şey daha net olacaktır. 
+Fakat, burada hesaplama ve uygulama ile iki zayıflık ortaya çıkıyor. - Bu, lojistik bağlanımın uygulanabilmesi için, döngüler için - iki tane yazmanız gerektiği anlamına gelir. 
+Döngü için birincisi, - M eğitim örnekleri üzerinde küçük bir döngüdür. Döngü için ikincisi, buradaki tüm özellikler üzerinde bir döngüdür. - Bu örnekte, sadece 2 özellik vardı. 
+ "n=2" ve "x=2" Fakat, daha fazla özelliğe sahipseniz,
+ "DW 1" ve "DW 2"yi yazmayı bitirirsiniz ve 
+"DW 3" için benzer hesaplamalar elde edersiniz. - Yani "DW n" e kadar, tüm "n" özelliklerine göre bir for döngüsüne sahip olmanız gerekiyor. - Derin öğrenme algoritmalarını uyguladığınızda, 
+ kodunuzda açık "for döngüleri"nin - olması algoritmanızın daha az verimle çalışmasına neden olur. Ve böylece, derin öğrenme hatası - çok daha büyük veri kümelerine hareket edecektir. Bu nedenle, - algoritmalarınızı açık "for döngüleri" kullanmadan gerçekleştirebilmeniz gerçekten çok önemlidir ve 
+çok daha büyük veri kümelerini - ölçeklendirmenize yardımcı olacaktır. Bu nedenle, kodunuzdaki bu açık tam döngülerden
+ kurtulmanıza olanak - tanıyan vektörleme teknikleri adı verilen teknikler ortaya çıkıyor. - Bence ön-derin öğrenme döneminde, derin öğrenmenin yükselişinden önce, vektörizasyon güzeldi. - Bazen, bir kodu hızlandırmak için uygulayabilirsiniz, 
+bazen de uygulayamazsınız. Fakat derin öğrenme döneminde, bu ve bu gibi döngülerden kurtulmak için yapılan vektörizasyon işlemleri oldukça önemli bir hale geldi. - Çünkü çok büyük veri kümeleri üzerinde, çok daha fazla eğitim yapıyoruz. Yani, kodunuzun verimli olmasına gerçekten ihtiyacınız var. Önümüzdeki birkaç videoda, - vektörizasyondan ve tek bir tam döngü bile kullanmadan bunların nasıl uygulanacağından bahsedeceğiz. Umarım, lojistik bağlanıma nasıl yaklaşacağınızı ya da lojistik bağlanım için gradyan düşümünü nasıl uygulayacağınızı anlamışsınızdır. Program egzersizini uygularken işler netleşecektir. Ancak, program alıştırmasını yapmadan önce, - ilk olarak vektörizasyon hakkında konuşalım. Öyleyse, tüm bu şeyleri tek bir döngü bile kullanmadan, gradyan düşümünün tek bir iterasyonu ile - uygulayabilirsiniz.

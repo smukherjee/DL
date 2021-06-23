@@ -1,0 +1,442 @@
+1
+00:00:00,302 --> 00:00:04,340
+Yapay sinir ağınız için geri yayılımı uygularken,
+ etkilenim fonksiyonlarının
+
+2
+00:00:04,340 --> 00:00:07,813
+türev eğimlerini hesaplayabiliyor olmanız 
+gerekir.
+
+3
+00:00:07,813 --> 00:00:11,333
+Bu yüzden etkilenim fonksiyonu 
+seçeneklerimize ve
+
+4
+00:00:11,333 --> 00:00:14,025
+bu fonksiyonların eğimlerini nasıl 
+hesaplayacağımıza bakalım
+
+5
+00:00:14,025 --> 00:00:17,239
+Tanıdık Sigmoid etkilenim fonksiyonu.
+
+6
+00:00:17,239 --> 00:00:22,252
+Verilen herhangi bir z değeri için,
+ belki bu z değeri için
+
+7
+00:00:22,252 --> 00:00:27,184
+bu fonksiyon bir eğim, ya da türeve,
+ burada çizilecek bir doğru
+
+8
+00:00:27,184 --> 00:00:32,389
+ve oluşacak küçük üçgende ki yüksekliğin 
+genişliğe bölümüne göre sahip olacak.
+
+9
+00:00:32,389 --> 00:00:39,823
+Bu yüzden g(z) Sigmoid işlevi ise, fonksiyon eğimi d/dz g(z) olur.
+
+10
+00:00:39,823 --> 00:00:47,034
+ve bu yüzden, yüksek matematikten biliyoruz ki bu, z' deki g(z) eğimidir.
+
+11
+00:00:47,034 --> 00:00:52,513
+Ve eğer yüksek matematik bilgisine aşinaysanız ve nasıl türev alacağınızı bilirseniz,
+
+12
+00:00:52,513 --> 00:00:56,074
+sigmoid fonksiyonunun türevini aldığınızda,
+
+13
+00:00:56,074 --> 00:01:00,300
+bu formüle eşit olduğunu göstermek mümkündür.
+
+14
+00:01:00,300 --> 00:01:02,380
+ve yine, yüksek matematik adımlarını yapmayacağım.
+
+15
+00:01:02,380 --> 00:01:04,839
+Fakat eğer yüksek matematik bilgisine aşinaysanız
+
+16
+00:01:04,839 --> 00:01:08,465
+videoyu duraklatmaktan çekinmeyin ve bunu kendiniz kanıtlamaya çalışın.
+
+17
+00:01:08,465 --> 00:01:16,583
+Ve bu sadece g(z) kere (1-g (z)) eşittir.
+
+18
+00:01:16,583 --> 00:01:20,923
+O yüzden sadece bu bildirimin mantıklı olduğunu kontrol edelim.
+
+19
+00:01:20,923 --> 00:01:26,343
+Öncelikle, z çok büyükse, z = 10 diyelim.
+
+20
+00:01:26,343 --> 00:01:30,315
+Daha sonra g(z) 1'e yakın olacak ve
+
+21
+00:01:30,315 --> 00:01:38,758
+soldaki formülü bize d/dz g(z) 'nin g (z)' ye yakın olacağını söyler.
+
+22
+00:01:38,758 --> 00:01:42,979
+ve bunun 1*(1-1),
+
+23
+00:01:42,979 --> 00:01:46,851
+bu nedenle 0 çok yakındır.
+
+24
+00:01:46,851 --> 00:01:51,267
+Ve bu gerçekten doğru, çünkü z çok büyük bir eğim ise 0 yakındır.
+
+25
+00:01:51,267 --> 00:01:58,885
+Tersine, eğer z = -10 ise, yani çıkış yolu var ise g(z) 0 yakındır.
+
+26
+00:01:58,885 --> 00:02:01,765
+Soldaki formül bize anlatıyor.
+
+27
+00:02:01,765 --> 00:02:07,333
+d/dz g(z), g(z)' ye yakın olacak ve bu da 0*(1-0) olacaktır.
+
+28
+00:02:07,333 --> 00:02:10,005
+Bu yüzden de 0 çok yakın, ki bu doğru.
+
+29
+00:02:10,005 --> 00:02:16,889
+Son olarak z = 0 ise g(z) = 1/2.
+
+30
+00:02:16,889 --> 00:02:18,983
+Buradaki sigmoid işlevi.
+
+31
+00:02:18,983 --> 00:02:24,040
+Ve böylece türev 1/2 * (1-
+
+32
+00:02:24,040 --> 00:02:28,459
+1/2) bir çeyreğe eşittir.
+
+33
+00:02:28,459 --> 00:02:33,135
+Ve bu aslında türevin doğru değeri olarak ortaya çıkıyor ya da
+
+34
+00:02:33,135 --> 00:02:35,831
+z=0 olduğunda bu işlevin eğimi.
+
+35
+00:02:35,831 --> 00:02:38,839
+Son olarak, sadece bir notasyon parçasını daha tanıtmak için.
+
+36
+00:02:38,839 --> 00:02:42,321
+Bazen, bu şeyi yazmak yerine,
+
+37
+00:02:42,321 --> 00:02:46,087
+Türevin kısaltması, g'(z)
+
+38
+00:02:46,087 --> 00:02:52,167
+Yani g'(z) yüksek matematikte üsteki çizgiye(prime) denir.
+
+39
+00:02:52,167 --> 00:02:55,283
+Bu nedenle g'(z) yüksek matematikte kısa gösterimdir.
+
+40
+00:02:55,283 --> 00:03:00,455
+g fonksiyonun z giriş değerine göre türevi
+
+41
+00:03:00,455 --> 00:03:07,513
+Bir sinir ağında, a=g(z) var,
+
+42
+00:03:07,513 --> 00:03:11,351
+doğru, buna eşittir.
+
+43
+00:03:11,351 --> 00:03:17,145
+Sonra bu da a*(1-a) için basitleştirecektir.
+
+44
+00:03:17,145 --> 00:03:20,109
+Yani bazen uygulama,
+
+45
+00:03:20,109 --> 00:03:25,256
+g'(z)=a(1-a) gibi bir şey görebilirsiniz
+
+46
+00:03:25,256 --> 00:03:29,040
+Ve bu sadece g'(z) gözlemini ifade eder.
+
+47
+00:03:29,040 --> 00:03:33,428
+Bu sadece türev anlamına gelir, burada buna eşittir.
+
+48
+00:03:33,428 --> 00:03:38,397
+Ve bu formülün avantajı, şu an için değeri hesapladıysanız;
+
+49
+00:03:38,397 --> 00:03:43,078
+a, daha sonra bu ifadeyi kullanarak, değeri çok hızlı bir şekilde hesaplayabilirsiniz.
+
+50
+00:03:43,078 --> 00:03:45,038
+eğim, g türevi içinde
+
+51
+00:03:45,038 --> 00:03:47,632
+Tamam, bu sigmoid etkilenim işleviydi.
+
+52
+00:03:47,632 --> 00:03:51,172
+Şimdi tanh etkilenim işlevine bakalım.
+
+53
+00:03:51,172 --> 00:03:56,311
+Daha önce sahip olduğumuza benzer şekilde, tanımı d/dz
+
+54
+00:03:56,311 --> 00:04:01,155
+g(z), belirli bir z noktasındaki g(z) eğimidir.
+
+55
+00:04:01,155 --> 00:04:07,747
+Ve hiperbolik tanjant fonksiyonunun formülüne bakarsanız,
+
+56
+00:04:07,747 --> 00:04:13,066
+ve eğer yüksek matematik biliyorsanız, türevlerini alabilir ve
+
+57
+00:04:13,066 --> 00:04:17,359
+bunun bu formüle basitleştirdiğini gösterebilirsiniz.
+
+58
+00:04:20,813 --> 00:04:23,997
+Ve daha önce sahip olduğumuz
+
+59
+00:04:23,997 --> 00:04:27,019
+Bu g'(z)' yi tekrar arayacağız.
+
+60
+00:04:27,019 --> 00:04:30,941
+Yani eğer istersen, bu formülün mantıklı olduğunu kontrol edebilirsin.
+
+61
+00:04:30,941 --> 00:04:37,005
+Yani örneğin z=10 ise, tanh(z) 1'e çok yakın olur.
+
+62
+00:04:37,005 --> 00:04:41,309
+Bu +1'den -1'e gider.
+
+63
+00:04:41,309 --> 00:04:45,183
+Ve sonra g'(z), bu formüle göre,
+
+64
+00:04:45,183 --> 00:04:48,148
+yaklaşık 1 eksi 1 kare olacak, yani 0.
+
+65
+00:04:48,148 --> 00:04:53,930
+Yani, eğer z çok büyükse, eğim sıfıra yakındır.
+
+66
+00:04:53,930 --> 00:04:58,760
+Aksine, eğer z çok küçükse, z=-10 deyin,
+
+67
+00:04:58,760 --> 00:05:02,440
+daha sonra tanh (z) -1'e yakın olacaktır.
+
+68
+00:05:02,440 --> 00:05:07,871
+Ve böylece g '(z) 1-tan(z)^2 yakın olacak,
+
+69
+00:05:07,871 --> 00:05:12,792
+Yani 0 yakın olan 1-1'e yakındır.
+
+70
+00:05:12,792 --> 00:05:18,421
+Son olarak, eğer z=0 ise, tanh(z) =0 olur.
+
+71
+00:05:18,421 --> 00:05:22,165
+Ve sonra eğim gerçekten 1'e eşittir,
+
+72
+00:05:22,165 --> 00:05:26,433
+z=0 olduğunda, aslında eğimdir.
+
+73
+00:05:26,433 --> 00:05:33,001
+Yani sadece özetlemek gerekirse, eğer a=g(z), yani eğer bu 1-tanh(z)^2 eşit ise,
+
+74
+00:05:33,001 --> 00:05:38,300
+daha sonra g'(z)=1-a^2 eşittir.
+
+75
+00:05:38,300 --> 00:05:42,000
+Yani bir kez daha, eğer a değerini zaten hesapladıysanız,
+
+76
+00:05:42,000 --> 00:05:46,522
+Bu formülü, türevi de çok hızlı bir şekilde hesaplamak için kullanabilirsiniz.
+
+77
+00:05:46,522 --> 00:05:49,618
+Son olarak, burada ReLU için türevleri nasıl hesaplıyoruz ve
+
+78
+00:05:49,618 --> 00:05:51,338
+Sızıntılı ReLU etkilenim fonksiyonları.
+
+79
+00:05:51,338 --> 00:05:57,866
+ReLU için g(z) maksimum (0, z).
+
+80
+00:05:57,866 --> 00:06:03,330
+Bu nedenle g'(z)=0 olduğunda z<0
+
+81
+00:06:03,330 --> 00:06:09,066
+ve eğer g'(z)=1 olduğunda z>0 olur.
+
+82
+00:06:09,066 --> 00:06:15,498
+Ve z aslında 0'a eşitse, aslında teknik olarak tanımsızdır.
+
+83
+00:06:15,498 --> 00:06:18,339
+Ama eğer bunu yazılımda uyguluyorsanız,
+
+84
+00:06:18,339 --> 00:06:21,398
+%100 matematiksel olarak doğru olmayabilir.
+
+85
+00:06:21,398 --> 00:06:25,571
+Ama z gerçekten tam olarak çalışıyorsa, z tam olarak 0'dır.
+
+86
+00:06:25,571 --> 00:06:30,501
+Türev 1'e eşit olacak şekilde ayarlanırsa veya bu 0 olursa.
+
+87
+00:06:30,501 --> 00:06:31,781
+Bunun bir önemi olmaz.
+
+88
+00:06:31,781 --> 00:06:33,578
+Eğer optimizasyon konusunda uzmansanız
+
+89
+00:06:33,578 --> 00:06:37,109
+teknik olarak g'() zaman bir alt eğim olarak adlandırılan şey
+
+90
+00:06:37,109 --> 00:06:41,360
+etkilenim işlevi g(z), bu yüzden dereceli azalma hala çalışır.
+
+91
+00:06:41,360 --> 00:06:47,327
+Ancak, z'nin tam olarak 0.000000 olma şansı olduğunu düşünebilirsiniz.
+
+92
+00:06:47,327 --> 00:06:52,805
+küçük olduğundan, türevini eşit olarak ayarladığınız şey neredeyse hiç önemli değildir.
+
+93
+00:06:52,805 --> 00:06:54,303
+z=0 olduğunda.
+
+94
+00:06:54,303 --> 00:06:59,155
+Yani pratikte, bu insanların z'nin türevi için uyguladıkları şeydir.
+
+95
+00:06:59,155 --> 00:07:03,712
+Son olarak, eğer bir sinir ağını eğitiyorsanız
+
+96
+00:07:03,712 --> 00:07:06,882
+sızıntılı ReLU etkilenim işlevi,
+
+97
+00:07:06,882 --> 00:07:12,244
+daha sonra g(z)=maksimum (0.01z, z) olacak.
+
+98
+00:07:12,244 --> 00:07:15,247
+ve böylece g'(z)=0.01,
+
+99
+00:07:15,247 --> 00:07:19,074
+z<0 ve g'(z)=1 ise z>0
+
+100
+00:07:19,074 --> 00:07:20,477
+Ve bir kez daha
+
+101
+00:07:20,477 --> 00:07:26,403
+z, tam olarak 0 eşit olduğunda, eğim teknik olarak tanımlanmamıştır.
+
+102
+00:07:26,403 --> 00:07:31,479
+Ancak, türevi hesaplayan bir kod parçasını uygularsanız veya
+
+103
+00:07:31,479 --> 00:07:38,353
+g'() değerini 0,01 veya 1 olarak ayarlar, her iki şekilde de önemli değildir.
+
+104
+00:07:38,353 --> 00:07:41,499
+Z tam olarak 0 olduğunda, kodunuz sadece çalışır.
+
+105
+00:07:41,499 --> 00:07:45,594
+Yani bu formüller ile donanmış olmalısınız,eğimi yada
+
+106
+00:07:45,594 --> 00:07:48,400
+türevi veya etkilenim fonksiyonlarınızı hesaplayabilmek için
+
+107
+00:07:48,400 --> 00:07:50,553
+Şimdi, bu yapı bloğuna sahipsin,
+
+108
+00:07:50,553 --> 00:07:54,502
+sinir ağınız için dereceli azalmayı nasıl uygulanacağını görmeye hazır olun.
+
+109
+00:07:54,502 --> 00:07:57,309
+Bunu görmek için bir sonraki videoya gidelim.

@@ -1,0 +1,126 @@
+Dans la vidéo précédente,
+ j’ai mentionné que le broadcasting est une autre technique que vous pouvez
+ utiliser pour faire tourner
+ votre code Python plus vite. Dans cette vidéo, nous allons voir
+ en profondeur comment le broadcasting
+ en Python fonctionne réellement. Voyons cela avec un exemple. Dans cette matrice, j’ai montré
+ le nombre de calories de glucides, de protéines et de lipides pour 
+100 grammes de quatre différents aliments. Ainsi, par exemple,
+100 grammes de pommes contiennent 56 calories de glucides et beaucoup moins
+ de protéines et de lipides. En revanche, 100 grammes de bœuf
+ contiennent 104 calories provenant
+ des protéines et 135 calories provenant des lipides. Maintenant, supposons que votre but est
+ de calculer le pourcentage de calories de glucides, de protéines et de lipides
+ pour chacun des quatre aliments. Ainsi, par exemple, si vous regardez
+ cette colonne et additionnez les chiffres de cette colonne,
+ vous obtenez que 100 grammes de pomme ont 56 plus 1,2 plus 1,8 
+c’est-à-dire 59 calories. Et donc en pourcentage la proportion de calories des glucides dans une pomme sera de 56 sur 59, c’est environ 94,9 %. Donc la majorité des calories dans une pomme
+ viennent des glucides, alors qu’au contraire, la plupart des calories du bœuf proviennent 
+des protéines et des lipides et ainsi de suite. Donc le calcul que vous voulez faire est 
+la somme de chacune des quatre colonnes de cette matrice pour obtenir le nombre total
+ de calories pour 100 grammes de pommes, de bœuf, d'œufs et de pommes de terre. Et ensuite de diviser
+ chaque terme de la matrice, afin d’obtenir le pourcentage
+ de calories de glucides, protéines et lipides pour chacun des quatre aliments. Donc la question est, pouvez-vous faire
+ cela sans une boucle FOR explicite ? Nous allons voir comment vous pouvez le faire. Ce que je vais faire est vous montrer
+ comment vous pouvez définir, par exemple, cette matrice A,
+une matrice de trois par quatre et puis avec une seule ligne de code Python 
+nous allons faire la somme des colonnes. Donc nous allons obtenir quatre nombres
+ correspondant au nombre total de calories dans ces quatre différents
+ types d’aliments, 100 grammes de ces quatre types d’aliments, et je vais utiliser une deuxième ligne
+ de code Python pour diviser chacune des quatre colonnes par
+ leur somme correspondante. Si cette description verbale
+ n’a pas été très claire, J’espère que ce sera plus clair dans une
+ seconde quand vous verrez le code Python. Nous voici donc dans Jupyter notebook. J’ai déjà écrit cette première partie
+ du code pour préremplir la matrice A avec les nombres que nous 
+avions tout à l’heure, alors nous allons
+ faire Maj + Entrée et lancer cela, donc voilà la matrice A. Et maintenant, voici les deux lignes
+ de code Python. Tout d’abord, nous allons calculer
+ cal = A.sum(axis=0) axis = 0 signifie sommer verticalement. Nous en reparlerons un peu plus tard. Et puis print cal Donc, nous allons faire la somme
+ verticalement. 59 est le nombre total de calories
+ dans la pomme, 239 est le nombre total de calories dans le bœuf
+ puis les œufs et les pommes de terre
+ et ainsi de suite. Et puis nous allons calculer le pourcentage pourcentage = A/cal.reshape( 1,4). En fait, nous voulons des pourcentages,
+ donc nous allons multiplier par 100 ici. Et puis nous allons imprimer pourcentage. Exécutons ça. Et donc avec cette commande
+ nous avons pris la matrice A et nous l'avons divisée 
+par cette matrice un par quatre. Et cela nous donne
+ la matrice des pourcentages. Comme quand nous avons fait les calculs
+ à la main tout à l’heure, pour la pomme dans la première colonne,
+ 94,9 % des calories proviennent des glucides. Revenons sur les diapositives. Alors juste pour répéter 
+les deux lignes de code que nous avons, voici ce qu’on a écrit dans Jupyter notebook. Pour ajouter un peu de détails, ce paramètre, (axis = 0), signifie que vous voulez que
+ Python calcule la somme verticalement. Donc, si c'est axis = 0 cela signifie 
+calculer la somme verticalement, alors que l’axe horizontal est l’axe 1. Donc on écrirait axis = 1 pour faire la somme
+ horizontalement au lieu de verticalement. Et puis cette commande ici, c'est l'exemple du broadcasting de Python,
+ où vous prenez une matrice A, c’est une matrice de trois par quatre et vous
+ la divisez par une matrice un par quatre. Et techniquement, 
+après cette première ligne de code, cal, la variable cal
+ est déjà une matrice un par quatre. Donc, techniquement, il n'y a pas besoin 
+d'appeler reshape ici encore une fois, donc c’est en fait un peu redondant. Mais quand j’écris du code Python, si je
+ ne suis pas entièrement sûr de la matrice, des dimensions d’une matrice j’appelle
+ souvent une commande reshape juste pour être sûr que c'est bien
+ un vecteur colonne ou lun vecteur ligne ou ce que vous voulez qu’il soit. La commande reshape est 
+exécutée en temps constant. C’est une un opération d'ordre 1 qui 
+ne coute presque rien en temps de calcul. Alors n'hésitez pas à utiliser la commande
+ reshape pour vous assurer que vos matrices sont de la taille qu'il faut qu’elles soient. Maintenant, nous allons expliquer plus en
+ détail comment fonctionne ce type d’opération. Nous avons une matrice 3 x 4 et 
+nous la divisons par une matrice 1 x 4. Alors, comment peut-on diviser une
+ matrice 3 x 4 par une matrice 1 x 4, c'est à dire par un vecteur 1 x 4 ? Examinons quelques autres
+ exemples de broadcasting. Si vous prenez un vecteur 4 x 1 et
+ que vous lui ajoutez un nombre, ce que Python va faire est de prendre
+ ce nombre et automatiquement l'étendre pour en faire un vecteur 4 x 1 comme ceci. Et donc le vecteur [1, 2, 3, 4] plus le nombre 100 donne
+ ce vecteur sur la droite. Vous ajoutez 100 à chaque élément. 
+En fait, nous avons utilisé cette forme de broadcasting où cette constante était
+ le paramètre b dans une vidéo précédente. Et ce type de broadcasting fonctionne avec 
+des vecteurs colonnes et des vecteurs lignes, et en fait nous avons utilisé plus tôt une
+ forme similaire de broadcasting en ajoutant à un vecteur une constante qui était 
+le paramètre b dans la régression logistique. Voici un autre exemple : Imaginons que vous ayez une matrice 2 x 3 et et que vous l’ajoutez à cette matrice 1 x n. Le cas général serait d'avoir une matrice (m, n) ici et vous y ajoutez à une matrice (1, n) . Ce que fera Python, c’est copier la matrice m fois pour la transformer en 
+une matrice (m, n), au lieu de cette matrice (1, 3), il la va copier une fois 
+dans cet exemple, pour qu’elle devienne ceci, qui est aussi une matrix (2, 3) et 
+nous ajouterons ces deux matrices pour obtenir la somme sur la droite, OK ? Donc, vous avez ajouté 100
+ à la première colonne, 200 à la deuxième colonne et
+ 300 à la troisième colonne. Et c’est essentiellement ce que nous
+ avons fait sur la diapositive précédente, sauf que nous avons utilisé une opération
+ de division au lieu d’une opération d’addition. Un dernier exemple,
+ si vous avez une matrice (m, n) et que vous l'ajoutez à
+ un vector (m, 1), une matrice (m, 1) alors ça va le copier n fois horizontalement, pour que vous vous retrouviez
+ avec une matrice (m, n). Donc, comme vous pouvez imaginer,
+ on copie horizontalement trois fois. Et vous les ajoutez. Donc lorsque vous les ajoutez 
+vous vous retrouvez avec ceci. Nous avons ajouté 100 à la première ligne
+ et ajouté 200 à la deuxième ligne. Voici le principe plus général
+ du broadcasting en Python. Si vous avez une matrice (m, n) 
+et que vous y ajoutez ou soustrayez, multipliez ou divisez par une matrice (1, n), alors ceci la copiera n fois dans une matrice (m, n). Puis l’addition, la soustraction, la multiplication ou la division seront appliquées
+ élément par élément. Si à l’inverse, vous aviez une matrice (m, n) 
+et que vous ajoutez, soustrayez, multipliez, divisez par une matrice (m, 1), 
+de la même manière, elle serait copiée n fois et transformée en une matrice (m, n) et
+ l'opération serait ensuite appliquée
+ élément par élément. Une autre forme de broadcasting est que,
+ si vous avez une matrice (m,1), donc c’est en fait un vecteur colonne 
+comme [1,2,3], et que vous ajoutez, soustrayez, multipliez ou divisez
+ par un nombre réel, peut-être une matrice (1,1), par exemple plus 100, alors le nombre réel est copié m fois jusqu'à ce que vous ayez
+ une autre matrice (m,1). Et puis vous effectuez l’opération, 
+l’addition dans cet exemple,
+ élément par élément. Et quelque chose de similaire fonctionne 
+également pour les vecteurs lignes. La version entièrement généralisée
+ du broadcasting peut faire
+ même un peu plus que cela. Si vous êtes intéressé, 
+vous pouvez lire la documentation de NumPy et jeter un œil au broadcasting
+ dans cette documentation. Cela donne une définition légèrement 
+plus générale du broadcasting. Mais les cas de la diapositive sont 
+les principales formes de broadcasting dont vous aurez besoin lorsque 
+vous implémenterez un réseau de neurones. Avant de conclure,
+ juste une dernière remarque, qui est pour ceux d'entre vous qui 
+savent programmer en MATLAB ou en Octave, si vous avez déjà utilisé 
+la fonction MATLAB ou Octave bsxfun pour programmer un réseau neuronal,
+ bsxfun fait quelque chose de semblable,
+ pas tout à fait la même chose. Mais il est souvent utilisé pour le même
+ résultat que lorsque nous utilisons
+ le broadcasting en Python. Mais c’est vraiment seulement pour
+ les utilisateurs avancés en MATLAB et Octave, si vous ne connaissez
+ pas cela, ne vous inquiétez pas à ce sujet. Vous n’avez pas besoin de le savoir
+ lorsque vous implémentez
+ des réseaux neuronaux en Python. Alors, c'était le broadcasting en Python. J’espère que lorsque vous ferez l'exercice 
+de programmation, le broadcasting
+ vous permettra d'avoir un code qui s’exécute plus vite, mais aussi de faire ce que vous voulez
+ faire avec moins de lignes de code. Avant de vous plonger dans l’exercice de
+ programmation, je veux partager avec vous quelques idées de plus, quelques conseils et astuces qui m'ont permis de réduire le nombre
+ de bogues dans mon code Python et J’espère que cela vous aidera aussi. Donc, nous allons parler de cela
+ dans la prochaine vidéo.

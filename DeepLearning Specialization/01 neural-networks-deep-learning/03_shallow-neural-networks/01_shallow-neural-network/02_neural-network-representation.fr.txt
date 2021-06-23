@@ -1,0 +1,70 @@
+Vous m'avez vu faire quelques dessins
+ de réseaux de neurones. Dans cette vidéo, nous allons parler de ce
+ que signifient exactement ces schémas. Autrement dit, exactement ce que ces réseaux de neurones 
+que nous avons dessinés représentent. Et nous allons commencer par étudier
+ le cas de réseaux de neurones avec ce qu’on appelle une seule couche cachée. Voici une image d’un réseau de neurones. Nous allons nommer les différentes
+ parties de ce schéma. Nous avons les caractéristiques d’entrée,
+ x1, x2, x3 empilés verticalement qui sont ce qu’on appelle la couche d’entrée
+ du réseau neuronal. Alors, sans surprise, celle-ci contient 
+les entrées pour le réseau de neurones. Puis il y a une autre couche de cercles. Et c’est ce qu’on appelle 
+une couche cachée du réseau neuronal. Je reviendrai dans un instant pour 
+dire ce que le mot signifie caché. Mais la dernière couche ici est formée par,
+ dans ce cas, un seul nœud. Et cette couche à un seul nœud est appelée
+ la couche de sortie et doit générer la valeur prédite y_chapeau. Dans un réseau de neurones, que vous 
+entraînez avec de l’apprentissage supervisé, le set d’apprentissage contient les valeurs des 
+entrées x, ainsi que les cibles des sorties y. Donc le terme couche cachée se réfère
+ au fait que, dans le set de formation, les vraies valeurs pour ces nœuds
+ au milieu ne sont pas observées. C’est-à-dire que vous ne voyez pas ce qu’ils 
+devraient être dans le jeu d’apprentissage. Vous voyez ce que sont les entrées. Vous voyez ce que devrait être la sortie. Mais les choses dans la couche cachée ne 
+sont pas comprises dans le set de formation. Ce qui explique en quelque sorte le nom 
+de couche cachée parce que vous ne la voyez pas dans le set d’apprentissage. Abordons encore un peu de notation. Là où nous utilisions le vecteur X pour 
+désigner les caractéristiques d’entrée, une notation alternative pour les valeurs des caractéristiques d’entrée 
+sera a exposant crochet 0. Et le terme a signifie également 
+ activation, et il réfère aux valeurs que
+ les différentes couches du réseau de neurones passent
+ aux couches suivantes. La couche d’entrée passe
+ la valeur x à la couche cachée, Donc nous allons appeler ça 
+l'activation de la couche d'entrée a[0] La couche suivante, la couche cachée va à 
+son tour générer un ensemble d’activations, qui je vais écrire a exposant crochet 1. Ainsi, en particulier, cette première unité
+ ou ce premier nœud, va générer une valeur 
+a exposant crochet 1 indice 1. Ce deuxième nœud va générer une valeur avec l’indice 2 et ainsi de suite. Et donc, a exposant crochet 1, est un vecteur de dimension 4 
+ou, si vous voulez, en Python une matrice de 4 par 1, 
+un vecteur colonne, qui ressemble à ceci. Et il est de dimension 4, parce que ici,
+ nous avons quatre nœuds, ou quatre unités, ou quatre unités cachées
+ dans cette couche cachée. Et puis enfin, la couche de sortie
+ génère une valeur a[2], qui est juste un nombre réel. Et donc y_chapeau va prendre la valeur de a[2]. C'est comme dans la régression logistique,
+ nous avions y_chapeau égal à a et dans la régression logistique dont nous 
+n’avions qu’une couche de sortie, donc nous n'avons pas utilisé 
+d'exposants entre crochets. Mais pour les réseaux de neurones, 
+nous allons utiliser l’exposant entre crochets pour indiquer explicitement 
+de quelle couche il provient. Une chose drôle sur les conventions 
+de notation dans les réseaux de neurones est que ce réseau que vous voyez ici est appelé
+ un réseau de neurones à deux couches. Et la raison est que lorsque nous comptons 
+les couches dans les réseaux de neurones, nous ne comptons pas la couche d’entrée. Donc la couche cachée est la couche 1 
+et la couche de sortie est la 2. Dans notre convention de notation, 
+nous appelons la couche d’entrée zéro, donc techniquement peut-être qu'il y a trois 
+couches dans ce réseau de neurones, parce qu’il y a la couche d’entrée, 
+la couche cachée et la couche de sortie. Mais classiquement, si vous lisez des articles
+ de recherche et d'autres cours, vous verrez les gens faire référence à ce
+ réseau neuronal particulier comme étant un réseau de neurones à deux couches, parce que
+ nous ne comptons pas la couche d’entrée
+ comme une couche officielle. Enfin, quelque chose que nous verrons 
+plus tard est que la couche cachée et la couche de sortie auront des paramètres
+ qui leur sont associés. A la couche cachée seront associés
+ ces paramètres W et b. Et je vais les écrire avec un exposant
+ crochet 1 pour indiquer que ces paramètres sont associés 
+à la couche 1, à la couche cachée. Nous verrons plus tard que W 
+est une matrice de 4 par 3 et que b sera un vecteur de 4 par 1
+ dans cet exemple. où la première dimension, 4,
+ vient du fait que nous avons quatre nœuds ou 4 unités cachées 
+dans notre couche cachée, et le trois vient du fait que nous avons
+ trois caractéristiques en entrée. Nous reparlerons plus tard 
+des dimensions de ces matrices et ce sera plus clair à ce moment-là. Mais de la même façon, à la couche de sortie 
+sont aussi associés les paramètres W[2] et b[2]. Et il s’avère que leurs dimensions
+ sont 1 par 4 et 1 par 1. Et ce 1 par 4 parce que la couche cachée
+ a quatre unités cachées, et la couche de sortie n'a qu'une seule unité. Mais nous reverrons la dimension de ces 
+matrices et vecteurs dans une vidéo plus tard. Donc vous venez de voir à quoi ressemble
+ un réseau de neurones à deux couches. C’est-à-dire un réseau de neurones
+ avec une couche cachée. Dans la prochaine vidéo, nous allons voir plus précisément 
+ce que ce réseau de neurones calcule. Ce que ce réseau de neurones
+ fait de l'entrée X tout ce qui mène à la sortie ŷ.

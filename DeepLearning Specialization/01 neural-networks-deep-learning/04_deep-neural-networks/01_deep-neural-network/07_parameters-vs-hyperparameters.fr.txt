@@ -1,0 +1,85 @@
+Être efficace dans le développement
+ de votre réseau de neurones profond, nécessite 
+que vous organisiez bien non seulement vos paramètres, mais aussi vos hyper paramètres,
+ Que sont ces hyper paramètres ? Jetons y un coup d'œil. Les paramètres de votre modèle 
+sont W et b. Il y a également d'autres choses qu'il faut indiquer à votre algorithme d'apprentissage tel que le taux d'apprentissage alpha. 
+Vous avez besoin de définir alpha, ce qui déterminera par conséquent, comment 
+vos paramètres évolueront, et peut être le nombre d'itérations de descente de gradient
+ que vous effectuerez. Votre algorithme d'apprentissage,
+comme vous le savez, a également d'autres valeurs à définir tels que le nombre de couches cachées 
+qu'on appelle L majuscule ou bien le nombre d'unités cachées tel que n[1], n[2] et ainsi de suite. Ensuite, vous avez le choix de la fonction d'activation. 
+Voulez vous utiliser la fonction ReLU ou tanh
+ ou bien la fonction sigmoïde ou autres fonctions,
+ particulièrement dans les couches cachées.
+Toutes ces informations doivent être indiquées à votre algorithme d'apprentissage. 
+Ce sont des paramètres qui contrôlent les paramètres les plus importants W et b. Et donc on appelle tous ces paramètres
+ ci-dessous des hyper paramètres. Car, toutes les données qu'on voit ici 
+comme le taux d'apprentissage alpha, le nombre d'itérations, le nombre de couches cachées
+ et ainsi de suite sont des paramètres
+ qui tous contrôlent W et b et donc on les appelle les hyper paramètres. Effectivement, ce sont
+ les hyper paramètres qui, en quelque sorte,
+ déterminent la valeur finale des paramètres W et b
+que vous aurez à la fin. Et en fait, l'apprentissage profond a beaucoup d'hyper paramètres différents. Plus tard, dans un cours 
+ultérieur, nous verrons d'autres hyper paramètres tels que le terme du moment, la taille du mini-lot, diverses formes de 
+paramètres de régularisation et ainsi de suite.
+Et si aucun des termes ci-dessous n'a encore de sens pour vous, ne vous inquiétez pas, nous en parlerons dans le second cours. Comme l'apprentissage profond a beaucoup d'hyper paramètres, contrairement à ce qui se faisait au début
+ de l'apprentissage automatique, je vais essayer d'être
+ le plus cohérent possible, en appelant le taux d'apprentissage alpha un hyper paramètre plutôt que de le considérer un paramètre.
+ Je pense que durant les premières ères de l'apprentissage automatique, 
+où on n'avait pas autant d'hyper paramètres,
+ la plupart d'entre nous était négligeant ici en appelant alpha un paramètre. Techniquement alpha est un paramètre, mais un paramètre qui détermine les vrais paramètres. J'essaie d'être cohérent en appelant ces choses comme alpha, le nombre d'itérations, et ainsi de suite
+des hyper paramètres. Donc lorsque vous entrainez un réseau 
+de neurones profond pour votre application, vous trouverez 
+peut-être qu'il peut y avoir beaucoup de possibilités de réglages pour les différents hyper paramètres.
+Et vous devrez en essayer plusieurs. De ce fait,
+l'apprentissage profond de nos jours, est un processus très
+empirique où souvent vous commencez par avoir une idée, par exemple,
+ vous avez une idée pour la meilleure valeur pour le taux d'apprentissage,
+vous pourriez vous dire, peut-être "alpha est égal à 0.01, 
+je voudrais essayer ça". Ensuite vous l'implémentez,
+ essayez et observez comment
+ça marche. Puis, en vous basant sur le résultat, vous diriez 
+"Tu sais quoi? j'ai changé d'avis, j'ai envie d'augmenter le taux d'apprentissage à 0.05" 
+et lorsque vous n'êtes pas sûr de 
+quelle est la meilleure valeur à utiliser pour le taux d'apprentissage, vous pouvez essayer une valeur de
+ taux d'apprentissage alpha et regarder la fonction de coût J décroître comme ceci. Ensuite 
+vous essayerez une valeur plus élevée pour le taux
+ d'apprentissage alpha et observerez la fonction de coût croître et diverger. A ce moment là, 
+vous essayerez une autre version et observerez la fonction 
+décroître rapidement à l'inverse du cas de la
+ valeur élevée. Puis vous en essayerez une autre version et observerez la fonction J décroître comme ceci. Après avoir essayé 
+une série de valeurs, vous vous direz "okay, apparemment cette valeur de alpha me fournit un apprentissage assez rapide et me permet de converger
+ vers une valeur assez basse de la fonction de coût J, 
+donc je vais utiliser cette valeur de alpha". Vous avez vu dans la diapositive précédente
+ qu'il peut y avoir beaucoup d'hyper paramètres différents et il se trouve que lorsque vous commencez
+ à travailler sur une nouvelle application, je trouve qu'il est très difficile de savoir à l'avance
+ quelles seraient exactement les meilleures valeurs des hyper paramètres Donc, ce qui se passe habituellement est que vous avez à tester plusieurs différentes valeurs et à suivre ce cycle où vous essayez quelques valeurs, peut-être 
+vous essayerez avec 5 couches cachées, avec tel nombre 
+d'unités cachées, vous l'implémentez et observez comment ça marche et ensuite itérer avec ça.
+Le titre de cette diapositive indique que l'apprentissage
+ profond appliqué est un processus très empirique 
+et un processus empirique est juste une manière de dire qu'il faut essayer plusieurs choses et observer ce qui fonctionne. Une autre chose
+ que j'ai remarquée est que l'apprentissage profond 
+est aujourd'hui appliqué à tellement de problèmes,
+ allant de la vision par ordinateur à la reconnaissance vocale et au traitement de langage naturel, à beaucoup d'applications avec des données structurées, comme la publicité en ligne 
+ou la recherche web, ou la recommandation de produits
+ et ainsi de suite. Et ce que j’ai vu c'est qu'au début, les chercheurs de chaque discipline utilisaient des approches différentes. Et parfois, les intuitions 
+sur les hyper paramètres se portent entre les domaines, et parfois pas. Donc je conseille souvent aux gens surtout lorsqu'ils commencent sur un nouveau problème d’essayer
+ une série de valeurs et de voir ce qui fonctionne et puis dans le prochain cours
+nous verrons des manières plus systématiques d'essayer une plage de valeurs. Deuxièmement, même si vous travaillez sur une même application depuis longtemps, peut être sur la publicité en ligne, quand vous progressez sur le problème, il est très possible que
+ les meilleures valeurs pour le taux d'apprentissage, le nombre d'unité cachées, etc, change, donc même si vous réglez votre système pour avoir les meilleurs 
+hyper paramètres aujourd'hui, il est possible que ce ne soient plus les meilleures valeurs dans un an. Peut être parce que 
+vos infrastructures informatiques, vos CPU, ou le type de GPU que vous utilisez aura changé. Donc je conseille de, de temps en temps, tous les quelques mois, si vous travaillez sur un problème pendant longtemps, plusieurs années, testez quelques valeurs pour les hyper paramètres pour vérifier si vous pouvez trouver de meilleures valeurs pour les hyper paramètres, et en même temps, vous allez doucement acquérir
+ de l'intuition sur les hyper paramètres
+ qui fonctionnent le mieux pour votre problème. Et je sais que cela peut sembler une partie insatisfaisante de
+ l’apprentissage profond de devoir essayer toutes les valeurs pour ces hyper paramètres, mais c'est peut être un domaine où la recherche est encore en train de progresser, et peut être qu'avec le temps, nous aurons de meilleurs indices pour choisir les meilleurs hyper paramètres. 
+Mais il est aussi possible que parce que les CPUs et 
+les GPUs et les réseaux et les bases de données
+ changent constamment, il est possible que les indices ne convergent jamais et qu'il faille continuer à tester différentes valeurs et à les évaluer sur un ensemble
+ de validation croisée réservé pour ça et à choisir la valeur qui fonctionne le mieux pour votre problème. 
+C'était une courte discussion sur les hyper paramètres.
+ Dans le second cours, nous donnerons également quelques 
+suggestions pour savoir comment explorer systématiquement l’espace des hyper paramètres. 
+Mais maintenant vous avez en fait à peu près tous les outils
+ dont vous avez besoin pour faire l'exercice de programmation. Mais avant ça, je voudrais encore partager une série d'idée sur, on me le demande souvent, le rapport entre
+ l'apprentissage profond et le cerveau humain.

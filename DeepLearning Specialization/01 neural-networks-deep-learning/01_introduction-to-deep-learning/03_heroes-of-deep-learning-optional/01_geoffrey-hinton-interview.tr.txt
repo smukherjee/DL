@@ -1,0 +1,376 @@
+deeplearning.ai tarafından verilen bu dersin bir kısmı olarak sadece derin öğrenmedeki teknik fikirleri öğretmeyi değil
+ aynı zamanda bazı insanları,
+ bazı derin öğrenme kahramanlarını tanıtmak. Tanıttığımız bu insanlar kurslarda öğrenilen çoğu temel fikri
+ icat eden bilim insanlarıdır. Ayrıca bu videolarda, 
+ derin öğrenme öncülerinden bu alana nasıl giriş yapabileceğinize
+ dair kariyer tavsileri isteyeceğim. Derin öğrenme alanında araştırma yapmak
+ ya da iş bulmak için tavsiyeler. Bu röportaj serisinin ilki olarak sizlere Geoffrey Hinton röportajını
+ sunmaktan mutluluk duyuyorum. Hoşgeldin Geoff, öncelikle deeplearning.ai ailesiyle
+ bu röportajı yaptığın için teşekkür ederim. Davetiniz için teşekkürler. Bence bulunduğumuz bu noktada
+ derin öğrenme konusu üzerine gezegendeki herkesten daha fazla
+ fikir icat ettiğini söyleyebiliriz. Öyle ki çok fazla insan seni 
+derin öğrenmenin babası olarak anıyor. Aslında az önceki sohbetimizden sonra 
+seni böyle adlandıran ilk kişinin ben olduğumu farkettim 
+ve bunu yaptığım için oldukça mutluyum. Birçok insan seni efsane olarak biliyor.
+ Ben de şöyle bir soruyla başlamak istiyorum: Bu efsanenin arkasındaki
+ kişisel hikaye nedir? En başa gidecek olursak, 
+ yapay zeka araştırmalarına nasıl başladın? Makine öğrenmesi ve sinir ağları çalışmalarına? Ben lisedeyken her konuda
+ benden iyi olan bir arkadaşım vardı. Arkadaşım oldukça parlak bir matematikçiydi. Bir gün okula geldi ve bana
+ beyin hologramlar kullanıyor biliyor muydun dedi. Sanırım bu 1966 yılındaydı ve
+ hologram nedir diye karşılık verdim. Ve o da bir hologramda bulunan objenin
+ yarısını kessen bile resmin bütünlüğünü koruduğunu söyledi. Ve benzer şekilde beyindeki anılar
+ beynin bütününe dağıtılıyor olabilir. Sanırım arkadaşım Lashley deneylerini okumuştu. Bu deneylerde
+ fare beyninin bir kısmını ayırıyorsunuz ve sonunda bir anının belli bir noktada depolandığını 
+bulmanın çok zor olduğunu görüyorsunuz. Beynin anıları nasıl depoladığı
+ ilk defa burda ilgimi çekmişti. Daha sonra üniversiteye gittiğimde ilk olarak fizyoloji ve fizik
+ okuyarak başladım. Sanırım Cambridge'de okurken fizyoloji ve fiziği birlikte okuyan
+ tek kişi bendim. Ondan sonra bunlardan vazgeçtim ve felsefe okumayı denedim.
+ Çünkü bu daha fazla kavrayış sağlar diye düşündüm. Orada gördüğüm eksiklik de yanlış olduğunu söyledikleri bir şeyi
+ ayırt etme konusundaydı. Oradan da psikolojiye geçtim. Ve psikolojide oldukça çok basit teoriler vardı. Bu da bana beynin nasıl çalıştığını açıklama konusunda
+ çok ama çok yetersiz geldi. En sonunda biraz ara verdim 
+ve bir süre marangozluk yaptım. Marangozluktan sonra da yapay zekayı denemek için Edinburgh'ya gittim. Langer Higgins ile yapay zeka çalışmak için Onun sinir ağları üzerinde çok iyi çalışmaları vardı. Ama sinir ağlarından umudu kesmek üzereydi. 
+Winograd'ın tezinden epey etkilenmişti. Onunla çalışmaya başladığımda 
+benim eski moda şeylerle ilgilendiğimi düşünüyordu. Ona göre sembolik yapay zeka üzerine eğilmeliydim . Bu konu üzerine çok kavga ettik
+ ama ben inandığım şeyi yapmaya devam ettim. Peki sonra ne oldu? Eninde sonunda yapay zeka alanında doktoramı aldım. 
+Fakat akabinde Britanya'da iş bulamadım. Neyse ki Kaliforniya'daki Sloan bursu için güzel bir reklam gördüm.
+ Bursu kazanmayı da başardım. Ve Kaliforniya'ya gittim.
+ Orada her şey farklıydı. Britanya'da sinir ağları
+ saçma olarak algılanıyordu. Kaliforniya'da ise işler farklıydı. Don Norman ve David Rumelhart
+ sinir ağları hakkındaki fikirlere açıktılar. İlk defa, bulunduğum bir yerde
+ beynin nasıl çalıştığı hakkında düşünmek ve bunun psikolojiyle 
+nasıl ilişkilendirilebileciği hakkında düşünmek çok pozitif bir şey olarak görülüyordu. Orada oldukça keyifli bir ortam vardı. Özellikle,
+ David Rumelhart ile birlikte çalışmak harikaydı. Anlıyorum. 
+Yani bu senin USCD günlerin ve Rumelhart ile birlikte, 1982 civarlarında, ufuk açıcı "geriyayılım" makalesini
+ yazdığınız zamanlar mıydı? Aslına bakarsan
+ olanlar bundan çok daha karmaşıktı. Neler oldu? Sanırım 1982'nin başlarıydı, David Rumelhart, ben ve Ron Williams birlikte geriyayılım algoritmasını geliştirdik. Fikir babası David Rumelhart diyebiliriz. Daha sonra öğrendik ki başka insanlar da
+ bizden bağımsız icat etmişler. David Parker icat etmiş.
+ Muhtemelen biz geliştirdikten sonra ama yayımlamadan önce yapmış. Paul Werbos zaten birkaç yıl önce icat etmiş ama kimse ilgi göstermemiş. Ve benzer algoritmalari geliştiren
+ başka insanlar da vardı. Geriyayılım denilince kastedilen de açık değil zaten. Ama türev almak için zincir kuralını kullanmanın
+ orijinal olmadığı kesin. Anlıyorum.
+ Peki, bu algoritmanın yaygınlaşmasında sizin makale niye bu kadar etkili oldu? Tabiri caizse
+ sizin makale algoritmanın kabul edilmesinde bir salgın etkisi yarattı. Biz 1986'da Nature dergisinde
+ bir makale yayımlamayı başardık. Ben de makale yayımlanabilsin diye
+ bayağı politika yaptım. Hakemlerden birinin
+ muhtemelen Stuart Sutherland olacağını öğrendim. Ki kendisi Britanya'da çok bilinen bir psikologtu. Kendisiyle uzun süren bir konuşma yapmaya gittim. Ona tam olarak ne yaptığımızı açıkladım. Ve o da geriyayılımın kelimeler için gösterim öğrenebildiğini başarmamızdan çok etkilendi. Ve o gösterimlere baktığınızda
+-ki bunlar küçük vektörlerdir- her bir özniteliğin anlamını görebilirsiniz. Biz aslında bunu 
+akrabalık ilişkileri ile ilgili üçlü kelimelerde eğiterek yaptık. Mesela, Mary'nin annesi Victoria'dır. Ve siz ilk iki kelimeyi verdiğinizde
+ program üçüncü kelimeyi tahmin ediyordu. Modeli eğittikten sonra, kelimelerin gösterimlerinde
+ bütün öznitelikleri görebiliyordunuz. Mesela kişinin uyruğunu, hangi nesilden oldukları, 
+ne tür akrabalık ilişkisinde oldukları gibi. Stuart Sutherland'ın çok etkilendiği de buydu. Bence makale de bu sebepten kabul edildi. Kelime gömme modellerinin daha çok başında,
+ siz kelime anlamlarının öğrenilmiş özniteliklerini
+ eğitim algoritmasında görmeye başladınız. Evet.
+ Psikolojinin perspektifinden bunun önemi bilginin ne olduğuna dair 
+tamamen farklı iki fikri birleştirmesiydi. Psikolojinin görüşü bir kavramın bir sürü öznitelikten oluştuğuydu. Bu görüşü destekleyen çok kanıt da var. O zamanlar bir de yapay zeka camiasının görüşü vardı
+ki bu oldukça yapısalcı bir görüştü. Yapısalcı görüşe göre bir kavram,
+ diğer kavramlarla kurduğu ilişkiydi. Ve bir kavramı yakalamak isterseniz,
+ çizge yapısı gibi bir şey yapmak zorundaydınız. Ya da belki bir anlamsal ağ. Bizim geriyayılım örneğimiz ise şunu gösterdi: Çizge yapısına ya da bizim örnekteki gibi 
+soy ağacına girecek bilgiyi algoritmaya verirsiniz ve o da bu bilgiyi özniteliklere çevirir. Algoritma bu öznitelikleri kullanarak yeni tutarlı bilgi türetir, yani geneller. Önemli olan şey ise bu ileri geri mekik dokumaydı. Çizgesel gösterim veya 
+soy ağacının yapılandırılmış gösterimi ile kişilerin büyük öznitelik vektörleri 
+olarak gösteriminin arasındaki mekik dokuma. Ve aslında çizgemsi gösterimlerden
+ öznitelik vektörleri elde edebiliyordunuz. öznitelik vektörleri Aynı şekilde, öznitelik vektörlerinden de daha fazla çizgemsi gösterimler elde edebiliyordunuz. Yani bunlar 1986'da oluyor? 90'ların başlarında,
+ Bengio gösterdi ki gerçek veriyi alıp mesela bir İngilizce metni alıp aynı yöntemleri uyguladığınızda İngilizce metinlerden gerçek kelimeler için 
+gömmeler elde edebilirsiniz. Bu insanları çok etkiledi. Sanırım yakın zamanlarda GPU ve süperbilgisayar 
+gibi hızlı bilgisayarların derin öğrenmeyi nasıl geliştirdiğini çok konuştuk. Fakat daha 86 ve 90'ların başı arasında bile Bengio ve senin aranda
+ bu trendin başlangıcı varmış zaten. Evet, bu konuda büyük gelişmeler oldu. Mesela benim 86'da kullandığım lisp bilgisayarı
+ bir megaflopun onda birinden daha yavaştı. 93'e geldiğimizde ise insanlar
+ 10 megaflop kullanmaya başlamıştı. -Anlıyorum. 
+-100 kat artış oldu yani ve bu da kolay kullanımın olduğu bir zamandı. Çünkü bilgisayarlar 
+giderek daha hızlı hale geliyordu. Son birkaç on yılda sinir ağları ve derin öğrenmenin 
+birçok parçasını icat ettiniz. Şunu merak ediyorum;
+ icat ettiğiniz onca şey arasında hangisiyle ilgili bugün en fazla heyecan duyuyorsunuz? En güzel işimin Terry Sejnowski ile yaptığımız Boltzmann makineleri üzerine olduğunu düşünüyorum. Çok ama çok basit öğrenme algoritması keşfettik. Bu, sadece birkaç düğümünü görebildiğin çok büyük sıkı bağlı ağlara uyguladığın bir algoritma. Bu şekilde saklı gösterimleri öğreniyordu
+ ve çok basit bir algoritmaydı. Pekala bir beyinde bulunabilecek
+ bir şey gibi duruyordu çünkü her sinaps sadece direk bir şekile bağlı olduğu iki nöronun davranışlarını bilmesi gerekiyordu. Ve yayılan bilgi de aynıydı. Uyanık ve uykuda olarak 
+adlandırdığımız iki farklı faz vardı. Fakat iki farklı fazda da bilgiyi tamamen aynı şekilde yayıyorsun. Geriyayılımda ise, farklı olarak,
+ ileri geçiş ve geri geçiş olarak iki süreç var.
+ İkisi farklı çalışıyor. İkisi de farklı tür sinyaller gönderiyorlar. Yani ben bunun en güzel
+ çalışmam olduğunu düşünüyorum. Yıllar boyunca bu tam anlamıyla
+ bir macera olarak kaldı, çünkü çok yavaş görünüyordu. Fakat daha sonra, biraz güzellikten fedakarlık ettim. Bu da sadece bir yineleme kullanılan daha basit bir ağ ile sonuçlandı. Ve sonucunda
+ kısıtlı Boltzmann makineleri ortaya çıktı. Ki bu da pratik kullanımda efektif çalıştı. Mesela Netflix'in yarışmasında, kısıtlı Boltzmann makineleri 
+kazanan takımın kullandığı tekniklerden biriydi. Doğrusu, sinir ağları ve derin öğrenmenin
+ yakın zamanda canlanması da 2007 civarlarında sen ve grubunun
+ kısıtlı Boltzmann makinesi ve kısıtlı olmayan Boltzmann makinesi
+ çalışmaları diyebiliriz. Evet, o da beni mutlu eden
+ çalışmalarımdan biri, fikir şöyle; sadece bir katman saklı özniteliği olan kısıtlı Boltzmann makineni eğitirsin
+ ve bir katman öznitelik öğrenebilirsin. Daha sonra o öznitelikleri veri olarak işler
+ ve süreci tekrarlarsın. Sonra veri olarak öğrendiğin öznitelikleri yeniden işler
+ ve aynı işlemi tekrarlarsın, istediğin kadar yapabilirsin bunu. Bu güzeldi, pratikte işe yaradı! Akabinde UY Tay farkına vardı ki 
+bütün süreç tek bir model olarak işlenebilirdi. Fakat bu biraz garip bir modeldi. Bu modelin en üstünde Boltzmann makinesi vardı, altında da sigmoid inanç ağı vardı. Yıllar önce Radford Neal tarafından icat edilmişti. Bu yönlü bir modeldi ve kısıtlı Boltzmann makinelerini 
+eğiterek elde ettiğimiz sonuç sigmoid inanç ağları içinde çıkarsama
+ yapmanın verimli bir yoluydu. Aşağı yukarı bu zamanlarda, sinir ağları üzerinde çalışan insanlar vardı.
+Sıkı bağlı ağları kullanıyorlardı ama bu ağlarda olasılıksal çıkarsama yapma
+ konusunda pek iyi değillerdi. Ve bir de çizgesel modellerle uğraşan insanlar vardı,
+ çocuklarımın aksine, bu insanlar düzgün bir şekilde çıkarsama yapabiliyordu
+ ama sadece seyrek bağlı ağlarda. Bu derin inanç ağlarını öğrenebilen bir yol gösterdik, öyle ki bu yolla çok hızlı olan 
+yaklaşık bir çıkarsama yapılabilir. Sadece bir tane ileri geçiş iletiyor
+ ve sonuç çok güzeldi. Ekstra öznitelik katmanı öğrendiğin 
+her seferinde bir sınır bulman garanti yeni katman öğrendiğin her seferinde
+ yeni bir sınır elde ediyorsun ve her seferinde yeni sınır 
+eskisinden daha iyi oluyor. Değişimsel sınırlar,
+ sen katman ekledikçe gelen. Evet, o videoyu hatırlıyorum. Ve bu da beni en çok 
+heyecanlandıran ikinci çalışmamdı. Ve sanırım üçüncü sırada da Niel(?) ile yaptığımız 
+değişimsel methodlar geliyor. Görünen o ki, istatistikçiler
+ daha evvel benzer işler yapmışlar. ama biz bunu bilmiyorduk tabi. EN(beklenti büyütme) daha iyi çalışmasını tam E adım yapmak zorunda 
+olmadığını göstererek sağladık. Sadece yaklaşık E adım yaparak da başarılabilir yani. Ve EN istatistikte büyük bir algoritmaydı. Bizde onun büyük bir genellemesini yapmış olduk. Ve özellikle, sanırım 93'te Van Camp ile birllikte bildiğim kadarıyla ilk değişimsel bayes makalesini yazdık. Burda da doğru sonsal olasılığı
+ gaussian'a yaklaştırarak daha işlenebilir bir Bayesçi öğrenme yapılabileceğini gösterdik. Ve bunu bir sinir ağında yapabilirsin. Bu da beni çok heyecanlandırmıştı. Anlıyorum. Wow, gerçekten. Evet, ben bu makalelerin 
+hepsini hatırlıyorum! Neil and Hinton, EN yaklaştırma makalesi.
+ Bunu okumak için saatler harcadım. Ve sanırım bugün kullanılan algoritmalar, insanların her gün kullandığı
+ algoritmaların bazıları da, mesela dropout ya da ReLU etkilenim
+ gibi algoritmalar da sizin grubunuzdan çıktı? Evet ve hayır. Diğer insanlar da rectified linear units(ReLU) 
+hakkında düşündüler. Biz aslında kısıtlı Boltzmann makineleri ile çalışarak ReLU ile logistic ünite yığınlarının neredeyse eşit olduğunu gösterdik. Ve bu da ReLU'lerin çok 
+popüler olmasına yardımcı oldu. Ben o konuyu epey merak ediyordum. ReLU makalesinde bu fonksiyonun çok karmaşık bir formül tarafından yakınlaştırılabileceğini
+ gösteren çok fazla matematik vardı. O kadar matematiği makaleniz akademik bir konferansa kabul edilsin diye mi yaptın? Ya da gerçekten 0 ve X'in 
+maksimumlarının geliştirilmesinde etkili miydi? O aslında matematiğin fikrin geliştirilmesinde önemi olan durumlardan birisiydi. Ben tabiki rectified linear units hakkında bilgi sahibiydim ve logist units kısmına da hakimdim. Ve Boltzmann makinesi üzerine
+ olan çalışmalardan dolayı bütün temel iş logistic units
+ kullanılarak yapılmıştı. Elimizdeki soru şuydu, öğrenme algoritması ReLU ile birlikte olan
+ birşeyle çalışabilir miydi? Ve rectified linear units ve logistic units yığınının 
+neredeyse aynı şeyler olduğunu göstererek, bu şekilde bütün matematiğin
+ geçeceğini gösterdik. Anladım. Bu yaptığınız ilham kaynağı oldu, 
+günümüzde çok insan ReLU kullanıyor. -Oldukça iyi çalışıyor
+-Evet -Aynı motivasyonu anlamaya
+ ihtiyaç duymadan da işe yarıyor Evet, daha sonralarda Google'a gittiğimde
+ farkettiğim bir şey oldu, Sanırım 2014'te, Google'da 
+kimlik dizeyleri ile başlatılan ReLU kullanımı üzerine bir konuşma yaptım. Çünkü ReLU'nun şöyle güzel bir özelliği var; eğer saklı katmanları sürekli 
+çoğaltır ve kimlik ile başlatırsanız, sadece bir katman alttaki örüntü kopyalanır. Ve ben de 300 katmanlı ağları eğitebileceğinizi ve eğer kimlik ile başlatırsanız bu işi
+ çok verimli yapabileceğinizi gösteriyordum. Fakat bu araştırmayı daha ileri taşımadım,
+ bu konuda da pişmanım açıkçası. Sadece -?- ile bir makale yayımladık,
+ orada da bir etkin başlatarak özyineli ağlar başlatılabileceğini gösterdik. Ama bu konunu üzerine gitmem
+ gerekirdi çünkü daha sonra bu artık ağları önemli bir yer edindi. Yıllardır beyin hakkında çok konuşmanı dinledim. Geriyayılım ve beyin arasındaki ilişki hakkında konuşmalarını dinledim. Bu konu hakkındaki şimdi ne düşünüyorsun? Aslında şuanda o konuyla ilgili bir makale üzerinde çalışıyorum. Sanırım ana fikrim şu şekilde, Eğer geriyayılım öğrenme problemi için 
+gerçekten iyi bir algoritma çıkarsa, o zaman kesinlikle evrim bu algoritmayı
+ nasıl uygulayacağını çözmüş olmalıdır. Yani göz bebeklerine ya da dişlere
+ dönüşebilen hücrelerimiz varsa, bu hücreler bunu yapabiliyorsa, 
+eminim geriyayılımı da uygulayabilirler. Muhtemelen güçlü bir
+ seçici baskıdan bahsediyoruz burada. Bence sinirbilimcilerin 
+bunu akla yatkın bulmaması çok saçma. Geriyayılımın kolay
+ farkedilmeyen bir uygulaması olabilir. Muhtemelen beyin aynısı olmasa
+ da geriyayılıma benzer bir algoritma uyguluyor, epey yakın birşey. Yıllar süren çalışmalarım sonucunda,
+ bunun nasıl çalışıyor olabileceği üzerine bazı fikirlerim var. 87'de, Jay McClelland ile çalışırken, bir devridaim algoritması geliştirdim. Bilgiyi yuvarlak bir döngüye gönderdiğin bir fikir. Ve sen de bilgi bu döngüde iken bir değişikliğin olmamasını sağlıyorsun. En basit halinde girdi üniteleri ve
+ saklı üniter var diye düşünebilirsin. Girdiden saklıya bilgiyi gönderiyorsun ve
+ sonra da tekrar geri girdiye, ardından tekrar saklıya ve sonra
+ tekrar girdiye diye devam ediyor. Ve şunu istiyorsun; 
+bir otogizyazar(autoencoder) eğitmek istiyorsun, fakat bunu geriyayılım yapmak zorunda
+ kalmadan yapman lazım. Yani sadece bütün aktivitelerdeki 
+değişimden kurtulmak için eğitiyorsun. Sinaps için öğrenme kuralı şu şekilde; Presinaptik girdideki ağırlık oranını postsinaptik girdideki ağırlık oranının
+ değişimine göre güncelle. Devridaim algoritmasında ise,
+ eski olanı dahi yapmaya ve yeni olanı daha kötü yapmaya çalışıyorsun. Yani bu sefer diğer taraftan değiştiriyorsun. Biz bu algoritmayı sinirbilimciler 
+spike-timing-dependent plastisite fikrini geliştirmeden daha önce icat ettik. Spike-timing-dependent algoritması aslında aynı şey ama tersten, yani öğrenme kuralında son hal daha iyiyken
+ başlangıç hali daha kötü görülüyor. Yani ağırlıklandırma oranını şuna göre değiştiriyorsun; presinaptik aktivite * (yeni aktivite - eski aktivite) Daha sonra 2007'de şunu farkettim; bir kısıtlı Boltzmann makinesi yığını alır ve eğitirsiniz, ve eğitimden sonra, geriyayılımı uygulamak için tam anlamıyla doğru koşullara sahip olursunuz,
+ sadece yeniden inşa ederek. Eğer yeniden inşanın hatasına bakarsan, aslında bu hata
+ ayırt edici performansın türevini gösterir. 2007'de NIPS'teki ilk derin öğrenme atölyesinde
+ bununla ilgili bir konuşma yaptım. Bu tamamen göz ardı edilmişti. Daha sonra, Yoshua Bengio fikirle ilgilenmeye başladı. Ve gerçekten benim yaptığıma kıyasla daha da ileri götürdü diyebiliriz. Bence bu otogizyazarlar yığınıyla
+ aktiviteyi geri göndererek ve geri çatma hatalarının yerini belirleyerek
+ türev elde etme fikri oldukça ilginç. Ve hatta beyin de böyle yapıyor olabilir. Geçmişte hep düşündüğün ve hala da 
+üzerinde çalıştığını bildiğim bir diğer konu da derin öğrenmede birden fazla 
+zaman ölçeğiyle nasıl baş edilir? Bu konudaki düşüncelerini de paylaşabilir misin? Evet, aslında bu benim doktoradaki ilk yılıma kadar gidiyor. Verdiğim ilk konuşma o zamanlar
+ hızlı ağırlıklar dediğim konu üzerineydi. Hızlı bir şekilde adapte olan
+ ama hızlı da sönen ağırlıklar. Bu yüzden de kısa süreli hafızaya sahip olabiliyor. Ve 73'te çok basit bir sistem ile bu ağırlıklarla gerçek özçağrı yapılabileceğini gösterdim. Gerçek özçağrıdan kastım
+ bir şeylerin gösteriminde kullanılan nöronların özçağrılı çekirdekte başka şeylerin gösteriminde
+ tekrar kullanılabilmesi. Ve bilgiyi göstermek için kullanılan ağırlıklar özçağrılı çekirdekte tekrardan kullanılıyorlar. Tabi şöyle bir soru geliyor akla;
+ özçağrılı çekirdeğini çıkardığında, tam olarak ne yapıyor olduğunu
+ nasıl hatırlayacaksın? O bellek nerede? Çünkü nöronları 
+özçağrılı çekirdek için kullandın. Cevap da şu;
+ o belleği hızlı ağırlıkların içine koyabilirsin! Ve nöronların aktivitelerini de
+ o hızlı ağırlıklardan geri kazanabilirsin. Yakınlardaki Jimmy Ba ile olan çalışmalarımız sonucunda ise o tarz bir özçağrı için hızlı ağırlıkları kullandığımız
+ bir makaleyi NIPS'e kabul ettirdik. Anladım. Bu büyük bir açıktı. İlk anlattığım model 73'te ama yayımlanmadı. Jimmy Ba'nın modeli de ya 2015
+ ya da 2016'da yayımlandı. Yani 40 yıl sonra ! Ve konuşmak istediğim bir fikir daha var,
+ birkaç yıl oldu herhalde 5 yılı geçmiş olabilir.
+ Kapsüller konusunda neredesiniz? Tamam. Yani eskiden olduğum yere geri döndüm. O da şurası; bir fikrim var,
+ sadece ben inanıyorum başka kimse değil! Makaleleri yolluyorum ama reddedilecekler. Ama bu fikre gerçekten inanıyorum,
+ o yüzden sadece ilerletmeye çalışacağım. Fikir şöyle;
+ birkaç tane önemli kısmı var aslında, birincisi çok boyutlu varlıkların gösterimin hakkında, çok boyutlu varlıkları
+ küçük perde arkası aktiviteleri olarak gösterebilirsiniz. Herhangi bir tanesinin
+ var olduğunu bilseniz yeter. Fikir şu; 
+görüntünün her bir bölgesinde en fazla bir tane spesifik öznitelik
+ olduğunu varsayıyorsunuz. Sonra birkaç nöron kullanacaksınız, ve nöronların aktiviteleri
+ özniteliğin farklı yönlerini gösterecek. Mesela o bölgenin içindeki
+ x ve y tam koordinatları neler? Ya da hangi yönde? Ne kadar hızlı hareket ediyor? Rengi ne? Ne kadar parlak? Bu gibi şeyler. Aynı şeyin farklı boyutlarının
+ gösterimini yapmak için bir sürü nöron kullanabilirsiniz. Tabi sadece bir tane olduğundan eminseniz. Bu gösterim yapmanın
+ çok farklı bir yolu. Sinir ağlarında
+ normalde yaptıklarımızdan çok farklı. Normalde, sinir ağlarında
+ sadece kocaman bir katmanımız oluyor, bütün üniteler de
+ işleri neyse onu yapıyorlar. Onları küçük gruplar halinde
+ aynı şeyin farklı koordinatlarının gösterimini yapan paketler
+ olarak düşünmüyoruz. Ben bu ekstra yapı
+ olmalı diye düşünüyorum. Ve bununla beraber olan diğer fikir de... - Yani gösterim içerisinde gösterimi parçalara ayırıyorsunuz demek bu? -Evet
+-Farklı alt kümelere ayırıyorsunuz. -Evet
+-...göstermek için, evet... -Bu alt kümelerin her birini 
+kapsül olarak adlandırıyorum. Anladım. Ve kapsül bir özniteliğin
+ bir örneğinin gösterimini yapabiliyor. Fakat sadece bir! Ve o özniteliğin bütün özelliklerinin gösterimin yapabiliyor. Bir çok özelliği olan bir öznitelik bu. Normal bir nöron ve sinir ağı ise
+ sadece sayıl bir özelliğe sahip. Evet, anlıyorum. Bunu yaparak sinir ağlarının
+ çok kötü olduğu bir şeyi başarıyorsunuz. Benim "anlaşmayla yönlendirme"
+ dediğim bir şey bu. Mesela bölütleme yapmak
+ istiyorsunuz diyelim, ve elinizde ağız olabilecek bir şey var
+ ve bir de buruna benzeyen bir şey var. Ve bu ikisini birleştirmeli misiniz acaba,
+ bunu bilmek istiyorsunuz. Şöyle ki, ağız için ağız parametleri 
+olan bir kapsülünüz var. Aynı şekilde burun için 
+burnun parametreleri olan bir kapsülünüz var. Sonra bunları bir araya 
+getirip getirmemeye karar vermek için her ikisi de yüz için hangi parametreler
+ olması gerekeceğini oyluyor. Şimdi eğer ağız ve yüz aynı 
+uzaysal ilişki içindeyse bu konuda anlaşıyorlar. Yani bir seviyedeki iki kapsül 
+daha üst seviyede aynı takım parametreler için oyluyorsa siz de onların muhtemelen
+ doğru olduğunu varsayıyorsunuz. Çünkü yüksek boyutlu uzayda 
+anlaşma olasılığı düşüktür. Bu da bizim normalde 
+sinir ağlarında kullandığımızdan çok farklı bir filtreleme yolu. Bence bu anlaşma ile yönlendirme yöntemi
+ sinir ağlarının kısıtlı veriden yola çıkarak
+ genellemesi için çok önemli olacak. Bence bu bakış açısında değişmelerle
+ başa çıkmada ve bölütleme yapmada çok efektif olacak. Ve umuyorum ki bizim şuanda
+ sinir ağlarında yaptığımızdan çok daha istatistik olarak verimli olacak. Öyle ki, 
+bakış açısındaki değişimlerle uğraşmak istediğinde sadece bir sürü bakış açısı değişimi vereceksin
+ ve hepsinin üzerinde eğiteceksin. Anlıyorum, tabi. Yani sadece 
+ileriye doğru gözetimli öğrenme ile değil, daha farklı yollarla da öğrenebilirsin. Şimdi, ben hala gözetimli öğrenme ile yapmayı düşünüyorum, ama ileri geçişin mekaniği oldukça farklı. Tam anlamıyla saf ileri geçişten bahsedemiyoruz.
+ Çünkü biraz yineleme süreci de var. Mesela ağız bulduğunu sanıyorsun
+ ve burun bulduğunu düşünüyorsun, Ve biraz yineleme kullanarak bunlar bir yüz oluşturmalı mı 
+oluşturmamalı mı ona karar veriyorsun. Ve bu yinelemeden
+ geriyayılım da yapabilirsin. Bunu biraz ayırt edici bir şekilde
+ yapmayı deneyebilirsin. Biz şuanda Toronto'daki grubumda
+ bunun üzerinde çalışıyoruz. Ayrıca Beyin Takımının bir parçası olarak
+ Toronto'da bir Google ekibim de var. Şuanda heyecanla çalıştığım konu bu. Anlıyorum, harika gerçekten. Makalenin çıkmasını dört gözle bekliyorum. Evet, çıkarsa görürsün tabi :D Derin öğrenme konusunda 
+on yıllardır çalışıyorsun. Şunu gerçekten merak ediyorum; senin yapay zeka konusundaki fikirlerin
+ nasıl değişti bu dönemde? Sanırım entellektüel geçmişimin çoğu
+ geriyayılım ve geriyayılımın gücünü nasıl kullanabilirizin
+ etrafında vuku buldu. Şöyle başlayabilirim herhalde,
+ 80'lerin ortalarıydı, biz o zamanlar ayırt edici öğrenmesi için kullanıyorduk
+ ve güzel gidiyordu. Sonradan 90'ların başında, insan öğrenmesinin çoğu 
+gözetimsiz öğrenme olur diye karar verdim. Ve gözetimsiz öğrenme konusuna ilgim artarken 
+gözetimli olanla ilgilenmemeye başladım. Tam bu sıralarda da uyku-uyanık algoritmaları
+ üstünde çalışmaya başladım. Ve senin o dönemdeki yorumların
+ benim düşünce tarzımı de çok etkiledi. Ben Google Beyin'i yönetirken ilk projemizde gözetimsiz öğrenme üzerine çok efor harcadık,
+ senin etkin var burada. Evet, seni yanlış etkilemiş olabilirim :) Çünkü uzun vadede, gözetimsiz öğrenmenin mutlak bir önem
+ arz edeceğini düşünüyorum. Ama şu noktada gerçekle yüzleşmek lazım, aşağı yukarı son 10 senedir 
+düzgün çalışan şey gözetimli öğrenme! Elinde etiketler olan, ayırt edici eğitim. Ya da serideki bir sonraki şeyi öngöreceksin
+ ve o etiket görevinde olacak. Bunlar inanılmaz iyi bir şekilde çalıştı! Tabi hala gözetimsiz öğrenmenin 
+çok önemli olacağını düşünüyorum. Bir başardığımızda şuan yaptıklarımızdan
+ çok daha iyi çalışacaklar, ama daha başaramadık! Evet, derin öğrenme çalışan
+ bir süre kıdemli insan-ben dahil- bu konuda çok heyecanlılar. Problem kimsenin nasıl yapılacağına dair
+ iyi bir fikrinin olmaması. Belki senin vardır,
+ benim yok diye düşünüyorum. Yeniden parametreleme trikleri kullanılan
+ değişimsel otogizyazar kodu. Bu güzel bir fikir gibi göründü bana. Ve tabi çekişmeli üretici ağlar da
+ çok güzel bir fikir bence. Sanırım çekişmeli üretici ağlar için derin öğrenmede gerçekten yeni olan
+ en büyük fikir diyebiliriz. Umuyorum kapsülleri de bu kadar başarılı yapabilirim. Ama şuan için çekişmeli üretici ağların
+ büyük bir buluş olduğunu söyleyebiliriz. Peki seyreklik ve yavaş özniteliklere ne oldu? Bunlar da gözetimsiz öğrenme
+ yapmak için iki farklı prensipti? Ben seyreklik konusunda hiçbir zaman
+ senin kadar heveslı değildim dostum :) Ben yavaş özniteliklerin
+ bir hata olduğunu düşünüyorum. Yavaş olarak adlandırmamak lazım. Temel fikir doğru ama
+ değişmeyen öznitelikler amacımız olmamalı. Öngörülebilir bir şekilde değişen özniteliklerin
+ hedef olması lazım. Herhangi bir şeyin nasıl
+ modelleneceğine dair temel prensip; Önce ölçüm yaparsın, bu ölçümlerinin üzerine eylemin doğrusal olduğu durum vektörü olan gösterimi
+ elde edene kadar doğrusal olmayan dönüşümleri uygularsın. Yani Kalman filtresinde yaptığın gibi
+ sanki doğrusalmış gibi davranmazsın, gözlenebilir olanları temel değişkenlere çeviren
+ bir dönüşüm bulursun. Bu temel değişkenlerin üzerinde
+ yapacağın doğrusal işlemler de, mesela dizey çarpanları gibi,
+ işi hallederler. Örnek olarak; diyelim ki bakış açısını 
+değiştirmek istiyorsunuz, görüntüyü başka bir bakış açısından
+ üretmek istiyorsunuz, yapmanız gereken şey
+ piksellerden koordinatlara gitmek. Ve koordinat gösterimlerini elde ettiğinizde, -ki kapsüllerin bunu yapabileceğini umuyorum- ardından dizey çarpımı yaparak
+ bakış açısını değiştirebilirsiniz. Sonra bunu tekrar piksellere eşleyebilirsiniz. -Evet, bütün her şeyi de bunun için yaptın zaten. -Ben bunun çok ama çok 
+genel bir prensip olduğunu düşünüyorum. -Tam olarak bu yüzden bütün o 
+yüz sentezi çalışmalarını yaptınız değil mi? Bir yüzü alıp
+ onu çok düşük boyutlu bir vektöre sıkıştırıp oradan da oynamalarla
+ tekrar başka yüzler elde ettiniz. Bir öğrencim vardı onun üzerinde çalışan
+ ama ben çok fazla çalışmadım. Eminim bu soru sana çok soruluyordur, eğer biri derin öğrenmeye başlamak isterse,
+ilk olarak ne yapması gerekir? Bu konuda nasıl bir tavsiye verebilirsin? Eminim bire bir konuşmalarda
+ çok fazla yardım olmuşsundur insanlara, ama bu videoyu izleyen
+ küresel seyirciler için de sorayım. Bu insanlara derin öğrenmeye girişle
+ ilgili nasıl bir tavsiye verirsin? Tamam, benim tavsiyem şöyle; 
+literatürü okuyun ama içinde boğulmamaya çalışın! Çoğu insanın söylemeyeceği bu tavsiyeyi
+ ben de danışmanımdan aldım. Çoğu insan literatürü okumak için
+ birkaç yıl harcamanız gerektiğini söyler. Daha sonra kendi fikirleriniz üzerinde
+ çalışmaya başlayın derler. Bu bazı araştırmacılar için doğru olabilir
+ ama yaratıcı insanlar için durum farklı, bu kişiler biraz literatür okuyup daha sonra herkesin yanlış yaptığını
+ düşündükleri bir şeyi ararlar. Tavsiyem bu manada farklı yani. Çalışmalara bakarsınız ve
+ doğru gitmeyen bir şeyler sezersiniz. Ve sonra da bunu düzeltmeye çalışırsınız. İnsanlar size yaptığınızın iyi olmadığını söylese de
+ yılmadan devam edin. İnsanların yılmadan devam etmesine
+ yardım edecek bir prensibim de var. Sezgileriniz ya iyidir
+ ya da değildir! Eğer sezgileriniz iyiyse 
+onları takip etmeniz gerekir. Eninde sonunda başarılı olursunuz. Eğer sezgileriniz kötüyse,
+ ne yaptığınızın da bir önemi yok Anlıyorum :D İlham verici bir tavsiye, dinlemek lazım :) Sezgilerinize güvenmeniz lazım. Güvenmemeniz için hiçbir sebep yok. Anlıyorum, evet. Ben genellikle insanlara makaleleri sadece okumalarını değil 
+onları tekrarlamalarını da tavsiye ediyorum. Belki bu, doğal olarak, okuyabileceğin
+ sayıyı da sınırlıyordur tabi, çünkü sonuçları tekrarlamak
+ çok zaman alıyor. Evet bu doğru. 
+Yayımlanmış bir makaleyi tekrarlamaya çalışırken işi başarılı kılan bütün
+ küçük taktikleri de keşfediyorsunuz Diğer bir tavsiyem ise
+ durmadan programlama yapın! Çünkü bir öğrenciye 
+yapması için bir şey verdiğinizde, eğer kötü öğrencilerse, 
+geri gelip olmadı diyecekler. Ve olmamasının sebebi
+ verdikleri küçük bir kararın ne kadar önemli olduğunu
+ anlamamış olmaları. Ama iyi bir öğrenciye verirseniz, UY Tay mesela, ona herhangi bir şeyi verebilirsiniz
+ çünkü gerip gelip oldu diyecektir. Bir defasında şöyle oldu, bir dur bakalım dedim, en son konuşmamızdan sonra fark ettim ki, şu sebepten dolayı 
+bunun işe yaramaması lazım, UY da hemen "Oh ben hemen anlamıştım zaten,
+ öyle demek istemediğini varsaydım o yüzden!" dedi -Anladım, evet :D harika gerçekten Peki yapay zeka ve derin öğrenmeye giriş yapmak isteyen insanlara
+ başka tavsiyen var mı? Basitçe şöyle; 
+sezgilerinizin gelişeceği kadar okuyun, daha sonra da sezgilerinize güvenin ve yardırın. Eğer diğer herkes 
+çok saçma olduğunu söylerse de, takmayın. Sanırım başkaları çok saçma olduğunu söylediğinde haklılar mı değiller mi bilmenin bir yolu yok,
+ o yüzden sonuna kadar gidip öğrenmek zorundasın. Evet ama şöyle bir şey var, 
+eğer gerçekten çok iyi bir fikir olduğunu düşünüyorsanız, ve diğer insanlar da 
+tamamen saçma olduğunu söylüyorsa, o zaman gerçekten 
+ortada bir şey olduğunu bilirsiniz. Mesela buna bir örnek olarak,
+ Radford ve ben değişimsel methodları geliştirdiğimizde, EM konusunda çok bilgisi olan
+ eski öğrencim Peter Brown'a fikri açıklayan bir mail gönderdim. O da bu çalışmayı birlikte çalıştığı ... Pietro(?) kardeşlere göstermiş,
+ ikizdiler sanırım. Sonra da ne düşündüklerini
+ söyledi bana, "bu adam ya sarhoş ya da çok salak" demişler. Gerçekten çalışmanın
+ çok saçma olduğunu düşünmüşler. Belki de benim anlatma şeklimden
+ dolayı böyle düşünmüşlerdir. Çünkü sezgisel bir şekilde açıklamıştım. İşin özü, çok güzel olduğunu 
+düşündüğünüz bir fikriniz varsa ve diğer insanlar da tam bir saçmalık diyorsa,
+ bu fikrin iyi olduğuna işaret eder. Anlıyorum, peki araştırma konuları... Yeni lisansüstü öğrenciler 
+hangi konularda çalışmalı? Kapsüller? Gözetimsiz öğrenme? 
+Ya da başka şeyler? Yeni lisansüstü öğrenciler için güzel bir tavsiye, kendi düşüncelerine yakın düşünen
+ danışman bulmaya çalışsınlar. Çünkü sizin çalıştığınız şeylerin üzerine
+ derinlemesine düşünen bir danışmanınız varsa, 
+size çok vakit ayırıp güzel tavsiyeler verebilir. Eğer danışmanınızın ilgi duymadığ
+ı bir konu üzerinde çalışıyorsanız, biraz tavsiye alırsınız
+ ama çok da faydalı olmaz. Anlıyorum,
+ öğrenciler için son bir soru, doktora programına başlayan insanlar da var,
+ büyük şirketlere ya da en iyi araştırma gruplarına katılanlar da,
+ bu konuda ne düşünüyorsun? Evet, bu biraz karmaşık.
+ Şuanda bence, üniversitedeki bu kadar insanı eğitecek, 
+derin öğrenme konusunda uzman yeterince akademisyen yok. Yeterince hoca yok yani anlayacağın, ama bu geçici bir durum bence. Şöyle bir problem yaşandı, 
+çoğu departman nasıl bir devrim gerçekleştiğini anlama
+ konusunda yavaş kaldı. Sana biraz katılıyorum, 
+bir ikinci sanayi devrimi diyemeyiz tabi ama ona yakın ölçekte bir değişim. Devasa bir değişim yaşanıyor ve bunun ana sebebi;
+ bilgisayarlarla aramızdaki ilişki değişti. Onları programlamak yerine, ne yapacaklarını gösteriyoruz
+ ve onlar da nasıl yapacaklarını çözüyor. Bu bilgisayarları kullanmanın tamamen farklı bir yolu, bilgisayar bilimi departmanları ise
+ "bilgisayarları programlama" fikri etrafında inşa edilmiş. Ve şuanda bu bilgisayarları eğitme işinin onları programlama kadar önemli
+ bir şey olacağını anlamıyorlar. Departmanın yarısı 
+bilgisayarı eğitme işiyle uğraşan kişiler olması lazım, 
+bunu anlamıyorlar. Benim kendi departmanım
+ bu işi yapan insanlardan çok ama çok işe alması gerektiğini reddediyor. Birkaç tane, hadi belki biraz daha
+ fazla olsun yeter diyorlar. Böyle bir durumda büyük şirketlere eğitimin bir kısmını
+ üstlenmeleri gerektiğini hatırlatmak gerekiyor. Google mesela, 
+beyin evi programı ile insanları eğitiyor. Üniversitelerin de eninde sonunda
+ yetişeceğini düşünüyorum. Anlıyorum, evet. Aslında bir sürü öğrenci
+ de bu meseleyi anlamış görünüyor. En iyi doktora programlarına
+ başvuranların yarısından fazlası bilgisayarları programlamaktansa,
+ onlara öğretmek üzerinde çalışmak istiyor. Evet. Aslında hakkını vermek lazım, deeplearning.ai bu uzmanlık
+ programını yapıyor ama bildiğim kadarıyla, derin öğrenme üzerine
+ ilk online dersi sen vermiştin. 2012'de yine coursera üzerindeydi. Ve biraz garip bir şekilde, RMSProp algoritmasını da
+ bu zamanlarda yayımlamıştın . Evet, tabi öyleydi.
+ Sen davet etmiştin online dersi anlatmam için. Hatta ben ders verme konusunda çok şüpheliyken de 
+zorlamıştın yapalım diye. Çok işçiliği vardı 
+ama iyi ki vermişim o dersi. Evet, verdiğin için teşekkürler. 
+Bana ne kadar çok zaman istiyor diye şikayet ettiğini hatırlıyorum. Çok gecelerini aldı ama
+ bence birçok kişi faydalandı. Bu konuda da çok müteşekkirim sana. Evet, evet iyi oldu. Yıllar boyunca, yapay zeka geliştirme paradigmaları
+ üzerine çok tartışmalara girdin. Ya da bir paradigma değişimi
+ var mı yok mu diye. Bu konudaki düşüncelerini de paylaşabilir misin? Tabi, paylaşırım. 
+İlk zamanlarda, 50'ler gibi yani, von Neumann ve Turing gibi kişiler
+ sembolik yapay zekaya çok inanmadılar. Asıl büyülendikleri şey beyindi. Ne yazık ki çok gençken öldüler
+ ve sesleri çok duyulmadı. Yapay zekanın erken günlerinde, insanlar, zeka için ihtiyaç duyulan gösterimlerin bir tür sembolik ifadeler
+ olduğuna ikna olmuşlardı. Monotonik olmayan mantık yapabileceğin,
+ bir tür toparlanmış mantık diyebiliriz. Tam mantık değil aslında, mantık gibi bir şey.
+ Ve buna göre zekanın özü akıl yürütme idi. Şuan da olan ise tamamen farklı bir bakış açısı. Buna göre, düşünce
+büyük bir sinirsel aktivite vektörü olarak görülüyor. Düşüncenin bir sembolik ifade olduğu
+ görüşüne zıt olan bir görüş yani. Ve bence düşüncenin bir sembolik ifade
+ olduğuna inanan insanlar çok büyük bir hata yaptı. Giren şey bir dizi kelime, 
+çıkan şey de bir dizi kelime. Bu yüzden de gösterim yapmak için
+ kelime dizileri en bariz yoldur. Onlar da arada olan şeylerin de 
+kelimeler dizisi olduğunu düşündüler. Ya da kelimeler dizisine benzer şeyler. Bence aradaki sürecin
+ kelimeler dizisiyle alakası yok. Bence düşüncelerin
+ dil gibi bir şey olduğu fikri uzaysal bir manzara düzeninin
+ pikseller olduğu anlayışı kadar saçma bir fikir. Eğer bize nokta vuruşlu yazıcılar bağlı olsaydı o zaman pikseller çıkardı dışarı
+ ama aradaki süreç pikseller değil işte. O yüzden bence düşünceler
+ sadece harika büyük vektörler, ve bu büyük vektörlerin nedensel güçleri de var. Başka büyük vektörlerin oluşmasına neden oluyorlar. Ve bu görüş, düşüncelerin sembolik ifadeler olduğunu söyleyen
+ standart yapay zeka görüşünden tamamen farklı. Anlıyorum, güzel. Sanırım bugünlerde yapay zeka
+ bu yeni bakış açısına yaklaşıyor diyebiliriz. Bazısı öyle evet. Yapay zeka çalışan bir sürü insan hala 
+düşüncelerin sembolik ifadeler olduğunu düşünüyor. Bu röportajı yaptığın için
+ çok teşekkür ederim. Derin öğrenmenin yıllar boyunca
+ nasıl evrildiğini duymak büyüleyiciydi. Bu alanı ilerletmek için şuan yaptıklarını
+ dinlemek de öyleydi, çok teşekkürler Geoff. Bana bu fırsatı verdiğin için
+ ben sana teşekkür ederim. >> Teşekkür ederim.

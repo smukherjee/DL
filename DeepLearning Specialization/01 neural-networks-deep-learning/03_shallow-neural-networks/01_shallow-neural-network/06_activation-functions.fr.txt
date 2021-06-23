@@ -1,0 +1,134 @@
+Lorsque vous construisez votre réseau de
+ neurones, un des choix que vous devez faire est celui de la fonction d'activation 
+dans les couches cachées, ainsi que celui de l'unité de sortie
+ de votre réseau de neurones. Jusqu'ici, nous avons utilisé 
+la fonction d'activation sigmoïde, mais parfois, d'autres choix 
+peuvent fonctionner beaucoup mieux. Voyons quelques options. Dans l'étape de propagation vers l'avant 
+pour le réseau de neurones, nous avons ces trois étapes où 
+nous utilisons la fonction sigmoïde. Et cette sigmoïde est appelée
+ une fonction d’activation. Voici la fonction d’activation sigmoïde
+ que vous connaissez déjà, a = 1/(1 + exp(-z)) Dans le cas plus général, nous pouvons
+ avoir une fonction différente g (z), que je vais écrire ici, où g est une fonction non linéaire qui 
+peut ne pas être la fonction sigmoïde. Ainsi, par exemple, la fonction 
+sigmoïde va de zéro à un, et une fonction activation qui fonctionne presque 
+toujours mieux que la fonction sigmoïde est la fonction tanh c'est à dire
+ la fonction tangente hyperbolique. ça c'est z, ça c’est a,
+ et ça c'est a = tanh(z), et ça se trouve entre +1 et -1. La formule de la fonction tanh est (e(z) - e(-z)) sur leur somme Et c’est en fait, mathématiquement, une 
+version décalée de la fonction sigmoïde. Donc une fonction sigmoïde juste
+ comme celle-là, mais décalée pour passer par le point (0,0) et 
+mise à l'échelle pour aller de -1 à +1. Et il se trouve que pour les unités cachées,
+ si la fonction g(z) est égale à tanh(z), ça fonctionne presque toujours 
+mieux que la fonction sigmoïde parce qu'avec des valeurs comprises entre
+ 1 et -1, la moyenne des activations qui sortent de votre couche cachée 
+ont une moyenne plus proche de 0. Et de la même façon que, quand vous
+ entraînez un algorithme d’apprentissage, vous pouvez centrer les 
+données et avoir vos données avec une moyenne de 0, l'utilisation d'une
+ tanh au lieu d’une fonction sigmoïde a l'effet de centrer vos données afin que la moyenne de vos données soit plus
+ proche de 0 que de, par exemple, 0,5. Et cela rend l’apprentissage pour la
+ couche suivante un peu plus facile. Nous en parlerons plus dans le second
+ cours lorsque nous parlerons aussi des algorithmes d'optimisation. Mais une chose à retenir est que je n'utilise presque plus jamais
+ la fonction d'activation. La fonction tanh est presque toujours
+ strictement supérieure. La seule exception est pour la couche 
+de sortie parce que si y est soit 0 soit 1, alors il est logique que ŷ 
+soit un nombre, vous voulez que la sortie soit entre 0 et 1, 
+plutôt qu'entre -1 et 1. Donc la seule exception 
+où j’utiliserais la fonction d’activation sigmoïde est
+ si vous faites de la classification binaire, auquel cas, vous pouvez utiliser la fonction 
+d’activation sigmoïde pour la couche de sortie. Donc g(z2) = sigma(z2). Ce que vous voyez dans cet exemple
+ est que vous pouvez avoir une fonction d’activation tanh pour la couche cachée 
+et une sigmoïde pour la couche de sortie. Donc les fonctions d’activation peuvent 
+être différentes pour différentes couches. Et parfois, pour noter que les fonctions
+ d'activation sont différentes pour différentes couches, nous utiliserons
+ ces exposants entre crochets pour indiquer que g exposant [1] est peut être 
+différente de g exposant [2] Et encore une fois, exposant 1 entre 
+crochets se réfère à cette couche, et exposant [2] se réfère 
+à la couche de sortie. Maintenant, l’un des inconvénients
+ de ces deux fonctions tanh et sigmoïde, c’est que
+ si z est très grand ou très petit, alors le gradient c'est à dire la dérivée
+ c'est à dire la pente de cette fonction
+ devient très faible. Donc z est très grand ou très petit, la pente de la fonction 
+finit par être proche de 0, et cela peut ralentir la descente de gradient. Ainsi, un autre choix 
+qui est très populaire en apprentissage automatique, c’est ce 
+qu’on appelle l’unité linéaire rectifiée. La fonction ReLU ressemble à ça. Et la formule est a = max(0,z). La dérivée est 1 tant que z est positif et la dérivée c'est à dire la pente 
+est 0 lorsque z est négatif. Si vous implémentez ça, techniquement, la dérivée lorsque z
+ est exactement 0 n’est pas bien définie, mais lorsque vous implémentez
+ ceci dans un ordinateur, la probabilité d'avoir z 
+exactement égal à 0000000000000 est très faible, donc vous n’avez pas besoin 
+de vous en inquiéter dans la pratique. Vous pouvez choisir la dérivée
+ lorsque z est égal à 0, vous pouvez la fixer à 1 ou 0 et 
+ensuite tout fonctionne parfaitement, malgré que la fonction 
+ne soit pas différentiable. Voici quelques règles de base
+ pour choisir les fonctions d’activation. Si votre sortie est 0 ou 1, 
+si vous utilisez la classification binaire, alors la fonction d’activation sigmoïde est 
+un choix très naturel pour la couche de sortie. Et pour toutes les autres unités, la ReLU, la REctified Linear Unit
+ [unité linéaire rectifiée] est de plus en plus le choix par défaut 
+pour la fonction d’activation. Donc, si vous ne savez pas quoi utiliser 
+pour votre couche cachée, j'utiliserais simplement
+ la fonction d'activation ReLU, c'est ce que la plupart 
+des gens utilisent actuellement. Bien que parfois les gens utilisent 
+aussi la fonction d’activation tanh. Un inconvénient de la ReLU, c’est 
+que la dérivée est égale à zéro, lorsque z est négatif. Dans la pratique, cela fonctionne très bien. Mais il y a une autre version de
+ la ReLU appelée la leaky ReLU. Je vais vous donner la formule
+ sur la diapositive suivante. Mais au lieu de valoir 0 
+lorsque z est négatif, elle suit une légère pente comme ceci, 
+donc c’est ce qu’on appelle la leaky ReLU. Elle fonctionne généralement mieux
+ que la fonction d’activation ReLU, mais elle n'est pas autant
+ utilisée en pratique. Les deux sont bien, mais si vous devez en choisir une,
+ j’utilise généralement la ReLU. Et l’avantage de la ReLU et 
+de la leaky ReLU est que pour une grande plage de z,
+ la dérivée de la fonction d'activation, la pente de la fonction d’activation,
+ est très différente de 0. Et donc, en pratique, en utilisant 
+la fonction d’activation ReLU, votre réseau de neurones va souvent 
+apprendre beaucoup plus rapidement qu’avec une tanh ou avec 
+la fonction d’activation sigmoïde. Et la raison principale est qu’il y a 
+moins de ces effets où la pente de la fonction va à zéro,
+ ce qui ralentit l'apprentissage. Et je sais que pour la moitié de la plage
+ des z, la pente de la ReLU est 0, mais dans la pratique, suffisament de vos
+ unités cachées auront un z supérieur à 0, donc l’apprentissage peut quand même
+ être assez rapide pour la plupart 
+des exemples d'apprentissage. Récapitulons rapidement les avantages
+ et les inconvénients des différentes fonctions d’activation.
+Voici une fonction d’activation sigmoïde. Je dirais de ne jamais l'utiliser,
+ sauf pour la couche de sortie, si vous faites une classification binaire, 
+donc ne l'utilisez presque jamais. Et la raison pour laquelle je ne l’utilise
+ presque jamais c’est parce que la tanh lui est à peu près strictement supérieure. Donc la fonction d’activation tanh
+ est ceci. Et, par défaut, la fonction d’activation plus couramment
+ utilisée est la ReLU, qui est ceci. Donc, si vous ne savez pas 
+quoi utiliser, utilisez celle là, et peut-être, n’hésitez pas également
+ à essayer la leaky ReLU, qui peux valoir max(0.01z, z). OK ? Donc a vaut le valeur max
+ entre 0,01 fois z et z, ce qui vous donne cette cassure
+ dans la fonction. Et, me direz-vous, 
+pourquoi cette constante 0,01 ? Eh bien, vous pouvez le voir comme un autre 
+paramètre de l’algorithme d’apprentissage. certaines personnes disent 
+que ça marche même mieux mais je vois rarement des gens faire ça. Mais si vous voulez essayer cela dans votre
+ application, n’hésitez pas à le faire. Et vous pourrez voir comment ça fonctionne
+ et avec quelle performance, et garder ça si ça vous donne 
+un bon résultat. Alors j’espère que cela vous donne 
+une idée des choix que vous avez pour les fonctions d'activation 
+de votre réseau de neurones. Vous verrez dans l’apprentissage profond 
+que vous avez souvent beaucoup de choix différents dans la façon de 
+coder votre réseau neuronal, allant du nombre d’unités cachées,
+ au choix de la fonction d’activation, à l'initialisation des poids, 
+ce que nous verrons plus tard. Beaucoup de choix comme ça. Et il est parfois difficile d’obtenir 
+de bonnes lignes directrices pour savoir ce qui fonctionnera
+ le mieux pour votre problème. Donc tout au long de ces trois cours
+ j'essaie de vous donner une idée de ce qui se fait dans l'industrie, 
+ce qui est plus ou moins populaire. Mais pour votre application, avec les
+ particularités de votre application, c’est en fait très difficile de savoir à 
+l’avance ce qui fonctionnera le mieux. Donc mon conseil est que si vous
+ ne savez pas trop laquelle de ces fonctions d’activation fonctionnera le mieux,
+ essayez-les toutes et évaluez-les sur un set de validation, 
+ou un set de développement, 
+dont nous reparlerons plus tard, et voyez laquelle fonctionne le mieux 
+et continuez avec elle. Et je pense qu’en testant ces différents
+ choix pour votre application, vous apprendrez à mieux adapter 
+l'architecture de votre réseau de neurones aux particularités de votre problème, mais 
+aussi aux évolutions des algorithmes. C'est mieux que si je vous disais de 
+toujours utiliser la fonction ReLU de ne jamais utiliser autre chose. ça peux s'appliquer plus ou moins bien
+ à votre problème particulier, dans un futur proche ou plus lointain. Très bien, donc ça c'était pour
+ le choix de la fonction d’activation. vous avez vu les fonctions d’activation 
+les plus populaires. Il y a une autre question
+ que vous pourriez vous poser, c'est pourquoi avez-vous besoin d’utiliser 
+une fonction d’activation tout court ? Pourquoi ne pas simplement l'enlever ? Nous allons parler de cela
+ dans la prochaine vidéo et vous verrez pourquoi un réseau de neurones a besoin
+ d'une fonction d'activation non linéaire.

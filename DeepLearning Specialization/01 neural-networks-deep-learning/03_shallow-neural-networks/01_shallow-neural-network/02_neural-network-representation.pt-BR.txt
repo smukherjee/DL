@@ -1,0 +1,75 @@
+Vocês me veem 
+desenhando algumas redes neurais. Neste vídeo, falaremos sobre o que 
+exatamente significam tais desenhos. Em outras palavras, o que exatamente essas redes neurais 
+que temos desenhado representam. E, começaremos focando no caso 
+das redes neurais com o que foi chamado uma 
+única camada oculta. Este é um desenho de uma rede neural. Vamos nomear as diferentes 
+partes destas figuras. Temos as características de entrada, x₁,
+ x₂, x₃ empilhadas verticalmente. E, isso é chamado de camada de 
+entrada da rede neural. Talvez não surpreendentemente, ela contenha 
+as entradas para a rede neural. Então, há uma outra camada de círculos. E, esta é chamada de 'camada 
+oculta' da rede neural. Eu voltarei em um segundo para dizer 
+o que a palavra 'oculta' significa. Mas a camada final aqui é formada, 
+neste caso, por apenas um nó. E essa camada de nó único é chamada de 
+camada de saída, e é responsável pela geração do valor previsto ŷ. Numa rede neural sendo treinada via
+ aprendizado supervisionado, o conjunto de treinamento contém 
+valores das entradas de x, bem como 
+as saídas esperadas em y. Então, o termo camada oculta refere-se ao 
+fato que na formação do conjunto, os valores verdadeiros para estes nós no 
+meio não são observados. Isto é, você não vê o que eles deveriam ser no 
+conjunto de treinamento. Você vê quais são as entradas. Você vê o que a saída deveria ser. Mas as coisas na camada oculta não são
+ vistas no conjunto de treinamento. Então, isso explica o nome camada oculta 
+ porque você não a vê no conjunto de treinamento. Vamos apresentar um pouco mais de notação. Anteriormente, estávamos usando o vetor X 
+para designar as características de entrada e uma notação alternativa para os valores das características de entrada seria
+a sobrescrito [0]. E o termo 'a' também quer dizer 
+ativações, e refere-se aos valores que 
+diferentes camadas da rede neural estão passando 
+para as camadas subsequentes. Portanto, a camada de entrada passa o
+ valor x para a camada oculta, então chamaremos isso de ativações da 
+camada de entrada 'a' sobrescrito [0]. A próxima camada, a camada oculta por sua 
+vez irá gerar um conjunto de ativações, que escreverei como 
+'a' sobrescrito [1]. Então, particularmente, nesta primeira 
+unidade ou neste primeiro nó, geramos um valor 'a' sobrescrito 
+[1] subscrito 1. Neste segundo geramos um valor, Agora no subscrito 2 e 
+assim por diante. E então, 'a' sobrescrito [1], é um vetor de quatro dimensões, 
+ou se você preferir, em Python uma matriz 4 x 1, vetor coluna, 
+que se parece com isto. E tem quatro dimensões, porque neste caso 
+temos quatro nós, ou quatro unidades ou quatro unidades
+ ocultas nesta camada oculta. E então, finalmente, a camada de saída
+, a qual gera algum valor a[2], o que é apenas um número real. E então ŷ receberá o valor de A[2]. Então, isto é, tal como usamos na 
+regressão logística, temos ŷ = a e, na regressão logística só tínhamos
+ aquela única camada de saída, portanto, não usamos colchetes nos sobrescritos. Mas com a nossa rede neural, agora 
+usaremos o colchete sobrescrito para indicar explicitamente de 
+qual camada ele é. Uma coisa engraçada sobre convenções
+ das notações em redes neurais é que esta rede que você viu aqui chama-se 
+rede neural de duas camadas. Explico: é que quando contamos camadas 
+em redes neurais, não contamos a camada de entrada. Então a camada oculta é a camada um e a 
+camada de saída é a camada 2. Na nossa convenção notacional, 
+chamamos a camada de entrada de camada zero, portanto talvez tecnicamente hajam três camadas 
+nesta rede neural, porque existe a camada de entrada, a 
+camada oculta e a camada de saída. Mas no uso convencional, se você ler artigos
+ de pesquisas e em outros lugares neste curso, você verá as pessoas se referirem
+ a esta rede neural específica 
+como uma rede neural de duas camadas, porque não contamos 
+a camada de entrada como 
+uma camada oficial. Finalmente, algo que veremos mais tarde, 
+é que a camada oculta e as camadas de saída terão 
+parâmetros associados a elas. Então a camada oculta terá os parâmetros w e b
+associados a ela. E escreverei sobrescritos [1] 
+para indicar que estes são parâmetros associados à camada um,
+ ou seja, associados à camada oculta um. Veremos mais tarde que w será uma 
+matriz 4 por 3 e b será um vetor de 4 por 1 neste exemplo, onde a primeira coordenada quatro vem 
+do fato de que temos quatro nós ou quatro unidades ocultas e 
+uma camada, e três vem do fato de que temos 
+três características de entrada. Falaremos mais tarde sobre as 
+dimensões destas matrizes, quando acho que então isso fará mais sentido. Mas em algumas das camadas de saída, 
+como associados a ela, 
+também parâmetros w sobrescrito [2] e b sobrescrito[2]. E acontece que as dimensões destes 
+são 1 por 4 e 1 por 1. E esse 1 por 4 é porque a camada oculta 
+possui quatro unidades ocultas, a camada de saída tem apenas 
+uma unidade. Mas nós veremos a dimensão dessas 
+matrizes e vetores num vídeo mais adiante. Então você viu o que uma rede neural de
+duas camadas parece. Esta é uma rede neural de 
+uma camada oculta. No próximo vídeo, aprofundaremos exatamente no que 
+esta rede neural está calculando. Isto é, como esta rede 
+neural entra com o x e vai calculando até chegar na saída ŷ.

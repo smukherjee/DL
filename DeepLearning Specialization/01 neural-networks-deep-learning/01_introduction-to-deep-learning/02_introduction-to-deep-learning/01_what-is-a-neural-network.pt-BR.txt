@@ -1,0 +1,84 @@
+O termo Aprendizagem Profunda
+refere-se ao treinamento de Redes Neurais, em certos casos, a enormes Redes Neurais. Então o que é exatamente uma Rede Neural? Neste vídeo, vamos tentar dar-lhe 
+algumas das intuições básicas. Comecemos pelo exemplo
+ da Predição de Preço de Imóveis. Digamos que você tenha uma tabela de dados
+de seis imóveis, contendo o tamanho deles em pés quadrados ou em metros quadrados e
+ o preço deles e que você deseja ajustar uma função para predizer o preço
+das casas, em função do tamanho delas. Então se você estiver familiarizado com a 
+regressão linear você pode dizer, bem, vamos desenhar uma linha reta sobre estes dados
+uma reta assim. Podemos dizer que
+o preço das casas nunca poderá ser negativo, certo? Então, em vez da linha reta ajustada 
+que eventualmente se tornará negativa, dobramos a curva aqui. Assim aqui acabará no zero. Então esta linha azul grossa 
+acaba sendo sua função para predizer o preço das casas
+ em função do tamanho delas. Aqui vai um zero e então temos a
+linha reta ajustada à direita. Então, podemos pensar nesta função que
+você acabou de ajustar os preços das casas como sendo uma rede neural muito simples. É uma rede neural
+quase tão simples quanto possível. Deixe-me desenhá-la aqui. Temos como entrada para a rede neural 
+o tamanho de uma casa, que chamamos de x. Ele vai para esse nó, 
+esse pequeno círculo e em seguida, ele produz o preço que chamamos de y. Então este pequeno círculo, o qual é 
+um único neurônio numa rede neural, implementa esta função
+que desenhamos à esquerda. E tudo o que o neurônio faz é 
+pegar o tamanho como entrada, calcular esta função linear, pegar um máximo de zero, e
+ então gerar o preço estimado. E a propósito, na literatura sobre rede neural, 
+essa função é muito vista. Essa função que resulta zero, algumas vezes, e depois, torna-se esta linha reta que sobe. Esta função é chamada de ReLU, que quer dizer Unidade Linear Retificada. Portanto, R-E-L-U. Retificada significa, que ela pega o máximo
+de zero em certos trechos, o que resulta
+em uma função como essa. Não se preocupe com 
+ unidades ReLU agora, pois, voltaremos a elas
+mais adiante neste curso. Assim, se este é um único neurônio
+em sua rede neural, numa rede neural realmente muito pequena,
+uma rede neural maior, então, é formada por muitos neurônios únicos
+empilhados. Então, se você pensar neste neurônio como 
+sendo uma simples peça de Lego®, você então obtém uma rede neural maior conectando
+ muitas destas peças de Lego®. Vamos ver um exemplo: Digamos que ao invés de predizer
+ o preço de uma casa apenas a partir de seu tamanho, agora você tem outras características. Você sabe, outras coisas sobre a casa
+como o número de quartos, e você pode pensar que uma das coisas que realmente afeta o preço de
+ uma casa é o tamanho da família, certo? Então, esta casa acomoda sua família
+de três, ou de quatro, ou de cinco pessoas? E ela é realmente baseada no tamanho
+em pés quadrados ou metros quadrados, e no número de quartos
+que determinamos, se a casa acomoda ou não 
+ o tamanho da sua família. E então, talvez você saiba
+os números dos CEPs. Em vários países, ele é chamado de código postal.
+(Código de Endereçamento Postal). E o CEP, como característica, talvez lhe diga
+a facilidade de andar a pé pela vizinhança. Então, nesta vizinhança fica tudo muito próximo? Posso ir caminhando ao armazém? Ir caminhando até a escola? Ou tenho que ir de carro? Algumas pessoas preferem vizinhanças acessíveis,
+onde se pode fazer muitas coisas a pé. Então o CEP, bem como 
+a aparência do bairro talvez lhe diga... Certamente nos EUA, mas 
+também em alguns outros países, isso lhes diga o quão boa é a qualidade da escola. Então cada um destes pequenos círculos que estou
+desenhando pode ser uma daquelas ReLU, unidade linear retificada ou
+alguma outra função ligeiramente não linear. Então, baseado no tamanho e no
+número de quartos, pode-se estimar o tamanho da família;
+ no CEP, a praticidade de caminhar; baseado no CEP e na aparência
+pode-se estimar a qualidade da escola. E, finalmente, podemos pensar muito bem
+no modo como as pessoas decidem o quanto estão dispostas a pagar por uma casa, analisando
+as coisas que realmente importam para elas. Neste caso, o tamanho da família,
+ a proximidade do entorno e a qualidade da escola, ajudam a predizer o preço da casa. Portanto, neste exemplo,
+'x' vem de todas estas quatro entradas. E 'y' é o preço que você está
+tentando predizer. Então, empilhando alguns daqueles
+neurônios únicos ou preditores únicos que vimos no slide anterior, agora 
+temos uma rede neural ligeiramente maior. Toda mágica da sua rede neural 
+é que quando a implementa, você precisa apenas fornecer a entrada 'x' e a saída 'y' para o número de
+exemplos no seu conjunto de treinamento e todas essas coisas no meio,
+elas se resolverão por elas mesmas. O que você realmente implementa é isto. Aqui temos uma rede neural
+com quatro entradas. Então as características poderiam ser o tamanho
+o número de quartos, o CEP ou código postal, e
+a aparência do bairro. Assim, dadas estas características de entrada, o trabalho da rede neural
+será predizer o preço y. Observe também que cada um destes círculos
+aqui é chamado de unidade oculta na rede neural; que cada um deles
+pega cada uma das quatro características como entrada. Assim, por exemplo, em vez de dizer que 
+estes primeiros nós representam o tamanho da família e que o tamanho da família depende apenas
+das características X₁ e X₂, ao invés disso, diremos que, bem, rede neural, você decide, como quiser,
+o que é este nó. E nós lhe daremos todas as quatro características
+ para você calcular o que quiser. Então, sobre as camadas, 
+esta camada de entrada e esta aqui no meio da rede
+neural estão densamente conectadas. Porque cada característica de entrada (X₁...X₄)
+está conectada a cada um dos círculos aqui no meio. E o que é notável sobre redes neurais é que, 
+tendo dados suficientes sobre x e y... x e y, fornecendo exemplos de treinamento suficientes
+para ambos x e y, as redes neurais são notavelmente boas para determinar
+ funções que, com precisão, mapeiam de x para y. Isso é, então, o básico
+sobre redes neurais [artificiais]. Acontece que à medida que você
+constrói suas próprias redes neurais, provavelmente, você perceberá que elas são mais úteis,
+mais poderosas, para atribuições em aprendizado supervisionado, implicando
+que você está pegando uma entrada x e mapeando em alguma saída y, como vimos
+no exemplo da previsão de preço de imóveis. No próximo vídeo, analisaremos mais alguns
+exemplos de aprendizado supervisionado e alguns exemplos de onde podemos encontrar
+grande utilidade para suas redes neurais, bem como para as suas aplicações.
+[Tradução: Carlos Lage | Revisão: Julia R. Yuri]

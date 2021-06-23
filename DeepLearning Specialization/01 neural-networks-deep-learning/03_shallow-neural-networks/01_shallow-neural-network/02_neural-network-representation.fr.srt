@@ -1,0 +1,428 @@
+1
+00:00:00,000 --> 00:00:03,116
+Vous m'avez vu faire quelques dessins
+ de réseaux de neurones.
+
+2
+00:00:03,116 --> 00:00:05,712
+Dans cette vidéo, nous allons parler de ce
+ que signifient exactement ces schémas.
+
+3
+00:00:05,712 --> 00:00:06,728
+Autrement dit,
+
+4
+00:00:06,728 --> 00:00:11,235
+exactement ce que ces réseaux de neurones 
+que nous avons dessinés représentent.
+
+5
+00:00:11,235 --> 00:00:15,014
+Et nous allons commencer par étudier
+ le cas de réseaux de neurones avec
+
+6
+00:00:15,014 --> 00:00:17,290
+ce qu’on appelle une seule couche cachée.
+
+7
+00:00:17,290 --> 00:00:19,667
+Voici une image d’un réseau de neurones.
+
+8
+00:00:19,667 --> 00:00:22,986
+Nous allons nommer les différentes
+ parties de ce schéma.
+
+9
+00:00:22,986 --> 00:00:27,447
+Nous avons les caractéristiques d’entrée,
+ x1, x2, x3 empilés verticalement qui sont
+
+10
+00:00:27,447 --> 00:00:30,694
+ce qu’on appelle la couche d’entrée
+ du réseau neuronal.
+
+11
+00:00:30,694 --> 00:00:35,764
+Alors, sans surprise, celle-ci contient 
+les entrées pour le réseau de neurones.
+
+12
+00:00:35,764 --> 00:00:37,990
+Puis il y a une autre couche de cercles.
+
+13
+00:00:37,990 --> 00:00:41,663
+Et c’est ce qu’on appelle 
+une couche cachée du réseau neuronal.
+
+14
+00:00:41,663 --> 00:00:45,414
+Je reviendrai dans un instant pour 
+dire ce que le mot signifie caché.
+
+15
+00:00:45,414 --> 00:00:49,509
+Mais la dernière couche ici est formée par,
+ dans ce cas, un seul nœud.
+
+16
+00:00:49,509 --> 00:00:53,894
+Et cette couche à un seul nœud est appelée
+ la couche de sortie et doit
+
+17
+00:00:53,894 --> 00:00:57,000
+générer la valeur prédite y_chapeau.
+
+18
+00:00:57,000 --> 00:00:59,932
+Dans un réseau de neurones, que vous 
+entraînez avec de l’apprentissage supervisé,
+
+19
+00:00:59,932 --> 00:01:05,237
+le set d’apprentissage contient les valeurs des 
+entrées x, ainsi que les cibles des sorties y.
+
+20
+00:01:05,237 --> 00:01:09,239
+Donc le terme couche cachée se réfère
+ au fait que, dans le set de formation,
+
+21
+00:01:09,239 --> 00:01:12,702
+les vraies valeurs pour ces nœuds
+ au milieu ne sont pas observées.
+
+22
+00:01:12,702 --> 00:01:15,280
+C’est-à-dire que vous ne voyez pas ce qu’ils 
+devraient être dans le jeu d’apprentissage.
+
+23
+00:01:15,280 --> 00:01:16,640
+Vous voyez ce que sont les entrées.
+
+24
+00:01:16,640 --> 00:01:18,094
+Vous voyez ce que devrait être la sortie.
+
+25
+00:01:18,094 --> 00:01:20,992
+Mais les choses dans la couche cachée ne 
+sont pas comprises dans le set de formation.
+
+26
+00:01:20,992 --> 00:01:25,542
+Ce qui explique en quelque sorte le nom 
+de couche cachée parce que vous
+
+27
+00:01:25,542 --> 00:01:27,050
+ne la voyez pas dans le set d’apprentissage.
+
+28
+00:01:27,050 --> 00:01:28,400
+Abordons encore un peu de notation.
+
+29
+00:01:28,400 --> 00:01:34,660
+Là où nous utilisions le vecteur X pour 
+désigner les caractéristiques d’entrée,
+
+30
+00:01:34,660 --> 00:01:36,400
+une notation alternative pour
+
+31
+00:01:36,400 --> 00:01:41,680
+les valeurs des caractéristiques d’entrée 
+sera a exposant crochet 0.
+
+32
+00:01:41,680 --> 00:01:44,934
+Et le terme a signifie également 
+ activation, et
+
+33
+00:01:44,934 --> 00:01:47,733
+il réfère aux valeurs que
+ les différentes couches
+
+34
+00:01:47,733 --> 00:01:51,651
+du réseau de neurones passent
+ aux couches suivantes.
+
+35
+00:01:51,651 --> 00:01:55,998
+La couche d’entrée passe
+ la valeur x à la couche cachée,
+
+36
+00:01:55,998 --> 00:02:01,110
+Donc nous allons appeler ça 
+l'activation de la couche d'entrée a[0]
+
+37
+00:02:01,110 --> 00:02:05,990
+La couche suivante, la couche cachée va à 
+son tour générer un ensemble d’activations,
+
+38
+00:02:05,990 --> 00:02:09,601
+qui je vais écrire a exposant crochet 1.
+
+39
+00:02:09,601 --> 00:02:13,306
+Ainsi, en particulier, cette première unité
+ ou ce premier nœud,
+
+40
+00:02:13,306 --> 00:02:17,824
+va générer une valeur 
+a exposant crochet 1 indice 1.
+
+41
+00:02:17,824 --> 00:02:20,735
+Ce deuxième nœud va générer une valeur
+
+42
+00:02:20,735 --> 00:02:23,311
+avec l’indice 2 et ainsi de suite.
+
+43
+00:02:23,311 --> 00:02:26,488
+Et donc, a exposant crochet 1,
+
+44
+00:02:26,488 --> 00:02:30,350
+est un vecteur de dimension 4 
+ou, si vous voulez,
+
+45
+00:02:30,350 --> 00:02:34,707
+en Python une matrice de 4 par 1, 
+un vecteur colonne, qui ressemble à ceci.
+
+46
+00:02:34,707 --> 00:02:39,205
+Et il est de dimension 4, parce que ici,
+ nous avons quatre nœuds, ou
+
+47
+00:02:39,205 --> 00:02:43,330
+quatre unités, ou quatre unités cachées
+ dans cette couche cachée.
+
+48
+00:02:43,330 --> 00:02:46,800
+Et puis enfin, la couche de sortie
+ génère une valeur a[2],
+
+49
+00:02:46,800 --> 00:02:48,440
+qui est juste un nombre réel.
+
+50
+00:02:48,440 --> 00:02:53,100
+Et donc y_chapeau va prendre la valeur de a[2].
+
+51
+00:02:53,100 --> 00:02:57,950
+C'est comme dans la régression logistique,
+ nous avions y_chapeau égal à a et
+
+52
+00:02:57,950 --> 00:03:02,560
+dans la régression logistique dont nous 
+n’avions qu’une couche de sortie, donc
+
+53
+00:03:02,560 --> 00:03:04,500
+nous n'avons pas utilisé 
+d'exposants entre crochets.
+
+54
+00:03:04,500 --> 00:03:07,916
+Mais pour les réseaux de neurones, 
+nous allons utiliser l’exposant entre crochets
+
+55
+00:03:07,916 --> 00:03:11,653
+pour indiquer explicitement 
+de quelle couche il provient.
+
+56
+00:03:11,653 --> 00:03:15,468
+Une chose drôle sur les conventions 
+de notation dans les réseaux de neurones
+
+57
+00:03:15,468 --> 00:03:20,194
+est que ce réseau que vous voyez ici est appelé
+ un réseau de neurones à deux couches.
+
+58
+00:03:20,194 --> 00:03:24,360
+Et la raison est que lorsque nous comptons 
+les couches dans les réseaux de neurones,
+
+59
+00:03:24,360 --> 00:03:25,990
+nous ne comptons pas la couche d’entrée.
+
+60
+00:03:25,990 --> 00:03:30,680
+Donc la couche cachée est la couche 1 
+et la couche de sortie est la 2.
+
+61
+00:03:30,680 --> 00:03:34,700
+Dans notre convention de notation, 
+nous appelons la couche d’entrée zéro, donc
+
+62
+00:03:34,700 --> 00:03:37,700
+techniquement peut-être qu'il y a trois 
+couches dans ce réseau de neurones,
+
+63
+00:03:37,700 --> 00:03:40,260
+parce qu’il y a la couche d’entrée, 
+la couche cachée et la couche de sortie.
+
+64
+00:03:40,260 --> 00:03:44,600
+Mais classiquement, si vous lisez des articles
+ de recherche et d'autres cours,
+
+65
+00:03:44,600 --> 00:03:48,700
+vous verrez les gens faire référence à ce
+ réseau neuronal particulier comme étant un
+
+66
+00:03:48,700 --> 00:03:52,630
+réseau de neurones à deux couches, parce que
+ nous ne comptons pas la couche d’entrée
+ comme une couche officielle.
+
+67
+00:03:52,630 --> 00:03:55,912
+Enfin, quelque chose que nous verrons 
+plus tard est que la couche cachée et
+
+68
+00:03:55,912 --> 00:03:59,670
+la couche de sortie auront des paramètres
+ qui leur sont associés.
+
+69
+00:03:59,670 --> 00:04:04,560
+A la couche cachée seront associés
+ ces paramètres W et b.
+
+70
+00:04:04,560 --> 00:04:08,218
+Et je vais les écrire avec un exposant
+ crochet 1 pour indiquer que ces
+
+71
+00:04:08,218 --> 00:04:12,395
+paramètres sont associés 
+à la couche 1, à la couche cachée.
+
+72
+00:04:12,395 --> 00:04:15,416
+Nous verrons plus tard que W 
+est une matrice de 4 par 3 et
+
+73
+00:04:15,416 --> 00:04:19,830
+que b sera un vecteur de 4 par 1
+ dans cet exemple.
+
+74
+00:04:19,830 --> 00:04:22,750
+où la première dimension, 4,
+ vient du fait que nous avons
+
+75
+00:04:22,750 --> 00:04:25,300
+quatre nœuds ou 4 unités cachées 
+dans notre couche cachée, et
+
+76
+00:04:25,300 --> 00:04:28,120
+le trois vient du fait que nous avons
+ trois caractéristiques en entrée.
+
+77
+00:04:28,120 --> 00:04:31,600
+Nous reparlerons plus tard 
+des dimensions de ces matrices
+
+78
+00:04:31,600 --> 00:04:33,540
+et ce sera plus clair à ce moment-là.
+
+79
+00:04:33,540 --> 00:04:37,813
+Mais de la même façon, à la couche de sortie 
+sont aussi associés les paramètres
+
+80
+00:04:37,813 --> 00:04:42,400
+W[2] et b[2].
+
+81
+00:04:42,400 --> 00:04:45,747
+Et il s’avère que leurs dimensions
+ sont 1 par 4 et 1 par 1.
+
+82
+00:04:45,747 --> 00:04:49,297
+Et ce 1 par 4 parce que la couche cachée
+ a quatre unités cachées,
+
+83
+00:04:49,297 --> 00:04:51,177
+et la couche de sortie n'a qu'une seule unité.
+
+84
+00:04:51,177 --> 00:04:56,378
+Mais nous reverrons la dimension de ces 
+matrices et vecteurs dans une vidéo plus tard.
+
+85
+00:04:56,378 --> 00:04:59,839
+Donc vous venez de voir à quoi ressemble
+ un réseau de neurones à deux couches.
+
+86
+00:04:59,839 --> 00:05:03,108
+C’est-à-dire un réseau de neurones
+ avec une couche cachée.
+
+87
+00:05:03,108 --> 00:05:04,260
+Dans la prochaine vidéo,
+
+88
+00:05:04,260 --> 00:05:08,513
+nous allons voir plus précisément 
+ce que ce réseau de neurones calcule.
+
+89
+00:05:08,513 --> 00:05:11,223
+Ce que ce réseau de neurones
+ fait de l'entrée X
+
+90
+00:05:11,223 --> 00:05:14,169
+tout ce qui mène à la sortie ŷ.

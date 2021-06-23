@@ -1,0 +1,163 @@
+<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:w10="urn:schemas-microsoft-com:office:word" xmlns:m="http://schemas.microsoft.com/office/omml/2004/12/core" xmlns:ve="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:o12="http://schemas.microsoft.com/office/2004/7/core" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:wp="http://schemas.openxmlformats.org/drawingml/2006/3/wordprocessingDrawing" xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/3/main" xmlns="http://www.w3.org/TR/REC-html40">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <head>
+    <style>style</style>
+  </head>
+  <body>
+    <div class="Section1">
+      <p>
+        <b>
+          <u>
+            <span style="font-size:20.0pt">Logistic Regression</span>
+          </u>
+        </b>
+      </p>
+      <p>
+(SPEECH)        <br/>
+In        <br/>
+      </p>
+      <p>
+(DESCRIPTION)        <br/>
+Text, Basics of Neural Network Programming. Logistic Regression. Website, deep learning, dot, A.I.        <br/>
+      </p>
+      <p>
+(SPEECH)        <br/>
+this video, we'll go over logistic regression.        <br/>
+      </p>
+      <p>
+This is a learning algorithm that you use when the output labels Y in a supervised learning problem are all either zero or one, so for binary classification        <br/>
+      </p>
+      <p>
+(DESCRIPTION)        <br/>
+New slide, Logistic Regression.        <br/>
+      </p>
+      <p>
+(SPEECH)        <br/>
+problems.        <br/>
+      </p>
+      <p>
+Given an input feature vector X maybe corresponding to an image that you want to recognize as either a cat picture or not a cat picture, you want an algorithm that can output a prediction, which we'll call Y hat, which is your estimate of Y.        <br/>
+      </p>
+      <p>
+More formally, you want Y hat to be the probability of the chance that, Y is equal to one given the input features X.        <br/>
+      </p>
+      <p>
+So in other words, if X is a picture, as we saw in the last video, you want Y hat to tell you, what is the chance that this is a cat picture?        <br/>
+      </p>
+      <p>
+So X, as we said in the previous video, is an X dimensional vector, given that the parameters of logistic regression will be W which is also an X dimensional vector, together with b which is just a real number.        <br/>
+      </p>
+      <p>
+So given an input X and the parameters W and b, how do we generate the output Y hat?        <br/>
+      </p>
+      <p>
+Well, one thing you could try, that doesn't work, would be to have Y hat be w transpose X plus B, kind of a linear function of the input X.        <br/>
+      </p>
+      <p>
+And in fact, this is what you use if you were doing linear regression.        <br/>
+      </p>
+      <p>
+But this isn't a very good algorithm for binary classification because you want Y hat to be the chance that Y is equal to one.        <br/>
+      </p>
+      <p>
+So Y hat should really be between zero and one, and it's difficult to enforce that because W transpose X plus B can be much bigger than one or it can even be negative, which doesn't make sense for probability.        <br/>
+      </p>
+      <p>
+That you want it to be between zero and one.        <br/>
+      </p>
+      <p>
+So in logistic regression, our output is instead going to be Y hat equals the sigmoid function applied to this quantity.        <br/>
+      </p>
+      <p>
+This is what the sigmoid function looks like.        <br/>
+      </p>
+      <p>
+If on the horizontal axis I plot Z, then the function sigmoid of Z looks like this.        <br/>
+      </p>
+      <p>
+So it goes smoothly from zero up to one.        <br/>
+      </p>
+      <p>
+Let me label my axes here, this is zero and it crosses the vertical axis as 0.5.        <br/>
+      </p>
+      <p>
+So this is what sigmoid of Z looks like. And we're going to use Z to denote this quantity, W transpose X plus B.        <br/>
+      </p>
+      <p>
+Here's the formula for the sigmoid function.        <br/>
+      </p>
+      <p>
+Sigmoid of Z, where Z is a real number, is one over one plus E to the negative Z.        <br/>
+      </p>
+      <p>
+So notice a couple of things.        <br/>
+      </p>
+      <p>
+If Z is very large, then E to the negative Z will be close to zero.        <br/>
+      </p>
+      <p>
+So then sigmoid of Z will be approximately one over one plus something very close to zero, because E to the negative of very large number will be close to zero.        <br/>
+      </p>
+      <p>
+So this is close to 1.        <br/>
+      </p>
+      <p>
+And indeed, if you look in the plot on the left, if Z is very large the sigmoid of Z is very close to one.        <br/>
+      </p>
+      <p>
+Conversely, if Z is very small, or it is a very large negative number, then sigmoid of Z becomes one over one plus E to the negative Z, and this becomes, it's a huge number.        <br/>
+      </p>
+      <p>
+So this becomes, think of it as one over one plus a number that is very, very big, and so, that's close to zero.        <br/>
+      </p>
+      <p>
+And indeed, you see that as Z becomes a very large negative number, sigmoid of Z goes very close to zero.        <br/>
+      </p>
+      <p>
+So when you implement logistic regression, your job is to try to learn parameters W and B so that Y hat becomes a good estimate of the chance of Y being equal to one.        <br/>
+      </p>
+      <p>
+Before moving on, just another note on the notation.        <br/>
+      </p>
+      <p>
+When we programmed neural networks, we'll usually keep the parameter W and parameter B separate, where here, B corresponds to an inter-spectrum.        <br/>
+      </p>
+      <p>
+In some other courses, you might have seen a notation that handles this differently.        <br/>
+      </p>
+      <p>
+In some conventions you define an extra feature called X0 and that equals a one.        <br/>
+      </p>
+      <p>
+So that now X is in R of NX plus one.        <br/>
+      </p>
+      <p>
+And then you define Y hat to be equal to sigma of theta transpose X.        <br/>
+      </p>
+      <p>
+In this alternative notational convention, you have vector parameters theta, theta zero, theta one, theta two, down to theta NX And so, theta zero, place a row a B, that's just a real number, and theta one down to theta NX play the role of W. It turns out, when you implement your neural network, it will be easier to just keep B and W as separate parameters.        <br/>
+      </p>
+      <p>
+And so, in this class, we will not use any of this notational convention that I just wrote in red.        <br/>
+      </p>
+      <p>
+If you've not seen this notation before in other courses, don't worry about it.        <br/>
+      </p>
+      <p>
+It's just that for those of you that have seen this notation I wanted to mention explicitly that we're not using that notation in this course.        <br/>
+      </p>
+      <p>
+But if you've not seen this before, it's not important and you don't need to worry about it.        <br/>
+      </p>
+      <p>
+So you have now seen what the logistic regression model looks like.        <br/>
+      </p>
+      <p>
+Next to change the parameters W and B you need to define a cost function.        <br/>
+      </p>
+      <p>
+Let's do that in the next video.        <br/>
+      </p>
+    </div>
+  </body>
+</html>

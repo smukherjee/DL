@@ -1,0 +1,214 @@
+<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:w10="urn:schemas-microsoft-com:office:word" xmlns:m="http://schemas.microsoft.com/office/omml/2004/12/core" xmlns:ve="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:o12="http://schemas.microsoft.com/office/2004/7/core" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:wp="http://schemas.openxmlformats.org/drawingml/2006/3/wordprocessingDrawing" xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/3/main" xmlns="http://www.w3.org/TR/REC-html40">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <head>
+    <style>style</style>
+  </head>
+  <body>
+    <div class="Section1">
+      <p>
+        <b>
+          <u>
+            <span style="font-size:20.0pt">Logistic Regression Cost Function</span>
+          </u>
+        </b>
+      </p>
+      <p>
+(SPEECH)        <br/>
+In        <br/>
+      </p>
+      <p>
+(DESCRIPTION)        <br/>
+Text, Basics of Neural Network Programming. Logistic Regression cost function. Website, deep learning, dot, A.I.        <br/>
+      </p>
+      <p>
+(SPEECH)        <br/>
+a previous video, you saw the logistic regression model.        <br/>
+      </p>
+      <p>
+To train the parameters W and B of the logistic regression model, you need to define a cost function.        <br/>
+      </p>
+      <p>
+Let's take a look at the cost function you can use to train logistic regression.        <br/>
+      </p>
+      <p>
+(DESCRIPTION)        <br/>
+New slide, Logistic Regression cost function.        <br/>
+      </p>
+      <p>
+(SPEECH)        <br/>
+To recap, this is what we had to find from the previous slide.        <br/>
+      </p>
+      <p>
+So your output y-hat is sigmoid of w transpose x plus b where a sigmoid of Z is as defined here.        <br/>
+      </p>
+      <p>
+So to learn parameters for your model you're given a training set of m training examples and it seems natural that you want to find parameters W and B so that at least on the training set, the outputs you have.        <br/>
+      </p>
+      <p>
+The predictions you have on the training set, which we only write as y-hat (i) that that will be close to the ground truth labels y_i that you got in the training set.        <br/>
+      </p>
+      <p>
+So to throw in a little bit more detail for the equation on top, we had said that y-hat is as defined at the top for a training example x and of course for each training example, we're using these superscripts with round brackets with parentheses to index and to differentiate examples.        <br/>
+      </p>
+      <p>
+Your prediction on training sample (i) which is y-hat (i) is going to be obtained by taking the sigmoid function and applying it to W transpose X, (i) the input that the training example plus V and you can also define Z (i) as follows.        <br/>
+      </p>
+      <p>
+Z (i) is equal to the W transpose x (i) plus b.        <br/>
+      </p>
+      <p>
+So throughout this course, we're going to use this notational convention, that the superscript parentheses i refers to data.        <br/>
+      </p>
+      <p>
+X or Y or Z or something else associated with the i-th training example, associated with the i-th example.        <br/>
+      </p>
+      <p>
+That's what the superscript i in parentheses means.        <br/>
+      </p>
+      <p>
+Now, let's see what loss function or error function we can use to measure how well our algorithm is doing.        <br/>
+      </p>
+      <p>
+One thing you could do is define the loss when your algorithm outputs y-hat and the true label as Y to be maybe the square error or one half a square error.        <br/>
+      </p>
+      <p>
+It turns out that you could do this, but in logistic regression people don't usually do this because when you come to learn the parameters, you find that the optimization problem which we talk about later becomes non-convex.        <br/>
+      </p>
+      <p>
+So you end up with optimization problem with multiple local optima.        <br/>
+      </p>
+      <p>
+So gradient descent may not find the global optimum.        <br/>
+      </p>
+      <p>
+If you didn't understand the last couple of comments.        <br/>
+      </p>
+      <p>
+Don't worry about it, we'll get to it in later video.        <br/>
+      </p>
+      <p>
+But the intuition to take away is that this function L called the loss function is a function you'll need to define to measure how good our output y-hat is when the true label is y.        <br/>
+      </p>
+      <p>
+As square error seems like it might be a reasonable choice except that it makes gradient descent not work well.        <br/>
+      </p>
+      <p>
+So in logistic regression, we will actually define a different loss function that plays a similar role as squared error, that will give us an optimization problem that is convex and so we'll see in that later video becomes much easier to optimize.        <br/>
+      </p>
+      <p>
+So, what we use in logistic regression is actually the following loss function which I'm just like right up here, is negative y log y-hat plus one line has y log, one line is y-hat.        <br/>
+      </p>
+      <p>
+Here's some intuition for why this loss function makes sense.        <br/>
+      </p>
+      <p>
+Keep in mind that if we're using squared error then you want the squared error to be as small as possible.        <br/>
+      </p>
+      <p>
+And with this logistic regression loss function, we'll also want this to be as small as possible.        <br/>
+      </p>
+      <p>
+To understand why this makes sense, let's look at the two cases.        <br/>
+      </p>
+      <p>
+In the first case, let's say Y is equal to one then the loss function y-hat comma y is justice for us to write this negative sign.        <br/>
+      </p>
+      <p>
+So this negative log y-hat.        <br/>
+      </p>
+      <p>
+If y is equal to one. Because if y equals one then the second term one minus Y is equal to zero.        <br/>
+      </p>
+      <p>
+So this says if y equals one you want negative log y-hat to be as big as possible.        <br/>
+      </p>
+      <p>
+So that means you want log y-hat to be large, to be as big as possible and that means you want y-hat to be large.        <br/>
+      </p>
+      <p>
+But because y-hat is you know, the sigmoid function, it can never be bigger than one.        <br/>
+      </p>
+      <p>
+So this is saying that if y is equal to one you, want y-hat to be as big as possible.        <br/>
+      </p>
+      <p>
+But it can't ever be bigger than one so saying you want y-hat to be close to one as well.        <br/>
+      </p>
+      <p>
+The other case is if y equals zero.        <br/>
+      </p>
+      <p>
+If y equals zero then this first term in the loss function is equal to zero because y zero and then the second term defines the loss function.        <br/>
+      </p>
+      <p>
+So the loss becomes negative log one minus y-hat.        <br/>
+      </p>
+      <p>
+And so if in your learning procedure you try to make the loss function small, what this means is that you want log one minus y-hat to be large.        <br/>
+      </p>
+      <p>
+And because it's a negative sign there and then through a similar piece of reason you can conclude that this loss function is trying to make y-hat as small as possible.        <br/>
+      </p>
+      <p>
+And again because y-hat has to be between zero and one.        <br/>
+      </p>
+      <p>
+This is saying that if y is equal to zero then your loss function will push the parameters to make y-hat as close to zero as possible.        <br/>
+      </p>
+      <p>
+Now, there are a lot of functions with Rafidah's effect that if y is equal to one we try to make y-hat large and if Y is equal to zero we try to make y-hat small.        <br/>
+      </p>
+      <p>
+We just gave here in green a somewhat informal justification for this loss function will provide an optional video later to give a more formal justification for why in logistic regression we like to use the loss function with this particular form.        <br/>
+      </p>
+      <p>
+Finally, the loss function was defined with respect to a single training example.        <br/>
+      </p>
+      <p>
+It measures how well you're doing on a single training example.        <br/>
+      </p>
+      <p>
+I'm now going to define something called the cost function, which measures how well you're doing an entire training set.        <br/>
+      </p>
+      <p>
+So the cost function J which is applied to your parameters W and B is going to be the average with one of the m of the sum of the loss function applied to each of the training examples and turn.        <br/>
+      </p>
+      <p>
+While here y-hat is of course the prediction output by your logistic regression algorithm using you know, a particular set of parameters W and B.        <br/>
+      </p>
+      <p>
+And so just to expand this out, this is equal to negative one over m sum from i equals one through m of the definition of the loss function.        <br/>
+      </p>
+      <p>
+So this is y (i) Log y-hat (i) plus one line is y (i) log one line is y-hat (i).        <br/>
+      </p>
+      <p>
+I guess I could put square brackets here.        <br/>
+      </p>
+      <p>
+So the minus sign is outside everything else.        <br/>
+      </p>
+      <p>
+So the terminology I'm going to use is that the loss function is applied to just a single training example like so.        <br/>
+      </p>
+      <p>
+And the cost function is the cost of your parameters.        <br/>
+      </p>
+      <p>
+So in training your logistic regression model, we're going to try to find parameters W and B that minimize the overall costs of machine J written at the bottom.        <br/>
+      </p>
+      <p>
+So, you've just seen the set up for the logistic regression algorithm, the loss function for training example and the overall cost function for the parameters of your algorithm.        <br/>
+      </p>
+      <p>
+It turns out that logistic regression can be viewed as a very very small neural network.        <br/>
+      </p>
+      <p>
+In the next video we'll go over that so you can start gaining intuition about what neural networks do.        <br/>
+      </p>
+      <p>
+So that let's go onto the next video about how to view logistic regression as a very small neural network.        <br/>
+      </p>
+    </div>
+  </body>
+</html>

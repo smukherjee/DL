@@ -1,0 +1,68 @@
+Dans la vidéo précédente, vous avez vu 
+quelques exemples sur comment
+la vectorisation, en utilisant des fonctions intégrées et 
+en évitant les boucles explicites FOR peut permettre d’accélérer
+ votre code de manière significative Voyons quelques autres exemples. La règle de base à retenir
+ est lorsque vous programmez votre réseau de neurones
+ ou votre régression logistique, évitez dans la mesure du possible
+ les boucles explicites FOR. Et il n'est pas toujours possible de 
+ne jamais utiliser de boucle FOR mais quand vous pouvez utiliser une 
+fonction intégrée ou trouver une autre façon de calculer ce 
+dont vous avez besoin, vous irez souvent plus vite que si vous
+ utilisiez une boucle explicite FOR. Regardons un autre exemple. Si jamais vous voulez calculer un vecteur
+ u comme le produit d’une matrice A, et un autre vecteur, v, alors la définition d’un multiplicateur
+ de matrice est que votre ui est égal à la somme sur j, Aij, vj En effet. Voila comment vous définissez ui, et donc l'implémentation non vectorisée,
+de ceci serait de fixer u = np. zéros et ça sera n par un et alors FOR i et ainsi de suite FOR j et ainsi de suite OK? et puis ui plus égal Aij fois vj Alors maintenant, nous avons 
+deux boucles FOR sur i et j donc ceci est la version non vectorisée. L’implémentation vectorisée consistera
+ à dire u = np.dot(A, v). L'implémentation sur votre droite, la version vectorisée, élimine maintenant deux boucles FOR différentes
+et sera beaucoup plus rapide. Parcourons un exemple de plus Disons que vous avez déjà un vecteur v
+ en mémoire et que vous voulez appliquer l’opération exponentielle à
+ chaque élément de, disons, ce vecteur v, donc vous calculez u 
+égal au vecteur qui est e de v1 e de v2 et ainsi de suite jusqu'à e de vn Donc ce serait une implémentation 
+non vectorisée où dans un premier temps vous initialisez u comme vecteur de zéros
+ et vous avez ensuite une boucle FOR qui calcule les éléments
+ un par un Il s’avère que Python et NumPy ont
+ de nombreuses fonctions intégrées
+ qui vous permettent de calculer ces vecteurs avec juste
+ un seul appel à une fonction unique. Donc ce que je ferais pour implémenter 
+cela est import numpy as np et puis, vous appelez simplement u = np.exp(v). 
+Notez que tandis que précédemment, vous avez la boucle FOR explicite, 
+avec juste une ligne de code ici avec ce v comme vecteur d’entrée, u comme un vecteur de sortie, vous vous êtes débarrassés de la
+ boucle FOR explicite et
+ la mise en œuvre de droite sera beaucoup plus rapide que
+ celle ayant besoin de la boucle FOR. En fait, la bibliothèque NumPy contient
+ beaucoup d'autres fonctions vectorielles. Donc np.log(v) calculera le log
+ élément par élément np.abs calcule la valeur absolue np.maximum calcule les maxima
+ élément par élément vous pouvez prendre le max de tous
+ les éléments de v par rapport à zéro. v**2 prend le carré, élément par élément de v 1/v prend l'inverse élément par
+ élément et ainsi de suite Ainsi, à chaque fois que vous êtes
+ tenté d’écrire une boucle FOR, Regardez et vérifiez si il y a 
+une manière d'appeler une fonction intégrée de NumPy
+ pour le faire sans cette boucle FOR. Donc tirons les leçons de tout ceci
+ et appliquons-les à l'implémentation de la descente de gradient
+ de notre régression logistique et voyons si nous pouvons au moins
+ nous débarrasser de l’une des deux
+ boucles FOR que nous avions. Voici donc notre code pour calculer
+ les dérivées pour la régression logistique. Nous avions deux boucles FOR. Une était celle ci en haut, et
+ la seconde était celle là. Donc, dans notre exemple, Nous avions n ou nx égal à deux, mais si vous aviez plus de
+ caractéristiques que juste deux alors vous auriez 
+besoin d'une boucle FOR sur dw1 dw2, dw3 et ainsi de suite. Donc c’est comme si il y a 
+effectivement un FOR j=1 à nx. dwj, vous le savez, est mis à jour, non ? Nous voudrions donc éliminer 
+cette deuxième boucle FOR C’est ce que nous allons faire
+ sur cette diapo. Donc, la façon dont nous allons
+ le faire est qu’au lieu
+ d’initialiser explicitement dw1, dw2 et ainsi de suite, à zéros, nous allons nous en débarrasser et 
+plutôt déclarer dw comme un vecteur. Ainsi nous allons définir dw=np.zéros 
+et définissons, disons, (nx,1) comme dimension du vecteur. Alors ici au lieu de cette boucle FOR sur les composants individuels Nous utilisons simplement
+ cette opération vectorielle dw += ... dw += x(i).dz(i) et finalement
+ au lieu de cela nous avons simplement dw/=m. Donc maintenant nous sommes 
+passés de deux boucles FOR à une. Nous avons encore cette boucle FOR qui 
+fait une boucle sur
+ les exemples d'apprentissage. Donc j’espère que cette vidéo 
+vous a donné une idée de la vectorisation et en retirant
+une boucle FOR votre code s'exécute déjà plus vite. Mais il s’avère que nous
+ pouvons faire encore mieux. Donc dans la prochaine vidéo, nous verrons comment vectoriser
+ encore plus la régression logistique et vous verrez le résultat plutôt surprenant
+ que sans utiliser aucune boucle FOR, sans avoir besoin de boucle FOR
+ sur les exemples d'apprentissage vous pouvez écrire du code pour traiter 
+la totalité de l’échantillon d'apprentissage, donc à peu près tout en même temps. Voyons donc cela dans la prochaine vidéo.

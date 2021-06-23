@@ -1,0 +1,73 @@
+En este video, te mostraré un ejemplo ligeramente más complejo donde la pendiente de la función puede ser
+distinta en diversos puntos de la función. Comencemos con un ejemplo. Aquí se muestra la gráfica de la función f(a) = a² Fijémonos en el punto a=2. Tal que a² o f(a) = 4. Empujemos ligeramente "a" hacia la derecha,
+ahora a = 2,001. f(a), que es a al cuadrado,
+será aproximadamente 4,004. Resulta que el valor exacto, usando una calculadora, es 4,004001. Digamos que 4,004 es suficientemente cerca. Entonces, lo que esto significa es que cuando a = 2, dibujemos esto en la gráfica. Lo que estamos diciendo es que si a = 2, entonces f(a) = 4, y aquí los ejes x e y
+no están dibujados a escala. Técnicamente, la altura vertical
+debería ser mucho mayor que esta altura horizontal, por lo que los ejes
+x e y no están en la misma escala. Pero si ahora aumento "a" a 2,001 entonces
+f(a) será aproximadamente 4,004. Así que si dibujamos
+este pequeño triángulo de nuevo, lo que esto significa es que
+si empujo "a" a la derecha en 0,001, f(a) sube cuatro veces más, 0,004. Así en el lenguaje del cálculo, decimos que la pendiente
+que es la derivada de f(a) en a = 2 es 4, o si lo escribimos en
+nuestra notación de cálculo, decimos que d / da de f(a) = 4 cuando a = 2. Ahora una cosa sobre esta función f(a) = a² es que la pendiente es diferente
+para diferentes valores de a. Esto es diferente al ejemplo que vimos
+en la diapositiva anterior. Así que veamos un punto diferente. Si a = 5, entonces en lugar de a = 2, y ahora a = 5 luego a² = 25,
+entonces eso es f(a). Si le doy a "a" un empujón a la derecha otra vez, un empujoncito, para que a = 5,001, entonces
+f(a) será aproximadamente 25,010. Así que lo que vemos es
+que al empujar "a" en 0,001, f(a) aumenta diez veces más. Así que tenemos que d / da f(a) = 10 cuando a = 5 porque f(a) sube diez veces más que "a". cuando empujo un poco a "a". Entonces, una manera de ver por qué la derivada
+es diferente en distintos puntos es que si dibujas ese pequeño triángulo
+en diferentes ubicaciones, verás que la relación entre la
+altura del triángulo y el ancho del triángulo es muy diferente en
+diferentes puntos de la curva. Así que aquí, la pendiente es 4
+cuando a = 2, es 10 cuando a = 5. Ahora si consultas un libro de texto de cálculo, un libro de texto de cálculo te dirá que d / da de f(a), y f(a) = a², entonces eso es d / da de a². Una de las fórmulas que encuentras es
+el libro de texto de cálculo es que esta cosa, la pendiente de la función a²,
+es igual a 2a. No voy a demostrar esto, pero
+la forma en que lo descubres es que abres un libro de texto de cálculo para ver las fórmulas de la tabla y te dirán
+que la derivada de a² es 2a. Y, de hecho, esto es consistente con
+lo que hemos encontrado. Es decir, cuando a = 2, la pendiente de
+la función, 2a, es 2x2 = 4. Y cuando a = 5, entonces la pendiente de
+la función, 2a, es 2x5 = 10. Entonces, si alguna vez miras un libro
+de texto de cálculo y ves esta fórmula, que la derivada de a² = 2a, todo lo que significa es que para
+cualquier valor dado de a, si empujas "a" en 0,001, un pequeño valor, esperarás que f(a) aumente en 2a. Esa es la pendiente, o la derivada, multiplicada por lo que habías empujado
+a la derecha el valor de "a". Ahora un pequeño detalle, Yo uso estos símbolos aproximados aquí
+y esto no era exactamente 4,004, hay un "001" extra colgando por ahí. Resulta que este extra "001", esta pequeña cosa aquí es porque estábamos
+empujando "a" a la derecha en 0,001, si en cambio estamos empujando
+hacia la derecha en este valor infinitamente pequeño
+entonces este término extra se irá y la cantidad que aumenta f(a) es exactamente igual a la derivada multiplicada por la cantidad
+que empujes a la derecha. Y la razón por la que no es 4,004 exactamente es
+porque los derivados se definen utilizando estos pequeños incrementos infinitesimales de "a"
+en lugar de 0,001, que no lo es. Y aunque 0,001 es pequeño, no es infinitesimalmente pequeño. Por eso, la cantidad que aumentó
+f(a) no es exactamente la que da la fórmula sino sólo una aproximación
+dada por la derivada. Para terminar este video, vamos a ver algunos ejemplos rápidos. El ejemplo que ya has visto
+es que si f(a) = a² entonces la tabla de fórmulas de los libros de texto de
+cálculo te dirá que la derivada es igual a 2a. Y así, el ejemplo que vimos fue que si a = 2, f (a) = 4, y empujamos "a" para que sea un poco más grande,
+entonces f(a) es más o menos 4,004, y f(a) aumentó cuatro veces más,
+y de hecho, cuando a = 2, la derivada es igual a 4. Veamos algunos otros ejemplos. Digamos, en cambio, que f(a) = a³. Si miras un libro de texto de cálculo
+y buscas la tabla de fórmulas, verás que la pendiente de esta function, o sea, la derivada de esta función, es igual a 3a². Así que puedes sacar esta fórmula
+del libro de texto de cálculo. Entonces, ¿qué significa esto? La forma de interpretar esto es la siguiente. Tomemos a = 2 como ejemplo otra vez. Entonces f(a) o a³ es igual a 8,
+es decir, dos elevado a tres. Así que si le damos un pequeño empujoncito a "a", resulta que f(a) es aproximadamente 8,012,
+puedes comprobarlo. Si tomamos 2,001 elevado a tres, vemos que está muy cerca de 8,012. Y de hecho, cuando a = 2,
+entonces 3x2² es igual a 3x4, es igual a 12. Así que la fórmula de la derivada predice
+que si empujamos "a" un poco a la derecha, f(a) debería aumentar 12 veces más. Y, de hecho, esto es cierto.
+Cuando "a" aumentó en 0,001, f(a) aumentó 12 veces más, en 0,012. Sólo un último ejemplo y terminamos. Digamos que f(a) es igual a la función logaritmo. Así que escribimos "log(a)". Voy a usar esto como el logaritmo de base "e". Algunas personas escriben eso como "ln(a)". Si miras en un libro de texto de cálculo, verás que cuando tomas la derivada de log(a) que es una función que tiene esta forma, la pendiente de esta función es 1/a. Entonces, la forma de interpretar esto es que
+si "a" tiene algún valor, y vamos a seguir usando a = 2 como ejemplo, y
+empujamos "a" a la derecha en 0,001, esperamos que f (a) aumente 1/a, que es la derivada multiplicada por la cantidad
+que aumentamos "a". De hecho, si usamos una calculadora, vemos que si a = 2, f(a) es aproximadamente 0,69315 y si aumentamos "a" a 2,001, entonces f(a) es
+aproximadamente 0,69365, así que el valor ha aumentado en 0,0005. Y de hecho, si miras la fórmula
+de la derivada cuando a = 2, d / da f(a) = 1/2. Así que esta fórmula de la derivada predice
+que si aumentamos "a" en 0,001, esperamos que f(a) aumente
+solo en la mitad, y la mitad de 0,001 es 0,0005 que es exactamente lo que tenemos. Luego, cuando "a" aumenta
+en 0,001, pasando de a = 2 a a = 2.001, f(a) aumenta en la mitad. O sea, aumenta aproximadamente 0,0005. Así que si dibujamos ese pequeño triángulo si quieres el eje horizontal aumenta solo 0,001, y el eje vertical log(a) aumenta la mitad de eso, o sea 0,0005. Y ese 1/a, o 1/2 en este caso, cuando a = 2, eso es la pendiente
+de esta línea cuando a = 2. Así que esto es todo sobre las derivadas. Hay solo dos mensajes para llevar a casa
+de este video. El primero es que la derivada de una función
+sólo significa la pendiente de una función, y la pendiente de una función puede ser diferente en diferentes
+puntos de la función. En nuestro primer ejemplo, donde
+f(a) = 3a, eso es una línea recta, la derivada era la misma en todas partes, era tres en todas partes. Pero para otras funciones como
+f(a) = a² o f(a) = log(a), la pendiente de la recta varía. Por lo tanto, la pendiente o la derivada pueden ser
+diferentes en diferentes puntos de la curva. Así que eso es la primera conclusión. Derivada solo significa pendiente de una línea. La segunda conclusión es que si queremos
+encontrar la derivada de una función, podemos abrir nuestro libro de texto de cálculo
+o consultar Wikipedia y a menudo obtendremos una fórmula para la
+pendiente de estas funciones en diferentes puntos. Así que espero que tengas una comprensión
+intuitiva de las derivadas o pendientes de las líneas. Vayamos al siguiente vídeo. Comenzaremos a hablar sobre el
+grafo de computación y cómo usarlo para calcular derivadas de
+funciones más complejas.

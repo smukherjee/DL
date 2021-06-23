@@ -1,0 +1,572 @@
+1
+00:00:00,920 --> 00:00:02,860
+Bonjour, et bon retour parmi nous.
+
+2
+00:00:02,860 --> 00:00:08,860
+Cette semaine, nous passerons en revue
+ les bases de la programmation 
+d'un réseau de neurones.
+
+3
+00:00:08,860 --> 00:00:11,990
+Il s’avère que lorsque vous implémentez
+ un réseau de neurones
+
+4
+00:00:11,990 --> 00:00:16,260
+il y a des techniques qui vont être
+ vraiment importantes.
+
+5
+00:00:16,260 --> 00:00:21,150
+Par exemple, si vous avez un ensemble
+ d’apprentissage de m exemples,
+
+6
+00:00:21,150 --> 00:00:25,110
+vous pouvez avoir l'habitude de traiter votre
+ set d'apprentissage avec une boucle for
+
+7
+00:00:25,110 --> 00:00:28,240
+qui parcourt vos m exemples d'apprentissage.
+
+8
+00:00:28,240 --> 00:00:31,260
+Mais il s’avère que lorsque vous 
+implémentez un réseau de neurones,
+
+9
+00:00:31,260 --> 00:00:34,540
+habituellement, vous voulez traiter
+ l’ensemble du set d'apprentissage
+
+10
+00:00:34,540 --> 00:00:39,040
+sans utiliser de boucle for explicite 
+pour parcourir le set d'apprentissage.
+
+11
+00:00:39,040 --> 00:00:42,940
+Ainsi, vous verrez comment faire 
+dans le contenu de cette semaine.
+
+12
+00:00:42,940 --> 00:00:47,700
+Une autre idée, lorsque vous organisez
+ le calcul dans votre réseau,
+
+13
+00:00:47,700 --> 00:00:51,670
+habituellement, vous avez
+ ce qu’on appelle un passage direct ou
+ étape de propagation avant,
+
+14
+00:00:51,670 --> 00:00:56,100
+suivi d’un passage en sens inverse,
+ ce qu’on appelle une étape de 
+propagation inverse (ou rétro-propagation).
+
+15
+00:00:56,100 --> 00:01:00,010
+Et donc dans le contenu de cette semaine, vous
+ aurez également une introduction au pourquoi
+
+16
+00:01:00,010 --> 00:01:04,830
+les calculs, dans l'apprentissage d'un réseau de
+ neurones, peuvent être organisés selon ces
+
+17
+00:01:04,830 --> 00:01:08,010
+modes de propagations directe
+ et inverse séparées.
+
+18
+00:01:09,100 --> 00:01:12,620
+Pour les matériaux de cette semaine,
+ je veux faire passer ces idées à l’aide
+
+19
+00:01:12,620 --> 00:01:16,170
+de la régression logistique afin de rendre
+ les idées plus facile à comprendre.
+
+20
+00:01:16,170 --> 00:01:19,970
+Mais même si vous avez vu la régression
+ logistique avant, je pense qu’il va
+
+21
+00:01:19,970 --> 00:01:23,845
+y avoir des idées nouvelles et intéressantes 
+pour vous dans le contenu de cette semaine.
+
+22
+00:01:23,845 --> 00:01:25,815
+Alors, allons-y.
+
+23
+00:01:25,815 --> 00:01:30,605
+La régression logistique est un 
+algorithme de classification binaire.
+
+24
+00:01:30,605 --> 00:01:33,145
+Commençons donc par la
+ mise en place du problème.
+
+25
+00:01:33,145 --> 00:01:36,925
+Voici un exemple d’un problème
+ de classification binaire.
+
+26
+00:01:36,925 --> 00:01:41,545
+Vous pouvez avoir en entrée 
+une image, comme ça, et
+
+27
+00:01:41,545 --> 00:01:47,260
+vouloir en sortie une étiquette pour 
+reconnaître que cette image est soit un chat,
+
+28
+00:01:47,260 --> 00:01:52,140
+dans ce cas vous avez 1 en sortie, ou est
+ un non chat auquel cas vous avez 0.
+
+29
+00:01:52,140 --> 00:01:57,740
+Nous utiliserons y pour désigner
+ l’étiquette de sortie.
+
+30
+00:01:57,740 --> 00:02:01,550
+Regardons comment une image est
+ représentée dans un ordinateur.
+
+31
+00:02:01,550 --> 00:02:05,680
+Pour stocker une image, votre ordinateur
+ stocke trois matrices distinctes
+
+32
+00:02:05,680 --> 00:02:09,890
+correspondant aux canaux de couleur
+ rouge, vert et bleu de cette image.
+
+33
+00:02:10,990 --> 00:02:15,900
+Donc, si votre image d’entrée est 
+de 64 pixels par 64 pixels,
+
+34
+00:02:15,900 --> 00:02:21,700
+alors vous aurez 3 matrices 64 x 64
+
+35
+00:02:21,700 --> 00:02:27,230
+correspondant aux valeurs d’intensité des
+ pixels rouges, verts et bleus pour vos images.
+
+36
+00:02:27,230 --> 00:02:31,290
+Pour cette diapositive j’ai dessiné ces
+ matrices beaucoup plus petites, donc
+
+37
+00:02:31,290 --> 00:02:35,320
+ce sont en fait des matrices 5 par 4 
+plutôt que 64 par 64.
+
+38
+00:02:35,320 --> 00:02:41,640
+Pour transformer ces valeurs d’intensité de
+ pixel en un vecteur de caractéristiques, nous
+
+39
+00:02:41,640 --> 00:02:48,000
+allons dérouler toutes ces valeurs de pixels 
+dans un vecteur de caractéristiques d’entrée x.
+
+40
+00:02:48,000 --> 00:02:53,782
+Pour dérouler toutes ces valeurs d’intensité
+ de pixel en un vecteur de caractéristiques
+
+41
+00:02:53,782 --> 00:02:59,580
+nous allons définir un vecteur de
+ caractéristiques x correspondant
+ à cette image comme suit.
+
+42
+00:02:59,580 --> 00:03:03,960
+Nous allons juste prendre toutes les
+ valeurs de pixels, 255, 231 et ainsi de suite.
+
+43
+00:03:03,960 --> 00:03:10,827
+255, 231 et ainsi de suite jusqu'à ce que 
+nous ayons listé tous les pixels rouges.
+
+44
+00:03:10,827 --> 00:03:15,737
+Et puis ensuite 255, 134, 255, 134
+ et ainsi de suite
+
+45
+00:03:15,737 --> 00:03:20,952
+jusqu'à ce que nous obtenions un long vecteur 
+de caractéristiques contenant toutes
+ les valeurs d'intensité
+
+46
+00:03:20,952 --> 00:03:25,570
+de rouge, de vert et de bleu 
+de tous les pixels de cette image.
+
+47
+00:03:25,570 --> 00:03:31,043
+Si cette image est une image de 64 par 64,
+ la dimension totale
+
+48
+00:03:31,043 --> 00:03:36,401
+de ce vecteur x sera 64 par 64 par 3 car c’est
+
+49
+00:03:36,401 --> 00:03:41,320
+le nombre total de valeurs que nous avons
+ dans l’ensemble de ces matrices.
+
+50
+00:03:41,320 --> 00:03:44,097
+Donc dans ce cas 12'288,
+
+51
+00:03:44,097 --> 00:03:47,330
+C’est ce que vous obtenez si 
+vous multipliez tous ces nombres.
+
+52
+00:03:47,330 --> 00:03:51,870
+Et donc nous allons utiliser nx = 12'288
+
+53
+00:03:51,870 --> 00:03:55,080
+pour représenter la dimension 
+des caractéristiques d'entrée x.
+
+54
+00:03:55,080 --> 00:03:59,280
+Et parfois par souci de concision,
+ j’utiliserai juste n minuscule
+
+55
+00:03:59,280 --> 00:04:02,720
+pour représenter la dimension de ce 
+vecteur de caractéristiques d’entrée.
+
+56
+00:04:02,720 --> 00:04:07,510
+Dans la classification binaire, notre but est donc
+ d’apprendre à un classifieur qui peut prendre
+
+57
+00:04:07,510 --> 00:04:10,760
+en entrée une image représentée 
+par ce vecteur de caractéristiques x
+
+58
+00:04:10,760 --> 00:04:15,460
+à prédire si l'étiquette y 
+correspondante est 1 ou 0,
+
+59
+00:04:15,460 --> 00:04:19,000
+autrement dit, s’il s’agit d’une image 
+de chat ou une image de non chat.
+
+60
+00:04:19,000 --> 00:04:21,560
+Nous allons maintenant établir une partie 
+de la notation que nous allons
+
+61
+00:04:21,560 --> 00:04:23,820
+utiliser tout au long du reste de ce cours.
+
+62
+00:04:23,820 --> 00:04:29,453
+Un exemple d'apprentissage unique 
+est représenté par un couple,
+
+63
+00:04:29,453 --> 00:04:34,446
+(x, y) où x est un vecteur de 
+caractéristiques de taille nx
+
+64
+00:04:34,446 --> 00:04:39,320
+et y, l’étiquette, est égale à 0 ou 1.
+
+65
+00:04:39,320 --> 00:04:44,550
+Vos sets d'apprentissage 
+comprendront m exemples.
+
+66
+00:04:44,550 --> 00:04:50,320
+Et vos sets d'apprentissage seront écrit
+ (x1, y1) qui correspond à l'entrée et
+
+67
+00:04:50,320 --> 00:04:55,370
+la sortie pour votre premier exemple
+ d'apprentissage, (x2, y2) pour
+
+68
+00:04:55,370 --> 00:05:01,980
+le deuxième exemple d'apprentissage jusqu'à
+ (xm, ym) qui est votre dernier
+ exemple d'apprentissage.
+
+69
+00:05:01,980 --> 00:05:05,650
+Et tout ça ensemble forme votre
+ ensemble d'apprentissage entier.
+
+70
+00:05:05,650 --> 00:05:10,170
+Donc je vais utiliser m minuscule pour désigner
+ le nombre d’échantillons d'apprentissage.
+
+71
+00:05:10,170 --> 00:05:14,418
+Et parfois pour souligner que c’est 
+le nombre d’exemples d'apprentissage,
+
+72
+00:05:14,418 --> 00:05:16,437
+Je pourrai écrire m = m indice train.
+
+73
+00:05:16,437 --> 00:05:18,692
+Et lorsque nous parlons du set de test,
+
+74
+00:05:18,692 --> 00:05:24,430
+Nous pouvons parfois utiliser m indice test 
+pour désigner le nombre d’exemples de test.
+
+75
+00:05:24,430 --> 00:05:27,430
+Donc ceci est le nombre d’exemples de test.
+
+76
+00:05:27,430 --> 00:05:33,440
+Enfin, pour avoir tous les exemples d'ap-
+prentissage dans une notation plus compacte,
+
+77
+00:05:33,440 --> 00:05:36,840
+Nous allons définir une matrice, grand X.
+
+78
+00:05:36,840 --> 00:05:41,592
+On la définit en prenant les exemples
+ du set d'apprentissage, x1, x2
+
+79
+00:05:41,592 --> 00:05:44,568
+et ainsi de suite et
+ en les empilant en colonnes.
+
+80
+00:05:44,568 --> 00:05:49,958
+Donc nous prenons x1 et en faisons
+ la première colonne de cette matrice,
+
+81
+00:05:49,958 --> 00:05:54,798
+x2, qui va être une deuxième colonne
+ et ainsi de suite jusqu'à la xm,
+
+82
+00:05:54,798 --> 00:05:58,000
+et c’est la matrice grand X.
+
+83
+00:05:58,000 --> 00:06:03,005
+Ainsi, cette matrice X aura m colonnes, 
+où m est le nombre d'exemples
+
+84
+00:06:03,005 --> 00:06:08,665
+d'apprentissage et le nombre de lignes 
+c'est-à-dire la hauteur de cette matrice est nx.
+
+85
+00:06:08,665 --> 00:06:14,400
+Notez que dans d'autres cours, 
+vous pourriez voir la matrice grand X
+
+86
+00:06:14,400 --> 00:06:19,390
+définie par l'empilement des exemples
+ d'apprentissages en ligne comme ceci,
+
+87
+00:06:19,390 --> 00:06:23,940
+x1 transpose jusqu'à xm transpose.
+
+88
+00:06:23,940 --> 00:06:27,704
+Mais il s’avère que lorsque vous implémentez
+ des réseaux de neurones avec
+
+89
+00:06:27,704 --> 00:06:32,218
+cette convention que j’ai sur la gauche, 
+la mise en œuvre sera beaucoup plus facile.
+
+90
+00:06:32,218 --> 00:06:37,171
+Donc, juste pour rappel, X est 
+une matrice de dimensions nx par m
+
+91
+00:06:37,171 --> 00:06:40,404
+et quand vous implémentez ça en Python,
+
+92
+00:06:40,404 --> 00:06:45,362
+vous voyez que X.shape, 
+la commande python pour
+
+93
+00:06:45,362 --> 00:06:50,325
+trouver la forme de la matrice,
+ vous renvoie (nx, m).
+
+94
+00:06:50,325 --> 00:06:53,255
+Cela signifie simplement que c’est
+ une matrice de dimensions nx par m
+
+95
+00:06:53,255 --> 00:06:58,785
+Voilà donc comment vous regroupez les 
+exemples d'apprentissage,
+ l’entrée x dans une matrice.
+
+96
+00:06:58,785 --> 00:07:01,315
+Qu'en est-il des étiquettes de sortie y ?
+
+97
+00:07:01,315 --> 00:07:04,815
+Il s’avère que pour faciliter l'implémentation 
+d’un réseau de neurones,
+
+98
+00:07:04,815 --> 00:07:10,030
+il sera commode d’empiler aussi y en colonnes.
+
+99
+00:07:10,030 --> 00:07:14,650
+Nous allons donc définir grand Y égal à y1, y2,
+
+100
+00:07:14,650 --> 00:07:18,580
+jusqu'à ym comme cela.
+
+101
+00:07:18,580 --> 00:07:24,980
+Ainsi Y ici sera une matrice de
+ dimensions 1 par m.
+
+102
+00:07:24,980 --> 00:07:30,530
+Et encore une fois, en utilisant la
+ notation Python, la forme de Y sera (1,m)
+
+103
+00:07:30,530 --> 00:07:34,810
+ce qui signifie que c'est une
+ matrice de dimensions 1 par m.
+
+104
+00:07:34,810 --> 00:07:39,660
+Et quand vous implémenterez votre réseau
+ de neurones plus tard dans le cours,
+ vous trouverez utile
+
+105
+00:07:39,660 --> 00:07:43,630
+cette convention de prendre les données
+ associées aux différents exemples
+ d’apprentissage,
+
+106
+00:07:43,630 --> 00:07:48,580
+et par les données, je veux dire soit x ou y ou
+ d'autres quantités que vous verrez plus tard.
+
+107
+00:07:48,580 --> 00:07:49,900
+Mais de prendre les choses ou
+
+108
+00:07:49,900 --> 00:07:52,990
+les données associées aux différents
+ exemples d'apprentissage et
+
+109
+00:07:52,990 --> 00:07:57,430
+de les empiler en différentes colonnes,
+ comme nous l’avons fait ici pour x et y.
+
+110
+00:07:58,450 --> 00:08:01,380
+Donc, c’est la notation nous utiliserons
+ pour la régression logistique et pour
+
+111
+00:08:01,380 --> 00:08:04,060
+les réseaux de réseaux de neurones
+ plus tard dans ce cours.
+
+112
+00:08:04,060 --> 00:08:07,430
+Si vous oubliez ce que signifie 
+une des notations, par exemple
+
+113
+00:08:07,430 --> 00:08:08,300
+qu'est ce que m ou 
+qu'est ce que n ou
+
+114
+00:08:08,300 --> 00:08:12,630
+autre chose, nous avons également posté sur
+ le site Web du cours un guide des notations
+
+115
+00:08:12,630 --> 00:08:17,430
+que vous pouvez utiliser pour chercher
+ rapidement ce que signifie
+ n’importe quelle notation.
+
+116
+00:08:17,430 --> 00:08:20,890
+Ceci dit, allons à la prochaine video
+ où nous allons aborder
+
+117
+00:08:20,890 --> 00:08:23,190
+la régression logistique en utilisant cette notation.

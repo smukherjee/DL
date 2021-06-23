@@ -1,0 +1,52 @@
+Bem-vindo de volta!
+Vetorização é basicamente a arte de livrar-se de laços de repetição
+"for" explícitos em seu código. Isso gera economia em 
+aprendizagem profunda na prática, pois, você geralmente se encontra trabalhando
+com conjuntos de dados relativamente grandes, porque é aí que os algoritmos
+de aprendizagem profunda tendem a brilhar. Então é importante
+que seu código rode rápido, pois de outra forma, se você estiver treinando
+um grande conjunto de dados, seu código pode levar muito tempo para rodar e você vai ter que esperar
+muito para ter o resultado. Então na era da aprendizagem profunda, acho que a capacidade de executar
+vetorização tornou-se uma habilidade chave. E nós veremos isso em mais detalhes.
+Vamos começar com um exemplo: Então, o que é vetorização? Em regressão logística, você precisa calcular 
+Z = W transposto vezes X + b onde W é este vetor coluna
+e X também é um vetor. Talvez haja vetores muito grandes
+se você tiver muitas características. Então, W e X eram ambos estes vetores 
+de dimensões n, ou nx, pertencentes ao conjunto dos números Reais. Então para calcularmos
+W transposto multiplicado por X, se você tivesse uma implementação não vetorizada, você faria algo do tipo: 
+Z=0 E então o laço:
+ for i in range (nx) quer dizer, para i= 1, 2 até nx: Z+= W[i] * X[i] E então talvez codifique ao final:
+Z+ = b Então essa é uma implementação não vetorizada. Assim, você vê que isso vai ser muito lento. Em contraste, uma implementação vetorizada apenas calcularia 
+W transposto vezes X, diretamente. Em Python, importando NumPy como np, o comando que você usa para isso é 
+Z = np.dot(W,X) então isso calcula 
+W transposto multiplicado por X E você também pode
+apenas adicionar "b" a isso diretamente. E você vê que isso é mais rápido. Vamos ilustrar isso
+com uma pequena demonstração. Então, este é meu "Jupyter notebook"
+no qual vou escrever alguns códigos Python. Então, primeiro, vou importar a biblioteca NumPy "import as np", e por exemplo, eu posso criar, desta forma: 
+a = np.array([1,2,3,4]) e vamos digitar: 
+print a Agora, tendo escrito esta parte do código, aperto as teclas
+"shift" e "Enter" e o código é executado. Então, é criada e impressa a matriz "a". Agora, vamos fazer a demonstração de vetorização. Vou importar a biblioteca "time", e usamos isso, para cronometrar qual a diferença
+de tempo entre nossas operações. Vamos criar uma matriz "a". a = np.random.rand(1000000) Isso cria uma matriz,
+cuja dimensão é um milhão, com valores aleatórios. b = n.p.random.rand(1000000) Outra matriz de dimensão um milhão. E agora, para contar o tempo neste ponto,
+tic = time.time c = np.dot(a,b) toc = time.time() e 
+print("vectorized version"), esta é a versão vetorizada. print("Versão vetorizada:") Então vamos imprimir. Vamos ver o tempo total (elapsed time), e isso é,
+print("Versão vetorizada:" + str(1000*(toc-tic))) e podemos expressar em milésimos de segundo,
+"print('Versão vetorizada:"+str(1000*(toc-tic))+"ms"), "ms" é milésimo de segundo. Então vou teclar "shift" e "Enter". Então aquele código levou 
+em média três milésimos de segundo, ou 1,5, talvez 1,5 ou 3,5 milésimos de segundo de cada vez. Então, varia um pouco quando executo, mas parece que talvez, em média,
+leve algo em torno de 1,5 milésimos de segundo, talvez 2 milésimos de segundo, quando executo este. Tudo bem. Vamos continuar trabalhando com este bloco de códigos. Agora implementando versão não vetorizada. Vou digitar, 
+c = 0 tic = time.time() E agora vamos implementar um laço de repetição "for". for i in range (1000000): Pus o número de zeros corretamente. c += a[i] * b[i] E então,
+ toc = time.time() E finalmente, 
+print("Laço For") O tempo que isso leva é este:
+print("Laço For:" + (1000 * (toc-tic)) + "ms") para denotar que estamos fazendo isso em milésimos de segundo. Agora, vamos fazer mais uma coisa. Vamos imprimir o valor de "c": 
+print(c) e calculá-lo para termos certeza que é o mesmo valor em ambos os casos. Então vou teclar "shift" e "Enter", 
+para executá-lo, e ver o que acontece. Em ambos os casos, a versão vetorizada e a versão não vetorizada calcularam os mesmos valores, como vocês veem, "250286.99", e assim por diante. A versão vetorizada levou 1, 5 milésimos de segundo. O laço "for..." na versão não vetorizada levou
+aproximadamente quase 500 milésimos de segundo. A versão não vetorizada levou em torno de 300 vezes mais tempo do que a versão vetorizada. Com este exemplo, você vê que,
+se apenas se lembrar de vetorizar seu código, seu código vai ser executado mais de 300 vezes mais rápido. Vamos executá-lo novamente. Executando novamente... Exato, a versão vetorizada, 1, 5 milésimos de segundo e o laço "for ..." levou 481 milésimos de segundo, então novamente, em torno de 300 vezes mais lento, para executar esse laço "for ..." explícito. Então, 300 vezes mais lento, essa é a diferença entre um código, que leva em média, um minuto para executar, contra um que leva, digamos que, cinco horas. E quando você está implementando
+algoritmos de aprendizagem profunda, você realmente consegue um resultado mais veloz. Será muito mais rápido, se você vetorizar seu código. Alguns de vocês já devem ter ouvido que muitas implementações escaláveis de aprendizagem profunda
+são feitas em uma GPU ou unidade de processamento de gráficos. Mas, todas as demonstrações que fiz agora pouco
+no "Jupyter notebook" foram de facto, em uma CPU. E verifica-se que tanto uma GPU
+como uma CPU possuem paralelização de instruções. Ela são às vezes chamadas de instruções "SIMD". Isso representa uma instrução simples de dados múltiplos. Mas o que isso basicamente significa é que, se você usar funções embutidas, como esta "np.dot" ou outras funções que não requerem
+que você implemente um laço "for..." explicitamente, isso permite que o Numpy do Python tire muito mais proveito de paralelismo para fazer seus cálculos muito mais velozmente. E isso se encaixa tanto para cálculos em CPUs como em GPUs. É só que GPUs são notavelmente boas nesses cálculos SIMD, mas uma CPU,
+na verdade, não é tão ruim assim nisso também. Talvez apenas não tão boa como as GPUs. Então você está vendo como a vetorização
+pode acelerar significantemente seu código. A regra para lembrar-se disso é: sempre que possível, evite usar laços "for..." explícitos. Vamos para o próximo vídeo, para vermos mais exemplos de vetorização e também começar a vetorizar regressão logística.
+Tradução: Diogo dos Santos Farias | Revisão: Carlos Lage.

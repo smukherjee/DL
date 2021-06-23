@@ -1,0 +1,405 @@
+1
+00:00:00,000 --> 00:00:02,389
+Bienvenue dans la quatrième
+ semaine de ce cours.
+
+2
+00:00:02,389 --> 00:00:06,354
+Vous avez vu la propagation directe et
+ la rétro propagation dans le contexte
+
+3
+00:00:06,354 --> 00:00:10,807
+d’un réseau de neurones
+ avec une seule couche cachée, ainsi que
+ la régression logistique, et
+
+4
+00:00:10,807 --> 00:00:13,064
+vous avez appris la vectorisation et
+
+5
+00:00:13,064 --> 00:00:15,936
+quand il est important 
+d’initialiser les poids au hasard.
+
+6
+00:00:15,936 --> 00:00:19,417
+Si vous avez fait les devoirs de ces dernières 
+semaines, vous avez également implémenté et
+
+7
+00:00:19,417 --> 00:00:21,378
+vu fonctionner certaines de
+ ces idées par vous-même.
+
+8
+00:00:21,378 --> 00:00:21,977
+Maintenant,
+
+9
+00:00:21,977 --> 00:00:26,718
+vous avez vu concrètement la plupart
+ des idées permettant d'implémenter
+ un réseau de neurones profond.
+
+10
+00:00:26,718 --> 00:00:30,453
+Cette semaine, nous allons prendre ces idées
+ et les mettre ensemble pour
+
+11
+00:00:30,453 --> 00:00:33,669
+vous permettre d'implémenter
+ votre propre réseau de neurones profond.
+
+12
+00:00:33,669 --> 00:00:36,406
+Comme l'exercice de programmation 
+de cette semaine est plus long,
+
+13
+00:00:36,406 --> 00:00:39,457
+ça vous fait plus de travail, 
+donc les vidéos de cette semaine
+
+14
+00:00:39,457 --> 00:00:43,784
+seront plus courtes pour que vous puissiez 
+les voir un peu plus rapidement,
+
+15
+00:00:43,784 --> 00:00:48,107
+et avoir plus de temps pour ensuite 
+faire un exercice de programmation 
+important, qui, je l’espère,
+
+16
+00:00:48,107 --> 00:00:52,537
+vous permettra d'avoir construit vous même 
+un réseau de neurones profond, 
+ce dont vous pourrez être fier.
+
+17
+00:00:52,537 --> 00:00:55,576
+Qu'est ce qu'un réseau de neurones profond ?
+
+18
+00:00:55,576 --> 00:00:59,225
+Vous avez vu cette image
+ pour la régression logistique et
+
+19
+00:00:59,225 --> 00:01:03,439
+vous avez également vu les réseaux de 
+neurones avec une seule couche cachée.
+
+20
+00:01:03,439 --> 00:01:07,925
+Alors, voici un exemple d’un réseau
+ de neurones avec deux couches cachées et
+
+21
+00:01:07,925 --> 00:01:10,661
+un réseau de neurones avec 5 couches cachées.
+
+22
+00:01:10,661 --> 00:01:15,744
+Nous disons que la régression logistique 
+est un modèle très peu profond,
+
+23
+00:01:15,744 --> 00:01:19,947
+alors que ce modèle ici est un modèle
+ beaucoup plus profond, et
+
+24
+00:01:19,947 --> 00:01:23,585
+ce qu'on appelle la profondeur
+ est une question de degré.
+
+25
+00:01:23,585 --> 00:01:26,952
+Ici un réseau de neurones avec 
+une seule couche cachée,
+
+26
+00:01:26,952 --> 00:01:30,052
+ici un réseau de neurones à 2 couches.
+
+27
+00:01:30,052 --> 00:01:34,880
+Rappelez-vous quand nous comptons
+ les couches dans un réseau de neurones,
+ nous ne comptons pas la couche d’entrée,
+
+28
+00:01:34,880 --> 00:01:38,076
+nous comptons seulement les couches 
+cachées et la couche de sortie.
+
+29
+00:01:38,076 --> 00:01:42,849
+Donc, ceci serait un réseau de neurones à 2
+ couches, ce qui est encore assez peu profond,
+
+30
+00:01:42,849 --> 00:01:45,961
+mais un peu plus profond
+ que la régression logistique.
+
+31
+00:01:45,961 --> 00:01:50,086
+Techniquement, la régression logistique est 
+un réseau de neurones à une seule couche.
+
+32
+00:01:50,086 --> 00:01:53,536
+Au cours des dernières années, 
+l’IA, la communauté
+
+33
+00:01:53,536 --> 00:01:58,561
+de l'apprentissage automatique, 
+a réalisé qu’il y a des fonctions qui peuvent
+
+34
+00:01:58,561 --> 00:02:03,590
+être apprises par des réseaux de neurones
+ très profonds, alors que les modèles moins
+ profonds n'y parviennent souvent pas.
+
+35
+00:02:03,590 --> 00:02:08,119
+Même si, pour un problème donné, il 
+peut être difficile de prévoir exactement
+
+36
+00:02:08,119 --> 00:02:10,163
+quelle profondeur il faut pour votre réseau.
+
+37
+00:02:10,163 --> 00:02:14,305
+Et il est donc raisonnable d’essayer
+ la régression logistique, puis d'essayer des
+
+38
+00:02:14,305 --> 00:02:19,200
+réseaux à une puis deux couches cachées,
+ et de voir le nombre de couches cachées
+
+39
+00:02:19,200 --> 00:02:22,739
+comme un autre hyper paramètre dont vous 
+pouvez tester plusieurs valeurs et évaluer
+
+40
+00:02:22,739 --> 00:02:27,515
+globalement avec l’ensemble de données
+ de validation, ou celui de développement.
+
+41
+00:02:27,515 --> 00:02:29,447
+Nous en dirons plus à ce propos plus tard.
+
+42
+00:02:29,447 --> 00:02:33,998
+Nous allons maintenant voir 
+la notation que nous utilisons pour décrire
+ les réseaux neuronaux profonds.
+
+43
+00:02:33,998 --> 00:02:39,147
+Voici un réseau de neurones à 
+une, deux, trois, quatre couches,
+
+44
+00:02:40,974 --> 00:02:45,729
+avec trois couches cachées, et le nombre
+ d’unités dans ces couches cachées
+
+45
+00:02:45,729 --> 00:02:50,842
+est 5, 5 et 3, et il y a 
+une seule unité de sortie.
+
+46
+00:02:50,842 --> 00:02:52,731
+La notation que nous allons utiliser :
+
+47
+00:02:52,731 --> 00:02:56,591
+On va utiliser L majuscule, pour désigner 
+le nombre de couches du réseau.
+
+48
+00:02:56,591 --> 00:03:03,881
+Dans ce cas, L = 4, et c'est
+ le nombre de couches, et
+
+49
+00:03:03,881 --> 00:03:11,880
+nous allons utiliser n exposant [l] pour
+ désigner le nombre de nœuds,
+
+50
+00:03:11,880 --> 00:03:17,101
+ou le nombre d’unités 
+dans la couche l minuscule.
+
+51
+00:03:17,101 --> 00:03:22,501
+Donc, si nous numérotons cela,
+ l’entrée est la couche 0
+
+52
+00:03:22,501 --> 00:03:28,950
+Voici la couche 1, la couche 2,
+ la couche 3, et la couche 4.
+
+53
+00:03:28,950 --> 00:03:33,822
+Alors nous avons, par exemple, n [1], 
+ce serait cela, la première couche cachée,
+
+54
+00:03:33,822 --> 00:03:39,529
+qui est égal à 5, parce que 
+nous avons 5 unités cachées là.
+
+55
+00:03:39,529 --> 00:03:43,623
+Pour celle-ci, nous avons n [2],
+le nombre d’unités de
+
+56
+00:03:43,623 --> 00:03:48,810
+la deuxième couche cachée
+, qui vaut aussi 5.
+
+57
+00:03:48,810 --> 00:03:53,315
+n [3] = 3, et
+
+58
+00:03:53,315 --> 00:03:59,459
+n [4] = n [L], le nombre d'unités
+ de sorties est égal à 1,
+
+59
+00:03:59,459 --> 00:04:04,101
+puisqu'ici, L majuscule est égal à 4.
+
+60
+00:04:04,101 --> 00:04:08,878
+Et nous avons aussi ici que pour
+
+61
+00:04:08,878 --> 00:04:13,003
+la couche d’entrée, n [0] = nx = 3.
+
+62
+00:04:13,003 --> 00:04:17,879
+Nous utilisons cette notation pour décrire
+ le nombre de nœuds dans les différentes
+
+63
+00:04:17,879 --> 00:04:18,463
+couches.
+
+64
+00:04:18,463 --> 00:04:23,913
+Pour chaque couche L, 
+nous allons également utiliser
+
+65
+00:04:23,913 --> 00:04:30,196
+un [l] pour désigner
+ les activations dans la couche l.
+
+66
+00:04:30,196 --> 00:04:34,669
+Alors nous verrons plus tard que 
+pour la propagation directe,
+
+67
+00:04:34,669 --> 00:04:40,791
+on calcule a[l] = g(z[l]), 
+g étant la fonction d'activation et
+
+68
+00:04:40,791 --> 00:04:46,440
+l’activation peut être aussi
+ indexée par la couche l
+
+69
+00:04:46,440 --> 00:04:51,736
+et puis nous utiliserons W [l] 
+pour désigner les poids pour
+
+70
+00:04:51,736 --> 00:04:55,973
+calculer les valeurs z [l] dans la couche l, et
+
+71
+00:04:55,973 --> 00:05:00,714
+de même, b [l] est utilisé pour calculer z [l].
+
+72
+00:05:00,714 --> 00:05:07,114
+Enfin, juste pour conclure sur la notation, 
+les caractéristiques d’entrée sont appelées x,
+
+73
+00:05:07,114 --> 00:05:12,215
+mais x est également les activations 
+de la couche zéro, donc a [0] = x,
+
+74
+00:05:12,215 --> 00:05:17,133
+et l’activation de la couche finale,
+ a [L] = ŷ.
+
+75
+00:05:17,133 --> 00:05:25,275
+Donc a [L] est égal à la prédiction ŷ
+ en sortie du réseau de neurones.
+
+76
+00:05:25,275 --> 00:05:28,200
+Donc vous savez maintenant à quoi ressemble
+ un réseau de neurones profond,
+
+77
+00:05:28,200 --> 00:05:32,427
+ainsi que la notation
+ que nous utiliserons pour décrire
+ et calculer avec les réseaux profonds.
+
+78
+00:05:32,427 --> 00:05:36,457
+Je sais que nous avons présenté beaucoup de 
+notations dans cette vidéo, mais si vous oubliez
+
+79
+00:05:36,457 --> 00:05:40,916
+ce qu'un symbole signifie, nous avons aussi mis
+ sur le site de cours un guide des notations
+
+80
+00:05:40,916 --> 00:05:45,089
+qui vous permet de retrouver 
+la signification des différents symboles.
+
+81
+00:05:45,089 --> 00:05:48,958
+Ensuite, je voudrais vous montrer
+ à quoi ressemble la propagation directe
+
+82
+00:05:48,958 --> 00:05:49,620
+dans ce type de réseau.
+
+83
+00:05:49,620 --> 00:05:51,019
+Continuons dans la prochaine vidéo.

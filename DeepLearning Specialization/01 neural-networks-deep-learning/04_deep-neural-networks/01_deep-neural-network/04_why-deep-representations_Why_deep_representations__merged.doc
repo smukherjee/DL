@@ -1,0 +1,270 @@
+<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:w10="urn:schemas-microsoft-com:office:word" xmlns:m="http://schemas.microsoft.com/office/omml/2004/12/core" xmlns:ve="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:o12="http://schemas.microsoft.com/office/2004/7/core" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:wp="http://schemas.openxmlformats.org/drawingml/2006/3/wordprocessingDrawing" xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/3/main" xmlns="http://www.w3.org/TR/REC-html40">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <head>
+    <style>style</style>
+  </head>
+  <body>
+    <div class="Section1">
+      <p>
+        <b>
+          <u>
+            <span style="font-size:20.0pt">Why deep representations?</span>
+          </u>
+        </b>
+      </p>
+      <p>
+(SPEECH)        <br/>
+We've        <br/>
+      </p>
+      <p>
+(DESCRIPTION)        <br/>
+Text, Deep Neural Networks. Why deep representations? Website, deep learning, dot, A.I.        <br/>
+      </p>
+      <p>
+(SPEECH)        <br/>
+all been hearing that deep neural networks work really well for a lot of problems, and it's not just that they need to be big neural networks, is that specifically, they need to be deep or to have a lot of hidden layers.        <br/>
+      </p>
+      <p>
+So why is that?        <br/>
+      </p>
+      <p>
+Let's go through a couple examples and try to gain some intuition for why deep networks might work well.        <br/>
+      </p>
+      <p>
+So        <br/>
+      </p>
+      <p>
+(DESCRIPTION)        <br/>
+New slide, Intuition about deep representation. A photo of a young woman is displayed with a horizontal arrow.        <br/>
+      </p>
+      <p>
+(SPEECH)        <br/>
+first, what is a deep network computing?        <br/>
+      </p>
+      <p>
+If you're building a system for face recognition or face detection, here's what a deep neural network could be doing.        <br/>
+      </p>
+      <p>
+Perhaps you input a picture of a face then the first layer of the neural network you can think of as maybe being a feature detector or an edge detector.        <br/>
+      </p>
+      <p>
+In this example, I'm plotting what a neural network with maybe 20 hidden units, might be kind of compute on this image.        <br/>
+      </p>
+      <p>
+So the 20 hidden units visualize by these little square boxes.        <br/>
+      </p>
+      <p>
+So for example, this little visualization represents a hidden unit is trying to figure out if where the edges of that orientation in DMH.        <br/>
+      </p>
+      <p>
+And maybe this hidden unit maybe trying to figure out where are the horizontal edges in this image.        <br/>
+      </p>
+      <p>
+And when we talk about convolutional networks in a later course, this particular visualization will make a bit more sense.        <br/>
+      </p>
+      <p>
+But the form, you can think of the first layer of the neural network as look at the picture and try to figure out where are the edges in this picture.        <br/>
+      </p>
+      <p>
+Now, let's think about where the edges in this picture by grouping together pixels to form edges.        <br/>
+      </p>
+      <p>
+It can then de-detect the edges and group edges together to form parts of faces.        <br/>
+      </p>
+      <p>
+So for example, you might have a low neuron trying to see if it's finding an I, or a different neuron trying to find that part of the nose.        <br/>
+      </p>
+      <p>
+And so by putting together lots of edges, it can start to detect different parts of faces.        <br/>
+      </p>
+      <p>
+And then, finally, by putting together different parts of faces, like an eye or a nose or an ear or a chin, it can then try to recognize or detect different types of faces.        <br/>
+      </p>
+      <p>
+So intuitively, you can think of the earlier layers of the neural network as detecting simple functions, like edges.        <br/>
+      </p>
+      <p>
+And then composing them together in the later layers of a neural network so that it can learn more and more complex functions.        <br/>
+      </p>
+      <p>
+These visualizations will make more sense when we talk about convolutional nets.        <br/>
+      </p>
+      <p>
+And one technical detail of this visualization, the edge detectors are looking in relatively small areas of an image, maybe very small regions like that.        <br/>
+      </p>
+      <p>
+And then the facial detectors you can look at maybe much larger areas of image but the main addition while you take away from this is just finding simple things like edges and then building them up.        <br/>
+      </p>
+      <p>
+Composing them together to detect more complex things like an iron and then composing those together to find more even complex things.        <br/>
+      </p>
+      <p>
+And this type of simple to complex hierarchical representation, or compositional representation, applies in other types of data than images and face recognition as well.        <br/>
+      </p>
+      <p>
+For example, if you're trying to build a speech recognition system, it's hard to revisualize speech but if you input an audio clip then maybe the first level of a neural network might learnt to detect low level audio wave form features, such as is this toe going up?        <br/>
+      </p>
+      <p>
+Is it going down?        <br/>
+      </p>
+      <p>
+Is it white noise or slithering sound like [SOUND].        <br/>
+      </p>
+      <p>
+And what is the pitch?        <br/>
+      </p>
+      <p>
+When it comes to that, detect low level wave form features like that.        <br/>
+      </p>
+      <p>
+And then by composing low level wave forms, maybe you'll learn to detect basic units of sound.        <br/>
+      </p>
+      <p>
+In linguistics they call phonemes.        <br/>
+      </p>
+      <p>
+But, for example, in the word cat, the C is a phoneme, the A is a phoneme, the T is another phoneme.        <br/>
+      </p>
+      <p>
+But learns to find maybe the basic units of sound and then composing that together maybe learn to recognize words in the audio.        <br/>
+      </p>
+      <p>
+And then maybe compose those together, in order to recognize entire phrases or sentences.        <br/>
+      </p>
+      <p>
+So deep Internet work with multiple hidden layers might be able to have the earlier layers learn these lower level simple features and then have the later deeper layers then put together the simpler things it's detected in order to detect more complex things like recognize specific words or even phrases or sentences.        <br/>
+      </p>
+      <p>
+The uttering in order to carry out speech recognition.        <br/>
+      </p>
+      <p>
+And what we see is that whereas the other layers are computing, what seems like relatively simple functions of the input such as right at the edges, by the time you get deep in the network you can actually do surprisingly complex things.        <br/>
+      </p>
+      <p>
+Such as detect faces or detect words or phrases or sentences.        <br/>
+      </p>
+      <p>
+Some people like to make an analogy between deep neural networks and the human brain, where we believe, or neuroscientists believe, that the human brain also starts off detecting simple things like edges in what your eyes see then builds those up to detect more complex things like the faces that you see.        <br/>
+      </p>
+      <p>
+I think analogies between deep learning and the human brain are sometimes a little bit dangerous.        <br/>
+      </p>
+      <p>
+But there is a lot of truth to, this being how we think that human brain works and that the human brain probably detects simple things like edges and then put them together to from more and more complex objects and so that has served as a loose form of inspiration for some people learning as well.        <br/>
+      </p>
+      <p>
+We'll see a bit more about the human brain or about the biological brain in the lead of video this week.        <br/>
+      </p>
+      <p>
+(DESCRIPTION)        <br/>
+New slide, Circuit theory and deep learning. Text, Informallyt, there are functions you can compute with a small L-layer deep neural network that shallower networks require exponentially more hidden units to compute.        <br/>
+      </p>
+      <p>
+(SPEECH)        <br/>
+The other piece of intuition about why deep networks seem to work well is the following.        <br/>
+      </p>
+      <p>
+So this result comes from circuit theory of which pertains the thinking about what types of functions you can compute with different logic case.        <br/>
+      </p>
+      <p>
+So informally, their functions compute with a relatively small but deep neural network and by small I mean the number of hidden units is relatively small.        <br/>
+      </p>
+      <p>
+But if you try to compute the same function with a shallow network, so hidden layers, then you might require exponentially more hidden units to compute.        <br/>
+      </p>
+      <p>
+So let me just give you one example and illustrate this a bit informally.        <br/>
+      </p>
+      <p>
+But let's say you're trying to compute the exclusive [INAUDIBLE] or the parity of all your input features.        <br/>
+      </p>
+      <p>
+So you're trying to compute X1, XOR, X2, XOR, X3, XOR, up to Xn if you have n or n X features.        <br/>
+      </p>
+      <p>
+So if you build in XOR free like this, so for us it computes the XOR of X1 and X2, then take X3 and X4 and compute their XOR.        <br/>
+      </p>
+      <p>
+And technically, if you're just using ends or not gauge, you might need couple layers to compute the XOR function rather than just one layer, but with a relatively small circuit, you can compute the XOR, and so on.        <br/>
+      </p>
+      <p>
+And then you can build, really, an XOR tree like so, until eventually, you have a circuit here that outputs, well, lets call this Y.        <br/>
+      </p>
+      <p>
+The outputs of Y hat equals Y.        <br/>
+      </p>
+      <p>
+The exclusive or the parity of all these input bits.        <br/>
+      </p>
+      <p>
+So to compute XOR, the definite left network will be on the order of log N.        <br/>
+      </p>
+      <p>
+We'll just have an XOR tree.        <br/>
+      </p>
+      <p>
+So the number of nodes or the number of circuit components or the number of gates in this network is not that large.        <br/>
+      </p>
+      <p>
+You don't need that many gates in order to compute the exclusive OR.        <br/>
+      </p>
+      <p>
+But now, if you are not allowed to use a neural network with north pole hidden layers with, in this case, order log and hidden layers, if you're forced to compute this function with just one hidden layer, so you have all these things going into, so the hidden units.        <br/>
+      </p>
+      <p>
+And then these things then output Y.        <br/>
+      </p>
+      <p>
+Then in order to compute this XOR function, this hidden layer will need to be exponentially large, because essentially, you need to exhaustively enumerate our 2 to the N possible configurations.        <br/>
+      </p>
+      <p>
+So on the order of 2 to the N, possible configurations of the input bits that result in the exclusive [INAUDIBLE] being either 1 or 0.        <br/>
+      </p>
+      <p>
+So you end up needing a hidden layer that is exponentially large in the number of bits.        <br/>
+      </p>
+      <p>
+I think technically, you could do this with 2 to the N minus 1 hidden units.        <br/>
+      </p>
+      <p>
+But that's the older 2 to the N processes explanation larger the number of bits.        <br/>
+      </p>
+      <p>
+So I hope this gives a sense that there are mathematical functions, that are much easier to compute with deep networks than with shallow networks.        <br/>
+      </p>
+      <p>
+Actually, I personally found the result from circuit theory less useful for gaining intuitions, but just one of the results that people often cite when explaining the value of having very deep representations.        <br/>
+      </p>
+      <p>
+Now, in addition to this reasons for preferring deep neural networks to be roughly on, is I think the other reasons the term deep learning has taken off is just branding.        <br/>
+      </p>
+      <p>
+This things just we call neural networks belong to hidden layers, but the phrase deep learning is just a great brand, it's just so deep.        <br/>
+      </p>
+      <p>
+So I think that once that term caught on that really new networks rebranded or new networks with many hidden layers rebranded, help to capture the popular imagination as well.        <br/>
+      </p>
+      <p>
+They regard as the PR branding deep networks do work well.        <br/>
+      </p>
+      <p>
+Sometimes people go overboard and insist on using tons of hidden layers.        <br/>
+      </p>
+      <p>
+But when I'm starting out a new problem, I'll often really start out with neuro-logistic regression then try something with one or two hidden layers and use that as a hyper parameter.        <br/>
+      </p>
+      <p>
+Use that as a parameter or hyper parameter that you tune in order to try to find the right depth for your neural network.        <br/>
+      </p>
+      <p>
+But over the last several years there has been a trend toward people finding that for some applications, very, very deep neural networks here with maybe many dozens of layers sometimes, can sometimes be the best model for a problem.        <br/>
+      </p>
+      <p>
+So that's it for the intuitions for why deep learning seems to work well.        <br/>
+      </p>
+      <p>
+Let's now take a look at the mechanics of how to implement not just front propagation, but also back propagation.        <br/>
+      </p>
+    </div>
+  </body>
+</html>

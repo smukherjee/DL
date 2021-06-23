@@ -1,0 +1,420 @@
+1
+00:00:00,000 --> 00:00:03,116
+Me ves dibujar algunas imágenes de redes neuronales.
+
+2
+00:00:03,116 --> 00:00:05,712
+En este video, hablaremos sobre 
+exactamente lo que significan esas fotos.
+
+3
+00:00:05,712 --> 00:00:06,728
+De otro modo,
+
+4
+00:00:06,728 --> 00:00:11,235
+exactamente lo que representan esas redes 
+neuronales que hemos estado dibujando.
+
+5
+00:00:11,235 --> 00:00:15,014
+Y empezaremos por centrarnos en 
+ el caso de las redes neuronales con
+
+6
+00:00:15,014 --> 00:00:17,290
+lo que se llamó una sola capa oculta.
+
+7
+00:00:17,290 --> 00:00:19,667
+Aquí hay una foto de una red neuronal.
+
+8
+00:00:19,667 --> 00:00:22,986
+Vamos a darle nombre a algunas partes de esta imagen.
+
+9
+00:00:22,986 --> 00:00:27,447
+Tenemos las características de entrada, x1, 
+ x2, x3 apiladas verticalmente,
+
+10
+00:00:27,447 --> 00:00:30,694
+esto se llama la capa de entrada de la red neuronal.
+
+11
+00:00:30,694 --> 00:00:35,764
+Tal vez no sea sorprendente, esto 
+contiene las entradas a la red neuronal.
+
+12
+00:00:35,764 --> 00:00:37,990
+Luego hay otra capa de círculos,
+
+13
+00:00:37,990 --> 00:00:41,663
+esto se llama una capa 
+oculta de la red neuronal.
+
+14
+00:00:41,663 --> 00:00:45,414
+Regresaré en un segundo para decir
+ lo que significa la palabra oculto.
+
+15
+00:00:45,414 --> 00:00:49,509
+Pero la capa final aquí está formada por
+, en este caso, solo un nodo,
+
+16
+00:00:49,509 --> 00:00:53,894
+y esta capa de un solo nodo se llama 
+la capa de salida, y es responsable de
+
+17
+00:00:53,894 --> 00:00:57,000
+entregar el valor de predicción (ŷ).
+
+18
+00:00:57,000 --> 00:00:59,932
+En una red neuronal que entrenas 
+con aprendizaje supervisado,
+
+19
+00:00:59,932 --> 00:01:05,237
+el conjunto de entrenamiento contiene valores para 
+ entradas "x" así como para las salidas "y".
+
+20
+00:01:05,237 --> 00:01:09,239
+Así que el término "capa oculta" se refiere al 
+hecho de que en el conjunto de entrenamiento,
+
+21
+00:01:09,239 --> 00:01:12,702
+los valores verdaderos para estos 
+nodos en el medio no se observan.
+
+22
+00:01:12,702 --> 00:01:15,280
+Es decir, no ves lo que debería estar
+ en el conjunto de entrenamiento.
+
+23
+00:01:15,280 --> 00:01:16,640
+Ves cuáles son las entrada
+
+24
+00:01:16,640 --> 00:01:18,094
+y ves lo que debería ser salida,
+
+25
+00:01:18,094 --> 00:01:20,992
+pero las cosas en la capa oculta no se
+ ven en el conjunto de entrenamiento.
+
+26
+00:01:20,992 --> 00:01:25,542
+Así que eso explica el termino de
+ capa oculta, por qué tu
+
+27
+00:01:25,542 --> 00:01:27,050
+no lo ves en el set de entrenamiento.
+
+28
+00:01:27,050 --> 00:01:28,400
+Vamos a introducir un poco más de notación.
+
+29
+00:01:28,400 --> 00:01:34,660
+Mientras que anteriormente, estábamos usando 
+el vector "X" para denotar las características de entrada y
+
+30
+00:01:34,660 --> 00:01:36,400
+notación alternativa para
+
+31
+00:01:36,400 --> 00:01:41,680
+los valores de las entradas serán 
+ a[0].
+
+32
+00:01:41,680 --> 00:01:44,934
+El término A también significa 
+ activaciones, y
+
+33
+00:01:44,934 --> 00:01:47,733
+se refiere a los valores 
+que las diferentes capas
+
+34
+00:01:47,733 --> 00:01:51,651
+de la red neuronal están pasando 
+ a las capas posteriores.
+
+35
+00:01:51,651 --> 00:01:55,998
+Así que la capa de entrada pasa 
+ el valor x a la capa oculta, por lo que
+
+36
+00:01:55,998 --> 00:02:01,110
+vamos a llamar a eso activaciones 
+ de la capa de entrada a[0]
+
+37
+00:02:01,110 --> 00:02:05,990
+La siguiente capa, la capa oculta, generará 
+a su vez algún conjunto de activaciones,
+
+38
+00:02:05,990 --> 00:02:09,601
+que voy a escribir como [1].
+
+39
+00:02:09,601 --> 00:02:13,306
+Entonces, en particular, esta
+ primera unidad o este primer nodo,
+
+40
+00:02:13,306 --> 00:02:17,824
+genera un valor a1[1].
+
+41
+00:02:17,824 --> 00:02:20,735
+Este segundo nodo genera un valor.
+
+42
+00:02:20,735 --> 00:02:23,311
+Ahora tenemos un subíndice 2 y así sucesivamente.
+
+43
+00:02:23,311 --> 00:02:26,488
+Y a[1]
+
+44
+00:02:26,488 --> 00:02:30,350
+es un vector de cuatro dimensiones 
+ en Python
+
+45
+00:02:30,350 --> 00:02:34,707
+porque la matriz 4x1, o un vector de 4
+ columnas, tiene este aspecto.
+
+46
+00:02:34,707 --> 00:02:39,205
+este es de cuatro dimensiones, porque 
+en este caso tenemos cuatro nodos, o
+
+47
+00:02:39,205 --> 00:02:43,330
+cuatro unidades, o cuatro unidades
+ ocultas en esta capa oculta.
+
+48
+00:02:43,330 --> 00:02:46,800
+Y finalmente, la capa de salida
+ regenera un valor a[2],
+
+49
+00:02:46,800 --> 00:02:48,440
+que es sólo un número real.
+
+50
+00:02:48,440 --> 00:02:53,100
+Y así, ŷ va a tomar el valor de a[2].
+
+51
+00:02:53,100 --> 00:02:57,950
+Así que esto es análogo a cómo en regresión
+ logística, tenemos "ŷ = a",
+
+52
+00:02:57,950 --> 00:03:02,560
+en regresión logística solo teníamos 
+una capa de salida, por lo que
+
+53
+00:03:02,560 --> 00:03:04,500
+no usamos "[]"
+
+54
+00:03:04,500 --> 00:03:07,916
+pero ahora con nuestra red neuronal, 
+ vamos a utilizar los "[]"
+
+55
+00:03:07,916 --> 00:03:11,653
+para indicar explícitamente 
+la capa de la qué proviene.
+
+56
+00:03:11,653 --> 00:03:15,468
+Algo gracioso acerca de las notaciones 
+en redes neuronales
+
+57
+00:03:15,468 --> 00:03:20,194
+es que esta red que has visto aquí se 
+llama red neuronal de dos capas.
+
+58
+00:03:20,194 --> 00:03:24,360
+Y la razón es que, cuando contamos 
+ capas en redes neuronales,
+
+59
+00:03:24,360 --> 00:03:25,990
+no contamos la capa de entrada.
+
+60
+00:03:25,990 --> 00:03:30,680
+Así que la capa oculta es la capa uno y 
+la capa de salida es la capa dos.
+
+61
+00:03:30,680 --> 00:03:34,700
+En nuestra notación, estamos
+ llamando a la capa de entrada capa cero, por lo que
+
+62
+00:03:34,700 --> 00:03:37,700
+técnicamente quizás hay tres capas 
+en esta red neuronal.
+
+63
+00:03:37,700 --> 00:03:40,260
+Esta la capa de entrada, 
+la capa oculta y la capa de salida.
+
+64
+00:03:40,260 --> 00:03:44,600
+Pero en el uso convencional, si 
+lees documentos de investigación y en otras partes del
+
+65
+00:03:44,600 --> 00:03:48,700
+curso, ves que la gente se refiere a esta 
+red neuronal en particular como una red de dos capas,
+
+66
+00:03:48,700 --> 00:03:52,630
+porque no contamos 
+la capa de entrada como una capa oficial.
+
+67
+00:03:52,630 --> 00:03:55,912
+Finalmente, algo a lo que llegaremos 
+más tarde es que la capa oculta y
+
+68
+00:03:55,912 --> 00:03:59,670
+Las capas de salida tendrán 
+parámetros asociados con ellas.
+
+69
+00:03:59,670 --> 00:04:04,560
+Por lo tanto, la capa oculta tendrá 
+asociados parámetros w y b.
+
+70
+00:04:04,560 --> 00:04:08,218
+Y voy a escribir [1] para indicar que estos
+
+71
+00:04:08,218 --> 00:04:12,395
+son parámetros asociados con 
+la capa uno, con la capa oculta.
+
+72
+00:04:12,395 --> 00:04:15,416
+Más adelante veremos que w será 
+una matriz de (4, 3) y
+
+73
+00:04:15,416 --> 00:04:19,830
+b será un vector de (4, 1) en este ejemplo.
+
+74
+00:04:19,830 --> 00:04:22,750
+Donde la primera coordenada "4"
+ viene del hecho de que tenemos
+
+75
+00:04:22,750 --> 00:04:25,300
+cuatro nodos en nuestras unidades ocultas
+ de una capa, y
+
+76
+00:04:25,300 --> 00:04:28,120
+"3" viene del hecho de que 
+tenemos tres características de entrada.
+
+77
+00:04:28,120 --> 00:04:31,600
+Más adelante hablaremos sobre 
+ las dimensiones de estas matrices.
+
+78
+00:04:31,600 --> 00:04:33,540
+Y podría tener más sentido en ese momento.
+
+79
+00:04:33,540 --> 00:04:37,813
+Pero en algunas de las capas de salida 
+también se asociado con parámetros
+
+80
+00:04:37,813 --> 00:04:42,400
+w[2] y b[2]
+
+81
+00:04:42,400 --> 00:04:45,747
+Y resulta que las dimensiones 
+de estas son (1, 4) y (1,1).
+
+82
+00:04:45,747 --> 00:04:49,297
+Y este (1, 4) se debe a que la capa 
+oculta tiene cuatro unidades ocultas,
+
+83
+00:04:49,297 --> 00:04:51,177
+la capa de salida tiene una sola unidad.
+
+84
+00:04:51,177 --> 00:04:56,378
+Pero veremos la dimensión de estas 
+matrices y vectores en un video posterior
+
+85
+00:04:56,378 --> 00:04:59,839
+Así que acabas de ver cómo es 
+una red neuronal de dos capas.
+
+86
+00:04:59,839 --> 00:05:03,108
+Esta es una red neuronal 
+con una capa oculta.
+
+87
+00:05:03,108 --> 00:05:04,260
+En el siguiente video,
+
+88
+00:05:04,260 --> 00:05:08,513
+profundicemos qué es exactamente lo que esta red neuronal está computando.
+
+89
+00:05:08,513 --> 00:05:11,223
+como esta red neural
+ toma las entradas "x" y
+
+90
+00:05:11,223 --> 00:05:14,169
+va todo el camino 
+calculando la salida ŷ.

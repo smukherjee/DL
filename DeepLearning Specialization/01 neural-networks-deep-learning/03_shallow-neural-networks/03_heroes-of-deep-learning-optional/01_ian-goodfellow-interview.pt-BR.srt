@@ -1,0 +1,1280 @@
+1
+00:00:02,550 --> 00:00:05,830
+Olá Ian, Muito obrigado 
+por juntar-se a nós hoje.
+
+2
+00:00:05,830 --> 00:00:06,860
+Obrigado por me convidar,
+
+3
+00:00:06,860 --> 00:00:08,775
+Andrew. Estou feliz por estar aqui.
+
+4
+00:00:08,775 --> 00:00:11,920
+Hoje, você é um dos pesquisadores de 
+aprendizagem profunda mais conhecidos do mundo.
+
+5
+00:00:11,920 --> 00:00:14,450
+Vamos compartilhar um pouco 
+sobre sua história pessoal.
+
+6
+00:00:14,450 --> 00:00:16,810
+Como você acabou fazendo este 
+trabalho que você faz atualmente?
+
+7
+00:00:16,810 --> 00:00:19,150
+Sim. Parece ótimo.
+
+8
+00:00:19,150 --> 00:00:24,287
+Acho que primeiro me tornei interessado em 
+aprendizado de máquina logo depois 
+de conhecer você, na verdade.
+
+9
+00:00:24,287 --> 00:00:29,705
+Eu estava trabalhando em neurociência 
+e meu orientador, na graduação,
+
+10
+00:00:29,705 --> 00:00:34,600
+Jerry Cain, em Stanford, me encorajou a 
+fazer a sua aula Introdução à Inteligência Artificial.
+
+11
+00:00:34,600 --> 00:00:35,790
+Oh. Eu não sábia disso. Ok.
+
+12
+00:00:35,790 --> 00:00:39,885
+Então, eu sempre pensei 
+que IA era uma boa ideia,
+
+13
+00:00:39,885 --> 00:00:42,590
+mas na prática, a ideia principal, eu acho,
+
+14
+00:00:42,590 --> 00:00:44,483
+que estava acontecendo era IA em jogos,
+
+15
+00:00:44,483 --> 00:00:47,375
+onde pessoas tinham um monte 
+de regras complexas de código para
+
+16
+00:00:47,375 --> 00:00:49,700
+personagens e ambientes nos jogos, tipo
+
+17
+00:00:49,700 --> 00:00:52,085
+linhas de código com scripts diferentes, 
+em pontos distintos no tempo.
+
+18
+00:00:52,085 --> 00:00:56,750
+E então, quando eu fiz a sua aula de 
+Introdução à IA e você explicou tópicos como
+
+19
+00:00:56,750 --> 00:01:02,815
+regressão linear e decomposição da 
+variância do erro da regressão linear,
+
+20
+00:01:02,815 --> 00:01:06,665
+eu comecei a perceber que isso é 
+ciência de verdade e eu poderia realmente
+
+21
+00:01:06,665 --> 00:01:10,970
+ter uma carreira científica em IA, 
+ao invés de neurociência.
+
+22
+00:01:10,970 --> 00:01:12,730
+Entendo. Ótimo. 
+E então o que houve?
+
+23
+00:01:12,730 --> 00:01:15,290
+Bem, eu voltei fiz tutoria 
+do seu curso depois.
+
+24
+00:01:15,290 --> 00:01:17,815
+Oh. Entendo. Certo. Tutor.
+
+25
+00:01:17,815 --> 00:01:22,595
+Então, a mudança radical para mim foi que, 
+enquanto eu estava sendo tutor daquele curso,
+
+26
+00:01:22,595 --> 00:01:23,720
+um dos estudantes,
+
+27
+00:01:23,720 --> 00:01:25,310
+meu amigo Ethan Dreifuss,
+
+28
+00:01:25,310 --> 00:01:28,689
+se interessou pelo artigo de Geoff Hinton 
+sobre Redes de Crenças Profundas.
+
+29
+00:01:28,689 --> 00:01:29,022
+Entendo.
+
+30
+00:01:29,022 --> 00:01:35,660
+E nós dois acabamos construindo uma das 
+primeiras máquinas GPU baseadas em CUDA em
+
+31
+00:01:35,660 --> 00:01:43,280
+Stanford para rodar máquinas de Boltzmann
+no nosso tempo livre nas férias de inverno.
+
+32
+00:01:43,280 --> 00:01:43,817
+Entendo.
+
+33
+00:01:43,817 --> 00:01:46,295
+Naquele momento, eu comecei a ter
+
+34
+00:01:46,295 --> 00:01:50,720
+uma intuição muito forte que aprendizagem 
+profunda era o caminho a percorrer no futuro,
+
+35
+00:01:50,720 --> 00:01:53,660
+que muitos outros algoritmos 
+que eu estava trabalhando,
+
+36
+00:01:53,660 --> 00:01:56,285
+como máquinas de suporte a vetores (SVMs),
+
+37
+00:01:56,285 --> 00:01:58,845
+não pareciam estar 
+indo na direção correta,
+
+38
+00:01:58,845 --> 00:02:01,400
+que você adiciona mais dados de 
+treinamento e eles ficavam mais lentos,
+
+39
+00:02:01,400 --> 00:02:03,476
+ou para a mesma quantidade 
+de dados de treinamento,
+
+40
+00:02:03,476 --> 00:02:08,240
+é difícil melhorar a performance 
+deles alterando outras configurações.
+
+41
+00:02:08,240 --> 00:02:13,065
+Nesse ponto, comecei a focar em 
+aprendizagem profunda o máximo que eu podia.
+
+42
+00:02:13,065 --> 00:02:18,595
+E eu lembrei que um artigo 
+muito antigo de Richard Reyna
+
+43
+00:02:18,595 --> 00:02:21,585
+reconhece você por ter realizado 
+um monte de trabalho pioneiro.
+
+44
+00:02:21,585 --> 00:02:25,850
+Sim. Sim. Foi escrito usando 
+algumas das máquinas que nós fizemos.
+
+45
+00:02:25,850 --> 00:02:26,656
+>> pois é.
+
+46
+00:02:26,656 --> 00:02:30,755
+A primeira máquina que eu construí foi 
+apenas algo que Ethan e eu construímos na
+
+47
+00:02:30,755 --> 00:02:35,120
+casa da mãe de Ethan 
+com nosso próprio dinheiro,
+
+48
+00:02:35,120 --> 00:02:39,835
+e depois, mais tarde, nós usamos recursos 
+de pesquisa para construir os primeiros 
+2 ou 3 laboratórios de Stanford.
+
+49
+00:02:39,835 --> 00:02:42,965
+Uau! Isso é ótimo. Não conhecia 
+esta história. Sensacional!
+
+50
+00:02:42,965 --> 00:02:45,830
+E então, atualmente, uma das
+
+51
+00:02:45,830 --> 00:02:48,365
+coisas que está chacoalhando
+
+52
+00:02:48,365 --> 00:02:51,645
+o mundo da aprendizagem profunda é a sua 
+invenção: GANs (Generative Adversarial 
+Networks - Redes Adversárias Generativas).
+
+53
+00:02:51,645 --> 00:02:54,085
+Como você chegou nisso?
+
+54
+00:02:54,085 --> 00:02:56,885
+Eu venho estudando modelos 
+generativos por muito tempo,
+
+55
+00:02:56,885 --> 00:02:59,000
+e GANs são maneiras de fazer
+
+56
+00:02:59,000 --> 00:03:02,570
+modelagem generativa onde você tem 
+muitos dados de treinamento e você gostaria
+
+57
+00:03:02,570 --> 00:03:08,420
+de aprender a produzir mais exemplos que se 
+assemelham aos dados de treinamento, 
+mas eles são imaginários.
+
+58
+00:03:08,420 --> 00:03:13,265
+Eles nunca foram vistos
+exatamente desta forma.
+
+59
+00:03:13,265 --> 00:03:16,220
+Havia várias outras formas de construir 
+modelos generativos que tinham sido
+
+60
+00:03:16,220 --> 00:03:19,780
+populares por muitos anos 
+antes de eu ter a ideia das GANs.
+
+61
+00:03:19,780 --> 00:03:24,860
+E depois eu trabalhei em todos os outros 
+métodos durante a maior parte do meu Ph.D.,
+
+62
+00:03:24,860 --> 00:03:29,000
+Eu sabia bem as vantagens e desvantagens 
+de todas as outras plataformas, tais como
+
+63
+00:03:29,000 --> 00:03:32,630
+máquinas Boltzmann, 
+codificação esparsa
+
+64
+00:03:32,630 --> 00:03:35,955
+e todas as outras abordagens 
+que foram muito populares por anos.
+
+65
+00:03:35,955 --> 00:03:40,265
+Eu estava procurando algo para evitar 
+todas aquelas desvantagens ao mesmo tempo.
+
+66
+00:03:40,265 --> 00:03:44,110
+E finalmente, quando eu estava discutindo sobre 
+modelos generativos com um amigo em um bar,
+
+67
+00:03:44,110 --> 00:03:45,845
+deu um estalo,
+
+68
+00:03:45,845 --> 00:03:47,540
+e eu comecei a dizer a eles: 
+você precisa fazer isso,
+
+69
+00:03:47,540 --> 00:03:49,510
+isso e mais isso, e eu 
+juro que vai funcionar.
+
+70
+00:03:49,510 --> 00:03:52,890
+E meus amigos não acreditaram 
+que aquilo ia funcionar,
+
+71
+00:03:52,890 --> 00:03:55,410
+eu deveria ter escrito um livro de 
+aprendizagem profunda naquele momento,
+
+72
+00:03:55,410 --> 00:03:55,790
+Entendo.
+
+73
+00:03:55,790 --> 00:03:57,620
+Mas eu acreditava tanto 
+que iria funcionar, que fui
+
+74
+00:03:57,620 --> 00:03:59,870
+para casa e escrevi todo o código 
+na mesma noite e funcionou.
+
+75
+00:03:59,870 --> 00:04:02,920
+Então, você levou uma noite para 
+implementar a primeira versão da GANs?
+
+76
+00:04:02,920 --> 00:04:06,050
+Eu implementei ela mais 
+ou menos à meia-noite
+
+77
+00:04:06,050 --> 00:04:09,530
+depois de ir para casa do bar onde 
+meu amigo teve a sua festa de despedida.
+
+78
+00:04:09,530 --> 00:04:10,086
+Entendo.
+
+79
+00:04:10,086 --> 00:04:11,784
+E a primeira versão funcionou,
+
+80
+00:04:11,784 --> 00:04:13,275
+o que é uma felicidade 
+muito grande.
+
+81
+00:04:13,275 --> 00:04:15,825
+Eu não tive que procurar por 
+hiperparâmetros ou algo do tipo.
+
+82
+00:04:15,825 --> 00:04:17,840
+Havia uma história, eu 
+li em algum lugar,
+
+83
+00:04:17,840 --> 00:04:21,851
+onde você teve uma experiência de quase morrer 
+e que reafirmou o seu comprometimento com IA.
+
+84
+00:04:21,851 --> 00:04:24,160
+Me conta esta história.
+
+85
+00:04:24,160 --> 00:04:30,215
+Então, eu não estava morrendo, mas 
+eu brevemente pensei que eu estivesse.
+
+86
+00:04:30,215 --> 00:04:33,170
+Eu tive uma dor de 
+cabeça muito forte e alguns
+
+87
+00:04:33,170 --> 00:04:37,571
+dos médicos acharam que eu pudesse 
+estar tendo uma hemorragia cerebral.
+
+88
+00:04:37,571 --> 00:04:39,740
+E durante o tempo em 
+que eu estava esperando pelos
+
+89
+00:04:39,740 --> 00:04:43,180
+resultados do exame de ressonância magnética para descobrir
+se estava tendo uma hemorragia cerebral ou não,
+
+90
+00:04:43,180 --> 00:04:47,810
+eu percebi que a maioria das coisas 
+que eu pensava, era se outras pessoas
+
+91
+00:04:47,810 --> 00:04:49,910
+iriam eventualmente testar
+
+92
+00:04:49,910 --> 00:04:52,750
+as ideias de pesquisa que eu tinha na época.
+
+93
+00:04:52,750 --> 00:04:53,224
+Entendo.
+
+94
+00:04:53,224 --> 00:04:55,820
+De forma geral, eram 
+ideias bobas de pesquisa.
+
+95
+00:04:55,820 --> 00:04:56,553
+Entendo.
+
+96
+00:04:56,553 --> 00:04:58,700
+Mas naquele momento,
+
+97
+00:04:58,700 --> 00:05:02,325
+eu percebi, na verdade, 
+uma das minhas maiores prioridades na vida,
+
+98
+00:05:02,325 --> 00:05:05,780
+era continuar meu trabalho 
+de pesquisa em aprendizagem de máquina.
+
+99
+00:05:05,780 --> 00:05:07,910
+Entendo. Sim. Muito legal,
+
+100
+00:05:07,910 --> 00:05:10,055
+que quando você pensou 
+que pudesse estar morrendo,
+
+101
+00:05:10,055 --> 00:05:12,265
+você só estava pensando 
+como concluir a pesquisa.
+
+102
+00:05:12,265 --> 00:05:12,649
+>> pois é.
+
+103
+00:05:12,649 --> 00:05:15,690
+Sim. Isso é compromisso.
+
+104
+00:05:15,690 --> 00:05:17,850
+>> pois é.
+
+105
+00:05:17,850 --> 00:05:21,808
+Sim. Sim. Atualmente, você ainda está 
+no centro de muitas atividades com GANs,
+
+106
+00:05:21,808 --> 00:05:24,560
+com Redes Adversárias Generativas.
+
+107
+00:05:24,560 --> 00:05:27,710
+Diga-me como você 
+vê o futuro da GANs.
+
+108
+00:05:27,710 --> 00:05:32,930
+No momento, GANs são usadas para um monte 
+de coisas, como aprendizado semi-supervisionado,
+
+109
+00:05:32,930 --> 00:05:39,185
+geração de dados de treinamento para outros 
+modelos e até simulando experimentos científicos.
+
+110
+00:05:39,185 --> 00:05:43,850
+Em princípio, todas estas coisas poderiam ser 
+feitas por outros tipos de modelos generativos.
+
+111
+00:05:43,850 --> 00:05:47,695
+Então, eu acho que GANs estão em uma 
+encruzilhada importante neste momento.
+
+112
+00:05:47,695 --> 00:05:50,210
+No momento, elas funcionam 
+bem algumas vezes,
+
+113
+00:05:50,210 --> 00:05:55,890
+mas pode ser mais uma questão de arte 
+do que de ciência, você realmente conseguir 
+extrair uma ótima performance delas.
+
+114
+00:05:55,890 --> 00:05:59,870
+É mais ou menos como as pessoas pensavam 
+sobre aprendizagem profunda há 10 anos.
+
+115
+00:05:59,870 --> 00:06:01,430
+E naquela época, nós usávamos
+
+116
+00:06:01,430 --> 00:06:05,330
+redes de crenças profundas com máquinas 
+Boltzmann como blocos de construção,
+
+117
+00:06:05,330 --> 00:06:07,420
+e elas eram muito particulares.
+
+118
+00:06:07,420 --> 00:06:11,945
+Com o tempo, passamos a usar 
+coisas tipo unidades lineares 
+retificadas e normalização por lote,
+
+119
+00:06:11,945 --> 00:06:14,635
+e aprendizagem profunda 
+tornou-se muito mais confiável.
+
+120
+00:06:14,635 --> 00:06:18,470
+Se conseguirmos tornar GANs tão confiável 
+quanto aprendizagem profunda se tornou,
+
+121
+00:06:18,470 --> 00:06:20,840
+então penso que nós vamos 
+continuar vendo GANs sendo usada em
+
+122
+00:06:20,840 --> 00:06:24,110
+todos os lugares que elas são 
+usadas atualmente, com muito mais sucesso.
+
+123
+00:06:24,110 --> 00:06:29,060
+Se não conseguirmos descobrir 
+como estabilizar as GANs,
+
+124
+00:06:29,060 --> 00:06:32,960
+então eu penso que sua maior contribuição 
+para a história da aprendizagem profunda é
+
+125
+00:06:32,960 --> 00:06:35,060
+que elas terão mostrado 
+às pessoas como
+
+126
+00:06:35,060 --> 00:06:37,590
+fazer todas estas tarefas que 
+envolvem modelagem generativa,
+
+127
+00:06:37,590 --> 00:06:41,505
+e eventualmente, nós substituiremos 
+elas com outras formas de modelo generativo.
+
+128
+00:06:41,505 --> 00:06:47,870
+Então, atualmente passo talvez 40% do meu 
+tempo trabalhando na estabilização das GANs.
+
+129
+00:06:47,870 --> 00:06:50,780
+Entendo. Legal. Então, da mesma 
+forma que muitas pessoas
+
+130
+00:06:50,780 --> 00:06:53,765
+que entraram no campo de aprendizagem 
+profunda há 10 anos, como você,
+
+131
+00:06:53,765 --> 00:06:54,963
+acabaram sendo pioneiros,
+
+132
+00:06:54,963 --> 00:06:57,360
+talvez as pessoas que entrem 
+no campo das GANs hoje,
+
+133
+00:06:57,360 --> 00:07:00,120
+se funcionar, poderiam 
+se tornar pioneiros.
+
+134
+00:07:00,120 --> 00:07:04,220
+Sim. Muitas pessoas já 
+são pioneiras das GANs,
+
+135
+00:07:04,220 --> 00:07:09,105
+e penso que se você quiser traçar 
+um histórico das GANs até o momento,
+
+136
+00:07:09,105 --> 00:07:12,740
+você realmente teria que mencionar 
+outros grupos como Indico,
+
+137
+00:07:12,740 --> 00:07:17,280
+Facebook e Berkeley por todas 
+as coisas que eles fizeram.
+
+138
+00:07:17,280 --> 00:07:19,735
+Então, além de toda a sua pesquisa,
+
+139
+00:07:19,735 --> 00:07:24,300
+você também foi co-autor de um livro sobre 
+aprendizagem profunda. Como está indo?
+
+140
+00:07:24,300 --> 00:07:26,897
+Isso mesmo, com Yoshua Bengio 
+e Aaron Courville,
+
+141
+00:07:26,897 --> 00:07:29,900
+que são meus co-orientadores do Ph.D.
+
+142
+00:07:29,900 --> 00:07:35,465
+Nós escrevemos o primeiro livro texto sobre 
+a versão moderna de aprendizagem profunda,
+
+143
+00:07:35,465 --> 00:07:38,615
+e tem sido muito popular,
+
+144
+00:07:38,615 --> 00:07:42,920
+tanto na versão em inglês, 
+quanto na versão em chinês.
+
+145
+00:07:42,920 --> 00:07:48,915
+Nós vendemos, acho que um total de 
+70.000 cópias, considerando os dois idiomas.
+
+146
+00:07:48,915 --> 00:07:54,730
+E recebi muito feedback de estudantes que 
+disseram que aprenderam bastante através dele.
+
+147
+00:07:54,730 --> 00:07:58,940
+Uma coisa que nós fizemos um pouco diferente 
+de outros livros é que nós começamos com
+
+148
+00:07:58,940 --> 00:08:03,905
+uma introdução muito focada no tipo de 
+matemática que você precisa quando 
+desenvolve aprendizagem profunda.
+
+149
+00:08:03,905 --> 00:08:07,670
+Penso que uma coisa que 
+aprendi nos seus cursos em Stanford é
+
+150
+00:08:07,670 --> 00:08:11,570
+que Álgebra Linear e Probabilidade 
+são muito importantes,
+
+151
+00:08:11,570 --> 00:08:15,230
+que as pessoas ficam entusiasmados com 
+os algoritmos de aprendizagem de máquina,
+
+152
+00:08:15,230 --> 00:08:18,500
+mas se você quer ser um 
+profissional realmente excelente,
+
+153
+00:08:18,500 --> 00:08:26,055
+você precisa, primeiramente, dominar 
+a matemática básica que está 
+por trás de todo o conceito.
+
+154
+00:08:26,055 --> 00:08:27,290
+Então, nos asseguramos em dar
+
+155
+00:08:27,290 --> 00:08:31,345
+uma apresentação bem detalhada 
+da matemática básica no início do livro.
+
+156
+00:08:31,345 --> 00:08:34,153
+Assim, você não precisa 
+aprender toda a Álgebra Linear,
+
+157
+00:08:34,153 --> 00:08:35,900
+você pode obter,
+
+158
+00:08:35,900 --> 00:08:37,770
+um curso rápido das partes
+
+159
+00:08:37,770 --> 00:08:40,540
+de Álgebra Linear que são as mais 
+úteis para aprendizagem profunda.
+
+160
+00:08:40,540 --> 00:08:44,660
+Então, mesmo que alguém não domine muito 
+matemática ou não estuda matemática há
+
+161
+00:08:44,660 --> 00:08:47,000
+alguns anos, poderá começar 
+pelo início do seu livro e
+
+162
+00:08:47,000 --> 00:08:49,790
+ter os princípios de matemática e 
+depois ir para a aprendizagem profunda.
+
+163
+00:08:49,790 --> 00:08:52,175
+Todos os fatos que você 
+precisaria saber estão lá.
+
+164
+00:08:52,175 --> 00:08:59,520
+Definitivamente é preciso um esforço 
+para praticar e aprender a usar a matemática.
+
+165
+00:08:59,520 --> 00:08:59,684
+>> pois é. >> pois é. Ótimo.
+
+166
+00:08:59,684 --> 00:09:01,370
+Se alguém tem muito 
+medo de matemática,
+
+167
+00:09:01,370 --> 00:09:03,700
+poderá ser uma experiência 
+um pouco dolorosa.
+
+168
+00:09:03,700 --> 00:09:08,323
+Mas se você está pronto para a experiência 
+de aprendizado e você acredita que 
+pode dominar o conteúdo,
+
+169
+00:09:08,323 --> 00:09:11,360
+penso que todas as ferramentas 
+que você precisa estão lá.
+
+170
+00:09:11,360 --> 00:09:15,470
+Como alguém que trabalha em 
+aprendizagem profunda há muito tempo,
+
+171
+00:09:15,470 --> 00:09:18,710
+tenho curiosidade de saber, se você 
+olhasse para trás ao longo desses anos,
+
+172
+00:09:18,710 --> 00:09:21,050
+diga-me um pouco como você acha que
+
+173
+00:09:21,050 --> 00:09:24,650
+IA e aprendizagem profunda 
+evoluíram ao longo dos anos.
+
+174
+00:09:24,650 --> 00:09:28,595
+Há dez anos, eu sentia que, 
+como uma comunidade,
+
+175
+00:09:28,595 --> 00:09:31,580
+o maior desafio do aprendizado 
+de máquina era apenas como
+
+176
+00:09:31,580 --> 00:09:34,715
+fazer funcionar as tarefas 
+relacionadas à IA.
+
+177
+00:09:34,715 --> 00:09:39,440
+Nós tínhamos ferramentas muito boas 
+que usávamos para tarefas mais simples,
+
+178
+00:09:39,440 --> 00:09:44,555
+onde queríamos reconhecer padrões 
+em como extrair características,
+
+179
+00:09:44,555 --> 00:09:47,000
+onde um designer poderia 
+fazer a maior parte do
+
+180
+00:09:47,000 --> 00:09:51,965
+trabalho criando estas características 
+e depois entregando ao computador.
+
+181
+00:09:51,965 --> 00:09:54,170
+Agora, isso foi muito bom 
+para coisas diferentes tipo
+
+182
+00:09:54,170 --> 00:09:56,750
+prever quais anúncios 
+um usuário iria clicar,
+
+183
+00:09:56,750 --> 00:10:01,895
+ou diferentes tipos de 
+análises científicas básicas.
+
+184
+00:10:01,895 --> 00:10:07,505
+Mas nós tínhamos muita dificuldade para 
+fazer qualquer coisa que envolvesse 
+milhões de pixels em uma imagem ou
+
+185
+00:10:07,505 --> 00:10:10,150
+ou uma onda de áudio onde
+
+186
+00:10:10,150 --> 00:10:13,950
+o sistema tinha que construir todo 
+o seu aprendizado do zero.
+
+187
+00:10:13,950 --> 00:10:18,880
+Finalmente, superamos este obstáculo 
+completamente, talvez há cinco anos.
+
+188
+00:10:18,880 --> 00:10:22,180
+E agora, estamos em um ponto onde há
+
+189
+00:10:22,180 --> 00:10:26,268
+tanto caminhos abertos que, alguém 
+que queira se envolver com IA,
+
+190
+00:10:26,268 --> 00:10:31,060
+tenha como maior problema, a escolha 
+de qual desses caminhos a seguir.
+
+191
+00:10:31,060 --> 00:10:35,500
+Você quer fazer aprendizagem por reforço, 
+bem como aprendizagem supervisionada?
+
+192
+00:10:35,500 --> 00:10:40,410
+Você quer fazer aprendizagem 
+não supervisionada ao mesmo tempo 
+que faz aprendizagem supervisionada?
+
+193
+00:10:40,410 --> 00:10:44,333
+Você quer ter certeza que os algoritmos de 
+aprendizagem de máquina são justos
+
+194
+00:10:44,333 --> 00:10:48,460
+e não refletem esteriótipos 
+que nós preferiríamos evitar?
+
+195
+00:10:48,460 --> 00:10:54,565
+Você quer ter certeza que as questões 
+sociais que envolvem IA funcionem bem,
+
+196
+00:10:54,565 --> 00:10:58,535
+e que tenhamos certeza 
+que IA beneficia a todos
+
+197
+00:10:58,535 --> 00:11:03,440
+ao invés de causar um problema social 
+que cause a perda de postos de trabalho?
+
+198
+00:11:03,440 --> 00:11:04,600
+Eu acho que agora,
+
+199
+00:11:04,600 --> 00:11:08,025
+há realmente uma quantidade incrível de 
+coisas diferentes que podem ser feitas,
+
+200
+00:11:08,025 --> 00:11:11,380
+tanto para prevenir problemas causados 
+pela IA, mas também para garantir
+
+201
+00:11:11,380 --> 00:11:14,965
+que podemos aproveitar todas as 
+vantagens que ela nos oferece.
+
+202
+00:11:14,965 --> 00:11:19,800
+E então, hoje existem muitas 
+pessoas querendo aprender IA.
+
+203
+00:11:19,800 --> 00:11:23,285
+Qual dica você daria 
+para essas pessoas?
+
+204
+00:11:23,285 --> 00:11:26,950
+Eu penso que muitas pessoas 
+querem iniciar em IA pensando que
+
+205
+00:11:26,950 --> 00:11:32,200
+eles precisam ter necessariamente um 
+Ph.D. ou algum tipo de credencial desse tipo.
+
+206
+00:11:32,200 --> 00:11:35,155
+Eu penso que isso já 
+não é mais uma exigência.
+
+207
+00:11:35,155 --> 00:11:40,285
+Uma forma em que você consegue ser notado 
+é escrever bons códigos e publicá-los no GitHub.
+
+208
+00:11:40,285 --> 00:11:43,380
+Se você tem um projeto 
+interessante que soluciona
+
+209
+00:11:43,380 --> 00:11:47,320
+um problema que experts 
+estejam querendo resolver,
+
+210
+00:11:47,320 --> 00:11:49,840
+uma vez que eles encontrem 
+o seu repositório no GitHub,
+
+211
+00:11:49,840 --> 00:11:53,450
+eles irão encontrá-lo e 
+convidá-lo a trabalhar com eles.
+
+212
+00:11:53,450 --> 00:11:56,140
+Muitas pessoas que 
+eu contratei ou
+
+213
+00:11:56,140 --> 00:12:00,010
+foram recrutadas na OpenAI no ano 
+passado ou na Google este ano,
+
+214
+00:12:00,010 --> 00:12:02,755
+eu inicialmente fiquei interessado 
+em trabalhar com eles por causa
+
+215
+00:12:02,755 --> 00:12:06,895
+de algo que eu vi que eles fizeram 
+em um fórum aberto na Internet.
+
+216
+00:12:06,895 --> 00:12:11,275
+Escrever artigos e colocá-los no 
+Archive também pode ser bacana.
+
+217
+00:12:11,275 --> 00:12:12,745
+Muitas vezes,
+
+218
+00:12:12,745 --> 00:12:16,750
+é mais difícil alcançar um ponto onde 
+você tenha algo suficiente lapidado para tornar-se
+
+219
+00:12:16,750 --> 00:12:20,860
+uma nova contribuição acadêmica 
+para a literatura científica,
+
+220
+00:12:20,860 --> 00:12:27,885
+mas você pode, muitas vezes, chegar ao 
+ponto de obter um software útil muito mais cedo.
+
+221
+00:12:27,885 --> 00:12:30,022
+Então, leia o seu livro,
+
+222
+00:12:30,022 --> 00:12:33,930
+pratique os materiais e publique 
+no GitHub e, talvez, no Archive.
+
+223
+00:12:33,930 --> 00:12:36,100
+Penso que se você 
+aprendeu lendo o livro,
+
+224
+00:12:36,100 --> 00:12:39,454
+é muito importante também trabalhar 
+em um projeto ao mesmo tempo,
+
+225
+00:12:39,454 --> 00:12:42,730
+para escolher uma forma de
+
+226
+00:12:42,730 --> 00:12:46,555
+aplicar aprendizagem de máquina em 
+uma área em que você já esteja interessado.
+
+227
+00:12:46,555 --> 00:12:50,500
+Tipo, se você é um biólogo de campo 
+e quer entrar em aprendizagem de máquina,
+
+228
+00:12:50,500 --> 00:12:53,255
+talvez você pode utilizá-la 
+para identificar pássaros,
+
+229
+00:12:53,255 --> 00:12:56,905
+ou se você não tem ideia de como você gostaria 
+de usar aprendizagem de máquina em sua vida,
+
+230
+00:12:56,905 --> 00:13:01,600
+você poderia pegar algo como fazer um 
+classificador de números de casa do Street View,
+
+231
+00:13:01,600 --> 00:13:05,580
+onde todos os conjuntos de dados estão 
+configurados para simplificar o trabalho para você.
+
+232
+00:13:05,580 --> 00:13:07,330
+E assim, você consegue 
+exercitar todas as
+
+233
+00:13:07,330 --> 00:13:09,700
+habilidades básicas enquanto 
+você lê o livro, ou enquanto
+
+234
+00:13:09,700 --> 00:13:14,105
+você vê vídeos no Coursera 
+que explicam as teorias para você.
+
+235
+00:13:14,105 --> 00:13:15,670
+Então, ao longo dos últimos anos,
+
+236
+00:13:15,670 --> 00:13:20,045
+eu também vi você fazer um 
+trabalho sobre "exemplos contraditórios".
+
+237
+00:13:20,045 --> 00:13:21,535
+Conte-nos um pouco sobre isto.
+
+238
+00:13:21,535 --> 00:13:24,490
+Sim. Penso que 
+exemplos contraditórios são
+
+239
+00:13:24,490 --> 00:13:29,835
+o início de um novo campo que eu denomino 
+segurança em aprendizagem de máquina.
+
+240
+00:13:29,835 --> 00:13:33,250
+No passado, vimos problemas 
+de segurança em computação,
+
+241
+00:13:33,250 --> 00:13:38,275
+onde hackers conseguiam induzir um 
+computador a executar um código errado.
+
+242
+00:13:38,275 --> 00:13:40,890
+Isso chama-se segurança 
+em nível de aplicação.
+
+243
+00:13:40,890 --> 00:13:46,300
+E tem havido ataques onde pessoas 
+conseguem enganar os computadores a acreditar
+
+244
+00:13:46,300 --> 00:13:52,545
+que mensagens na rede vêm de pessoas que 
+na verdade não são de quem eles dizem ser.
+
+245
+00:13:52,545 --> 00:13:55,025
+Isso chama-se de segurança em nível de rede.
+
+246
+00:13:55,025 --> 00:13:57,230
+Agora, estamos começando a ver 
+que também consegue-se enganar
+
+247
+00:13:57,230 --> 00:13:59,920
+algoritmos de aprendizagem de máquina 
+a fazer coisas que eles não deveriam,
+
+248
+00:13:59,920 --> 00:14:06,010
+mesmo se o programa que esteja 
+executando o algoritmo de aprendizagem de 
+máquina esteja rodando o código correto,
+
+249
+00:14:06,010 --> 00:14:07,960
+mesmo se o programa executando
+
+250
+00:14:07,960 --> 00:14:10,025
+algoritmo de aprendizagem 
+de máquina saiba
+
+251
+00:14:10,025 --> 00:14:13,605
+de onde, realmente, as mensagens na rede estejam vindo.
+
+252
+00:14:13,605 --> 00:14:17,050
+E eu acho que é importante 
+criar segurança
+
+253
+00:14:17,050 --> 00:14:20,830
+em uma nova tecnologia próximo 
+do início de seu desenvolvimento.
+
+254
+00:14:20,830 --> 00:14:27,065
+Nós achamos que é muito difícil criar um 
+sistema primeiro e adicionar segurança depois.
+
+255
+00:14:27,065 --> 00:14:30,640
+Então, estou muito 
+entusiasmado com a ideia que, se
+
+256
+00:14:30,640 --> 00:14:34,705
+nós mergulharmos e antevermos 
+os problemas de segurança agora,
+
+257
+00:14:34,705 --> 00:14:37,600
+nos asseguraremos que estes 
+algoritmos estão seguros desde
+
+258
+00:14:37,600 --> 00:14:41,650
+o início, ao invés de tentar consertá-los 
+retroativamente anos depois.
+
+259
+00:14:41,650 --> 00:14:43,111
+Muito obrigado. 
+Isso foi ótimo.
+
+260
+00:14:43,111 --> 00:14:46,090
+Há muito sobre sua história 
+que eu acho fascinante e que,
+
+261
+00:14:46,090 --> 00:14:47,470
+apesar de conhecê-lo por anos,
+
+262
+00:14:47,470 --> 00:14:49,935
+eu não conhecia. Obrigado 
+por compartilhar tudo isso.
+
+263
+00:14:49,935 --> 00:14:53,090
+Oh, de nada. Obrigado por me 
+convidar. Foi um papo muito legal.
+
+264
+00:14:53,090 --> 00:14:53,630
+OK.
+Obrigado.
+
+265
+00:14:53,630 --> 00:14:55,010
+Por nada. 
+[Tradução: Renato Barata Gomes 
+Revisão: Carlos Lage]

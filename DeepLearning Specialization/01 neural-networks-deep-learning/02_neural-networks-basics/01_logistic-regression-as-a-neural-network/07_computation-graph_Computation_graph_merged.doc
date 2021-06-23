@@ -1,0 +1,170 @@
+<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:w10="urn:schemas-microsoft-com:office:word" xmlns:m="http://schemas.microsoft.com/office/omml/2004/12/core" xmlns:ve="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:o12="http://schemas.microsoft.com/office/2004/7/core" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:wp="http://schemas.openxmlformats.org/drawingml/2006/3/wordprocessingDrawing" xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/3/main" xmlns="http://www.w3.org/TR/REC-html40">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <head>
+    <style>style</style>
+  </head>
+  <body>
+    <div class="Section1">
+      <p>
+        <b>
+          <u>
+            <span style="font-size:20.0pt">Computation graph</span>
+          </u>
+        </b>
+      </p>
+      <p>
+(SPEECH)        <br/>
+You've        <br/>
+      </p>
+      <p>
+(DESCRIPTION)        <br/>
+Text, deep learning dot AI. Basics of neural network programming. Computation graph        <br/>
+      </p>
+      <p>
+(SPEECH)        <br/>
+heard me say that the computations of a neural network are organized in terms of a forward pass or a forward propagation step, in which we compute the output of the neural network, followed by a backward pass or back propagation step, which we use to compute gradients or compute derivatives.        <br/>
+      </p>
+      <p>
+The computation graph explains why it is organized this way.        <br/>
+      </p>
+      <p>
+In this video, we'll go through an example.        <br/>
+      </p>
+      <p>
+In order to illustrate the computation graph, let's use a simpler example than logistic regression or a full blown neural network.        <br/>
+      </p>
+      <p>
+Let's say that we're trying to compute a function, J, which is a function of three variables a, b, and c and let's say that function is 3(a+bc).        <br/>
+      </p>
+      <p>
+Computing this function actually has three distinct steps.        <br/>
+      </p>
+      <p>
+The first is you need to compute what is bc and let's say we store that in the variable call u.        <br/>
+      </p>
+      <p>
+So u=bc and then you my compute V=a *u.        <br/>
+      </p>
+      <p>
+So        <br/>
+      </p>
+      <p>
+(DESCRIPTION)        <br/>
+Text, the audio for v's formula is incorrect. v equals A plus u is correct        <br/>
+      </p>
+      <p>
+(SPEECH)        <br/>
+let's say this is V. And then finally, your output J is 3V.        <br/>
+      </p>
+      <p>
+(DESCRIPTION)        <br/>
+Using brackets to break the formula for J into three substeps, where the innermost computation for u is done first, then the computation for v depending on u, then the computation for J depending on v        <br/>
+      </p>
+      <p>
+(SPEECH)        <br/>
+So this is your final function J that you're trying to compute.        <br/>
+      </p>
+      <p>
+We can take these three steps and draw them in a computation graph as follows.        <br/>
+      </p>
+      <p>
+Let's say, I draw your three variables a, b, and c here.        <br/>
+      </p>
+      <p>
+So        <br/>
+      </p>
+      <p>
+(DESCRIPTION)        <br/>
+Three rows, one for each input variable, on the left        <br/>
+      </p>
+      <p>
+(SPEECH)        <br/>
+the first thing we did was compute u=bc.        <br/>
+      </p>
+      <p>
+So I'm going to put a rectangular box around that.        <br/>
+      </p>
+      <p>
+And so the input to that are b and c. And        <br/>
+      </p>
+      <p>
+(DESCRIPTION)        <br/>
+Drawing arrows from b and c rightward to the boxed formula for u which depends on their values        <br/>
+      </p>
+      <p>
+(SPEECH)        <br/>
+then, you might have V=a+u.        <br/>
+      </p>
+      <p>
+(DESCRIPTION)        <br/>
+Another boxed formula        <br/>
+      </p>
+      <p>
+(SPEECH)        <br/>
+So the inputs to that are V. So the inputs to that are u with just computed together with a.        <br/>
+      </p>
+      <p>
+(DESCRIPTION)        <br/>
+Drawing arrows from A and the first boxed formula, to the second boxed formula        <br/>
+      </p>
+      <p>
+(SPEECH)        <br/>
+And then finally, we have J=3V.        <br/>
+      </p>
+      <p>
+(DESCRIPTION)        <br/>
+Third boxed formula. Drawing just one arrow from the second boxed formula to the third        <br/>
+      </p>
+      <p>
+(SPEECH)        <br/>
+So as a concrete example, if a=5, b=3 and c=2 then u=bc would be six because a+u would be 5+6 is 11, J is three times that, so J=33.        <br/>
+      </p>
+      <p>
+And        <br/>
+      </p>
+      <p>
+(DESCRIPTION)        <br/>
+Adding these values to the input variables, then successively computing the values of the boxed formulas which depend on those values        <br/>
+      </p>
+      <p>
+(SPEECH)        <br/>
+indeed, hopefully you can verify that this is three times five plus three times two.        <br/>
+      </p>
+      <p>
+And if you expand that out, you actually get 33 as the value of J.        <br/>
+      </p>
+      <p>
+So, the computation graph comes in handy when there is some distinguished or some special output variable, such as J in this case, that you want to optimize.        <br/>
+      </p>
+      <p>
+And in the case of a logistic regression, J is of course the cos function that we're trying to minimize.        <br/>
+      </p>
+      <p>
+And what we're seeing in this little example is that, through a left-to-right pass, you can compute the value of J.        <br/>
+      </p>
+      <p>
+And        <br/>
+      </p>
+      <p>
+(DESCRIPTION)        <br/>
+Drawing arrows in the opposite direction, right to left, from the output box to the input variables        <br/>
+      </p>
+      <p>
+(SPEECH)        <br/>
+what we'll see in the next couple of slides is that in order to compute derivatives, there'll be a right-to-left pass like this, kind of going in the opposite direction as the blue arrows.        <br/>
+      </p>
+      <p>
+That would be most natural for computing the derivatives.        <br/>
+      </p>
+      <p>
+So to recap, the computation graph organizes a computation with this blue arrow, left-to-right computation.        <br/>
+      </p>
+      <p>
+Let's refer to the next video how you can do the backward red arrow right-to-left computation of the derivatives.        <br/>
+      </p>
+      <p>
+Let's go on to the next video.        <br/>
+      </p>
+    </div>
+  </body>
+</html>

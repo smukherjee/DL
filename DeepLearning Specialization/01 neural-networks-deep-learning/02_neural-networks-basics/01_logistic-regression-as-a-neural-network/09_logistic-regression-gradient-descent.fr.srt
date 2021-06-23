@@ -1,0 +1,509 @@
+1
+00:00:00,000 --> 00:00:02,250
+Bon retour parmi nous.Dans cette vidéo,
+
+2
+00:00:02,250 --> 00:00:04,980
+Nous allons voir comment
+ calculer les dérivées pour
+
+3
+00:00:04,980 --> 00:00:08,330
+implémenter la descente de gradient 
+pour la régression logistique.
+
+4
+00:00:08,330 --> 00:00:11,040
+Ce qu'il faut vraiment retenir,
+ c'est ce que vous devrez implémenter.
+
+5
+00:00:11,040 --> 00:00:13,230
+c'est à dire, les équations clés, 
+dont vous avez besoin pour
+
+6
+00:00:13,230 --> 00:00:17,725
+implémenter la descente de gradient 
+pour la régression logistique.
+
+7
+00:00:17,725 --> 00:00:22,185
+Dans cette vidéo, je veux faire le calcul
+ en utilisant le graphe de calculs.
+
+8
+00:00:22,185 --> 00:00:25,320
+Je dois l'admettre, utiliser le graphe de calculs
+ est un peu exagéré
+
+9
+00:00:25,320 --> 00:00:29,342
+pour le calcul de la descente de gradient
+ pour la régression logistique,
+
+10
+00:00:29,342 --> 00:00:31,183
+mais je veux commencer à expliquer
+ les choses comme cela
+
+11
+00:00:31,183 --> 00:00:33,975
+pour vous familiariser avec ces idées pour que,
+
+12
+00:00:33,975 --> 00:00:38,370
+j'espère, ce soit un peu plus facile quand on
+ parlera de réseaux de neurones à part entière.
+
+13
+00:00:38,370 --> 00:00:44,235
+Maintenant, nous allons plonger dans la descente
+ de gradient pour la régression logistique.
+
+14
+00:00:44,235 --> 00:00:49,070
+Pour rappel, nous avions mis en place
+ la régression logistique comme ceci,
+
+15
+00:00:49,070 --> 00:00:53,220
+votre prédiction, y chapeau, 
+est définie comme ceci,
+
+16
+00:00:53,220 --> 00:00:56,490
+où z est cela
+
+17
+00:00:56,490 --> 00:01:01,800
+et si nous nous concentrons sur un seul exemple
+ pour l’instant, alors la perte,
+
+18
+00:01:01,800 --> 00:01:03,630
+par rapport à cet exemple,
+
+19
+00:01:03,630 --> 00:01:05,190
+est définie comme ceci,
+
+20
+00:01:05,190 --> 00:01:07,855
+où a est le résultat de 
+la régression logistique,
+
+21
+00:01:07,855 --> 00:01:10,535
+et y est l'étiquette qui contient la vérité.
+
+22
+00:01:10,535 --> 00:01:15,735
+Nous allons écrire cela sous forme de
+ graphe de calculs et pour cet exemple,
+
+23
+00:01:15,735 --> 00:01:20,520
+disons que nous avons seulement 
+deux caractéristiques, x1 et x2.
+
+24
+00:01:20,520 --> 00:01:22,860
+Pour calculer z,
+
+25
+00:01:22,860 --> 00:01:27,030
+nous aurons besoin en entrée de w1,
+
+26
+00:01:27,030 --> 00:01:31,130
+w2 et b, en plus des valeurs 
+des caractéristiques x1, x2.
+
+27
+00:01:31,130 --> 00:01:33,705
+Ces choses, dans un graphe de calculs,
+
+28
+00:01:33,705 --> 00:01:36,910
+sont utilisées pour calculer z, qui vaut
+
+29
+00:01:36,910 --> 00:01:41,588
+w1*x1 + w2*x2 + b,
+
+30
+00:01:41,588 --> 00:01:45,380
+je vais dessiner une boîte
+ rectangulaire autour de cela.
+
+31
+00:01:45,380 --> 00:01:48,555
+Ensuite, nous calculons y chapeau,
+
+32
+00:01:48,555 --> 00:01:52,244
+ou a = sigma(z),
+
+33
+00:01:52,244 --> 00:01:55,740
+C’est l'étape suivante dans
+ le graphe de calculs, puis, enfin,
+
+34
+00:01:55,740 --> 00:01:58,725
+nous calculons L(a, y)
+
+35
+00:01:58,725 --> 00:02:01,840
+et je ne vais pas recopier la formule.
+
+36
+00:02:01,840 --> 00:02:06,900
+Dans la régression logistique, ce que 
+nous voulons faire est modifier les paramètres,
+
+37
+00:02:06,900 --> 00:02:12,830
+w et b, afin de réduire cette perte.
+
+38
+00:02:12,830 --> 00:02:15,870
+Nous avons décrit la propagation vers l'avant, 
+la façon dont vous
+
+39
+00:02:15,870 --> 00:02:19,280
+calculez la perte sur 
+un seul exemple d'entrainement,
+
+40
+00:02:19,280 --> 00:02:23,940
+maintenant nous allons parler de
+ comment vous pouvez revenir en arrière 
+pour calculer les dérivées.
+
+41
+00:02:23,940 --> 00:02:26,025
+Voici une version nettoyée du diagramme.
+
+42
+00:02:26,025 --> 00:02:30,690
+Parce que ce que nous voulons faire est
+ calculer les dérivées par rapport à cette perte,
+
+43
+00:02:30,690 --> 00:02:33,570
+la première chose que nous allons faire 
+en allant vers l’arrière est de
+
+44
+00:02:33,570 --> 00:02:38,010
+calculer la dérivée de
+ cette perte par rapport à
+
+45
+00:02:38,010 --> 00:02:41,940
+cette variable a.
+
+46
+00:02:41,940 --> 00:02:43,570
+Ainsi, dans le code,
+
+47
+00:02:43,570 --> 00:02:49,000
+vous utilisez juste da
+ pour désigner cette variable.
+
+48
+00:02:49,000 --> 00:02:52,725
+Il s’avère que si vous êtes familier 
+avec le calcul infinitésimal,
+
+49
+00:02:52,725 --> 00:03:02,004
+vous pourriez montrer que cela vaut
+ -y/a + (1-y)/(1-a).
+
+50
+00:03:02,004 --> 00:03:06,185
+Et la façon de le faire, c'est de 
+prendre la formule pour la perte et,
+
+51
+00:03:06,185 --> 00:03:07,535
+si vous connaissez le calcul infinitésimal,
+
+52
+00:03:07,535 --> 00:03:10,515
+vous pouvez dériver
+ par rapport à la variable petit a
+
+53
+00:03:10,515 --> 00:03:12,792
+et vous obtenez cette formule.
+
+54
+00:03:12,792 --> 00:03:15,280
+Mais si vous ne connaissez pas bien 
+l'analyse, ne vous inquiétez pas.
+
+55
+00:03:15,280 --> 00:03:17,960
+Nous vous fournirons la forme dérivée,
+
+56
+00:03:17,960 --> 00:03:20,100
+et tout ce dont vous avez besoin,
+ tout au long de ce cours.
+
+57
+00:03:20,100 --> 00:03:21,185
+Si vous êtes un expert en analyse,
+
+58
+00:03:21,185 --> 00:03:24,590
+Je vous encourage à aller chercher 
+la formule pour la perte sur
+
+59
+00:03:24,590 --> 00:03:29,504
+la diapositive précédente et à essayer de 
+dériver vous même la perte par rapport à a,
+
+60
+00:03:29,504 --> 00:03:32,635
+mais si vous ne connaissez pas assez l'analyse
+ pour le faire, ne vous inquiétez pas.
+
+61
+00:03:32,635 --> 00:03:35,491
+Maintenant, après avoir calculé
+ cette quantité da,
+
+62
+00:03:35,491 --> 00:03:38,825
+la dérivée de votre variable 
+de sortie finale par rapport à a,
+
+63
+00:03:38,825 --> 00:03:40,715
+vous pouvez aller ensuite vers l’arrière.
+
+64
+00:03:40,715 --> 00:03:45,525
+Il s’avère que vous pouvez montrer que dz,
+
+65
+00:03:45,525 --> 00:03:47,648
+c'est le nom de la variable dans le code python,
+
+66
+00:03:47,648 --> 00:03:51,200
+dz va être la dérivée de la perte
+
+67
+00:03:51,200 --> 00:03:53,618
+par rapport à z.
+
+68
+00:03:53,618 --> 00:03:59,850
+Pour L, vous pouvez écrire explicitement
+ la perte L(a,y) avec les paramètres 
+ou simplement L, ok ?
+
+69
+00:03:59,850 --> 00:04:04,230
+Les deux types de notation sont acceptables.
+
+70
+00:04:04,230 --> 00:04:09,605
+On peut montrer que cela est égal à a-y.
+
+71
+00:04:09,605 --> 00:04:14,685
+Juste quelques commentaires 
+seulement pour ceux d'entre vous qui 
+sont experts en analyse,
+
+72
+00:04:14,685 --> 00:04:16,795
+Si vous n’êtes pas expert en analyse,
+ ne vous inquiétez pas pour ça.
+
+73
+00:04:16,795 --> 00:04:20,320
+Mais il se trouve que cela, dL/dz
+
+74
+00:04:20,320 --> 00:04:27,850
+peut être exprimé comme dL/da * da/dz,
+
+75
+00:04:27,850 --> 00:04:29,940
+et il s’avère que da/dz,
+
+76
+00:04:29,940 --> 00:04:33,755
+cela vaut a*(1-a),
+
+77
+00:04:33,755 --> 00:04:37,800
+et dL/da nous l'avons fait ici,
+
+78
+00:04:37,800 --> 00:04:41,530
+Donc vous prenez ces deux quantités, 
+
+79
+00:04:41,530 --> 00:04:43,846
+DL/da, qui est ce terme, ainsi que 
+
+80
+00:04:43,846 --> 00:04:47,165
+da/dz, qui est ce terme, vous prenez 
+ces deux termes et vous les multipliez.
+
+81
+00:04:47,165 --> 00:04:51,915
+Vous pouvez montrer que l’équation se simplifie en a-y.
+
+82
+00:04:51,915 --> 00:04:53,220
+Voilà comment vous le dérivez
+
+83
+00:04:53,220 --> 00:04:57,390
+et ça vient vraiment de la règle de composition des dérivées, 
+que j'ai éludée en donnant la formule.
+
+84
+00:04:57,390 --> 00:05:02,770
+N’hésitez pas à faire ce calcul vous-même 
+si vous savez faire des dérivées,
+
+85
+00:05:02,770 --> 00:05:05,345
+mais si vous ne l’êtes pas, tout ce que 
+vous devez savoir est que vous pouvez calculer
+
+86
+00:05:05,345 --> 00:05:09,365
+dz comme a-y et nous avons déjà 
+fait ce calcul pour vous.
+
+87
+00:05:09,365 --> 00:05:13,010
+Enfin, la dernière étape
+ de ce calcul est de revenir
+
+88
+00:05:13,010 --> 00:05:17,480
+au calcul de combien vous devez
+ changer W et b.
+
+89
+00:05:17,480 --> 00:05:24,610
+En particulier, vous pouvez montrer que
+ la dérivée par rapport à W1, et dans le code
+
+90
+00:05:24,610 --> 00:05:31,810
+nous l'appellerons dW1, 
+que ceci est égale à x1*dz.
+
+91
+00:05:31,810 --> 00:05:36,485
+Puis, de la même façon, dW2, c'est-à-dire 
+de combien vous voulez changer W2,
+
+92
+00:05:36,485 --> 00:05:39,455
+dW2 = x2*dz, et b, excusez-moi,
+
+93
+00:05:39,455 --> 00:05:42,585
+db est égal à dz.
+
+94
+00:05:42,585 --> 00:05:47,375
+Si vous voulez faire la descente de gradient
+ par rapport à un seul exemple,
+
+95
+00:05:47,375 --> 00:05:49,280
+ce que vous faites est ceci :
+
+96
+00:05:49,280 --> 00:05:52,640
+vous utilisez cette formule pour calculer dz,
+
+97
+00:05:52,640 --> 00:05:56,707
+puis vous utilisez ces formules
+ pour calculer dW1, dW2,
+
+98
+00:05:56,707 --> 00:06:01,170
+et db et puis vous effectuez ces mises à jour.
+
+99
+00:06:01,170 --> 00:06:04,538
+W1 est remplacé par
+
+100
+00:06:04,538 --> 00:06:06,575
+W1 moins le taux d'apprentissage
+ alpha fois dW1
+
+101
+00:06:06,575 --> 00:06:09,245
+W2 est mis à jour de la même façon,
+
+102
+00:06:09,245 --> 00:06:14,170
+et b est remplacé par
+ b - taux d'apprentissage * db
+
+103
+00:06:14,170 --> 00:06:18,860
+Et alors, ce sera une étape de descente 
+de gradient par rapport à un seul exemple.
+
+104
+00:06:18,860 --> 00:06:22,130
+Vous avez vu comment calculer
+ les dérivées et implémenter
+
+105
+00:06:22,130 --> 00:06:27,200
+la descente de gradient pour la régression 
+logistique pour un seul exemple d'apprentissage.
+
+106
+00:06:27,200 --> 00:06:28,987
+Mais pour entrainer un modèle
+ de régression logistique,
+
+107
+00:06:28,987 --> 00:06:34,700
+vous n'avez pas un unique 
+exemple d'apprentissage, mais un set entier
+ de m exemples d'apprentissage.
+
+108
+00:06:34,700 --> 00:06:36,120
+Dans la prochaine vidéo,
+
+109
+00:06:36,120 --> 00:06:39,350
+nous allons voir comment vous pouvez prendre
+ ces idées et les appliquer à l’apprentissage,
+
+110
+00:06:39,350 --> 00:06:40,760
+à partir non plus d’un seul exemple,
+
+111
+00:06:40,760 --> 00:06:42,400
+mais de l’ensemble du set d'apprentissage.

@@ -1,0 +1,53 @@
+Mais qu'a donc à voir l'apprentissage
+ profond avec le cerveau ? Au risque de divulguer la conclusion, je dirais, pas grand chose. Mais voyons rapidement pourquoi
+ les gens font l'analogie entre l'apprentissage profond
+ et le cerveau humain. Lorsque vous implémentez un
+ réseau de neurones, voici ce que vous faites, propagation directe et inverse. Je pense que puisqu'il est difficile
+ de transmettre intuitivement ce que ces équations font réellement, la
+ descente de gradient est
+ une fonction réellement complexe, l'analogie qui dit
+ que c'est comme le cerveau est devenue une explication sur-simplifiée
+ de ce qui se passe, mais cette simplicité la rend séduisante 
+pour les gens qui en parlent en public, et pour les médias, et capture certainement
+ l'imagination populaire. Il y a une analogie très faible entre disons une unité de régression logistique
+ avec une fonction d'activation sigmoïdale, et cette esquisse d'un seul
+ neurone du cerveau. Sur cette image d’un neurone
+ biologique, ce neurone, qui est une cellule dans votre cerveau, reçoit des signaux de vos autres neurones, X1, X2, X3 ou peut-être d'autres
+ neurones, A1, A2, A3, calcule un seuil de
+ déclenchement simple, et ensuite si ce neurone se déclenche, il envoie une impulsion électrique
+ dans son axone, le long de ce long fil vers
+ potentiellement d'autres neurones. Ainsi il y a une analogie
+ réellement simpliste entre un seul neurone dans un réseau de
+ neurones et un neurone biologique
+ tel qu'illustré sur la droite, mais je pense qu'aujourd'hui même
+ les neuroscientifiques n'ont à peu près aucune idée de ce
+ qu'un seul neurone fait. Un simple neurone apparaît
+ bien plus complexe que ce que nous pouvons caractériser
+ par les neurosciences, et bien qu'une partie de ce qu'il fait
+ ressemble un peu à
+ une régression logistique, il reste beaucoup de ce qu'un seul
+ neurone fait qu'aucun humain
+ ne comprend aujourd'hui. Par exemple la manière exacte dont
+ les neurones du cerveau apprennent est encore un processus très mystérieux. Il n'est absolument pas clair aujourd'hui
+ de savoir si le cerveau
+ utilise un algorithme, quelque chose comme la rétro-propagation
+ et la descente de gradient, ou si le cerveau utilise un principe
+ d'apprentissage fondamentalement différent. Lorsque je réfléchis à
+ l'apprentissage profond, je pense à lui comme étant très bon
+ pour l'apprentissage
+ de fonctions très flexibles, des fonctions très complexes pour
+ apprendre à relier X à Y, pour apprendre à relier des entrées
+-sorties par un apprentissage supervisé. Alors que cela évoque l'analogie cérébrale, peut-être que cela a été utile
+ à un moment donné, mais je pense que le domaine
+ a évolué au point où cette analogie ne tient plus et
+ je ne l'utilise plus aujourd'hui. Bien, voici pour les réseaux de
+ neurones et le cerveau. Je pense que peut-être que le champ de
+ la vision par ordinateur s'est un peu plus inspiré du cerveau humain que d'autres disciplines qui appliquent
+ aussi l'apprentissage profond, mais personnellement j'utilise moins
+ l'analogie du cerveau humain
+ que je ne le faisais. Bien, voici pour cette vidéo. Vous savez maintenant comment 
+implémenter la propagation directe
+ et la rétro-propagation et la descente de gradient même pour
+ les réseaux de neurones profonds. Bonne chance
+ pour les problèmes d'exercice, et je me réjouis de partager plus sur
+ ces idées dans le second cours.

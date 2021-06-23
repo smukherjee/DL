@@ -1,0 +1,154 @@
+Dans la dernière vidéo, vous avez vu
+ les équations de rétro-propagation. Dans cette vidéo, je vais vous donner
+ quelques intuitions de comment ces équations ont été dérivées
+ en utilisant le graphe de calculs. Cette vidéo est entièrement facultative. Donc vous pouvez choisir
+ de la regarder ou non. Vous devriez être capable de faire 
+les devoirs dans les deux cas. Ainsi, rappelons que lorsque nous parlons
+ de la régression logistique, Nous avons ce passage direct
+ où nous calculons z, puis a puis la perte. Et puis pour dériver, Nous avons cette passe inverse où 
+nous pouvons calculer d’abord da, et puis continuer et calculer dz, et puis continuer et calculer dw et db. La définition de la perte était L(a, y) L(a,y) = -y*log(a) - (1-y)*log(1-a) L(a,y) = -y*log(a) - (1-y)*log(1-a) Donc, si vous êtes familier avec l'analyse et que vous prenez la dérivée
+ de cela par rapport à a, ça vous donne la formule pour da Donc, la da est égal à ça. Et si nous faisons le calcul
+ on peux montrer que c’est -y/a + (1-y)/(1-a) Vous pouvez calculer ça
+ en prenant la dérivée de ceci. Il s’avère que lorsque vous reculez
+ d'un autre pas pour calculer dz, nous avons trouvé que dz est égal à
+ a moins y. J’ai expliqué pourquoi auparavant, mais il s’avère que d'après les règles
+ de l'analyse, dz est égal à da*g'(z) Où ici g de z est égal à sigmoïde de z. C'est notre fonction d’activation pour l'unité
+ de sortie dans la régression logistique Alors, n’oubliez pas qu'il s’agit toujours de 
+régression logistique où nous avons x1, x2, x3 et puis juste une unité sigmoïde 
+ qui nous donne a, qui nous donne ŷ. Donc ici, la fonction d’activation
+ était une fonction sigmoïde. Et soit dit en passant, seulement pour ceux qui sont familiers 
+avec les règles de dérivation en chaîne, la raison est que a est égal à sigmoïde de z. Et donc, la dérivée partielle de L par rapport à z
+ est égale à la dérivée partielle de L par rapport à a * da/dz. Si a est égal à sigmoïde de z, Cela équivaut à d / dz de g de z, qui correspond à g' de z. Donc, c’est pourquoi cette expression 
+qui est dz dans notre code est égale à cette expression,
+ qui est da dans notre code * g prime de z. Et donc, ceci est juste cela. Donc, cette dernière dérivée
+ n'aura de sens pour vous que si vous connaissez l'analyse et plus
+ précisément les règles de dérivées chaînées. Mais si ce n'est pas le cas,
+ ne vous inquiétez pas. Je vais tenter d’expliquer l’intuition
+ partout où c’est nécessaire. Et puis enfin, après avoir calculé dz 
+pour la régression logistique, on calculera dw qui vaut dz * x et db, qui vaut juste dz quand
+ vous avez un seul exemple d'apprentissage Donc, ça c'était la régression logistique. Donc, ce que nous allons faire lors du calcul de rétro-propagation d’un réseau de neurones
+ c'est un calcul très semblable mais nous allons le faire deux fois
+ parce que maintenant nous n’avons plus x
+ qui va dans une unité de sortie, mais x va dans une couche masquée,
+ qui va dans l'unité de sortie. Et ainsi, au lieu d'avoir un calcul en 
+une seule étape, comme nous l’avons ici, il nous faudra deux étapes ici dans ce genre 
+de réseau de neurones avec deux couches. Donc, dans ce réseau neuronal à deux
+ couches, nous avons la couche d’entrée, une couche masquée, puis la couche de sortie. Rappelez vous les étapes du calcul. Vous calculez d’abord z1 
+à l’aide de cette équation, puis vous calculez a1 et
+ puis vous calculez z2. Et notez que z2 dépend également
+ des paramètres W2 et b2. Puis, à partir de z2, on calcule a2 et enfin 
+cela vous donne la perte. La rétro-propagation va dans
+ l'autre sens pour calculer da2 puis dz2 et puis vous revenez pour calculer dW2 et db2, revenez en arrière pour calculer da1, dz1 et ainsi de suite. Nous n'avons pas besoin de 
+prendre la dérivée par rapport à l'entrée X puisque, dans l'apprentissage
+ supervisé, l'entrée X est fixée. Nous n'essayons pas d'optimiser X, 
+donc nous n'avons pas besoin de la dérivée, au moins pour l’apprentissage supervisé, par rapport à X. 
+Je vais sauter le calcul explicite de da2. Si vous voulez, 
+vous pouvez calculer da2 et ensuite l’utiliser pour calculer dz2 
+mais, en pratique, vous pouvez faire ces deux étapes en
+ une seule étape,
+ et vous vous retrouvez avec dz2 = a2-y, comme avant. Et vous avez aussi Je vais écrire en bas dW2 et db2. Vous avez dW2 = dz2 * a1.T a1 transposée et db2 = dz2. Cette étape est assez similaire à la régression
+ logistique où nous avons eu dW = dz * x sauf que maintenant, a1 joue le rôle de x et il y a une transposition
+ supplémentaire là parce que dans la relation entre la matrice W et 
+nos paramètres individuels w, Il y a une transposition, n'est ce pas ? Parce que W est un vecteur ligne dans le cas de la 
+régression logistique avec une seule sortie. dW2 est comme ça, alors que W était un vecteur colonne,
+ c’est pourquoi il y a une transposition
+ supplémentaire pour a1, alors qu'il n'y en avait pas pour X
+ pour la régression logistique. Ceci termine la moitié 
+de la rétro-propagation. Alors, encore une fois, vous pouvez 
+calculer da1 si vous le souhaitez bien que, dans la pratique, 
+le calcul de da1 et dz1 sont généralement faits
+ en une seule étape et donc vous implémenterez en fait
+ dz1 = (W2.T*dz2) .* (g1'(z1)) dz1 = (W2.T*dz2) .* (g1'(z1))
+avec une multiplication élément par éléments dz1 = (W2.T*dz2) .* (g1'(z1))
+entre W2.T*dz2 et g1'(z1) Et, juste pour vérifier les dimensions, ok ? Si vous avez un réseau neuronal 
+qui ressemble à ceci, qui produit ŷ en sortie. Si vous avez n[0],
+ nx = n[0] dimensions en entrée, n[1] neurones masqués et n[2] n[2], dans notre cas est juste une unité de sortie alors la matrice W2 est 
+de dimensions (n[2], n[1]), z2 et, par conséquent, dz2 vont être
+ de dimensions (n[2], 1), ce qui va en fait être (1,1) quand on fait
+ de la classification binaire et z1 et par conséquent aussi dz1 vont être de dimensions (n[1], 1), ok ? Notez que, pour toute variable, foo et dfoo
+ vont toujours avoir les mêmes dimensions. C’est pourquoi W et dW ont toujours 
+les mêmes dimensions et de même pour b et db et z et dz
+ et ainsi de suite. Pour s’assurer que les dimensions 
+de tout ça correspondent nous avons  :
+ dz1 = W2 transpose fois dz2, puis, ceci est un produit élément 
+par élément, fois g1'(z1), donc pour accorder les dimensions ci-dessus, cela va être n[1] par un 
+est égal à W2 transpose, nous transposons cela donc ça va être
+ de dimensions (n[1], n[2]), dz2 va être de dimensions (n[2], 1), puis ceci de la même dimension que z1. Ceci est aussi de dimensions (n[1], 1), 
+donc produit élément par élément. Donc les dimensions font sens, n'est ce pas ? Un vecteur de dimensions (n[1], 1)
+ peut être obtenu par une matrice de dimensions (n[1], n[2]) * une 
+matrice de dimensions (n[2], 1), car le produit de ces deux choses vous donne une matrice de
+ dimensions (n[1], 1) et donc cela devient le produit élément par élément
+ de deux vecteurs de dimensions (n[1], 1), et donc les dimensions correspondent. Un conseil lorsque vous implémentez
+ une rétro-propagation. Si vous vous assurez simplement que les 
+dimensions de vos matrices correspondent, si vous réfléchissez à 
+quelles sont les dimensions des diverses matrices dont W1, W2, z1, z2, a1, a2 et ainsi de suite et que
+ vous vous assurez juste que les dimensions de ces opérations 
+matricielles sont bonnes, parfois, cela élimine déjà pas mal 
+de bugs dans la rétro-propagation. Très bien.
+ Ceci nous donne dz1 et puis enfin, juste pour conclure dW1 et db1, nous devrions les écrire ici je pense, mais puisque je manque de place,
+ je vais les écrire à droite du slide, dW1 et db1 sont donnés 
+par les formules suivantes. Cela va être égal à dz1 * la transposée de X et cela va être égal à dz1. Vous pouvez remarquer une similitude entre
+ ces équations et ces équations, ce qui n’est pas vraiment un hasard car X joue le rôle de a0 donc la transposée de X
+ est la transposée de a0. Ces équations sont vraiment très similaires. Cela donne une idée de comment
+ la rétro-propagation est dérivée. Nous avons six équations principales 
+ici pour dz2, dW2, db2, dz1, dW1 et db1. Permettez-moi de prendre ces six équations
+ et de les copier sur la diapositive suivante.
+ Les voici. Jusqu’ici, nous avons dérivé
+ la rétro-propagation pour le cas où vous entrainez sur un seul
+ exemple d'apprentissage à la fois, mais ça ne doit pas vous étonner si, plutôt
+ que de travailler sur un seul exemple à la fois, nous préférons vectoriser sur les 
+différents exemples d'apprentissage. Nous nous souvenons que 
+pour la propagation directe lorsque nous travaillons sur
+ un exemple à la fois, Nous avions des équations comme ceci :
+ a1 = g1 (z1). Pour vectoriser, Nous avons pris par exemple les z 
+et nous les avons alignés en colonnes comme ceci. C'est z1m. 
+Et nous avons appelé ceci grand Z1. Puis nous avons constaté qu'en
+ alignant les choses en colonnes et en définissant la version majuscule de ceci nous avons juste eu Z1 = W1 X + b1 et A1 = g1(Z1), ok ? Nous définissons la notation avec beaucoup 
+d’attention dans ce cours pour s’assurer que l'empilage des exemples dans différentes
+ colonnes d’une matrice fait que tout fonctionne. Il s’avère que si vous faites 
+les maths soigneusement, la même astuce fonctionne également pour la
+ rétro-propagation donc les équations
+ vectorisées sont comme cela. Tout d’abord, si vous prenez ces dz pour
+ les différents exemples d'apprentissages
+ et que vous les alignez comme les différentes colonnes
+ d’une matrice et la même chose pour cela
+ et la même chose pour cela, alors voici l'implémentation vectorisée.
+Et voilà la définition pour ou plutôt voilà comment 
+vous pouvez calculer dW2. Il y a ce 1/m en plus parce que
+ la fonction de coût J J = 1/m fois somme jusqu'à n des pertes. Lors du calcul des dérivées, nous avons ce terme supplémentaire 1/m,
+ tout comme quand nous l'avions quand nous avons calculé la mise à jour 
+des poids pour la régression logistique. puis ceci
+ est la modification que vous avez pour db2. Encore une fois, la somme des dZs,
+ puis avec un 1/m et puis dZ1
+ est calculée comme ceci. Encore une fois,
+ c’est un produit élément par élément.
+ Seulement, alors que précédemment, sur la diapositive précédente,
+ nous avons vu qu’il s’agissait d’un vecteur
+ de dimensions (n[1], 1) maintenant, il s’agit d’une matrice
+ de dimensions (n[1], m). Ces deux là sont également 
+de dimensions (n[1], m). C’est pourquoi cette astérisque est un produit 
+élément par élément. Et puis enfin, les deux mises à jour restantes. Elles ne devraient pas être trop surprenantes. J’espère que cela vous donne quelques
+ intuitions sur la façon dont l’algorithme
+ de rétro-propagation est calculé. Dans l’ensemble
+ de l’apprentissage automatique, je pense que la dérivation de l’algorithme 
+de propagation inverse est en fait une des parties
+ mathématiquement les plus complexes
+ que j'aie vues. Il faut connaître
+ à la fois l'algèbre linéaire et la dérivée de matrices pour tout re-calculer
+ à partir des principes premiers. Si vous êtes un expert en analyse matricielle, grâce à ce processus, vous pourriez calculer
+ l’algorithme de dérivation vous-même, mais je pense qu’il y a en fait beaucoup 
+de pratiquants de l’apprentissage profond qui ont vu la dérivation 
+au niveau où vous l'avez vue dans cette vidéo et sont déjà en mesure d’avoir toutes les bonnes intuitions pour pouvoir
+ mettre en œuvre cet algorithme
+ très efficacement. Si vous êtes un expert en analyse, voyez si vous pouvez dériver 
+le tout à partir de zéro. C’est un des calculs mathématiques 
+les plus difficiles, l’une des dérivées les plus compliquées
+ que j’ai vues dans l’ensemble de
+ l’apprentissage automatique. De toute façon, si vous implémentez ça, cela va fonctionner, et je pense
+ que vous avez assez d'intuitions pour le régler
+ et le faire fonctionner. Il n’y a juste un dernier détail,
+ que je veux partager avec vous avant d’implémenter
+ votre réseau de neurones, qui est de savoir comment initialiser
+ les poids de votre réseau de neurones. Il s’avère qu’initialiser vos paramètres, pas à zéro mais au hasard, s’avère très important pour l'apprentissage
+ de votre réseau de neurones. Dans la vidéo suivante, 
+vous allez voir pourquoi.

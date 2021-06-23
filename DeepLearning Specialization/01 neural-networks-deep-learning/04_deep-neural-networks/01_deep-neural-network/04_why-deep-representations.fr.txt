@@ -1,0 +1,172 @@
+Nous avons tous entendu que les réseaux de
+ neurones profonds fonctionnent très bien pour beaucoup de problèmes et qu'ils ne
+ doivent pas seulement être de gros
+ réseaux de neurones, mais qu'ils doivent être profonds,
+ comporter beaucoup de couches cachées. Alors pourquoi ? Voyons quelques exemples pour essayer 
+d'avoir une compréhension intuitive de pourquoi les réseaux profonds
+ peuvent fonctionner si bien. Alors d’abord, que calcule 
+un réseau profond ? Si vous construisez un système 
+de reconnaissance faciale ou détection de visage, voici ce qu’un 
+réseau neuronal profond pourrait faire. Peut-être que votre entrée est une photo 
+d’un visage, puis la première couche 
+du réseau neuronal, vous pouvez peut-être la considérer 
+comme un détecteur de caractéristique 
+ou un détecteur d'arêtes. Dans cet exemple, j'ai dessiné ce 
+qu’un réseau de neurones avec
+ peut-être 24 unités cachées, pourrait essayer de calculer 
+sur cette image. Les 24 unités cachées sont représentées
+ par ces petites cases carrées. Ainsi, par exemple, cette visualisation 
+représente une unité cachée qui essaye d'identifier les arêtes 
+ayant cette orientation dans l'image. Et peut-être cette unité cachée 
+essaye de comprendre où sont les arêtes horizontales
+ dans cette image. Et quand nous parlerons de réseaux
+ convolutifs dans un autre cours, cette visualisation particulière 
+aura un peu plus de sens, mais vous pouvez considérer que la 
+première couche du réseau neuronal regarde la photo et essaye de savoir 
+où sont les bords dans cette photo. Maintenant, cherchons où sont les arêtes
+ dans cette photo en regroupant des pixels pour former des bords. Il peut alors
+ prendre les arêtes détectées et les
+ regrouper pour former des parties de visages. Ainsi, par exemple, vous pouvez avoir un 
+neurone qui essaye de voir s'il trouve un œil, ou un autre neurone qui essaye 
+de trouver cette partie du nez. Et donc en mettant ensemble
+ beaucoup d'arêtes il peut commencer à détecter 
+différentes parties du visage. Et puis, enfin, en assemblant
+ différentes parties du visage, comme un œil ou un nez ou des
+ oreilles, ou un menton, on peut alors essayer de reconnaître ou
+de détecter différents types de visages. De façon intuitive, vous pouvez
+ penser aux premières couches
+ d'un réseau de neurones comme quelque chose qui détecte des fonctions
+ simples, comme les arêtes, et qui les arrange ensemble dans les 
+couches suivantes du réseau de neurones pour apprendre des fonctions
+ de plus en plus complexes. Ces visualisations auront plus de sens 
+quand nous parlerons de réseaux convolutifs. Et un détail technique de
+ cette visualisation, les détecteurs d'arêtes fonctionnent
+ sur des zones relativement petite d’une image, comme de très
+ petites régions comme ça. Puis les détecteurs de visages
+ observent peut-être des zones beaucoup
+ plus grandes de l’image. Mais l’intuition principale que vous 
+pouvez retenir, c'est juste de trouver des choses simples comme
+ les arêtes et de construire sur ça, les assembler pour détecter des choses 
+plus complexes comme un œil ou un nez, puis d'assembler cela pour trouver 
+des choses encore plus complexes. Et ce type de représentation
+ hiérarchique du simple au complexe, ou représentation compositionnelle, s’applique à d'autres types de données que
+ les images et la reconnaissance de visages. Par exemple, si vous essayez de construire
+ un système de reconnaissance vocale, il est difficile de visualiser la parole mais
+si votre entrée est un clip audio alors peut-être que le premier niveau 
+d’un réseau de neurones peut apprendre à détecter les caractéristiques 
+bas niveau des ondes sonores, telles que Est ce qu'il va vers les graves ? Est-ce un bruit blanc ou
+ un sifflement comme [SON]. Et quelle est sa hauteur ? Pour cela, il faut détecter des formes
+ d'onde de bas niveaux comme ça. Et puis par la composition
+ de formes d'onde de bas niveau, peut-être que vous allez apprendre 
+à détecter les unités de base du son. En linguistique, on les appelle phonèmes. Par exemple, dans le mot cat, le C est
+ un phonème, le A est un phonème, le T est un autre phonème. Une fois qu'on a appris à reconnaître 
+les unités de base du son, en composant tout ça ensemble, on apprend
+ à reconnaître des mots dans l’audio. Et puis peut-être en composant
+ ceux-ci ensemble, on peut reconnaître des expressions 
+ou des phrases entières. Des réseaux de neurones profonds, 
+avec de multiples couches cachées 
+peuvent avoir les premières couches qui apprennent ces 
+caractéristiques simples de bas niveau et puis les couches plus profondes 
+assemblent ensuite ces éléments simples 
+qui ont été détectées pour détecter des choses plus complexes 
+comme reconnaître des mots spécifiques ou même des expressions
+ ou des phrases que vous prononcez, afin de
+ faire de la reconnaissance vocale. Et nous voyons que si les premières 
+couches calculent ce qui semble être des fonctions relativement simples de 
+l’entrée comme où sont les arêtes, plus vous allez profondément 
+dans le réseau, plus vous pouvez faire
+ des choses étonnamment complexes, comme de la détection de visages 
+ou de la détection de mots ou
+ d'expressions ou de phrases. Certains aiment faire une analogie 
+entre les réseaux neuronaux profond et le cerveau humain, où, pensons-nous, 
+ou les neuroscientifiques pensent, que le cerveau humain commence 
+également par détecter des choses 
+simples comme les arêtes dans ce que vos yeux voient puis construisent à 
+partir de ça pour détecter des choses plus complexes comme 
+les visages que vous voyez. Je pense que les analogies entre 
+l'apprentissage profond et le cerveau humain sont parfois
+ un peu dangereuses. Mais il y a beaucoup de vérité, pour ce 
+qui est de la façon dont nous pensons
+ que le cerveau humain fonctionne et que le cerveau humain détecte 
+sans doute des choses simples comme
+ les arêtes en premier et puis les met ensemble pour former des
+ objets de plus et plus complexes et que ça a servi plus ou moins d’inspiration 
+pour une partie de l'apprentissage profond. Nous en dirons un peu plus 
+sur le cerveau humain ou sur le cerveau biologique 
+dans une autre vidéo cette semaine. L’autre intuition sur pourquoi
+ les réseaux profonds semblent bien fonctionner est ceci. Ce résultat vient de la théorie des circuits 
+qui porte sur la détermination de quels types de fonctions
+ vous pouvez calculer avec différentes portes ET, OU et NON,
+ les portes logiques de base. Informellement, vous pouvez calculer des
+ fonctions avec un réseau de neurones
+ relativement petit mais profond, et par petit, j'entends que le nombre
+ d’unités cachées est relativement faible, mais si vous essayez de calculer la même 
+fonction avec un réseau peu profond, alors, si il n’y a pas assez 
+de couches cachées, alors, vous avez besoin d'un nombre
+ exponentiellement plus grand 
+d'unités cachées pour les calculer. Laissez-moi vous donner un exemple et 
+illustrer cela de façon un peu informelle. Disons que vous essayez
+ de calculer le OU exclusif, c'est à dire la parité de toutes 
+vos caractéristiques d'entrée. Si vous essayez de calculer
+ x1 XOR x2 XOR x3 XOR ... xn x1 XOR x2 XOR x3 XOR ... xn 
+si vous avez n ou nx caractéristiques. Donc, si vous construisez un arbre 
+de XOR comme ça, donc il calcule 
+le OU exclusif de x1 et x2, puis il prend x3 et x4 et
+ calcule leur OU exclusif. Et techniquement, si vous utilisez 
+seulement des portes ET, OU et NON, 
+vous pouvez avoir besoin de plusieurs couches pour calculer la fonction
+ XOR plutôt qu’une seule couche, mais avec un circuit relativement petit, vous 
+pouvez calculer le XOR et ainsi de suite. Et puis vous pouvez construire, vraiment,
+ un arbre de XOR comme ceci, jusqu'à ce que finalement, vous ayez ici un 
+circuit qui sorte, nous allons appeler ça Y. La sortie ŷ égale à Y. Le OU exclusif ou parité
+ de tous ces bits d’entrée. Donc pour calculer le XOR, la profondeur 
+du réseau sera l’ordre de log(n). Nous avons simplement un arbre de XOR. Donc le nombre de nœuds ou 
+le nombre de composants du circuit ou le nombre de portes dans 
+ce réseau n’est pas très grand. Vous n’avez pas besoin de beaucoup 
+de portes afin de calculer ce OU exclusif. Mais si vous ne pouvez pas utiliser 
+un réseau de neurones avec plusieurs couches cachées avec, dans ce cas,
+de l'ordre de log(n) couches cachées, si vous êtes obligé de calculer cette
+ fonction avec juste une couche cachée, si vous avez toutes ces choses qui 
+vont dans une certaine unité cachée. Et puis ces choses calculent la sortie Y. Alors pour calculer cette fonction XOR,
+ cette couche cachée devra être exponentiellement grande,
+ parce qu’essentiellement, vous devez énumérer exhaustivement toutes 
+les 2 puissance n configurations possibles. Donc, de l'ordre de 2 puissance n 
+configurations possibles des bits d'entrée qui donnent au OU exclusif 
+la valeur 1 ou 0. Vous avez donc besoin d’une couche cachée 
+qui est exponentiellement grande par rapport au nombre de bits. Je pense que techniquement, 
+vous pouvez faire cela avec 
+2 puissance n moins 1 unités cachées. Mais c’est quand même de l'ordre de 
+2 puissance n, exponentiellement grand
+ par rapport au nombre de bits. J’espère que cela vous permet de voir 
+qu’il y a des fonctions mathématiques qui sont plus faciles à calculer 
+avec des réseaux profonds 
+qu’avec des réseaux peu profonds. J'ai personnellement trouvé le résultat
+ de la théorie des circuits moins utile pour avoir des intuitions, mais c'est un des
+ résultats que les gens citent souvent pour expliquer l’importance d’avoir 
+des représentations très profondes. Maintenant, en plus de ces raisons de préférer les réseaux neuronaux profonds, 
+pour être vraiment honnête, je pense qu'une autre raison pour 
+laquelle le terme apprentissage profond 
+est connu c'est parce que c'est un mot clé. C'est comme ça que nous appelons
+ des réseaux neuronaux avec beaucoup
+ de couches cachées, mais l’expression "apprentissage profond" est juste 
+un beau mot-clé, c’est tellement profond. Je pense qu’une fois que ce terme a pris,
+ on a rebaptisé les réseaux de neurones ou en tous cas les réseaux de neurones
+ avec beaucoup de couches cachées, pour aider à capturer
+ l’imagination populaire. Mais à part pour les relations publiques,
+ les réseaux profonds fonctionnent très bien. Parfois, les gens en rajoutent et insistent pour 
+utiliser des tonnes de couches cachées. Mais quand je commence sur un nouveau 
+problème, je commence souvent avec simplement une régression logistique puis
+ j'essaye quelque chose avec une ou deux couches cachées et
+ j’utilise ça comme un hyper paramètre, Vous pouvez l'utiliser comme un paramètre
+ ou un hyper paramètre que 
+vous ajustez pour tenter de trouver la bonne profondeur pour
+ votre réseau de neurones. Mais au cours des dernières années, il y a
+ eu une tendance dans laquelle les gens, pour certaines applications, trouvaient que
+ des réseaux de neurones très, très profonds, avec plusieurs douzaines de couches,
+ peuvent parfois être
+ le meilleur modèle pour un problème. Donc, c’est tout pour les intuitions 
+sur pourquoi l'apprentissage profond
+ semble bien fonctionner. Nous allons maintenant jeter un œil
+ à la mécanique nécessaire pour
+ implémenter non seulement la propagation directe, 
+mais aussi la rétro propagation.

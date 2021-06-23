@@ -1,0 +1,550 @@
+1
+00:00:00,000 --> 00:00:03,195
+Bem-vindo de volta!
+Vetorização é basicamente
+
+2
+00:00:03,195 --> 00:00:07,315
+a arte de livrar-se de laços de repetição
+"for" explícitos em seu código.
+
+3
+00:00:07,315 --> 00:00:11,835
+Isso gera economia em 
+aprendizagem profunda na prática, pois,
+
+4
+00:00:11,835 --> 00:00:15,210
+você geralmente se encontra trabalhando
+com conjuntos de dados relativamente grandes,
+
+5
+00:00:15,210 --> 00:00:18,475
+porque é aí que os algoritmos
+de aprendizagem profunda tendem a brilhar.
+
+6
+00:00:18,475 --> 00:00:22,790
+Então é importante
+que seu código rode rápido, pois de outra forma,
+
+7
+00:00:22,790 --> 00:00:24,525
+se você estiver treinando
+um grande conjunto de dados,
+
+8
+00:00:24,525 --> 00:00:27,000
+seu código pode levar muito tempo para rodar
+
+9
+00:00:27,000 --> 00:00:30,255
+e você vai ter que esperar
+muito para ter o resultado.
+
+10
+00:00:30,255 --> 00:00:32,035
+Então na era da aprendizagem profunda,
+
+11
+00:00:32,035 --> 00:00:37,490
+acho que a capacidade de executar
+vetorização tornou-se uma habilidade chave.
+
+12
+00:00:37,490 --> 00:00:40,010
+E nós veremos isso em mais detalhes.
+Vamos começar com um exemplo:
+
+13
+00:00:40,010 --> 00:00:42,225
+Então, o que é vetorização?
+
+14
+00:00:42,225 --> 00:00:48,780
+Em regressão logística, você precisa calcular 
+Z = W transposto vezes X + b
+
+15
+00:00:48,780 --> 00:00:55,405
+onde W é este vetor coluna
+e X também é um vetor.
+
+16
+00:00:55,405 --> 00:00:58,000
+Talvez haja vetores muito grandes
+se você tiver muitas características.
+
+17
+00:00:58,000 --> 00:01:07,080
+Então, W e X eram ambos estes vetores 
+de dimensões n, ou nx, pertencentes ao conjunto dos números Reais.
+
+18
+00:01:07,080 --> 00:01:10,170
+Então para calcularmos
+W transposto multiplicado por X,
+
+19
+00:01:10,170 --> 00:01:15,660
+se você tivesse uma implementação não vetorizada,
+
+20
+00:01:15,660 --> 00:01:18,725
+você faria algo do tipo: 
+Z=0
+
+21
+00:01:18,725 --> 00:01:24,860
+E então o laço:
+ for i in range (nx)
+
+22
+00:01:24,860 --> 00:01:27,330
+quer dizer, para i= 1, 2 até nx:
+
+23
+00:01:27,330 --> 00:01:34,040
+Z+= W[i] * X[i]
+
+24
+00:01:34,040 --> 00:01:37,100
+E então talvez codifique ao final:
+Z+ = b
+
+25
+00:01:37,100 --> 00:01:39,855
+Então essa é uma implementação não vetorizada.
+
+26
+00:01:39,855 --> 00:01:43,090
+Assim, você vê que isso vai ser muito lento.
+
+27
+00:01:43,090 --> 00:01:48,560
+Em contraste, uma implementação vetorizada apenas calcularia 
+W transposto vezes X, diretamente.
+
+28
+00:01:48,560 --> 00:01:52,085
+Em Python, importando NumPy como np,
+
+29
+00:01:52,085 --> 00:02:01,428
+o comando que você usa para isso é 
+Z = np.dot(W,X)
+
+30
+00:02:01,428 --> 00:02:06,270
+então isso calcula 
+W transposto multiplicado por X
+
+31
+00:02:06,270 --> 00:02:09,075
+E você também pode
+apenas adicionar "b" a isso diretamente.
+
+32
+00:02:09,075 --> 00:02:12,400
+E você vê que isso é mais rápido.
+
+33
+00:02:12,400 --> 00:02:17,075
+Vamos ilustrar isso
+com uma pequena demonstração.
+
+34
+00:02:17,075 --> 00:02:21,960
+Então, este é meu "Jupyter notebook"
+no qual vou escrever alguns códigos Python.
+
+35
+00:02:21,960 --> 00:02:28,041
+Então, primeiro, vou importar a biblioteca NumPy
+
+36
+00:02:28,041 --> 00:02:30,000
+"import as np", e por exemplo,
+
+37
+00:02:30,000 --> 00:02:36,570
+eu posso criar, desta forma: 
+a = np.array([1,2,3,4])
+
+38
+00:02:36,570 --> 00:02:39,560
+e vamos digitar: 
+print a
+
+39
+00:02:39,560 --> 00:02:41,160
+Agora, tendo escrito esta parte do código,
+
+40
+00:02:41,160 --> 00:02:43,170
+aperto as teclas
+"shift" e "Enter"
+
+41
+00:02:43,170 --> 00:02:44,847
+e o código é executado.
+
+42
+00:02:44,847 --> 00:02:47,970
+Então, é criada e impressa a matriz "a".
+
+43
+00:02:47,970 --> 00:02:50,580
+Agora, vamos fazer a demonstração de vetorização.
+
+44
+00:02:50,580 --> 00:02:51,990
+Vou importar a biblioteca "time",
+
+45
+00:02:51,990 --> 00:02:53,580
+e usamos isso,
+
+46
+00:02:53,580 --> 00:02:56,565
+para cronometrar qual a diferença
+de tempo entre nossas operações.
+
+47
+00:02:56,565 --> 00:02:59,139
+Vamos criar uma matriz "a".
+
+48
+00:02:59,139 --> 00:03:02,905
+a = np.random.rand(1000000)
+
+49
+00:03:02,905 --> 00:03:10,065
+Isso cria uma matriz,
+cuja dimensão é um milhão, com valores aleatórios.
+
+50
+00:03:10,065 --> 00:03:13,300
+b = n.p.random.rand(1000000)
+
+51
+00:03:13,300 --> 00:03:16,120
+Outra matriz de dimensão um milhão.
+
+52
+00:03:16,120 --> 00:03:20,810
+E agora, para contar o tempo neste ponto,
+tic = time.time
+
+53
+00:03:20,810 --> 00:03:26,395
+c = np.dot(a,b)
+
+54
+00:03:26,395 --> 00:03:28,649
+toc = time.time()
+
+55
+00:03:28,649 --> 00:03:31,950
+e 
+print("vectorized version"),
+
+56
+00:03:31,950 --> 00:03:34,857
+esta é a versão vetorizada.
+
+57
+00:03:34,857 --> 00:03:37,685
+print("Versão vetorizada:")
+
+58
+00:03:37,685 --> 00:03:41,985
+Então vamos imprimir.
+
+59
+00:03:41,985 --> 00:03:45,060
+Vamos ver o tempo total (elapsed time),
+
+60
+00:03:45,060 --> 00:03:48,330
+e isso é,
+print("Versão vetorizada:" + str(1000*(toc-tic)))
+
+61
+00:03:48,330 --> 00:03:52,075
+e podemos expressar em milésimos de segundo,
+"print('Versão vetorizada:"+str(1000*(toc-tic))+"ms"),
+
+62
+00:03:52,075 --> 00:03:54,075
+"ms" é milésimo de segundo.
+
+63
+00:03:54,075 --> 00:03:56,435
+Então vou teclar "shift" e "Enter".
+
+64
+00:03:56,435 --> 00:04:01,890
+Então aquele código levou 
+em média três milésimos de segundo, ou 1,5,
+
+65
+00:04:01,890 --> 00:04:06,170
+talvez 1,5 ou 3,5 milésimos de segundo de cada vez.
+
+66
+00:04:06,170 --> 00:04:08,370
+Então, varia um pouco quando executo,
+
+67
+00:04:08,370 --> 00:04:12,085
+mas parece que talvez, em média,
+leve algo em torno de 1,5 milésimos de segundo,
+
+68
+00:04:12,085 --> 00:04:15,665
+talvez 2 milésimos de segundo, quando executo este.
+
+69
+00:04:15,665 --> 00:04:16,967
+Tudo bem.
+
+70
+00:04:16,967 --> 00:04:19,005
+Vamos continuar trabalhando com este bloco de códigos.
+
+71
+00:04:19,005 --> 00:04:22,270
+Agora implementando versão não vetorizada.
+
+72
+00:04:22,270 --> 00:04:24,151
+Vou digitar, 
+c = 0
+
+73
+00:04:24,151 --> 00:04:27,750
+tic = time.time()
+
+74
+00:04:27,750 --> 00:04:29,335
+E agora vamos implementar um laço de repetição "for".
+
+75
+00:04:29,335 --> 00:04:35,348
+for i in range (1000000):
+
+76
+00:04:35,348 --> 00:04:38,676
+Pus o número de zeros corretamente.
+
+77
+00:04:38,676 --> 00:04:43,936
+c += a[i] * b[i]
+
+78
+00:04:43,936 --> 00:04:50,775
+E então,
+ toc = time.time()
+
+79
+00:04:50,775 --> 00:04:57,725
+E finalmente, 
+print("Laço For")
+
+80
+00:04:57,725 --> 00:05:15,225
+O tempo que isso leva é este:
+print("Laço For:" + (1000 * (toc-tic)) + "ms")
+
+81
+00:05:15,225 --> 00:05:17,505
+para denotar que estamos fazendo isso em milésimos de segundo.
+
+82
+00:05:17,505 --> 00:05:19,735
+Agora, vamos fazer mais uma coisa.
+
+83
+00:05:19,735 --> 00:05:22,802
+Vamos imprimir o valor de "c": 
+print(c)
+
+84
+00:05:22,802 --> 00:05:27,960
+e calculá-lo para termos certeza que é o mesmo valor em ambos os casos.
+
+85
+00:05:27,960 --> 00:05:35,770
+Então vou teclar "shift" e "Enter", 
+para executá-lo, e ver o que acontece.
+
+86
+00:05:35,770 --> 00:05:38,305
+Em ambos os casos, a versão vetorizada
+
+87
+00:05:38,305 --> 00:05:41,125
+e a versão não vetorizada calcularam os mesmos valores,
+
+88
+00:05:41,125 --> 00:05:45,355
+como vocês veem, "250286.99", e assim por diante.
+
+89
+00:05:45,355 --> 00:05:48,670
+A versão vetorizada levou 1, 5 milésimos de segundo.
+
+90
+00:05:48,670 --> 00:05:57,555
+O laço "for..." na versão não vetorizada levou
+aproximadamente quase 500 milésimos de segundo.
+
+91
+00:05:57,555 --> 00:06:01,285
+A versão não vetorizada levou em torno de 300
+
+92
+00:06:01,285 --> 00:06:05,660
+vezes mais tempo do que a versão vetorizada.
+
+93
+00:06:05,660 --> 00:06:11,230
+Com este exemplo, você vê que,
+se apenas se lembrar de vetorizar seu código,
+
+94
+00:06:11,230 --> 00:06:15,120
+seu código vai ser executado mais de 300 vezes mais rápido.
+
+95
+00:06:15,120 --> 00:06:16,540
+Vamos executá-lo novamente.
+
+96
+00:06:16,540 --> 00:06:18,930
+Executando novamente...
+
+97
+00:06:18,930 --> 00:06:22,235
+Exato, a versão vetorizada, 1, 5 milésimos de segundo
+
+98
+00:06:22,235 --> 00:06:25,960
+e o laço "for ..." levou 481 milésimos de segundo, então novamente,
+
+99
+00:06:25,960 --> 00:06:29,535
+em torno de 300 vezes mais lento, para executar esse laço "for ..." explícito.
+
+100
+00:06:29,535 --> 00:06:30,980
+Então, 300 vezes mais lento,
+
+101
+00:06:30,980 --> 00:06:33,880
+essa é a diferença entre um código, que leva em média, um minuto
+
+102
+00:06:33,880 --> 00:06:37,615
+para executar, contra um que leva, digamos que, cinco horas.
+
+103
+00:06:37,615 --> 00:06:41,410
+E quando você está implementando
+algoritmos de aprendizagem profunda,
+
+104
+00:06:41,410 --> 00:06:43,300
+você realmente consegue um resultado mais veloz.
+
+105
+00:06:43,300 --> 00:06:46,590
+Será muito mais rápido, se você vetorizar seu código.
+
+106
+00:06:46,590 --> 00:06:49,300
+Alguns de vocês já devem ter ouvido
+
+107
+00:06:49,300 --> 00:06:54,260
+que muitas implementações escaláveis de aprendizagem profunda
+são feitas em uma GPU ou unidade de processamento de gráficos.
+
+108
+00:06:54,260 --> 00:06:59,515
+Mas, todas as demonstrações que fiz agora pouco
+no "Jupyter notebook" foram de facto, em uma CPU.
+
+109
+00:06:59,515 --> 00:07:04,530
+E verifica-se que tanto uma GPU
+como uma CPU possuem paralelização de instruções.
+
+110
+00:07:04,530 --> 00:07:07,530
+Ela são às vezes chamadas de instruções "SIMD".
+
+111
+00:07:07,530 --> 00:07:11,190
+Isso representa uma instrução simples de dados múltiplos.
+
+112
+00:07:11,190 --> 00:07:13,045
+Mas o que isso basicamente significa é que,
+
+113
+00:07:13,045 --> 00:07:16,835
+se você usar funções embutidas,
+
+114
+00:07:16,835 --> 00:07:23,495
+como esta "np.dot" ou outras funções que não requerem
+que você implemente um laço "for..." explicitamente,
+
+115
+00:07:23,495 --> 00:07:28,150
+isso permite que o Numpy do Python tire muito mais proveito
+
+116
+00:07:28,150 --> 00:07:33,640
+de paralelismo para fazer seus cálculos muito mais velozmente.
+
+117
+00:07:33,640 --> 00:07:38,610
+E isso se encaixa tanto para cálculos em CPUs como em GPUs.
+
+118
+00:07:38,610 --> 00:07:41,070
+É só que GPUs são notavelmente boas
+
+119
+00:07:41,070 --> 00:07:44,980
+nesses cálculos SIMD, mas uma CPU,
+na verdade, não é tão ruim assim nisso também.
+
+120
+00:07:44,980 --> 00:07:47,510
+Talvez apenas não tão boa como as GPUs.
+
+121
+00:07:47,510 --> 00:07:51,660
+Então você está vendo como a vetorização
+pode acelerar significantemente seu código.
+
+122
+00:07:51,660 --> 00:07:54,685
+A regra para lembrar-se disso é: sempre que possível,
+
+123
+00:07:54,685 --> 00:07:57,425
+evite usar laços "for..." explícitos.
+
+124
+00:07:57,425 --> 00:07:59,980
+Vamos para o próximo vídeo, para vermos mais exemplos
+
+125
+00:07:59,980 --> 00:08:04,000
+de vetorização e também começar a vetorizar regressão logística.
+Tradução: Diogo dos Santos Farias | Revisão: Carlos Lage.

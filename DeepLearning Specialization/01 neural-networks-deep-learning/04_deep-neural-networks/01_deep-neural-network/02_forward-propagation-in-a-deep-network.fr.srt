@@ -1,0 +1,514 @@
+1
+00:00:00,000 --> 00:00:02,340
+Dans la dernière vidéo, 
+nous avons décrit ce qu'est
+
+2
+00:00:02,340 --> 00:00:04,890
+un réseau de neurones profond 
+à L couches et aussi discuté
+
+3
+00:00:04,890 --> 00:00:07,785
+de la notation que nous utilisons
+ pour décrire de tels réseaux.
+
+4
+00:00:07,785 --> 00:00:11,100
+Dans cette vidéo, vous verrez 
+comment vous pouvez effectuer
+
+5
+00:00:11,100 --> 00:00:12,450
+la propagation directe 
+dans un réseau profond.
+
+6
+00:00:12,450 --> 00:00:15,270
+Comme d’habitude, 
+nous allons tout d’abord voir
+
+7
+00:00:15,270 --> 00:00:19,590
+à quoi ressemble la propagation directe 
+pour un seul exemple d'apprentissage x,
+
+8
+00:00:19,590 --> 00:00:22,470
+puis , plus tard, nous verrons
+ la version vectorisée,
+
+9
+00:00:22,470 --> 00:00:24,630
+pour effectuer la propagation directe
+
+10
+00:00:24,630 --> 00:00:26,595
+sur l’ensemble des données 
+d'apprentissage en même temps.
+
+11
+00:00:26,595 --> 00:00:30,480
+Pour un seul exemple d'apprentissage x,
+
+12
+00:00:30,480 --> 00:00:34,005
+voici comment vous calculez 
+les activations de la première couche.
+
+13
+00:00:34,005 --> 00:00:35,640
+Donc, pour cette première couche,
+
+14
+00:00:35,640 --> 00:00:39,629
+vous calculez z[1] égal à
+
+15
+00:00:39,629 --> 00:00:45,905
+W[1] * x plus b[1].
+
+16
+00:00:45,905 --> 00:00:52,040
+W[1] et b[1] sont les paramètres qui 
+affectent les activations dans la couche 1.
+
+17
+00:00:52,040 --> 00:00:55,225
+Ceci est la couche 1 du réseau de neurones.
+
+18
+00:00:55,225 --> 00:01:03,520
+et puis vous calculez les activations 
+de cette couche, qui valent g( z[1] ).
+
+19
+00:01:03,520 --> 00:01:07,025
+La fonction d'activation g 
+dépend de la couche,
+
+20
+00:01:07,025 --> 00:01:10,415
+donc on va peut être l'indexer comme étant
+ la fonction d'activation pour la couche 1.
+
+21
+00:01:10,415 --> 00:01:13,430
+On vient de calculer
+ les activations pour la couche 1.
+
+22
+00:01:13,430 --> 00:01:17,850
+Et pour la couche 2 ? Cette couche.
+
+23
+00:01:17,850 --> 00:01:22,440
+Eh bien, vous calculez z[2], qui est égal à
+
+24
+00:01:22,440 --> 00:01:30,450
+W[2] * a[1] + b[2].
+
+25
+00:01:30,450 --> 00:01:36,230
+Donc l'activation de la couche 2 est la matrice
+ des poids fois la sortie de la couche 1.
+
+26
+00:01:36,230 --> 00:01:38,175
+C’est cette valeur,
+
+27
+00:01:38,175 --> 00:01:42,775
+plus le vecteur des biais pour la couche 2.
+
+28
+00:01:42,775 --> 00:01:51,270
+Puis a[2] = la fonction d'activation 
+appliquée à z[2].
+
+29
+00:01:51,270 --> 00:01:54,960
+OK ? Donc voilà pour la couche 2,
+
+30
+00:01:54,960 --> 00:01:56,700
+et ainsi de suite,
+
+31
+00:01:56,700 --> 00:01:59,775
+jusqu'à ce que vous arriviez à la couche 
+de sortie, qui est la couche 4,
+
+32
+00:01:59,775 --> 00:02:04,260
+où vous aurez z[4] égal
+
+33
+00:02:04,260 --> 00:02:11,745
+les paramètres pour cette couche fois
+ les activations de la couche précédente,
+
+34
+00:02:11,745 --> 00:02:14,145
+plus ce vecteur de biais.
+
+35
+00:02:14,145 --> 00:02:23,625
+Ensuite de la même façon, 
+a[4] est égal à g ( z[4] ).
+
+36
+00:02:23,625 --> 00:02:28,475
+Voici comment vous calculez 
+votre estimation de sortie ŷ.
+
+37
+00:02:28,475 --> 00:02:30,455
+Une chose à remarquer ici,
+
+38
+00:02:30,455 --> 00:02:34,835
+x ici est aussi égal à a[0], puisque
+
+39
+00:02:34,835 --> 00:02:39,950
+le vecteur de caractéristiques d'entrée
+ est aussi l'activation de la couche 0.
+
+40
+00:02:39,950 --> 00:02:41,630
+Donc je vais barrer x,
+
+41
+00:02:41,630 --> 00:02:44,855
+et mettre a[0] à la place,
+
+42
+00:02:44,855 --> 00:02:49,120
+de sorte que 
+toutes ces équations se ressemblent.
+
+43
+00:02:49,120 --> 00:02:54,105
+La règle générale est que le z[l] est égal à
+
+44
+00:02:54,105 --> 00:03:00,670
+W[l] * a[l-1] + b[l]
+
+45
+00:03:01,100 --> 00:03:04,110
+C'est un 1 ici.
+
+46
+00:03:04,110 --> 00:03:07,810
+Puis les activations de cette couche
+ sont égales à
+
+47
+00:03:07,810 --> 00:03:15,150
+la fonction d'activation appliquée 
+aux valeurs de z.
+
+48
+00:03:15,150 --> 00:03:18,845
+Voici l'équation générale de
+ la propagation directe.
+
+49
+00:03:18,845 --> 00:03:23,360
+Nous avons fait tout ça pour 
+un seul exemple d'apprentissage,
+
+50
+00:03:23,360 --> 00:03:30,450
+comment le faire de façon vectorisée, pour 
+tout l'ensemble d'apprentissage d'un coup ?
+
+51
+00:03:30,450 --> 00:03:33,590
+Les équations ressemblent beaucoup 
+à celles qu'on a déjà.
+
+52
+00:03:33,590 --> 00:03:38,885
+Pour la première couche,
+ vous aurez grand Z[1] égal à
+
+53
+00:03:38,885 --> 00:03:45,470
+W[1] fois X plus b[1].
+
+54
+00:03:45,470 --> 00:03:52,290
+Puis A[1] est égal à g de Z[1].
+
+55
+00:03:52,580 --> 00:03:56,995
+Gardez à l’esprit que X est égal à A[0].
+C'est juste
+
+56
+00:03:56,995 --> 00:04:00,995
+les différents exemples d'apprentissage
+ empilés dans les différentes colonnes,
+
+57
+00:04:00,995 --> 00:04:03,665
+vous pouvez barrer ce X
+
+58
+00:04:03,665 --> 00:04:06,355
+et mettre A[0] à la place.
+
+59
+00:04:06,355 --> 00:04:08,790
+Puis dans la couche suivante, même chose,
+
+60
+00:04:08,790 --> 00:04:12,029
+Z[2] = W[2] * A[1] + b[2]
+
+61
+00:04:12,029 --> 00:04:21,855
+Z[2] = W[2] * A[1] + b[2]
+ et A[2] = g( Z[2] )
+
+62
+00:04:21,855 --> 00:04:26,325
+On prend juste ces vecteurs
+ z, a, et ainsi de suite,
+
+63
+00:04:26,325 --> 00:04:28,005
+et on les empile.
+
+64
+00:04:28,005 --> 00:04:30,840
+Le vecteur z pour le premier
+ exemple d'apprentissage,
+
+65
+00:04:30,840 --> 00:04:35,160
+Le vecteur z pour le second
+ exemple d'apprentissage,
+
+66
+00:04:35,160 --> 00:04:38,370
+et ainsi de suite jusqu'au m-ième
+ exemple d'apprentissage,
+
+67
+00:04:38,370 --> 00:04:43,195
+on les empile en colonne et 
+on appelle ça Z majuscule.
+
+68
+00:04:43,195 --> 00:04:46,425
+Et de la même façon pour A majuscule, 
+
+69
+00:04:46,425 --> 00:04:48,075
+juste comme pour X majuscule,
+
+70
+00:04:48,075 --> 00:04:51,755
+il contient tous les vecteurs colonnes, 
+les uns à côté des autres.
+
+71
+00:04:51,755 --> 00:04:59,480
+Et à la fin, vous obtenez ŷ
+ qui est égal à g ( Z[4] ),
+
+72
+00:04:59,480 --> 00:05:02,480
+c'est aussi égal à A[4], 
+et c'est la prédiction pour
+
+73
+00:05:02,480 --> 00:05:07,280
+tous vos exemples d'apprentissage 
+empilés horizontalement.
+
+74
+00:05:07,280 --> 00:05:09,680
+Donc, juste pour résumer, sur la notation,
+
+75
+00:05:09,680 --> 00:05:11,870
+je vais modifier ça.
+
+76
+00:05:11,870 --> 00:05:19,200
+Notre notation nous permet de simplement 
+remplacer les petits z et a par leurs
+ contreparties en majuscules,
+
+77
+00:05:19,200 --> 00:05:21,310
+celui ci ressemble déjà à un Z majuscule.
+
+78
+00:05:21,310 --> 00:05:23,630
+Cela vous donne la version vectorisée
+ dela propagation directe,
+
+79
+00:05:23,630 --> 00:05:27,575
+que vous calculez sur tout l'ensemble 
+d'apprentissage d'un coup,
+
+80
+00:05:27,575 --> 00:05:31,575
+avec A[0] = X.
+
+81
+00:05:31,575 --> 00:05:34,910
+Si vous regardez cette implémentation
+ de la vectorisation,
+
+82
+00:05:34,910 --> 00:05:38,570
+on dirait qu’il va y avoir une boucle for ici.
+
+83
+00:05:38,570 --> 00:05:43,130
+Pour l de 1 à 4.
+
+84
+00:05:43,130 --> 00:05:48,290
+Pour l de 1 à L. 
+Vous devez calculer les activations pour
+
+85
+00:05:48,290 --> 00:05:50,150
+la couche 1, puis la 2, puis la 3,
+
+86
+00:05:50,150 --> 00:05:51,560
+puis la 4.
+
+87
+00:05:51,560 --> 00:05:54,620
+Donc on dirait bien
+ qu’il y a une boucle for ici.
+
+88
+00:05:54,620 --> 00:05:57,290
+Et je sais que quand on implémente
+ un réseau de neurones,
+
+89
+00:05:57,290 --> 00:05:59,750
+on essaie de se débarrasser 
+des boucles for explicites,
+
+90
+00:05:59,750 --> 00:06:02,570
+mais ici, je ne pense pas 
+qu'il y ait un moyen
+
+91
+00:06:02,570 --> 00:06:05,660
+d'implémenter ça sans
+ une boucle for explicite.
+
+92
+00:06:05,660 --> 00:06:07,399
+Donc lors de l'implémentation 
+de la propagation directe,
+
+93
+00:06:07,399 --> 00:06:11,630
+ce n'est pas un problème d'avoir une
+ boucle for pour calculer les activations
+
+94
+00:06:11,630 --> 00:06:14,240
+pour les couches 1 puis 2 puis 3 puis 4.
+
+95
+00:06:14,240 --> 00:06:18,380
+Je ne crois pas 
+qu'il soit possible de faire ça
+
+96
+00:06:18,380 --> 00:06:22,410
+sans une boucle for qui va de 1 à L,
+
+97
+00:06:22,410 --> 00:06:25,625
+de 1 jusqu'au nombre total de couches 
+dans votre réseau de neurones.
+
+98
+00:06:25,625 --> 00:06:29,950
+Donc ce n'est pas du tout grave 
+d'avoir une boucle for explicite ici.
+
+99
+00:06:29,950 --> 00:06:33,755
+C’est tout pour la notation pour 
+les réseaux de neurones profonds,
+
+100
+00:06:33,755 --> 00:06:37,340
+ainsi que pour la propagation
+ directe pour ces réseaux.
+
+101
+00:06:37,340 --> 00:06:40,750
+Si ce que nous venons de voir 
+vous parait un peu familier,
+
+102
+00:06:40,750 --> 00:06:45,755
+c'est que nous faisons quelque chose 
+de très similaire à ce qu'on faisait pour
+
+103
+00:06:45,755 --> 00:06:51,110
+un réseau de neurones avec une seule couche
+ cachée, mais on le répète plusieurs fois.
+
+104
+00:06:51,110 --> 00:06:54,380
+Mais il s’avère que lorsque vous 
+implémentez un réseau de neurones,
+
+105
+00:06:54,380 --> 00:06:58,820
+pour augmenter vos chances d'avoir
+ une implémentation sans bugs,
+
+106
+00:06:58,820 --> 00:07:00,410
+il faut réfléchir de façon très systématique
+
+107
+00:07:00,410 --> 00:07:03,380
+et très soigneusement aux dimensions 
+des matrices avec lesquelles vous travaillez.
+
+108
+00:07:03,380 --> 00:07:05,330
+Quand je débuggue mon propre code,
+
+109
+00:07:05,330 --> 00:07:07,040
+je prend souvent un bout de papier et
+
+110
+00:07:07,040 --> 00:07:08,615
+je mets au clair toutes les dimensions
+
+111
+00:07:08,615 --> 00:07:12,070
+des matrices avec lesquelles je travaille.
+
+112
+00:07:12,070 --> 00:07:15,270
+Nous allons voir comment vous pouvez 
+faire ça dans la prochaine vidéo.

@@ -1,0 +1,529 @@
+1
+00:00:00,550 --> 00:00:02,370
+Dans les vidéos précédentes
+ de cette semaine et
+
+2
+00:00:02,370 --> 00:00:05,890
+de ces dernières semaines,
+
+3
+00:00:05,890 --> 00:00:09,500
+nous avons vu tous les blocs de 
+base de la propagation directe et de la
+
+4
+00:00:09,500 --> 00:00:14,200
+rétro propagation, les composants clés 
+dont vous avez besoin pour implémenter 
+un réseau de neurones profond.
+
+5
+00:00:14,200 --> 00:00:17,540
+Nous allons voir comment vous pouvez 
+mettre ces éléments ensemble pour 
+construire un réseau profond.
+
+6
+00:00:18,560 --> 00:00:20,440
+Voici un réseau avec plusieurs couches.
+
+7
+00:00:20,440 --> 00:00:21,610
+Intéressons nous à une couche et
+
+8
+00:00:22,650 --> 00:00:27,330
+regardons les calculs en nous concentrant 
+sur cette couche pour le moment.
+
+9
+00:00:27,330 --> 00:00:32,130
+Pour la couche l, vous avez 
+certains paramètres W[l] et b[l],
+
+10
+00:00:33,250 --> 00:00:37,638
+et pour la propagation directe,
+ vous aurez en entrée
+
+11
+00:00:37,638 --> 00:00:44,762
+l'activation a[l-1] de
+ la couche précédente et
+
+12
+00:00:44,762 --> 00:00:48,930
+en sortie vous aurez a[l].
+
+13
+00:00:48,930 --> 00:00:54,618
+Ce que nous avons fait 
+précédemment était de calculer
+
+14
+00:00:54,618 --> 00:00:59,136
+z[l] = W[l] x a[l-1] + b[l],
+
+15
+00:00:59,136 --> 00:01:07,050
+et ensuite a[l] = g( z[l] ).
+
+16
+00:01:07,050 --> 00:01:08,180
+Très bien. 
+
+17
+00:01:08,180 --> 00:01:13,100
+Voilà comment vous passez 
+de l’entrée a[l-1] à la sortie a[l].
+
+18
+00:01:13,100 --> 00:01:20,900
+Et il va être utile pour plus tard 
+de mettre en cache la valeur z[l].
+
+19
+00:01:20,900 --> 00:01:25,640
+Je voudrais mettre ceci en cache parce 
+que stocker cette valeur z[l]
+
+20
+00:01:25,640 --> 00:01:30,930
+nous sera utile pour l'étape 
+de rétro propagation.
+
+21
+00:01:30,930 --> 00:01:35,854
+Pour l'étape de rétro propagation,
+
+22
+00:01:35,854 --> 00:01:37,760
+en se concentrant toujours
+ sur cette couche l,
+
+23
+00:01:37,760 --> 00:01:43,530
+voyons comment calculer une
+ fonction qui prenne en entrée da[l]
+
+24
+00:01:45,830 --> 00:01:53,750
+et qui sorte da[l-1].
+Et pour être vraiment précis,
+
+25
+00:01:53,750 --> 00:01:59,230
+en entrée, on a da[l] 
+ainsi que le cache, donc
+
+26
+00:01:59,230 --> 00:02:04,230
+vous avez à disposition la valeur de z[l]
+ que vous avez calculée,
+
+27
+00:02:04,230 --> 00:02:10,150
+et en plus de sortir da[l-1], 
+vous allez aussi calculer les gradients
+
+28
+00:02:10,150 --> 00:02:13,100
+dont vous avez besoin pour 
+implémenter la descente de gradient
+
+29
+00:02:13,500 --> 00:02:14,330
+pour l'apprentissage. Ok ?
+
+30
+00:02:14,330 --> 00:02:19,830
+Donc voilà la structure fondamentale de 
+l'implémentation de l'étape directe,
+
+31
+00:02:19,830 --> 00:02:23,050
+ce que nous appelons la fonction directe
+ ainsi que l'étape arrière,
+
+32
+00:02:23,050 --> 00:02:25,170
+que nous appelons fonction
+ de rétro propagation.
+
+33
+00:02:25,170 --> 00:02:28,150
+Juste pour résumer, dans la couche l,
+
+34
+00:02:28,150 --> 00:02:32,250
+vous allez avoir l'étape ou la fonction 
+de propagation directe,
+
+35
+00:02:32,250 --> 00:02:39,360
+en entrée a[l-1], en sortie a[l],
+
+36
+00:02:39,360 --> 00:02:45,300
+et pour faire ce calcul, 
+vous avez besoin de W[l] et b[l],
+
+37
+00:02:45,300 --> 00:02:52,690
+et en sortie, vous avez aussi 
+un cache qui contient z[l].
+
+38
+00:02:52,690 --> 00:02:56,300
+Pour l'étape de rétro propagation,
+vous aurez
+
+39
+00:02:56,300 --> 00:03:01,170
+une autre fonction qui maintenant prend 
+
+40
+00:03:01,170 --> 00:03:08,460
+en entrée da[l] et produit da[l-1].
+
+41
+00:03:08,460 --> 00:03:14,390
+Elle vous dit, en fonction de la dérivée
+ de cette activation, c'est da[l], 
+
+42
+00:03:14,390 --> 00:03:17,400
+ce que valent les dérivées,
+
+43
+00:03:17,400 --> 00:03:18,540
+combien je souhaite ?
+
+44
+00:03:18,540 --> 00:03:23,170
+a[l-1] modifie la valeur calculée de la dérivée
+ par rapport à l'activation
+
+45
+00:03:23,170 --> 00:03:24,580
+de la couche précédente.
+
+46
+00:03:25,380 --> 00:03:26,800
+Dans cette boîte,
+
+47
+00:03:26,800 --> 00:03:31,610
+vous avez besoin de W[l] et b[l], 
+et, au passage,
+
+48
+00:03:31,610 --> 00:03:36,910
+on va calculer dz[l], 
+et donc cette boite,
+
+49
+00:03:36,910 --> 00:03:42,790
+cette fonction arrière, va aussi
+ avoir en sortie dW[l] et db[l].
+
+50
+00:03:42,790 --> 00:03:47,360
+J'utilise parfois des flèches rouges 
+pour les itérations vers l'arrière,
+
+51
+00:03:47,360 --> 00:03:50,520
+donc si vous préférez, on peut 
+mettre ces flèches en rouge.
+
+52
+00:03:51,680 --> 00:03:55,450
+Si vous pouvez implémenter ces deux fonctions,
+
+53
+00:03:55,450 --> 00:03:59,660
+alors le calcul de base du réseau
+ de neurones ira comme ceci :
+
+54
+00:03:59,660 --> 00:04:05,120
+Vous allez mettre les caractéristiques 
+d’entrée a[0] en entrée,
+
+55
+00:04:05,120 --> 00:04:10,170
+et vous calculerez les activations 
+de cette première couche, a[1].
+
+56
+00:04:10,170 --> 00:04:16,180
+Pour cela, vous avez besoin 
+de W[1] et b[1].
+
+57
+00:04:16,180 --> 00:04:19,760
+Et vous allez mettre z[1] en cache.
+
+58
+00:04:21,520 --> 00:04:26,340
+Ceci fait, vous entrez ça dans la seconde 
+couche, et vous utilisez W[2] et b[2]
+
+59
+00:04:26,340 --> 00:04:34,330
+pour calculer les activations a[2] de 
+la couche suivante, et ainsi de suite.
+
+60
+00:04:34,330 --> 00:04:38,110
+Jusqu'à ce que finalement,
+ vous obteniez en sortie
+
+61
+00:04:38,110 --> 00:04:43,540
+a[L], qui est égal à ŷ.
+
+62
+00:04:43,540 --> 00:04:50,160
+Au fur et à mesure, nous avons 
+mis en cache toutes ces valeurs z.
+
+63
+00:04:52,660 --> 00:04:55,030
+Voilà pour l’étape de propagation directe.
+
+64
+00:04:55,370 --> 00:04:59,600
+Pour l'étape de rétro propagation, 
+nous allons faire
+
+65
+00:04:59,600 --> 00:05:03,960
+une série d'itérations en reculant,
+
+66
+00:05:05,260 --> 00:05:09,960
+en calculant les gradients comme ceci.
+
+67
+00:05:12,260 --> 00:05:17,560
+En entrée ici on aura da[L], 
+puis cette boîte 
+
+68
+00:05:17,560 --> 00:05:30,700
+va nous donner da[l-1] et ainsi 
+de suite jusqu'à avoir da[2] puis da[1].
+
+69
+00:05:30,950 --> 00:05:36,940
+Vous pourriez avoir une sortie 
+de plus pour calculer da[0],
+
+70
+00:05:36,940 --> 00:05:38,650
+mais c'est la dérivée par rapport 
+aux caractéristiques d'entrée
+
+71
+00:05:38,650 --> 00:05:40,950
+et ce n'est pas utile, en tous cas pour
+
+72
+00:05:40,950 --> 00:05:46,700
+l'apprentissage des poids
+ de ces réseaux neuronaux supervisés,
+
+73
+00:05:46,700 --> 00:05:49,180
+donc vous pouvez arrêter là.
+
+74
+00:05:49,180 --> 00:05:54,680
+Au fur et à mesure, la rétro propagation
+produit aussi dW[L], db[L].
+
+75
+00:05:54,680 --> 00:05:59,170
+J'avais utilisé 
+les paramètres W[L] et b[L].
+
+76
+00:05:59,170 --> 00:06:06,750
+Cela va donner dW[3], db[3],
+ et ainsi de suite.
+
+77
+00:06:10,500 --> 00:06:13,510
+Vous finissez par calculer toutes les 
+dérivées dont vous avez besoin.
+
+78
+00:06:16,560 --> 00:06:21,110
+Juste pour compléter
+ un petit peu cette structure,
+
+79
+00:06:21,110 --> 00:06:24,380
+ces boîtes utiliseront 
+ces paramètres également,
+
+80
+00:06:26,180 --> 00:06:31,930
+W[L], b[L] et vous verrez que
+
+81
+00:06:31,930 --> 00:06:37,400
+dans ces boîtes, 
+nous calculons aussi les dz.
+
+82
+00:06:37,400 --> 00:06:42,250
+Donc une itération d'apprentissage 
+d’un réseau de neurones implique de 
+commencer par a[0], c'est à dire X,
+
+83
+00:06:42,250 --> 00:06:46,930
+et de faire la propagation 
+directe comme ceci,
+
+84
+00:06:46,930 --> 00:06:50,840
+de calculer ŷ et
+ de l'utiliser pour calculer ceci
+
+85
+00:06:50,840 --> 00:06:56,480
+puis la rétro propagation, comme ceci,
+ faisant cela,
+
+86
+00:06:56,480 --> 00:07:01,560
+et maintenant, vous avez 
+tous ces termes dérivés,
+
+87
+00:07:01,560 --> 00:07:06,370
+W est remplacé par 
+W moins le taux d'apprentissage fois dW
+
+88
+00:07:06,370 --> 00:07:13,260
+pour chacune des couches et
+ de la même façon pour le taux b.
+
+89
+00:07:13,260 --> 00:07:17,690
+Maintenant la rétropropagation calculée
+ a toutes ses dérivées.
+
+90
+00:07:17,690 --> 00:07:21,930
+C'est une itération de la descente de 
+gradient pour votre réseau de neurones.
+
+91
+00:07:21,930 --> 00:07:25,390
+Avant de passer à la suite, 
+juste un détail d'implémentation.
+
+92
+00:07:25,390 --> 00:07:30,110
+Sur le plan conceptuel, il est utile de voir 
+le cache ici pour stocker
+
+93
+00:07:30,110 --> 00:07:34,110
+la valeur de z pour
+ les fonctions arrière.
+
+94
+00:07:34,110 --> 00:07:37,130
+Mais lorsque vous implémentez
+ ceci, vous le verrez dans l'exercice 
+
+95
+00:07:37,130 --> 00:07:40,060
+de programmation, vous verrez que
+ le cache est un moyen pratique
+
+96
+00:07:40,060 --> 00:07:43,650
+d'avoir à disposition 
+les valeurs des paramètres W[1], b[1]
+
+97
+00:07:43,650 --> 00:07:46,510
+à l'intérieur des fonctions arrière.
+Donc dans l'exercice,
+
+98
+00:07:46,510 --> 00:07:51,000
+vous stockerez z dans votre cache, 
+mais aussi W et b.
+
+99
+00:07:51,000 --> 00:07:59,800
+Donc ceci stocke z[2], W[2) et b[2]. 
+Du point de vue de l'implémentation,
+
+100
+00:07:59,800 --> 00:08:03,790
+je trouve que c'est un moyen pratique 
+d’obtenir une copie des paramètres
+
+101
+00:08:03,790 --> 00:08:08,630
+là où vous en avez besoin lorsque
+ vous calculez la rétro propagation.
+
+102
+00:08:08,630 --> 00:08:12,030
+C’est juste un détail d’implémentation 
+que vous verrez quand vous ferez 
+
+103
+00:08:12,030 --> 00:08:15,330
+l’exercice de programmation.
+
+104
+00:08:15,330 --> 00:08:18,000
+Bien, vous avez vu maintenant 
+les blocs de base
+
+105
+00:08:18,000 --> 00:08:19,910
+pour l'implémentation 
+d'un réseau neuronal profond.
+
+106
+00:08:19,910 --> 00:08:22,040
+Dans chaque couche, il y a 
+une étape de propagation directe, vers l'avant
+
+107
+00:08:22,040 --> 00:08:24,270
+et il y a une étape de rétro propagation
+ correspondante,
+
+108
+00:08:24,270 --> 00:08:27,870
+et il y a un cache pour passer 
+les informations de l’une à l’autre.
+
+109
+00:08:27,870 --> 00:08:28,810
+Dans la prochaine vidéo,
+
+110
+00:08:28,810 --> 00:08:32,190
+nous allons voir comment vous pouvez
+ réellement implémenter
+
+111
+00:08:32,190 --> 00:08:33,340
+ces briques de base.
+Passons à la vidéo suivante.

@@ -1,0 +1,178 @@
+In the last video you saw the equations for
+backpropagation. In this video let's go
+over some intuition, using the computation graph for how those equations
+were derived. This video is completely optional so if you free to
+watch it or not, you should be able to do
+the whole work either way. So recall that when
+we talked about logistic regression we
+had this forward pass, where we'll compute z
+then a and then a loss, and entity derivatives we had this backward pass where
+we could first compute da, and then go on to compute dz, and then go on to
+compute dw and db. So, the definition for the loss
+was l of a comma y equals negative y log a minus one
+minus y times log 1 minus a. So if you're familiar with calculus and you take the derivative of this
+with respect to a, that will give you
+the formula for da. So da is equal to that. If you actually figure out the calculus you could show that this is negative y over a plus one
+minus y over one minus a. Just derived at from calculus by taking
+derivatives of this. It turns out when you take another step backwards
+to compute dz, we then worked out that
+dz is equal to a minus y. I did explain why previously, but it turns out that from
+the chain rule of calculus, dz is equal to da
+times g prime of z. Where here, g of z
+equals sigmoid of z, is activation function for this output unit in
+logistic regression. So just remember this is
+still logistic regression. We have x_1, x_2, x_3 and then just
+one sigmoid unit and then that gives us a, gives us y hat. So here the activation function
+was a sigmoid function. As in aside only for
+those of you familiar with the chain rule of calculus, the reason for this is
+because a is equal to sigmoid of z and so partial of L with respect to z is
+equal to partial of L with respect to a times da, dz but since a is
+equal to sigmoid of z, this is equal to d, dz g of z which is
+equal to g prime of z. So that's why this expression, which is dz in our codes, is equal to this expression
+which is da in our codes times g prime of z. and so this is just that. So that last deviation will
+make sense only if you're familiar with calculus and specifically the chain rule
+from calculus, but if not don't worry about it. I'll try to explain the
+intuition wherever is needed. Then finally having
+computed dz for logistic regression
+we will compute dw, which it turned out
+was dz times x and db which is just dz where you have
+a single chain example. So that was logistic regression. So what we're going to do when computing backpropagation
+for a neural network is a calculation a lot like this but only we'll do it twice because now we have not x going to an output unit
+but x going to a hidden layer and then
+going to an output unit. So instead of instead of this computation being
+one step as we have here, we'll have two steps here in this kind of neural network
+with two layers. So in this two layer
+neural network that is with the input layer, a hidden layer, and
+an output layer remember the steps
+of our computation. First, you compute z_1
+using this equation, and then compute a_1, and then you compute z_2. Notice z_2 also depends on
+the parameters w_2 and b_2. Then based on z_2 compute a_2 and finally that
+gives you the loss. So what backpropagation does is, it will go backwards to
+compute da_2 and then dz_2. Looking to go back to
+compute dw_2 and db_2, go backwards to compute
+da_1, dz_1 and so on. We don't need to take
+derivatives respect to the input x since the input x for supervised learning is fixed. So we're not trying
+to optimize x. So we won't bother
+to take derivatives at least for supervised learning
+with respect to x. So I'm going to skip
+explicitly computing da_2. If you want you can actually compute da_2 and then
+use that to compute dz_2 but in practice you
+could collapse both of these steps into one step so you end up at dz_2 is equal to a_2 minus y, same as before. You also going to write dw_2
+and db_2 down here below. You have that dW_2 is equal to dz_2 times a_1 transpose
+and db_2 equals dz_2. So this step is quite similar for logistic regression
+where we had that dw was equal to dz times x. Except that now, a_1 plays the role of x and there's an extra transpose there because the relationship between
+the capital matrix W and our individual parameters w there's a transpose there. Because w is equal
+to a row vector, in the case of
+logistic regression with a single output dw_2
+is like that, whereas w here was
+a column vector. So that's why there's
+an extra transpose for a_1 whereas we didn't for x
+here for logistic regression. So this completes half
+of backpropagation. Then again you can compute da_1 if you wish
+although in practice the computation for da_1 and dz_1 usually collapse
+into one step and so what you could actually implement
+is that dz_1 is equal to w_2 transpose times dz_2 and then times an element-wise
+product of g_1 prime of z_1. Just to do a check
+on the dimensions, if you have a neural network
+that looks like this, outputs y like so. If you have n_0 and x equals n_0 input features and
+one hidden unit, and n_2. So far, and n_2 In our case, just
+one output unit then the matrix W_2 is n_2
+by n_1 dimensional, z_2 and therefore, dz_2 are going to be n_2
+by one-dimensional. There's really going
+to be a one-by-one when we're doing
+binary classification. Z_1, and therefore also, dz_1 are going to be
+n_1 by one-dimensional. Note that for any variable foo, foo and dfoo always have
+the same dimensions. So that's why w and dw always
+have the same dimension. Similarly for b, and db, and z, and dz, and so on. So to make sure that the
+dimensions of this all match up, we have that dz_1 is equal
+to w_2 transpose times dz_2. Then this is an
+element-wise product times g_1 prime of z_1. So matching the
+dimensions from above, this is going to be n_1 by one, is equal to w_2 transpose, we transpose of this. So it's just going to be
+n_1 by n_2 dimensional. dz_2 is going to be n_2
+by one-dimensional. Then this, this
+the same dimension as z_1. So this is also n_1 by one dimensional,
+so element-wise product. So the dimensions too make sense. n_1 one by 1 dimensional
+vector can be obtained by an n_1 by n_2 dimensional
+matrix times n_2 by n_1, because the product of
+these two things gives you an n_1 by
+one-dimensional matrix. So this becomes
+the element-wise product of two and one by
+one dimensional vectors and so dimensions do match up. One tip when implementing a backdrop: If you just make sure that the dimensions
+of your matrices match up, so if you think through
+what are the dimensions of your various matrices
+including w_1, w_2, z_1, z_2, a_1, a_2, and so
+on and just make sure that the dimensions of these matrix operations
+may match up. Sometimes, that will already eliminate quite a lot
+of bugs and back-prop. All right. So this gives us dz_1. Then finally, just to
+wrap up dw_1 and db_1, we should write
+them here I guess. But since I'm running
+out of space, I'll write them on
+the right of the slide. dw_1 and db_1 are given by
+the following formulas. This is going to be equal
+to dz_1 times x transpose. This is going to be equal to dz, and you might notice
+a similarity between these equations and
+these equations, which is really
+no coincidence because x plays the role of a_0. So x transpose is a_0 transpose. So those equations are actually
+very similar. All right. So that gives a sense for how back-propagation is derived. We have six key
+equations here for dz_2, dw_2, db_2, dz_1, dw_1, and db_1. So let me just take these six
+equations and copy them over to the next slide.
+Here they are. So far we have derived
+back-propagation for ABA training on a single
+training example at the time. But it should come
+as no surprise that rather than working on
+a single example at a time, we would like to vectorize across different
+training examples. So you remember that
+for propagation, when we're operating on
+one example at a time, we had equations like this, as let us say, a_1
+equals g_1 of z_1. In order to vectorize, we took say the z's and stack them up in
+columns like this, z_1_m, and call this capital Z. Then we found that by
+stacking things up in columns and defining the capital
+uppercase version of this, we then just had z_1 equals w_1_x plus b and a_1 equals g_1 of z_1. We define the notation
+very carefully in this course to make sure that stacking examples into
+different columns of a matrix makes
+all this workout. So it turns out that if you go through
+the math carefully, the same trick also works
+for back-propagation. So the vectorized equations
+are as follows: First, if you take these d_z's for different training
+examples and stack them as the different columns of the matrix and same for
+this and same for this, then this is the
+vectorized implementation. Then here's the definition or here's how you can compute dW_2. There is this extra one over m because the cost function J is this one over m of sum from I equals one
+through m of the losses. So when computing derivatives, we have that extra one over
+m term just as we did when we were computing the weight updates for logistic regression. Then that's the update
+you get for db_2. Again, some of the d_z's
+and then we have a one over m. Then dz_1 is
+computed as follows. Once again, this is
+an element-wise product, only whereas
+previously, we saw on the previous slide that this was an n_1 by one dimensional vector. Now, this is a n_1 by
+m dimensional matrix. Both of these are also
+n_1 by m dimensional. So that's why that asterisk is a element-wise
+product. All right. Then finally, the
+remaining two updates. Perhaps, it shouldn't
+look too surprising. So I hope that gives
+you some intuition for how the back-propagation
+algorithm is derived. In all of machine learning, I think the derivation of
+the back-propagation algorithm is actually one of
+the most complicated pieces of math I've seen. It requires knowing
+both linear algebra as well as the derivative of
+matrices to really derive it from scratch
+from first principles. If you are an expert
+in matrix calculus, using this process, you might want to derive
+the algorithm yourself. But I think that
+there are actually plenty of deep
+learning practitioners that have seen the derivation at about the level you've
+seen in this video, and are already able to have
+all the right intuitions and be able to implement
+this algorithm very effectively. So if you are
+an expert in calculus, do see if you can divide
+the whole thing from scratch. It is one of the very
+hardest pieces of map on the very hardest derivations that I've seen in all
+of machine learning. But either way, if
+you implement this, this will work and
+I think you have enough intuitions to tune
+in and get it to work. So there's just one
+last detail I will share of you before you
+implement your neural network, which is how to initialize the weights
+of your neural network. It turns out that initializing
+your parameters not to zero but randomly turns out to be very important
+for training video network. In the next video,
+you'll see why.

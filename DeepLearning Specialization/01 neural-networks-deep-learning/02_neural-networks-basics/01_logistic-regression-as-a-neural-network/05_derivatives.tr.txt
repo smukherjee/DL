@@ -1,0 +1,69 @@
+Bu videoda,yüksek matematik ve türevlerin
+ sezgisel bir anlayışını kazanmanıza yardımcı olmak istiyorum. Şimdi, belki de üniversite
+ yıllarından beridir yüksek matematik görmediğini düşünüyorsun. Ve belki de mezuniyetinizin üzerinden
+ oldukça uzun bir zaman geçti. Şimdi eğer düşündüğün buysa,
+ endişelenme. Sinir ağlarını ve derin öğrenmeyi
+ çok etkili bir şekilde uygulamak için derin bir yüksek matematik anlayışına ihtiyacınız yoktur. Bu yüzden eğer bu videoyu veya
+ sonraki videoların bazılarını izliyor, merak ediyor ve "wow, bu yüksek matematik, 
+benim için gerçekten karmaşık" diyorsanız size tavsiyem şudur. Videoları izler, sonra ödevlerini yapabilir 
+ve programlama ödevini başarılı bir şekilde tamamlarsanız, 
+derin öğrenmeyi uygulayabilirsiniz. Aslında, daha sonra 
+4.haftada göreceğiniz, Yüksek matematiğe göre yapılması gereken
+ şeyleri kapsüllemenizi sağlayacak birkaç tür 
+fonksiyon tanımlayacağız. Bu fonksiyonlar hakkında öğrendiğiniz İleri Yönlü Fonksiyonlar
+ ve Geriye Doğru Fonksiyonlar denen yüksek matematik içindeki
+ bu fonksiyonlar hakkında bilmeniz gereken her şeyi
+bu işlevlere koymanızı sağlar böylece artık bundan daha fazlası için 
+endişelenmenize gerek kalmaz. Ama derin öğrenme için
+ bunu şu şekilde düşündüm, bu hafta bu kutuyu açmalı ve yüksek matematiğin 
+detaylarına biraz daha dikkat etmeliyiz. Ama gerçekten, ihtiyacınız olan tek şey
+bu algoritmayı oluşturmak ve başarılı bir şekilde uygulamak için 
+sezgisel bir anlayış. Son olarak, belki de yüksek matematikte
+uzman olan küçük bir gruba dahil iseniz, yüksek matematik ve türevlere 
+çok aşina iseniz bu videoyu atlamanız 
+muhtemelen iyi olacaktır. Ama herkes için konunun 
+derinine doğru iniş yapalım ve sezgisel bir türev anlayışı 
+elde etmeye çalışalım. Burada f(a)=3a fonksiyonunu çizdim,
+bu sadece düz bir çizgiydi. Türevler hakkında sezgisel bilgi almak
+için, bu fonksiyonda birkaç noktaya
+bakalım. Diyelim ki a eşittir 2. Bu durumda f 2'nin 3 katına
+ yani 6'ya eşittir. Yani eğer a 2'ye eşitse, o zaman 
+a'nın değeri 6'ya eşit olacaktır. Diyelim ki, a değerini bir miktar iteleyelim. Değeri biraz yukarı çıkarıyorum, 
+böylece a şimdi 2.001 oldu. Bu yüzden, sağa doğru
+ ufak bir miktar iteleyelim. Yani şimdi, değerimiz 2.001
+ fakat grafiğimiz 2.001'e ölçekli değil. 0.001'lik fark grafikte gösterilemeyecek
+ kadar küçük ama sağa doğru ufak bir miktar kayma oluşur. Şimdi f (a) = 3a, 
+yani 6.003. Öyleyse bunu buraya çizelim. Bu ölçülü bir değer değil, 
+bu 6.003. Yani burada vurguladığım 
+bu küçük yeşil üçgene bakarsanız gördüğümüz şey şu olacaktır, 
+eğer a'ya sağa doğru 0.001'lik bir dürtme verirsek f(a) 0.003 kadar yükselecektir. F(a)'nın yükseldiği miktar, sağa doğru yapılan itelemenin 3 katıdır. Bu yüzden a 2'ye eşitken F(a) fonksiyonunun 
+türevi 3'tür. Ya da eğim=3 iken a değeri 2 şeklinde ifade edebiliriz. Ve türev terimi temelde eğim anlamına gelir. Kendi başına türev kulağa ürkütücü
+ hatta çok göz korkutucu geliyor, buna karşılık eğim türev kavramını 
+tanımlamak için dostça bir yöntemdir. Her türev kelimesini duyduğunuzda 
+sadece fonksiyonun eğimi olduğunu düşünün. Ve daha teknik olarak açıklamak gerekirse eğim, 
+küçük yeşil üçgenin yüksekliğinin genişliğine bölümü olarak tanımlanır. Bu yüzden 0.003 0.001'in üzerindedir. Aslında eğimin ya da türevin 3'e eşit olması a'yı sağa doğru 0.001 
+kadar az miktarda itelediğinizde f(a)'nın yükseldiği miktar, 
+a'yı yatay yönde itelediğiniz miktarın 3 katı kadar büyük olduğu gerçeğini temsil eder. Yani hepsi bir çizginin eğimidir. Şimdi bu fonksiyona farklı bir noktadan bakalım. Şimdi a'nın 5'e eşit olduğunu varsayalım. Bu durumda, f(a)=3a, f(a)=15'e eşit olur. Diyelim ki a'ya yine sağa doğru 
+küçük bir iteleme yapacağım, Şimdi a'nın değeri 5.001'e çıktı. F(a) a'nın 3 katına eşittir. Bu yüzden f(a)=15.003 olur. Ve bir kez daha a'yı sağa doğru çarptığımda a sağa doğru 0.001 kadar itelenirken,
+ f(a) 3 kat daha fazla itelenir. Yani, a=5'de eğim tekrar 3'tür. Bu şekilde yazdığımız gibi 
+ f fonksiyonunun eğimi 3'e eşittir. d f(a)/d a şeklinde söyleyebiliriz. Ve bu sadece f(a) fonksiyonunun eğimi anlamına gelir, a değişkenini küçük bir miktarda 
+itelediğimizde bile eğim 3'e eşittir. Ve bu türev formülünün yazılmasının 
+alternatif bir yolu aşağıdaki gibidir. Bunu ayrıca gösterildiği biçimde de yazabilirsiniz. Öyleyse f(a)'yı üstüne koyup koymamanız 
+ya da yazıp yazmamanız fark etmez. Fakat bu denklemin anlamı şudur ki,
+eğer a'yı sağa doğru biraz bükersem f(a)'nın küçük a değerini itelediğim kadarının 3 kat daha fazlasını yükselmesini beklerim. Şimdi bu video için, a değişkenini 0.001 kadar itelediğimizde ne olacağını anlatan türevleri açıkladım. Türevlerin biçimsel matematiksel tanınımı 
+istiyorsanız, türevler a'yı sağa doğru en fazla ne kadar 
+itelediğinizin daha küçük bir 
+değeri ile tanımlanır. Yani 0.001 değil 0.00000001 değil. 0,000000001 de değil. Bundan bile daha küçük. Ve türevin biçimsel tanımına göre
+ her ne zaman a'yı sonsuz küçüklükte yani temel olarak küçük bir miktar 
+sağa doğru itelediğimizde f(a) sağa itelenen sonsuz küçüklükte 
+yani temel olarak küçük miktarın üç katı kadar mı yükselir? Yani aslında bir türevin biçimsel tanımı budur. Ama bizim sezgisel anlayışımızın 
+amaçları için biz sadece a'yı sağa doğru küçük bir miktar, 
+0.001 kadar, hatta 0.001 tam olarak küçük değilse küçük sonsuz kadar itelemek hakkında konuşacağız. Şimdi türevin bir özelliği olarak,
+ bu fonksiyonun eğimi her yerde eşittir, yani fonksiyonun her noktasında 
+eğim 3'e eşittir. A eşittir 2 veya a eşittir 5 fark etmez, bu fonksiyonun eğimi 3'e eşittir. Anlamı a'nın değeri ne olursa olsun, 
+onu 0.001 kadar arttırırsanız, f(a)'nın değeri 3 kat kadar artar. Yani bu fonksiyon her yerde 
+aynı eğime sahiptir. Bunu görmenin bir yolu, 
+bu küçük üçgeni çizdiğiniz her yerde, yüksekliğinin genişliğine olan oranının
+ her zaman üçte bir orana sahip olmasıdır. Öyleyse bu, eğimin ne olduğu, bir düz grafik için bir fonksiyonun türevinin bu örnek için her yerde 3 olduğu konusunda fikir verir. Bir sonraki videoda, fonksiyonun eğiminin 
+fonksiyon üzerindeki farklı noktalarda farklı değerler alabileceği biraz 
+daha karmaşık örneğe bakalım.

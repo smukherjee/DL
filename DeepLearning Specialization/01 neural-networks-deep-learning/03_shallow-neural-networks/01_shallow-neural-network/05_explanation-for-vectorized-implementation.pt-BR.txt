@@ -1,0 +1,74 @@
+No vídeo anterior, vimos que, com os exemplos de treinamento 
+empilhados horizontalmente na matriz x, você pode derivar a implementação vetorizada 
+ da propagação (para frente), através de sua rede neural. Vamos explicar um pouco mais 
+o porquê as equações que escrevemos, é uma implementação correta de 
+vetorização em múltiplos exemplos. Então, vamos repassar parte do cálculo 
+de propagação de alguns exemplos. Digamos para o primeiro 
+exemplo de treinamento, você acabou calculando
+z'¹'⁽¹⁾ = w'¹'. x⁽¹⁾ + b'¹', depois no 
+segundo exemplo de treinamento você calculou 
+z'¹'⁽²⁾ = w'¹' x⁽²⁾ + b'¹' e, no terceiro exemplo, você calculou z'¹'⁽³⁾ = w'¹' x⁽³⁾ + b'¹' Então, para simplificar a 
+explicação neste slide, vou ignorar b. Digamos que, para simplificar um pouco 
+esta explicação, b é igual a zero. Mas o argumento que vamos 
+esquematizar funcionará com uma pequena mudança mesmo 
+quando b é diferente de zero. Isso apenas simplifica 
+um pouco o slide. w'¹' será uma matriz,
+ certo? Então, eu tenho um 
+número de linhas nesta matriz. Então, se olhar o cálculo de x⁽¹⁾, o que você tem é, que w'¹' vezes x⁽¹⁾ resulta em um vetor 
+coluna que você deve desenhar assim. E da mesma forma, se você 
+olha para este vetor x⁽²⁾, você tem que w'¹' vezes x⁽²⁾ dá um outro vetor coluna, certo? E resulta este z'¹'⁽²⁾. E finalmente, se você olha para o x⁽³⁾, você tem w'¹' vezes x⁽³⁾, dá um terceiro 
+vetor coluna, isso é z'¹'⁽³⁾. Então, se você considera 
+o conjunto de treinamento X, que formamos empilhando todos 
+os nossos exemplos de treinamento. Então, a matriz X maiúscula, é formada 
+pegando o vetor x⁽¹⁾ e empilhá-lo verticalmente 
+com x⁽²⁾ e x⁽³⁾ também. Isso é se tivermos apenas 
+três exemplos de treinamento. Se você tem mais, sabe, continuará 
+empilhando horizontalmente desta forma. Mas agora, se você tem esta 
+matriz X e a multiplica por w'¹', e resulta, se você pensar como funciona 
+a multiplicação de matrizes, resulta com a primeira coluna sendos estes mesmos valores que 
+eu desenhei aqui em roxo. A segunda coluna será 
+aqueles mesmos quatro valores. E a terceira será aqueles valores em laranja, o que eles resultarão. Mas claro, isso é igual 
+ao z'¹'⁽¹⁾ expressado como um vetor coluna, seguido por z'¹'⁽²⁾, representado 
+por um vetor coluna, seguido por z'¹'⁽³⁾, também representado como um vetor coluna. E isso é se você tem três exemplos de treinamento. Se você tem mais exemplos, 
+então haveria mais colunas. E então, essa é nossa matriz Z'¹'. Espero que isso dê a você uma 
+explicação do porquê você antes teve w'¹' vezes x⁽ⁱ⁾ igual z'¹'⁽ⁱ⁾ quando nós estamos olhando para um 
+único exemplo de treinamento no momento. Quando você pegou os distintos exemplos de 
+treinamento e empilhá-los em diferentes colunas, então o resultado 
+correspondente é que você acaba com os z's também 
+empilhados em colunas. E eu não mostrarei, mas você pode se convencer, 
+se usar Python broadcasting se você adicionasse isso, estes valores de b
+os valores são ainda corretos. E o que realmente acaba acontecendo 
+é que quando você utiliza broadcasting no Python, você acaba tendo b⁽ⁱ⁾ individualmente 
+para cada coluna desta matriz. Então, neste slide, eu só 
+expliquei que z'¹' igual w'¹' X + b'¹' é uma vetorização correta do primeiro passo dos quatro passos 
+que tivemos no slide anterior, mas resulta que uma análise 
+similar permite que você mostre que outras etapas 
+também funcionam utilizando uma lógica similar onde se você empilha as 
+entradas nas colunas, então após a equação, você obtém as saídas correspondentes, 
+também empilhadas em colunas. Finalmente, vamos recapitular 
+tudo o que falamos neste vídeo. Se esta é sua rede neural, dissemos que isto é o que você precisa fazer, se 
+você estiver implementando propagação para frente, um exemplo de treinamento por vez, 
+indo de i igual a 1 até m. E então dizemos, vamos empilhar os exemplos de treinamento 
+em colunas desta forma, e para cada valor z'¹', a'¹', z'²', a'²', vamos empilhar as 
+colunas correspondentes como segue. Então, este é um exemplo 
+para A'¹', mas é válido para Z'¹', A'¹', Z'²', e A'²'. Então, o que mostramos 
+no slide anterior foi que esta linha permite que você vetorize 
+todos os m exemplos ao mesmo tempo. E com um raciocínio semelhante, você pode mostrar que 
+todas as outras linhas são vetorizações corretas de 
+todas as quatro linhas de código. E somente como um lembrete, porque X é também igual a matriz A'⁰', porque lembre-se que o vetor das características de entrada x = a'⁰', então x⁽ⁱ⁾ = a'⁰'⁽ⁱ⁾. Então, há na verdade uma certa simetria para essas equações onde esta 
+primeira equação pode também ser escrito Z'¹' = W'¹' A'⁰' + b'¹'. E assim, você vê que este par 
+de equações e este par de equações na verdade parece muito similar 
+mas apenas todos os índices avançam por um. Então, isso mostra que as diferentes 
+camadas de uma rede neural estão fazendo mais ou menos a mesma coisa 
+ou fazendo os mesmos cálculos repetidamente. E aqui nós temos uma rede 
+neural de duas camadas onde vamos à uma rede neural mais profunda 
+nos vídeos da próxima semana. Veja que, mesmo redes neurais mais 
+profundas, estão basicamente tomando estes dois passos, apenas fazendo 
+isso mais vezes do que vimos aqui. Então, assim é como você pode vetorizar sua 
+rede neural em múltiplos exemplos de treinamento. A seguir, nós viemos usando até agora as 
+funções sigmoide ao longo de nossas redes neurais. Resulta que esta, na verdade, 
+não é a melhor escolha. No próximo vídeo, vamos 
+mergulhar um pouco mais em como você pode usar 
+diferentes, o que são chamadas, funções de ativação, onde a função sigmoide 
+é apenas uma das escolhas possíveis. 
+[Tradução: Renato Barata Gomes | Revisão: Carlos Lage.]

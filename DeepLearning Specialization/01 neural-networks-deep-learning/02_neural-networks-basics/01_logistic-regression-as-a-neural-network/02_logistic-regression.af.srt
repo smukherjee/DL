@@ -1,0 +1,416 @@
+1
+00:00:00,000 --> 00:00:03,475
+Bu videoda lojistik regresyon(bağlanım)
+ üzerinden gideceğiz.
+
+2
+00:00:03,475 --> 00:00:07,080
+Bu, denetlenen bir öğrenme problemindeki 
+çıktı etiketleri Y'nin
+
+3
+00:00:07,080 --> 00:00:10,690
+ya 0 ya da 1 olması durumunda 
+kullandığınız bir öğrenme algoritmasıdır.
+
+4
+00:00:10,690 --> 00:00:13,600
+Yani ikili sınıflandırma problemleri için.
+
+5
+00:00:13,600 --> 00:00:18,350
+X bir giriş özelliği göz önüne alındığında
+
+6
+00:00:18,350 --> 00:00:23,150
+kedi resmi veya kedi resmi olarak 
+tanımak istediğiniz bir görüntüde,
+
+7
+00:00:23,150 --> 00:00:26,525
+Bir öngörü(tahmin) verebilecek 
+bir algoritma istiyorsun,
+
+8
+00:00:26,525 --> 00:00:28,254
+buna y üstü şapka diyeceğiz
+
+9
+00:00:28,254 --> 00:00:31,130
+öngürü olan y için
+
+10
+00:00:31,130 --> 00:00:35,896
+Daha formüle olarak, Y üssü şapka'ın , 
+X giriş özellikleri verildiğinde
+
+11
+00:00:35,896 --> 00:00:40,630
+Y'nin 1'e eşit olma olasılığını isteriz.
+
+12
+00:00:40,630 --> 00:00:43,880
+Yani başka bir deyişle, eğer X bir resim ise,
+
+13
+00:00:43,880 --> 00:00:45,530
+son videoda gördüğümüz gibi,
+
+14
+00:00:45,530 --> 00:00:47,300
+Y üssü şapka'nın, Bunun bir kedi resmi
+
+15
+00:00:47,300 --> 00:00:49,820
+olma ihtimali nedir? sorusuna cevap 
+vermesini istersin.
+
+16
+00:00:49,820 --> 00:00:53,420
+Yani X, önceki videoda dediğimiz gibi,
+
+17
+00:00:53,420 --> 00:00:56,960
+X boyutlu vektördür,
+
+18
+00:00:56,960 --> 00:01:02,000
+lojistik regresyon parametrelerinin
+ W olması ve
+
+19
+00:01:02,000 --> 00:01:07,745
+aynı zamanda sadece bir gerçek sayı olan
+
+20
+00:01:07,745 --> 00:01:11,670
+b ile birlikte bir X boyutlu vektör bir 
+olduğu göz önüne alınmıştır.
+
+21
+00:01:11,670 --> 00:01:16,055
+Yani bir girdi X , W ve b parametreleri
+
+22
+00:01:16,055 --> 00:01:20,595
+çıkış olan Y üssü şapka'yı nasıl üretir?
+
+23
+00:01:20,595 --> 00:01:22,970
+Deneyeceğim bir şey var, işe yaramadı
+ şu şekilde
+
+24
+00:01:22,970 --> 00:01:27,590
+Y üssü şapka W transpoz X artı B olmalı
+
+25
+00:01:27,590 --> 00:01:33,045
+X girişinin doğrusal bir işlev 
+olduğunu biliyorsunuz.
+
+26
+00:01:33,045 --> 00:01:37,145
+Ve aslında, lineer regresyon yapıyorsanız
+ bunu kullanın.
+
+27
+00:01:37,145 --> 00:01:41,345
+Ama bu ikili sınıflandırma için 
+çok iyi bir algoritma değil
+
+28
+00:01:41,345 --> 00:01:45,575
+çünkü Y üssü şapkanın Y'nin 1'e eşit olma olasılığını istiyorsun.
+
+29
+00:01:45,575 --> 00:01:50,480
+Yani Y üssü şapka gerçekten sıfır ile
+ bir arasında olmalı ve
+
+30
+00:01:50,480 --> 00:01:54,697
+bunu uygulamak zordur, çünkü W transpoze X artı B
+
+31
+00:01:54,697 --> 00:01:58,475
+daha büyük olabilir ya da negatif olabilir
+
+32
+00:01:58,475 --> 00:02:00,905
+bu olasılık için anlam ifade etmez,
+
+33
+00:02:00,905 --> 00:02:03,620
+sıfır ile bir arasında olmasını istiyorsun.
+
+34
+00:02:03,620 --> 00:02:07,670
+Böylece lojistik regresyon çıktımız 
+Y üssü şapka:
+
+35
+00:02:07,670 --> 00:02:12,050
+bu miktara uygulanan sigma
+ fonksiyonuna eşittir.
+
+36
+00:02:12,050 --> 00:02:14,850
+Bu sigma fonksiyounu neye benziyor:
+
+37
+00:02:14,850 --> 00:02:24,000
+Yatay eksende Z'yi çizersem,
+ Z'nin sigmoid fonksiyonuna benziyor.
+
+38
+00:02:24,000 --> 00:02:28,050
+Yani 0 'dan 1'e kadar yumuşak
+ bir şekilde gider.
+
+39
+00:02:28,050 --> 00:02:30,120
+Burada eksenlerimi etiketleyeyim
+
+40
+00:02:30,120 --> 00:02:34,915
+bu sıfır ve dikey ekseni 0,5 olarak kesiyor.
+
+41
+00:02:34,915 --> 00:02:41,305
+Yani bu Z'nin sigmoidinin(sigma) 
+neye benzediğidir 
+
+42
+00:02:41,305 --> 00:02:43,020
+ve bu değeri W transpoze X artı B 
+göstermek için Z 'yi kullanacağız.
+
+43
+00:02:43,020 --> 00:02:46,230
+İşte sigma fonksiyonunun formülü:
+
+44
+00:02:46,230 --> 00:02:49,380
+Sigma z, z bir gerçek sayı olmak üzere
+
+45
+00:02:49,380 --> 00:02:52,510
+1 bölü 1 bir artı e üzeri negatif z (1/(1+e^-z)
+
+46
+00:02:52,510 --> 00:02:54,695
+Bir kaç şeyi göz ardı etmeyelim
+
+47
+00:02:54,695 --> 00:03:01,255
+Z çok büyükse e üzeri negatif z(e^-z) 
+ifadesi 0'a yakın olacaktır.
+
+48
+00:03:01,255 --> 00:03:03,420
+Sigmoid Z yaklaşık olarak
+
+49
+00:03:03,420 --> 00:03:07,255
+1 bölü 1 + 0 olacak
+
+50
+00:03:07,255 --> 00:03:11,280
+çünkü e üzeri(e^-*) çok büyük bir negatif 
+sayı 0'a yakın olacaktır.
+
+51
+00:03:11,280 --> 00:03:13,505
+Yani buda 1'e yakın olur
+
+52
+00:03:13,505 --> 00:03:16,255
+ve gerçekten de eğer soldaki
+ çizime bakarsanız
+
+53
+00:03:16,255 --> 00:03:20,475
+eğer Z çok büyükse, Z'nin sigmoidi
+ 1'e çok yakındır.
+
+54
+00:03:20,475 --> 00:03:24,105
+Tersi durumda, eğer Z çok küçükse
+
+55
+00:03:24,105 --> 00:03:28,970
+veya çok büyük bir negatif sayıysa,
+
+56
+00:03:29,180 --> 00:03:39,640
+sigmoid z , 1 bölü 1 + e üzeri negatif z 
+(1/(1+e^-z)
+
+57
+00:03:39,640 --> 00:03:42,565
+büyük bir sayı olur.
+
+58
+00:03:42,565 --> 00:03:47,944
+böylece bu, 1 bölü 1 + çok büyük 
+bir sayı olarak düşünülür
+
+59
+00:03:47,944 --> 00:03:54,473
+böylece
+
+60
+00:03:54,473 --> 00:03:56,570
+bu 0'a yakın olur.
+
+61
+00:03:56,570 --> 00:04:00,325
+Ve gerçekten, Z'nin çok büyük bir negatif
+ sayıya dönüştüğünü
+
+62
+00:04:00,325 --> 00:04:03,505
+Z'nin sigmoidinin sıfıra çok yakın
+ olduğunu görüyorsunuz.
+
+63
+00:04:03,505 --> 00:04:06,070
+Bu nedenle lojistik regresyon 
+uyguladığınızda,
+
+64
+00:04:06,070 --> 00:04:10,350
+işiniz W ve B parametrelerini
+ öğrenmeye çalışmaktır,
+
+65
+00:04:10,350 --> 00:04:15,220
+böylece Y üssü şapka Y'nin bire eşit 
+olma olasılığının iyi bir tahmini(öngörü) olur.
+
+66
+00:04:15,220 --> 00:04:18,955
+Devam etmeden önce, sinir ağlarını
+ programladığımız
+
+67
+00:04:18,955 --> 00:04:20,830
+notasyondaki bir başka not,
+
+68
+00:04:20,830 --> 00:04:26,855
+genellikle W parametresini ve B
+ parametresini ayrı tutarız
+
+69
+00:04:26,855 --> 00:04:30,000
+B, bir inter-spektruma karşılık gelir.
+
+70
+00:04:30,000 --> 00:04:31,295
+Diğer bazı derslerde,
+
+71
+00:04:31,295 --> 00:04:35,110
+bunu farklı şekilde ele alan bir notasyon
+ görmüş olabilirsiniz.
+
+72
+00:04:35,110 --> 00:04:42,205
+Bazı düzenlemelerde, X0 adında bir ekstra
+ özellik tanımlarsınız ve bu da 1'e eşittir.
+
+73
+00:04:42,205 --> 00:04:47,250
+Yani şimdi X, NX artı bir R'de(R üssü nx+1)
+ ve sonra,
+
+74
+00:04:47,250 --> 00:04:53,865
+Y üssü şapkanın teta transpoz X'in 
+sigmalarına eşit olacak şekilde tanımlarsınız.
+
+75
+00:04:53,865 --> 00:04:56,685
+Bu alternatif notasyonel düzenlemede
+
+76
+00:04:56,685 --> 00:05:00,510
+Vektör parametreleri teta,
+
+77
+00:05:00,510 --> 00:05:03,175
+teta0 ,teta1,teta2,
+
+78
+00:05:03,175 --> 00:05:09,520
+teta nx'e doğru
+
+79
+00:05:09,520 --> 00:05:11,723
+Ve buradaki teta0, sadece bir
+
+80
+00:05:11,723 --> 00:05:13,663
+gerçek sayı olan B satırını yerleştirir.
+
+81
+00:05:13,663 --> 00:05:18,505
+ve teta1'den tetanx' e doğru gidenler 
+W'nun rolünü alır
+
+82
+00:05:18,505 --> 00:05:20,350
+Sinir ağınızı uygularken, 
+
+83
+00:05:20,350 --> 00:05:26,145
+B ve W'yi ayrı parametreler olarak 
+tutmak daha kolay olacaktır.
+
+84
+00:05:26,145 --> 00:05:27,430
+Ve böylece, bu sınıfta,
+
+85
+00:05:27,430 --> 00:05:32,087
+sadece kırmızıyla yazdığım bu notasyon
+ düzenlemerlini kullanmayacağız.
+
+86
+00:05:32,087 --> 00:05:36,330
+Bu notu diğer derslerde daha önce
+ görmediyseniz, endişelenmeyin.
+
+87
+00:05:36,330 --> 00:05:39,610
+Sadece bu gösterimi görmüş olanlarınız için
+
+88
+00:05:39,610 --> 00:05:43,730
+bu derste bu notasyonu kullanmadığımızı 
+açıkça belirtmek istedim.
+
+89
+00:05:43,730 --> 00:05:45,235
+Ancak bunu daha önce görmediyseniz,
+
+90
+00:05:45,235 --> 00:05:48,430
+önemli değil ve bunun için endişelenmenize
+ gerek yok.
+
+91
+00:05:48,430 --> 00:05:52,465
+Şimdi, lojistik regresyon modelinin neye 
+benzediğini gördünüz.
+
+92
+00:05:52,465 --> 00:05:57,140
+W ve B parametrelerini değiştirmek için
+ bir maliyet fonksiyonu tanımlamanız gerekir.
+
+93
+00:05:57,140 --> 00:05:58,830
+bir sonraki videoda bunu yapalım.

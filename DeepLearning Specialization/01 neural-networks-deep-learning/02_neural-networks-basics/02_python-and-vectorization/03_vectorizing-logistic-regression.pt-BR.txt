@@ -1,0 +1,68 @@
+Nós falamos sobre como vetorização permite 
+acelerar seu código significativamente. Neste vídeo, falaremos sobre 
+como você pode vetorizar a implementação de regressão logística, de forma a processar um 
+conjunto completo de treinamento, que é implementar uma única iteração
+de gradiente decrescente com relação ao conjunto completo de treinamento sem 
+usar nenhum um laço de repetição 'for...'. Eu estou super entusiasmado 
+com esta técnica, e quando falarmos mais 
+tarde sobre redes neurais, sem o uso de nenhum 
+laço de repetição "for...". Vamos começar. Primeiro, examinemos as 
+quatro etapas da propagação de regressão logística. Então, se você tem "m" 
+exemplos de treinamento, então, para fazer uma previsão 
+neste primeiro exemplo, você necessita calcular isso, calcular z. Estou usando 
+esta fórmula conhecida, assim, calcula as ativações, calcula ŷ no primeiro exemplo. Então, para fazer uma previsão no 
+segundo exemplo de treinamento, você precisa calcular isso. Então, para fazer uma 
+previsão no terceiro exemplo, você necessita calcular 
+isso, e assim por diante. E você pode ter que 
+fazer isso "m" vezes, se você tem "m" exemplos de treinamento. Então, resulta que a fim de realizar 
+as quatro etapas de propagação, isso é para calcular estas previsões 
+nos nossos "m" exemplos de treinamento, há uma forma de fazer isso, sem a necessidade de
+laços de repetição 'for...'. Vamos ver como podemos fazer isso. Primeiro, lembre-se que definimos a matriz X 
+como suas entradas de treinamento, empilhadas juntas em 
+diferentes colunas, desta forma. Então, esta é uma matriz, é uma matriz nₓ por m. Então, estou escrevendo isso no 
+Python como um gráfico pizza, isso só significa que X é uma 
+matriz em R (números reais), de dimensões nₓ por m. Agora, a primeira coisa que quero fazer é 
+mostrar como você pode calcular z⁽¹⁾ , z⁽²⁾ , z⁽³⁾ e assim por diante, tudo em uma única etapa, na verdade, com um linha de código. Então, vou construir uma matriz 1 por m, que é na verdade um vetor 
+linha, enquanto eu vou calcular z⁽¹⁾ , z⁽²⁾, e assim por diante, até z⁽m⁾,, tudo ao mesmo tempo. Resulta que isso pode ser expressado como W⸆ . X mais este vetor b, b e assim por diante. b, onde esta coisa, este b, b, b, b, b é um vetor 1 x m ou uma matriz 1 x m ou isso é como um 
+vetor linha com dimensão m. Então, pelo conhecimento 
+em multiplicação de matriz, você pode ver que W transposta, 
+multiplicado pelo x⁽¹⁾, x⁽²⁾, e assim por diante até x⁽m⁾, W transposta pode ser um vetor linha. Então, este W⸆ 
+será um vetor linha, desta forma. E então, este primeiro 
+termo avaliará a W⸆ . x⁽¹⁾, W⸆ . x⁽²⁾, e assim por diante, ... W⸆ . x⁽m⁾, e então quando você 
+adiciona este segundo termo b, b, b, e assim por diante, você acaba adicionando 
+b para cada elemento. Então, você termina 
+com outro vetor 1 x m. Bem, este é o primeiro elemento, este é o segundo elemento, 
+e assim por diante, e este é o m-ésimo elemento. E, se você verificar as definições acima, este primeiro elemento é 
+exatamente a definição de z⁽¹⁾ . O segundo elemento é exatamente a 
+definição de z⁽²⁾ e assim por diante. Então, assim como X foi obtido uma vez, quando você pegou seus 
+exemplos de treinamento e os empilhou um ao lado do outro, 
+os empilhou horizontalmente. Vou definir Z para ser isso onde você pega os z's e 
+os empilha horizontalmente. Então, quando você empilha as x's minúsculas, que 
+correspondem a exemplos de treinamento diferentes, horizontalmente você 
+obtém esta variável X maiúscula e da mesma forma, quando você 
+pega estas variáveis z's, e as empilha horizontalmente, você obtém esta variável Z maiúscula. Resulta que, para implementar isso, o comando numpy é Z = np.dot(W.T), isso é W transposto 
+multiplicado por X mais b. Agora, há uma sutileza em Python, que está aqui, b é um número real 
+ou se quiser dizer, uma matriz 1x1, é só um número real normal. Mas, quando você adiciona 
+esse vetor a este número real, Python automaticamente pega este número real b 
+e expande ele para este vetor linha 1xm. Então, caso esta operação 
+pareça um pouco misteriosa, isso se chama "broadcasting" em Python, e você não precisa se 
+preocupar com isso agora, nós vamos falar sobre isso um 
+pouco mais no próximo vídeo. Mas a moral da história é que com apenas 
+uma linha de código, com esta linha de código, você pode calcular Z, e Z será uma matriz 1xm que contém 
+todos os z's (minúsculos), z⁽¹⁾ até z⁽m⁾ . Então, isso foi Z, mas e estes valores 'a'. O que faremos a seguir, é encontrar uma forma de calcular a⁽¹⁾ , a⁽²⁾, e assim por diante até a⁽m⁾, tudo ao mesmo tempo, e da mesma forma que 
+os x's resultaram em X maiúsculo, e o empilhamento horizontal 
+dos z's resultaram em Z, empilhando os a's, resultará em uma nova variável, que definiremos como A,
+maiúsculo. E nos exercícios de programação, você verá como implementar uma 
+função sigmoide de vetor de valor, de forma que a função sigmoide, entre com Z (maiúsculo) como variável e de 
+forma muito eficiente retorna A (maiúsculo). Então, veremos os detalhes 
+disso nos exercícios de programação. Então, apenas para recapitular, O que vimos neste slide é que ao invés 
+de precisar fazer laços de repetição nos 'm' exemplos de treinamento , 
+para calcular "z" e "a", um de cada vez, você pode implementar 
+esta única linha de código para calcular todos esses 
+z's ao mesmo tempo. E então, esta linha de código, com uma implementação correta de Sigma (minúsculo) para calcular 
+todos os a's, tudo ao mesmo tempo. Então, é assim que você faz uma implementação vetorizada das quatro etapas de propagação para todos os 
+m exemplos de treinamento, tudo ao mesmo tempo. Então para resumir, você viu como usar vetorização para calcular de forma 
+muito eficiente todas as ativações, todos os a's ao mesmo tempo. A seguir, resulta que você 
+também pode usar vetorização eficientemente para processar retro-propagação, no cálculo de gradientes. Vamos ver como você pode fazer isso no próximo 
+vídeo. [Tradução: Renato Barata Gomes 
+| Revisão: Carlos Lage]

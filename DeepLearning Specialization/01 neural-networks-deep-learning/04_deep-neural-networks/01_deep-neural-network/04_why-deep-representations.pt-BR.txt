@@ -1,0 +1,125 @@
+Nós todos ouvimos que redes neurais profundas
+ funcionam muito bem em vários problemas e isso não é apenas que
+ precisam ser grandes redes neurais, é que, especificamente, precisam ser profundas
+ ou ter várias camadas ocultas. Então por que isso? Vamos analisar alguns exemplos e tentar
+ ver porque as redes profundas 
+podem funcionar bem. Primeiro, o que a rede profunda está calculando? Se você está construindo um sistema de 
+reconhecimento facial ou detecção facial, eis o que uma rede 
+neural profunda poderia estar fazendo: Talvez você insira a imagem de um rosto,
+ então a primeira camada da rede neural você pode pensar como sendo talvez um detector
+ de característica ou um detector de transições. Neste exemplo, estou traçando o que uma 
+rede neural com talvez 20 unidades ocultas, pode estar tentando calcular nesta imagem. Então as 20 unidades ocultas visualizadas
+ por estas pequenas formas quadradas. Assim, por exemplo, esta pequena visualização
+ representa uma unidade escondida que está tentando descobrir aonde estão as 
+bordas dessa orientação na imagem. E talvez esta unidade escondida
+ esteja tentando descobrir aonde estão as bordas horizontais nesta imagem. E quando falamos de redes 
+convolucionais em um curso posterior, esta visualização particular fará 
+um pouco mais de sentido. Mas o formato, você pode pensar da primeira 
+camada da rede neural como olhar para a foto e tentar descobrir aonde
+ estão as bordas nesta foto. Agora, vamos pensar aonde 
+ estão as bordas nesta foto agrupando pixels para formar bordas. Para que assim pegar as formas detectadas
+ e agrupar as bordas e formar partes de rostos. Assim, por exemplo, você pode ter um neurônio aqui embaixo 
+tentando ver se encontra um olho, ou um neurônio diferente tentando 
+encontrar a parte do nariz. E assim, colocando muitas bordas juntas, se pode começar a detectar 
+diferentes partes de faces. E então, finalmente, unindo 
+diferentes partes das faces, como um olho ou um nariz ou uma 
+orelha ou queixo, então pode tentar reconhecer ou detectar diferentes tipos de rostos. Então intuitivamente, você pode achar 
+que camadas anteriores da rede neural como identificação de funções simples, como bordas. E então juntá-las nas camadas 
+ posteriores da rede neural para que possam aprender funções mais complexas. Estas visualizações farão mais sentido 
+quando falarmos de redes convolucionais. E um detalhe técnico desta 
+visualização, os detectores de borda estão olhando em áreas 
+relativamente pequenas de uma imagem, Talvez pequenas regiões como essa. E então os detectores faciais podem olhar 
+para áreas muito maiores da imagem, mas a mensagem principal que você deve entender
+ é só encontrar coisas simples como as bordas e então acumulando-as. Juntando tais coisas para detectar outras
+ mais complexas como um olho ou nariz e então formando juntos com essas 
+para encontrar mais coisas complexas. E este tipo representação
+ hierárquica simples-para-complexa, ou representação composicional, aplica-se também a outros tipos de dados
+além dos de imagens e dos de reconhecimento de face. Por exemplo, se você está tentando construir 
+um sistema de reconhecimento de fala, é difícil visualizar a fala, mas se inserir um clipe de áudio então talvez 
+o primeiro nível de uma rede neural pode aprender a detectar as características de onda 
+de áudio de nível baixo, como: esse tom está aumentando? Está diminuindo? É ruído branco ou som rastejante como [som]. E qual é o tom? Quando se trata disso, detecta características de forma 
+de onda de nível baixo assim. E depois pela composição 
+de formas de onda de nível baixo, talvez você aprenda a detectar 
+unidades básicas do som. Chamam-se fonemas em linguística. Mas, por exemplo, o gato de palavra, 
+o Ca é um fonema, o A é um fonema, o T é outro fonema. Mas aprender a encontrar talvez as 
+unidades básicas de som e então ajuntá-las, talvez aprender 
+a reconhecer palavras no áudio. E então talvez agrupar tais palavras, a fim de reconhecer as frases 
+ou as sentenças inteiras. Assim, as redes neurais profundas com múltiplas 
+camadas ocultas poderiam nas camadas iniciais aprender essas características simples 
+ de nível inferior e depois, nas camadas seguintes, mais profundas, 
+juntar as coisas mais simples que detectaram a fim de detectar as coisas mais complexas, 
+como reconhecer palavras específicas ou mesmo frases ou sentenças, que estão sendo pronunciadas
+para realizar o reconhecimento de fala. E o que vemos é que, enquanto as outras 
+camadas são avaliadas, o que parece ser funções relativamente simples da entrada 
+como onde a borda está, até o momento que você aprofundar na rede, que pode 
+realmente fazer coisas surpreendentemente complexas. Como detectar rostos ou detectar palavras
+ ou frases ou sentenças. Algumas pessoas gostam de fazer uma analogia 
+entre redes neurais profundas e o cérebro humano, onde acreditamos, 
+ou neurocientistas acreditam, que o cérebro humano também começa 
+detectando coisas simples como bordas do que seus olhos veem, então baseado nisso 
+detecta coisas mais complexas, como os rostos que você vê. Acho que as analogias entre 
+aprendizagem profunda e o cérebro humano, às vezes,
+ são um pouco perigosas. Mas há muita verdade nisto, sendo
+ como pensamos que funciona do cérebro humano e que o cérebro humano detecta provavelmente
+ coisas simples como bordas e em seguida, as coloca juntas para formar
+ objetos mais e mais complexos e isso tem servido também como uma forma livre de 
+inspiração para algum aprendizado das pessoas. Veremos um pouco mais sobre 
+o cérebro humano ou sobre o cérebro biológico em
+ um vídeo mais adiante nesta semana. A outra perspectiva sobre
+ por que redes profundas parecem funcionar bem é o seguinte: Este resultado vem da teoria do circuito
+ do qual vem do pensamento sobre que tipos de funções que você pode calcular 
+com caso de lógica diferente. Então informalmente, suas funções calculam
+com relativamente pequenas mas profundas redes neurais e por pequenas unidades ocultas, quero dizer que
+o número de unidades ocultas é relativamente pequeno. Mas se você tentar calcular a mesma
+ função com uma rede superficial, sem camadas ocultas suficientes, então você pode exponencialmente precisar de
+ mais unidades ocultas para calcular. Então deixe-me dar um exemplo 
+e ilustrar isso, informalmente. Mas digamos que você está tentando calcular
+ o 'ou exclusivo' XOR ou a paridade das características de entrada do áudio. Então você está tentando calcular X1 XOR X2 XOR X3 XOR..., até Xn 
+se tiver n ou Xn características. Então, se você construir XOR assim, 
+então, para nós, ele calcula o XOR de X1 e X2, então X3 e 
+X4 e calcula XOR destes dois. E, tecnicamente, se você está usando 
+portas 'AND' ou 'NOT...' para avaliar, talvez seja necessário algumas camadas para computar a função de XOR
+ ao invés de apenas uma camada, mas com um circuito relativamente pequeno, 
+você pode calcular o XOR e assim por diante. E então você pode construir, realmente,
+ uma árvore XOR da seguinte forma, até que finalmente, você tenha aqui um circuito 
+que gera a saída, bem, vamos chamar de Y. As saídas de ŷ = Y. O 'ou exclusivo', XOR, 
+ a paridade de todos estes bits de entrada. Então para calcular o XOR, a profundidade 
+da rede neural será na ordem de Log n, para este tipo de árvore XOR. Portanto, o número de nós ou 
+o número de componentes de circuito ou o número de portas nesta 
+rede não é tão grande. Você não precisa que muitas portas a fim 
+de calcular o XOR. Mas agora, se não pode usar uma 
+rede neural com múltiplas camadas ocultas com, neste caso, 
+ordem de log n de camadas ocultas, se você é forçado a calcular essa 
+função com apenas uma camada oculta, você tem todas essas coisas entrando
+ em certas unidades ocultas. E então essas coisas 
+então saída Y. Então para calcular a paridade, ou esta função XOR, 
+esta camada oculta precisará ser exponencialmente 
+grande, porque essencialmente, você precisa enumerar exaustivamente
+ todas possíveis configurações, ou seja, 2 elevado a N. Assim por diante a ordem de 2 elevado a N, 
+possíveis configurações dos bits de entrada, que resultam no 
+XOR ser ou 1 ou 0. Então você acaba precisando de uma camada 
+oculta que é exponencialmente maior em número de bits. Tecnicamente, acho que você poderia fazer isso 
+com 2 elevado a (N - 1) unidades ocultas. Mas essa é a ordem de 2 elevado a N
+ processos exponencialmente maiores no número de bits. Espero, com isso, que entenda que
+ existem funções matemáticas, que são mais fáceis de calcular com redes
+ profundas do que com redes superficiais. Na verdade, pessoalmente achei o resultado da 
+teoria de circuito menos útil para ganhar perspectiva, mas 
+apenas um dos resultados que as pessoas muitas vezes citam ao explicar o valor de ter
+ representações muito profundas. Agora, além destas justificativas para preferir redes neurais 
+profundas, para ser bem honesto, acho que outra razão para o termo aprendizagem profunda
+ter decolado foi apenas por se tornar uma marca conhecida. Essas coisas eram chamadas redes neurais
+ com muitas camadas ocultas, mas a frase aprendizagem profunda é apenas
+ uma grande marca, é tão profundo. Então acho que, uma vez que esse termo pegou
+ que realmente redes neurais foram renomeadas ou redes neurais com muitas 
+camadas ocultas renomeadas, ajudam a capturar a imaginação 
+popular também. Independente da imagem de marca, 
+ as redes profunda funcionam bem. Às vezes, as pessoas exageram e 
+insistem em usar toneladas de camadas ocultas. Mas quando começo um novo problema,
+ muitas vezes realmente começo com regressão logística,
+ então tento algo com uma ou duas camadas escondidas e uso
+ isso como hiper parâmetro. Use isso como um parâmetro ou 
+hiper parâmetro que ajusto a fim de tentar encontrar a profundidade certa para a sua rede neural. Mas nos últimos anos há uma tendência
+ para que pessoas encontrem para certas aplicações, redes neurais muito, muito profundas, aqui talvez, com muitas dezenas de camadas, às vezes, podendo 
+ser o melhor modelo para um problema. Então é isso porque aprendizagem profunda parece funcionar bem. Vamos agora dar uma olhada na mecânica 
+de como implementar não apenas propagação para frente, mas também a retro-propagação.
+[Tradução: Cláudia Inoue | Revisão: Carlos Lage]

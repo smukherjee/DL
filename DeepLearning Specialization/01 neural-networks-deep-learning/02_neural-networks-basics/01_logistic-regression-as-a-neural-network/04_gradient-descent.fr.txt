@@ -1,0 +1,144 @@
+Vous avez vu le modèle 
+de régression logistique. Vous avez vu la fonction de perte 
+qui mesure la performance sur un unique exemple d'apprentissage. Vous avez vu aussi la fonction de coût qui 
+mesure la performance de vos paramètres w et b sur l'ensemble du set d'apprentissage. Maintenant nous allons parler de 
+comment vous pouvez utiliser l’algorithme de
+ descente de gradient pour entraîner, ou pour enseigner les paramètres w et b 
+à votre set d'apprentissage. Pour rappel, voici l’algorithme familier
+ de la régression logistique. Et nous avons sur la deuxième ligne
+ la fonction de coût, J, qui est fonction de vos paramètres w et b. Et qui est définie comme la moyenne, donc 1 sur m fois la somme
+ de cette fonction de perte. Et donc la fonction de perte mesure 
+à quel point la sortie de votre algorithme, ŷ(i)
+ sur chaque exemple d'apprentissage est proche de la véritable étiquette y (i) 
+sur chacun des exemples d'apprentissage. Et la formule complète est écrite sur la droite. Donc la fonction de coût mesure 
+la performance de vos paramètres w et b sur le set d'apprentissage. Pour apprendre l’ensemble des paramètres
+ w et b il semble donc naturel de vouloir trouver les w et b qui rendent la fonction de
+ coût J (w, b) aussi petite que possible. Alors, voici une illustration de 
+la descente de gradient. Dans ce diagramme, 
+les axes horizontaux représentent votre espace de paramètres, w et b. Dans la pratique, w peut être de dimension 
+beaucoup plus élevée, mais pour le croquis, illustrons w avec un nombre réel
+ et b avec un nombre réel. La fonction de coût J(w,b,) est alors une certaine surface au-dessus 
+de ces axes horizontaux w et b. La hauteur de la surface représente
+ la valeur de J(w,b) à un certain point. Et ce que nous voulons faire vraiment 
+est de trouver les valeurs de w et b qui correspondent au minimum 
+de la fonction de coût J. Il s’avère que cette fonction de coût J
+ est une fonction convexe. Donc c’est juste un gros bol unique,
+ il s’agit d’une fonction convexe, à l'opposé des fonctions 
+qui ressemblent à ceci, qui sont non convexes et ont beaucoup
+ d'optimums locaux différents. Ainsi, le fait que notre fonction de coût
+ J(w,b) comme définie ici soit convexe est l'une des raisons principales
+ qui fait que nous utilisons
+ cette fonction de coût J particulière pour la régression logistique. Afin de trouver une bonne valeur
+ pour les paramètres, ce que nous allons faire est d’initialiser 
+w et b à une valeur initiale, représentée par ce petit point rouge. Pour la régression logistique, presque toutes
+ les méthodes d’initialisation fonctionnent, habituellement, vous initialisez
+ la valeur à zéro. L’initialisation aléatoire 
+fonctionne aussi, mais les gens ne le font pas pour 
+la régression logistique, d'habitude. Mais parce que cette fonction est convexe,
+ peu importe où vous initialisez, vous devriez arriver au même point 
+ou à peu près au même point. Et ce que fait la descente de gradient est
+ qu'elle commence à ce point initial et puis se déplace légèrement 
+dans le sens de la plus grande pente. Donc après une étape de descente de gradient
+ vous pourriez finir par là, parce que on descend dans la direction 
+de la plus forte pente, on descend aussi rapidement que possible. Voilà donc une itération 
+de descente de gradient. Et après deux itérations de descente 
+de gradient vous pourriez être là, trois itérations et ainsi de suite. Le point est caché derrière le bord 
+de la courbe, et normalement, vous convergez vers cet optimum global
+ ou vous arrivez à quelque chose de proche
+ de l’optimum global. Cette image illustre l’algorithme
+ de descente de gradient. Nous allons voir un peu plus de détails. Pour l’illustration, disons qu’il y a
+ une fonction, J(w), que vous voulez minimiser, 
+et que cette fonction ressemble à ceci. Pour rendre cela plus facile à dessiner,
+ je vais ignorer b pour l'instant, pour que ce soit un graphe unidimensionnel 
+au lieu d’un graphe multidimensionnel. Donc la descente de gradient fait ceci, Nous allons procéder à plusieurs reprises
+ à la mise à jour suivante. Nous allons prendre la valeur de w
+ et la mettre à jour, je vais utiliser := pour représenter
+ la mise à jour de w. Donc w devient w - alpha * dJ(w/dw Il s’agit d’une dérivée dJ(w) / dw. Je vais répéter ça jusqu'à 
+ce que l’algorithme converge. Quelques points sur la notation, 
+alpha, ici, est le taux d’apprentissage, et contrôle la taille du pas que nous faisons à 
+chaque itération, à chaque descente du gradient. Nous parlerons plus tard des façons
+ de choisir le taux d'apprentissage alpha. Et, deuxièmement, cette quantité ici,
+ c’est une dérivée. C’est essentiellement la mise à jour 
+ou la modification que vous souhaitez 
+apporter au paramètre w. Lorsque nous commencerons à écrire du code
+ pour implémenter la descente de gradient, Nous allons utiliser la convention que
+ dans notre code le nom de variable dw sera utilisé pour 
+représenter ce terme dérivé. Donc, lorsque vous écrirez du code,
+ vous écrirez quelque chose comme w := w - alpha * dw Donc nous utilisons dw comme nom de 
+variable pour représenter ce terme dérivé. Maintenant assurons-nous que cette mise à
+ jour de la descente de gradient est logique. Disons que w était ici. Vous êtes à ce point 
+sur la fonction de coût J(w). Souvenez vous que la définition d’une dérivée correspond à la pente
+ d’une fonction à un endroit. La pente de la fonction est en fait 
+la hauteur divisée par la largeur, dans un triangle ici qui est tangent
+ à J(w) en ce point là. Et donc, ici la dérivée est positive. w est mis à jour comme w moins
+ un taux d’apprentissage fois la dérivée. La dérivée est positive et donc
+ quand vous soustrayez quelque chose à w, vous vous déplacez vers la gauche. Et votre algorithme de descente 
+de gradient fera lentement diminuer le paramètre si vous avez commencé
+ avec cette grande valeur de w. Un autre exemple : si w est ici, alors à ce point, la pente ici
+ de dJ(w)/dw sera négative et la mise à jour de la descente de gradient va
+ soustraire alpha fois un nombre négatif. Et se retrouver à augmenter lentement w,
+ donc w devient de plus en plus grand à chaque itération de la descente de gradient. Alors, si tout va bien, 
+que vous initialisiez à gauche ou à droite, la descente de gradient va 
+vous déplacer vers ce minimum global ici. Si vous n'avez pas l'habitude 
+des dérivées ou de l'analyse et de ce que signifie ce terme dJ (w) /dw, 
+ne vous inquiétez pas trop. Nous allons parler un peu plus des dérivées 
+dans la prochaine vidéo. Si vous avez une connaissance
+ approfondie en analyse, vous pourrez avoir de meilleures intuitions sur 
+comment fonctionnent les réseaux neuronaux. Mais même si vous n’êtes pas
+ familier avec l'analyse, dans les prochaines vidéos, nous vous 
+donnerons assez d'intuitions sur les dérivées et l'analyse pour que vous soyez en mesure 
+d’utiliser efficacement les réseaux de neurones. Mais l’intuition globale pour l'instant est que ce terme représente
+ la pente de la fonction, et nous voulons connaître la pente de 
+la fonction à la valeur actuelle des paramètres afin que nous puissions nous déplacer 
+sur la pente la plus raide, afin de savoir dans quelle direction bouger pour descendre
+ sur la fonction de coût J. Donc, nous avons écrit notre descente 
+de gradient pour J(w) comme si
+ w était notre seul paramètre. Dans la régression logistique, votre fonction 
+de coût est une fonction de w et b. Donc dans ce cas, la boucle à l'intérieur 
+de la descente de gradient, c'est à dire ça, ce que vous devez répéter devient ceci : Il faut remplacer w par
+ w moins le taux d'apprentissage fois la dérivée de J(w,b) par rapport à w. Et vous remplacez b par
+ b moins le taux d'apprentissage fois la dérivée de la fonction de coût
+ par rapport à b. Ces deux équations en bas sont donc
+ les mises à jour que vous implémentez. Soit dit en passant, je tiens à mentionner 
+une convention de notation en analyse qui est un peu déroutante
+ pour certaines personnes. Je ne pense pas que ce soit super important 
+que vous compreniez l'analyse, mais si vous voyez cela, je tiens à m'assurer 
+que ça ne vous déroute pas trop. En analyse, ce terme ici, nous l'écrivons comme ceci, 
+avec cet étrange d rond Donc ce symbole, c'est en fait
+ juste un d minuscule de forme arrondie. 
+Quand vous voyez cette expression, cela signifie que ce n’est pas la dérivée de J(w,b), 
+pas vraiment la pente de la fonction J(w,b), mais plutôt la pente de J(w,b)
+ dans la direction de w. Et la règle de la notation en analyse, 
+qui je pense n’est pas tout à fait logique, mais la règle de notation en analyse, 
+qui à mon avis rend juste les choses plus compliquée, est que
+ si J est une fonction de deux variables ou plus, alors au lieu d’utiliser d minuscule,
+ vous utilisez ce d rond. C’est ce qu’on appelle 
+le symbole des dérivées partielles. Mais ne vous inquiétez pas à ce sujet, et si J est une fonction d'une seule variable, 
+alors vous utilisez d minuscule. La seule différence entre 
+l'utilisation du symbole bizarre de dérivée partielle ou un d minuscule 
+comme nous l’avons fait au dessus, est si J est une fonction 
+de deux variables ou plus. Dans ce cas, vous utilisez ce symbole,
+ le symbole des dérivées partielles, ou si J est une fonction d’une variable,
+ alors vous utilisez d minuscule. C’est l’une de ces règles bizarres
+ de notation en analyse dont je pense qu'elles rendent les choses
+ plus compliquées que nécessaire. Mais si vous voyez ce symbole 
+des dérivées partielles, tout ce que 
+cela signifie est que vous mesurez la pente de la fonction
+ par rapport à l’une des variables. Et de même façon, pour adhérer à la notation
+ mathématique formellement correcte en analyse, puisque J a deux entrées
+ et non une seule, ceci en bas doit être écrit avec 
+le symbole des dérivées partielles. Mais cela signifie vraiment la même chose, 
+presque la même chose que d minuscule. Enfin, lorsque vous implémentez ce code, nous allons utiliser la convention que 
+cette quantité, qui est le montant par lequel vous mettrez w à jour, sera notée 
+comme variable dw dans votre code. Et cette quantité, ok, la quantité par laquelle
+ vous voulez mettre à jour b sera représentée par la variable db 
+dans votre code. Bon, alors, voilà comment vous pouvez 
+implémenter la descente de gradient. Maintenant, si vous n’avez pas fait d'analyse
+ depuis quelques années, je sais que
+ vous pouvez penser que c'est beaucoup plus de dérivées et d'analyse
+ que ce que vous souhaiteriez. Mais ne vous inquiétez pas si c'est le cas. Dans la vidéo suivante, nous vous donnerons
+ plus d'intuitions sur les dérivées. Et même sans une compréhension profonde
+ des mathématiques de l'analyse, avec juste une compréhension
+ intuitive de l'analyse, vous pourrez faire
+ des réseaux neuronaux efficaces. Alors, allons à la vidéo suivante, 
+où nous parlerons un peu plus des dérivées.

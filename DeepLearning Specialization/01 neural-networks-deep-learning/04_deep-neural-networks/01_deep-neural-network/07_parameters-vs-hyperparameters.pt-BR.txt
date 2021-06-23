@@ -1,0 +1,96 @@
+Desenvolvendo de forma eficiente sua rede neural profunda,
+exigirá de você que não apenas organize bem seus parâmetros, mas também seus hiperparâmetros.
+Porém, o que são hiperparâmetros? Vamos dar uma olhada nos parâmetros do seu modelo: 'W' e 'b' e há outras coisas
+que você precisa dizer ao seu algorítimo de aprendizagem, tais como: porque precisamos da
+taxa de aprendizagem α (alfa), definimos α, pois, 
+esta taxa de aprendizagem irá determinar como evoluem seus parâmetros, ou talvez o número de iterações de descida gradiente
+que serão realizadas. Seu algoritmo de aprendizagem
+ tem outros números que você necessita especificar
+tais como o número de unidades escondidas,
+ o qual chamamos de L maiúscula. 
+Há também o número de unidades escondidas, n'¹' , n'²' e assim por diante.
+E então, você também tem a escolha da função de ativação - quer usar RElu, ou Tanh, ou sigmoide, especialmente nas camadas ocultas,
+e então todas essas coisas são coisas que você precisa
+para chamar seus algorítimos de aprendizado e que estes são parâmetros que controlam os parâmetros W e b e
+então chamamos todas estas coisas abaixo de hiperparâmetros. Porque estas coisas como alfa, taxa de aprendizagem,
+o número de iterações, número de camadas ocultas e assim estes são todos parâmetros que controlam W e b. Então, chamamos essas coisas
+de hiperparâmetros porque eles são os hiperparâmetros que você sabe, de alguma
+forma determinam o valor final dos parâmetros W e b que você usa. De fato, aprendizagem
+profunda tem muitos hiperparâmetros diferentes. Mais tarde em um curso posterior veremos outros hiperparâmetros, como o termo Momentum,
+o tamanho do 'mini batch' várias formas 
+de parâmetros de regularização, e assim
+por diante, e se nenhum destes termos ainda não fazem sentido, não se preocupe com isto
+que nós falaremos depois no segundo curso. Por conta da aprendizagem profunda ter muitos hiperparâmetros em contraste com erros anteriores
+ de aprendizagem automática (ou aprendizagem de máquina), tentarei ser bastante consistente chamado de taxa de aprendizagem alfa de hiperparâmetro, ao invés de chamá-la de parâmetro.
+Pensei que nas eras iniciais de aprendizagem de máquina
+ quando não tínhamos tantos hiperparâmetros,
+ a maioria de nós costumava ser
+um pouco descuidada aqui e chamávamos o alfa de parâmetro,
+ e tecnicamente alfa é um parâmetro
+porém é um parâmetro que determina nossos parâmetros reais e tentamos, de modo consistente 
+chamar estas coisas como alfa, o número de iterações, assim por diante
+de hiperparâmetros, assim, quando você está treinando a
+rede profunda para sua própria aplicação, você descobre
+que pode haver um monte de configurações possíveis para os hiperparâmetros que você
+precisa, só para testar, então aplicar a
+aprendizagem profunda é hoje um grande processo empírico
+onde muitas vezes você poderia ter uma ideia, por exemplo, poderia pensar que o melhor valor para a taxa de aprendizagem, que
+ pode-se dizer bem, talvez alfa igual 0,01 e eu quero tentar isso. Então você implementa, tenta e depois vê como isso funciona e 
+em seguida, com base nesse resultado, você pode dizer que sabe o que mudou meu pensamento,
+eu quero aumentar a taxa de aprendizagem para 0,05 e então se você não tem certeza
+de que é o melhor valor para a taxa de aprendizagem,
+ você pode tentar um valor para a
+ taxa de aprendizagem alfa e ver sua função de custo decair como esta, então,
+você tenta um parâmetro maior maior para a 
+taxa de aprendizagem alfa e veja que 
+a função custo dispara e diverge.
+Então, você testa outra versão e vê isto descer rapidamente. Isto é a inversão para um
+valor maior, que você pode tentar outra versão
+e ver isto, você sabe, ver a função de custo J
+ fazer isso e então tentar estabelecer
+os valores que você pode dizer ok,
+parece que com este, o valor de alfa me dá um aprendizado muito rápido e me permite convergir
+ para uma função de custos mais baixa,
+então usarei este valor de alfa.
+Você viu no slide anterior que existe muitos hiperparâmetros diferentes.
+E ocorre que quando se inicia em uma nova aplicação, encontra-se muita dificuldade para saber,
+de antemão, exatamente qual é o melhor valor dos hiperparâmetros. e aí, o que muitas vezes
+acontece, é que você precisa tentar muitos valores distintos e ir progredindo neste círculo
+ (Ideia, Codificação, Experimentação) tentando alguns valores. 
+Tentarei com cinco camadas ocultas com este número 'n'
+de unidades ocultas, implementar e ver se isso funciona e aí então reiterar,
+assim, o título desse slide, "Aprendizagem profunda aplicada
+é um processo muito empírico" E processo empírico, é talvez uma maneira extravagante para
+te dizer que você deva tentar muitas coisas
+e ver se elas funcionam. Outra forma efetiva que tenho visto é que aprendizagem profunda hoje é aplicada para tantos problemas que vão deste a
+visão do computador até reconhecimento da fala,
+ e no processamento de linguagem natural.
+Para muitas estruturas de aplicação de dados tal como talvez uma propaganda online,
+ou pesquisa na internet, ou recomendações de produtos
+e assim por diante. O que tenho v, é que a primeira vez que vi pesquisadores de uma disciplina qualquer, um desses tentar ir para uma diferente e, às vezes, a intuição sobre o hiperparâmetro pode ser transferida e, algumas vezes, não é dessa forma que
+eu costumo aconselhar pessoas, especialmente quando iniciam um novo problema, para justamente
+experimentar uma série de valores e ver que funcionam e então, no próximo curso, veremos uma
+forma sistemática, alguns modos sistemáticos para tentar uma variedade de valores. 
+E segundo, mesmo se você está trabalhando em uma aplicação por um longo tempo, você sabe que talvez você esteja trabalhando em propagandas online.
+Como seu progresso no problema é bem possível que o melhor valor para um número
+da taxa de aprendizado, de unidades escondidas, e assim por
+diante podem mudar até se você afina seu
+sistema para o melhor valor de hiperparâmetros
+diariamente ao máximo é possível, encontra o melhor valor pode mudar daqui a um ano,
+talvez porque a infraestrutura do computador, seria o que você conhece
+como CPUs ou o tipo de GPU onde executa seu algoritmo, ou algo mudou, ou então, talvez uma regra básica que você conhece desde sempre e
+, talvez, a cada poucos meses se você está
+trabalhando em um problema por um longo período de tempo
+ há muitos anos, tentar alguns valores para os hiperparâmetros e 
+uma dupla checagem se existe um valor melhor para os hiperparâmetros e ao fazê-lo, você lentamente ganha intuição também sobre o parâmetro que funciona melhor para os seus problemas. E eu sei que isto pode parecer como uma parte insatisfatória da
+aprendizagem profunda que você deve testar com todos os valores esses hiperparâmetros, porém, talvez esta seja uma área onde a
+ pesquisa da aprendizagem profunda está ainda avançando e, talvez, ao longo do tempo
+poderemos ter uma melhor orientação para melhores
+hiperparâmetros para usar. Mas, isto também é possível por conta de CPUs, GPUs, redes e conjuntos de dados, todos estão mudando, e é possível que a orientação não convergirá por enquanto, então, você precisa continuar experimentando valores diferentes e avaliá-los em todo o conjunto de validação cruzada ou algo assim, e selecionar o valor que funciona
+para seus problemas. Isso, foi uma breve discussão, dos hiperparâmetros.
+Em um segundo curso, iremos dar também algumas sugestões de como explorar sistematicamente o espaço para os hiperparâmetros mas
+por hora você realmente tem praticamente todas
+as ferramentas que você precisa para fazer seus
+exercícios de programação. Antes de você fazer isso, eu gostaria de compartilhar mais um conjunto de ideias,
+que sou frequentemente perguntado: "O que a aprendizagem profunda
+tem a ver com o cérebro humano?"

@@ -1,0 +1,235 @@
+Bonjour, Ian. Merci beaucoup de
+ vous joindre à nous aujourd'hui. Merci de m’avoir invité, Andrew, je suis heureux d’être ici. Aujourd'hui, vous êtes l’un des chercheurs
+ en apprentissage profond les plus visibles. Pouvez vous partager un peu 
+sur votre histoire personnelle ? Alors, comment vous êtes vous
+ retrouvé à faire ce travail ? Oui, bien sûr. Je crois que je me suis d’abord
+ intéressé au machine learning,
+ juste avant que je vous rencontre, en fait. J’avais travaillé sur les neurosciences
+ et mon tuteur, Jerry Cain, à l’Université Stanford, m’a 
+encouragé à prendre votre cours 'Intro à l’IA'. Oh, je ne savais pas. OK. Donc, j’avais toujours pensé 
+que l’IA était une bonne idée, mais qu’en pratique, je crois, l’essentiel de ce qui se faisait
+ était de l'IA pour les jeux, où les gens avaient beaucoup 
+de règles codées en dur pour des personnages non-joueurs dans les jeux, par exemples différentes actions scriptées
+ à différents moments. Et puis, quand j’ai suivi votre cours d'Intro à l'IA
+ et que vous avez couvert des thèmes comme la régression linéaire et la décomposition
+ de l’erreur de régression linéaire 
+en variance et en biais, j’ai commencé à réaliser qu’il s’agit 
+d’une véritable science et j’ai pu réellement avoir une carrière scientifique en AI
+ plutôt qu'en neurosciences. Je vois. Super. Et que s’est-il passé ensuite ? J'ai été 'teaching assistant' pour votre cours. Ah oui, c'est vrai. Un grand tournant pour moi a été que 
+alors que j'étais TA pour le cours, l'un des étudiants, mon ami Ethan Dreifuss s’est intéressé à la publication de
+ Geoff Hinton sur les réseaux
+ de croyances profonds [deep belief networks] Je vois. Et tous les deux, nous avons fini par 
+construire une des premières machines
+ GPU basée sur CUDA à Stanford pour faire tourner des 
+machines de Boltzmann sur notre temps
+ libre pendant les vacances d'hiver. Je vois. Et à partir de là, j’ai commencé à avoir une très forte intuition que l’apprentissage
+ profond était la voie à suivre pour l’avenir, que beaucoup des autres algorithmes
+ avec lesquels je travaillais, comme les machines à vecteurs de support ne semblaient pas avoir les bonne asymptotes, parce que quand vous ajoutez des données 
+d’apprentissage, ils deviennent plus lents. ou pour la même quantité 
+de données d’apprentissage, il est difficile d'augmenter leurs performances 
+en modifiant les autres paramètres. À ce moment-là, j’ai commencé à me
+ concentrer sur l’apprentissage profond
+ autant que possible. Et je me souviens du très vieux papier
+ sur le GPU de Reynolds où il vous remercie pour avoir fait 
+beaucoup de travail préliminaire. Oui. Oui. Il a été écrit en utilisant certaines 
+des machines que nous avons construites. Oui. La première machine était juste quelque chose
+ que Ethan et moi avons construit chez la maman d'Ethan 
+avec notre propre argent, et puis, plus tard, nous avons utilisé l’argent
+ du laboratoire pour construire les deux ou trois
+ premières pour le laboratoire de Stanford. Wow c’est génial. Je ne connaissais
+ pas cette histoire. C'est super. Et puis, aujourd'hui, l’une des choses qui a vraiment bouleversé le monde de l’apprentissage profond 
+est votre invention des GANs.
+Réseaux antagonistes génératifs
+[generative adversarial networks] Comment avez-vous trouvé cela ? J’ai étudié les modèles génératifs 
+pendant une longue période, Les GANs sont donc un moyen de faire de la modélisation générative où vous avez
+ beaucoup de données d’apprentissage 
+et où vous souhaitez apprendre à produire plus d’exemples qui
+ ressemblent aux données d'apprentissage,
+ mais qui sont imaginaires. Elles n’ont jamais été vues
+ sous cette forme exacte avant. Il y a plusieurs autres façons de faire
+ des modèles génératifs qui avaient été populaire depuis plusieurs années 
+avant que j’aie l’idée des GANs. Et après avoir travaillé sur 
+toutes ces autres méthodes pendant
+ la majeure partie de mon doctorat, Je connaissais bien les avantages
+ et les inconvénients de
+ toutes les autres solutions comme les machines de Boltzmann et le 'sparse coding' et toutes les autres approches qui ont été
+ vraiment populaires pendant des années. Je recherchais quelque chose qui éviterait
+ tous ces inconvénients en même temps. Et puis enfin, pendant que je discutais des
+ modèles génératifs avec mes amis dans un bar, quelque chose s'est enclenché, et j’ai commencé à leur dire, 
+'ce que vous devez faire, c'est ça, ça et ça et 
+je vous jure que ça va marcher' Et mes amis n’ont pas cru que ça marcherait. Je devais écrire le manuel 
+d’apprentissage profond à l’époque, "I see." Mais j’ai cru si fort
+ que cela fonctionnerait que je suis rentré chez moi et je l'ai codé dans la nuit
+ et cela a fonctionné. Donc il vous a fallu une soirée pour implémenter
+ la première version des GANs ? Je l’ai implémentée autour de minuit après être rentré du bar où 
+mon ami faisait son pot de départ. Je vois. Et la première version a fonctionné, ce qui est très, très chanceux. Je n’ai pas eu à chercher des hyperparamètres 
+ou quoi que ce soit. Il y avait une histoire, que j’ai lue quelque part, où vous avez eu une expérience 
+de mort imminente et qui a
+ réaffirmé votre engagement pour l'IA. Racontez moi ça. Alors, oui. Je n’étais pas vraiment 
+proche de la mort, mais brièvement, 
+j’ai pensé que je l’étais. J’ai eu un très gros mal de tête et certains des médecins pensaient que je pourrais
+ avoir une hémorragie cérébrale. Et pendant que j’attendais les résultats de mon scanner pour savoir 
+si j’avais une hémorragie cérébrale ou non, j’ai réalisé que la plupart 
+des pensées que j’avais à ce moment étaient pour m'assurer que 
+d’autres personnes pourraient ensuite essayer les idées de recherche
+ que j’avais eues à l’époque. Je vois, je vois. Avec le recul, ce sont toutes 
+des idées de recherche assez ridicules. Je vois. Mais à ce moment-là, J’ai réalisé que c’était en fait 
+une de mes principales priorités dans la vie, continuer mon travail de recherche 
+sur l'apprentissage automatique. Je vois. Oui. C'est super que quand vous pensiez 
+que vous pourriez mourir bientôt, vous pensez juste à 
+comment faire avancer la recherche. Oui. Oui. Ca c’est de l’engagement. Oui. Oui. Oui. Donc, aujourd'hui, vous êtes
+ toujours au centre d’un grand nombre 
+des activités avec les GANs, avec les réseaux antagonistes génératifs. Alors dites-moi comment 
+vous voyez l’avenir des GANs. En ce moment, les GANs sont utilisés
+ pour beaucoup de choses différentes, 
+comme l’apprentissage semi-supervisé, générer des données d’apprentissage
+ pour d'autres modèles et même
+ simuler des expériences scientifiques. En principe, tout cela pourrait être fait
+ par d’autres types de modèles génératifs. Donc je pense que les GANs sont à 
+un carrefour important en ce moment. Là maintenant, ils fonctionnent bien
+ de temps en temps, mais c'est parfois plus un art
+ qu’une science de vraiment 
+leur faire atteindre cette performance. C’est plus ou moins ce que les gens 
+pensaient de l’apprentissage profond 
+en général il y a 10 ans. Et à ce moment là, nous utilisions des réseaux de croyances profonds avec, 
+en briques de base, 
+des machines de Boltzmann, et ils étaient très, très capricieux. Au fil du temps, nous sommes passés à 
+des choses comme les unités linéaires
+ rectifiées et la normalisation par lots, et l'apprentissage profond 
+est devenu beaucoup plus fiable. Si nous pouvons rendre les GANs aussi fiables 
+que l'est devenu l’apprentissage profond, alors je pense que nous allons continuer 
+à voir des GANs utilisés dans tous les endroits où ils sont utilisés 
+aujourd'hui, avec beaucoup plus de succès. Si nous n'arrivons pas à trouver
+ un moyen de stabiliser les GANs, alors je pense que leur principale contribution
+ à l’histoire de l’apprentissage profond sera d'avoir montré comment faire toutes ces tâches qui impliquent 
+de la modélisation générative, et finalement, nous allons les remplacer 
+par d’autres formes de modèles génératifs. En ce moment, je passe donc environ 40% de
+ mon temps à travailler à stabiliser les GANs. Je vois. Ok, cool. Et de la même façon
+ que beaucoup de gens qui ont commencé l'apprentissage profond
+ il y a une dizaine d'années, comme vous, en ont été les pionniers, peut être que les gens qui commencent 
+à travailler sur les GANs aujourd'hui, si ça marche, 
+seront les pionniers du domaine. Oui, il y a déjà beaucoup 
+de pionniers des GANs, et je pense que si vous vouliez écrire
+ une sorte d’histoire des GANs jusqu’ici, vous devriez vraiment mentionner
+ d’autres groupes comme Indico et Facebook et Berkeley pour toutes les
+ différentes choses qu’ils ont faites. Donc en plus de toutes vos recherches, vous avez aussi coécrit un livre sur 
+l’apprentissage profond. Qu'en est-il ? C’est vrai, avec Yoshua Bengio
+ et Aaron Courville, qui sont mes directeurs de thèse. Nous avons écrit le premier livre sur la
+ version moderne de l’apprentissage profond, et il a été très populaire, autant l’édition en anglais
+ que l’édition chinoise. Nous avons vendu, je pense, environ 70 000
+ exemplaires au total dans ces deux langues. Et j’ai eu beaucoup de commentaires d'étudiants
+ qui disent qu’ils ont appris beaucoup. Une chose que nous avons faite
+ un peu différemment des autres livres, 
+c’est que nous commençons par une introduction très concentrée sur
+ le genre de mathématiques que 
+vous devez faire en apprentissage profond. Selon moi, une chose que j’ai apprise
+ de vos cours à Stanford est que l’algèbre linéaire et les probabilités
+ sont très importantes, que les gens se passionnent pour 
+les algorithmes d'apprentissage automatique, mais si vous voulez être un excellent praticien, vous devez maîtriser les mathématiques
+ de base qui sous-tendent toute l’approche
+ en premier lieu. Donc, nous nous assurons de donner une présentation très ciblée 
+des bases mathématiques au début du livre. De cette façon, vous n’avez pas besoin 
+d’aller apprendre toute algèbre linéaire, vous pouvez trouver un cours intensif mais 
+très rapide sur les parties de l'algèbre linéaire qui sont les plus utiles
+ pour l’apprentissage profond. Même quelqu'un dont les maths sont un 
+peu bancales ou n’ayant pas fait de maths depuis quelques années pourra commencer 
+par le début de votre livre et obtenir ce background pour se lancer
+ dans l’apprentissage profond ? Tous les faits que vous avez
+ besoin de savoir sont là. Il faudra certainement quelques efforts
+ pour s'entraîner à les utiliser. Oui, très bien. Si quelqu'un a vraiment peur des maths, ça peut être une expérience 
+un peu douloureuse. Mais si vous êtes prêt pour
+ l’expérience d’apprentissage et que vous 
+pensez que vous pouvez maîtriser ça, je pense que tous les outils 
+dont vous avez besoin sont là. En tant que personne qui a travaillé dans 
+l'apprentissage profond pendant longtemps, je serais curieux de savoir, 
+si vous regardez un peu en arrière, pouvez vous me dire 
+ce que vous pensez de la façon dont l'IA et l’apprentissage profond 
+ont évolué au fil des ans ? Il y a dix ans, je me sentais 
+comme dans une communauté, le plus grand défi en apprentissage
+ automatique était simplement : comment le faire fonctionner 
+pour les tâches liées à l’IA ? Nous avions de très bons outils que nous 
+pouvions utiliser pour les tâches les plus simples, quand nous voulions reconnaître des motifs
+ pour extraire des caractéristiques, où un concepteur humain 
+pouvait faire le plus gros du travail en créant ces caractéristiques et 
+en les transmettant ensuite à l’ordinateur. Et c’était vraiment bien 
+pour différentes choses comme prédire sur quelles publicités
+ un utilisateur va cliquer ou différents types d’analyses
+ scientifiques de base. Mais nous avions vraiment du mal 
+à faire tout ce qui concerne des
+ millions de pixels dans une image ou une courbe d'audio brute où le système devait construire
+ toute sa compréhension à partir de zéro. Nous avons finalement réussi à faire ça 
+correctement il y a peut-être cinq ans. Et maintenant, nous en sommes
+ à un point où il y a tellement de chemins différents ouverts que
+ le plus gros problème pour quelqu'un qui veut s’impliquer en intelligence artificielle va être 
+de choisir quel chemin il veut explorer. Vous voulez faire que l'apprentissage 
+par renforcement fonctionne aussi bien
+ que l’apprentissage supervisé ? Vous voulez faire que l'apprentissage
+ non supervisé fonctionne aussi bien
+ que l’apprentissage supervisé ? Voulez vous vous assurer que les algorithmes 
+d’apprentissage automatique soient équitables et ne reflètent pas les préjugés 
+que nous préférerions éviter ? Voulez vous vous assurer que
+ les questions de société qui entourent l'IA
+ trouvent de bonnes réponses, que nous puissions nous assurer 
+que l'IA profite à tous au lieu de provoquer 
+des bouleversements sociaux et 
+des problèmes de perte d’emplois ? Je pense que maintenant, il y a vraiment une quantité incroyable de 
+choses différentes qui peuvent être faites, pour éviter les inconvénients de l’IA 
+mais aussi pour s’assurer que que nous tirons profit de tous
+ les avantages qu’elle nous offre. Et donc, aujourd'hui, il y a beaucoup de gens
+ qui veulent se lancer dans l’IA. Alors, quels conseils auriez-vous
+ pour quelqu'un comme ça ? Je pense que beaucoup de gens qui veulent 
+se lancer dans l'IA pensent au début qu'il leur faut absolument un doctorat ou
+ un autre type de diplôme élevé. Je pense que ce n'est plus nécessaire. Une façon d'attirer l'attention est 
+d'écrire du bon code et de le poster sur Github. Si vous avez un projet intéressant
+ qui permet de résoudre un problème que quelqu'un qui travaille
+ professionnellement cherche à résoudre, une fois qu’ils trouvent votre dépôt GitHub, ils viendront vous trouver et 
+vous inviter à venir travailler chez eux. Pour beaucoup des personnes
+ que j’ai engagées ou recrutées à OpenAI l’an dernier 
+ou à Google cette année, j'ai d'abord été intéressé à
+ travailler avec eux en raison de quelque chose que j’ai vu qu’ils avaient sorti
+ dans un forum open source sur Internet. Écrire des publications et les mettre 
+sur Archive peut aussi être bien. Une grande partie du temps, il est plus difficile d’atteindre le point
+ où vous avez quelque chose 
+d'assez abouti pour vraiment être une nouvelle contribution académique
+ à la littérature scientifique, mais vous pouvez souvent produire 
+un produit logiciel utile beaucoup plus vite. Donc, lire votre livre, s'entraîner sur le contenu et 
+poster sur GitHub et peut-être sur Archive. Je pense que si vous apprenez 
+en lisant le livre, c'est vraiment important de travailler 
+sur un projet dans le même temps, pour soit choisir un moyen d'appliquer l’apprentissage automatique dans
+ un domaine qui vous intéresse déjà, par exemple, si vous êtes un biologiste
+ de terrain et que vous voulez
+ vous lancer dans l’apprentissage profond, peut-être que vous pouvez l’utiliser
+ pour identifier les oiseaux, ou si vous n’avez pas d'idée de
+ comment vous souhaitez utiliser 
+l’apprentissage automatique dans votre vie, vous pouvez choisir quelque chose 
+comme faire un classificateur de 
+numéros de maison sur Street View, où tous les ensembles de données sont mis en
+ place pour rendre ça très simple pour vous. Et de cette façon, vous allez devoir pratiquer toutes les compétences de base
+ en lisant le livre ou en visionnant les vidéos de Coursera qui 
+vous expliquent les concepts. Ainsi au cours des deux dernières années, je vous ai aussi vu beaucoup travailler
+ sur les exemple antagonistes.
+[adversarial examples] Parlez-nous un peu de ça. Oui. Selon moi, les exemples antagonistes sont le début d’un nouveau domaine que j’appelle
+ la sécurité de l'apprentissage automatique. Dans le passé, nous avons vu des problèmes
+ de sécurité informatique où des attaquants pouvaient tromper un 
+ordinateur et lui faire exécuter leur propre code. Cela s’appelle la sécurité
+ au niveau de l'application. Et il y a eu des attaques où des gens ont pu 
+tromper un ordinateur en lui faisant croire que des messages sur un réseau proviennent 
+de quelqu'un, alors que ce n'est pas le cas. Cela s’appelle la sécurité au niveau du réseau. Maintenant, nous commençons à voir
+ que vous pouvez aussi tromper les algorithmes d’apprentissage automatique
+ pour leur faire faire des choses 
+qu’ils ne devraient pas faire, même si le programme qui exécute
+ l’algorithme d’apprentissage automatique
+ exécute un code correct, même si le programme qui utilise l’algorithme d’apprentissage automatique sait de qui proviennent vraiment
+ tous les messages sur le réseau. Et je pense que c'est important 
+de penser à la sécurité d'une nouvelle technologie 
+dès le début de son développement. Nous savons qu’il est très difficile de
+ construire un système fonctionnel d’abord
+ et d'ajouter la sécurité ensuite. Donc je suis très enthousiaste à l’idée que si nous nous y plongeons et commençons
+ à anticiper les problèmes de sécurité avec
+ l'apprentissage automatique tout de suite, nous pouvons nous assurer que
+ ces algorithmes sont sûrs dès le début plutôt que de tenter de les patcher 
+rétroactivement des années plus tard. Merci. C'était super. J'ai trouvé beaucoup de choses fascinantes
+ dans votre histoire, que je ne connaissait même pas, alors que je vous connais depuis des années,
+ alors merci d'avoir partagé ça. Oh, de rien. Je vous remercie de m’avoir invité.
+ C'était une discussion sympa. OK.
+merci. De rien.

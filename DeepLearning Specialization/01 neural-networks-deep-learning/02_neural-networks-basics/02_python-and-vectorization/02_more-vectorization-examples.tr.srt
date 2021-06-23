@@ -1,0 +1,387 @@
+1
+00:00:00,000 --> 00:00:05,340
+Bir önceki videoda vektörleştirme (vectorization) işlemini
+
+2
+00:00:05,340 --> 00:00:07,770
+önemli ölçüde hızlandırmak için gömülmüş fonksiyonlar kullanımı ve 
+
+3
+00:00:07,770 --> 00:00:11,130
+fazla sayıda döngüden kurtulmanın nasıl olduğuyla ilgili birkaç video izlediniz. 
+
+4
+00:00:11,130 --> 00:00:13,558
+Şimdi bir kaç örneğe daha bakalım. 
+
+5
+00:00:13,558 --> 00:00:16,110
+Sinirsel ağ programlama veya lojistik regresyon programladığınız zaman 
+
+6
+00:00:16,110 --> 00:00:19,792
+asıl dikkat etmeniz gereken temel kural 
+
+7
+00:00:19,792 --> 00:00:23,190
+mümkün olduğunca açık durumdaki döngülerden kaçınmanızdır. 
+
+8
+00:00:23,190 --> 00:00:27,285
+Ve döngü kullanmadan bunu yapmanız her zaman mümkün değildir.
+
+9
+00:00:27,285 --> 00:00:29,520
+Fakat gömülmüş fonksiyonlar kullanabildiğiniz zaman 
+
+10
+00:00:29,520 --> 00:00:32,710
+veya işlemi gerçekleştirmek için gereken neyse o yolu bulduğunuz zaman 
+
+11
+00:00:32,710 --> 00:00:36,555
+genellikle işler döngü kullanımına göre daha hızlı ilerler.
+
+12
+00:00:36,555 --> 00:00:38,445
+Bir diğer örneğe birlikte bakalım.
+
+13
+00:00:38,445 --> 00:00:44,412
+Eğer vektör U yu matrix A ve başka bir vektör V'nin 
+
+14
+00:00:44,412 --> 00:00:46,144
+çarpımının sonucu olarak elde etmek istersek 
+
+15
+00:00:46,144 --> 00:00:50,840
+bu durumda vektör U'yu 
+
+16
+00:00:50,840 --> 00:00:55,830
+yukarıdaki toplam sembolüyle ifade edilmiş olur.
+
+17
+00:00:55,830 --> 00:00:57,050
+Right.
+
+18
+00:00:57,050 --> 00:00:58,445
+Bu Ui yi nasıl tanımlayacağımızı gösterir
+
+19
+00:00:58,445 --> 00:01:01,500
+Bu durumda vektörleştirmeme(non-vectorization) uygulaması 
+
+20
+00:01:01,500 --> 00:01:06,140
+U vektörünü NP nokta sıfırlar matrisi 
+
+21
+00:01:06,140 --> 00:01:08,105
+Sıfırlar (n,1)
+
+22
+00:01:08,105 --> 00:01:11,745
+Bu durumda i sonsuza
+
+23
+00:01:11,745 --> 00:01:14,250
+ve j de sonsuza
+
+24
+00:01:14,250 --> 00:01:22,950
+Bu durumda yukarıdaki eşitlik elde edilir.
+
+25
+00:01:22,950 --> 00:01:27,725
+Böylece elimizde i ve j üzerinden 2 tane döngü oldu
+
+26
+00:01:27,725 --> 00:01:29,269
+İşte Bu vektörsüzleştirme versiyonudur.
+
+27
+00:01:29,269 --> 00:01:37,355
+Vektörleştirme uygulamasındaki eşitlik böyledir.
+
+28
+00:01:37,355 --> 00:01:39,160
+Ve bunun vektörleştirme uygulaması
+
+29
+00:01:39,160 --> 00:01:41,655
+eldeki iki farklı for döngülerini eler ve
+
+30
+00:01:41,655 --> 00:01:44,628
+işlemi ciddi anlamda hızlandırır
+
+31
+00:01:44,628 --> 00:01:46,655
+Bir örnek üzerinden gidelim. 
+
+32
+00:01:46,655 --> 00:01:50,900
+Diyelim ki elinizde V vektörü var ve bunun her elemanını 
+
+33
+00:01:50,900 --> 00:01:55,190
+eksponansiyel (üstel) operasyonda uygulamak istiyorsunuz.
+
+34
+00:01:55,190 --> 00:01:59,250
+u eşittir e üzeri v1 e üzeri v2 devam ediyor
+
+35
+00:01:59,250 --> 00:02:04,085
+en son v  üzeri n olacak şekilde
+
+36
+00:02:04,085 --> 00:02:10,370
+Gördüğünüz denklemler vektörsüzleştirme uygulamasında
+
+37
+00:02:10,370 --> 00:02:13,700
+önce U'yu sıfır vektörüyle ilk değer atamaya 
+
+38
+00:02:13,700 --> 00:02:18,260
+ve sonrasında da for döngüsüyle elemanları bir kere de işleme sokar
+
+39
+00:02:18,260 --> 00:02:24,110
+Python ve NumPy'de bir çok gömülmüş fonksiyonlar bize
+
+40
+00:02:24,110 --> 00:02:31,160
+bu vektörlerin bir fonksiyonla işleme sokma kabiliyeti sağlar.
+
+41
+00:02:31,160 --> 00:02:40,180
+Bu aşamada NumPy'yi NP olarak import ederiz.
+
+42
+00:02:40,180 --> 00:02:50,110
+ve yukarıdaki denklemle U'yu tanımlarız. 
+
+43
+00:02:50,110 --> 00:02:53,600
+Bir önceki örneğe dönecek olursak bir tane açık for döngümüz vardı 
+
+44
+00:02:53,600 --> 00:02:57,317
+ve aynı işlemi V input U output olacak şekilde 
+
+45
+00:02:57,317 --> 00:02:58,840
+tek satır kod ile halettik.
+
+46
+00:02:58,840 --> 00:03:02,340
+Böylece açık for döngüsü çıkarıldı ve uygulama 
+
+47
+00:03:02,340 --> 00:03:06,275
+çok daha hızlı bir şekilde konuldu.
+
+48
+00:03:06,275 --> 00:03:10,310
+Aslında NumPy kütüphanesinin daha bir çok vektör değer fonksiyonları var
+
+49
+00:03:10,310 --> 00:03:15,175
+Mesela Np.log V logaritmik işlem yapar
+
+50
+00:03:15,175 --> 00:03:19,220
+Np.abs mutlak değer hesaplar.
+
+51
+00:03:19,220 --> 00:03:24,935
+Np.maximum maksimum değer bulma işlemi yapar
+
+52
+00:03:24,935 --> 00:03:29,850
+V with zero arasındaki bütün elemanların en büyüğünü bu fonksiyonla elde edebiliriz
+
+53
+00:03:29,850 --> 00:03:31,290
+V**2
+
+54
+00:03:31,290 --> 00:03:38,214
+V'deki bütün elemanların karesini alır
+
+55
+00:03:38,214 --> 00:03:42,932
+1/V vektörün tersini alır
+
+56
+00:03:42,932 --> 00:03:45,635
+Yani, ne zaman for loop yazma ihtiyacı duyduğunuzda 
+
+57
+00:03:45,635 --> 00:03:48,440
+dönüp bakmakta ve NumPY gömülmüş fonksiyonu ile
+
+58
+00:03:48,440 --> 00:03:53,069
+yapılabilir mi diye kontrol etmekte fayda var.
+
+59
+00:03:53,069 --> 00:03:55,640
+Tüm bu edinimlerimizi kullanıp
+
+60
+00:03:55,640 --> 00:03:59,105
+bunu lojistik regresyon gradyen iniş uygulamasını yapalım 
+
+61
+00:03:59,105 --> 00:04:02,955
+ve bir veya iki döngüden kurtulabilir miyiz bakalım. 
+
+62
+00:04:02,955 --> 00:04:07,980
+Az önce üzerinde konuştuğumuz işlemin kodu burada
+
+63
+00:04:07,980 --> 00:04:09,335
+ve içerisinde 2 adet for döngüsü var. 
+
+64
+00:04:09,335 --> 00:04:13,065
+Birisi burada ve diğeri de burada kurulmuş 
+
+65
+00:04:13,065 --> 00:04:15,422
+Örneğimizde, 
+
+66
+00:04:15,422 --> 00:04:17,810
+denklem bu şekilde
+
+67
+00:04:17,810 --> 00:04:19,910
+ancak elinizde 2den fazla öznitelik varsa 
+
+68
+00:04:19,910 --> 00:04:23,865
+bu durumda DW1, DW2 ... 
+
+69
+00:04:23,865 --> 00:04:25,676
+üzerinde for döngülerine ihtiyacınız vardır. 
+
+70
+00:04:25,676 --> 00:04:30,305
+Eğer J= 1 ... nx
+
+71
+00:04:30,305 --> 00:04:37,395
+DWJ'nin güncellenmesi gerekir.
+
+72
+00:04:37,395 --> 00:04:41,745
+Yani ikinci for-loop'un elimine edilmesini istiyoruz
+
+73
+00:04:41,745 --> 00:04:43,745
+Yapacağımız işlem bu satırda budur.
+
+74
+00:04:43,745 --> 00:04:48,725
+Burada DW1'yı açıkça ilk değer atamak yerine 
+
+75
+00:04:48,725 --> 00:04:51,390
+dw2 ve sıfırları 
+
+76
+00:04:51,390 --> 00:04:58,100
+bundan kurtulacağız ve DW 'yı bir vektör yapacağız.
+
+77
+00:04:58,100 --> 00:05:05,600
+dw 'yu np.zeros olarak kuracağız ve
+
+78
+00:05:05,600 --> 00:05:10,490
+NX bir boyutlu vektör olarak atacağız. 
+
+79
+00:05:10,490 --> 00:05:13,175
+Ve burada özel bileşenler üzerinde 
+
+80
+00:05:13,175 --> 00:05:15,941
+for döngüsü kurmak yerine 
+
+81
+00:05:15,941 --> 00:05:19,190
+vektör değer operasyonu kullanacağız.
+
+82
+00:05:19,190 --> 00:05:22,350
+dw + eşittir
+
+83
+00:05:22,350 --> 00:05:32,031
+X (i) çarpı dz(i)
+
+84
+00:05:32,031 --> 00:05:33,620
+ve bunun yerine 
+
+85
+00:05:33,620 --> 00:05:42,562
+dW bölü eşittir M. Ve şimdi iki for döngüsü yerine sadece bir for döngümüz var. 
+
+86
+00:05:42,562 --> 00:05:48,864
+Hala bir for döngümüz test örneğindeki özel bileşenler üzerinde
+
+87
+00:05:48,864 --> 00:05:51,030
+Umarım bu video sayesinde vektörleştirme ve
+
+88
+00:05:51,030 --> 00:05:54,165
+bir for loop'tan kurtulma 
+
+89
+00:05:54,165 --> 00:05:56,505
+ve kodun hızlı çalışması konusunda size bir fikir vermiştir. 
+
+90
+00:05:56,505 --> 00:05:58,320
+Bunun daha iyisini de yapabiliriz. 
+
+91
+00:05:58,320 --> 00:05:59,418
+Bir sonraki videoda 
+
+92
+00:05:59,418 --> 00:06:03,237
+lojistik regresyonun nasıl vektörleştirileceği üzerine konuşacağız 
+
+93
+00:06:03,237 --> 00:06:07,365
+ve hatta for loop kullanmadan hoş ve şaşırtıcı sonuç göreceksiniz. 
+
+94
+00:06:07,365 --> 00:06:10,695
+Test örneklerinde for döngüsüne gerek kalmadan 
+
+95
+00:06:10,695 --> 00:06:14,760
+tüm test veri setinin prosesi kodunu yazabileceksiniz. 
+
+96
+00:06:14,760 --> 00:06:17,060
+--hemen hemen aynı zamanda --
+
+97
+00:06:17,060 --> 00:06:19,000
+Bir sonraki videoda görüşmek üzere.

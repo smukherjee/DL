@@ -1,0 +1,116 @@
+Dans la dernière vidéo, nous avons vu l’utilisation d’un graphe
+ de calcul pour calculer une fonction J. Maintenant, reprenons une version
+ propre de ce graphe de calcul et voyons comment on peux l’utiliser
+ pour comprendre les calculs de dérivées pour cette fonction J. Donc, voici un graphe de calcul. Disons que vous voulez calculer 
+la dérivée de J par rapport à v. De quoi s'agit-il ? Bien, ceci dit, si nous prenons 
+cette valeur de v et que nous la changeons un peu, comment
+ la valeur de J va-t-elle changer ? Eh bien, J est défini comme 3 fois v. Et maintenant, v = 11. Donc, si nous augmentons un peu v
+ par exemple jusqu'à 11.001, alors J, qui est 3v, donc actuellement 33, augmentera jusqu'à 33,003. Donc ici, nous avons augmenté v de 0,001, et le résultat est que
+ J augmente 3 fois plus. Donc la dérivée de J 
+par rapport à v est égale à 3, parce que l’augmentation J est
+ 3 fois l’augmentation de v. Et en fait, c’est très semblable à l’exemple que nous avions dans la vidéo précédente,
+ où nous avions f(a) = 3a, que nous avons dérivé pour obtenir
+ df(a)/da, ou écrit sous une forme un peu simplifiée, 
+ df/da, était égal à 3. Donc au lieu de cela, nous avons ici J = 3v, et donc dJ/dv = 3. Avec ici, J jouant le rôle de f, et v jouant le rôle du a 
+de l'exemple de la vidéo précédente. Donc en terme de rétro-propagation,
+nous voyons ici que si nous voulons calculer la dérivée 
+de cette variable de sortie finale, qui est généralement la variable 
+qui nous intéresse le plus, par rapport à v, alors nous avons fait 
+un pas de rétro-propagation, un pas en arrière dans ce graphe. Prenons un autre exemple. Que vaut dJ/da ?
+En d’autres termes, si nous modifions la valeur de a, comment cela
+ affecte-t-il la valeur de J ? Calculons sur cet exemple. Ici, a = 5, augmentons le à 5.001 Le résultat de cela est que v, qui est égal à
+ a + u, et valait précédemment 11, va augmenter à 11.001. Et puis, nous avons déjà vu,
+ comme ci-dessus, que J va monter à 33.003 Donc, ce que nous voyons, c’est que si nous
+ augmentons a de 0,001, J augmente de 0,003. Et augmenter a, cela signifie
+ prendre cette valeur de 5 et la remplacer par une autre valeur. Puis le changement de a va se propager
+ vers la droite du graphe de calculs jusqu'à ce que J vaille finalement 33,003. Et donc l’augmentation de J est
+ 3 fois l’augmentation de a. Ce qui signifie que 
+cette dérivée est égale à 3. Une manière de décomposer ceci
+ est de dire que si vous changez a, cela va changer v. Et ce changement de v va changer J. Et donc la variation nette de la valeur de J 
+quand on augmente un peu la valeur, quand vous décalez un 
+petit peu la valeur de a, c’est, en augmentant a, vous finissez
+ par augmenter v. Et de combien v augmente-t-il ? Il augmente d’une quantité
+ déterminée par dv/da. Et puis le changement de v entraînera
+ l'augmentation de la valeur de J. Donc, en analyse, c’est ce qu'on appelle
+ la composition des dérivées, le fait que a affecte v qui affecte J, donc
+ la variation de J quand vous modifiez a est le produit de la variation 
+de v quand vous modifiez a multiplié par la variation 
+de J quand vous modifiez v. En analyse, on appelle ça
+ la composition des dérivées. Et ce que nous avons montré avec ce calcul, 
+c’est que si vous augmentez a de 0,001, v change de la même quantité. Donc dv/da = 1. Donc si nous reprenons ce que nous 
+avons développé précédemment, dv/dJ = 3 et dv/da = 1, alors le produit de 3 par 1 vous donne la bonne valeur, 
+c'est à dire que dJ/da = 3. Cette petite illustration montre 
+comment, en ayant calculé dJ/dv, c'est à dire la dérivée
+ par rapport à cette variable, vous pouvez calculer dJ/da. Et voilà donc une autre étape 
+de ce calcul vers l'arrière. Je veux juste présenter 
+une nouvelle convention de notation. Quand vous écrirez le code pour 
+implémenter la rétro-propagation, il y aura habituellement une variable 
+de sortie qui vous intéresse vraiment, une variable de sortie finale
+ que vous voudrez optimiser. Dans ce cas, cette variable 
+de sortie finale est J. C’est le dernier nœud 
+dans votre graphe de calcul. Et donc beaucoup de calculs vont 
+servir à calculer la dérivée de cette variable de sortie finale. Donc d de cette variable de sortie finale 
+par rapport à une autre variable, nous allons appeler ça dvar. Beaucoup des calculs que vous ferez seront 
+pour calculer la dérivée de cette variable de sortie finale, J dans ce cas, par rapport
+ à diverses variables intermédiaires, comme a, b, c, u ou v. Et lorsque vous implémentez ceci, 
+quel nom donnez vous à ces variables ? Une chose que vous
+ pourriez faire, en Python vous pourriez donner un nom de variable 
+très long comme dVarSortieFinaleSurdvar. Mais c’est un nom de variable très long. On pourrait l'appeler, je suppose, dJdvar. Mais puisque vous dérivez
+ toujours par rapport à dJ, cette variable de sortie finale, 
+je vais introduire une nouvelle notation. Dans le code, lorsque vous calculerez ceci, 
+dans le code que vous écrirez nous allons utiliser le nom de variable 
+d-v-a-r pour représenter cette quantité. Donc d-v-a-r dans votre code, 
+représentera la dérivée de la variable de sortie finale qui
+ vous intéresse, par exemple J, ou parfois la perte L, par rapport 
+aux différentes quantités intermédiaires que vous calculez dans votre code. Donc dans votre code, vous utiliserez dv
+ pour désigner cette valeur. Donc dv sera égal à 3. Et dans votre code, 
+vous représentez cela par da, et nous avons calculé
+ que c'est aussi égal à 3. Donc, nous avons fait la rétro-propagation 
+partiellement avec ce graphe de calcul. Voyons le reste de cet exemple 
+sur la diapositive suivante. Donc, revenons à une copie nettoyée 
+du graphe de calcul. Et juste pour rappel, 
+ce que nous avons fait jusqu'ici, c'est d’aller en arrière ici 
+et calculer que dv = 3. Et encore une fois, la définition de dv, 
+c’est juste un nom de variable, qui représente dJ/dv. Nous avons calculé que da = 3.
+Et encore une fois, da est le nom de la variable dans votre 
+code et c’est en fait la valeur dJ/da. Et nous avons vu à peu près comment faire 
+le chemin vers l'arrière par ces deux flèches. Continuons à calculer les dérivées. Maintenant regardons la valeur u. Alors, que vaut dJ/du ? Eh bien, grâce à un calcul semblable
+ à ce que nous avons fait avant, nous commençons avec u = 6. Si vous décalez u à 6.001, alors v, qui valait 11, devient 11.001. Et donc J change de 33 à 33,003. Et ainsi l’augmentation de J
+ est de 3x, donc ceci vaut 3. Et l’analyse pour u est très similaire 
+à l’analyse que nous avons faite pour a. On le calcule comme dJ/dv fois dv/du, où nous avons déjà vu que ça valait 3. Et cela s’avère être égal à 1. Donc nous avons fait une étape
+ de plus de rétro-propagation. Nous avons calculé que 
+du est aussi égal à 3. Et du est, bien sûr, juste ce dJ/du. Maintenant nous allons juste voir 
+un dernier exemple dans le détail. Que vaut dJ/db ? Donc, imaginez, si vous pouvez
+ changer la valeur de b, et que vous souhaitez modifier
+ un peu b afin de minimiser ou de maximiser la valeur de J. Alors, quelle est la dérivée, quelle est la pente de cette fonction J lorsque
+ vous modifiez un peu la valeur de b ? Il s’avère qu'en utilisant la règle
+ de composition des dérivées, ceci peut être écrit comme
+ le produit de deux choses. Ceci vaut dJ/du fois du/db. Et le raisonnement est que 
+si vous modifiez b un petit peu, disons que b change de 3 à 3.001, cela va affecter J parce que 
+cela va d'abord affecter u. Alors, de combien cela affecte-t-il u ? Eh bien, u est défini comme b fois c. Donc cela va changer de 6, lorsque b = 3, à 6.002 maintenant, parce que c = 2 dans notre exemple ici. Et donc cela nous indique que du/db = 2. Parce que quand on augmente b de 0,001,
+ u augmente deux fois plus. du/db est donc égal à 2. Maintenant, nous savons que u a augmenté
+ deux fois plus que ce que b a augmenté. Et que vaut dJ/du ? Nous avons déjà calculé que c'est égal à 3. Et en multipliant ces deux valeurs,
+ nous trouvons que dJ/db = 6. Et encore une fois, voici le raisonnement 
+pour la deuxième partie de l’argument. Nous voulons savoir, quand u augmente 
+de 0,002, comment cela affecte-t-il J ? Le fait que dJ/du = 3, qui nous dit que quand u augmente de 0,002, 
+J augmente 3 fois plus. Donc J devrait augmenter de 0,006. Cela vient du fait que dJ/du = 3. Et si vous vérifiez les maths en détail, vous trouverez que si b devient 3.001, alors u devient 6.002, v devient 11,002. ceci vaut a + u, donc c’est 5 + u. Et puis J, qui est égal à 3 fois v, est finalement égal à 33.006. Et donc c’est comme ça que
+ vous obtenez que dJ/db = 6. Et pour remplir ça, si nous revenons
+ en arrière, ici, db = 6. Et db est en réalité le nom de la
+ variable du code Python pour dJ/db. Et je ne ferai pas le dernier exemple en détail, mais si vous calculez dJ/dc, qui vaut dJ/du fois du/dc, vous trouverez 9, vous trouverez 3 fois 3. Je ne vais pas le faire en détail. Dans cette dernière étape, il est possible 
+de montrer que dc est égal à 9. Donc, ce qu'il faut retenir de cette vidéo, 
+de cet exemple, est que, lors du calcul de toutes ces dérivées,
+ la façon la plus efficace est de calculer de droite à gauche 
+en suivant les flèches rouges. Dans ce cas particulier, nous allons tout 
+d’abord calculer la dérivée par rapport à v. Puis nous allons l'utiliser pour calculer la dérivée par rapport à a
+ et la dérivée par rapport à u. Et puis la dérivée par rapport à u, ce terme ici et celui là, on les utilise à leur tour pour
+ calculer les dérivées par rapport à b et c. Donc voilà pour le graphe de calcul et 
+comment faire un calcul vers l'avant, c'est à dire de gauche à droite, 
+pour calculer la fonction de coût J
+ que vous voulez optimiser. Et un calcul vers l'arrière, de droite à 
+gauche, permet de calculer les dérivées. Si vous n'êtes pas à l'aise avec la composition
+ des dérivées et l'analyse fonctionnelle, je sais que nous sommes allés
+ très vite sur beaucoup de détails, mais ne vous inquiétez pas si
+ vous n'avez pas suivi les détails. Dans la prochaine vidéo, nous allons revoir tout ça dans
+ le cadre de la régression logistique. et je vous montrerai exactement ce que vous
+ devez faire pour implémenter les calculs de dérivées nécessaires pour 
+le modèle de la régression logistique.

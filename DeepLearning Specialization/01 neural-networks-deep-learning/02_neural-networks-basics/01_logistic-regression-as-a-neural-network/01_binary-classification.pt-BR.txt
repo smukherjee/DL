@@ -1,0 +1,97 @@
+Olá e bem vindos de volta Nesta semana, vamos repassar os conceitos 
+básicos de programação de redes neurais. Quando você implementa uma 
+rede neural, resulta que há algumas técnicas que 
+serão realmente importantes. Por exemplo, se você tem um conjunto de 
+treinamento contendo "m" exemplos de treinamento, você pode estar acostumado a processar 
+o conjunto de treinamento com um laço de repetição 'for...' em passos repetidos sobre seus 
+exemplos de treinamento "m". Mas resulta que quando você está 
+implementando uma rede neural, você normalmente quer processar 
+seu conjunto de treinamento inteiro, sem ter que, necessariamente, 
+usar um laço de repetição 'for...' ao longo 
+de todo o seu conjunto de treinamento. Então, você verá como fazer 
+isso no conteúdo desta semana. Outra ideia, quando você 
+organiza os cálculos na sua rede, normalmente você tem um passo chamado 
+de passe para frente ou propagação para frente, seguido de um passe para trás, que é 
+um passo chamado de retro-propagação. Assim, nos materiais desta semana, você 
+também terá uma introdução do porquê os cálculos, no processo de aprendizagem em uma 
+rede neural, podem ser organizados nesta forma de propagação e numa forma 
+separada de retro-propagação. Para os materiais desta semana eu 
+quero transmitir estas ideias usando regressão logística, a fim de tornar 
+as ideias mais fáceis de entender. Mas mesmo se você já viu regressão 
+logística antes, penso que haverá ideias novas e interessantes para 
+você aprender nos materiais desta semana. Então com isso, vamos começar. Regressão logística é um 
+algoritmo de classificação binária. Então, vamos começar 
+estabelecendo o problema. Aqui está um exemplo de um 
+problema de classificação binária. Você pode ter uma entrada 
+de uma imagem, como esta, e quer retornar um rótulo reconhecendo 
+esta imagem como sendo a de um gato, neste caso a saída será 1, 
+ou não-gato, neste caso a saída é 0. Nós vamos usar "y" para 
+nomear o rótulo de saída. Vejamos como uma imagem é 
+representada em um computador. Para guardar uma imagem, seu computador 
+armazena três matrizes separadas que correspondem aos canais de cor 
+vermelho, verde e azul,  desta imagem. Assim, se sua imagem de 
+entrada tem 64 x 64 pixels, então você teria 3 matrizes de 64 por 64, correspondendo aos valores de intensidade 
+de pixel vermelho, verde e azul das suas imagens. Embora, para fazer este pequeno slide, 
+desenhei isso como matrizes muito menores, essas são na verdade 
+matrizes 5x4 ao invés de 64x64. Então, para transformar estes valores de 
+intensidade de pixel em um vetor de característica, o que faremos é desenrolar todos estes valores 
+de pixel em um vetor de característica de entrada x. Então, para transformar todos estes valores de 
+intensidade de pixel em um vetor de característica, o que faremos é definir um vetor de característica 
+"x", que corresponda a esta imagem, como segue. Vamos pegar todos os valores dos 
+pixels 255, 231, e assim por diante. 255, 231, e assim por diante, até que 
+tenhamos listado todos os pixels vermelhos. E depois, eventualmente, 255, 134, 
+255, 134, e assim por diante, até que obtenhamos um longo vetor 
+de característica, listando todos os valores de intensidade de pixel, correspondentes 
+ao vermelho, ao verde e ao azul desta imagem. Se esta é uma imagem 64x64, 
+a dimensão total deste vetor x será 64x64x3 porque este é os números totais que temos 
+em todas estas matrizes. Neste caso, resulta em 12288, que você obtém se 
+multiplicar todos estes números. Então, usaremos nx=12288 para representar a dimensão 
+das características de entrada x. E às vezes, por questões de brevidade, 
+eu também usarei "n" minúsculo para representar a dimensão 
+deste vetor de característica. Assim, em classificação binária, nosso objetivo 
+é aprender um classificador que possa dar entrada em uma imagem representada 
+pelo vetor de característica x e prever se o rótulo y correspondente é 1 ou 0, isto é, se é uma imagem de gato ou não. Vamos estabelecer as 
+notações que vamos usar ao longo do curso. Um exemplo de treinamento 
+único é representado por um par, (x,y) onde "x" é uma vetor de 
+característica com dimensão "nₓ", e "y", o rótulo, é 0 ou 1. Seus conjuntos de treinamento irão 
+conter "m" exemplos de treinamento. E então os conjuntos de treinamento serão gravados (x⁽¹⁾, y⁽¹⁾) que é a entrada e e a saída para o seu primeiro exemplo 
+de treinamento, (x⁽²⁾, y⁽²⁾) para o segundo exemplo de treinamento até (x⁽m⁾, y⁽m⁾), 
+que será o último exemplo de treinamento. E então, todos os exemplos juntos serão 
+o conjunto de treinamento completo. Eu vou usar o m minúsculo para descrever 
+o número de amostras de treinamento. E alguma vezes, para enfatizar que este 
+é o número de exemplos de treinamento, eu poderei escrever M como "M tra E quado falarmos sobre um conjunto de teste, às vezes podemos usar "Mtest" para 
+denotar o número de exemplos de teste. Então, este é o número 
+de exemplos de teste. Finalmente, para colocar todos os exemplos 
+de teste em uma notação mais compacta, vamos definir uma matriz, X maiúsculo. Conforme definido, tomando seus 
+conjuntos de testes x⁽¹⁾, x⁽²⁾ e assim por diante, e os 
+empilhamos em colunas. Então, nós pegamos x⁽¹⁾ e colocamos 
+como a primeira coluna desta matriz, x⁽²⁾, colocamos como a segunda 
+coluna, e assim por diante até x⁽m⁾, então esta é a matriz X
+(maiúsculo). Assim, esta matriz X terá m colunas, 
+onde m é o número de exemplos de treinamentos, e nₓ é o número 
+de linhas, ou a altura desta matriz. Note que em outros cursos, 
+você pode ver a matriz X definida empilhando os exemplos 
+de teste em linhas, desta forma, transpondo assim, x⁽¹⁾⸆ até x⁽m⁾⸆. Resulta que, quando você está 
+implementando redes neurais usando esta convenção que eu tenho à esquerda, 
+tornará a implementação muito mais fácil. Somente para recapitular, X é uma 
+matriz com dimensões nₓ por m, e quando você implementa isto em Python, você vê que X.shape é 
+o comando em Python para encontrar a forma da matriz, que é (nₓ , m). Isto significa que é uma 
+matriz de dimensões nₓ por m. Então, assim é como você agrupa os exemplos 
+de treino, colocando X em formato de matriz. E os rótulos de saída y? Resulta que, para tornar a implementação 
+de redes neurais mais simples, seria conveniente também 
+empilhar Y em colunas. Então, vamos definir Y (maiúsculo) 
+para ser igual y⁽¹⁾, y⁽²⁾, até y⁽m⁾, desta forma. Então, Y aqui será uma 
+matriz de dimensão 1 por m. E mais uma vez, para usar a notação em Python:
+Y.shape = (1,m) que significa que ela
+é uma matriz 1 por m. Conforme for implementando a sua rede neural, mais 
+tarde neste curso, você verá que uma convenção útil é pegar os dados 
+associados com outros exemplos de teste e, quando digo dados, quero dizer tanto X ou Y, 
+ou outras quantidades que veremos mais tarde. Mas pegar as coisas ou ou os dados associados com 
+exemplos de teste distintos e e empilhá-los em colunas diferentes, 
+como nós fizemos aqui, para ambos X e Y. Então, estas são as notações que 
+usaremos para regressão logística e redes neurais mais tarde neste curso. Caso você esqueça o que significa 
+uma notação, tal como "o que é m" ou "o que é n" ou o significado de outra coisa, também postamos no 
+website do curso um manual de notações que você pode usar para pesquisar rapidamente 
+o que significa uma determinada notação. Assim, vamos para o próximo 
+vídeo onde começaremos a usar regressão logística com esta notação. 
+[Tradução: Renato Barata Gomes | Revisão: Carlos Lage]

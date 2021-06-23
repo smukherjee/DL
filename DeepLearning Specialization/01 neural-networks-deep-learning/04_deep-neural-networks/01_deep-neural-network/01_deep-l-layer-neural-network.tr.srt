@@ -1,0 +1,334 @@
+1
+00:00:00,000 --> 00:00:02,389
+Dersimizin 4. haftasına hoş geldiniz.
+
+2
+00:00:02,389 --> 00:00:06,354
+Şimdiye kadar, bir nöral ağ bağlamında
+, tek bir gizli katman ile birlikte, 
+
+3
+00:00:06,354 --> 00:00:10,807
+lojistik regresyon kadar ileri ve geri bildirimleri
+ gördünüz ve 
+
+4
+00:00:10,807 --> 00:00:13,064
+ayrıca vektörleştirmeyi ve 
+
+5
+00:00:13,064 --> 00:00:15,936
+ağırlıkları
+ zamanına göre, rastgele başlatmanın önemini öğrendiniz.
+
+6
+00:00:15,936 --> 00:00:19,417
+Eğer geçen haftalardaki ödevleri yaptıysanız, kendi başınıza, bu konuların 
+
+7
+00:00:19,417 --> 00:00:21,378
+bazılarını görüp, uygulamışsınız demektir.
+
+8
+00:00:21,378 --> 00:00:21,977
+Aslında şimdiye kadar,
+
+9
+00:00:21,977 --> 00:00:26,718
+bir derin sinir ağını uygulamak için gerekli olan konuların çoğunu gördünüz.
+
+10
+00:00:26,718 --> 00:00:30,453
+Bu hafta yapacağımız şey, kendi derin sinir ağınızı uygulamak için,
+
+11
+00:00:30,453 --> 00:00:33,669
+bu konuları birbirleriyle birleştirmek olacak.
+
+12
+00:00:33,669 --> 00:00:36,406
+Bu haftanın programlama ödevi daha uzun olduğu için,
+
+13
+00:00:36,406 --> 00:00:39,457
+konuları daha hızlı bitirip,
+
+14
+00:00:39,457 --> 00:00:43,784
+egzersize odaklanasınız diye videoları kısa tutacağım.
+
+15
+00:00:43,784 --> 00:00:48,107
+Ve umarım, sizden ayrılırken,
+
+16
+00:00:48,107 --> 00:00:52,537
+derin sinir ağları ile ilgili öğrendiklerinizin gururunu yaşarsınız.
+
+17
+00:00:52,537 --> 00:00:55,576
+Derin Sinir Ağı nedir?
+
+18
+00:00:55,576 --> 00:00:59,225
+Mantıksal regresyon ve ayrıca tek bir gizli katmanlı
+
+19
+00:00:59,225 --> 00:01:03,439
+sinir ağı konularıyla ilgili birer resim görmüştünüz.
+
+20
+00:01:03,439 --> 00:01:07,925
+Burada ise 2 ve 5 gizli katmanlı derin sinir ağlarının
+
+21
+00:01:07,925 --> 00:01:10,661
+birer örnekleri mevcut.
+
+22
+00:01:10,661 --> 00:01:15,744
+Mantıksal Regresyon işlemine çok "Sığ(Derin Olmayan) Model"diyebiliriz.
+
+23
+00:01:15,744 --> 00:01:19,947
+Buna karşılık, bu model çok daha derin bir modeldir
+
+24
+00:01:19,947 --> 00:01:23,585
+ve derinlik ve sığlık birer derece konusudur.
+
+25
+00:01:23,585 --> 00:01:26,952
+Öyleyse tek bir gizli katmanın sinir ağı,
+
+26
+00:01:26,952 --> 00:01:30,052
+bu iki katmanlı bir sinir ağı olacaktır.
+
+27
+00:01:30,052 --> 00:01:34,880
+Hatırlayın, bir sinir ağında katmanları sayarken, girdi katmanlarını değil,
+
+28
+00:01:34,880 --> 00:01:38,076
+yalnızca gizli olan çıktı katmanlarını sayarız.
+
+29
+00:01:38,076 --> 00:01:42,849
+Böylece, bu 2 katmanlı sinir ağı, mantıksal regresyon kadar olmasada,
+
+30
+00:01:42,849 --> 00:01:45,961
+oldukça sığ olacaktır.
+
+31
+00:01:45,961 --> 00:01:50,086
+Teknik olarak mantıksal regresyon bir katmanlı bir sinir ağıdır, fakat
+
+32
+00:01:50,086 --> 00:01:53,536
+fakat bir kaç yıl önce, makine öğrenmesi topluluğundaki yapay zeka
+
+33
+00:01:53,536 --> 00:01:58,561
+sığ modellerin öğrenemeyeceği şeyleri öğrenen çok derin sinir ağlarının
+
+34
+00:01:58,561 --> 00:02:03,590
+fonksiyonları olduğunun farkına vardı.
+
+35
+00:02:03,590 --> 00:02:08,119
+Herhangi bir sorun için, ağınızın derinliğine tam
+
+36
+00:02:08,119 --> 00:02:10,163
+olarak karar vermek zor olabilir.
+
+37
+00:02:10,163 --> 00:02:14,305
+Bu yüzden mantıksal regresyon denemek,
+
+38
+00:02:14,305 --> 00:02:19,200
+bir ve 2 gizli katman denemek, ve farklı değerler denenebilen parametrelerin
+
+39
+00:02:19,200 --> 00:02:22,739
+oluşturduğu gizli katmanların sayısını kontrol etmek, ve 
+
+40
+00:02:22,739 --> 00:02:27,515
+tüm bunları doğrulama verileri arasında veya geliştirme kümenizde değerlendirmek mantıklı olacaktır.
+
+41
+00:02:27,515 --> 00:02:29,447
+Bu konulara daha sonra da değineceğiz.
+
+42
+00:02:29,447 --> 00:02:33,998
+Derin sinir ağlarını açıklamak için kullandığımız terimlere gidelim.
+
+43
+00:02:33,998 --> 00:02:39,147
+Burada, 3 gizli olan, 4 katmanlı sinir ağı bulunmaktadır ve
+
+44
+00:02:40,974 --> 00:02:45,729
+bu gizli katmanlardaki birimlerin sayıları 5, 5, 3
+
+45
+00:02:45,729 --> 00:02:50,842
+, bir tane de üst birim bulunmaktadır.
+
+46
+00:02:50,842 --> 00:02:52,731
+Dolayısıyla ağdaki katman sayısını göstermek için
+
+47
+00:02:52,731 --> 00:02:56,591
+kullanacağımız terim "L"dir.
+
+48
+00:02:56,591 --> 00:03:03,881
+Bu durumda, L = 4, katmanların sayısını verir, ve
+
+49
+00:03:03,881 --> 00:03:11,880
+"l(küçük harf L)" kadar katmanda, düğümlerin ve birimlerin sayısını
+
+50
+00:03:11,880 --> 00:03:17,101
+belirlemek için N üssü[l] terimini kullanacağız.
+
+51
+00:03:17,101 --> 00:03:22,501
+Eğer burayı 0 olarak indekslersek,
+
+52
+00:03:22,501 --> 00:03:28,950
+bu katman 1, bu katman 2, bu katman 3, ve bu katman 4.
+
+53
+00:03:28,950 --> 00:03:33,822
+Örneğin biz N üssü [1] e sahibiz,
+
+54
+00:03:33,822 --> 00:03:39,529
+ve bu 5'e eşit olacaktır. Çünkü orada 5 gizli birimimiz var.
+
+55
+00:03:39,529 --> 00:03:43,623
+Bunun için ise n üssü [2]'miz var,
+
+56
+00:03:43,623 --> 00:03:48,810
+ikinci gizli katmandaki birimlerin sayısı ayrıca 5'e eşittir.
+
+57
+00:03:48,810 --> 00:03:53,315
+N üssü [3], 3'e eşittir ve N üssü [4]
+
+58
+00:03:53,315 --> 00:03:59,459
+N üssü [L]'e eşittir. Bu üstteki birimlerin sayısı 01'dir.
+
+59
+00:03:59,459 --> 00:04:04,101
+Çünkü büyük L 4'e eşittir,
+
+60
+00:04:04,101 --> 00:04:08,878
+ve burada da
+
+61
+00:04:08,878 --> 00:04:13,003
+girdi katmanı N üssü [0] nx'e o da 3 e eşittir.
+
+62
+00:04:13,003 --> 00:04:17,879
+Dolayısıyla bunlar farklı katmanlarda sahip olduğumuz düğümlerin sayısını
+
+63
+00:04:17,879 --> 00:04:18,463
+belirlemek için kullandığımız terimlerdir.
+
+64
+00:04:18,463 --> 00:04:23,913
+Her bir L katmanı için, aynı zamanda, l katmanındaki
+
+65
+00:04:23,913 --> 00:04:30,196
+aktivasyonları göstermen için a üssü [l] kullanacağız.
+
+66
+00:04:30,196 --> 00:04:34,669
+Daha sonra, yayılım için,
+
+67
+00:04:34,669 --> 00:04:40,791
+[l] 'yi aktivasyon g (z [l]) olarak hesapladığınızı
+
+68
+00:04:40,791 --> 00:04:46,440
+ve belki de aktivasyonun katman l tarafından indekslendiğini göreceğiz,
+
+69
+00:04:46,440 --> 00:04:51,736
+ve W[l] yi de katmanda z [l] değerini
+
+70
+00:04:51,736 --> 00:04:55,973
+ hesaplama ağırlıklarını belirlemek için kullanacağız ve
+
+71
+00:04:55,973 --> 00:05:00,714
+benzer olarak, b[l], z[l]'yi hesaplamak için kullanacağız.
+
+72
+00:05:00,714 --> 00:05:07,114
+Son olarak, sadece terimleri toparlamak için, girdi özellikleri "x" olarak adlandırılır,
+
+73
+00:05:07,114 --> 00:05:12,215
+fakat, x ayrıca katman 0'ın aktivasyonları olarak adlandırılır, böylece a[0] = x,
+
+74
+00:05:12,215 --> 00:05:17,133
+ve son katmanın aktivasyonu a[L] = şapkalı y dir.
+
+75
+00:05:17,133 --> 00:05:25,275
+Yani a[L], sinir ağı için, tahmin edilmiş çıktı olan şapkalı y'ye eşittir.
+
+76
+00:05:25,275 --> 00:05:28,200
+Böylece, şu anda, derin sinir ağının ve açıklamak ve derin
+
+77
+00:05:28,200 --> 00:05:32,427
+ağlarla hesaplamak için kullandığımız terimlerin neye bezediğini biliyorsunuz.
+
+78
+00:05:32,427 --> 00:05:36,457
+Bu videoda çok fazla terim anlattığı biliyorum, fakat, eğer bu
+
+79
+00:05:36,457 --> 00:05:40,916
+terimleri ne anlama geldiğiniz unutursanız, ayrıca dersin web-sitesinde terim listesi
+
+80
+00:05:40,916 --> 00:05:45,089
+veya terim rehberi olarak paylaşacağız. Unuttuğunuz terimlerin ne anlama geldiğine buradan bakabilirsiniz.
+
+81
+00:05:45,089 --> 00:05:48,958
+Bir sonraki videoda, bu tipteki ileri yayılımların
+
+82
+00:05:48,958 --> 00:05:49,620
+ne olduğunu anlatmaya çalışacağım.
+
+83
+00:05:49,620 --> 00:05:51,019
+Bir sonraki videoya gidelim.

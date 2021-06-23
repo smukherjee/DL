@@ -1,0 +1,87 @@
+Dans les vidéos précédentes
+ de cette semaine et de ces dernières semaines, nous avons vu tous les blocs de 
+base de la propagation directe et de la rétro propagation, les composants clés 
+dont vous avez besoin pour implémenter 
+un réseau de neurones profond. Nous allons voir comment vous pouvez 
+mettre ces éléments ensemble pour 
+construire un réseau profond. Voici un réseau avec plusieurs couches. Intéressons nous à une couche et regardons les calculs en nous concentrant 
+sur cette couche pour le moment. Pour la couche l, vous avez 
+certains paramètres W[l] et b[l], et pour la propagation directe,
+ vous aurez en entrée l'activation a[l-1] de
+ la couche précédente et en sortie vous aurez a[l]. Ce que nous avons fait 
+précédemment était de calculer z[l] = W[l] x a[l-1] + b[l], et ensuite a[l] = g( z[l] ). Très bien. Voilà comment vous passez 
+de l’entrée a[l-1] à la sortie a[l]. Et il va être utile pour plus tard 
+de mettre en cache la valeur z[l]. Je voudrais mettre ceci en cache parce 
+que stocker cette valeur z[l] nous sera utile pour l'étape 
+de rétro propagation. Pour l'étape de rétro propagation, en se concentrant toujours
+ sur cette couche l, voyons comment calculer une
+ fonction qui prenne en entrée da[l] et qui sorte da[l-1].
+Et pour être vraiment précis, en entrée, on a da[l] 
+ainsi que le cache, donc vous avez à disposition la valeur de z[l]
+ que vous avez calculée, et en plus de sortir da[l-1], 
+vous allez aussi calculer les gradients dont vous avez besoin pour 
+implémenter la descente de gradient pour l'apprentissage. Ok ? Donc voilà la structure fondamentale de 
+l'implémentation de l'étape directe, ce que nous appelons la fonction directe
+ ainsi que l'étape arrière, que nous appelons fonction
+ de rétro propagation. Juste pour résumer, dans la couche l, vous allez avoir l'étape ou la fonction 
+de propagation directe, en entrée a[l-1], en sortie a[l], et pour faire ce calcul, 
+vous avez besoin de W[l] et b[l], et en sortie, vous avez aussi 
+un cache qui contient z[l]. Pour l'étape de rétro propagation,
+vous aurez une autre fonction qui maintenant prend en entrée da[l] et produit da[l-1]. Elle vous dit, en fonction de la dérivée
+ de cette activation, c'est da[l], ce que valent les dérivées, combien je souhaite ? a[l-1] modifie la valeur calculée de la dérivée
+ par rapport à l'activation de la couche précédente. Dans cette boîte, vous avez besoin de W[l] et b[l], 
+et, au passage, on va calculer dz[l], 
+et donc cette boite, cette fonction arrière, va aussi
+ avoir en sortie dW[l] et db[l]. J'utilise parfois des flèches rouges 
+pour les itérations vers l'arrière, donc si vous préférez, on peut 
+mettre ces flèches en rouge. Si vous pouvez implémenter ces deux fonctions, alors le calcul de base du réseau
+ de neurones ira comme ceci : Vous allez mettre les caractéristiques 
+d’entrée a[0] en entrée, et vous calculerez les activations 
+de cette première couche, a[1]. Pour cela, vous avez besoin 
+de W[1] et b[1]. Et vous allez mettre z[1] en cache. Ceci fait, vous entrez ça dans la seconde 
+couche, et vous utilisez W[2] et b[2] pour calculer les activations a[2] de 
+la couche suivante, et ainsi de suite. Jusqu'à ce que finalement,
+ vous obteniez en sortie a[L], qui est égal à ŷ. Au fur et à mesure, nous avons 
+mis en cache toutes ces valeurs z. Voilà pour l’étape de propagation directe. Pour l'étape de rétro propagation, 
+nous allons faire une série d'itérations en reculant, en calculant les gradients comme ceci. En entrée ici on aura da[L], 
+puis cette boîte va nous donner da[l-1] et ainsi 
+de suite jusqu'à avoir da[2] puis da[1]. Vous pourriez avoir une sortie 
+de plus pour calculer da[0], mais c'est la dérivée par rapport 
+aux caractéristiques d'entrée et ce n'est pas utile, en tous cas pour l'apprentissage des poids
+ de ces réseaux neuronaux supervisés, donc vous pouvez arrêter là. Au fur et à mesure, la rétro propagation
+produit aussi dW[L], db[L]. J'avais utilisé 
+les paramètres W[L] et b[L]. Cela va donner dW[3], db[3],
+ et ainsi de suite. Vous finissez par calculer toutes les 
+dérivées dont vous avez besoin. Juste pour compléter
+ un petit peu cette structure, ces boîtes utiliseront 
+ces paramètres également, W[L], b[L] et vous verrez que dans ces boîtes, 
+nous calculons aussi les dz. Donc une itération d'apprentissage 
+d’un réseau de neurones implique de 
+commencer par a[0], c'est à dire X, et de faire la propagation 
+directe comme ceci, de calculer ŷ et
+ de l'utiliser pour calculer ceci puis la rétro propagation, comme ceci,
+ faisant cela, et maintenant, vous avez 
+tous ces termes dérivés, W est remplacé par 
+W moins le taux d'apprentissage fois dW pour chacune des couches et
+ de la même façon pour le taux b. Maintenant la rétropropagation calculée
+ a toutes ses dérivées. C'est une itération de la descente de 
+gradient pour votre réseau de neurones. Avant de passer à la suite, 
+juste un détail d'implémentation. Sur le plan conceptuel, il est utile de voir 
+le cache ici pour stocker la valeur de z pour
+ les fonctions arrière. Mais lorsque vous implémentez
+ ceci, vous le verrez dans l'exercice de programmation, vous verrez que
+ le cache est un moyen pratique d'avoir à disposition 
+les valeurs des paramètres W[1], b[1] à l'intérieur des fonctions arrière.
+Donc dans l'exercice, vous stockerez z dans votre cache, 
+mais aussi W et b. Donc ceci stocke z[2], W[2) et b[2]. 
+Du point de vue de l'implémentation, je trouve que c'est un moyen pratique 
+d’obtenir une copie des paramètres là où vous en avez besoin lorsque
+ vous calculez la rétro propagation. C’est juste un détail d’implémentation 
+que vous verrez quand vous ferez l’exercice de programmation. Bien, vous avez vu maintenant 
+les blocs de base pour l'implémentation 
+d'un réseau neuronal profond. Dans chaque couche, il y a 
+une étape de propagation directe, vers l'avant et il y a une étape de rétro propagation
+ correspondante, et il y a un cache pour passer 
+les informations de l’une à l’autre. Dans la prochaine vidéo, nous allons voir comment vous pouvez
+ réellement implémenter ces briques de base.
+Passons à la vidéo suivante.

@@ -1,0 +1,211 @@
+1
+00:00:00,000 --> 00:00:03,000
+Sie haben von mir bereits vernommen, dass die Berechnungen eines Neuronalen Netzwerkes
+
+2
+00:00:03,000 --> 00:00:07,253
+in der Art eines Vorwärtslaufs resp. einer Vorwärts-Ausbreitung organisiert wird,
+
+3
+00:00:07,253 --> 00:00:10,005
+bei welcher die Ausgabe des Neuronalen Netzwerkes berechnet wird,
+
+4
+00:00:10,005 --> 00:00:13,310
+gefolgt von einem Rückwärtslauf resp. einer Rückwärts-Ausbreitung,
+
+5
+00:00:13,310 --> 00:00:16,137
+welcher wir nutzen um die Gradienten resp. die Ableitungen zu berechnen.
+
+6
+00:00:16,137 --> 00:00:21,540
+Der Berechnungsgraph erklärt, weshalb das in dieser Art organisiert ist.
+
+7
+00:00:21,540 --> 00:00:24,375
+In diesem Video wollen wir ein Beispiel betrachten.
+
+8
+00:00:24,375 --> 00:00:28,060
+Um den Berechnungsgraphen zu illustrieren,
+
+9
+00:00:28,060 --> 00:00:34,260
+wollen wir ein einfacheres Beispiel als die Logistische Regression oder Neuronale Netzwerke verwenden.
+
+10
+00:00:34,260 --> 00:00:37,200
+Nehmen wir an, dass wir versuchen eine Funktion J zu berechnen,
+
+11
+00:00:37,200 --> 00:00:39,510
+welche eine Funktion der drei Variablen a, b
+
+12
+00:00:39,510 --> 00:00:44,900
+und c ist und die Funktion 3(a+bc) beträgt.
+
+13
+00:00:44,900 --> 00:00:49,260
+Die Berechnung dieser Funktion hat aktuell 3 unterscheidbare Schritte:
+
+14
+00:00:49,260 --> 00:00:51,799
+Der erste notwendige Schritt berechnet
+
+15
+00:00:51,799 --> 00:00:55,195
+bc und - nehmen wir an - speichert das Resultat in der Variablen mit dem Namen u.
+
+16
+00:00:55,195 --> 00:00:59,117
+Damit ist u=bc und danach kann man V=a*u berechnen.
+
+17
+00:00:59,117 --> 00:01:06,060
+Also sagen wir dies ist V. Und schließlich
+
+18
+00:01:06,060 --> 00:01:09,380
+ist ihre Ausgabe J = 3V.
+
+19
+00:01:09,380 --> 00:01:15,555
+Damit ist dies ihre abschließende Funktion J, welche Sie nun versuchen automatisiert zu berechnen.
+
+20
+00:01:15,555 --> 00:01:20,970
+Wir können diese drei Schritte nehmen und in einem Berechnungsgraphen wie folgt aufzeichnen:
+
+21
+00:01:20,970 --> 00:01:26,400
+Nehmen wir an, ich zeichne die drei Variablen a,b und c an dieser Stelle
+
+22
+00:01:26,400 --> 00:01:31,825
+Das erste, was wir taten, war u=bc zu berechnen.
+
+23
+00:01:31,825 --> 00:01:35,015
+Also werde ich darum eine Rechteck zeichnen
+
+24
+00:01:35,015 --> 00:01:39,030
+und damit ergeben sich die Eingänge dazu als b und c. Im weiteren
+
+25
+00:01:39,030 --> 00:01:41,505
+hätten wir V=a+u
+
+26
+00:01:41,505 --> 00:01:47,440
+mit den Eingängen
+
+27
+00:01:47,440 --> 00:01:56,645
+u, welchen wir soeben berechnet haben, gemeinsam mit a.
+
+28
+00:01:56,645 --> 00:02:04,205
+Und schließlich haben wir J=3V.
+
+29
+00:02:04,205 --> 00:02:07,235
+Machen wir ein konkretes Beispiel mit a=5,
+
+30
+00:02:07,235 --> 00:02:10,040
+b=3 und c=2 dann wäre u=bc gleich 6 und damit
+
+31
+00:02:10,040 --> 00:02:15,967
+würde a+u gleich 5+6 also 11; womit J drei mal soviel wäre, folglich J=33.
+
+32
+00:02:15,967 --> 00:02:22,310
+Und in der Tat können wir hoffentlich verifizieren,
+
+33
+00:02:22,310 --> 00:02:29,520
+dass dies drei mal (fünf plus (drei mal zwei)) sind.
+
+34
+00:02:29,520 --> 00:02:30,865
+Und, wenn wir dies alles berücksichtigen
+
+35
+00:02:30,865 --> 00:02:34,390
+erhält man tatsächlich 33 für den Wert von J.
+
+36
+00:02:34,390 --> 00:02:38,060
+Der Berechnungsgraph erweist sich als praktisch, wenn man
+
+37
+00:02:38,060 --> 00:02:41,790
+ausgeprägte oder besondere Ausgangs-Variable,
+
+38
+00:02:41,790 --> 00:02:43,940
+wie in diesem Fall J,
+
+39
+00:02:43,940 --> 00:02:46,215
+optimieren möchte.
+
+40
+00:02:46,215 --> 00:02:48,755
+Im Falle der Logistischen Regression
+
+41
+00:02:48,755 --> 00:02:53,260
+ist J selbstverständlich die cos-Funktion, die wir versuchen zu minimieren.
+
+42
+00:02:53,260 --> 00:02:56,615
+Und, was wir in diesem kleinen Beispiel gesehen haben, ist
+
+43
+00:02:56,615 --> 00:02:58,666
+dass man durch den Pfad von links-nach-rechts
+
+44
+00:02:58,666 --> 00:03:01,075
+den Wert von J berechnen kann.
+
+45
+00:03:01,075 --> 00:03:05,993
+Und wie wir in den nächsten paar Folien für das Berechnen der Ableitungen sehen werden,
+
+46
+00:03:05,993 --> 00:03:10,010
+existiert wie folgt ein Pfad von rechts-nach-links wie hier,
+
+47
+00:03:10,010 --> 00:03:14,380
+der in die gegenseitige Richtung der blauen Pfeile führt.
+
+48
+00:03:14,380 --> 00:03:17,205
+Somit wäre dies das Natürlichste für die Berechnung der Ableitungen.
+
+49
+00:03:17,205 --> 00:03:20,015
+Um zu rekapitulieren, der Berechnungsgraph strukturiert
+
+50
+00:03:20,015 --> 00:03:24,250
+eine Berechnung mit diesen blauen Pfeile von links-nach-rechts.
+
+51
+00:03:24,250 --> 00:03:26,510
+Wir beziehen uns auf das nächste Video, das zeigt wie Sie die Ableitungen entsprechend
+
+52
+00:03:26,510 --> 00:03:31,710
+den rückwärts gerichteten, roten Pfeile von rechts-nach-links berechnen können.
+
+53
+00:03:31,710 --> 00:03:33,000
+Lasst uns zum nächsten Video gehen.

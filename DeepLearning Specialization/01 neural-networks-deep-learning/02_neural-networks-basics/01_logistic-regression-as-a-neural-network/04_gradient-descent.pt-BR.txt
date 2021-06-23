@@ -1,0 +1,134 @@
+Você já viu o modelo de regressão logística. Você já viu a função de perda que 
+mede o quão bem você está indo em único exemplo de treinamento. Você também viu a função de custo que 
+mede o quão bem seus parâmetros w e b estão performando em seu 
+conjunto completo de treinamento. Agora, vamos falar sobre como você pode usar 
+o algoritmo de gradiente decrescente para treinar ou para aprender os parâmetros w e 
+b no seu conjunto de treinamento. Recapitulando, aqui está o já familiar 
+algoritmo de regressão logística. E nós temos na segunda 
+linha, a função de custo J, que é uma função de 
+seus parâmetros w e b. E que é definida como a média. Então, é 1 sobre m, vezes o somatório 
+desta função de perda. E a função de perda mede o quão bem as 
+saídas ŷ(i) do seu algoritmo, em cada um dos exemplos de 
+treinamento, empilha ou compara com o rótulo verdadeiro y(i) 
+em cada um dos exemplos de treinamento. E a fórmula completa está 
+expandida no lado direito. A função de custo mede o quão 
+bem os seus parâmetros w e b estão performando no conjunto de treinamento. Assim, para aprender o conjunto de 
+parâmetros w e b, parece natural que queiramos encontrar w e b que 
+minimizem a função J(w, b). Aqui está uma ilustração 
+do gradiente decrescente. Neste diagrama, os eixos 
+horizontais representam seus parâmetros espaciais w e b. Na prática, w pode ter uma dimensão 
+muito maior, mas para fins de plotagem, vamos ilustrar w como um único 
+número real e b com um único número real. A função de custo J(w, b) é, então, alguma superfície acima 
+destes eixos w e b. Portanto, a altura da superfície representa 
+o valor de J(w.b) em um certo ponto. E o que queremos fazer é realmente 
+encontrar o valor de w e b de modo a corresponder ao 
+menor ponto da função de custo J. Conclui-se que esta função de 
+custo J é uma função convexa. É apenas uma grande bacia, então 
+esta é uma função convexa e é contrária a funções que pareçam assim, que são não-convexas e têm muitos ótimos locais, distintos. Então, o fato de que nossa função 
+de custo J(w,b) definida aqui ser convexa, é uma das razões principais porque
+ usamos especificamente esta função de custo J, para regressão logística. Assim, para encontrar um bom 
+valor para os parâmetros, o que faremos é inicializar w e b 
+com algum valor inicial, talvez demarcado por este pontinho vermelho. E para regressão logística quase 
+qualquer método de inicialização funciona, normalmente você inicializa o valor com zero. Inicialização aleatória também funciona, mas normalmente as pessoas não utilizam 
+isso em regressão logística. Mas, pelo fato de esta função ser convexa, 
+não importa onde você inicializá-la, você deverá chegar no mesmo 
+ponto ou muito próximo dele. E o que o gradiente decrescente 
+faz é iniciar naquele ponto inicial e então dá um passo na direção 
+mais íngreme de descida. Após um passo do gradiente decrescente, 
+você provavelmente irá acabar aqui, porque a função está tentando dar um passo 
+na direção da descida mais íngreme ou descer o mais rápido possível. Então, esta é uma iteração 
+do gradiente decrescente. E depois de duas iterações do 
+gradiente decrescente você estará aqui, três iterações e assim por diante. Acho que está escondido por trás do 
+gráfico até que eventualmente, espero que você acabe convergindo para este ponto 
+ideal ou chegue próximo dele. Assim, esta imagem ilustra o 
+algoritmo de gradiente decrescente. Vamos descrever com um pouco mais de detalhes. Para fins de ilustração, digamos 
+que há uma função, J(w), que você deseja minimizar, e talvez 
+esta função pareça desta forma. Para tornar mais fácil de plotar, 
+vou ignorar b por enquanto, apenas para torná-lo um gráfico unidimensional 
+ao invés de um gráfico multidimensional. O gradiente decrescente faz o seguinte: vamos repetidamente executar 
+a seguinte atualização. Vamos pegar o valor de w e atualizá-lo. Usaremos os dois pontos para 
+representar a atualização do w. Então atribuiremos à w o resultado de:
+ w menos (alfa vezes a derivada dJ(w)/dw ). ou seja, w - alfa * dJ(w)/dw. Farei isso repetidamente até 
+que o algoritmo convirja. Então, alguns pontos na notação: alfa 
+aqui, é a taxa de aprendizagem, e controla o quão grande será o passo 
+tomado em cada iteração do gradiente decrescente. Falaremos mais tarde sobre algumas 
+formas de escolher a taxa de aprendizagem alfa. E segundo, esta quantidade 
+aqui, esta é a derivada. Esta é basicamente a atualização ou 
+mudança que você quer fazer no parâmetro w. Quando começarmos a escrever o código 
+para implementar o gradiente decrescente, vamos convencionar que, no nosso 
+código, o nome da variável dw representará 
+este termo derivativo. Então, quando você programa, 
+você escreve algo como w := w - alfa * dw. Assim, usamos dw como nome da variável 
+que representará esta derivada. Agora, vamos nos certificarmos que esta 
+atualização do gradiente decrescente faz sentido. Digamos que w estivesse por aqui. Então, você está nesta posição 
+da função de custo J(w). Lembre-se que a definição de uma derivada é a inclinação de uma função no ponto. A inclinação da função é, na verdade, a altura dividida pela largura, certo de um triângulo bem aqui 
+nesta tangente de J(w), neste ponto. Assim, aqui a derivada é positiva. W é atualizado como w menos uma 
+taxa de aprendizagem vezes a derivada. A derivada é positiva, e então você 
+acaba subtraindo de w, e assim, você acaba dando um passo à esquerda. Então, o gradiente decrescente 
+fará seu algoritmo diminuir lentamente o parâmetro se você 
+começou com este valor alto de w. Como outro exemplo, se w estivesse aqui, então, neste ponto a inclinação aqui 
+de dJ/dw será negativo, assim, a atualização do gradiente decrescente 
+subtrairia alfa vezes um número negativo. E acabaria aumentando lentamente w, e 
+você acaba tornando w cada vez maior com iterações sucessivas 
+de gradiente decrescente. Assim, espero que se você 
+inicializar na esquerda ou na direita, o gradiente descendente irá
+movê-lo em direção ao mínimo global aqui. Se você não está familiarizado 
+com derivadas ou com cálculo e o que significa este termo dJ(w)/dw, 
+não se preocupe muito sobre isso. Falaremos mais um pouco 
+sobre derivadas no próximo vídeo. Se você tem um conhecimento 
+profundo sobre cálculo, você será capaz de ter intuições mais profundas 
+sobre como as redes neurais funcionam. Mas mesmo que você não 
+esteja tão familiarizado com cálculo, nos próximos vídeos daremos 
+a você noções sobre derivadas e sobre cálculo que você será capaz 
+de utilizar redes neurais de forma eficaz. Mas por agora, a noção geral é que este termo representa 
+a inclinação da função, e queremos conhecer a inclinação 
+da função com os parâmetros atuais, para que possamos seguir os passos em direção 
+ao valor mínimo, para que possamos saber qual direção passos seguir, para garantir que os 
+valores estejam decrescendo na função J,
+que é a função de custo. Então, escrevemos nosso gradiente decrescente 
+para J(s) como se tivéssemos apenas o parâmetro w. Na regressão logística, sua função 
+de custo é uma função de w e b. Neste caso, o loop interno do 
+gradiente decrescente, que é isso aqui, isso que você tem que 
+repetir, torna-se o seguinte. Você acaba atualizando w como, 
+w menos a taxa de aprendizagem, vezes a derivada de J(w,b) em função de w. E você atualiza b como, 
+b menos a taxa de aprendizagem, vezes a derivada da função de 
+custo em função de b. Assim, estas duas equações abaixo são 
+as atualizações reais que você implementa. Adicionalmente, eu só gostaria de 
+mencionar uma convenção em cálculo que é um pouco confuso para algumas pessoas. Eu não acho que é super importante 
+que você entenda cálculo, mas caso você veja isso, eu quero ter certeza 
+que você não fique quebrando a cabeça. Em cálculo, este termo aqui, nós normalmente escrevemos desta 
+forma, com este símbolo engraçado. Este símbolo, isto é na verdade 
+apenas uma letra d minúscula em uma fonte estilosa, em uma fonte estilizada 
+para que, quando você ver esta expressão, tudo isso significa que isto não é J(w,b), ou 
+mesmo a inclinação da função J(w,b), quanto esta função se inclina na direção w. E a regra da notação em cálculo, o 
+que eu acho que não totalmente lógico, mas a regra na notação de cálculo, 
+que eu acho só torna as coisas mais complicadas do que precisam, é 
+que se J é uma função de duas ou mais variáveis, então em vez de usar uma 
+d minúscula, você usa este símbolo engraçado. Isto é um símbolo de derivada parcial. Mas não se preocupe com isso. Se J é uma função de uma única 
+variável, então você usa d minúsculo. Assim, a única diferença entre 
+usar este símbolo engraçado de derivada parcial ou o 
+d minúsculo que fizemos acima, é se J é uma função 
+de duas ou mais variáveis. Em qual situação você usa este 
+símbolo de derivada parcial, ou se J é apenas uma função de uma 
+variável, então você usa a letra d minúscula. Esta á uma dessas regras 
+engraçadas de notação em cálculo que eu penso que só torna as coisas mais 
+complicadas do que elas precisam ser. Mas se você este símbolo de derivada parcial, 
+tudo o que significa é que você está medindo a inclinação da função, com 
+relação a uma das variáveis. E da mesma forma, para aderir 
+a notação correta de cálculo, mencionada anteriormente, porque aqui 
+J tem duas entradas e não apenas uma. Esta coisa aqui embaixo deveria ser 
+escrita com este símbolo de derivada parcial. Mas na verdade, isto significa a mesma coisa, 
+quase a mesma coisa que a letra minúscula d. Finalmente, quando você implementa isso em código, nós iremos utilizar uma convenção 
+que esta quantidade, realmente o valor que você atribui a w, será 
+representada como dw no seu código. E esta quantidade, correto? A quantidade que você quer atribuir a b será descrita como a 
+variável db no seu código. Bem, então é assim que você pode 
+implementar o gradiente decrescente. Agora, se você não estuda cálculo há 
+alguns anos, eu sei que isso pode parecer muito mais derivadas de cálculo 
+do que você possa estar confortável. Mas se você está se 
+sentindo assim, não se preocupe. No próximo vídeo nós daremos a você 
+noções melhores sobre derivadas. E mesmo sem um 
+conhecimento profundo de cálculo, com apenas um 
+conhecimento intuitivo de cálculo você será capaz de fazer redes 
+neurais funcionarem de forma eficaz. Então, vamos para o próximo vídeo 
+onde falaremos um pouco mais sobre derivadas.
+Tradução: Renato Barata Gomes | Revisão: Carlos Lage as derivadas.

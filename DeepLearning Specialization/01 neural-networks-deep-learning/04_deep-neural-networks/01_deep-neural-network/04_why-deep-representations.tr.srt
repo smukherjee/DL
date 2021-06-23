@@ -1,0 +1,723 @@
+1
+00:00:00,000 --> 00:00:03,339
+Derin sinir ağlarının bir çok problem için 
+gerçekten çok iyi çalıştığından haberdarız.
+
+2
+00:00:03,339 --> 00:00:07,073
+Sadece büyük sinir ağı olmaları yetmiyor 
+ aynı zamanda derin olmaları
+
+3
+00:00:07,073 --> 00:00:10,718
+yani birden çok gizli katmandan 
+ oluşmaları da gerekiyor.
+
+4
+00:00:10,718 --> 00:00:12,208
+Peki neden böyle olmalı?
+
+5
+00:00:12,208 --> 00:00:15,833
+Hadi bununla ilgili bir kaç örnek inceleyelim
+
+6
+00:00:15,833 --> 00:00:17,720
+ve derin ağların neden iyi çalışabileceğiyle 
+ ilgi biraz fikir edinelim.
+
+7
+00:00:17,720 --> 00:00:22,181
+İlk olarak
+derin ağlar ne hesaplıyor?
+
+8
+00:00:22,181 --> 00:00:25,393
+Varsayalım bir yüz tanıma ya da algılama 
+sistemi oluşturuyorsunuz
+
+9
+00:00:25,393 --> 00:00:29,631
+derin sinir ağı bu sistemde ne yapıyor olacak.
+
+10
+00:00:29,631 --> 00:00:35,059
+Muhtemelen sisteme bir yüz resmi gireceksiniz
+sonrada sinir ağının ilk katmanı gelecek
+
+11
+00:00:35,059 --> 00:00:40,000
+bu katmanı öznitelik bulucu 
+ya da kenar bulucu gibi düşünebilirsiniz.
+
+12
+00:00:40,000 --> 00:00:45,519
+Bu örnekte, resim üzerinde
+ bir tür hesaplama yöntemi olabilecek
+
+13
+00:00:45,519 --> 00:00:48,017
+20 gizli birimden oluşan 
+bir sinir ağı çiziyorum.
+
+14
+00:00:48,017 --> 00:00:52,357
+Bu 20 gizli birim bu küçük 
+kare kutular ile görselleştirilir.
+
+15
+00:00:52,357 --> 00:00:57,325
+Örneğin bu küçük görselleştirme 
+ DMH'deki oryantasyon kenarlarının
+
+16
+00:00:57,325 --> 00:01:01,978
+nerede olduğunu bulmaya çalışan 
+gizli bir birimi temsil ediyor.
+
+17
+00:01:01,978 --> 00:01:05,914
+Ve belki bu gizli birim, bu görüntünün
+
+18
+00:01:05,914 --> 00:01:09,955
+yatay kenarlarını
+ anlamaya çalışıyor da olabilir.
+
+19
+00:01:09,955 --> 00:01:13,184
+Sonraki derslerde 
+evrişimsel ağlardan konuşurken
+
+20
+00:01:13,184 --> 00:01:16,129
+bu özel görselleştirme 
+biraz daha anlam kazanacak.
+
+21
+00:01:16,129 --> 00:01:19,562
+Yapay sinir ağının ilk katmanını 
+resmi inceleyip
+
+22
+00:01:19,562 --> 00:01:22,690
+resimdeki kenarları bulmaya çalışan
+ bir yapı olarak düşünebilirsiniz.
+
+23
+00:01:22,690 --> 00:01:27,356
+Şimdi resimdeki pikselleri gruplayarak 
+resimdeki kenarların
+
+24
+00:01:27,356 --> 00:01:28,730
+yerleri hakkında biraz düşünelim.
+
+25
+00:01:28,730 --> 00:01:34,670
+Ardından kenarları ve grup kenarlarını birlikte 
+algılayarak yüzlerin parçalarını oluşturabilir.
+
+26
+00:01:34,670 --> 00:01:40,289
+Örneğin bir nöronlardan biri 
+gözü bulmaya çalışırken
+
+27
+00:01:40,289 --> 00:01:44,480
+farklı bir nöron 
+burnun bir parçasını bulmaya çalışabilir.
+
+28
+00:01:44,480 --> 00:01:47,463
+Böylece bir çok kenarı bir araya getirerek
+
+29
+00:01:47,463 --> 00:01:50,970
+yüzün farklı parçalarını algılamaya başlayabilir.
+
+30
+00:01:50,970 --> 00:01:56,035
+Son olarak göz, burun, kulak veya çene gibi
+
+31
+00:01:56,035 --> 00:02:01,006
+yüzün farklı parçalarını bir araya getirerek
+
+32
+00:02:01,006 --> 00:02:03,564
+farklı tipteki yüzleri algılamaya 
+yada tespit etmeye çalışacaktır.
+
+33
+00:02:03,564 --> 00:02:07,755
+Dolaysıyla sezgisel olarak,
+sinir ağının ilk katmanlarını
+
+34
+00:02:07,755 --> 00:02:10,190
+kenar gibi basit işlevleri 
+tespit edici olarak düşünebilirsiniz.
+
+35
+00:02:10,190 --> 00:02:14,573
+Ve onları 
+sinir ağının daha sonraki katmanlarında
+
+36
+00:02:14,573 --> 00:02:17,625
+bir araya getirerek 
+daha karmaşık işlevleri öğrenebilir.
+
+37
+00:02:17,625 --> 00:02:23,640
+Evrişimsel sinir ağları hakkında konuşurken 
+bu görselleştirme daha anlam kazanacak.
+
+38
+00:02:23,640 --> 00:02:26,203
+Görselleştirmenin teknik detaylarından biri
+
+39
+00:02:26,203 --> 00:02:29,802
+kenar detektörleri
+ resmin çok küçük alanlarına bakıyor,
+
+40
+00:02:29,802 --> 00:02:31,703
+belki de bunun gibi çok küçük bölgelere bakıyor.
+
+41
+00:02:31,703 --> 00:02:36,616
+Ve bakabileceğiniz yüz detektörleri 
+belki resmin daha büyük bir alanı olabilir ama
+
+42
+00:02:36,616 --> 00:02:41,308
+buradan çıkartabileceğiniz ana ekleme
+sadece basit şeyler bulmanızdır
+
+43
+00:02:41,308 --> 00:02:43,675
+kenarlar ve sonrasında inşa etmek gibi.
+
+44
+00:02:43,675 --> 00:02:47,216
+Onları oluşturmak ve tespit 
+etmek oldukça karmaşıktır ve
+
+45
+00:02:47,216 --> 00:02:50,530
+bir araya getirilmesi ve daha karmaşık şeyleri bulması gibi.
+
+46
+00:02:50,530 --> 00:02:55,665
+Ve bu tür basitten karmaşığa hiyerarşisel gösterim
+
+47
+00:02:55,665 --> 00:02:58,508
+veya yapısal gösterim
+
+48
+00:02:58,508 --> 00:03:04,114
+resim görüntü işlemeden farklı
+ diğer türden verilerde de geçerlidir.
+
+49
+00:03:04,114 --> 00:03:08,593
+Örneğin, eğer bir konuşma tanıma
+ sistemi kurmaya çalışıyorsanız
+
+50
+00:03:08,593 --> 00:03:10,908
+Genelde konuşmayı görselleştirmek zordur fakat
+
+51
+00:03:10,908 --> 00:03:15,684
+eğer bir ses klibini girdi olarak verirseniz 
+belki sinir ağlarının ilk seviyesi
+
+52
+00:03:15,684 --> 00:03:20,863
+düşük seviyedeki ses dalga formları
+ özelliklerini öğrenilebilir. Yükseliyor mu?
+
+53
+00:03:20,863 --> 00:03:21,703
+Düşüyor mu?
+
+54
+00:03:21,703 --> 00:03:26,869
+Parazit sesi mi sürtünme sesi mi?
+
+55
+00:03:26,869 --> 00:03:27,903
+Ve ses perdesi nedir
+
+56
+00:03:27,903 --> 00:03:31,124
+Konu o olunca, düşük seviye dalga formu 
+özelliklerini bu şekilde tespit etmektir
+
+57
+00:03:31,124 --> 00:03:34,233
+Ve sonrasında düşük seviye dalga
+ formlarını bir araya getirerek
+
+58
+00:03:34,233 --> 00:03:37,937
+belki temel ses birimlerini tespit etmeyi öğreneceksiniz.
+
+59
+00:03:37,937 --> 00:03:40,297
+Dil bilimde fonemler olarak adlandırılır.
+
+60
+00:03:40,297 --> 00:03:45,098
+Ama, örneğin kedi kelimesinde C bir fonem, A bir fonem,
+
+61
+00:03:45,098 --> 00:03:46,787
+ve T diğer bir fonem.
+
+62
+00:03:46,787 --> 00:03:49,987
+Ama belki temel ses 
+birimlerini bulmayı öğrenir ve
+
+63
+00:03:49,987 --> 00:03:54,688
+sonra bir araya getirerek belki sesteki kelimeleri tanımayı öğrenir.
+
+64
+00:03:54,688 --> 00:03:58,270
+Ve sonra belki onları bir araya getirir
+
+65
+00:03:58,270 --> 00:04:02,912
+Cümleleri veya kelime öbeklerini tanımak için.
+
+66
+00:04:02,912 --> 00:04:07,572
+Derin sinir ağları çoklu gizli
+ katmanlarla ve önceki
+
+67
+00:04:07,572 --> 00:04:10,477
+katmanlardaki düşük seviye 
+temel özellikleri öğrenerek çalışır ve
+
+68
+00:04:10,477 --> 00:04:15,339
+ve sonraki daha derin katmanlarla bir 
+araya getirerek basit şeylerin tespiti ile
+
+69
+00:04:15,339 --> 00:04:19,392
+daha kompleks şeylerin tespitini 
+gerçekleştirebilir örneğin spesifik kelimeler,
+
+70
+00:04:19,392 --> 00:04:21,040
+hata sözcük öbekleri ya da cümlelerin
+
+71
+00:04:21,040 --> 00:04:24,745
+konuşma algılama sisteminin
+ oluşturulması gibi.
+
+72
+00:04:24,745 --> 00:04:30,168
+Gördüğümüz gibi diğer katmanlar hesaplarken, görünen o ki,
+
+73
+00:04:30,168 --> 00:04:35,673
+girdideki nispeten basit fonksiyonlar örneğin kenarlar gibi, zamanla
+
+74
+00:04:35,673 --> 00:04:41,046
+ağda daha derine indikçe aslında
+ şaşırtıcı karmaşık şeyleri yapabilirsiniz.
+
+75
+00:04:41,046 --> 00:04:44,876
+Mesela yüz algılama veya kelime, kelime öbekleri veya cümleleri tespit etmek gibi.
+
+76
+00:04:44,876 --> 00:04:48,767
+Bazı insanlar derin sinir ağları ile insan beyni arasında benzetme yapmak ister ve
+
+77
+00:04:48,767 --> 00:04:52,656
+bizim veya nörologların söylediğine göre
+
+78
+00:04:52,656 --> 00:04:57,162
+insan beyni de temel şeyleri tespit 
+etmekle başlar mesela kenarlar gibi
+
+79
+00:04:57,162 --> 00:05:00,370
+gördüğünüz şeyleri inşa eder ve
+ daha karmaşık şeyleri tespit eder
+
+80
+00:05:00,370 --> 00:05:02,440
+mesela gördüğünüz yüzler gibi.
+
+81
+00:05:02,440 --> 00:05:05,038
+Bence insan beyni ve
+ derin öğrenme arasındaki
+
+82
+00:05:05,038 --> 00:05:08,276
+benzerlikler bazen 
+biraz tehlikeli.
+
+83
+00:05:08,276 --> 00:05:13,301
+Ama çok fazla doğruluk var ve bu insan beyninin nasıl çalıştığını ve
+
+84
+00:05:13,301 --> 00:05:18,102
+insan beyninin muhtemelen kenarlar
+ gibi basit şeyleri tespit etmesi ve
+
+85
+00:05:18,102 --> 00:05:22,598
+onları bir araya getirerek çok daha 
+kompleks objeleri oluşturur ve bu şekilde
+
+86
+00:05:22,598 --> 00:05:27,430
+bazı insanlar için ilham ya da 
+öğrenme olarak hizmet eder.
+
+87
+00:05:27,430 --> 00:05:29,850
+İnsan beyni veya biyolojik
+ beyin hakkında
+
+88
+00:05:29,850 --> 00:05:33,065
+bu hafta önümüzdeki 
+videolarda biraz daha göreceğiz
+
+89
+00:05:35,534 --> 00:05:40,407
+Videonun diğer bir parçası derin ağların çalışıyor gözükmesinin
+
+90
+00:05:40,407 --> 00:05:42,756
+sebebi de şu şekilde.
+
+91
+00:05:42,756 --> 00:05:47,868
+Yani bu sonuç farklı mantıksal 
+durumlarla ne tür fonksiyonlar
+
+92
+00:05:47,868 --> 00:05:53,760
+oluşturabileceğinizi ve hesaplayabileceğini
+ düşünen devre teorisinden gelir.
+
+93
+00:05:53,760 --> 00:05:58,860
+Yani sözde, işlevleri nispeten küçük fakat derin bir yapay sinir ağı ile hesaplanır.
+
+94
+00:05:58,860 --> 00:06:03,595
+ve küçük olarak demek istediğim gizli 
+katman sayısının nispeten küçük olmasıdır.
+
+95
+00:06:03,595 --> 00:06:07,553
+Ama eğer aynı işlemi daha 
+sığ bir ağ ile hesapladığınızda,
+
+96
+00:06:07,553 --> 00:06:09,178
+yeterli olmayan gizli katman sayısı,
+
+97
+00:06:09,178 --> 00:06:13,296
+sonrasında üstel olarak daha fazla
+ gizli katmana ihtiyaç duyabilirsiniz.
+
+98
+00:06:13,296 --> 00:06:18,109
+İzninizle daha anlaşılır olması
+ için size bir örnek vereyim.
+
+99
+00:06:18,109 --> 00:06:21,423
+Diyelim ki karmaşık veya 
+tüm giriş özelliklerinin eşitliği
+
+100
+00:06:21,423 --> 00:06:23,349
+hesaplamaya çalıştığınızı varsayalım.
+
+101
+00:06:23,349 --> 00:06:28,430
+Yani hesaplamaya çalışırken 
+X1, XOR, X2, XOR,X3, XOR
+
+102
+00:06:28,430 --> 00:06:33,064
+X3, XOR, eğer n tane veya 
+nX özelliğiniz varsa Xn'e kadardır.
+
+103
+00:06:33,064 --> 00:06:39,924
+Eğer XOR bu şekilde tanımlarsanız, 
+ hesap XOR ve X1
+
+104
+00:06:39,924 --> 00:06:44,586
+X2 ve sonra X3 ve X4 al ve bu
+ değerlerin XOR değeri hesaplanır.
+
+105
+00:06:44,586 --> 00:06:49,392
+Ve teknik olarak, eğer sadece 'Ve' ve değil kapısı kullanıyorsanız 
+ XOR fonksiyonunu hesaplamak için
+
+106
+00:06:49,392 --> 00:06:54,196
+sadece bir katmandan ziyade 
+birkaç katmana ihtiyacınız olabilir ama
+
+107
+00:06:54,196 --> 00:06:58,791
+nispeten küçük bir devre ile
+siz XOR hesaplayabilirsiniz.
+
+108
+00:06:58,791 --> 00:07:03,987
+ve o zaman, bu şekilde bir XOR ağacı inşa edebilirsiniz
+
+109
+00:07:03,987 --> 00:07:12,090
+sonunda çıkış değeri Y olan bir
+ devreniz oluşur.
+
+110
+00:07:12,090 --> 00:07:15,236
+Çıktı olarak Y(şapka) Y'ye eşittir.
+
+111
+00:07:15,236 --> 00:07:18,398
+XOR tüm bu giriş değerlerinin bir kısmıdır.
+
+112
+00:07:18,398 --> 00:07:24,790
+XOR değerini hesaplamak için ağlar log N
+ sırasında olur.
+
+113
+00:07:24,790 --> 00:07:27,410
+bu şekilde bir XOR ağacımız olacak.
+
+114
+00:07:27,410 --> 00:07:30,836
+Düğüm sayısı veya 
+ devredeki bileşen sayısı
+
+115
+00:07:30,836 --> 00:07:33,929
+veya kapı sayısı o kadar da büyük değildir.
+
+116
+00:07:33,929 --> 00:07:38,452
+XOR hesaplamak için 
+o kadar fazla kapı ihtiyacınız olmaz.
+
+117
+00:07:38,452 --> 00:07:43,458
+Ama şimdi, eğer çoklu gizli sinir ağları
+ kullanma imkanınız yoksa
+
+118
+00:07:43,458 --> 00:07:48,203
+bu örnekte O(log) ve salı katmanlar,
+
+119
+00:07:48,203 --> 00:07:53,382
+eğer bu fonksiyonu sadece 1 gizli katman 
+ile hesaplamak zorunda kalırsanız
+
+120
+00:07:53,382 --> 00:07:57,912
+tüm bu girişler gizli 
+katmana doğru gidecek.
+
+121
+00:07:57,912 --> 00:08:02,116
+Ve bu katmanlar Y çıkışına gidecektir.
+
+122
+00:08:02,116 --> 00:08:07,120
+Sonra bu XOR fonksiyonunu
+ hesaplamak için,
+
+123
+00:08:07,120 --> 00:08:12,124
+bu gizli katmanın üstel olarak büyük 
+olması gerekir, çünkü sonunda
+
+124
+00:08:12,124 --> 00:08:18,397
+2'den N'e kadar olan muhtemel biçimleri
+ detaylıca yapılandırmanız gerekir.
+
+125
+00:08:18,397 --> 00:08:23,139
+Sırayla 2'den N'e giriş bitlerinin
+ muhtemel biçimleri
+
+126
+00:08:23,139 --> 00:08:27,898
+XOR'un 1 veya 0 
+olması ile sonuçlanır.
+
+127
+00:08:27,898 --> 00:08:32,213
+Sonuçta bit sayısı içinde üstel 
+olarak daha büyük
+
+128
+00:08:32,213 --> 00:08:33,554
+bir gizli katmana ihtiyaç duyarsınız.
+
+129
+00:08:33,554 --> 00:08:38,229
+Bence teknik olarak, bunu 2 üzeri
+ N-1 gizli katman ile yapabilirsiniz.
+
+130
+00:08:38,229 --> 00:08:43,948
+Ama üstel olarak daha büyük 
+bit sayısıyla bu O(2^N).
+
+131
+00:08:43,948 --> 00:08:49,149
+Umarım bu video derin ağları hesaplamada 
+sığ ağlara göre kullanacağınız çok daha kolay
+
+132
+00:08:49,149 --> 00:08:55,275
+matematiksel fonksiyonlar olduğu
+ noktasında size fikir vermiştir.
+
+133
+00:08:55,275 --> 00:09:01,028
+İtiraf edeyim, devre teorisi sonucunu pratiklik kazanmak için
+
+134
+00:09:01,028 --> 00:09:05,985
+çok kullanışlı bulmuyorum ama sıklıkla insanlar
+
+135
+00:09:05,985 --> 00:09:11,223
+oldukça derin tasarımları açıklarken değinirler.
+
+136
+00:09:11,223 --> 00:09:13,600
+Şimdi, buna ek olarak,
+
+137
+00:09:13,600 --> 00:09:16,897
+derin sinir ağlarının oldukça
+ tercih edilmesinin
+
+138
+00:09:16,897 --> 00:09:22,204
+ve derin öğrenmenin gündemde olmasının 
+diğer bir sebebi ise bence markalaşması.
+
+139
+00:09:22,204 --> 00:09:26,776
+Birçok gizli katmanla derin ağlar 
+olarak isimlendirdiğimiz bu
+
+140
+00:09:26,776 --> 00:09:31,198
+derin öğrenme ifadesi sadece harika
+ bir marka, sadece oldukça derin.
+
+141
+00:09:31,198 --> 00:09:36,284
+Bence bir kez bu terim 
+kullanıldığında sinir ağları
+
+142
+00:09:36,284 --> 00:09:39,622
+ve çoklu gizli katmanlar
+ tekrar isim ve markalaştı
+
+143
+00:09:39,622 --> 00:09:42,970
+popüler düşünceyi yakalamak için de aslında.
+
+144
+00:09:42,970 --> 00:09:47,479
+(Halkla İlişkiler) pazarlaması ne olursa olsun, derin ağlar iyi çalışıyor.
+
+145
+00:09:47,479 --> 00:09:51,342
+Bazen insanlar oldukça ileri gidiyor ve çok
+ fazla gizli katman kullanmakta ısrar ediyorlar.
+
+146
+00:09:51,342 --> 00:09:55,500
+Ama ben probleme başlarken,
+ gerçekten sıklıkla
+
+147
+00:09:55,500 --> 00:09:58,803
+lojistik regresyon ile başlarım 
+sonra bir veya iki gizli katman denerim
+
+148
+00:09:58,803 --> 00:10:01,722
+ve bunu üstün(hyper)
+ parametre olarak kullanırım.
+
+149
+00:10:01,722 --> 00:10:05,731
+Bunu parametre veya üstün(hyper) 
+parametre olarak kullanarak
+
+150
+00:10:05,731 --> 00:10:07,935
+sinir ağlarınız için doğru derinliği ayarlayabilirsiniz.
+
+151
+00:10:07,935 --> 00:10:12,800
+Ama son birkaç yıldır, bir akım olarak insanlar
+
+152
+00:10:12,800 --> 00:10:17,590
+bazı uygulamalar için oldukça
+ derin ağlar kullanıyorlar belki
+
+153
+00:10:17,590 --> 00:10:22,264
+bazen düzinelerce katmanlar. Bu durum
+ bazen problem için en iyi model olabilir.
+
+154
+00:10:22,264 --> 00:10:27,605
+Derin sinir ağlarının neden iyi
+ çalıştığını görmek için bu video bu kadar.
+
+155
+00:10:27,605 --> 00:10:31,411
+Şimdi uygulanması noktasında sadece 
+ileri yayılım değil aynı zamanda
+
+156
+00:10:31,411 --> 00:10:33,769
+geri yayılım için mekaniğine bir göz atalım.

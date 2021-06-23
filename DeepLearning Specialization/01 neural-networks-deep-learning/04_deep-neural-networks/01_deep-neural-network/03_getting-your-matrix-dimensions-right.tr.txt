@@ -1,0 +1,60 @@
+Derin sinir ağı uygularken sıklıkla kullandığım
+ hata ayıklama araçlarından biri kodun doğruluğunu kontrol etmek 
+için kağıt kalem kullanmak ve çalıştığım matris ve boyutları detaylı incelemektir. O yüzden size bunun nasıl yapılacağını göstereyim,
+ çünkü bunun sizin de daha kolay bir şekilde derin ağlarınızı uygulamanızı 
+sağlayacağını umuyorum. Büyük harfle L eşittir 5, girdi katmanı hariç hızlıca sayarsak burada 5 katman var: 
+dört saklı katman ve bir çıktı katmanı. Ve dolayısıyla ileri yayılım uygularsanız, ilk adım z1 = w1x + b1 olacaktır. Ek girdi terimleri b'yi şimdilik göz ardı edelim
+ve w parametrelerine yoğunlaşalım. Şimdi bu ilk saklı katmanın üç saklı birimi var,
+ yani bu katman 0, katman 1, katman 2, katman 3,
+ katman 4, ve katman 5. Bir önceki videodaki gösterimi kullanarak, n1 katman 1'deki saklı birimlerin
+ sayısını gösterir, 3'e eşittir. Ve burada 5'e eşit olan n2 var, n3, 4'e eşit, n4 2'ye eşit, ve n5 1'e eşittir. Ve şimdiye kadar yalnız tek bir çıktı birimine
+ sahip olan sinir ağlarını gördük, ama sonraki derslerde çoklu çıktı birimi olan
+ sinir ağları hakkında konuşacağız. Ve son olarak, girdi katmanı için n0 = nx = 2 var. Öyleyse şimdi z, w ve x'in
+ boyutlarını düşünelim. z aktivasyonlar vektörü buradaki ilk saklı katman içindir;
+ öyleyse z, 3'e 1 boyutu 3 olan bir vektör olacaktır. Bunu bir n1'e 1 boyutlu bir vektör olarak yazacağım, n1'e 1 boyutlu matris, yani bu durumda 3'e 1. Peki girdi öznitelikleri x'in durumu nasıl,
+ x'te iki girdi özniteliği var. Bu örnekteki x 2'ye 1, 
+daha genel olarak, n0'a 1 olur. Böylece matris w1 için gereken şey n0'a 1 vektörü bunula çarptığımızda, 
+n1'e 1 vektör elde etmemizdir, değil mi? Yani bir üç boyutlu bir vektörünüz var bu bir şey çarpı iki boyutlu vektöre eşit. Ve dolayısıyla, 
+matris çapımı kuralları gereğince bunun 3'e 2'lik bir matris olması gerekir. Doğru, çünkü 3'e 2'lik bir matris
+ çarpı 2'ye 1 matris, yada 2'ye 1 vektör ile çarpıldığında, 
+3'e 1 bir vektör sonucu verir. Ve daha genel olarak, bu n1'e n0 
+boyutlarında bir matris olacaktır. Yani burada hesapladığımız w1'in boyuylarının n1'e n0 olduğudur. Ve daha genel olarak, 
+wL'nin boyutları nL'e nL eksi 1 olmalı. Yani örneğin, w2'nin boyutları bunun için 5'e 3 olmalıdır, yada n2'ye n1 olacaktır. Hesaplarken z2 için w2 çarpı a1, ve yine, bu ek girdiyi şimdilik göz ardı edelim. Ve böylece bu 3'e 1 olacak, ve bunun 5'e 1 olması gerekir, ve demek ki bunun 5'e 3 olması gerekir. Ve benzer şekilde, 
+w3 kesinlikle bir sonraki katmanın boyutu, virgül, önceki katmanın boyutudur yani bu 4'e 5, w4 2'ye 4 olacak, ve w5 1'e 2 olacak, tamam mı? Kontrol edilmesi gereken genel formül, L katmanı için matris uygularken matris boyutunun nL'e nL-1 olmasıdır. Şimdi b vektörünün boyutu üzerine düşünelim. Bu vektörü 3*1 boyutundaki diğer vektörle toplayıp çıkış olarak yine 3*1 boyutunda bir vektör elde etmek için, b vektörü de 3*1 boyutunda olacaktır. Veya bu örnekte, bunu eklememiz gerekir,bu 5*1 boyutunda olacak böylece 5*1 boyutunda diğer bir vektörümüz daha olacak Kutu içerisinde belirttiğim bu iki ifadenin toplanabilmesi için vektörlerin 5*1 boyutunda olması gerekmektedir. Yani soldaki örnek için daha genel kural olarak, b1 vektörü, n1'e 1 değil mi, bu örnekte 3'e 1, ve bu ikinci örnekte n2'ye 1 boyutlarında. Ve dolayısıyla daha genel durumda bL'nin boyutları nL'e 1 boyutlarında olmalı. Umarım bu iki eşitlik, 
+w matrislerinizin ve b vektörlerinizin doğru boyutlarda olduğunu 
+tekrar kontrol etmenize yardımcı olur. Ve tabii ki, geriye doğru yayılım 
+algoritması uyguluyorsanız dw'nin boyutlarının w'nun 
+boyutuyla aynı olması gerekir. Yani dw boyutlarının w ile aynı olması, ve db'nin boyutunun b ile aynı olması gerekir. Şimdi kontrol edilmesi gereken 
+diğer nicelikler kümesi burada üzerine çok konuşmadığımız 
+z, x, ve a üzeri L. z üzeri L, g parantez a üzere L'nin eleman bazında uygulanması olduğu için,
+ bu tür ağlarda z ve a aynı boyuta sahip olmalıdır. Şimdi tek seferde birden fazla 
+örneğe bakan vektörleştirilmiş bir uygulamaya sahip olduğunuzda 
+neler olduğunu görelim. Vektörleştirilmiş bir uygulama için bile tabii ki wb, dw ve db'nin boyutları değişmeyecektir. Ama z ve a'nın yanı sıra x'in boyutları vektörleştirilmiş uygulamanızda biraz değişecektir. Daha önce elimizdeki z1 = w1 . x + b1 formülünde bu n1'e 1, bu n1'e n0, x n0'a 1, ve b n1'e 1 idi. Şimdi vektörleştirilmiş uygulamada elinizde z1 = w1 . x + b1 olur. Şimdi z1, bireysel örnekler için z1'ler ele alınarak elde edilir, 
+z böylece z11, z12, z1m'ye kadar bu şekilde yığılır, 
+ve bu size z1'i verir. Böylece z1'in boyutu, n1'e 1 yerine n1'e m olur, ve m burada 
+eğitim kümenizin büyüklüğünü belirtir. w1'in boyutları aynı kalır, 
+yani bu hâlâ n1'e n0. Ve x, n0'a 1 değil, artık tüm eğitim örnekleri yatay olarak yığılmış durumda. Yani şimdi bu n0'a m, 
+ve dolayısıyla fark edeceksiniz ki n1'e n0 bir matris alıp bunu
+ n0'a m bir matris ile çarptığınızda beklediğiniz üzere n1'e m 
+boyutlarında bir matris ile sonuçlanır. Şimdi son bir detay olarak; 
+b1 hâlâ n1'e 1, fakat bunu alıp b'ye eklediğinizde, Python yayımı nedeniyle, bu kopyalanacak ve n1'e m matrise dönüşecek, 
+ve sonra eleman bazında eklenecek. Bir önceki sunum sayfasında 
+wb, dw ve db'nin boyutları hakkında konuştuk. Burada gördüğümüz, zL zL ve aL boyutları nL'e 1 olurken, artık bunun yerine, nL'e m boyutlarında
+ büyük harfle ZL ve AL var. Ve bunun özel bir durumu olarak, 
+L sıfıra eşit olduğunda bu durumda A0 eğitim kümenizdeki girdi öznitelikleri X'e, dolayısıyla beklendiği üzere
+ boyutları n0'a m olacaktır. Ve tabii ki bunu geriye yayılımda uygularken, daha sonra göreceğimiz üzere, 
+dZ ve dA'yı hesaplayacaksınız. Ve bunlar tabii ki Z ve A ile aynı boyutlara sahip olacaktır. Böylece umarım üzerinden gittiğimiz
+ bu küçük alıştırma çalıştığınız çeşitli matrislerin boyutlarını 
+anlamanıza yardımcı olur. Derin bir sinir ağında 
+geriye yayılım uygularken, kod üzerinde çalıştığınız ve tüm matrislerinizin 
+boyutlarının tutarlı olduğunu kontrol ettiğiniz sürece bazı muhtemel hataların 
+nedenini elemenize yardımcı olacaktır. Umarım çeşitli matrislerin 
+boyutlarını çözmeye dair üzerinde çalıştığınız bu örnek faydalı olmuştur. Derin sinir ağı uyguladığınızda, 
+çalıştığınız bu çeşitli matrislerin ve vektörlerin 
+boyutlarını doğruladığınız zaman bazı muhtemel hata kaynaklarını 
+elemenize yardımcı olacağını umuyorum. Bu kesinlikle benim kodumun 
+doğruluğunu kontrol etmeme yardımcı oluyor. Artık sinir ağında 
+ileriye doğru yayılımın nasıl olduğuna dair mekanizmayı gördük. Fakat derin sinir ağları neden 
+bu kadar etkili, ve neden derin olmayan 
+temsillerden daha iyiler? Sonraki videoda birkaç 
+dakika bundan bahsedeceğiz.

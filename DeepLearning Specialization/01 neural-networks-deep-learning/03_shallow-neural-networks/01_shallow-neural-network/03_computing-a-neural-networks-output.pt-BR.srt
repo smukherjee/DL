@@ -1,0 +1,690 @@
+1
+00:00:00,006 --> 00:00:04,743
+No último vídeo vimos como uma rede 
+neural de camada oculta única se parece.
+
+2
+00:00:04,743 --> 00:00:08,175
+Neste vídeo, veremos os detalhes de 
+como exatamente esta
+
+3
+00:00:08,175 --> 00:00:10,361
+rede neural calcula suas saídas.
+
+4
+00:00:10,361 --> 00:00:15,533
+É como uma regressão logística
+, mas repetidas muitas vezes.
+
+5
+00:00:15,533 --> 00:00:16,423
+Vamos analisar.
+
+6
+00:00:16,423 --> 00:00:19,364
+Então isto é o que uma Rede Neural de 
+duas camadas parece.
+
+7
+00:00:19,364 --> 00:00:23,973
+Vamos aprofundar em o que esta
+ rede neural calcula exatamente.
+
+8
+00:00:23,973 --> 00:00:26,653
+Dissemos anteriormente que a regressão logística,
+
+9
+00:00:26,653 --> 00:00:31,035
+que o círculo na regressão logística, realmente 
+representa duas etapas de cálculo.
+
+10
+00:00:31,035 --> 00:00:34,498
+Primeiro, você pode calcular z do seguinte 
+modo e, em seguida,
+
+11
+00:00:34,498 --> 00:00:37,754
+você calcula a ativação como uma 
+função sigmoide de z.
+
+12
+00:00:37,754 --> 00:00:40,536
+Então ,uma Rede Neural apenas faz isto 
+muito mais vezes.
+
+13
+00:00:40,536 --> 00:00:43,953
+Vamos começar centrando em apenas 
+um dos nós na camada oculta, e então
+
+14
+00:00:43,953 --> 00:00:46,320
+vamos olhar para o primeiro nó na 
+camada oculta.
+
+15
+00:00:46,320 --> 00:00:48,079
+Deixei em segundo plano, em cinza, os outros nós por agora.
+
+16
+00:00:48,079 --> 00:00:50,820
+Semelhante à regressão logística à esquerda,
+
+17
+00:00:50,820 --> 00:00:54,391
+estes nós na camada oculta realizam
+duas etapas de cálculo.
+
+18
+00:00:54,391 --> 00:00:58,418
+O primeiro passo e você pensa 
+na metade esquerda do nó,
+
+19
+00:00:58,418 --> 00:01:02,754
+ela calcula z = w transposto vezes x + b e 
+a notação que usaremos é,
+
+20
+00:01:02,754 --> 00:01:08,253
+todas essas quantidades associadas 
+com a primeira camada oculta, 
+por isso é que nós temos
+
+21
+00:01:08,253 --> 00:01:13,458
+um bando de colchetes lá, e este é o 
+primeiro nó na camada oculta.
+
+22
+00:01:13,458 --> 00:01:16,597
+Por isso é que nós vamos ter
+ o subscrito 1 ali.
+
+23
+00:01:16,597 --> 00:01:18,424
+Então, primeiro ele faz isso, e
+
+24
+00:01:18,424 --> 00:01:24,419
+em seguida, o segundo passo é 
+calcular a[1]1 = sigmoide de z[1]1,
+ dessa forma.
+
+25
+00:01:24,419 --> 00:01:29,013
+Então para ambos z e a, a notação 
+convencional é que a [l] i,
+
+26
+00:01:29,013 --> 00:01:33,770
+o l sobrescrito aqui em colchete é seu primeiro
+ número da camada,
+
+27
+00:01:33,770 --> 00:01:37,720
+e o i subscrito aqui refere-se ao nó 
+ dentro daquela camada.
+
+28
+00:01:37,720 --> 00:01:42,344
+Assim o nó que temos visto é camada um, 
+que é uma camada oculta, nó um, então
+
+29
+00:01:42,344 --> 00:01:45,878
+é por isso que os sobrescritos e subscritos
+ foram ambos 1,1.
+
+30
+00:01:45,878 --> 00:01:49,965
+Portanto, aquele pequeno círculo, o primeiro 
+nó da Rede Neural representa
+
+31
+00:01:49,965 --> 00:01:52,579
+a realização destas duas etapas de cálculo.
+
+32
+00:01:52,579 --> 00:01:58,399
+Agora, vamos olhar para o segundo nó 
+na camada oculta da Rede Neural.
+
+33
+00:01:58,399 --> 00:02:01,482
+Semelhante à unidade de regressão logística, 
+à esquerda,
+
+34
+00:02:01,482 --> 00:02:04,781
+Este círculo inferior representa dois 
+passos do cálculo.
+
+35
+00:02:04,781 --> 00:02:08,733
+O primeiro passo é calcular z, esta ainda é 
+a camada um, mas
+
+36
+00:02:08,733 --> 00:02:12,996
+agora é o segundo nó = W [1] 2 Transposto vezes X + b [1] 2, 
+e
+
+37
+00:02:12,996 --> 00:02:17,880
+então, a[1] 2 = sigmoide de (z [1], 2) e, 
+novamente, sinta-se livre para
+
+38
+00:02:17,880 --> 00:02:23,071
+pausar o vídeo se quiser, mas você pode 
+verificar que a notação
+
+39
+00:02:23,071 --> 00:02:28,453
+sobrescrita e subscrita é consistente com 
+o que escrevemos aqui em cima em roxo.
+
+40
+00:02:28,453 --> 00:02:32,831
+Então, vamos falar sobre as duas primeiras
+ unidades escondidas na Rede Neural,
+
+41
+00:02:32,831 --> 00:02:36,940
+já que as unidades ocultas três e quatro também 
+representam cálculos similares.
+
+42
+00:02:36,940 --> 00:02:39,778
+Agora, deixe-me pegar este par de equações,
+
+43
+00:02:39,778 --> 00:02:44,169
+e este par de equações e vamos copiá-los 
+para o próximo slide.
+
+44
+00:02:44,169 --> 00:02:48,921
+Então, aqui está a nossa Rede Neural e, aqui, 
+está a primeira e aqui está a segunda
+
+45
+00:02:48,921 --> 00:02:54,050
+equação que trabalhávamos, para a primeira 
+e a segunda unidades ocultas.
+
+46
+00:02:54,050 --> 00:02:59,022
+Se você for adiante e escrever todas as 
+equações correspondentes para a terceira e
+
+47
+00:02:59,022 --> 00:03:02,093
+quarta unidades ocultas, você vai obter
+ o seguinte, e
+
+48
+00:03:02,093 --> 00:03:06,550
+apenas certifique-se que esta notação
+ é clara, este é o vetor, w [1] 1,
+
+49
+00:03:06,550 --> 00:03:09,430
+este é um vetor, transposto vezes x, certo?
+
+50
+00:03:09,430 --> 00:03:13,460
+É isso o que representa o sobrescrito T lá, 
+este é o vetor transposto.
+
+51
+00:03:13,460 --> 00:03:17,585
+Agora, como deve ter adivinhado, se você 
+realmente está implementando 
+uma Rede Neural,
+
+52
+00:03:17,585 --> 00:03:20,209
+fazer isso num laço de repetição "for..." parece 
+muito ineficiente.
+
+53
+00:03:20,209 --> 00:03:25,174
+Assim, o que vamos fazer é pegar estas 
+quatro equações e vetorizá-las.
+
+54
+00:03:25,174 --> 00:03:29,348
+Então, vamos começar mostrando como 
+calcular z como um vetor e acontece que,
+
+55
+00:03:29,348 --> 00:03:30,859
+você pode fazê-lo da seguinte maneira.
+
+56
+00:03:30,859 --> 00:03:34,843
+Deixe-me tirar estes w e empilhá-los 
+em uma matriz.
+
+57
+00:03:34,843 --> 00:03:38,767
+Então, você tem w [1] 1, transposto, 
+então é um vetor de linha, ou
+
+58
+00:03:38,767 --> 00:03:42,231
+este é um vector coluna, quando transposto 
+vira um vetor linha.
+
+59
+00:03:42,231 --> 00:03:48,494
+Então w [1], 2 transposto, w [1], 3 transposto, 
+w [1], 4 transposto,
+
+60
+00:03:48,494 --> 00:03:54,499
+e assim, empilhando aqueles 4 vetores w
+ juntos, acaba montando uma matriz.
+
+61
+00:03:54,499 --> 00:03:59,204
+Outra maneira de pensar nisto é que temos 
+quatro unidades de regressão logística
+
+62
+00:03:59,204 --> 00:04:03,913
+e cada uma destas unidades de regressão 
+logística tem um vetor parâmetro 
+correspondente w,
+
+63
+00:04:03,913 --> 00:04:06,535
+e empilhando os quatro vetores juntos,
+
+64
+00:04:06,535 --> 00:04:08,842
+você fica com essa matriz (4,3).
+
+65
+00:04:08,842 --> 00:04:14,281
+Portanto, se você pegar esta matriz 
+e multiplicar isso pelas 
+características de entrada,
+
+66
+00:04:14,281 --> 00:04:19,806
+que são x1, x2, x3, descobre,como funciona a 
+multiplicação de matrizes,
+
+67
+00:04:19,806 --> 00:04:24,546
+você descobre W1 [1] transposto vezes x, 
+W2 [1] transposto vezes x,
+
+68
+00:04:24,546 --> 00:04:30,995
+W3 [1] transposto vezes x, W4 [1] transposto vezes x e, 
+não nos esqueçamos dos b's.
+
+69
+00:04:30,995 --> 00:04:35,997
+Assim, agora adicionamos tudo a este vetor 
+b [1] 1; b [1] 2
+
+70
+00:04:35,997 --> 00:04:40,811
+b [1] 3; b [1] 4, então, basicamente, é isso.
+
+71
+00:04:40,811 --> 00:04:45,654
+Em seguida, este b [1] 1; b [1] 2; b [1] 3 e 
+b [1] 4 e assim por diante.
+
+72
+00:04:45,654 --> 00:04:50,579
+Veja que cada uma das quatro linhas deste 
+resultado, corresponde exatamente a
+
+73
+00:04:50,579 --> 00:04:55,772
+cada uma dessas quatro linhas, de cada uma 
+destas quatro somas que tivemos acima.
+
+74
+00:04:55,772 --> 00:05:00,899
+Então, em outras palavras, nós apenas 
+mostramos que essa coisa é, portanto,
+ igual a z [1] 1,
+
+75
+00:05:00,899 --> 00:05:05,303
+z [1] 2, z [1] 3, z [1] 4, tal como definido 
+aqui, e
+
+76
+00:05:05,303 --> 00:05:10,289
+talvez, não surpreendentemente, vamos
+ chamar tudo isso de "vetor z [1]",
+
+77
+00:05:10,289 --> 00:05:15,097
+que é calculado empilhando cada um destes Z's no vetor coluna.
+
+78
+00:05:15,097 --> 00:05:19,524
+Quando estamos vetorizando, dentre as
+ regras gerais que podem ajudá-lo a 
+navegar nisto
+
+79
+00:05:19,524 --> 00:05:23,966
+é que, quando temos nós diferentes na 
+camada, iremos empilhá-los verticalmente.
+
+80
+00:05:23,966 --> 00:05:27,656
+Por isso é que, quando você tinha
+ Z [1] 1 a Z [1] 4,
+
+81
+00:05:27,656 --> 00:05:31,852
+aqueles correspondem a quatro diferentes 
+nós na camada oculta, e
+
+82
+00:05:31,852 --> 00:05:36,481
+então nós empilhados estes quatro números 
+verticalmente para formar o vetor z [1], e
+
+83
+00:05:36,481 --> 00:05:40,457
+usando mais um pouco de notação, 
+esta matriz (4,3) aqui,
+
+84
+00:05:40,457 --> 00:05:45,233
+que obtemos empilhando as minúsculas 
+w [1] 1; w [1] 2, e
+
+85
+00:05:45,233 --> 00:05:49,860
+assim por diante, iremos chamar esta matriz
+ W [1] maiúscula, e da mesma forma, este vetor
+
+86
+00:05:49,860 --> 00:05:54,623
+Vamos chamar de b sobrescrito [1], 
+e então é um vetor (4,1).
+
+87
+00:05:54,623 --> 00:05:59,584
+Agora, nós já calculamos z usando notação 
+de matriz vetor.
+
+88
+00:05:59,584 --> 00:06:03,535
+A última coisa que precisamos fazer é
+ calcular também esses valores de a, assim
+
+89
+00:06:03,535 --> 00:06:08,195
+provavelmente não vai se surpreender ao ver
+ que vamos definir a[1] como
+
+90
+00:06:08,195 --> 00:06:13,019
+esses valores de 
+ativação a[1] 1até a[1] 4 empilhados juntos.
+
+91
+00:06:13,019 --> 00:06:18,202
+Pegue esses quatro valores e empilhe-os 
+juntos no vetor chamado a[1],
+
+92
+00:06:18,202 --> 00:06:21,122
+e isto será sigmoide de (z[1]),
+
+93
+00:06:21,122 --> 00:06:25,794
+onde esta agora foi uma implementação da 
+função sigmoide que absorve
+
+94
+00:06:25,794 --> 00:06:30,761
+os quatro elementos de z e aplica a
+ função sigmoide elemento-a-elemento a ela.
+
+95
+00:06:30,761 --> 00:06:36,750
+Recapitulando: já 
+descobrimos que z [1] = W [1] vezes
+
+96
+00:06:36,750 --> 00:06:41,883
+vetor x + b [1] e que a[1] é a sigmoide de z[1].
+
+97
+00:06:41,883 --> 00:06:47,321
+Vamos apenas copiar isto para o próximo 
+slide, e o que vemos é que,
+
+98
+00:06:47,321 --> 00:06:52,156
+para a primeira camada da Rede Neural, 
+dada uma entrada x,
+
+99
+00:06:52,156 --> 00:06:56,286
+temos que z [1] = W [1] x + b [1], e que
+
+100
+00:06:56,286 --> 00:07:01,526
+a[1] = sigmoide (z[1]) e as dimensões destas
+
+101
+00:07:01,526 --> 00:07:06,563
+são vetores (4,1) = (4,3) x (3,1) + (4.1),
+
+102
+00:07:06,563 --> 00:07:11,297
+e isto é um vetor (4,1), mesma dimensão 
+como no fim, e
+
+103
+00:07:11,297 --> 00:07:16,793
+lembre-se do que dissemos x = a sobrescrito [0], 
+e da mesma forma, ŷ = a sobrescrito[2].
+
+104
+00:07:16,793 --> 00:07:21,560
+Então se quiser, pode pegar esta camada
+ zero de entrada e substituí-la por a[0],
+ já que a sobrescrito [0]
+
+105
+00:07:21,560 --> 00:07:25,417
+é apenas um apelido, um aliás, 
+para o vetor de características 
+de entrada x.
+
+106
+00:07:25,417 --> 00:07:30,968
+Agora, através de uma derivação semelhante, 
+você pode descobrir que a representação para
+
+107
+00:07:30,968 --> 00:07:35,972
+a próxima camada também pode ser escrita 
+de forma similar, onde a 
+camada de saída que faz
+
+108
+00:07:35,972 --> 00:07:40,770
+isto, ela está associada a isso, então a 
+principal diz, w [2] e b [2].
+
+109
+00:07:40,770 --> 00:07:44,549
+Assim, w[2] neste caso será uma 
+matriz (1,4) e
+
+110
+00:07:44,549 --> 00:07:47,529
+b [2] é apenas um número real num vetor (1,1), e
+
+111
+00:07:47,529 --> 00:07:51,982
+então, z[2] será um número real que é 
+escrito como uma matriz (1,1).
+
+112
+00:07:51,982 --> 00:07:57,267
+Isto sera uma coisa (1,4) , vezes 'a' que 
+é (4,1), mais b (1,1),
+
+113
+00:07:57,267 --> 00:08:02,397
+e isto te dá apenas um número real, e se 
+você acha que esta última unidade de saída
+
+114
+00:08:02,397 --> 00:08:07,787
+apenas como uma análoga à regressão
+logística, que tinha parâmetros w e b.
+
+115
+00:08:07,787 --> 00:08:12,517
+W realmente desempenha um papel análogo 
+ao W[2] transposto, ou
+
+116
+00:08:12,517 --> 00:08:16,675
+W[2] é realmente w transposto e 
+b é igual a b[2].
+
+117
+00:08:16,675 --> 00:08:21,665
+Então estávamos cobrindo a esquerda 
+desta rede e agora, ignore tudo isso,
+
+118
+00:08:21,665 --> 00:08:26,434
+então isto é apenas, esta última unidade 
+superior é muito parecida com 
+uma regressão logística,
+
+119
+00:08:26,434 --> 00:08:30,010
+Exceto que em vez de escrever os 
+parâmetros como w e b,
+
+120
+00:08:30,010 --> 00:08:35,784
+estamos escrevendo-os como W [2] e b [2], 
+com dimensões (1,4) e (1,1).
+
+121
+00:08:35,784 --> 00:08:39,765
+Então recapitulando, na
+ regressão logística,
+
+122
+00:08:39,765 --> 00:08:44,620
+para implementar a saída, ou para 
+implementar a previsão,
+
+123
+00:08:44,620 --> 00:08:51,143
+você calcularia o 
+z = w transposto vezes x + b 
+e ŷ = a = sigmoide de (z).
+
+124
+00:08:51,143 --> 00:08:55,499
+Quando temos uma unidade 
+de Rede Neural, com uma camada oculta,
+ o que precisamos
+
+125
+00:08:55,499 --> 00:09:00,131
+implementar para calcular esta saída são 
+essas quatro equações, e você pode pensar
+
+126
+00:09:00,131 --> 00:09:04,902
+nelas como uma implementação vetorizada 
+do cálculo da saída destas primeiras quatro
+
+127
+00:09:04,902 --> 00:09:09,329
+unidades de regressão logística na camada 
+oculta, que é que é feito, e
+
+128
+00:09:09,329 --> 00:09:13,867
+então isto, que é a regressão na 
+camada de saída, que é o que isto faz.
+
+129
+00:09:13,867 --> 00:09:18,401
+Espero que essa descrição faça sentido, 
+mas o mais importante é calcular a saída
+
+130
+00:09:18,401 --> 00:09:22,001
+desta rede neural, tudo que você precisa 
+são essas quatro linhas de código.
+
+131
+00:09:22,001 --> 00:09:25,706
+Portanto, agora você já viu como dado um
+ único vetor com as características de entrada x,
+
+132
+00:09:25,706 --> 00:09:30,278
+você pode com quatro linhas de código, 
+calcular a saída dessa rede neural.
+
+133
+00:09:30,278 --> 00:09:34,575
+Semelhante ao que fizemos para a regressão 
+logística, nós também queremos vetorizar
+
+134
+00:09:34,575 --> 00:09:39,002
+nossas várias amostras de treinamento
+ e conseguiremos isso, empilhando um 
+máximo de três
+
+135
+00:09:39,002 --> 00:09:43,653
+exemplos em diferentes colunas, na matriz, 
+com um ligeira modificação nela.
+
+136
+00:09:43,653 --> 00:09:47,396
+Você também, parecido ao que você já viu 
+na regressão logística,
+
+137
+00:09:47,396 --> 00:09:50,514
+é capaz de calcular a saída 
+dessa rede neural,
+
+138
+00:09:50,514 --> 00:09:55,114
+Não apenas em um exemplo de cada vez, 
+mas digo em seu conjunto de treinamento inteiro 
+de uma só vez.
+
+139
+00:09:55,114 --> 00:09:57,939
+Então, veremos os detalhes disso 
+no próximo vídeo. 
+Tradução: Bruno Alexandre Freitas | Revisão: Carlos Lage.

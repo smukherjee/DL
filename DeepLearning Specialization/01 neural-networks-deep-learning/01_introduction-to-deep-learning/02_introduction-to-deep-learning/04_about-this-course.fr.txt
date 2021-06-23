@@ -1,0 +1,47 @@
+Vous atteignez la fin de la première semaine du premier
+ cours de cette spécialisation. Permettez-moi de vous donner 
+une idée rapide de ce que vous apprendrez 
+dans les prochaines semaines. Comme je l’ai dit dans la première vidéo, Cette spécialisation 
+se compose de cinq cours. Et en ce moment, 
+nous sommes dans le premier de ces cinq cours. Il vous donne 
+les bases les plus importantes, vraiment les blocs de base
+ de l’apprentissage profond. Donc à la fin de ce premier cours, vous saurez comment construire et faire
+ fonctionner un réseau de neurones profond. Voici donc les détails de ce
+ qui est dans ce premier cours. Ce cours comporte 
+quatre semaines de contenu. Et vous venez de terminer la première semaine dans laquelle
+ vous avez vu une introduction
+ à l'apprentissage profond. À la fin de chaque semaine, il y aura aussi 10 questions
+ à choix multiple que vous pourrez utiliser pour vérifier
+ votre compréhension du matériel. Lorsque vous aurez terminé cette vidéo, J’espère que vous irez 
+jeter un œil à ces questions. Dans la deuxième semaine, 
+vous découvrirez les fondamentaux de
+ la programmation d'un réseau neuronal. Vous apprendrez la structure
+ de ce que nous appelons les étapes de propagation avant
+ et de rétro-propagation de l'algorithme et comment implémenter 
+les réseaux de neurones efficacement. À partir de la deuxième semaine, vous aurez également à faire
+ un exercice de programmation qui vous permettra de mettre en pratique
+ les connaissances que vous aurez apprises, d'implémenter les algorithmes par vous-même
+ et de voir comment ils fonctionnent. Je trouve cela très satisfaisant 
+quand j'apprends un algorithme, que je le code et que je peux
+ le voir fonctionner par moi-même. Donc j'espère que vous
+ apprécierez cela également. Après avoir étudié le cadre de 
+la programmation des réseaux neuronaux,
+ durant la troisième semaine vous programmerez un réseau neuronal
+ composé d'une seule couche cachée. Donc vous apprendrez
+ tous les concepts clé nécessaires pour implémenter and 
+faire fonctionner un réseau neuronal. Et finalement, durant la quatrième semaine, vous construirez un réseau neuronal 
+profond, un réseau neuronal avec de multiples couches et le verrez 
+fonctionner par vous-mêmes. Donc, félicitations pour avoir
+ regardé les vidéos jusqu'à celle-ci. J'espère que vous avez maintenant une bonne
+ idée générale de ce qui se passe dans
+ l'apprentissage profond. Et peut-être que certains d'entre vous ont quelques idées de 
+où vous voulez appliquer 
+l’apprentissage profond vous même. Donc, j'espère qu'après cette vidéo, vous irez regarder les 10 questions 
+à choix multiples qui suivent cette vidéo sur le site web du cours et utiliserez ces 10 questions à choix multiples
+ pour vérifier votre compréhension. Et ne vous inquiétez pas si 
+vous n'avez pas toutes 
+les bonnes réponses la première fois, vous pouvez réessayer encore et encore
+ jusqu'à avoir toutes les bonnes réponses. Je les ai trouvées utiles pour m'assurer
+ que je comprenais tous les concepts, j'espère que vous serez du même avis. Donc, encore félicitations 
+pour être arrivé jusqu'ici et je suis impatient de vous voir 
+dans les vidéos de la deuxième semaine.

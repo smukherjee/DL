@@ -1,0 +1,362 @@
+1
+00:00:00,650 --> 00:00:04,360
+Pourquoi un réseau de neurones a-t-il besoin
+ d'une fonction d’activation non-linéaire ?
+
+2
+00:00:04,360 --> 00:00:07,796
+Il s’avère que pour que votre réseau de neurones
+ calcule des fonctions intéressantes,
+
+3
+00:00:07,796 --> 00:00:11,325
+vous devez choisir une fonction d’activation
+ non linéaire. Nous allons voir pourquoi.
+
+4
+00:00:11,325 --> 00:00:15,920
+Voici les équations de propagation directe
+ (vers l'avant) pour le réseau de neurones.
+
+5
+00:00:15,920 --> 00:00:17,700
+Pourquoi ne pas simplement
+ se débarrasser de cela ?
+
+6
+00:00:17,700 --> 00:00:19,450
+Se débarrasser de la fonction g,
+
+7
+00:00:19,450 --> 00:00:21,550
+et dire que a[1] est égal à z[1] ?
+
+8
+00:00:21,550 --> 00:00:27,630
+Ou sinon, on pourrait dire que
+ g de z est égal à z, non ?
+
+9
+00:00:27,630 --> 00:00:32,035
+Parfois, on appelle ça
+ la fonction d’activation linéaire.
+
+10
+00:00:32,035 --> 00:00:35,070
+Un meilleur nom serait peut-être
+la fonction d'activation identité,
+
+11
+00:00:35,070 --> 00:00:38,170
+parce qu'elle met simplement
+ en sortie ce qu'il y a en entrée.
+
+12
+00:00:38,170 --> 00:00:42,576
+Dans la même idée, a[2] 
+pourrait être égal à z[2].
+
+13
+00:00:42,576 --> 00:00:48,759
+Il s’avère que si vous faites cela,
+ alors ce modèle calcule juste y,
+
+14
+00:00:48,759 --> 00:00:53,010
+ou plutôt ŷ comme une combinaison
+ linéaire des caractéristiques d'entrée X.
+
+15
+00:00:53,010 --> 00:00:55,990
+Si vous prenez les deux premières équations,
+
+16
+00:00:55,990 --> 00:01:01,504
+si vous avez
+
+17
+00:01:01,504 --> 00:01:08,395
+a[1] = z[1] = W[1] x + b[1]
+
+18
+00:01:08,395 --> 00:01:14,459
+et également
+
+19
+00:01:14,459 --> 00:01:19,710
+a[2] = z[2] = W[2] a[1] + b[2],
+
+20
+00:01:19,710 --> 00:01:24,720
+alors si vous prenez la définition de a[1] 
+
+21
+00:01:24,720 --> 00:01:30,040
+et que vous la remplacez là-dedans,
+ vous trouvez que
+
+22
+00:01:30,040 --> 00:01:36,880
+a[2] = W[2] * (W[1]*X + b[1]),
+
+23
+00:01:36,880 --> 00:01:42,830
+ceci est a[1], + b[2]
+
+24
+00:01:42,830 --> 00:01:44,960
+Cela se simplifie en :
+
+25
+00:01:45,550 --> 00:01:49,960
+(W[2]*W[1])* x + (W[2]b[1] + b[2]).
+
+26
+00:01:49,960 --> 00:01:56,800
+(W[2]*W[1])* x + (W[2]b[1] + b[2]).
+
+27
+00:01:58,030 --> 00:02:01,300
+Donc, c’est juste,
+
+28
+00:02:01,300 --> 00:02:06,500
+appelons ça W' et b'.
+
+29
+00:02:06,640 --> 00:02:11,600
+C’est juste égal à W' * x + b'
+
+30
+00:02:11,600 --> 00:02:14,440
+Si vous utilisez des fonctions 
+d’activation linéaires,
+
+31
+00:02:14,440 --> 00:02:17,810
+ou nous les appelons également 
+des fonctions d’activation identité,
+
+32
+00:02:17,810 --> 00:02:22,660
+alors le réseau de neurones sort
+ juste une fonction linéaire de l’entrée.
+
+33
+00:02:23,890 --> 00:02:28,580
+Nous parlerons plus tard des réseaux 
+profonds, les réseaux avec vraiment beaucoup 
+
+34
+00:02:28,580 --> 00:02:31,300
+de couches cachées. Si vous utilisez
+
+35
+00:02:31,300 --> 00:02:34,760
+une fonction d’activation linéaire ou
+
+36
+00:02:34,760 --> 00:02:38,860
+si vous n’avez pas de fonction d’activation,
+alors peu importe le nombre de couches
+
+37
+00:02:38,860 --> 00:02:43,460
+de votre réseau de neurone, il ne fait que 
+calculer une fonction d'activation linéaire.
+
+38
+00:02:43,460 --> 00:02:45,590
+Donc vous pouvez aussi bien 
+n'avoir aucune couche cachée.
+
+39
+00:02:47,030 --> 00:02:51,270
+Pour ce cas que j'ai déjà mentionné, 
+si vous avez
+
+40
+00:02:51,270 --> 00:02:57,050
+une fonction d’activation linéaire ici 
+et une fonction sigmoïde ici, ce model ne fait
+
+41
+00:02:57,050 --> 00:03:02,960
+rien de plus que la régression logistique 
+standard, sans aucune couche cachée.
+
+42
+00:03:02,960 --> 00:03:06,550
+Je ne vais pas essayer de le prouver, mais
+ vous pouvez essayer de le faire si vous voulez.
+
+43
+00:03:06,550 --> 00:03:11,700
+Mais retenez qu'une couche cachée linéaire 
+est plus ou moins inutile,
+
+44
+00:03:11,700 --> 00:03:16,570
+parce que la composition de deux fonctions
+ linéaires est elle-même une fonction linéaire.
+
+45
+00:03:17,570 --> 00:03:21,910
+Donc, si vous n'ajoutez pas de non linéarité, 
+vous ne calculez pas
+
+46
+00:03:21,910 --> 00:03:25,320
+de fonction plus intéressante même
+ en allant plus profondément dans le réseau.
+
+47
+00:03:25,320 --> 00:03:29,890
+Il y a un seul endroit où vous pouvez utiliser 
+une fonction d’activation linéaire,
+
+48
+00:03:29,890 --> 00:03:32,610
+g (x) = z.
+
+49
+00:03:32,610 --> 00:03:37,170
+et c’est si vous faites de l’apprentissage
+ automatique sur un problème de régression.
+
+50
+00:03:37,170 --> 00:03:39,850
+Donc, si y est un nombre réel.
+
+51
+00:03:39,850 --> 00:03:43,150
+Ainsi, par exemple, si vous essayez 
+de prédire les prix des logements,
+
+52
+00:03:43,150 --> 00:03:50,080
+y n'est pas 0 ou 1, mais un nombre réel, 
+qui peux prendre des valeurs de 0$,
+
+53
+00:03:50,080 --> 00:03:55,330
+du prix d’une maison jusqu'à des sommes 
+très importantes selon les maisons.
+
+54
+00:03:55,330 --> 00:04:00,520
+Je suppose que certaines maisons peuvent valoir
+ potentiellement des millions de dollars.
+
+55
+00:04:00,520 --> 00:04:04,940
+Peu importe combien coûtent les maisons 
+dans votre jeu de données,
+
+56
+00:04:04,940 --> 00:04:09,590
+mais si y peut prendre ces valeurs réelles,
+
+57
+00:04:10,620 --> 00:04:14,640
+alors ce sera peut-être OK d'avoir
+ une fonction d’activation linéaire ici
+
+58
+00:04:14,640 --> 00:04:19,490
+pour que votre sortie ŷ soit
+
+59
+00:04:19,490 --> 00:04:22,970
+aussi un nombre réel qui puisse prendre
+ toutes les valeurs de moins l’infini
+ à plus l’infini.
+
+60
+00:04:24,000 --> 00:04:29,070
+Mais les unités cachées ne doivent pas
+ utiliser des fonctions d'activation linéaires
+
+61
+00:04:29,070 --> 00:04:34,790
+Elles peuvent utiliser la ReLU ou la tanh ou
+ la leaky ReLU ou peut-être autre chose.
+
+62
+00:04:34,790 --> 00:04:38,200
+Il y a un seul endroit où vous pouvez utiliser 
+une fonction d’activation linéaire,
+
+63
+00:04:38,200 --> 00:04:40,500
+et c'est généralement dans
+ la couche de sortie.
+
+64
+00:04:40,500 --> 00:04:47,500
+Mais à part ça, l'utilisation d'une fonction
+ d'activation linéaire dans une couche cachée,
+
+65
+00:04:47,500 --> 00:04:52,000
+à par pour certains cas 
+très particuliers liés à la compression,
+
+66
+00:04:52,000 --> 00:04:56,360
+l’utilisation de fonctions d'activation linéaire 
+est extrêmement rare.
+
+67
+00:04:56,360 --> 00:04:58,990
+Oh et bien sûr, si vous voulez vraiment prédire 
+des prix de l’immobilier comme vous l’avez vu 
+
+68
+00:04:58,990 --> 00:05:02,730
+dans la vidéo de la semaine 1, vu que les
+ prix des logements ne sont jamais négatifs, 
+
+69
+00:05:02,730 --> 00:05:06,760
+peut être que même là, vous pourriez utiliser 
+la fonction d'activation ReLU,
+
+70
+00:05:06,760 --> 00:05:10,870
+pour que votre sortie ŷ soit toujours
+ supérieure ou égale à zéro.
+
+71
+00:05:10,870 --> 00:05:15,380
+Alors j’espère que cela vous donne
+ une idée de pourquoi avoir
+
+72
+00:05:15,380 --> 00:05:19,250
+une fonction d’activation non linéaire est 
+une partie essentielle des réseaux neuronaux.
+
+73
+00:05:19,250 --> 00:05:23,180
+Ensuite, nous allons commencer à parler 
+de descente de gradient et pour cela,
+
+74
+00:05:23,180 --> 00:05:26,400
+pour préparer la discussion sur la 
+descente de gradient, 
+
+75
+00:05:26,400 --> 00:05:30,800
+dans la prochaine vidéo, je veux vous montrer
+ comment estimer, ou calculer, la pente,
+
+76
+00:05:30,800 --> 00:05:34,050
+c'est à dire les dérivées, 
+de vos fonctions d’activation.
+
+77
+00:05:34,050 --> 00:05:35,320
+Continuons sur la prochaine vidéo.

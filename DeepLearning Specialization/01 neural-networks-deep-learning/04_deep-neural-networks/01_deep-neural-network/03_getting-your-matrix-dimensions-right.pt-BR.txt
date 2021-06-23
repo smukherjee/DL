@@ -1,0 +1,87 @@
+Quando eu implemento uma rede neural,
+uma das ferramentas de depuração que utilizo para checar a validade do meu código,
+é pegar um pedaço de papel e apenas verificar as dimensões e matrizes com
+as quais trabalho. Então, vou mostrar como fazer isso,
+pois espero que isso também facilite a implementação da sua rede neural profunda. L = 5, não contando a camada de entrada, existem cinco camadas aqui. Assim,
+são quatro camadas ocultas e uma camada de saída. Assim, se você implementar propagação para frente, a primeira etapa será  z'¹' = w'¹' . x + b'¹'. Então, vamos ignorar o termo viés b,
+por enquanto, e focar os parâmetros w. Agora, essa primeira camada oculta tem três
+unidades ocultas. Então essa é a camada 0 camada 1, camada 2, camada 3,
+camada 4 e camada 5. Assim, usando a mesma notação utilizada no
+vídeo anterior, temos que n'¹', que é o número de unidades ocultas
+na camada 1, é igual a 3. E aqui nós temos que  n'²' = 5, n'³' = 4 ,   n'⁴' = 2   e   n'⁵' = 1. Até aqui, nós vimos redes neurais
+ com uma única unidade de saída. Porém, mais adiante falaremos sobre redes neurais
+com múltiplas unidades de saída. E, finalmente, para a camada de entrada, nós também temos   n'⁰' = nₓ = 2. Agora, vamos pensar sobre as dimensões de z, w e x. z é o vetor de ativações para essa primeira camada oculta. Assim,
+z será 3 por 1, será um vetor com dimensão 3. E eu posso escrever isso como um vetor
+ dimensional   (n'¹',1) ou uma matriz dimensional (n'¹', 1)
+ou (3, 1), nesse caso. Agora, como fica a entrada de características x?
+Para x, nós temos 2 entradas de características. Assim x, nesse exemplo, é 2 por 1 e,
+generalizando, (n'⁰',1). Agora, o que precisamos é que a matriz w'¹'
+seja alguma coisa que ao multiplicar o vetor (n'⁰', 1) com ela,
+                             nós tenhamos um vetor (n'¹',1), certo? Assim, temos um vetor de dimensão 3, igual a alguma coisa vezes um vetor de dimensão 2. E assim,
+pelas regras de multiplicação de matrizes, isso tem que ser uma matriz 3 por 2. Porque, uma matriz 3 por 2
+vezes uma matriz 2 por 1, ou vezes um vetor 2 por 1,
+ resulta em um vetor 3 por 1. E, generalizando, isso será uma matriz
+de dimensão (n'¹', n'⁰'). Então, o que percebemos aqui é que as dimensões de w'¹' tem que ser  (n'¹',n'⁰'). E, generalizando, as dimensões de w[L]
+serão n[L] por n[L-1]. Assim, por exemplo, as dimensões de  w'²', nesse caso, seriam de (5, 3), ou  (n'²',n'¹'). Porque temos que calcular z'²' = w'²' . a'¹' + b'¹'  e, novamente, por enquanto vamos ignorar o viés. a'¹' será (3, 1) e aqui temos z'²' = (5,1) e, assim, w'²' tem que ser (5, 3). Do mesmo modo, w'³' será a
+dimensão da próxima camada virgula, a dimensão da camada anterior. Assim, isso fica (4, 5) w'⁴' = (2, 4), e w'⁵' = (1, 2), certo? Assim, a fórmula geral pra checar é que quando você estiver implementando
+uma matriz de camada L, a dimensão da matriz será n[L] por n[L-1]. Agora, vamos pensar na dimensão
+desse vetor b. Isto dá um vetor 3 por 1
+e você tem que adicioná-lo a outro vetor 3 por 1, para ter um
+vetor 3 por 1 como saída. Ou, neste exemplo, precisamos adicionar isto
+que será 5 por 1. Então aqui teremos outro vetor 5 por 1. Para que a soma dessas duas coisas
+que eu tenho nessas caixas, resulte em
+um vetor 5 por 1. Assim, generalizando temos que,
+                   no exemplo a esquerda b'¹' = (n'¹', 1), ou (3, 1) e no segundo exemplo,                                           
+b'²' = (n'²', 1) E assim, de modo mais genérico, b[L] deve ser dimensional de n[L] por 1. Veja que essas duas equações
+podem ajudar a checar se as dimensões das matrizes w e também dos vetores b
+estão corretas. E, claro, se você estiver implementando
+retro-propagação, então a dimensão de dw
+deve ter a mesma dimensão de w. Então dw deve ter a mesma dimensão de w
+dw[L] = (n[L], n[L-1]) e db deve ter a mesma dimensão de b
+db[L] = (n[L],1) Agora, o outro conjunto-chave de valores
+cujas dimensões precisam ser checadas são esses z, x e também o a[L],
+do qual não falamos muito aqui. Então z[L] é igual a g[L](a[L]),
+aplicando "Produto de Hadamard":
+z[L] = g[L] (a[L]) Então, z e a devem ter a mesma dimensão
+nesses tipos de rede. Agora, vamos ver o que acontece quando
+uma implementação vetorizada que aparece em vários exemplos ao mesmo tempo. Mesmo para implementação vetorizada, claro que as dimensões de w , b ,
+dw, e db serão as mesmas. Mas as dimensões de z,
+a e também de x, mudarão um pouco na
+implementação vetorizada. Assim, anteriormente, nós tínhamos z'¹' = w'¹' . x + b'¹' , onde:  z'¹' tem dimensão (n'¹', 1) w'¹' tem dimensão (n'¹', n'⁰') x tem dimensão (n'⁰', 1) e  b tem dimensão (n'¹', 1)
+Agora, numa implementação vetorizada,
+nós temos Z'¹' = W'¹' . X + b'¹' Onde agora, Z'¹' é obtido
+ pegando z'¹' para um exemplo individual.
+Assim,  z'¹''¹' ,  z'¹''²' até z[1][m], e empilhando tudo, como segue,
+isso dá Z'¹'. Assim, a dimensão de Z'¹' é tal que,
+ao invés de (n'¹', 1), resultará em (n'¹', m), onde
+m é o tamanho do conjunto de testes. As dimensões de W'¹' permanecem as mesmas.
+Nesse caso (n'¹', n'⁰') e x, ao invés de (n'⁰', 1), é agora todos os exemplos de treino
+empilhados horizontalmente. Isso fica (n'⁰',m)
+e veja que quando pegamos a matriz (n'¹', n'⁰') e
+a multiplicamos pela matriz (n'⁰',m), juntas resultam numa
+matrix (n'¹',m), como esperado. Agora, o detalhe final é que
+b'¹' tem dimensões (n'¹', 1) mas quando pegamos isso aqui e adicionamos ao b
+ocorre o "broadcasting" do Python, isso é duplicado e vira uma matrix (n'¹',m)
+e depois elemento por elemento é adicionado. Assim, na tela anterior nós falamos
+sobre as dimensões de w, b, dw e db. E aqui nós temos que
+enquanto as minúsculas z'ˡ' e a'ˡ' são de dimensões (n'ˡ',1), por outro lado, temos agora as maiúsculas
+Z'ˡ' e Az'ˡ' que são de dimensões (n'ˡ',m). E um caso especial disso é quando
+L é igual a 0 e, nesse caso, A'⁰', que é igual ao conjunto de dados de treino para
+as características de entrada X, será igual a (n'⁰', m),
+como esperado. E quando estiver implementando isso
+em retro-propagação, você verá, mais tarde, que terminará
+calculando dZ'ˡ' e também dA'ˡ'. E claro que ambos têm a mesma dimensão de Z'ˡ' e A'ˡ',
+ (n'ˡ',m). Assim, espero que esse pequeno exercício
+que fizemos ajude a explicar as dimensões das várias matrizes,
+com as quais estamos trabalhando. Quando for implementar retro-propagação
+numa rede neural profunda, a medida que criar o código, certifique-se de que todas as
+dimensões das matrizes sejam consistentes. Isso ajudará muito e, de algum modo, eliminará
+causas de possíveis erros. Assim, espero que esse exercício de descobrir
+as dimensões de várias matrizes, seja útil quando estiver trabalhando com isso. Ao implementar uma rede neural profunda, se você atentar para as dimensões das várias
+matrizes e vetores, com as quais estiver trabalhando, certamente isso ajudará a eliminar
+algumas causas de erros. Isso também me ajuda a escrever um código correto. Assim, até então vimos algumas
+metodologias de como fazer propagação para frente em uma rede neural. Mas porque redes neurais profundas são
+tão efetivas e porque funcionam melhor que
+representações mais superficiais? Para discutir isso, vamos gastar
+alguns minutos com o próximo vídeo. 
+[Tradução: Carlos R. Lacerda | Revisão: Carlos Lage]

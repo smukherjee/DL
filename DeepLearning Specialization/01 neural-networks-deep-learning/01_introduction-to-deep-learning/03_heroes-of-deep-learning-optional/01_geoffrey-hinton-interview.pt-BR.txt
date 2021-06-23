@@ -1,0 +1,501 @@
+Como parte deste curso pelo site www.deeplearning.ai, espero não apenas lhes ensinar as ideias
+técnicas da aprendizagem profunda, mas também apresentar a vocês algumas pessoas,
+alguns heróis da aprendizagem profunda. As pessoas que inventaram tantas dessas ideias as quais você aprenderá
+neste curso ou nesta especialização. Nesses vídeos, também espero
+pedir a esses líderes da aprendizagem profunda para lhe dar conselhos de carreira sobre
+como você pode invadir a aprendizagem profunda, sobre como você pode pesquisar ou
+encontrar um trabalho de aprendizagem profunda. Como primeiro desta série de entrevistas, estou encantado em apresentar a você
+uma entrevista com Geoffrey Hinton. Bem-vindo Geoff, e obrigado por fazer
+esta entrevista com a deeplearning.ai. — Obrigado por me convidar. — Eu creio que neste ponto você, mais
+que qualquer outra pessoa neste planeta, inventou tantas
+das ideias por trás da aprendizagem profunda. E muitas pessoas têm lhe chamado de
+padrinho da aprendizagem profunda. Embora não tenha sido, até conversarmos
+alguns minutos atrás, que percebi que você pensa que sou o primeiro a chamá-lo assim,
+o que estou bastante feliz por ter feito. Mas o que quero perguntar é:
+muitas pessoas lhe conhecem como uma lenda, eu quero lhe perguntar sobre sua
+história pessoal por trás da lenda. Então, como você se envolveu, fazendo o caminho
+de volta, como você se envolveu na AI e aprendizagem de máquina e redes neurais? — Bem, quando eu estava no colegial,
+eu tinha um colega de sala que era sempre melhor que eu em tudo,
+ele era um matemático brilhante. E ele veio para a escola um dia e disse: 
+você sabia que o cérebro usa hologramas? E eu acho que era meados de 1966, e
+eu disse tipo: o que é um holograma? E ele explicou que em um holograma
+você pode cortá-lo pela metade e você ainda tem a figura inteira. E aquelas memórias do cérebro podem ser
+distribuídas sobre todo o cérebro. E, então, eu acho que ele leu
+sobre os experimentos de Lashley, nos quais você corta pedaços
+do cérebro de um rato e descobre que é muito difícil encontrar um
+pedaço no qual ele estoca uma memória particular. Então isso foi o que me interessou primeiro
+em como o cérebro armazena as memórias. E, depois, quando fui para a faculdade, comecei a estudar fisiologia e
+física. Penso que quando estava em Cambridge eu era o único graduando
+cursando fisiologia e física. E depois eu desisti disso e tentei cursar filosofia, porque eu
+pensava que poderia me dar mais conhecimento. Mas isso me pareceu, na verdade, falta de meios para distinguir
+quando eles diziam algo falso. E, então, eu troquei para psicologia. Em psicologia eles tinham teorias muito,
+muito simples e isso me parecia meio que completamente inadequado
+para explicar o que o cérebro estava fazendo. Então, eu fiz um intervalo e
+me tornei carpinteiro. E, então, decidi que eu tentaria AI,
+e fui para Edimburgo estudar AI com Langer Higgins. E ele havia feito um trabalho
+legal com redes neurais, e ele havia acabado de desistir das redes neurais,
+e estava muito impressionado pela tese de Winograd; então, quando eu cheguei, ele pensou que eu estava,
+meio que, fazendo essa coisa antiquada, e eu teria que começar em AI simbólica. E tivemos muitas brigas sobre isso,
+mas eu apenas continuei fazendo aquilo que acreditava. — E então o quê? — Eu, finalmente, obtive um PhD em AI, e
+então eu não conseguia um emprego na Inglaterra. Mas eu vi este anúncio muito legal para Bolsa de Estudo Sloan na Califórnia, e
+consegui obter uma delas. Fui para Califórnia e
+tudo era diferente lá. Então, na Inglaterra,
+redes neurais eram consideradas um pouco bobas, e na Califórnia, Don Norman e David Rumelhart estavam muito abertos
+a ideias sobre redes neurais. Foi a primeira vez que eu estava em algum lugar
+onde pensar sobre como o cérebro funciona e pensar sobre como ele poderia
+se relacionar com a psicologia era visto como algo muito positivo. E foi muito divertido lá, em particular, colaborar
+com David Rumelhart foi ótimo. — Entendo, ótimo.
+Então isso foi quando você esteve na UCSD
+[Universidade da Califórnia em San Diego], e você e Rumelhart, por volta de 1982, acabaram escrevendo o artigo criador da retro-propagação, certo? — Na verdade,
+foi mais complicado que isso. — O que aconteceu? — Eu acho que no início de 1982 David Rumelhart e eu, e Ron Williams, entre nós, desenvolvemos
+o algoritmo de retro-propagação, e foi principalmente idea de David Rumelhart. Descobrimos mais tarde que muitas
+outras pessoas o tinham inventado. David Parker o tinha inventado, 
+provavelmente depois de nós, mas antes que o publicássemos. Paul Werbos já o tinha publicado
+alguns anos antes, mas ninguém deu muita atenção. Houve outras pessoas que tinham
+desenvolvido algoritmos muito semelhantes. Não está claro o que se entende por
+ retro-propagação. Mas usar a regra da cadeia para se obter 
+as derivadas não era uma ideia nova. — Entendi. Por que você pensa que foi
+seu artigo que ajudou tanto a comunidade a se agarrar
+ à retro-propagação? Parece que seu artigo marcou
+um contaminação na aceitação desse algoritmo, quem quer que o tenha aceitado. — Então, conseguimos um artigo na revista Nature em 1986. E eu fiz muito trabalho político
+para que o artigo fosse aceito. Eu descobri que um dos peritos
+provavelmente seria Stuart Sutherland, que era um psicólogo
+bem conhecido na Inglaterra. E eu fui falar com ele
+por um longo tempo, e expliquei exatamente
+o que estava acontecendo. E ele ficou muito impressionado pelo fato de que mostramos que a retro-propagação
+poderia aprender representações para palavras. E que você poderia olhar para aquelas
+representações, que são como pequenos vetores, e poderia compreender o significado
+das características individuais. Então, na verdade, o treinamos em pequenas
+tríades de palavras sobre árvores genealógicas, como Maria tinha
+como mãe Victória. E você poderia dar as primeiras duas palavras,
+e ele teria que prever a última palavra. E depois que você o tenha treinado, você poderia ver todo tipo de características nas
+representações das palavras individuais. Como a nacionalidade da pessoa lá, de que geração elas eram, que ramo da
+árvore genealógica elas estavam, e assim por diante. Foi o que deixou Stuart Sutherland
+realmente impressionado com isso, e eu acho que foi por isso que o artigo foi aceito. —Incorporando as palavras muito cedo,
+e você já está vendo recursos aprendidos de significados semânticos
+emergir do algoritmo de treinamento. — Sim, então do ponto de vista de um psicólogo,
+o que foi interessante foi unificar duas vertentes completamente diferentes
+de ideias sobre como era o conhecimento. Então, havia a velha visão do psicólogo
+que um conceito era um grande conjunto de recursos, e
+havia muitas evidências para isso. E depois havia a visão da AI do tempo,
+que é uma visão estruturalista formal. Que era a que um conceito é
+como ele se relaciona com outros conceitos. E para capturar um conceito, você teria que
+fazer algo como estrutura gráfica ou talvez uma rede semântica. E o que esse exemplo da retro-propagação
+mostrou foi que você poderia dar a informação que entraria na estrutura gráfica
+ou, neste caso, uma árvore genealógica. E isso poderia converter a informação em
+características de tal modo que ela poderia, então, usar as características para auferir novas
+informações consistentes, isto é, generalizar. Mas o ponto crucial era esse vai e vem
+entre a representação gráfica ou a representação estruturada tipo árvore,
+da árvore genealógica, e a representação de pessoas
+em grandes vetores de características. E, na verdade, a partir da representação
+tipo gráfico você pode obter características em vetores, E a partir dos vetores das características, você poderia
+obter mais da representação tipo gráfico. —Então isso é 1986? No início dos anos 90, [Yoshua] Bengio mostrou que
+realmente podia obter dados reais, você poderia obter um texto em Inglês e
+aplicar as mesmas técnicas lá, e obter incorporações para palavras reais de textos
+em Inglês, e que impressionaram muito as pessoas. — Recentemente eu acho que temos falado
+muito sobre computadores rápidos como as UPGs
+ –Unidades de Processamento Gráfico– e supercomputadores que estão
+conduzindo a aprendizagem profunda. Eu não percebi que voltar entre 1986
+e o início dos anos 90, soasse que entre você e Bengio já havia
+o início dessa tendência. — Sim, foi um avanço imenso. Em 1986 eu estava usando uma máquina LISP que
+era menos que o décimo de um mega flop. E cerca de 1993 ou por perto,
+as pessoas estavam vendo dez mega flops. — Entendo.
+— Então havia um fator de 100, e esse foi o ponto
+em que foi fácil usar, porque os computadores estavam
+apenas ficando mais rápidos. — Nas últimas décadas,
+você inventou tantas peças de redes neurais e
+aprendizagem profunda. Na verdade estou curioso,
+de todas as coisas que você inventou, de quais delas você ainda
+está mais animado hoje? — Então, eu acho que o mais bonito
+é o trabalho que fiz com Terry Sejnowski nas máquinas Boltzmann. Nós descobrimos que havia este algoritmo de aprendizagem muito simples
+que se aplicava a grandes redes de grande densidade conectadas onde você
+poderia apenas ver alguns dos nós. Então, ele aprenderia representações escondidas
+e era uma algoritmo muito simples. E isso pareceu como aquele tipo de coisa que você
+deveria ser capaz de obter em uma cérebro pois cada sinapse apenas precisava saber
+sobre o comportamento dos dois neurônios aos quais ele estava diretamente conectado. E a informação que fora
+propagada era a mesma. Houve duas fases diferentes,
+as quais chamamos acordar e dormir. Mas nas duas fases diferentes, você está propagando informação
+da mesma maneira. Onde há algo como retro-propagação,
+ há uma passagem para a frente e uma passagem para trás, e
+eles funcionam de forma diferente. Eles estão mandando tipos
+diferentes de sinais. Então eu acho que isso é
+a coisa mais bonita. E por muitos anos pareceu
+simplesmente como uma curiosidade, pois parecia como
+se fosse lento demais. Mas então, mais tarde, eu me livrei um
+pouco da beleza, e isso começou a me deixar estabelecer e usar apenas uma iteração,
+em uma rede de alguma forma mais simples. E isso resultou nas máquinas
+de Boltzmann restritas, que na verdade funcionaram
+efetivamente na prática. Bom, na competição Netflix,
+por exemplo, as máquinas de Boltzmann restritas foram
+um dos ingredientes da entrada vencedora. — Na verdade, muito do ressurgimento
+recente da rede neural e da aprendizagem profunda, começando em 2007,
+foi a máquina de Boltzmann restrita, e o trabalho da máquina não restrita de Boltzmann
+que você e seu laboratório fizeram. — Sim, então essa é outra das peças
+do trabalho com o qual estou muito feliz, a ideia de que você poderia treinar sua
+máquina de Boltzmann restrita, que apenas tinha uma camada de características escondidas e
+que você podia aprender uma camada de características. E, depois, você poderia tratar essas
+características como dados e fazer de novo e, então, você poderia tratar os novas características
+que você aprendeu como dados e fazer de novo, tantas vezes quantas você quisesse. Isso era legal, funcionou na prática. E, então, Uy Tay percebeu que a coisa
+toda poderia ser tratada como um único modelo, mas foi um tipo de modelo estranho. Foi um modelo onde, no topo, que você tinha
+uma máquina de Boltzmann restrita, mas abaixo dela você tinha uma rede de crenças
+sigmoide que era algo que foi inventada muitos anos antes. Então, era um modelo dirigido e o que conseguimos criar treinando
+essas máquinas de Boltzmann restritas foi uma maneira eficiente de fazer
+deduções nas redes de crenças sigmoide. Então, em torno desse tempo, havia pessoas fazendo redes neurais,
+que poderiam usar redes densamente conectadas, mas não tiveram nenhuma forma boa de fazer
+impressões probabilísticas nelas. E você tinha pessoas fazendo modelos gráficos,
+ao contrário dos meus filhos, que poderiam deduzir devidamente, mas
+apenas em redes levemente conectadas. E o que conseguimos mostrar foi
+a maneira de aprender essas redes de crença profundas, de modo que há formas
+aproximadas de dedução que são muito rápidas, são eficientes em uma única passagem adiante
+e isso foi um resultado muito bonito. E você poderia garantir que cada vez que
+você aprende aquela camada extra de características, houve um ligação, cada vez que você aprendeu
+uma nova camada, você conseguiu uma nova ligação, e a nova ligação sempre foi
+melhor que a velha ligação. — As ligações variacionais,
+mostradas conforme você adiciona camadas. Sim, eu me lembro desse vídeo. — Então, essa foi a segunda coisa
+sobre a qual eu estava realmente animado. E eu acho que a terceira coisa foi o trabalho que
+fiz com os métodos variacionais. Acontece que as pessoas em estatística
+fizeram um trabalho semelhante anteriormente, mas não sabíamos disso. Então, conseguimos fazer o EM ‑Expectation-Maximization‑ funcionar muito melhor, mostrando
+que você não precisava fazer um passo E perfeito. Você podia fazer um passo E aproximado. E EM era um grande algoritmo em estatística. E nós mostramos uma grande
+generalização dele. E, em particular, em 1993,
+eu acho, com Van Camp, eu escrevi um artigo, acho que
+ o primeiro artigo variacional de Bayes, onde mostramos que você poderia de fato
+fazer uma versão do aprendizado Bayesiano que era de longe mais tratável,
+por aproximar a verdade posterior com a adivinhação. E você poderia fazer isso na rede neural. E eu estava muito animado por ela. — Entendi.
+Uau, certo. Sim, eu acho que eu me lembro
+de todos esses artigos. Neil e Hinton[...], o artigo sobre [Modelo] Proximal
+[de Redes Profundas] de Ian [Goodfellow] [...],
+passei muitas horas lendo isso. E eu acho que alguns dos
+algoritmos que você usa hoje, ou algum dos algoritmos que muitas pessoas
+usam quase todo dia, são o que, coisas do tipo desligamentos, ou eu acho que 
+as ativações ReLU vieram do seu grupo? — Sim e não. Então outras pessoas pensaram
+sobre as unidades lineares retificadas, ReLU. E nós, na verdade, fizemos algum trabalho com
+as máquinas de Boltzmann restritas mostrando que a ReLU era quase que exatamente equivalente
+a uma pilha inteira de unidades logísticas. E isso é uma das coisas
+que ajudou as ReLUs a se popularizarem. — Eu fiquei realmente curioso com isso. O artigo sobre ReLU teve muita
+matemática mostrando que esta função pode ser aproximada com essa
+fórmula realmente complicada. Você fez aquela matemática de modo que seu artigo
+fosse aceito numa conferência acadêmica, ou toda aquela matemática realmente influenciou
+o desenvolvimento do limite do 0 e do X? — Esse foi um dos casos onde,
+na verdade, a matemática foi importante para o desenvolvimento da ideia. Então, eu sabia sobre as unidades lineares retificadas
+obviamente, e eu sabia sobre das unidades logísticas. E por causa do trabalho nas
+máquinas de Boltzmann, todo o trabalho básico foi
+feito usando unidades logísticas. Então, a questão era: o algoritmo de aprendizagem poderia funcionar
+em algo com unidades lineares retificadas? E mostrar as unidades lineares retificadas
+foi quase exatamente o equivalente a uma pilha de unidades logísticas, mostramos que
+toda a matemática passaria. Entendo. E isso forneceu a inspiração para
+hoje, dezenas de pessoas usam ReLU e ela funciona sem...-
+—Sim. — ... sem necessariamente precisar
+compreender a mesma motivação. — Sim, uma das coisas que notei
+mais tarde, quando fui para o Google, acho que em 2014, eu dei uma palestra
+no Google sobre usar ReLUs e iniciei com a matriz identidade, porque a parte legal das ReLUs é
+que se você continuar replicando as camadas escondidas e
+você iniciar com a identidade, ela apenas copia o padrão
+na camada abaixo. Então, eu estava mostrando que você pode treinar
+redes com 300 camadas escondidas e você poderia treiná-las de modo eficiente
+se você inicializar com a identidade delas. Mas eu não persegui mais isso e
+realmente me arrependo de não ter perseguido. Publicamos um artigo mostrando
+que você poderia inicializar [...] mostrando que você podia iniciar
+recorrências como essa. Mas eu deveria ter perseguido mais isso
+porque, mais tarde, nessas redes residuais isso é realmente aquele tipo de coisa. — Ao longo dos anos, eu ouvi
+você falar muito sobre o cérebro. Eu ouvi você falar sobre a relação
+ser a retro-propagação e o cérebro. Quais são seus pensamentos atuais sobre isso? — Na verdade, estou trabalhando em
+um artigo sobre isso agora mesmo. Eu acho que meu pensamento principal é este: se ocorrer de a retro-propagação ser de fato
+um bom algoritmo para se fazer aprendizado, então, com certeza, a evolução poderia ter
+descoberto como melhorá-la. Quero dizer, você tem células que poderiam
+se transformar em globos oculares ou dentes. Agora, se as células podem fazer isso, com certeza
+elas podem melhorar a retro-propagação e, presumidamente, esta enorme
+pressão seletiva para tanto. Então, eu penso que a ideia neuro-cientista
+dela não parecer ser plausível, é simplesmente tola. Deve haver alguma implementação
+sutil disso. E penso que o cérebro provavelmente tem
+algo que pode não ser exatamente a retro-propagação, mas
+está bem próximo disso. E ao longo dos anos, eu sugeri
+inúmeras ideias sobre como isso poderia funcionar. Então, em 1987, trabalhando com Jay McClelland, Eu sugeri o
+algoritmo de recirculação, onde a ideia é você mandar
+informação ao redor de um circuito repetitivo. E você tenta fazer isso de modo que as coisas não mudem conforme
+a informação percorre este circuito repetidas vezes. A versão mais simples seria você ter
+unidades de entrada e unidades escondidas, e você mandar informação da entrada para
+a escondida e depois de volta para a da entrada, e depois de volta para a escondida e
+depois de volta para a entrada e assim por diante. E o que você quer,
+você quer treinar um codificador automático, mas você quer treiná-lo sem
+ter que fazer retro-propagação, então, você apenas o treina e se livra
+de todas as variações nas atividades. A ideia é que a regra da aprendizagem para sinapse seja... Mude a proporção
+de peso para a entrada pré-sináptica e em proporção à taxa de
+mudança na entrada pós sináptica. Mas, na recirculação, você está tentando
+fazer a entrada pós sináptica, você está tentando fazer o velho
+ser bom e o novo ser ruim, então, você está mudando naquela direção. Inventamos este algoritmo antes de
+os neurocientistas sugerirem o "Spike-timing-dependent plasticity" - STDP
+(plasticidade sináptica dependente do tempo
+de disparos entre os neurônios). O "STDP" é, na verdade,
+o mesmo algoritmo, mas do contrário, em que o novo é algo bom e
+o velho é algo ruim, na regra da aprendizagem. Então, você está mudando as proporções
+de peso para a atividade pré-sináptica multiplicada pela nova atividade pré-sináptica
+menos a velha. Mais tarde, eu percebi em 2007,
+que se você pegar uma pilha de máquinas Boltzmann Restritas e
+você se treinar nelas, depois de treinado, você, então, teria
+exatamente as condições certas para implementar a retro-propagação
+reconstruir. Se você olhasse para a era da reconstrução,
+que a era da reconstrução deveria, na verdade, lhe dizer a derivada
+da performance discriminativa. E na primeira oficina de Aprendizagem profunda,
+em 2007, eu palestrei sobre isso. Isso foi quase que completamente ignorado. Mais tarde, Yoshua Bengio,
+assumiu a ideia e isso, na verdade, funcionou
+mais que a oficina. E eu mesmo tenho
+trabalhado mais nisso. E eu acho que esta ideia de que se você tiver
+uma pilha de codificadores automáticos, então você pode obter as derivadas enviando atividades
+para trás e localizar reconstituintes, é uma ideia realmente interessante e
+bem pode ser como o cérebro funciona. — Um outro tópico que eu sei que você segue
+e que eu ouvi que você ainda está trabalhando nele, é como lidar com 
+múltiplas escalas de tempo na aprendizagem profunda? Então, você pode compartilhar seus 
+pensamentos sobre isso? — Sim, então, na verdade, isso volta aos
+meus primeiros anos de aluno de graduação. A primeira palestra que eu dei foi sobre
+usar o que eu chamava de pesos rápidos. Pesos que se adaptam rapidamente,
+mas caem rapidamente. E, portanto, pode conter memória de curto prazo. E eu mostrei em um sistema muito
+simples em 1973 que você pode fazer recursão verdadeira com esses pesos. E o que eu quero dizer por recursão verdadeira
+é que os neurônios que são usados para representar as coisas são reusados para
+representar coisas no núcleo recursivo. E os pesos que são usados para representar o conhecimento se tornam re-usados
+no núcleo recursivo. E isso leva a questão de
+quando você faz uso do núcleo recursivo, como você se lembra do que
+é que você estava fazendo? Onde está essa memória? Porque você usou os neurônios para
+o núcleo recursivo. E a resposta é que você pode colocar essa
+memória em pesos rápidos e você pode recuperar os estados de atividade
+dos neurônios a partir desses pesos rápidos. E, mais recentemente,
+trabalhando com Jimmy Ba, na verdade, escrevemos um artigo sobre NIPS, Sist. de Proc.
+de Informação Neural, usando pesos rápidos para recursão como essa. Entendo. — Então isso foi uma grande lacuna. O primeiro modelo foi
+"não publicado" em 1973 e então o modelo de Jimmy Ba foi em 2015,
+eu acho, ou 2016. Então é cerca de 40 anos mais tarde. — E, eu acho que...
+Uma das ideias que eu gostaria que você falasse agora, ao longo de cinco anos, eu acho que são as cápsulas,
+onde você está com elas? — Ok, então estou de volta ao
+estado em que costumava estar. Que é eu ter essa ideia e realmente
+acreditar nela e ninguém mais acreditar. E eu submeto artigos sobre ela e
+eles são rejeitados. Mas eu realmente acredito nessa ideia e
+vou continuar impelindo-a. Então ela depende de, ah...
+Há umas duas ideias chave. Uma é sobre como você representa
+entidades multidimensionais, e você pode representar entidades multidimensionais
+por apenas algumas atividades ocultas. Contanto que você saiba
+que há qualquer uma delas. Então, a ideia é em cada região da imagem,
+você assumirá que há no máximo um dos tipos particulares de característica. E, então, você usará uma pilha de neurônios,
+e suas atividades representarão
+os diferentes aspectos daquela característica, como naquela região, exatamente
+o que são as coordenadas x e y? Em que orientação está? Quão rápido ela está se movendo? De que cor é? Quão brilhosa é? E coisas assim. Então, você pode usar uma pilha de neurônios
+para representar diferentes dimensões da a mesma coisa. Desde que haja apenas um deles. Essa é uma maneira muito diferente
+de fazer a representação a partir do que nós, normalmente,
+estamos acostumados nas redes neurais. Normalmente, nas redes neurais
+apenas temos uma grande camada, e todas as unidades saem e
+fazem o que quer que façam. Mas você não pensa em agrupá-las
+em pequenos grupos que representam diferentes coordenadas da mesma coisa. Então eu acho que devemos vencer
+essa estrutura extra. E, depois, a outra ideia
+que vem com isso. — Então isso quer dizer que na
+representação distribuída, você dividiu, particionou,
+ a representação. — Sim. —Em diferentes subconjuntos. — Sim. — Para representar, certo, ao invés de... — Eu chamo cada uma dessas estruturas de cápsula. Entendo. — E a idea é que uma cápsula seja capaz de
+representar uma instância de uma característica, mas apenas uma. E isso representa todas as propriedades
+diferentes daquela característica. É uma característica que tem
+um monte de propriedades ao invés de um neurônio normal e uma rede de neurônios,
+que tem apenas uma escala de propriedade. — Sim, entendo sim. — E, então, o que você pode fazer se conseguir obter
+isso é: você pode fazer algo que redes neurais normais sejam muito ruins, o que quer dizer que você
+pode fazer o que chamo de rotina de concordância. Então, vamos supor que você
+queira fazer segmentação e você tem algo que pode ser uma boca
+e algo a mais que pode ser um nariz. E você quer saber se você deveria
+colocá-los junto e fazer uma coisa. Então, a ideia deveria ter uma cápsula para uma boca que tem
+os parâmetros da boca. E você tem uma cápsula para um nariz
+que tem os parâmetros do nariz. E depois, para decifrar se
+colocá-los juntos ou não, você obtém cada um deles para votar
+quais deveriam ser os parâmetros para um rosto. Agora, se a boca e o nariz estão
+na relação espacial certa, eles concordarão. Quando você obtém duas capturas em nível um
+votando pelo mesmo conjunto de parâmetros no próximo nível,
+você pode supor que eles estão provavelmente certos, porque a concordância em um espaço
+dimensional alto é muito improvável. E essa é uma maneira bem diferente
+de fazer filtragem, do que o que usamos normalmente nas redes neurais. Então, eu acho que esta rotina por concordância
+será crucial para obter redes neurais para generalizar
+muito melhor a partir de dados limitados. Eu penso que será muito bom
+conseguir as mudanças no ponto de vista, muito bom para fazermos segmentação. E eu espero que seja muito mais
+eficiente estatisticamente do que o que atualmente fazemos nas redes neurais. Que é: se você quer lidar
+com mudanças no ponto de vista, você apenas dá um monte de mudanças
+no ponto de vista e treinamento em todas elas. — Sei, certo, então ao invés de propagação
+para frente na aprendizagem supervisionada, você pode aprender isso de uma maneira diferente. — Bem, eu ainda planejo fazer isso
+com aprendizagem supervisionada, mas as mecânicas do passo 
+para frente são muito diferentes. Não é simplesmente uma propagação para frente
+ no sentido que há pequenos trechos de iteração acontecendo, onde você pensa que encontrou
+uma boca e você pensa que encontrou um nariz. E usar pequenos pedaços
+de iteração para decidir se eles deveriam realmente
+se unir para formar um rosto. E você pode fazer retro-propagações
+a partir dessa iteração. Você pode tentar e
+fazer isso um pouco de forma discriminativa, e estamos trabalhando nisso
+agora no meu grupo em Toronto. Agora eu tenho uma pequena equipe Google
+em Toronto, parte da equipe do cérebro. É por isso que estou animado agora. — Entendi, ótimo, sim. Estou esperando esse artigo
+quando ele sair. — Sim, se ele sair [risos]. — Você trabalhou em aprendizagem profunda
+por muitas décadas. Na verdade estou bastante ansioso,
+como era seu pensamento, sua compreensão de AI
+mudou ao longo desses anos? — Então, acho que muita da minha história
+intelectual tem sido em torno da propagação retroativa, e como usar propagação retroativa,
+como fazer uso de seu poder. Para começar, em meados dos anos 80,
+a estávamos usando para aprendizagem discriminativa e
+ela estava funcionando bem. Então, eu decidi, no início dos anos 90, que, na verdade, a maioria da aprendizagem humana
+seria aprendizagem não-supervisionada. E fiquei muito mais interessado
+em aprendizagem não-supervisionada, e é quando eu trabalhei em coisas
+como o algoritmo Wegstein. — E seus comentários naquela época
+realmente influenciaram meu pensamento também. Quando eu estava liderando o 'Google Brain',
+nosso primeiro projeto passou muito tempo trabalhando em aprendizagem não-supervisionada
+por causa da sua influência. — Certo, e eu posso ter lhe induzido ao erro. Porque, a longo prazo, eu penso que a aprendizagem não-supervisionada
+será absolutamente crucial. Mas você tem que,
+meio que, enfrentar a realidade. E o que funcionou ao longo dos últimos dez
+anos ou mais, foi a aprendizagem supervisionada. Treinamento discriminativo,
+onde você tem rótulos, ou você está tentando prever a próxima coisa
+nas séries, então isso atua como o rótulo. E isso funcionou incrivelmente bem. Eu ainda acredito que a aprendizagem não-supervisionada
+será crucial, e as coisas funcionarão incrivelmente muito melhor do que elas funcionam
+agora quando conseguirmos que funcione corretamente, mas ainda não conseguimos. — Sim, eu acho que muitos dos veteranos
+em aprendizagem profunda, incluindo eu mesmo,
+continuamos muito animados em relação a isso. É que simplesmente nenhum de nós
+ainda teve uma ideia de como fazer isso. Talvez você tenha, eu não sinto que eu tenho. — O código de alteração variacional é onde
+você usa os truques de reparametrização. Pareceu-me como uma boa ideia. E as redes contraditórias generativas também
+me pareceram ser uma ideia muito legal. Eu acho que redes
+contraditórias generativas são uma das maiores ideias na
+aprendizagem profunda que é realmente nova. Espero que eu possa fazer
+cápsulas de igual sucesso, mas agora as redes contraditórias generativas,
+eu acho, têm sido um grande avanço. — O que aconteceu com a dispersão e
+as características lentas, que eram dois dos outros princípios para
+a construção de modelos não supervisionados? Nunca fui tão bom em
+dispersão como você foi, amigo. Mas características lentas, eu acho, são um erro. Você não deveria dizer lentas. A ideia básica está certa, mas você não deveria
+buscar por características que não mudam, você não deveria buscar
+características que mudam de formas previsíveis. Então, aqui está um tipo de princípio básico
+sobre como você modela qualquer coisa. Você toma as suas medidas,
+e você está aplicando transformações não-lineares para suas
+medidas até que você consiga uma representação como um vetor estado
+na qual de fato seja linear. Então, você simplesmente não finge que é linear
+como você faz com filtros comuns. Mas você de fato encontra uma transformação
+partindo das observáveis para as variáveis subjacentes
+onde as operações lineares, como multiplicadores de matriz nas variáveis
+subjacentes, farão o trabalho. Então, por exemplo,
+se você quiser mudar pontos de vistas, se você quiser produzir a imagem
+a partir de outro ponto de vista, o que você deveria fazer é ir partir
+dos pixels para as coordenadas. E, uma vez que você consegue
+a representação da coordenada, que é um tipo de coisa que
+espero que as cápsulas descubram, você pode, então, fazer um multiplicador de matriz
+para mudar o ponto de vista e, então, você pode mapeá-lo de volta para os pixels. — Certo, é por isso que você fez tudo isso. — Eu acho que é um princípio
+muito geral. — É por isso que você fez todo esse
+trabalho na síntese facial, certo? Onde você pega um rosto e o comprime
+a um vetor de dimensões bem pequenas e, então, você pode passear por isso e
+voltar para outros rostos. — Eu tinha um aluno que trabalhou nisso,
+eu não trabalhei muito nisso eu mesmo. — Agora, tenho certeza que você ainda
+é questionado todo o tempo, se alguém quer entrar na
+aprendizagem profunda, o que eles deveriam fazer? Então, que tipo de conselho você daria? Tenho certeza que você tem dado muitos conselhos
+para pessoas em cada uma das configurações, mas para o público global de
+pessoas assistindo a este vídeo. Que conselho você teria para
+eles entrarem na aprendizagem profunda? — Ok, então, meu conselho é leia a
+literatura, mas não muito sobre ela. Este conselho eu obtive do meu orientador,
+que é muito diferente do que a maioria das pessoas dizem. A maioria das pessoas deveriam gastar vários
+anos lendo a literatura e, então, você deveria começar
+trabalhando nas suas próprias ideias. E isso pode ser verdade para alguns pesquisadores,
+mas para pesquisadores criativos, eu acho que o que você quer é ler
+um pouco de literatura e notar algo que você pensa que
+todo mundo está fazendo errado. Eu sou contrário nesse sentido. Você olha para aquilo e
+aquilo apenas não parece certo. E, então, descobre como fazê-lo certo. E, depois, quando as pessoas lhe dize
+"isso não é bom", apenas mantenha sua posição. E eu tenho um princípio muito bom para
+ajudar as pessoas a manterem suas posições, ainda que suas intuições
+sejam boas ou não. Se suas intuições são boas,
+você deveria segui-las e você será, eventualmente, bem sucedido. Se suas intuições não são boas,
+não importa o que você faz. — Entendo [Risos]. Conselho inspirador, posso segui-lo também. — Você também deve
+confiar nas suas intuições. Não faz sentido não confiar nelas. — Entendo, sim. Eu geralmente aconselho as pessoas a não apenas ler,
+mas replicar artigos publicados. E talvez isso coloque um limite
+natural em quantos você pode fazer, porque replicar resultados
+consome muito tempo. Sim, é verdade que quando você está
+tentando replicar uma publicação você descobre todos os pequenos
+truques necessários para fazê-lo funcionar. O outro conselho que tenho é
+nunca pare de programar. Porque se você dá a um aluno
+algo para fazer, se eles estiverem trapaceando, eles voltarão e dirão que não funcionou. E a razão pela qual não funcionou deveria
+ser alguma decisão pequena que eles tomaram, que eles não perceberam que era crucial. E se você der a um bom aluno,
+por exemplo, você pode dar a ele qualquer coisa e
+ele voltará e dirá que funcionou. Eu me lembro de fazer isso uma vez,
+e eu disse, mas espere um minuto. Desde a última vez que falamos, eu percebi que possivelmente não funcionaria
+pela seguinte razão; e disse, sim, eu percebi isso de imediato,
+então eu suponho que você não quis dizer isso. — [Risos] Entendi, sim,
+isso é ótimo, sim. Vamos ver, qualquer outro conselho para pessoas que queiram entrar na AI e
+aprendizagem profunda? — Penso que, basicamente, leia o suficiente,
+para começar a desenvolver intuições. E, depois, confie nas suas intuições e
+as siga, mas não fique tão preocupado se todo
+mundo disser que não faz sentido. — E eu acho que não há como
+saber se outros estão certos ou errados quando eles dizem que não faz sentido, mas você
+apenas tem que segui-la, e então descobrir. — Certo, mas há uma coisa, que
+é, se você pensa que é de fato uma boa ideia, e outras pessoas lhe dizem
+que não faz nenhum sentido, então você está
+realmente em algo. Então, um exemplo disso é quando Richard Zemel e eu
+primeiro surgimos com os métodos variacionais. Eu enviei e-mails explicando isso para um ex-aluno
+meu chamado Peter Brown, que sabia muito sobre isso. E ele mostrou isso às pessoas
+que trabalhavam com ele, chamados de os irmãos Pietro,
+eles eram gêmeos, eu acho. E ele, então, me disse mais tarde o que eles disseram,
+e eles disseram ou esse cara está bêbado,
+ou ele ´´e simplesmente imbecil, então eles realmente,
+de fato pensaram que não fazia sentido. Agora, poderia ter sido parcialmente
+como eu expliquei, porque eu expliquei isso em termos intuitivos. Mas quando você tem o que você
+pensa que é uma boa ideia e outras pessoas pensam que é completamente lixo,
+isso é sinal de uma ideia realmente boa. — Entendi, e tópicos de pesquisa, novos alunos universitários deveriam
+trabalhar em cápsulas e talvez aprendizagem não supervisionada, alguma outra? — Um bom conselho para
+novos alunos universitários é: veja se você pode encontrar um orientador
+que tenha crenças semelhantes as suas. Porque se você trabalha em coisas que
+seu orientador se ligue profundamente, você terá muitos bons conselhos e
+tempo do seu orientador. Se você trabalha em coisa que seu
+orientador não se interessa, tudo o que você terá será algum conselho,
+mas não será quase tão útil. — Entendo, e
+por último, um conselho para os aprendizes. Como você se sente em relação às pessoas
+ que estão iniciando um programa de PhD? Versus se juntar a uma grande empresa,
+ou a um excelente grupo de pesquisa? — Sim, é complicado,
+eu acho que agora, o que está acontecendo é que não há suficiente acadêmicos treinados na
+aprendizagem profunda para ensinar todas as pessoas que precisamos que aprendam isso nas universidades. Só não existe o corpo
+docente amplo lá, mas acho que isso será temporário. Eu acho que o que aconteceu é que
+a maioria dos departamentos tem sido bem lenta para entender o tipo de
+revolução que está acontecendo. Eu meio que concordo com você, que não é
+uma segunda revolução industrial, mas é algo quase nessa escala. E há uma enorme mudança acontecendo, basicamente porque nossa relação
+com computadores tem mudado. Ao invés de programá-los,
+agora nós os mostramos e eles descobrem. É uma maneira completamente
+diferente de usar computadores, e departamentos de computação científica são construídos
+ao redor de ideias de programação de computadores e eles não entendem esse tipo de, essa mostra de que computadores
+serão tão grandes quanto programação de computadores. Exceto se eles compreenderem que metade das
+pessoas no departamento deveriam ser pessoas que conseguem que computadores façam
+coisas ao mostrá-las. Então, meu departamento se recusa a reconhecer
+que deva ter muitas e muitas pessoas fazendo isso. Elas pensam que eles têm umas duas,
+talvez um pouco mais, mas não tantas. E nesta situação, você tem que se lembrar das grandes empresas
+que proporcionam muito treinamento. Então, a Google agora está treinando as pessoas,
+chamamos de residência de cérebros. Eu suspeito que as universidades
+eventualmente irão alcançar. — Entendi, certo, de fato, talvez muitos
+alunos tenham descoberto isso. Dos muitos dos 50 melhores programas de PhD,
+mais da metade dos candidatos estão, na verdade, querendo trabalhar mostrando,
+ao invés de programando. Sim, legal, sim, de fato,
+dar crédito onde é devido, assim como deeplearning.ai está criando
+uma especialização em aprendizagem profunda. Até onde eu sei, o primeiro CMOA ‑[Curso Massivo Online Aberto]‑ deles
+em aprendizagem profunda foi, na verdade o seu no Coursera, em 2012, também. E, de alguma forma estranha, foi quando você publicou pela primeira vez o algoritmo
+RMS Prop, que também é um rascunho. — Certo, sim, bem, como você sabe, isso aconteceu
+porque você me convidou para fazer o CMOA. E, então, quando eu estava bem duvidoso em
+fazer, você continuou me incentivando a fazer, então, isso foi muito bom que eu fiz,
+embora tenha dado muito trabalho. — Sim, e obrigado por fazer isso,
+eu me lembro de você reclamando comigo do quão trabalhoso foi. E você ficando fora até tarde da noite,
+mas eu acho que muito alunos foram beneficiados pelo seu primeiro CMOA, então,
+sou muito grato a você por isso. — Isso é bom, sim,
+— Sim, ao longo dos anos, tenho visto você envolvido em debates
+sobre paradigmas para AI, e se tem havido uma mudança de paradigmas para
+AI. Quais são seus,
+você pode dividir seus pensamentos sobre isso? — Sim, alegremente, então, eu acho que nos
+primeiros dias, de volta aos anos 50, pessoas como von Neumann e Turing
+não acreditavam em AI simbólica, eles estavam muito mais inspirados pelo cérebro. Infelizmente, ambos morreram muito
+jovens, e a voz deles não foi ouvida. E nos primeiros dias da AI, as pessoas estavam completamente convencidas de que
+as representações que você precisa para a inteligência eram expressões
+simbólicas de algum tipo. Um tipo de lógica limpa, onde você poderia
+fazer coisas não-monotônicas e não muito lógicas, mas algo parecido com a lógica, e que
+a essência da inteligência seja o raciocínio. O que aconteceu agora é que
+há uma visão completamente diferente, a de que um pensamento é apenas
+um grande vetor de atividade neural, então, contraste isso com a de um pensamento
+ser uma expressão simbólica. E eu acho que as pessoas que pensam que
+pensamentos são apenas expressões simbólicas cometem um erro enorme. O que entra é uma sequência de palavras, e
+o que sai é uma sequência de palavras. E por causa disso, sequências de palavras
+são a maneira óbvia de representar as coisas. Então, eles pensaram que o que deveria estar
+no meio era uma sequência de palavras, ou algo como uma sequência de palavras. E eu acho que o que está no meio é
+não se parece nada com uma sequência de palavras. Eu acho que a ideia de que pensamentos devem ser,
+e em algumas linguagens são, tão bobos quanto a ideia de que compreender
+o layout de uma cena espacial deve ser em pixels, pixels entram. E se pudéssemos, se tivéssemos uma impressora de
+matriz de pontos anexada a nós, então os pixels sairiam, mas
+o que está no meio não são pixels. E, então, penso que os pensamentos são apenas
+esses ótimos vetores grandes, e que os vetores grandes têm poderes causais. Eles causam outros vetores grandes, e isso é completamente diferente da visão padrão de AI
+que os pensamentos são expressões simbólicas. — Entendi, bom, eu acho que a AI está certamente chegando
+a este novo ponto de vista desses dias. — Algo do tipo, eu acho que muitas pessoas em AI ainda pensam
+que pensamentos têm que ser expressões simbólicas. — Muito obrigado por
+conceder esta entrevista. Foi fascinante ouvir como a aprendizagem
+profunda tem evoluído ao longo dos anos, assim como você ainda está ajudando a direcioná-la
+para o futuro, então, obrigado Jeff. — Bem, obrigado por me dar essa oportunidade.
+[Tradução: Simone Tateishi | Revião: Carlos Lage.] >> Obrigado.

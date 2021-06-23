@@ -1,0 +1,254 @@
+Merci beaucoup, Pieter, de me rejoindre aujourd'hui. Je pense que beaucoup de gens 
+vous connaissent en tant que chercheur en apprentissage automatique, 
+apprentissage profond et robotique. Je voudrais que les gens entendent
+ un peu de votre histoire. Comment vous êtes vous retrouvé 
+à faire le travail que vous faites ? C’est une bonne question et effectivement
+ si vous me l'aviez posée à 14 ans ce que j'aspirais à faire, ça n'aurait probablement pas été cela. En effet, à l’époque, je voulais être un joueur 
+de basket-ball professionnel. Je ne pense pas que
+ j’aurais pu y parvenir. Je pense que l’apprentissage
+ automatique vous a réussi mieux que le basketball. Oui, ça n’a pas fonctionné. J'avais beaucoup de plaisir à jouer au
+ basket, mais ça n’a pas fonctionné pour en faire une carrière. Donc, ce que j’ai vraiment aimé à l’école, 
+c’était la physique et les mathématiques. Et donc, de là, il semblait assez naturel 
+d'étudier l’ingénierie qui applique la physique et les 
+mathématiques dans le monde réel. Et puis, en fait, après un second cycle
+ en génie électrique, je ne savais pas tellement 
+quoi faire parce que, littéralement, tout en ingénierie
+ me semblait intéressant. Il semble intéressant de comprendre
+ comment tout fonctionne. Essayer de construire quelque chose
+ est intéressant. Et dans un certain sens, l'intelligence artificielle l'a emporté
+ parce qu’il semblait qu'elle pourrait aider plus ou moins toutes 
+les disciplines d'une façon ou d'une autre. Et aussi, elle semblait en quelque sorte
+ un peu plus au cœur de tout. Vous pensez à comment 
+une machine peut penser, c’est peut-être plus au cœur 
+de tout le reste que choisir 
+n’importe quelle discipline spécifique. >> J’ai dit que l'IA est
+ la nouvelle électricité, et il semble qu'à 14 ans, vous disiez plus ou moins la même chose. Ces dernières années, vous avez fait
+ beaucoup de travail en apprentissage 
+par renforcement profond. Que se passe-t-il ? Pourquoi
+ l'apprentissage par renforcement
+ profond décolle-t-il tout à coup ? Avant de travailler en apprentissage 
+par renforcement profond, J’ai beaucoup travaillé dans 
+l'apprentissage par renforcement; en fait avec vous et Durant
+ à Stanford, bien sûr. Et donc, nous avons travaillé sur 
+le vol d'hélicoptère autonome, puis plus tard à Berkeley avec certains 
+de mes étudiants qui ont travaillé pour apprendre à un robot à plier le linge. Et ce qui a caractérisé ce travail
+ est une combinaison d’apprentissage, qui a permis des choses qui
+ ne seraient pas possible sans apprentissage, mais aussi beaucoup d'expertise du domaine,
+ combiné avec l’apprentissage pour
+ que cela fonctionne. Et c’était très intéressant parce que vous aviez besoin
+ d’expertise dans le domaine, et c’était amusant de l’acquérir
+ mais, en même temps, ça prenait beaucoup de temps. 
+Pour chaque nouvelle application, vous aviez besoin d’expertise du domaine et 
+des compétences d’apprentissage machine. Et pour moi c’était en 2012 avec la percée des résultats de ImageNet 
+du groupe de Geoff Hinton à Toronto, AlexNet qui montrait que, 
+tout d’un coup, l’apprentissage supervisé pouvait se faire avec beaucoup moins de 
+connaissances dans le domaine d'application. Et il y avait très peu d'ingénierie 
+de la vision dans l'AlexNet. ça m’a fait penser que nous devions
+ vraiment revoir l’apprentissage par renforcement sous le même genre 
+de point de vue et voir si nous pouvions faire fonctionner la version profonde 
+de l'apprentissage par renforcement et faire des choses aussi intéressantes
+ qu'avec l’apprentissage supervisé. On dirait que vous avez vu plus tôt que la plupart des gens le potentiel de
+ l’apprentissage par renforcement profond. Alors maintenant, en regardant vers l’avenir, que voyez-vous ensuite ? Quelles sont vos prédictions pour les prochaines évolutions de l'apprentissage
+ par renforcement profond ? Je pense que ce qui est intéressant
+ dans l’apprentissage par renforcement 
+profond est que, dans un certain sens, il y a beaucoup plus 
+de questions qu’en apprentissage supervisé. En apprentissage supervisé,
+ il s’agit d’apprendre une correspondance
+ entre entrées et sorties. En apprentissage par renforcement, il y a la 
+notion de : mais d'où viennent les données ? C'est le problème de l’exploration. Lorsque vous avez des données, comment 
+faire l'affectation du crédit ? Comment comprendre quelles actions 
+que vous avez faites auparavant vous 
+ont permis d'obtenir la récompense ? Et puis, il y a des questions de sécurité. Quand vous avez un système 
+de collecte de données autonome c’est en fait assez dangereux 
+dans la plupart des situations. Imaginez une société de
+ voitures autonomes qui dit : Nous allons juste faire de l’apprentissage
+ par renforcement profond. Il est assez probable que la voiture ait beaucoup d'accidents avant 
+de faire quelque chose d’utile. Vous avez besoin d'exemples négatifs
+ pour apprendre, non ? Vous avez besoin d'exemples négatifs
+ à un moment, oui ; et de positifs. Donc, je pense qu’il y a 
+encore beaucoup de défis dans l'apprentissage par renforcement 
+profond, en termes de travail sur certaines spécificités
+ pour faire fonctionner ces choses. Ainsi, la partie profonde 
+est la représentation, mais l’apprentissage par renforcement lui-même
+ pose encore beaucoup de questions. Je pense que, avec les avancées 
+en apprentissage profond, en quelque sorte une partie du puzzle
+ de l’apprentissage par renforcement
+ a été largement abordée, c'est la représentation. Donc, s'il y a un motif, nous pouvons probablement le représenter avec un 
+réseau profond et capturer ce motif. Mais la façon de démêler les motifs
+ est encore un grand défi dans 
+l’apprentissage par renforcement. Donc, je pense que les grands défis sont Comment faire raisonner des systèmes 
+sur des horizons temporels longs. Maintenant, beaucoup de succès en apprentissage par renforcement profond
+ sont sur un horizon très court. Il y a des problèmes où, Si vous agissez bien sur
+ un horizon de cinq secondes, vous agissez bien sur l’ensemble du problème. Et une échelle de cinq secondes est 
+quelque chose de très différent 
+d’une échelle d'une journée, et de la capacité à vivre une vie 
+comme un robot ou un agent logiciel. Je pense donc que là résident
+ beaucoup de défis. Je pense que la sécurité offre
+ beaucoup de défis en termes de comment apprendre en toute sécurité
+ et aussi comment continuer à apprendre une fois que 
+vous êtes déjà assez bon ? Ainsi, pour donner à nouveau un exemple qui sera familier à beaucoup de gens, 
+les voitures autonomes pour qu'une voiture autonomes conduise
+ mieux qu’un conducteur humain, les conducteurs humains ont un accident
+ tous les 3 millions de miles à peu près. Et donc, ça prend beaucoup de temps 
+pour voir les données négatives ; une fois que vous êtes aussi bon
+ qu’un conducteur humain. Mais vous voulez que votre voiture autonome 
+soit meilleure qu'un conducteur humain. Et donc, à ce moment-là, la collecte
+ des données devient vraiment difficile
+ pour obtenir ces données intéressantes 
+qui améliorent votre système. Donc, il y a beaucoup de défis 
+reliés à l’exploration. Mais l'une des choses qui m'enthousiasment
+ le plus en ce moment est de voir si nous pouvons faire un pas arrière
+ et aussi apprendre l’algorithme 
+d’apprentissage par renforcement. Donc, le renforcement est très complexe, l'affectation de crédit est très complexe,
+ l’exploration est très complexe. Et alors peut-être, de la même façon que dans l’apprentissage supervisé, 
+l'apprentissage profond a pu remplacer une 
+grande partie de l'expertise dans le domaine, peut-être que nous pouvons avoir 
+des programmes qui ont appris, qui sont des programmes d’apprentissage
+ par renforcement, et qui font tout ça, plutôt que ce soit à nous 
+de concevoir les détails. >> Qui ont appris la fonction de récompense ou
+ l’ensemble du programme ? >> Ce serait apprendre tout le programme 
+d’apprentissage par renforcement. Ce serait, imaginez, vous avez un programme d’apprentissage
+ par renforcement, quel qu'il soit, et vous lui donnez un problème et puis vous 
+voyez combien de temps il faut pour apprendre. Et puis vous dites, 
+"Eh bien, ça a duré longtemps" Maintenant, laissons un autre programme
+ modifier ce programme d’apprentissage
+ par renforcement. Après la modification,
+ on voit à quelle vitesse il apprend. S'il apprend plus rapidement, c'était une bonne modification et on peut 
+la garder et s'améliorer à partir de ça. >> Eh bien, je vois. C'est assez ambitieux. >> Je pense que c'est très lié à, peut-être, la quantité de puissance de calcul
+ qui devient disponible. Donc, on parle de faire l'apprentissage par 
+renforcement dans la boucle interne. Pour nous maintenant, l'apprentissage
+ par renforcement est notre but. Et plus nous avons de puissance de calcul, plus il devient possible de
+ lancer quelque chose comme de l’apprentissage par renforcement dans 
+la boucle interne d’un algorithme plus grand. >> Donc depuis cette époque 
+où vous aviez 14 ans, vous avez travaillé en intelligence
+ artificielle depuis plus de 20 ans. Dites-moi un peu comment votre compréhension
+ de l’IA a évolué pendant cette période. >> Quand j’ai commencé à
+ faire de la recherche en IA, c'est très intéressant car, vraiment, ça a coïncidé avec mon entrée
+ à Stanford pour faire mon master, et il y avait quelques icônes, comme 
+John McCarthy, avec qui j'ai pu parler, mais qui avait une approche très différente, en l’an 2000, pour ce que la plupart des gens
+ faisaient à l’époque. Et aussi parler avec Daphne Koller. Et je pense que beaucoup de ma vision initiale 
+de l’IA a été façonnée par la vision de Daphne. Son cours d’IA, son cours de
+ modèles graphiques probabilistes, et j'ai vraiment été intrigué par comment une simple distribution de 
+ses nombreuses variables aléatoires et 
+ensuite pouvoir mettre des conditions sur certains sous-ensembles de variables et 
+en tirer des conclusions sur d’autres pouvait en fait vous donner tellement de choses,
+ si vous pouvez le calculer de façon efficace, et c'était certainement un défi 
+de le rendre calculable. Et puis de là, quand j’ai commencé mon doctorat et 
+que vous êtes arrivés à Stanford, et je pense que vous m'avez
+ vraiment confronté à la réalité, que ce n’est pas la bonne métrique
+ pour évaluer votre travail. et de vraiment essayer de voir
+ la connexion entre votre travail et l'impact 
+qu'il peut vraiment avoir, les changements que vous pouvez faire
+ plutôt que quelles mathématiques 
+appliquer pour votre travail. >> OK. C'est incroyable. Je n'avais pas réalisé, j’ai oublié ça. >> Oui, c’est en fait une des choses, 
+quand les gens demandent, souvent, si je ne dois citer qu’une seule chose que
+ j'ai retenue dans les conseils d'Andrew, je dis que c’est de s’assurer que 
+vous pouvez voir la connexion vers
+ où ça va vraiment servir à quelque chose. >> Vous avez eu et vous continuez à avoir 
+une superbe carrière en intelligence artificielle. Ainsi, pour certaines personnes qui 
+vous écoutent sur cette vidéo maintenant, s’ils veulent aussi démarrer ou poursuivre 
+une carrière en intelligence artificielle, quels conseils avez-vous pour eux ? Je pense que c’est un très bon moment pour
+ commencer dans l’intelligence artificielle. Si vous regardez la demande pour 
+des personnes, elle est très élevée, il y a tellement de possibilités d’emploi, tant de choses à faire, de la recherche, construire de nouvelles entreprises
+ et ainsi de suite. Donc, je dirais que oui, c’est 
+certainement une décision intelligente 
+au vu de qui se passe actuellement. Vous pouvez en apprendre 
+une bonne partie par vous même, que vous soyez à l’école ou non. Il y a beaucoup de cours 
+en ligne, par exemple, votre cours 'Machine learning'. Il y a aussi, par exemple, le cours d’apprentissage profond de 
+Andrej Karpathy qui a des vidéos en ligne, qui est une excellente façon de commencer, et Berkeley a un cours d’apprentissage 
+par renforcement profond qui a tous les cours en ligne. Donc, voilà des bons endroits pour commencer. Je pense qu’il est vraiment important 
+d'essayer les choses vous-même. Ne vous contentez pas de lire des choses ou de 
+regarder des vidéos mais essayez vous même. Avec des frameworks comme TensorFlow, Chainer, Theano, PyTorch et ainsi de suite. Je veux dire, 
+peu importe lequel vous préférez, il est très facile de se lancer et d'avoir 
+quelque chose qui tourne,
+ en très peu de temps. >> Pratiquer par vous-même, pas vrai ? Implémenter et voir ce que ça fait 
+et ce qui ne fonctionne pas. >> La semaine dernière
+ il y avait un article dans Mashable sur un jeune 
+de 16 ans au Royaume-Uni, qui est un des leaders
+ dans les compétitions Kaggle. Il a juste dit qu'il s'est juste mis à apprendre des choses, qu'il a trouvé des choses en ligne,
+ tout appris tout seul et n'a jamais réellement pris 
+aucun cours officiel. Et à 16 ans, il est très compétitif 
+dans les compétitions Kaggle, donc c'est tout à fait possible. >> Nous vivons dans une bonne époque. Si les gens veulent apprendre. – Absolument, >> Une question, je parie 
+qu'on vous la pose parfois, si quelqu'un veut débuter dans
+ l’apprentissage automatique, l'IA 
+et l'apprentissage profond, devrait-il démarrer un doctorat ou trouver 
+un emploi dans une grande entreprise ? Je pense que ça dépend de 
+l'accompagnement que vous pouvez avoir. Dans un doctorat, c'est quasiment garanti, le travail du professeur, de votre directeur de thèse, est de s'occuper de vous, faire tout son possible pour, en quelque sorte, vous modeler, vous aider à devenir plus fort en ce que 
+vous voulez faire, par exemple, l'IA. Et donc, il y a une personne 
+très clairement dédiée à ça, parfois 
+vous avez deux directeurs de thèse. Et c’est littéralement leur boulot et
+ c’est pourquoi ils sont professeurs, souvent, ce qu’ils aiment dans le
+ travail de professeur, c'est d'aider à modeler les étudiants pour 
+qu'ils deviennent devenir plus capables. Maintenant, ça ne veut pas dire que
+ ce n’est pas possible dans les entreprises, et beaucoup d’entreprises ont de très
+ bons mentors et des gens qui aiment aider à éduquer les gens qui arrivent et
+ à les renforcer et ainsi de suite. Mais ce n'est pas aussi garanti, par rapport à s’inscrire 
+dans un programme doctoral, où le principe est que vous allez
+ apprendre quelque chose et quelqu'un
+ va vous aider à l'apprendre. >> Donc vraiment, ça dépend de l'entreprise
+ et ça dépend du programme de doctorat. >> Absolument, oui. Mais 
+ce qui est essentiel, c'est que vous
+ apprendrez beaucoup par vous-même, mais je pense que vous pouvez apprendre
+ beaucoup plus vite si vous avez 
+quelqu'un qui est plus expérimenté, qui considère que c'est de sa responsabilité de passer du temps avec vous et de 
+vous aider à accélérer votre progression. >> Vous avez été un des leaders les
+ plus visibles dans l’apprentissage
+ par renforcement profond. Alors, quelles sont les choses pour lesquelles l'apprentissage par renforcement profond
+ fonctionne déjà très bien ? >> Si vous regardez quelques réussites de 
+l'apprentissage par renforcement profond, c'est très, très curieux. Par exemple, apprendre à jouer à
+ des jeux d’Atari à partir des pixels, traiter ces pixels, qui ne sont 
+que des nombres, et réussir à les transformer en actions sur la manette. Et puis, par exemple, certains travaux 
+que nous avons fait à Berkeley étaient : nous avions un robot simulé qui
+ inventait la marche et la récompense était simplement qu'il fallait aller 
+le plus au nord possible et impacter le sol le moins fort possible. Et il réussit à trouver qu'il a besoin
+ de marcher ou courir, alors que personne ne lui a montré 
+ce qu'est la marche ou la course. Ou un robot qui joue avec des jeux 
+pour enfants et apprend à les manipuler, à mettre un bloc dans l’ouverture 
+correspondante et ainsi de suite. Je pense que c’est vraiment intéressant 
+qu'il soit possible d’apprendre tout ça à partir des données sensorielles brutes,
+ pour directement commander les couples des moteurs, par exemple. Mais en même temps, c'est donc très intéressant 
+qu'on puisse avoir un seul algorithme. Par exemple, avec la Trust Region 
+Policy Optimization,[optimisation de la 
+politique de la zone de confiance] on peut avoir un robot qui apprend à courir, on peut avoir un robot qui apprend à se lever, au lieu d'un robot à deux jambes, vous l'échangez contre 
+un robot à quatre pattes. Vous exécutez le même algorithme de
+ renforcement et il apprend aussi à courir. Il n’y a aucun changement
+ dans l’algorithme de renforcement. C’est très, très général. 
+Idem pour les jeux Atari. DQN [Deep Q-Network] était
+ le même DQN pour tous les jeux. Mais maintenant, on commence à atteindre les frontières de ce qui 
+n’est pas encore possible. C'est bien de pouvoir apprendre à partir de rien chacune de ces tâches, mais ce serait
+ mieux si on pouvait réutiliser 
+ce qu'on a appris dans le passé pour apprendre la tâche suivante
+ encore plus vite. Et c’est quelque chose qui est encore à 
+la frontière, qui n’est pas encore possible. On commence toujours à partir de zéro. >> A votre avis, à quel horizon
+ pourra-t-on voir l'apprentissage par renforcement 
+déployé dans les robots autour de nous, les robots qui sont déployés 
+dans le monde aujourd'hui ? >> Je pense qu'en pratique, 
+le scénario réaliste est que ça va commencer avec
+ l’apprentissage supervisé, le clonage de comportement :
+ les humains font le travail. Et je pense que beaucoup 
+d’entreprises vont se monter avec un être humain dans les coulisses, 
+qui fait une grande part du travail. Imaginez l'assistant Facebook Messenger. Un assistant comme ça pourrait être
+ construit avec un humain derrière les rideaux qui fait beaucoup du travail ; 
+L'apprentissage automatique fait la correspondance avec 
+ce que l'humain fait et commence 
+à faire des suggestions à l'humain, donc l’être humain a un petit nombre 
+d’options qu'il peut sélectionner en cliquant. Et puis avec le temps, quand il devient plutôt bon, vous commencez à le fusionner avec
+ l’apprentissage par renforcement, où 
+vous lui donnez des objectifs réels, pas seulement correspondre
+ à l'humain derrière les rideaux, mais lui donner des objectifs
+ de succès comme : peut-être, en combien de temps ces deux 
+personnes ont pu planifier leur réunion ? En combien de temps ont ils
+ pu réserver leur vol ? Des choses comme ça. 
+Combien de temps a-t-il fallu ? Étaient-ils satisfaits ? Mais on va probablement devoir
+ amorcer beaucoup de clonage de comportement d’humains,
+pour montrer comment cela pourrait se faire. >> Donc pour le clonage de comportement,
+ c'est l’apprentissage supervisé qui permet d'imiter ce que fait la personne,
+ puis progressivement, plus tard, l'apprentissage par renforcement 
+permet de réfléchir à plus long terme ? Est-ce un bon résumé ? >> Je dirais que oui. Pour la raison suivante : c'est très 
+amusant de regarder l'apprentissage par
+ renforcement partir de zéro; c’est très intrigant et il y a peu de choses 
+plus agréable à regarder qu'un robot qui invente des choses 
+grâce à l'apprentissage par renforcement. Mais ça prend beaucoup de temps 
+et ce n’est pas toujours sûr. >> Merci beaucoup. C’était fascinant. Je suis vraiment heureux que nous ayons
+ eu la possibilité de discuter. Eh bien, Andrew je vous remercie
+ de l'invitation. J'ai beaucoup apprécié.

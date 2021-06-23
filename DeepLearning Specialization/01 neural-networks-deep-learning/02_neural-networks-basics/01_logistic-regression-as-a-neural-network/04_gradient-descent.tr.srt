@@ -1,0 +1,671 @@
+1
+00:00:00,590 --> 00:00:03,210
+lojistik regresyon modelini gördünüz.
+
+2
+00:00:03,210 --> 00:00:06,560
+Tek eğitim örneğini ne kadar iyi yaptığını ölçen
+
+3
+00:00:06,560 --> 00:00:08,780
+kayıp fonksiyonunu gördünüz.
+
+4
+00:00:08,780 --> 00:00:13,530
+Ayrıca w ve b parametrelerinin eğitim seti üzerinde ne kadar doğru olduğunu ölçen
+
+5
+00:00:13,530 --> 00:00:16,590
+maliyet fonksiyonunu gördünüz.
+
+6
+00:00:16,590 --> 00:00:21,600
+Şimdi dereceli alçalmayı kullanarak nasıl eğitim setinde ki w ve b parametrelerini eğitileceğini
+
+7
+00:00:21,600 --> 00:00:25,730
+ve öğretileceğini görelim.
+
+8
+00:00:25,730 --> 00:00:30,030
+Tekrarlama amaçlı,lojistik regresyon algoritmasına benzeri bir algoritma.
+
+9
+00:00:31,130 --> 00:00:34,700
+İkinci satırda w ve b parametresine bağlı
+
+10
+00:00:34,700 --> 00:00:37,879
+maliyet fonksiyonumuz var.
+
+11
+00:00:37,879 --> 00:00:39,960
+Ve ortalama olarak tanımlandı.
+
+12
+00:00:39,960 --> 00:00:44,140
+Bu 1 den m e kadar kayıp fonksiyonun toplamı.
+
+13
+00:00:44,140 --> 00:00:48,470
+Ve kayıp fonksiyonu senin algoritmanın çıktısı y şapka i nin
+
+14
+00:00:48,470 --> 00:00:53,170
+her eğitim örnekleri üzerinde nasıl yığıldığını ölçer
+
+15
+00:00:53,170 --> 00:00:58,000
+her eğitim örnekleri üzerindeki y(i) etiketi ile karşılaştırır.
+
+16
+00:00:58,000 --> 00:01:00,886
+Ve tam formül sağa doğru genişletildi.
+
+17
+00:01:00,886 --> 00:01:04,130
+Maliyet fonksiyonu w ve b parametrelerinin eğitim setindeki
+
+18
+00:01:04,130 --> 00:01:06,760
+ne kadar iyi olduğunu ölçüyor.
+
+19
+00:01:06,760 --> 00:01:11,510
+w ve b parametrelerini öğrenmek için doğal olarak
+
+20
+00:01:11,510 --> 00:01:17,930
+maliyet fonksiyonunu J(w,b) mümkün olduğunca küçük yapan w ve b yi bulmak istiyoruz.
+
+21
+00:01:17,930 --> 00:01:21,320
+Bu da dereceli alçalmanın bir çizimi.
+
+22
+00:01:21,320 --> 00:01:25,320
+Bu grafikte yatay eksen
+
+23
+00:01:25,320 --> 00:01:28,510
+uzaysal parametreleri w ve b yi temsil eder..
+
+24
+00:01:28,510 --> 00:01:32,350
+Pratikte,w daha büyük boyutlu olabilir,fakat çizimin amacı için
+
+25
+00:01:32,350 --> 00:01:38,190
+w yü ve b yi gerçek sayı olarak tanımlayalım.
+
+26
+00:01:38,190 --> 00:01:40,770
+Maliyet fonksiyonu J(w,b)
+
+27
+00:01:40,770 --> 00:01:45,130
+w ve b yatay eksenlerinin üstündeki bazı yüzeylerdir.
+
+28
+00:01:45,130 --> 00:01:50,720
+Yüzeyin yüksekliği J(w,b) nin kesin noktadaki değerini temsil eder.
+
+29
+00:01:50,720 --> 00:01:55,070
+Ve bizim yapmak istediğimiz şey w ve
+
+30
+00:01:55,070 --> 00:01:59,730
+b nin maliyet fonksiyonunu minimum yaptığı değerleri bulmak.
+
+31
+00:02:00,830 --> 00:02:06,050
+Bu J maliyet fonksiyonunu dışbükey yapar.
+
+32
+00:02:06,050 --> 00:02:10,327
+Bu sadece bir tek büyük kase, bu bir dışbükey ve
+
+33
+00:02:10,327 --> 00:02:13,717
+Böyle bir dışbükey olmayan
+
+34
+00:02:13,717 --> 00:02:18,120
+ve birçok farklı yerel optimumu olan bir fonksiyon düşünelim.
+
+35
+00:02:18,120 --> 00:02:22,240
+Aslında bizim burada dışbükey olarak tanımlanan
+
+36
+00:02:22,240 --> 00:02:27,020
+maliyet fonksiyonumuz J(w,b) neden özel maliyet fonksiyonu kullandığımızın büyük nedenlerinden biri
+
+37
+00:02:27,020 --> 00:02:29,610
+lojistik regresyon için.
+
+38
+00:02:29,610 --> 00:02:33,810
+parametreler için iyi bir değer bulmak için
+
+39
+00:02:33,810 --> 00:02:39,160
+bizim yapacağımız şey w ve b bazı başlangıç sayılarla başlatmak,
+
+40
+00:02:39,160 --> 00:02:43,360
+kırmızı nokta olarak gösterebiliriz.
+
+41
+00:02:43,360 --> 00:02:47,562
+lojistik regresyon için, neredeyse bütün başlangıç metotları çalışır,
+
+42
+00:02:47,562 --> 00:02:50,690
+genellikle başlangıç değerleri 0'dır.
+
+43
+00:02:50,690 --> 00:02:52,910
+Rastgele başlangıçta çalışır,ama
+
+44
+00:02:52,910 --> 00:02:55,630
+Genelde insanlar lojistik regresyon için kulanılmaz.
+
+45
+00:02:55,630 --> 00:02:59,310
+Bu fonksiyon dışbükey olduğu için,nereden başladığın önemli değil
+
+46
+00:02:59,310 --> 00:03:02,180
+ya aynı değeri almalısın ya da kabaca aynı noktaları.
+
+47
+00:03:02,180 --> 00:03:06,450
+Ve dereceli alçalma başlangıç noktasından başlayarak
+
+48
+00:03:06,450 --> 00:03:10,310
+dik yerden aşağıya doğru bir adım ilerler.
+
+49
+00:03:10,310 --> 00:03:15,290
+Dereceli alçalmanın bir adım sonrasında, orada bitirebilirsiniz çünkü
+
+50
+00:03:15,290 --> 00:03:19,320
+en dik inişi bir adımda yapmaya çalışıyor ya da
+
+51
+00:03:19,320 --> 00:03:21,250
+aşağıya mümkün olduğunca hızlı inmeye çalışıyor.
+
+52
+00:03:21,250 --> 00:03:23,600
+bu dereceli alçalmanın bir yinelemesi.
+
+53
+00:03:23,600 --> 00:03:27,084
+Ve iki yineleme sonra belki orada olabilirsin
+
+54
+00:03:27,084 --> 00:03:28,830
+üç yineleme ve böyle gider.
+
+55
+00:03:28,830 --> 00:03:32,640
+Sanırım şimdi bu çizimin arkasında gizlenmiş olan şey
+
+56
+00:03:32,640 --> 00:03:38,880
+sonunda ,umarım global optimuma yakınsayacaksınız(converge) ya da global optimuma yakın bir değer alacaksınız.
+
+57
+00:03:38,880 --> 00:03:42,300
+Bu resim dereceli alçalmayı gösteriyor.
+
+58
+00:03:42,300 --> 00:03:44,310
+Birazcık daha detaylı yazalım.
+
+59
+00:03:44,310 --> 00:03:47,750
+resim için, minimize etmek istediğimiz
+
+60
+00:03:47,750 --> 00:03:51,700
+böyle gözüken bir fonksiyon olsun J(w).
+
+61
+00:03:51,700 --> 00:03:54,650
+Daha kolay çizmek için b yi
+
+62
+00:03:54,650 --> 00:03:59,210
+şimdilik yok sayalım. Daha yüksek boyutlu çizim yerine bir boyutlu bir çizim yapalım.
+
+63
+00:03:59,210 --> 00:04:01,240
+Dereceli alçaltma şunu yapar,
+
+64
+00:04:01,240 --> 00:04:06,740
+Aynı güncelleştirmeleri tekrar tekrar uygulayacağız.
+
+65
+00:04:06,740 --> 00:04:09,467
+w değerini alıp güncelleştireceğiz,
+
+66
+00:04:09,467 --> 00:04:12,508
+iki nokta eşittir güncellenmiş w yu temsil eder.
+
+67
+00:04:12,508 --> 00:04:17,426
+w yü w eksi alfa çarpı olarak belirleriz.
+
+68
+00:04:17,426 --> 00:04:22,200
+J(w) nin w ya göre türevi.
+
+69
+00:04:22,200 --> 00:04:26,230
+Bunu algoritma yakınsanana(converge) kadar tekrar edeceğiz.
+
+70
+00:04:26,230 --> 00:04:30,666
+bazı formüldeki noktalar,buradaki alfa öğrenme katsayımız ve
+
+71
+00:04:30,666 --> 00:04:36,820
+dereceli alçaltmada ne kadar büyük adım atılacağını kontrol eder.
+
+72
+00:04:36,820 --> 00:04:41,200
+Öğrenme katsayısı seçme yollarından daha sonra bahsedeceğiz.
+
+73
+00:04:41,200 --> 00:04:44,490
+2. olarak,Bu bir türevdir.
+
+74
+00:04:44,490 --> 00:04:48,010
+Bu basitçe güncellemedir ve w parametresini yapmak istediğimize çevirir.
+
+75
+00:04:48,010 --> 00:04:52,700
+dereceli alçaltmanın uygulamasını yazmaya başladığımızda
+
+76
+00:04:52,700 --> 00:04:57,380
+Değişken adlarında şöyle bir düzen kullanacağız
+
+77
+00:04:58,620 --> 00:05:02,300
+dw türevi temsil edecek.
+
+78
+00:05:02,300 --> 00:05:06,551
+kod yazdığınız şu tip şeyler yazacaksınız
+
+79
+00:05:06,551 --> 00:05:10,046
+w iki nokta eşittir w eksi alfa çarpı dw.
+
+80
+00:05:10,046 --> 00:05:14,750
+ve biz dw yi türev olarak kullanacağız.
+
+81
+00:05:14,750 --> 00:05:19,330
+Şimdi biz dereceli alçalmanın doğru yapıldığından emin olalım.
+
+82
+00:05:19,330 --> 00:05:21,880
+w burada olsun.
+
+83
+00:05:21,880 --> 00:05:26,060
+maliyet fonksiyonu bu noktada olsun.
+
+84
+00:05:26,060 --> 00:05:29,270
+türevin tanımı hatırlayalım
+
+85
+00:05:29,270 --> 00:05:31,420
+fonksiyonun noktadaki eğimidir.
+
+86
+00:05:31,420 --> 00:05:36,190
+Fonksiyonun eğimi gerçekte yükseklik bölü genişliktir
+
+87
+00:05:36,190 --> 00:05:40,290
+buradaki üçgen J(w) nin bu noktadaki tanjantıdır.
+
+88
+00:05:40,290 --> 00:05:43,900
+buradaki türev pozitifdir.
+
+89
+00:05:43,900 --> 00:05:48,830
+w eksi öğrenme katsayısı çarpı türev olarak güncellenir.
+
+90
+00:05:48,830 --> 00:05:53,310
+türev pozitif ve w da azalmayla sonuçlanır
+
+91
+00:05:53,310 --> 00:05:55,260
+böylece sola bir adım atılır.
+
+92
+00:05:55,260 --> 00:05:59,380
+Eğer w yu böyle büyük başlarsanız
+
+93
+00:05:59,380 --> 00:06:04,450
+dereceli alçalma sizin algoritmanızın yavaş bir şekilde parametrenizi azaltır.
+
+94
+00:06:04,450 --> 00:06:08,545
+Diğer bir örnek olarak,w burada olsaydı
+
+95
+00:06:08,545 --> 00:06:15,050
+bu noktada ki türevin eğimi eksi olacak ve
+
+96
+00:06:15,050 --> 00:06:22,771
+böylece dereceli alçaltma alfa çarpı negatif bir sayıdan çıkaracak
+
+97
+00:06:22,771 --> 00:06:27,122
+w nün yavaşça artacak ve w büyüyerek
+
+98
+00:06:27,122 --> 00:06:31,530
+başarılı bir uygulamayla sonuçlanacak.
+
+99
+00:06:31,530 --> 00:06:34,387
+Umarım ki ,sizin sağda ya da solda başlamanıza bakmadan
+
+100
+00:06:34,387 --> 00:06:39,000
+dereceli alçaltma sizi global minimuma doğru götürecek.
+
+101
+00:06:39,000 --> 00:06:43,100
+Eğer siz türeve ya da yüksek matematiğe (calculus)
+
+102
+00:06:43,100 --> 00:06:49,710
+dj(w)/dw sembolüne aşina değilseniz çok fazla bu konuda endişelenmeyin.
+
+103
+00:06:49,710 --> 00:06:53,770
+Diğer videoda türev hakkında daha fazla şeylerden bahsedeceğiz.
+
+104
+00:06:53,770 --> 00:06:56,761
+Eğer sizin derin yüksek matematik (calculus) bilginiz varsa
+
+105
+00:06:56,761 --> 00:07:02,321
+yapay sinir ağlarının nasıl çalıştığı hakkında daha dip bir seziniz vardır.
+
+106
+00:07:02,321 --> 00:07:05,471
+Fakat yüksek matematiğe (calculus) aşinalığınız yoksa da,
+
+107
+00:07:05,471 --> 00:07:10,091
+ileride ki videolarda yeterli türev ve yüksek matematik (calculus) hakkında sezgiler alacaksınız
+
+108
+00:07:10,091 --> 00:07:14,980
+yapay sinir ağlarını etkili bir şekilde kullanabileceksiniz.
+
+109
+00:07:14,980 --> 00:07:16,410
+Fakat etraflı bir sezgi için şimdilik
+
+110
+00:07:16,410 --> 00:07:21,520
+bu terim fonksiyonun eğimini temsil eder ve
+
+111
+00:07:21,520 --> 00:07:26,760
+parametrenin geçerli ayarlarında fonksiyonun eğimini bilmek istiyoruz.
+
+112
+00:07:26,760 --> 00:07:31,140
+böylece biz en dik iniş adımını atabiliriz,ve biz
+
+113
+00:07:31,140 --> 00:07:35,450
+maliyet fonksiyonu j de aşağıya gidebilmek için hangi yöne adım atacağımızı biliyoruz.
+
+114
+00:07:36,660 --> 00:07:42,520
+Dereceli alçaltmayı j(w) için yazdık.
+
+115
+00:07:42,520 --> 00:07:47,150
+Lojistik regresyon da,maliyet fonksiyonu w ve b nin fonksiyonudur.
+
+116
+00:07:47,150 --> 00:07:50,894
+Bu durumda,dereceli alçaltmanın iç döngüsünde, buradaki
+
+117
+00:07:50,894 --> 00:07:53,302
+senin tekrarlamak zorunda olduğun şey şuna dönüşür.
+
+118
+00:07:53,302 --> 00:07:57,970
+w yü w eksi öğrenme kat sayısı çarpı
+
+119
+00:07:57,970 --> 00:08:02,030
+J(w,b) nin w ya göre türevine güncellersin.
+
+120
+00:08:02,030 --> 00:08:07,460
+ve b yi b eksi öğrenme katsayısı çarpı
+
+121
+00:08:07,460 --> 00:08:12,270
+maliyet fonksiyonun b ye göre türevine güncelleştirirsin.
+
+122
+00:08:12,270 --> 00:08:17,300
+Aşağıdaki denklemler senin gerçekte uygulayacağın güncellemeler.
+
+123
+00:08:17,300 --> 00:08:22,320
+Konu dışı olarak,Ben bir yüksek matematikteki (calculus) gelenekten bahsetmek istiyorum
+
+124
+00:08:22,320 --> 00:08:24,560
+yüksek matematik (calculus) bazı insanlara kafa karıştırıcı geliyor.
+
+125
+00:08:24,560 --> 00:08:28,387
+Senin yüksek matematiği (calculus) anlaman çokda önemli olduğunu düşünmüyorum
+
+126
+00:08:28,387 --> 00:08:32,411
+Ben senın bunu çok fazla düşünmeni istemiyorum.
+
+127
+00:08:32,411 --> 00:08:35,519
+yüksek matematikteki (calculus) bu terim
+
+128
+00:08:35,519 --> 00:08:40,730
+aslında şöyle kısa ve eğri çizgi olarak yazabiliriz.
+
+129
+00:08:40,730 --> 00:08:46,160
+bu sembol,aslında küçük d
+
+130
+00:08:46,160 --> 00:08:51,070
+süslü ve stilize yazı tipinde bu ifadeyi gördüğünde
+
+131
+00:08:51,070 --> 00:08:56,145
+anlamı j(w,b) fonksiyonunun gerçek eğimi değil
+
+132
+00:08:56,145 --> 00:09:01,580
+w yönünde ne kadar eğimli olduğudur.
+
+133
+00:09:01,580 --> 00:09:06,640
+bana göre tamamen mantıksal olmayan yüksek matematiğin(calculus) işaret sistemin
+
+134
+00:09:06,640 --> 00:09:11,780
+bana göre daha fazla karmaşık yapan bu sistemde
+
+135
+00:09:11,780 --> 00:09:16,940
+eğer J 2 veya daha fazla değişkene bağlıysa
+
+136
+00:09:16,940 --> 00:09:21,550
+küçük d yerine bu sembolü kullanırız.
+
+137
+00:09:21,550 --> 00:09:24,380
+buna kısmi türev denir.
+
+138
+00:09:24,380 --> 00:09:26,120
+Fakat bunun hakkında endişelenmeyin,
+
+139
+00:09:26,120 --> 00:09:31,090
+ve J sadece bir değişkenli fonksiyonsa, küçük d kullanabilirsiniz.
+
+140
+00:09:31,090 --> 00:09:33,960
+kısmi türev sembolünün küçük d den
+
+141
+00:09:33,960 --> 00:09:38,040
+tek farkı
+
+142
+00:09:38,040 --> 00:09:41,570
+J iki ya da daha fazla değişkenin bir fonksiyonu mu yoksa değil mi.
+
+143
+00:09:41,570 --> 00:09:45,900
+Bu durumda , bu kısmi türev sembolünü kullanın ya da
+
+144
+00:09:45,900 --> 00:09:51,480
+eğer J bir değişkenin fonksiyonuysa küçük d kullanın.
+
+145
+00:09:51,480 --> 00:09:55,410
+Bana göre olması gerekenden daha karmaşık olan 
+
+146
+00:09:55,410 --> 00:09:58,540
+yüksek matematikteki (calculus) garip işaret sistemlerinden biri.
+
+147
+00:09:58,540 --> 00:10:03,300
+Kısmi türev sembolünü gördüğünüzde bunun anlamı
+
+148
+00:10:03,300 --> 00:10:07,290
+bir değişene bağlı fonksiyonun eğimini ölçüyorsunuz.
+
+149
+00:10:07,290 --> 00:10:12,530
+Benzer şekilde buraya yüksek matematikteki (calculus) matematiksel sembolü ekleyelim
+
+150
+00:10:12,530 --> 00:10:18,070
+çünkü J 2 girdiye sahip bir tane değil.
+
+151
+00:10:18,070 --> 00:10:22,540
+Aşağıdaki yere kısmi türev sembolü yazılmalı.
+
+152
+00:10:22,540 --> 00:10:28,290
+Bunun anlamı neredeyse küçük d ile aynı.
+
+153
+00:10:28,290 --> 00:10:31,360
+Sonuç olarak bunu kodda uyguladığınızda
+
+154
+00:10:31,360 --> 00:10:36,220
+şöyle bir düzen kullanmalıyız
+
+155
+00:10:36,220 --> 00:10:41,980
+kodunda dw senin w yu güncellediğin değeri temsil etmeli.
+
+156
+00:10:41,980 --> 00:10:44,220
+ve bu nicelik.
+
+157
+00:10:44,220 --> 00:10:47,230
+b yi güncellemek istediğin değer
+
+158
+00:10:47,230 --> 00:10:50,740
+senin kodunda db olarak temsil edilecek.
+
+159
+00:10:50,740 --> 00:10:55,580
+Bu senin nasıl dereceli alçaltmayı uygulaman gerektiğiydi.
+
+160
+00:10:55,580 --> 00:10:59,830
+Eğer birkaç yıldır yüksek matematik (calculus) görmediysen, senin rahat hissedeceğinden
+
+161
+00:10:59,830 --> 00:11:03,770
+daha fazla türev gibi gözüküyor biliyorum.
+
+162
+00:11:03,770 --> 00:11:06,330
+Ama eğer böyle hissediyorsan endişelenme.
+
+163
+00:11:06,330 --> 00:11:10,150
+Sonraki videoda, sana türev hakkında daha iyi sezi vereceğiz.
+
+164
+00:11:10,150 --> 00:11:13,560
+derin bir şekilde yüksek matematik (calculus) matematiğini anlamadan,
+
+165
+00:11:13,560 --> 00:11:16,310
+sezgisel olarak yüksek matematiği (calculus) anlayarak,
+
+166
+00:11:16,310 --> 00:11:19,130
+etkili bir biçimde yapay sinir ağları yapabilirsin.
+
+167
+00:11:19,130 --> 00:11:22,743
+Hadi biraz daha türev anlatacağımız
+
+168
+00:11:22,743 --> 00:11:23,470
+sonraki videoya geçelim.

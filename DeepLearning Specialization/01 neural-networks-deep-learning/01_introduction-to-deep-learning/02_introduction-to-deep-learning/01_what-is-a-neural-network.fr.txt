@@ -1,0 +1,102 @@
+Le terme 'apprentissage profond' désigne 
+l'entraînement des réseaux de neurones, parfois, de très grands réseaux de neurones. En quoi consiste exactement
+ un réseau de neurones ? Dans cette vidéo, nous allons essayer de vous
+ donner certaines des intuitions fondamentales. Nous allons commencer par l’exemple
+ de la prédiction du prix de l'immobilier. Imaginons que vous avez 
+un ensemble de données de six maisons, 
+vous connaissez la taille des maisons en pieds carrés ou mètres carrés, vous 
+connaissez le prix de la maison et vous voulez adapter une fonction pour prédire
+ le prix des maisons en fonction de leur taille. Si vous connaissez la régression linéaire, 
+vous allez me dire, eh bien nous allons tracer une droite dans ces données 
+et nous obtenons une ligne droite comme ça. Pour mieux faire, vous pourriez dire
+ nous savons que les prix ne peuvent jamais être négatifs. Donc au lieu de tracer une droite 
+qui finira par devenir négative, nous allons plier la courbe ici, pour qu'elle nous donne juste zéro ici. Cette ligne bleue épaisse représente 
+votre fonction pour prédire le prix de la maison 
+en fonction de sa taille. Avec zéro ici et puis une ligne droite 
+qui correspond aux données. Vous pouvez voir cette fonction que 
+vous venez d'adapter aux prix de l'immobilier, comme un réseau de neurones très simple. C'est presque le réseau neuronal
+ le plus simple possible. Laissez-moi le dessiner ici. Nous avons en entrée du réseau de neurones 
+la taille d’une maison que nous appelons x. Elle va dans ce nœud, ce petit cercle et il donne en sortie 
+le prix que nous appelons y. Donc ce petit cercle, qui est un seul neurone 
+dans un réseau de neurones, implémente cette fonction que 
+nous avons dessinée à gauche. Et tout ce que le neurone fait, 
+c'est qu'il prend la taille en entrée, 
+calcule cette fonction linéaire, prend le maximum par rapport à zéro
+ et renvoie ensuite le prix estimé. En passant, dans la littérature sur les réseaux 
+neuronaux, vous voyez souvent cette fonction. Cette fonction qui vaut zéro 
+pendant un certain temps puis qui décolle en ligne droite. Cette fonction est appelée 
+une fonction ReLU, ce qui signifie REctified Linear Unit
+ [unité linéaire rectifiée] Donc R-E-L-U.
+Et rectifiée signifie simplement qu'on prend
+ le maximum avec 0, ce qui explique pourquoi
+ vous obtenez cette forme de fonction. Vous n’avez pas besoin de vous
+ inquiéter à propos des unités ReLU pour le moment, mais c’est quelque chose 
+que vous reverrez plus loin dans ce cours. Donc, si ceci est un réseau de
+ neurones à un seul neurone, un vraiment tout petit réseau neuronal,
+ un réseau de neurones plus grand est ensuite formé en prenant beaucoup 
+de neurones simples et en les empilant. Donc, si vous pensez à ce neurone comme
+ à une seule brique de Lego, alors vous obtenez un réseau de neurones plus grand 
+en empilant beaucoup de ces briques de Lego. Nous allons voir un exemple. Disons qu’au lieu de prédire le prix 
+d’une maison seulement à partir de la taille, vous avez maintenant
+ d’autres caractéristiques. Vous savez d’autres choses sur la maison, 
+comme le nombre de chambres à coucher, Je vais écrire ça #bedrooms,
+ et en fait, l’une des choses qui change vraiment le prix d’une maison 
+est la taille de la famille, n'est ce pas ? Cette maison peut-elle contenir votre 
+famille de trois personnes, ou de quatre personnes, ou une famille de cinq ? Et c’est vraiment la taille 
+en pieds carrés ou en mètres carrés, et le nombre de chambres à coucher 
+qui détermine si, oui ou non, une maison peut correspondre 
+à la taille de votre famille. Et puis, peut-être aussi, 
+vous savez, les zip codes, dans d'autres pays, ça s’appelle 
+le code postal, d’une maison. Le code postal peut être une caractéristique 
+qui vous indique le type de quartier. A quoi peut on accéder 
+à pied dans ce quartier ? Peut on marcher jusqu'à une épicerie ? Aller à l'école à pied ? Ou faut-il y aller en voiture ? Et certaines personnes préfèrent
+ les quartiers très piétonniers. Et puis le code postal ainsi que 
+la richesse, peut-être, vous indiquent, aux États-Unis, certainement,
+ mais dans d’autres pays aussi, vous indiquent quelle est
+ la qualité de l’école. Donc chacun de ces petits cercles que
+ je dessine peut être une de ces ReLU, unités linéaires rectifiées ou une 
+autre fonction légèrement non linéaire. Pour que, en vous basant sur la taille et
+ le nombre de chambres à coucher, vous puissiez estimer la taille de la famille, 
+avec le code postal, l'accessibilité, et à partir du code postal et de la richesse,
+ estimer la qualité de l’école. Et puis finalement vous vous dites que 
+les gens décident de combien ils sont prêts à payer pour une maison
+ en regardant les choses
+ qui comptent vraiment pour eux. Dans ce cas, la taille de la famille, le 
+potentiel piétonnier et la qualité de l’école et c'est ça qui vous aide à prévoir le prix. Donc dans cet exemple, x est
+ l’ensemble de ces quatre entrées. Et y est le prix que 
+vous essayez de prédire. Et donc, en assemblant les quelques
+ neurones simples ou prédicteurs simples que nous avions à la diapositive 
+précédente, nous avons maintenant 
+un réseau de neurones un peu plus grand. Toute la magie du réseau de neurones,
+ c’est que quand vous l’implémentez, vous devez lui donner juste l’entrée x et la sortie y pour un certain nombre d’exemples
+ de votre ensemble d’apprentissage et toutes ces choses au milieu, 
+il les trouvera de lui même. Donc ce que vous implémentez
+ en réalité est ceci. Où, ici, vous avez un réseau de 
+neurones avec quatre entrées. Les caractéristiques d’entrée pourraient être
+ la taille, le nombre de chambres à coucher, le code zip ou code postal et
+ la richesse du quartier. Et donc compte tenu de 
+ces caractéristiques d’entrée, le travail du réseau neuronal
+ sera de prédire le prix y. Notez également que chacun de ces cercles, 
+qui sont appelés des unités cachées dans les réseaux de neurones, que 
+chacun d’eux prend en entrée 
+les quatre caractéristiques d’entrée. Ainsi, par exemple, plutôt que 
+de dire que ce premier nœud
+ représente la taille de la famille et que la taille de la famille repose uniquement
+ sur les caractéristiques x1 et x2. A la place, nous allons dire, 
+eh bien, réseau neuronal, tu décides ce que tu veux 
+que ce nœud représente Et nous te donnons les quatre caractéristiques 
+d'entrée pour calculer ce que tu veux. Donc nous disons que cette couche 
+qui est la couche d’entrée et cette couche au milieu du réseau de
+ neurones sont densément connectées. Parce que toutes les caractéristiques 
+d’entrée sont connectées à chacun de ces cercles au milieu. Et la chose remarquable à propos 
+des réseaux neuronaux est qu’avec 
+suffisamment de données sur x et y, suffisamment d'exemples d'apprentissage
+ avec x et y, les réseaux de neurones sont remarquablement bon pour trouver
+ les fonctions qui relient avec précision x et y. Donc, voici un réseau neuronal de base. En fin de compte, à mesure que vous
+ développez vos propres réseaux de neurones, vous trouverez sans doute qu’ils sont
+ plus utiles et plus puissants en mode d'apprentissage supervisé, c'est à dire
+ quand vous tentez de prendre une entrée x et de la relier à une sortie y, comme nous l’avons vu
+ dans l'exemple de prédiction du prix des logements. Dans la prochaine vidéo, nous verrons d'autres 
+exemples d’apprentissage supervisé et quelques exemples où vous verrez 
+que les réseaux neuronaux peuvent être
+ incroyablement utile pour vos applications également.

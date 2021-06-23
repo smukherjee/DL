@@ -1,0 +1,91 @@
+Certo, acho que este é vídeo legal. Neste vídeo você verá como implementar gradiente decrescente para sua rede neural com uma camada oculta. Neste vídeo já darei a você as equações que você 
+precisa implementar para que possa fazer a 
+retropropagação, que faz o gradiente decrescente 
+funcionar e, depois, no próximo vídeo, darei uma noção maior sobre porque estas equações específicas são as mais apropriadas, ou as mais corretas, para o cálculo de gradientes, que você precisa na sua rede neural. Então, sua rede neural com uma única camada oculta, agora terá parâmetros w'¹' , b'¹', w'²' 
+e b'²', e assim por diante. Como um lembrete, se 
+você tem nₓ, ou de outra forma, n'⁰' características de entrada, 
+n'¹' unidades ocultas e n'²' unidades de saída no nosso exemplo, até agora, n'²' = 1
+[uma única unidade de saída]. Então, a matriz w'¹' 
+terá dimensões n'¹' por n'⁰', b'¹' será um vetor de dimensão n'¹'. Então, você pode escrever 
+como uma matriz de dimensão n'¹' x 1, na 
+realidade um vetor coluna. A dimensão de 
+w'²'será n'²' por n'¹' e a dimensão de b'²' será n'²' por 1. Certo, até 
+o momento vimos somente exemplos onde n'²' é igual a 1, onde temos apenas uma única unidade oculta. Então, 
+você também tem uma função de custo para sua rede neural, e por agora, irei 
+assumir que você está fazendo classificação 
+binária. Então, neste caso, o custo dos 
+seus parâmetros, como segue, será 1/m da média desta função 
+perda, e assim, o ʆ aqui é a perda quando a sua rede neural prevê ŷ. Este é 
+na verdade a'²', quando o rótulo base 
+deveria ser igual a y, e se você está fazendo classificação binária, a função de perda pode ser exatamente o que você 
+usou previamente na regressão logística. Então, para 
+treinar os parâmetros no seu algoritmo, você 
+precisará realizar gradiente decrescente. Ao treinar 
+uma rede neural, é importante inicializar os parâmetros aleatoriamente ao invés de inicializá-los todos com zero. Veremos mais tarde o porquê, mas depois de inicializar 
+os parâmetros com algo, cada laço de repetição, 'loop',
+ do gradiente decrescente calcularia as previsões. Então, você basicamente
+calcula ŷ⁽ⁱ⁾, para i = 1 até m, e depois você precisa calcular 
+as derivadas. Então, você precisa calcular 
+dw'¹' e esta é a derivada da função de custo com relação ao parâmetro w'¹'. Você precisa calcular 
+uma outra variável que chamamos db'¹', que é a derivada ou a 
+inclinação da sua função de custo com 
+relação à variável b'¹' e assim por diante, da 
+mesma forma para os outros parâmetros w'²' e b'²'. 
+E finalmente, a atualização do 
+gradiente decrescente seria atualizar w'¹' como 
+w'¹' menos alfa, a a taxa de aprendizagem 
+vezes dw'¹' recebe b'¹' menos a taxa de aprendizagem db'¹', e da mesma 
+forma para w'²' e b'²'. E às vezes eu uso ":=", e às vezes "=", qualquer uma das notações funciona bem. 
+Assim, esta seria uma iteração do 
+gradiente decrescente, e então você repete isto algumas vezes até os seus parâmetros pareçam estar convergindo. 
+Em vídeos anteriores, falamos sobre como calcular previsões, como calcular as saídas, e também vimos como fazer isso na forma de vetorização. 
+Então, a chave é saber como calcular estas derivadas parciais, 
+ dw'¹', db'¹', e também as derivadas dw'²' 
+e db'²'. Então, o que eu gostaria de fazer é apenas dar as equações que você 
+precisa para calcular essas derivadas e vou deixar para o próximo vídeo, que é um vídeo opcional, para aprofundarmos 
+em como chegamos nestas fórmulas. Deixe-me resumir novamente as equações para propagação para frente. Temos Z'¹' = w'¹'X + b'¹' e então A'¹' igual a função de ativação,
+g'¹' nesta camada, aplicado ao Z'¹',
+ A'¹' = g'¹' (Z'¹') e para Z'²' = w'²' A'¹' + b'²', e finalmente, estas são todas vetorizadas através dos conjuntos de treinamento certo, A'²' = g'²' (Z'²'). Novamente, se assumimos que 
+estamos fazendo classificação binária, então esta função de ativação realmente deveria ser a função sigmoide σ ( Z'²' ).
+Então, vou jogar ela aqui. Esta é a propagação para frente ou cálculos para frente, 
+da esquerda para direita, na sua rede neural. 
+A seguir, vamos calcular as derivadas. Então, esta é a etapa de retropropagação. Ela calcula dz'²' = A'²' - Y, e somente como 
+um lembrete, tudo isso é vetorizado através do exemplo 
+de treinamento, então a matriz Y é esta matriz 1 x m,
+ que lista todos os m exemplos,
+empilhados horizontalmente. Resulta que dw'²' é 
+igual a isso. Na verdade, estas 3 primeiras equações são muito parecidas com gradiente 
+decrescente em regressão logística. axis = 1, keepdims = true. Só um pequeno detalhe:
+este np.sum é um comando Python numpy para o somatório através de uma dimensão de uma matriz, neste caso, 
+somando horizontalmente. E o que keepdims faz é prevenir Python de jogar na saída 
+aqueles vetores estranhos com 1, onde as dimensões eram "n,". Então, este comando assegura que a saída do Python 
+para o db'²', um vetor que é n por 1. Na verdade, 
+tecnicamente, isto será imagino que n'²' por 1. 
+Neste caso, é apenas um número 1 x 1, 
+então, na verdade não importa, mas depois veremos quando realmente importar. 
+Então, até o momento, o que fizemos é muito similar à regressão logística, mas agora conforme você continua a rodar retropropagação, você calcularia dz'²' = W'²' ⸆ dz'²' vezes g'¹' ' (Z'¹').
+ [W'²' transposta vezes a derivada de Z'²' e sigmoide g'¹' linha de Z'¹']. Então, esta quantidade g'¹' linha é a derivada da função de 
+qualquer que seja a derivada da função de 
+ativação que você usa para a camada oculta, e para 
+a camada de saída, eu assumo que você 
+esteja fazendo classificação binária com a função sigmoide. Então, isso já está embutido naquela fórmula para dz'²'. 
+E esta multiplicação é um Produto de Hadamard, então isso será uma matriz
+n'¹' por m, e isso aqui é um 
+Produto de Hadamard, e que também será uma matriz n'¹' por m, e 
+assim, esta multiplicação ali é outro Produto de Hadamard de duas matrizes. Finalmente, dw'¹' é igual a isto, e db'¹' é igual a isso, e np.sum (dz'¹' , axis = 1, keepdim = True), em que, anteriormente o keepdim importa menos se n'²' é igual a 1, então isso é uma dimensão 1 x 1, 
+logo apenas um número real. Aqui, db'¹' será 
+um vetor n'¹' por 1, então no Python você quer que np.sum devolva uma saída nessa dimensão, ao invés de um vetor estranho desta 
+dimensão, que poderia acabar esculhambando alguns de seus cálculos posteriores. Outra forma seria não ter o parâmetro keepdim, mas chamar explicitamente 
+"reshape" para remodelar a saída de np.sum nessa dimensão que você 
+quer que db tenha. Então, isso foi propagação para frente em, acredito, quatro equações e 
+retropropagação em, mais ou menos, seis equações. Eu 
+sei que eu acabei de escrever estas equações, mas no próximo vídeo optativo, vamos rever alguns conceitos de como as seis equações dos algoritmos de retropropagação foram derivados. Por favor, fique 
+à vontade para assisti-los ou não, mas de qualquer 
+forma, se você implementar esses algoritmos, você 
+terá uma implementação correta de propagação 
+para frente e retropropagação, e você será capaz de calcular as derivadas que você precisa para aplicar gradiente decrescente de 
+forma a aprender os parâmetros de sua rede neural. É possível implementar este 
+algoritmo e fazê-lo funcionar sem conhecer profundamente os cálculos. Muitos profissionais 
+de aprendizagem profunda de sucesso fazem isso, mas se você quer, você também 
+pode assistir o próximo vídeo apenas para ter mais noção sobre a origem destas 
+[Tradução: Renato Barata Gomes | Revisão: Carlos Lage] equações

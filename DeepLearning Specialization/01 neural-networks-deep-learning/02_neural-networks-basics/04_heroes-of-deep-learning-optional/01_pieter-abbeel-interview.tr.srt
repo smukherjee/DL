@@ -1,0 +1,1322 @@
+1
+00:00:02,420 --> 00:00:04,575
+Bugün bana katıldığın için
+
+2
+00:00:04,575 --> 00:00:06,690
+çok teşekkürler Pieter.
+
+3
+00:00:06,690 --> 00:00:08,560
+Birçok insanin iyi bilinen bir derin öğrenme ve
+
+4
+00:00:08,560 --> 00:00:12,150
+robotik araştırmacısı olduğunu bildiğini düşünüyorum.
+
+5
+00:00:12,150 --> 00:00:15,550
+İnsanların senin hikayeni duymalarını istiyorum.
+
+6
+00:00:15,550 --> 00:00:18,220
+Yaptığın işi nasil yaptin?
+
+7
+00:00:18,220 --> 00:00:22,300
+Bu iyi bir soru ve aslinda bana 14 yaşındayken
+
+8
+00:00:22,300 --> 00:00:24,775
+ne olmak istediğimi sorsaydınız,
+
+9
+00:00:24,775 --> 00:00:26,775
+muhtemelen bu olmayacaktı.
+
+10
+00:00:26,775 --> 00:00:28,285
+Aslinda, zaman içerisinde,
+
+11
+00:00:28,285 --> 00:00:32,565
+profesyonel basketbol oyuncusu olmanın 
+ doğru şey olduğunu düşünmüştüm.
+
+12
+00:00:32,565 --> 00:00:34,680
+Başarabileceğimi düşünmüyordum.
+
+13
+00:00:34,680 --> 00:00:36,430
+Basketbol işi yattığı için
+
+14
+00:00:36,430 --> 00:00:38,250
+makine öğrenmesi şansliydi.
+
+15
+00:00:38,250 --> 00:00:39,510
+Evet, yatmıştı.
+
+16
+00:00:39,510 --> 00:00:41,890
+Basketbol oynamak çok eğlenceliydi, fakat
+
+17
+00:00:41,890 --> 00:00:44,885
+bunu bir kariyere dönüştürmeyi başaramadım.
+
+18
+00:00:44,885 --> 00:00:48,530
+Okuldayken sevdiğim dersler, fizik ve matematikti.
+
+19
+00:00:48,530 --> 00:00:50,005
+Böylece, buradan,
+
+20
+00:00:50,005 --> 00:00:52,120
+gerçek dünyada matematik ve fiziği uygulayabileceğim
+
+21
+00:00:52,120 --> 00:00:55,735
+mühendislik okumak gayet doğal görünüyordu.
+
+22
+00:00:55,735 --> 00:00:58,150
+Ve aslinda, elektrik mühendisliği lisansımdan sonra,
+
+23
+00:00:58,150 --> 00:01:00,355
+ne yapacağımdan tam emin değildim çünkü,
+
+24
+00:01:00,355 --> 00:01:03,981
+kelimenin tam anlamıyla, mühendislikle ilgili
+her şey bana ilgi çekici geliyordu.
+
+25
+00:01:03,981 --> 00:01:07,680
+Bir şeyin nasil işlediğini anlamak ilginç geliyordu.
+
+26
+00:01:07,680 --> 00:01:09,595
+Bir şeyler yaratmak ilginçti.
+
+27
+00:01:09,595 --> 00:01:11,470
+Ve bir noktada,
+
+28
+00:01:11,470 --> 00:01:13,690
+yapay zeka kazandı çünkü bir şekilde
+
+29
+00:01:13,690 --> 00:01:18,280
+tüm disiplinlerle ilişkili görünüyordu.
+
+30
+00:01:18,280 --> 00:01:22,370
+Ve ayrıca, bir şekilde biraz daha
+her şeyin kaynağı olarak görünüyordu.
+
+31
+00:01:22,370 --> 00:01:24,575
+Bir makinenin nasil düşünebileceği hakkında düşünürsün,
+
+32
+00:01:24,575 --> 00:01:30,160
+ve belki herhangi özel bir disiplin seçmektense,
+bu her şeyin kaynağıdır.
+
+33
+00:01:30,160 --> 00:01:33,260
+Ben, YZ'nin yeni elektrik olduğunu söylüyorum,
+
+34
+00:01:33,260 --> 00:01:35,020
+14 yaşındaki halin gibi,
+
+35
+00:01:35,020 --> 00:01:37,923
+hatta daha küçük yaştaki halin gibi.
+
+36
+00:01:37,923 --> 00:01:44,465
+Bildiğin gibi, geçtiğimiz birkaç yılda derin pekiştirmeli 
+öğrenme konusunda birçok çalışma yaptın.
+
+37
+00:01:44,465 --> 00:01:49,315
+Neler oluyor? 
+ Neden derin pekiştirmeli öğrenme birden ön plana çıktı?
+
+38
+00:01:49,315 --> 00:01:51,030
+Derin pekiştirmeli öğrenme üzerine çalışmadan önce,
+
+39
+00:01:51,030 --> 00:01:52,765
+pekiştirmeli öğrenme üzerine çok çalıştım,
+
+40
+00:01:52,765 --> 00:01:56,115
+ve tabi ki, aslında Stanford'da sen ve Durant ile.
+
+41
+00:01:56,115 --> 00:01:59,863
+Ardından, sürücüsüz helikopter uçuşu üzerine çalıştık,
+
+42
+00:01:59,863 --> 00:02:02,440
+daha sonrasında, Berkeley'deki bazı öğrencilerimle birlikte
+
+43
+00:02:02,440 --> 00:02:05,440
+çamaşır katlayan robot üzerine çalıştık.
+
+44
+00:02:05,440 --> 00:02:09,340
+Ve bir işin karakterini belirleyen şey
+
+45
+00:02:09,340 --> 00:02:13,015
+öğrenme olmadan mümkün olmayan şeyleri
+ mümkün kılan bir öğrenme kombinasyonudur,
+
+46
+00:02:13,015 --> 00:02:18,120
+aynı zamanda, öğrenme ile kombine şekilde
+birçok alan uzmanlığı ortaya çıktı.
+
+47
+00:02:18,120 --> 00:02:20,975
+Bu çok ilginçti
+
+48
+00:02:20,975 --> 00:02:22,600
+çünkü başarmak istenilen her yeni uygulama,
+
+49
+00:02:22,600 --> 00:02:24,310
+edinmesi eğlenceli fakat aynı anda
+
+50
+00:02:24,310 --> 00:02:28,234
+çok zaman alıcı olan alan uzmanlığı gerektirir.
+
+51
+00:02:28,234 --> 00:02:31,060
+Alan uzmanlığı ve makine öğrenimi uzmanlığına ihtiyacınız var.
+
+52
+00:02:31,060 --> 00:02:34,240
+Ve benim için, 2012 yılında 
+
+53
+00:02:34,240 --> 00:02:39,910
+Toronto'daki Geoff Hinton ve grubu ile ImageNet
+üzerinde aldığı çığır açıcı sonuçlardı,
+
+54
+00:02:39,910 --> 00:02:42,880
+AlexNet gösterdi ki, artık denetimli öğrenme, birdenbire,
+
+55
+00:02:42,880 --> 00:02:48,220
+bu alanda daha az mühendislik ile yapılabilecekti.
+
+56
+00:02:48,220 --> 00:02:50,410
+AlexNet çok az mühendislik gerektiriyordu.
+
+57
+00:02:50,410 --> 00:02:53,075
+Bu bana pekiştirmeli öğrenmenin
+
+58
+00:02:53,075 --> 00:02:57,610
+aynı bakış açısıyla yeniden değerlendirilmesi gerektiğini düşündürdü,
+
+59
+00:02:57,610 --> 00:03:01,075
+ve pekiştirmeli öğrenmenin işleyişini değiştirip değiştiremeyeceğimizi ve
+
+60
+00:03:01,075 --> 00:03:05,950
+denetimli öğrenmede olduğu gibi aynı derecede
+ilginç şeyler yapabileceğimizi gösterdi.
+
+61
+00:03:05,950 --> 00:03:08,565
+Birçok insandan daha önce derin pekiştirmeli
+
+62
+00:03:08,565 --> 00:03:12,250
+öğrenmenin potansiyelini gördün gibi geliyor.
+
+63
+00:03:12,250 --> 00:03:14,365
+Bu yüzden şimdi geleceğe bakıyoruz,
+
+64
+00:03:14,365 --> 00:03:16,180
+sırada ne görüyorsun?
+
+65
+00:03:16,180 --> 00:03:17,260
+Derin pekiştirmeli öğrenmede karşımıza çıkacak
+
+66
+00:03:17,260 --> 00:03:20,440
+sıradaki yollar için tahminleriniz neler?
+
+67
+00:03:20,440 --> 00:03:23,270
+Yani, bence derin pekiştirmeli öğrenme ile ilgili ilginç olan şey
+
+68
+00:03:23,270 --> 00:03:26,795
+bir bakıma, denetimli öğrenmeden çok daha fazla soruya sahip olması.
+
+69
+00:03:26,795 --> 00:03:29,817
+Denetimli öğrenme, bir girdi çıktı eşleşmesini öğrenmektir.
+
+70
+00:03:29,817 --> 00:03:34,505
+Pekiştirmeli öğrenmedeki çalışma anlayışında ise: 
+veriler nereden geliyor?
+
+71
+00:03:34,505 --> 00:03:36,580
+Bu bir keşfetme problemidir.
+
+72
+00:03:36,580 --> 00:03:38,470
+Veriye sahip olduğunuzda ise, 
+ödül-ceza tahsisini nasıl yapıyorsun?
+
+73
+00:03:38,470 --> 00:03:43,315
+Önceden aldığın hangi aksiyonun 
+sonradan ödül aldığını nasıl anlıyorsun?
+
+74
+00:03:43,315 --> 00:03:44,830
+Ve sonrasında, bir güvenlik konusu var.
+
+75
+00:03:44,830 --> 00:03:47,335
+Verileri otomatik olarak toplayan bir sisteminiz olduğu zaman,
+
+76
+00:03:47,335 --> 00:03:50,140
+aslında bu çoğu durumda oldukça tehlikelidir.
+
+77
+00:03:50,140 --> 00:03:51,880
+Sadece derin pekiştirmeli öğrenme üzerine çalışacağını
+
+78
+00:03:51,880 --> 00:03:53,825
+söyleyen bir sürücüsüz araç şirketi hayal edin.
+
+79
+00:03:53,825 --> 00:03:55,690
+Faydalı herhangi bir şey yapmadan önce arabanın
+
+80
+00:03:55,690 --> 00:03:57,985
+çok fazla kaza geçirmesi çok muhtemel.
+
+81
+00:03:57,985 --> 00:03:59,650
+Negatif örneklere ihtiyacın var, değil mi?
+
+82
+00:03:59,650 --> 00:04:02,000
+Bir şekilde olumsuz örneklere ihtiyacınız var, evet;
+
+83
+00:04:02,000 --> 00:04:04,930
+tabi ki pozitiflere de.
+
+84
+00:04:04,930 --> 00:04:07,540
+Bu yüzden, derin pekiştirmeli öğrenmenin,
+
+85
+00:04:07,540 --> 00:04:09,760
+bu şeylerin nasıl işleyeceğine dair bazı özelliklerin
+
+86
+00:04:09,760 --> 00:04:12,635
+sağlanması açısından hala bir çok
+zorluğa sahip olduğunu düşünüyorum.
+
+87
+00:04:12,635 --> 00:04:14,520
+Derin kısmı bir gösterim,
+
+88
+00:04:14,520 --> 00:04:18,455
+fakat pekiştirmeli öğrenmenin kendisi hala birçok soruya sahip.
+
+89
+00:04:18,455 --> 00:04:20,485
+Derin öğrenmedeki gelişmelerle birlikte,
+
+90
+00:04:20,485 --> 00:04:22,810
+hissettiğim, bir şekilde
+
+91
+00:04:22,810 --> 00:04:27,430
+pekiştirmeli öğrenmedeki bulmacanın 
+bir kısmında bu gösterim geniş
+
+92
+00:04:27,430 --> 00:04:29,075
+bir şekilde ele alınmıştı.
+
+93
+00:04:29,075 --> 00:04:31,540
+Yani, eğer bir biçim düzeni varsa,
+
+94
+00:04:31,540 --> 00:04:34,795
+onu muhtemelen derin bir ağ ile gösterebilir ve
+ onu yakalayabiliriz.
+
+95
+00:04:34,795 --> 00:04:39,400
+Ve pekiştirmeli öğrenmede, bir biçim düzenini 
+nasıl ayıklayacağınız hala büyük bir zorluktur.
+
+96
+00:04:39,400 --> 00:04:41,740
+Bu yüzden, büyük zorlukların
+
+97
+00:04:41,740 --> 00:04:45,695
+sistemlerin daha geniş alanlarda 
+anlamlandırmak olduğunu düşünüyorum.
+
+98
+00:04:45,695 --> 00:04:47,770
+Şu anda, derin pekiştirmeli öğrenmedeki
+
+99
+00:04:47,770 --> 00:04:50,650
+pek çok başarı çok dar bir alanda.
+
+100
+00:04:50,650 --> 00:04:52,000
+Öyle problemler var ki,
+
+101
+00:04:52,000 --> 00:04:54,445
+Alanı biraz daha genişletebilirsek,
+
+102
+00:04:54,445 --> 00:04:57,815
+tüm alana hakim olabiliriz.
+
+103
+00:04:57,815 --> 00:05:02,599
+Burada, beş saniyelik bir ölçek, bir günlük bir ölçekten
+
+104
+00:05:02,599 --> 00:05:06,930
+ya da bir robot tada bir yazılım aracı olarak
+yaşama yeteneğinden çok farklı bir şey.
+
+105
+00:05:06,930 --> 00:05:09,240
+Bu yüzden, burada birçok zorluk olduğunu düşünüyorum.
+
+106
+00:05:09,240 --> 00:05:12,790
+Bence güvenlik çok fazla zorluğa sahip,
+
+107
+00:05:12,790 --> 00:05:14,920
+nasıl güvenli bir şekilde öğrendiği ve
+
+108
+00:05:14,920 --> 00:05:17,785
+zaten her şey yolundayken öğrenmeye devam ettiği gibi.
+
+109
+00:05:17,785 --> 00:05:20,305
+Yani, birçok insanın aşina olabileceği
+
+110
+00:05:20,305 --> 00:05:23,070
+bir örnek vermek gerekirse, sürücüsüz araçların
+
+111
+00:05:23,070 --> 00:05:26,375
+insanlardan daha iyi olabilmesi için,
+
+112
+00:05:26,375 --> 00:05:31,990
+insanların, belki de, neredeyse 1.5 milyon km'de
+bir kötü kazalara karışması gerekir.
+
+113
+00:05:31,990 --> 00:05:35,763
+Ve böylece, insan sürücüler gibi iyi olması için,
+
+114
+00:05:35,763 --> 00:05:37,510
+negatif verileri görmek çok uzun zaman alır.
+
+115
+00:05:37,510 --> 00:05:40,835
+Fakat, insan sürücülerden daha iyi kullanılan 
+sürücüsüz araçlar istiyorsunuz.
+
+116
+00:05:40,835 --> 00:05:43,930
+Bu noktada veri toplama işi, sisteminizi geliştirecek
+
+117
+00:05:43,930 --> 00:05:48,175
+ilginç veriler toplamak adına, gerçekten zor hale geliyor.
+
+118
+00:05:48,175 --> 00:05:52,420
+Yani, keşfetme problemi ile ilgili bir sürü zorluk var, 
+bu da ona bağlanıyor.
+
+119
+00:05:52,420 --> 00:05:57,190
+Ama şu an en çok heyecanlandığım şeylerden biri,
+
+120
+00:05:57,190 --> 00:06:02,720
+bir adım geriye çıkıp, pekiştirmeli öğrenme algoritmasını 
+öğrenip öğrenemeyeceğimizi görmek.
+
+121
+00:06:02,720 --> 00:06:05,030
+Yani, pekiştirme çok karmaşık,
+
+122
+00:06:05,030 --> 00:06:07,450
+ödül-ceza tahsisi çok karmaşık,
+ keşfetme problemi çok karmaşık.
+
+123
+00:06:07,450 --> 00:06:08,905
+Ve belki de,
+
+124
+00:06:08,905 --> 00:06:13,795
+denetimli öğrenme için derin öğrenmenin birçok alan uzmanlığının yerini alabildiği gibi,
+
+125
+00:06:13,795 --> 00:06:17,320
+belki de öğrenilen programlara, tüm bunları yapan,
+
+126
+00:06:17,320 --> 00:06:20,140
+bizim yerimize detayları tasarlayan pekiştirmeli öğrenme
+
+127
+00:06:20,140 --> 00:06:22,510
+programlarına sahip olabiliriz.
+
+128
+00:06:22,510 --> 00:06:25,560
+Ödül fonksiyonu için mi, tüm program için mi?
+
+129
+00:06:25,560 --> 00:06:28,150
+Yani, bu pekiştirmeli öğrenme programının 
+tamamını öğrenebilecektir.
+
+130
+00:06:28,150 --> 00:06:30,430
+Öyleyse, düşünün,
+
+131
+00:06:30,430 --> 00:06:34,255
+bir pekiştirmeli öğrenme programına sahip olursun, ne olduğu önemli değil,
+
+132
+00:06:34,255 --> 00:06:38,320
+önüne bir problem verirsin ve öğrenmesinin ne kadar sürdüğünü görürsün.
+
+133
+00:06:38,320 --> 00:06:41,020
+Ve sonrasında dersin ki, tamam, bir süre alıyor.
+
+134
+00:06:41,020 --> 00:06:44,950
+Şimdi, başka bir program, bu pekiştirmeli
+öğrenme programını değiştirsin.
+
+135
+00:06:44,950 --> 00:06:48,045
+Değişimin ardından, ne kadar hızlı öğrendiğini görürsün.
+
+136
+00:06:48,045 --> 00:06:49,641
+Eğer daha hızlı öğreniyorsa,
+
+137
+00:06:49,641 --> 00:06:54,380
+bu iyi bir değişimdi ve belki onu tutup geliştirirsin.
+
+138
+00:06:54,380 --> 00:06:57,630
+Anlıyorum, doğru. Evet, hızlandırmak.
+
+139
+00:06:57,630 --> 00:06:59,290
+Kullanılabilir hale gelen hesaplama miktarıyla ilgili, belki de,
+
+140
+00:06:59,290 --> 00:07:01,510
+yapılacak çok şey olduğunu düşünüyorum.
+
+141
+00:07:01,510 --> 00:07:05,860
+Öyleyse, bu, pekiştirmeli öğrenmeyi
+bir iç döngüde çalıştırıyor olurdu.
+
+142
+00:07:05,860 --> 00:07:08,975
+Bizim için şimdi, biz pekiştirmeli öğrenmeyi,
+son şey olarak çalışıyoruz.
+
+143
+00:07:08,975 --> 00:07:11,260
+Yani, daha fazla hesaplama yapabildiğimiz zaman,
+
+144
+00:07:11,260 --> 00:07:14,545
+pekiştirmeli öğrenme için iç döngüye sahip
+ daha büyük algoritmaları çalıştırmak
+
+145
+00:07:14,545 --> 00:07:19,160
+belki de daha fazla mümkün olacak.
+
+146
+00:07:19,160 --> 00:07:22,080
+14 yaşından başlayarak,
+
+147
+00:07:22,080 --> 00:07:25,355
+20 yıldan daha fazla süredir YZ üzerine çalıştın.
+
+148
+00:07:25,355 --> 00:07:32,795
+Bu süre içerisinde, senin YZ'yı anlayışın
+ nasıl evrildi biraz bana bahset
+
+149
+00:07:32,795 --> 00:07:35,280
+YZ'ye bakmaya başladığımda
+
+150
+00:07:35,280 --> 00:07:38,230
+çok ilgi çekiciydi, çünkü
+
+151
+00:07:38,230 --> 00:07:41,445
+Stanford'a yüksek lisans derecemi almak için
+geldiğim zaman denk geliyor,
+
+152
+00:07:41,445 --> 00:07:46,998
+2000'li yıllarda çoğu insanın o sırada yaptığından
+
+153
+00:07:46,998 --> 00:07:49,300
+çok farklı bir yaklaşıma sahip olan
+
+154
+00:07:49,300 --> 00:07:50,460
+ve konuşmam gereken
+
+155
+00:07:50,460 --> 00:07:52,115
+John McCarthy gibi bazı simgeler vardı.
+
+156
+00:07:52,115 --> 00:07:54,958
+Ayrıca Daphne Koller ile de görüştüm.
+
+157
+00:07:54,958 --> 00:07:59,320
+Ve bence, ilk izlenimlerimin çoğu,
+Daphne'nin düşünceleri tarafından şekillendirilmişti.
+
+158
+00:07:59,320 --> 00:08:04,300
+Onun YZ dersi, onun olasılıksal grafik modelleme dersi,
+
+159
+00:08:04,300 --> 00:08:06,820
+çoğu rastgele değişkenlerinin dağılımından
+
+160
+00:08:06,820 --> 00:08:11,450
+nasıl etkilendiği, ve sonrasında, bazı altküme değişkenlerinde
+
+161
+00:08:11,450 --> 00:08:14,950
+koşullandırılabilir olması ve diğerleri
+hakkında bir sonuç çıkarması size çok şey verebilir
+
+162
+00:08:14,950 --> 00:08:19,015
+eğer bir şekilde hesaplanabilir şekilde çekici hale getirebilirseniz,
+
+163
+00:08:19,015 --> 00:08:23,170
+ki bu kesinlikle hesaplanabilir hale getirme zorluğudur.
+
+164
+00:08:23,170 --> 00:08:25,090
+Sonra buradan,
+
+165
+00:08:25,090 --> 00:08:28,335
+Doktora dereceme başladığımda, sen Stanford'daydın,
+
+166
+00:08:28,335 --> 00:08:30,910
+ve bana iyi bir gerçeklik kontrolü verdiğini düşünüyorum.
+
+167
+00:08:30,910 --> 00:08:35,350
+bu kontrol, işini değerlendirmek için doğru metrik olmadığı ve,
+
+168
+00:08:35,350 --> 00:08:38,470
+üzerinde çalıştığın şey ile
+
+169
+00:08:38,470 --> 00:08:41,710
+gerçekte sahip olacağı etki,
+
+170
+00:08:41,710 --> 00:08:46,660
+işin arkasındaki matematikten ziyade ne gibi değişiklikler
+ yapabileceği arasındaki bağlantıyı görmeyi denememdi.
+
+171
+00:08:46,660 --> 00:08:48,425
+Doğru, bu inanılmaz.
+
+172
+00:08:48,425 --> 00:08:50,685
+Fark etmemişim, unutmuştum.
+
+173
+00:08:50,685 --> 00:08:54,267
+Evet, aslında en sık sorulan şeylerden biri,
+
+174
+00:08:54,267 --> 00:09:01,090
+Andrew'in tavsiyelerinden birini belirtecek olsan,
+
+175
+00:09:01,090 --> 00:09:05,995
+aslında yaptığın şey ile arasındaki
+bağlantıyı görebilmesi gerektiği olurdu.
+
+176
+00:09:05,995 --> 00:09:11,332
+YZ üzerine, sahip olduğun ve 
+olmaya devam ettiğin harika bir kariyerin var.
+
+177
+00:09:11,332 --> 00:09:14,750
+Şimdi bu videoda seni dinleyen bazı insanlar için,
+
+178
+00:09:14,750 --> 00:09:18,815
+YZ üzerine bir kariyere girmek ya da devam etmek isteyenler
+
+179
+00:09:18,815 --> 00:09:20,985
+için tavsiyelerin ne olurdu?
+
+180
+00:09:20,985 --> 00:09:25,185
+Yapay zekaya dahil olmak için çok iyi 
+bir zamanda olduğumuzu düşünüyorum
+
+181
+00:09:25,185 --> 00:09:28,965
+İnsanların buna talebine baktığımızda, çok yüksek,
+
+182
+00:09:28,965 --> 00:09:30,741
+çok fazla iş imkanı var,
+
+183
+00:09:30,741 --> 00:09:32,365
+yapabileceğiniz çok fazla şey var, araştırma odaklı,
+
+184
+00:09:32,365 --> 00:09:34,735
+yeni şirket kurmak ve benzeri
+
+185
+00:09:34,735 --> 00:09:39,240
+Yani, evet derim, buna başlamak kesinlikle akıllıca bir karar olur.
+
+186
+00:09:39,240 --> 00:09:41,140
+Bir sürü, kendin çalışabilirsin,
+
+187
+00:09:41,140 --> 00:09:42,635
+okulda olsan da olmasan da.
+
+188
+00:09:42,635 --> 00:09:44,150
+birçok online dersler var, örneğin,
+
+189
+00:09:44,150 --> 00:09:45,585
+senin makine öğrenmesi dersin,
+
+190
+00:09:45,585 --> 00:09:48,400
+ayrıca Andrej Karpthy'nin
+
+191
+00:09:48,400 --> 00:09:52,030
+online videolar halinde derin öğrenme kursu var,
+
+192
+00:09:52,030 --> 00:09:54,280
+başlamak için harika bir yol,
+
+193
+00:09:54,280 --> 00:09:57,460
+tüm derslerini online olarak bulabileceğiniz
+
+194
+00:09:57,460 --> 00:09:59,260
+Berkeley'in derin pekiştirmeli öğrenme dersi var.
+
+195
+00:09:59,260 --> 00:10:01,235
+Yani, bunların tamamı başlamak için iyi noktalar.
+
+196
+00:10:01,235 --> 00:10:06,470
+önemli olanın büyük bir kısmının, denediğinden
+emin olman gerektiği olduğunu düşünüyorum.
+
+197
+00:10:06,470 --> 00:10:10,055
+Yani, sadece bir şeyler okumak ya da
+izlemek değil, ama bir şeyler denemek.
+
+198
+00:10:10,055 --> 00:10:14,347
+TensorFlow, Chainer, Theano
+
+199
+00:10:14,347 --> 00:10:16,040
+PyTorch ve benzeri frameworkler ile,
+
+200
+00:10:16,040 --> 00:10:17,350
+Yani favorin hangisiyse,
+
+201
+00:10:17,350 --> 00:10:21,980
+İçine girip, bir şeyleri çalıştırmak çok kolay.
+
+202
+00:10:21,980 --> 00:10:24,669
+Kendi başına pratik yapmak, değil mi?
+
+203
+00:10:24,669 --> 00:10:27,105
+Uygulamak ve neyin çalışıp neyin
+çalışmadığını görerek.
+
+204
+00:10:27,105 --> 00:10:29,360
+Misal, geçen hafta Mashable'da bir makale vardı,
+
+205
+00:10:29,360 --> 00:10:31,715
+Birleşik Krallık'ta 16 yaşındaki, Kaggle yarışmalarında
+
+206
+00:10:31,715 --> 00:10:34,580
+liderlerden biri olan bir çocuk hakkında.
+
+207
+00:10:34,580 --> 00:10:36,690
+Söylenene göre,
+
+208
+00:10:36,690 --> 00:10:39,290
+sadece karar verdi ve İnternetten bulduğu
+
+209
+00:10:39,290 --> 00:10:41,510
+online şeyler ile bir şeyler öğrendi, 
+her şeyi kendi başına öğrendi ve
+
+210
+00:10:41,510 --> 00:10:44,915
+hiçbir resmi kurs almamıştı aslında.
+
+211
+00:10:44,915 --> 00:10:49,180
+Ve Kaggle yarışmalarında fazlasıyla
+rekabetçi 16 yaşında biri var.
+
+212
+00:10:49,180 --> 00:10:50,990
+yani, bu kesinlikle mümkün.
+
+213
+00:10:50,990 --> 00:10:53,120
+İyi zamanlarda yaşıyoruz.
+
+214
+00:10:53,120 --> 00:10:54,560
+Eğer insanlar öğrenmek isterse.
+
+215
+00:10:54,560 --> 00:10:55,940
+Kesinlikle.
+
+216
+00:10:55,940 --> 00:10:57,980
+Her zaman aldığına emin olduğum bir soru:
+
+217
+00:10:57,980 --> 00:11:00,160
+eğer biri YZ, makine öğrenmesi ve
+derin öğrenme'ye girmek istiyorsa
+
+218
+00:11:00,160 --> 00:11:06,885
+bir doktora programına başvurmalı mı,
+ya da büyük şirketlerde işe girmeli mi?
+
+219
+00:11:06,885 --> 00:11:12,395
+Bence bu ne kadar mentörlük aldığınızla alakalı,
+
+220
+00:11:12,395 --> 00:11:14,780
+Misal, bir doktora programında,
+
+221
+00:11:14,780 --> 00:11:16,400
+bir profesörün
+
+222
+00:11:16,400 --> 00:11:17,787
+sizin danışmanınız olacağı,
+
+223
+00:11:17,787 --> 00:11:18,830
+sizi gözeteceği
+
+224
+00:11:18,830 --> 00:11:20,800
+bir şekilde garanti.
+
+225
+00:11:20,800 --> 00:11:21,950
+Yapabileceği her şeyi dener,
+
+226
+00:11:21,950 --> 00:11:23,565
+sizi şekillendirir,
+
+227
+00:11:23,565 --> 00:11:28,720
+yapmak istediğiniz neyse, onda daha güçlü olmanıza yardım eder, örneğin YZ.
+
+228
+00:11:28,720 --> 00:11:32,060
+Yani, çok açık şekilde adanmış bir kişi var,
+ bazen iki danışmanınız olur.
+
+229
+00:11:32,060 --> 00:11:34,955
+Bu onun işinin tanımıdır, ve profesör olma sebepleridir.
+
+230
+00:11:34,955 --> 00:11:37,755
+Profesörler olmaktan hoşlandıkları şeylerin çoğu,
+
+231
+00:11:37,755 --> 00:11:41,200
+öğrencilerin daha yetenekli hale gelmelerine yardımcı olmak.
+
+232
+00:11:41,200 --> 00:11:43,250
+Şimdi, bu şirketlerde mümkün olmadığı anlamına gelmiyor.
+
+233
+00:11:43,250 --> 00:11:46,730
+ve çoğu şirket gerçekten iyi mentörlere
+ve gelen insanları
+
+234
+00:11:46,730 --> 00:11:51,110
+eğitmeye yardımcı olan ve onları
+güçlendiren insanlar var, ve benzeri.
+
+235
+00:11:51,110 --> 00:11:55,515
+Bu, bir doktora programı karşılaştırıldığı zaman
+
+236
+00:11:55,515 --> 00:12:00,540
+o kadar garanti olmasa da, öğreneceğiniz
+
+237
+00:12:00,540 --> 00:12:06,020
+ve birinin size öğrenmeniz için yardımcı olacağı gayet açık.
+
+238
+00:12:06,020 --> 00:12:09,675
+Yani, bu gerçekten şirkete ve doktora programına bağlı.
+
+239
+00:12:09,675 --> 00:12:14,130
+Kesinlikle, evet. 
+Fakat bence, çoğunu kendi başına öğrenebileceğiniz, kilit nokta.
+
+240
+00:12:14,130 --> 00:12:17,910
+Ama daha tecrübeli biriyle, sorumluluğu sizinle zamanını harcayıp,
+
+241
+00:12:17,910 --> 00:12:20,469
+bu sürecin hızlanmasına yardımcı olmak olan
+
+242
+00:12:20,469 --> 00:12:24,945
+biriyle çalışarak çok daha hızlı öğrenebileceğinizi düşünüyorum.
+
+243
+00:12:24,945 --> 00:12:28,780
+Derin pekiştirmeli öğrenme için 
+en önde gelen insanlardan birisin,
+
+244
+00:12:28,780 --> 00:12:30,720
+Şu anda derin pekiştirmeli öğrenme ile
+
+245
+00:12:30,720 --> 00:12:32,930
+halihazırda iyi giden şeyler neler?
+
+246
+00:12:32,930 --> 00:12:37,450
+Bence, eğer derin pekiştirmeli öğrenmenin 
+bazı başarılarına bakarsanız,
+
+247
+00:12:37,450 --> 00:12:39,000
+gayet ilgi çekiciler.
+
+248
+00:12:39,000 --> 00:12:42,810
+Örneğin, piksellerden atari oynamayı öğrenmek,
+
+249
+00:12:42,810 --> 00:12:45,540
+sadece numaralardan ibaret olan pikselleri işleyerek,
+
+250
+00:12:45,540 --> 00:12:49,150
+bir şekilde oyun kolu hareketlerine dönüştürmek.
+
+251
+00:12:49,150 --> 00:12:52,605
+Sonra, örneğin, Berkeley'de yaptığımız bazı işler,
+
+252
+00:12:52,605 --> 00:12:57,105
+yürüyen bir robot icat etmiştik,
+
+253
+00:12:57,105 --> 00:12:59,340
+ödülü ise, daha az dış etkiye maruz bırakarak, 
+ne kadar kuzeye giderse
+
+254
+00:12:59,340 --> 00:13:02,170
+o kadar daha iyi olacak şekilde basitti.
+
+255
+00:13:02,170 --> 00:13:06,949
+Ve bir şekilde, yürümenin ya da koşmanın 
+bulunması gereken bir şey olduğuna karar verdi.
+
+256
+00:13:06,949 --> 00:13:10,095
+kimse ona yürümenin ya da koşmanın 
+ne olduğunu göstermemişti
+
+257
+00:13:10,095 --> 00:13:14,220
+ya da çocuk oyuncaklarıyla oynayan
+ ve onları birleştiren robot,
+
+258
+00:13:14,220 --> 00:13:16,935
+eşleşen açıklığa parçayı yerleştirmek gibi.
+
+259
+00:13:16,935 --> 00:13:20,280
+Yani, bence ham alıcı girdisiyle 
+kontrol etmenin yollarını öğrenmenin
+
+260
+00:13:20,280 --> 00:13:24,510
+mümkün olması gerçekten ilgi çekici.
+
+261
+00:13:24,510 --> 00:13:27,990
+örnek olarak, motorlardaki tork
+
+262
+00:13:27,990 --> 00:13:29,225
+Fakat aynı zamanda,
+
+263
+00:13:29,225 --> 00:13:32,460
+tek bir algoritmaya sahip olabilmeniz de çok ilginç.
+
+264
+00:13:32,460 --> 00:13:35,310
+Örneğin, biliyorsun ki,itme gücü dürtüsel ve,
+
+265
+00:13:35,310 --> 00:13:36,745
+koşmayı öğrenebilen,
+
+266
+00:13:36,745 --> 00:13:38,135
+ayağa kalkmayı öğrenebilen,
+
+267
+00:13:38,135 --> 00:13:40,395
+iki ayaklı robotların yerine,
+
+268
+00:13:40,395 --> 00:13:42,445
+aynı pekiştirmeli algoritmayı dört ayaklı robotlar ile,
+
+269
+00:13:42,445 --> 00:13:46,465
+çalıştırdığında, yine koşmayı öğrenir.
+
+270
+00:13:46,465 --> 00:13:49,280
+Yani, pekiştirmeli algoritmada bir değişiklik yok.
+
+271
+00:13:49,280 --> 00:13:51,615
+Çok genel. Atari oyununda da aynı.
+
+272
+00:13:51,615 --> 00:13:54,565
+DQN (Deep Q-Learning) her oyun için aynı algoritma.
+
+273
+00:13:54,565 --> 00:13:56,640
+Ama, aslında henüz mümkün olmayan
+
+274
+00:13:56,640 --> 00:14:00,060
+bir şeyin sınırına geldiğinizde,
+
+275
+00:14:00,060 --> 00:14:03,490
+Bu görevler için her şeyi sıfırdan öğrenmesi güzel, ama
+
+276
+00:14:03,490 --> 00:14:07,405
+sonraki görev için daha hızlı öğrenebilmesi için,
+
+277
+00:14:07,405 --> 00:14:09,640
+geçmişte öğrendiği şeyleri yeniden kullanabilseydi daha hoş olurdu.
+
+278
+00:14:09,640 --> 00:14:13,100
+Ve bu hala sınırda olan ve mümkün olmayan bir şey.
+
+279
+00:14:13,100 --> 00:14:16,490
+Aslında, her seferinde en baştan başlıyor.
+
+280
+00:14:16,490 --> 00:14:19,390
+Sence çevremizdeki robotlarda 
+
+281
+00:14:19,390 --> 00:14:22,420
+derin pekiştirmeli öğrenmeyi ne kadar hızlı göreceğiz,
+
+282
+00:14:22,420 --> 00:14:25,935
+günümüz dünyasında kullanılan robotlarda.
+
+283
+00:14:25,935 --> 00:14:29,380
+Pratikte gerçekçi senaryonun
+
+284
+00:14:29,380 --> 00:14:32,770
+denetimli öğrenme ile başladığını düşünüyorum.
+
+285
+00:14:32,770 --> 00:14:35,960
+davranış klonlama, işi insanlar yapar.
+
+286
+00:14:35,960 --> 00:14:38,530
+Ve bence, birçok işletme, arka planda çoğu işi
+
+287
+00:14:38,530 --> 00:14:41,790
+bir insanın yaptığı şekilde kurulacak.
+
+288
+00:14:41,790 --> 00:14:44,980
+Facebook Mesajlaşma asistanını düşünün,
+
+289
+00:14:44,980 --> 00:14:47,980
+Arka planda işlerin çoğunun bir insan
+
+290
+00:14:47,980 --> 00:14:51,310
+tarafından şekillendirildiği bir asistan, makine öğrenmesi, 
+
+291
+00:14:51,310 --> 00:14:54,380
+insanın yaptığıyla karşılaştırır ve 
+insan için tahminler üretmeye başlar.
+
+292
+00:14:54,380 --> 00:14:58,130
+ve insanlar sadece tıklayıp seçeceği 
+sınırlı sayıda seçeneğe sahip olur.
+
+293
+00:14:58,130 --> 00:14:59,640
+Ve zaman içerisinde,
+
+294
+00:14:59,640 --> 00:15:01,130
+oldukça iyi olduğu gibi,
+
+295
+00:15:01,130 --> 00:15:04,465
+artık sadece sahne arkasındaki insan ile eşleşmek yerine,
+
+296
+00:15:04,465 --> 00:15:06,565
+gerçek hedefler vererek pekiştirmeli 
+öğrenme kullanmaya başlar.
+
+297
+00:15:06,565 --> 00:15:09,040
+fakat böyle başarım hedefleri vererek,
+
+298
+00:15:09,040 --> 00:15:14,110
+belki, iki kişi toplantılarını ne kadar hızlı planlayabilir?
+
+299
+00:15:14,110 --> 00:15:16,385
+ya da, uçuş rezervasyonlarını ne kadar hızlı yapabilirler?
+
+300
+00:15:16,385 --> 00:15:18,340
+ya da bunun gibi şeyler, ne kadar sürer?
+
+301
+00:15:18,340 --> 00:15:20,065
+Bununla ne kadar mutlular?
+
+302
+00:15:20,065 --> 00:15:22,815
+Fakat bunun nasıl yapılabileceğini gösteren
+
+303
+00:15:22,815 --> 00:15:27,605
+insanların davranışsal klonlarını
+ önceden belirtmiş olmak gerekecek.
+
+304
+00:15:27,605 --> 00:15:30,690
+davranışsal klonlama sadece insanların
+
+305
+00:15:30,690 --> 00:15:33,580
+ne yaptığını taklit eden denetimli öğrenme gibi duruyor
+
+306
+00:15:33,580 --> 00:15:37,434
+ve sonra yavaş yavaş, daha sonrasını hesaba 
+katmak için pekiştirmeli öğrenme gerekecek.
+
+307
+00:15:37,434 --> 00:15:38,500
+Bu doğru bir özet olur mu?
+
+308
+00:15:38,500 --> 00:15:39,715
+Öyle sanırım, evet.
+
+309
+00:15:39,715 --> 00:15:43,540
+Çünkü sadece pekiştirmeli öğrenme ile en başından 
+ gelişimini izlemek bile gerçekten eğlenceli.
+
+310
+00:15:43,540 --> 00:15:46,780
+Bu çok ilgi çekici ve sıfırdan başlayarak
+
+311
+00:15:46,780 --> 00:15:50,440
+bir şeyler icat eden pekiştirmeli öğrenme
+ robotunu izlemekten daha keyifli çok az şey var
+
+312
+00:15:50,440 --> 00:15:54,280
+Fakat, bu çok zaman alıcı ve her zaman güvenli de değil.
+
+313
+00:15:54,280 --> 00:15:56,200
+Çok teşekkür ederim, Harikaydı.
+
+314
+00:15:56,200 --> 00:15:58,005
+Seninle konuşma fırsatım olduğuna çok memnunum
+
+315
+00:15:58,005 --> 00:16:02,670
+Pekala, Andrew, beni çağırdığın için teşekkür ederim.
+Çok memnun oldum.

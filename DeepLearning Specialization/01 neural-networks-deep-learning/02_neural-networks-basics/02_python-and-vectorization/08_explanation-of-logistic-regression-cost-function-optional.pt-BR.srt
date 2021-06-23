@@ -1,0 +1,460 @@
+1
+00:00:00,390 --> 00:00:03,860
+Em um vídeo anterior, eu escrevi 
+uma fórmula para a função de custo
+
+2
+00:00:03,860 --> 00:00:05,230
+em regressão logística.
+
+3
+00:00:05,230 --> 00:00:09,370
+Neste vídeo opcional, eu quero 
+dar-lhe uma rápida justificativa do
+
+4
+00:00:09,370 --> 00:00:13,490
+porque nós gostamos de usar esta 
+função de custo em regressão logística.
+
+5
+00:00:13,490 --> 00:00:17,709
+Para recapitular rapidamente, em regressão logística,
+
+6
+00:00:17,709 --> 00:00:23,704
+nós temos que a previsão ŷ é σ(W⸆x + b),
+
+7
+00:00:23,704 --> 00:00:27,711
+onde σ é essa função conhecida.
+
+8
+00:00:27,711 --> 00:00:34,353
+E dizemos que queremos 
+interpretar ŷ como p(y = 1 | x).
+
+9
+00:00:34,353 --> 00:00:39,776
+Então, nós queremos que nosso 
+algoritmo retorne ŷ como a possibilidade
+
+10
+00:00:39,776 --> 00:00:45,030
+que y = 1 para um determinado conjunto 
+de características de entrada x.
+
+11
+00:00:45,030 --> 00:00:50,090
+Então, outra forma de 
+dizer é, se y é igual a 1,
+
+12
+00:00:50,090 --> 00:00:56,020
+então a probabilidade p(y|x) = ŷ.
+
+13
+00:00:56,020 --> 00:00:59,170
+Por outro lado, se y = 0, então
+
+14
+00:01:00,310 --> 00:01:05,840
+a probabilidade de que y 
+fosse 0 seria 1-ŷ, correto?
+
+15
+00:01:05,840 --> 00:01:09,150
+Então, ŷ era a probabilidade, quando y =1,
+
+16
+00:01:09,150 --> 00:01:13,620
+então 1 - ŷ é a probabilidade quando y = 0.
+
+17
+00:01:13,620 --> 00:01:18,057
+Deixe-me pegar estas duas equações 
+e só copiá-las para o próximo slide.
+
+18
+00:01:18,057 --> 00:01:22,684
+O que vou fazer é pegar 
+estas duas equações que
+
+19
+00:01:22,684 --> 00:01:28,010
+basicamente definem p(y|x) 
+para os dois casos y = 0 ou y = 1.
+
+20
+00:01:28,010 --> 00:01:33,110
+E então, pegar estas duas equações 
+e transformá-las em uma única equação.
+
+21
+00:01:33,110 --> 00:01:37,543
+E só salientando que ŷ tem que ser 0 ou 1 
+porque em equações de custo binárias,
+
+22
+00:01:37,543 --> 00:01:41,110
+y =0 ou 1 são os dois únicos casos possíveis, ok?
+
+23
+00:01:41,110 --> 00:01:44,653
+Quando alguém pegar estas duas 
+equações e resumi-las, como segue.
+
+24
+00:01:44,653 --> 00:01:48,774
+Deixe-me só escrever como se parece, e depois 
+explicaremos o porquê ela se parece assim.
+
+25
+00:01:48,774 --> 00:01:54,040
+Então, (1-ŷ) elevado a (1-y).
+
+26
+00:01:54,040 --> 00:01:58,920
+Resulta que esta única linha 
+resume as duas equações no topo.
+
+27
+00:01:58,920 --> 00:02:00,500
+Explicarei por quê.
+
+28
+00:02:00,500 --> 00:02:04,643
+No primeiro caso, 
+suponha y = 1, certo?
+
+29
+00:02:04,643 --> 00:02:09,562
+porque se y = 1, então este 
+termo acaba sendo ŷ,
+
+30
+00:02:09,562 --> 00:02:13,970
+pois, é ŷ elevado à potência 1.
+
+31
+00:02:13,970 --> 00:02:21,120
+Este termo acaba sendo 1 - ŷ 
+elevado à 1 - 1, isto é, elevado à potência 0.
+
+32
+00:02:21,120 --> 00:02:26,320
+Mas, qualquer número elevado 
+à potência 0 é igual a 1, isso some.
+
+33
+00:02:26,320 --> 00:02:33,030
+Então, esta equação, desta 
+forma p(y|x) = ŷ, quando y = 1.
+
+34
+00:02:33,030 --> 00:02:37,480
+Isto é exatamente o que queríamos.
+
+35
+00:02:37,480 --> 00:02:40,250
+Agora, que tal o segundo caso? 
+E se y = 0?
+
+36
+00:02:40,250 --> 00:02:47,057
+Se y = 0, então esta 
+equação acima p(y|x) = ŷ
+
+37
+00:02:47,057 --> 00:02:51,920
+elevada à potência 0, mas qualquer 
+coisa elevado a zero é igual a 1, então
+
+38
+00:02:51,920 --> 00:02:58,267
+isso é igual a 1 vezes 1 - ŷ 
+elevado à potência 1 - y.
+
+39
+00:02:58,267 --> 00:03:02,770
+Então, 1 - y é 1 - 0, então é só 1.
+
+40
+00:03:02,770 --> 00:03:07,610
+E isso é igual a 1 vezes (1 - ŷ) = 1 - ŷ.
+
+41
+00:03:10,700 --> 00:03:17,230
+E então aqui nós temos 
+que y = 0, p(y|x) = 1 - ŷ,
+
+42
+00:03:17,230 --> 00:03:21,570
+que é exatamente o que queríamos acima.
+
+43
+00:03:21,570 --> 00:03:23,690
+Então, o que acabamos de 
+mostrar é que esta equação
+
+44
+00:03:25,330 --> 00:03:30,331
+é uma definição correta para p(y|x).
+
+45
+00:03:30,331 --> 00:03:36,513
+Finalmente, pelo fato da função 
+log ser uma função crescente
+
+46
+00:03:36,513 --> 00:03:43,223
+estritamente monotônica, para maximizar 
+log p(y|x) deveria dar a você um resultado similar
+
+47
+00:03:43,223 --> 00:03:48,672
+a otimização de p(y|x) e se 
+você calcular log p(y|x), é igual a
+
+48
+00:03:48,672 --> 00:03:54,330
+log (ŷ elevado a y)
+vezes (1 - ŷ) elevado a (1 - y).
+
+49
+00:03:54,330 --> 00:03:59,818
+E então simplifica para y log ŷ
+
+50
+00:03:59,818 --> 00:04:05,881
++ (1 - y) log (1 - y), certo?
+
+51
+00:04:05,881 --> 00:04:09,832
+Então, isso é na verdade o 
+negativo da função de perda
+
+52
+00:04:09,832 --> 00:04:14,310
+que tivemos que encontrar anteriormente.
+
+53
+00:04:14,310 --> 00:04:17,470
+E há um sinal negativo lá porque normalmente, 
+se você está treinando um algoritmo
+
+54
+00:04:17,470 --> 00:04:20,460
+de aprendizagem, você quer 
+fazer probabilidades grandes,
+
+55
+00:04:20,460 --> 00:04:23,980
+enquanto que em regressão 
+logística, nós expressamos assim.
+
+56
+00:04:23,980 --> 00:04:25,820
+Nós queremos minimizar 
+a função de perda.
+
+57
+00:04:25,820 --> 00:04:30,640
+Então, minimizar a perda corresponde 
+a maximizar o log da probabilidade.
+
+58
+00:04:30,640 --> 00:04:33,925
+Então, é assim que se parece a função 
+de perda com um único exemplo.
+
+59
+00:04:33,925 --> 00:04:35,435
+E a função de custo?
+
+60
+00:04:35,435 --> 00:04:40,435
+Toda a função de custo em um conjunto 
+completo de treinamento com m exemplos?
+
+61
+00:04:40,435 --> 00:04:41,385
+Vamos descobrir isso.
+
+62
+00:04:41,385 --> 00:04:45,710
+Então, a probabilidade de todos os 
+rótulos em um conjunto de treinamento.
+
+63
+00:04:45,710 --> 00:04:47,750
+Escrevendo isso de forma 
+um pouco mais informal.
+
+64
+00:04:47,750 --> 00:04:51,945
+Se você assume que os exemplos de treinamento, 
+eu desenhei independentemente ou desenhei "IID",
+
+65
+00:04:51,945 --> 00:04:54,198
+independentes e identicamente distribuídos,
+
+66
+00:04:54,198 --> 00:04:57,810
+então, a probabilidade dos exemplos 
+é o produto das probabilidades.
+
+67
+00:04:57,810 --> 00:05:03,143
+O produto de i = 1 até i = m de
+ p(y(i)) dado x(i).
+
+68
+00:05:03,143 --> 00:05:07,970
+E então, se você quer realizar uma 
+estimativa de máxima verossimilhança, certo,
+
+69
+00:05:07,970 --> 00:05:12,476
+então, você quer maximizar, 
+localizar os parâmetros que maximizem
+
+70
+00:05:12,476 --> 00:05:15,948
+a chance de suas observações 
+e conjunto de treinamentos.
+
+71
+00:05:15,948 --> 00:05:20,200
+Mas maximizar isso é o 
+mesmo que maximizar o log, então
+
+72
+00:05:20,200 --> 00:05:22,990
+nós só colocamos 
+logs em ambos os lados.
+
+73
+00:05:22,990 --> 00:05:28,640
+Então, o log da probabilidade dos rótulos 
+no conjunto de treinamento é igual a,
+
+74
+00:05:28,640 --> 00:05:30,990
+log de um produto é
+a soma dos logs.
+
+75
+00:05:30,990 --> 00:05:39,000
+Então, é o somatório de i=1 
+até m de log p(y(i)) dado x(i).
+
+76
+00:05:39,000 --> 00:05:43,582
+E nós tínhamos descoberto 
+anteriormente, no slide anterior,
+
+77
+00:05:43,582 --> 00:05:47,630
+que isso é:  - ʆ (ŷ⁽ⁱ⁾,y⁽ⁱ⁾).
+
+78
+00:05:48,850 --> 00:05:55,220
+Em estatística, há um princípio chamado de 
+princípio da estimativa de máxima verossimilhança,
+
+79
+00:05:55,220 --> 00:06:00,720
+que significa somente a escolha de 
+parâmetros que maximizem esta coisa.
+
+80
+00:06:00,720 --> 00:06:04,220
+Ou em outras palavras, 
+que maximiza isso aqui.
+
+81
+00:06:04,220 --> 00:06:09,510
+Somatório negativo de i = 1 até m de 
+ʆ (ŷ⁽ⁱ⁾<i>,y⁽ⁱ⁾<i>), e
+
+82
+00:06:09,510 --> 00:06:11,840
+basta mover o sinal 
+negativo fora do somatório.
+
+83
+00:06:11,840 --> 00:06:15,749
+Então, isso justifica o custo que tivemos
+
+84
+00:06:15,749 --> 00:06:21,235
+na regressão logística, que é J(w,b) disso.
+
+85
+00:06:21,235 --> 00:06:27,349
+E porque nós agora queremos minimizar o custo 
+ao invés de estimar máxima verossimilhança,
+
+86
+00:06:27,349 --> 00:06:30,095
+nós temos que retirar o sinal de subtração.
+
+87
+00:06:30,095 --> 00:06:35,467
+Finalmente, para conveniência, queremos 
+nos certificar que nossos valores 
+estão em uma escala melhor,
+
+88
+00:06:35,467 --> 00:06:39,310
+nós só adicionamos ali 
+um fator extra de escala 1/m.
+
+89
+00:06:39,310 --> 00:06:43,960
+Mas só para resumir, minimizando esta 
+função de custo J(w,b), estamos realmente
+
+90
+00:06:43,960 --> 00:06:48,430
+realizando estimativa de máxima verossimilhança 
+com o modelo de regressão logística.
+
+91
+00:06:48,430 --> 00:06:53,120
+Sob a suposição que nossos exemplos 
+de treinamento foram IID, ou
+
+92
+00:06:53,120 --> 00:06:55,530
+independentes e identicamente distribuídos.
+
+93
+00:06:55,530 --> 00:06:59,550
+Então, obrigado por ter assistido este 
+vídeo, mesmo que ele seja opcional.
+
+94
+00:06:59,550 --> 00:07:03,845
+Espero que ele dê uma noção do 
+porquê nós usamos a função de custo
+
+95
+00:07:03,845 --> 00:07:05,200
+para regressão logística 
+
+96
+00:07:05,200 --> 00:07:09,287
+e com isso, eu espero que você vá para 
+os exercícios, para o exercício profissional e
+
+97
+00:07:09,287 --> 00:07:11,277
+as perguntas do quiz desta semana.
+
+98
+00:07:11,277 --> 00:07:14,735
+E boa sorte nos "quizzes" e nos exercícios a seguir. 
+[Tradução: Renato Barata Gomes | Revisão: Carlos Lage.]

@@ -1,0 +1,91 @@
+Lorsque vous entraînez
+ votre réseau de neurones, il est important d’initialiser
+ les poids au hasard. Pour la régression logistique, il était
+ suffisant d'initialiser les poids à zéro. Mais pour un réseau de neurones, initialiser
+ les poids de tous les paramètres à zéro puis appliquer la descente de gradient, 
+ne marchera pas. Nous allons voir pourquoi. Vous avez ici deux propriétés
+d'entrée, donc n0 = 2 et deux unités cachées, donc n1 = 2. Et donc la matrice associée
+ à la couche cachée, W1, va être de dimension deux par deux. Disons que vous l’initialisez avec des 0, 
+une matrice 2 par 2 : 0 0 0 0 Et disons que b1 est aussi égal à 0 0. Il s’avère qu'initialiser
+ le biais b à 0 fonctionne, mais l'initialisation de W à 0
+ est un problème. Le problème
+ avec cette forme d'initialisation est que, pour tous les exemples que 
+vous lui donnerez, vous aurez a11 et a12 qui seront égaux, ok ? Donc cette activation et cette activation 
+auront la même valeur, parce que ces deux unités cachées calculent
+ exactement la même fonction. Et ensuite, quand vous calculez
+ la rétro-propagation, Il s’avère que dz11 et dz12 seront également les mêmes,
+ à cause de la symétrie, ok ? Ces deux unités cachées seront initialisées
+ de la même manière. Techniquement, pour ce que je dis, je pars du principe que les poids 
+de sortie sont aussi identiques, c'est à dire que W2 vaut [0 0]. Mais si vous initialisez le réseau 
+de neurones de cette façon, alors cette unité cachée et cette unité cachée
+ sont complètement identiques. Parfois, vous dites qu’elles sont 
+complètement symétriques, ce qui signifie qu’elles exécutent 
+exactement la même fonction. Et par un preuve par induction, il s’avère qu’après 
+chaque itération d'apprentissage, vos deux unités cachées calculent
+ exactement la même fonction. On peux montrer que dW sera 
+une matrice qui ressemblera à ceci. Où toutes les lignes ont la même valeur. Donc, lors de la mise à jour des poids, W1 est remplacé par W1 - alpha * dW. Vous trouvez que W1, après chaque itération, aura la première ligne égale
+ à la deuxième ligne. Donc, il est possible de construire
+ une preuve par induction que, si vous initialisez toutes les valeurs de W à 0, alors, parce que les deux unités cachées
+ calculent la même fonction, et que les deux unités cachées ont 
+la même influence sur l’unité de sortie, alors, après une itération, cette même
+ affirmation est toujours vraie, les deux unités cachées
+ sont toujours symétriques. Et donc, par induction, après deux itérations, 
+trois itérations et ainsi de suite, peu importe combien de temps vous
+ entraînez votre réseau de neurones, les deux unités cachées calculent
+ toujours exactement la même fonction. Et dans ce cas, il est vraiment inutile 
+d’avoir plusieurs unités cachées, parce qu’elles calculent toutes
+ la même chose. Et bien sûr, pour des réseaux de neurones 
+plus grands, disons trois caractéristiques et un très grand nombre d’unités cachées, un argument similaire montre
+ qu’avec un réseau de neurones comme ça, je ne vais pas dessiner tous les traits, 
+si vous initialisez les poids à zéro, alors toutes vos unités cachées
+ sont symétriques. Et peu importe combien de temps 
+vous calculez la descente de gradient, elles continuent toutes à calculer
+ exactement la même fonction. Et ce n’est pas bon, 
+parce que vous voulez que les différentes unités cachées calculent
+ des fonctions différentes. La solution consiste à initialiser 
+vos paramètres au hasard. Voici ce qu'il faut faire. Vous pouvez définir w1 = np.random.randn Cela génère une variable 
+aléstoire gaussienne (2,2). Et puis en général, vous multipliez ceci 
+par quelque chose de très petit, comme 0,01. Donc vous initialisez à 
+de très faibles valeurs aléatoires. Et puis b, il s’avère que b 
+n’a pas le problème de symétrie, ce qu’on appelle le problème
+ de rupture de symétrie. Donc on peux juste initialiser b à zéro. Parce que
+ tant que W est initialisée au hasard, vous commencez avec les différentes unités 
+cachées qui calculent des choses différentes. Et donc vous n’avez plus ce problème 
+de rupture de symétrie. Et puis de la même façon, pour W2, 
+vous allez l'initialiser au hasard. Et b2, vous pouvez l'initialiser à 0. Vous vous demandez peut-être, d'où vient
+ cette constante et pourquoi 0,01 ? Pourquoi ne pas mettre 100 ou 1000 ? En fait, on préfère généralement initialiser les poids
+ à de très faibles valeurs aléatoires. Parce que si vous utilisez une fonction
+ d’activation tanh ou sigmoïde, même si c'est seulement 
+pour la couche de sortie, si les poids sont trop grands, lorsque vous calculez
+ les valeurs d’activation, n’oubliez pas que z [1] = W1 x + b. Et puis a1 est la fonction 
+d’activation appliquée à z1. Donc si W est très grand, 
+z sera très grand, ou au moins certaines valeurs de z seront très grandes
+ ou très petites. Et dans ce cas, vous êtes plus susceptibles
+ de vous retrouver sur un plateau de la fonction tanh ou sigmoïde, 
+où la pente, ou le gradient, est très faible. Ce qui signifie que la descente 
+de gradient sera très lente, donc l’apprentissage sera très lent. Récapitulons, si W est trop grand, vous êtes
+ plus susceptibles de vous retrouver même au tout début de l'apprentissage,
+ avec de très grandes valeurs de z, ce qui fait que votre tanh ou votre fonction 
+d’activation sigmoïde est saturée, et ça ralentit l’apprentissage. Si vous n’avez pas du tout 
+de fonction d'activation tanh ou sigmoïde dans votre réseau
+ de neurones, c’est moins un problème. Mais si vous faites une classification binaire 
+et que votre unité de sortie est une sigmoïde, alors vous ne voulez pas que 
+les paramètres initiaux soient trop grands. C’est pourquoi multiplier par 0,01 est
+ quelque chose de raisonnable à essayer, ou n’importe quel autre petit nombre. Et c'est la même chose pour w2, ok ? Ceci peut être random.randn la matrice est
+ de 1 par 2 dans cet exemple, fois 0,01. Il manque un s ici. Donc finalement, il s’avère que parfois il peut
+ y avoir une meilleure constante que 0,01. Quand vous entraînez un réseau de neurones
+ avec juste une couche cachée, un réseau de neurones relativement peu
+ profond, sans beaucoup de couches cachées, mettre 0,01 fonctionnera probablement bien. Mais quand vous entraînez
+ un réseau neuronal très profond, alors vous voudrez peut-être choisir 
+une constante différente de 0,01. Et la semaine prochaine, nous allons parler 
+un petit peu de comment et quand vous pouvez vouloir choisir 
+une constante différente de 0,01. Mais quoi qu’il en soit, ça restera
+ habituellement un nombre assez petit. Donc, c’est tout pour 
+les vidéos de cette semaine. Vous savez maintenant comment
+ mettre en place un réseau de neurones
+ avec une couche cachée, initialiser les paramètres, faire des prédictions
+ en utilisant la propagation directe, et calculer les dérivées et 
+mettre en place la descente de gradient, en utilisant la rétro propagation. Vous devriez pouvoir faire les quiz, ainsi que les exercices de programmation
+ de cette semaine. Bonne chance avec ça. J’espère que vous vous amuserez 
+avec l’exercice de programmation, et j'ai hâte de vous voir 
+pour la quatrième semaine.

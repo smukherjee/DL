@@ -1,0 +1,55 @@
+Dans cette vidéo, nous allons voir
+ la régression logistique. Il s’agit d’un algorithme d’apprentissage que
+ vous utilisez lorsque les étiquettes de sortie y, dans un problème d’apprentissage supervisé,
+ sont soit zéro soit un, donc, pour des problèmes
+ de classification binaire. Étant donné un vecteur de caractéristiques
+ d'entrée x  correspondant peut être à une image que vous souhaitez classer comme
+ une photo de chat ou pas une photo de chat, vous voulez un algorithme qui puisse
+ fournir une prédiction, que nous appellerons y_chapeau(ŷ) qui est votre estimation de y. Plus formellement, vous voulez que ŷ
+ soit la probabilité, ou la chance, que y soit égal à 1 
+d'après les caractéristiques d’entrée y. Donc en d’autres termes, si x est une image, comme nous l’avons vu dans la dernière vidéo, vous voulez que ŷ vous dise quelle est la probabilité 
+qu’il s’agisse d’une photo de chat. Donc x, comme nous l’avons dit
+ dans la vidéo précédente, est un vecteur de dimension nx, et donc, les paramètres de
+ la régression logistique seront W qui est également un vecteur de dimension nx, et b, qui est juste un nombre réel. Étant donnés une entrée x
+ et les paramètres W et b, comment générer la sortie ŷ ? Eh bien, une chose que vous pourriez essayer,
+ mais qui ne fonctionne pas, serait de définir ŷ comme 
+transposée de Wx plus b, c'est à dire une fonction linéaire de l’entrée x. Et en fait, c’est ce que vous utiliseriez,
+ si vous faisiez une régression linéaire. Mais ce n’est pas un très bon algorithme
+ pour la classification binaire parce que vous voulez que ŷ soit 
+la probabilité que y soit égal à un. Donc ŷ devrait vraiment être entre zéro et un, et c’est difficile à imposer parce que
+ la transposée de Wx + b peut être beaucoup plus grand que 1
+ ou peut même être négatif, ce qui n’a aucun sens pour une probabilité, qui doit être entre zéro et un. Donc en régression logistique,
+ notre sortie va plutôt être ŷ égal à 
+la fonction sigmoïde appliquée à cette valeur. Voilà à quoi ressemble la fonction sigmoïde. Si je trace z sur l’axe horizontal alors 
+la fonction sigmoïde de z ressemble à ceci. Donc, elle va de façon continue
+ de zéro jusqu'à un. Je vais étiqueter mes axes, Le zéro est ici, 
+et elle croise l’axe vertical en 0,5. Donc, voilà à quoi ressemble la sigmoïde
+ de z et nous allons utiliser z pour
+ désigner cette quantité, la transposée de Wx + b Voici la formule pour la fonction sigmoïde. Sigmoïde de z, où z est un nombre réel, sigmoide(z) = 1/(1 + e(-z)) Alors, remarquez un certain nombre de choses. Si z est très grand, alors
+ e(-z) sera proche de zéro. Donc la sigmoïde de z sera environ égal à 1/1 plus quelque chose
+ de très proche de zéro, parce que e à la puissance d'un très grand 
+nombre négatif sera proche de zéro. C’est donc proche de 1. Et en effet, si vous regardez
+ le graphe sur la gauche, Si z est très grand,
+ la sigmoïde de z est très proche de 1. Au contraire, si z est très petit, ou si c’est un très grand nombre négatif, alors la sigmoïde de z devient 1 /1 + e(-z), et cela devient, c’est un très grand nombre. Ainsi, cela devient, imaginez,
+ 1 / 1 + un nombre qui est très, très grand, et donc ceci est proche de zéro. Et en effet, vous voyez que quand z
+ devient un très grand nombre négatif, sigmoïde de z est très proche de zéro. Lorsque vous implémentez
+ une régression logistique, votre travail consiste à essayer d’apprendre 
+les paramètres W et b afin que ŷ devienne une bonne estimation 
+de la probabilité que y soit égal à 1. Avant de passer à la suite,
+ juste une autre remarque sur la notation. Quand nous programmons 
+des réseaux de neurones, Nous allons généralement garder
+ le paramètre W et le paramètre b séparés, où ici, b correspond à un intercepteur. Dans certains autres cours, vous pouvez avoir vu une notation 
+qui gère cela différemment. Dans certaines conventions, vous
+ définissez une caractéristique supplémentaire 
+appelée x0 qui est égale à 1. Donc x est dans R nx + 1. Et puis vous définissez ŷ comme étant égal
+ à sigma de la transposée de thêta x. Dans cette convention de notation alternative, vous avez un vecteur de paramètres thêta, thêta 0, thêta 1, thêta 2, jusqu'à thêta nx. thêta zéro joue le rôle de b, c’est juste un nombre réel, et thêta 1 à thêta nx jouent le rôle de W.
+ Il s’avère que, lorsque vous implémentez un
+ réseau de neurones, il sera plus facile de simplement garder b et W 
+ en tant que paramètres distincts. Et donc, dans ce cours, nous n’utiliserons pas cette convention
+ de notation que je viens d’écrire en rouge. Si vous n’avez pas vu cette notation avant dans 
+d’autres cours, ne vous inquiétez pas à ce sujet. C’est juste que pour ceux d'entre vous qui
+ ont vu cette notation, j’ai voulu mentionner explicitement que nous
+ n’utilisons pas cette notation dans ce cours. Mais si vous n’avez pas vu ça avant, ce n’est pas important et vous
+ n’avez pas besoin de vous en inquiéter. Vous avez vu maintenant à quoi ressemble
+ le modèle de régression logistique. Ensuite, pour changer les paramètres W et b,
+ vous devez définir une fonction de coût. Nous verrons cela dans la prochaine vidéo.

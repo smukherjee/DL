@@ -1,0 +1,727 @@
+1
+00:00:00,000 --> 00:00:03,105
+Dans cette vidéo, je vais vous montrer<br /> un exemple légèrement plus complexe
+
+2
+00:00:03,105 --> 00:00:06,870
+dans lequel la pente de la fonction
+ pourra être différente à 
+différents points de la fonction.
+
+3
+00:00:06,870 --> 00:00:08,125
+Commençons par un exemple.
+
+4
+00:00:08,125 --> 00:00:11,888
+Ici, j'ai tracé la fonction f(a) = a².
+
+5
+00:00:11,888 --> 00:00:15,975
+Regardons de nouveau au point a = 2.
+
+6
+00:00:15,975 --> 00:00:19,107
+Donc a², c'est à dire f (a) = 4.
+
+7
+00:00:19,107 --> 00:00:24,490
+Décalons a un petit peu vers la droite, 
+soit maintenant a = 2.001.
+
+8
+00:00:24,490 --> 00:00:31,580
+f(a) c'est-à-dire a² va
+ être environ 4.004.
+
+9
+00:00:31,580 --> 00:00:33,585
+Il s’avère que la valeur exacte,
+
+10
+00:00:33,585 --> 00:00:39,140
+si vous sortez la calculatrice,
+vous trouverez que c'est en fait 4.004001.
+
+11
+00:00:39,140 --> 00:00:42,120
+Je vais me contenter de dire 4.004,
+ ce qui est assez proche.
+
+12
+00:00:42,120 --> 00:00:44,430
+Donc ce que cela signifie,
+ c'est que lorsque a = 2, ...
+
+13
+00:00:44,430 --> 00:00:46,825
+dessinons ça sur le graphe.
+
+14
+00:00:46,825 --> 00:00:49,320
+Donc ce que nous disons est que, si a = 2,
+
+15
+00:00:49,320 --> 00:00:56,225
+alors f (a) = 4 et ici les axes x et y
+ ne sont pas dessinés à l’échelle.
+
+16
+00:00:56,225 --> 00:00:59,480
+Techniquement, cette distance verticale
+ devrait être beaucoup plus grande que
+
+17
+00:00:59,480 --> 00:01:03,540
+cette distance horizontale donc les axes 
+x et y ne sont pas à la même échelle.
+
+18
+00:01:03,540 --> 00:01:10,865
+Mais si je décale a à 2.001,
+alors f(a) devient à peu près 4.004.
+
+19
+00:01:10,865 --> 00:01:13,864
+Donc, si nous dessinons
+ ce petit triangle encore une fois,
+
+20
+00:01:13,864 --> 00:01:18,675
+ça signifie que si je décale a
+ de 0.001 vers la droite,
+
+21
+00:01:18,675 --> 00:01:23,238
+f(a) augmente quatre fois plus, de 0.004.
+
+22
+00:01:23,238 --> 00:01:25,170
+Ainsi, dans le langage 
+du calcul infinitésimal,
+
+23
+00:01:25,170 --> 00:01:30,880
+Nous disons que la pente
+ qui est la dérivée de f (a) à
+
+24
+00:01:30,880 --> 00:01:36,840
+a = 2 est 4 ou, pour l'écrire 
+en notation mathématique,
+
+25
+00:01:36,840 --> 00:01:42,750
+On dit que d/da de f(a) = 4 lorsque a = 2.
+
+26
+00:01:42,750 --> 00:01:45,200
+Maintenant, une chose à propos
+ de la fonction f (a) = a²
+
+27
+00:01:45,200 --> 00:01:49,530
+est que la pente est différente
+ pour différentes valeurs de a.
+
+28
+00:01:49,530 --> 00:01:52,970
+Ce qui est différent de l’exemple que 
+nous avons vu sur la diapositive précédente.
+
+29
+00:01:52,970 --> 00:01:55,650
+Nous allons donc regarder 
+un point différent.
+
+30
+00:01:55,650 --> 00:01:58,721
+Si a = 5 au lieu de 2,
+
+31
+00:01:58,721 --> 00:02:04,880
+si a = 5, alors a² = 25, c'est f(a).
+
+32
+00:02:04,880 --> 00:02:07,205
+Si je décale de nouveau a vers la droite,
+
+33
+00:02:07,205 --> 00:02:09,129
+un tout petit changement de a,
+
+34
+00:02:09,129 --> 00:02:18,555
+maintenant a = 5.001,
+ alors f (a) vaudra environ 25.010.
+
+35
+00:02:18,555 --> 00:02:23,550
+Donc, ce qu'on voit est
+ qu’en décalant a de 0.001,
+
+36
+00:02:23,550 --> 00:02:25,620
+f(a) augmente 10 fois plus.
+
+37
+00:02:25,620 --> 00:02:30,960
+Donc nous avons que
+ d/da de f (a) = 10 lorsque
+
+38
+00:02:30,960 --> 00:02:33,690
+a = 5 parce que
+ f (a) augmente 10 fois plus
+
+39
+00:02:33,690 --> 00:02:36,910
+que a quand je décale un tout petit peu a.
+
+40
+00:02:36,910 --> 00:02:41,040
+Donc une façon de voir pourquoi la 
+dérivée est différente en différents points 
+
+41
+00:02:41,040 --> 00:02:45,285
+est que si vous dessinez ce petit triangle
+ à différents endroits sur le graphe,
+
+42
+00:02:45,285 --> 00:02:49,080
+vous verrez que le rapport 
+entre la hauteur du triangle et
+
+43
+00:02:49,080 --> 00:02:53,280
+la largeur du triangle est très différent
+ en différents points sur la courbe.
+
+44
+00:02:53,280 --> 00:02:59,880
+Donc ici, la pente vaut 4 lorsque a = 2, 
+elle vaut 10 quand a = 5.
+
+45
+00:02:59,880 --> 00:03:02,670
+Maintenant, si vous ouvrez 
+un manuel d'analyse fonctionnelle,
+
+46
+00:03:02,670 --> 00:03:06,867
+vous y trouerez que d/da de f(a),
+
+47
+00:03:06,867 --> 00:03:08,259
+f (a) = a²,
+
+48
+00:03:08,259 --> 00:03:09,929
+donc d/da a²
+
+49
+00:03:09,929 --> 00:03:13,410
+L'une des formules vous trouverez dans 
+le manuel d'analyse, est que cette chose,
+
+50
+00:03:13,410 --> 00:03:16,740
+la pente de cette fonction a², est égale à 2a.
+
+51
+00:03:16,740 --> 00:03:19,200
+Je ne vais pas prouver cela,
+ mais vous pouvez
+
+52
+00:03:19,200 --> 00:03:22,170
+ouvrir un manuel d'analyse fonctionnelle,
+
+53
+00:03:22,170 --> 00:03:28,135
+trouver le tableau des formules et vous 
+trouverez que la dérivée de a² est égale à 2a.
+
+54
+00:03:28,135 --> 00:03:31,575
+Et c’est d’ailleurs cohérent avec
+ ce que nous avons trouvé.
+
+55
+00:03:31,575 --> 00:03:39,460
+À savoir, lorsque a = 2, la pente de
+ la fonction en a est 2 x a = 2 x 2 = 4.
+
+56
+00:03:39,460 --> 00:03:46,243
+Et quand a = 5, alors la pente de la fonction
+ est 2 x a qui vaut 2 x 5 = 10.
+
+57
+00:03:46,243 --> 00:03:50,430
+Donc si vous ouvrez 
+un manuel d'analyse fonctionnelle, 
+et que vous voyez cette formule,
+
+58
+00:03:50,430 --> 00:03:54,270
+que la dérivée de a² est égale à 2 a,
+
+59
+00:03:54,270 --> 00:03:57,615
+ce que cela signifie c’est que 
+pour une valeur donnée de a,
+
+60
+00:03:57,615 --> 00:04:04,695
+si vous augmentez a de 0,001, 
+vous le décalez d'une toute petite valeur,
+
+61
+00:04:04,695 --> 00:04:09,550
+alors f(a) augmentera de 2 a fois plus.
+
+62
+00:04:09,550 --> 00:04:12,700
+C'est à dire de la pente, de la dérivée fois
+
+63
+00:04:12,700 --> 00:04:16,660
+la petite valeur dont vous avez décalé a.
+
+64
+00:04:16,660 --> 00:04:18,540
+Maintenant un tout petit détail,
+
+65
+00:04:18,540 --> 00:04:23,130
+J’ai utilisé ce symbole approximativement
+ égal ici, ce n’était pas exactement 4.004,
+
+66
+00:04:23,130 --> 00:04:26,515
+il y avait un 001 en plus à droite.
+
+67
+00:04:26,515 --> 00:04:29,226
+Il se trouve que ce 001 supplémentaire,
+
+68
+00:04:29,226 --> 00:04:34,370
+cette minuscule valeur est là parce que 
+nous avons décalé a de 0.001,
+
+69
+00:04:34,370 --> 00:04:37,530
+si nous l'avions décalé à droite
+
+70
+00:04:37,530 --> 00:04:43,290
+d'une valeur infiniment petite,
+ alors ce 001 en plus disparaît
+
+71
+00:04:43,290 --> 00:04:48,060
+et vous trouvez que le décalage 
+de f(a) est exactement égal
+
+72
+00:04:48,060 --> 00:04:53,335
+à la dérivée fois le montant 
+dont vous déplacez a vers la droite.
+
+73
+00:04:53,335 --> 00:04:59,295
+Et si nous n'avions pas exactement 4.004,
+ c'est parce que les dérivées sont définies
+
+74
+00:04:59,295 --> 00:05:05,774
+en utilisant des décalages infinitésimaux,
+ ce que 0.001 n'est pas.
+
+75
+00:05:05,774 --> 00:05:08,070
+0.001 est petit,
+
+76
+00:05:08,070 --> 00:05:09,865
+mais il n’est pas infiniment petit.
+
+77
+00:05:09,865 --> 00:05:13,730
+C'est pourquoi le décalage de f(a)
+ n'était pas exactement celui donné
+
+78
+00:05:13,730 --> 00:05:17,720
+par la formule mais seulement 
+une approximation de la dérivée.
+
+79
+00:05:17,720 --> 00:05:19,034
+Pour conclure cette vidéo,
+
+80
+00:05:19,034 --> 00:05:21,945
+voyons quelques autres exemples rapides.
+
+81
+00:05:21,945 --> 00:05:27,980
+L’exemple que vous avez déjà vu
+ est que, si f (a) = a², alors
+
+82
+00:05:27,980 --> 00:05:34,460
+le tableau des formules du manuel vous 
+donne que la dérivée de a² est égale à 2a.
+
+83
+00:05:34,460 --> 00:05:38,300
+Dans l’exemple que nous avons vu,
+quand a = 2,
+
+84
+00:05:38,300 --> 00:05:41,930
+f(a) = 4, et si on décale a,
+
+85
+00:05:41,930 --> 00:05:45,350
+f(a) est un tout petit peu supérieur,
+ mais environ égal à 4.004
+
+86
+00:05:45,350 --> 00:05:51,160
+et donc f (a) a augmenté quatre fois plus,
+ et en effet quand a = 2,
+
+87
+00:05:51,160 --> 00:05:53,660
+la dérivée est égale à 4.
+
+88
+00:05:53,660 --> 00:05:55,600
+Regardons quelques autres exemples.
+
+89
+00:05:55,600 --> 00:05:58,880
+Disons maintenant que f(a) = a³.
+
+90
+00:05:58,880 --> 00:06:03,380
+Si vous prenez le manuel et 
+regardez les formules du tableau,
+
+91
+00:06:03,380 --> 00:06:06,070
+vous verrez que la pente de 
+cette fonction, encore une fois,
+
+92
+00:06:06,070 --> 00:06:10,000
+la dérivée de cette fonction est égale à 3a².
+
+93
+00:06:10,000 --> 00:06:14,335
+Vous pouvez trouver cette formule 
+dans le manuel d'analyse fonctionnelle.
+
+94
+00:06:14,335 --> 00:06:16,850
+Donc qu'est ce que cela signifie ?
+
+95
+00:06:16,850 --> 00:06:19,430
+Il faut interpréter ça comme ceci.
+
+96
+00:06:19,430 --> 00:06:21,725
+Prenons à nouveau l'exemple de a = 2.
+
+97
+00:06:21,725 --> 00:06:27,560
+Donc f (a) ou a³ = 8, 
+c’est deux à la puissance 3.
+
+98
+00:06:27,560 --> 00:06:30,570
+Si vous décalez un peu a,
+
+99
+00:06:30,570 --> 00:06:37,160
+vous trouvez que f (a) est environ 8.012, 
+n’hésitez pas à le vérifier
+
+100
+00:06:37,160 --> 00:06:40,070
+en calculant 2.001 à la puissance 3.
+
+101
+00:06:40,070 --> 00:06:41,330
+Vous trouverez que c'est 
+très proche de 8.012.
+
+102
+00:06:41,330 --> 00:06:49,463
+Et en effet, lorsque a = 2,
+ ceci vaut 3 x 2² qui est égal à 3 x 4,
+
+103
+00:06:49,463 --> 00:06:50,750
+qui vaut 12.
+
+104
+00:06:50,750 --> 00:06:55,255
+Donc la formule de la dérivée dit que 
+si vous décalez a un petit peu à droite,
+
+105
+00:06:55,255 --> 00:06:58,464
+f (a) va augmenter 12 fois plus.
+
+106
+00:06:58,464 --> 00:07:01,950
+En effet, c’est vrai, 
+quand a a augmenté de 0.001,
+
+107
+00:07:01,950 --> 00:07:06,447
+f (a) a augmenté 12 fois plus, de 0.012.
+
+108
+00:07:06,447 --> 00:07:08,960
+Juste un dernier exemple, 
+avant de conclure.
+
+109
+00:07:08,960 --> 00:07:12,190
+Supposons que f (a) soit égal 
+à la fonction logarithme.
+
+110
+00:07:12,190 --> 00:07:14,690
+Donc je vais écrire log(a)
+
+111
+00:07:14,690 --> 00:07:17,595
+et je vais utiliser le logarithme de base e.
+
+112
+00:07:17,595 --> 00:07:20,755
+Certaines personnes l'écrivent ln(a).
+[logarithme népérien]
+
+113
+00:07:20,755 --> 00:07:22,420
+Dans votre manuel d'analyse fonctionnelle,
+
+114
+00:07:22,420 --> 00:07:26,465
+vous trouvez que lorsque vous
+ prenez la dérivée de log(a).
+
+115
+00:07:26,465 --> 00:07:30,005
+C’est une fonction qui ressemble à ça,
+
+116
+00:07:30,005 --> 00:07:34,645
+la pente de cette fonction 
+est donnée par 1/a.
+
+117
+00:07:34,645 --> 00:07:40,430
+On interprète ça comme ça :
+ quelque soit la valeur de a,
+
+118
+00:07:40,430 --> 00:07:46,865
+continuons avec a = 2 par exemple, 
+si vous la décalez à droite de 0.001,
+
+119
+00:07:46,865 --> 00:07:51,005
+vous pouvez vous attendre 
+à ce que f(a) augmente
+
+120
+00:07:51,005 --> 00:07:56,470
+de 1/a, c’est-à-dire la valeur de la dérivée, 
+fois le montant de l'augmentation de a.
+
+121
+00:07:56,470 --> 00:08:00,380
+Donc si vous sortez une calculatrice,
+
+122
+00:08:00,380 --> 00:08:02,795
+vous trouvez que si a = 2,
+
+123
+00:08:02,795 --> 00:08:10,850
+f (a) vaut environ 0.69315 et
+
+124
+00:08:10,850 --> 00:08:21,617
+si vous augmentez a à 2.001 
+alors f (a) vaut 0.69365,
+
+125
+00:08:21,617 --> 00:08:27,220
+il a augmenté de 0.0005.
+
+126
+00:08:27,220 --> 00:08:32,150
+Et en effet, si vous regardez la formule
+ pour la dérivée, lorsque a = 2,
+
+127
+00:08:32,150 --> 00:08:36,280
+d/da f(a) = 1/2.
+
+128
+00:08:36,280 --> 00:08:41,720
+Donc la formule de la dérivée dit que 
+si vous décalez a de 0.001 vers la droite,
+
+129
+00:08:41,720 --> 00:08:46,230
+vous vous attendez à ce que
+ f(a) augmente de seulement 
+la moitié de ça, et 1/2 de 0.001
+
+130
+00:08:46,230 --> 00:08:51,250
+c'est 0.0005, ce qui est exactement
+ ce que nous avons trouvé.
+
+131
+00:08:51,250 --> 00:08:56,180
+Donc, quand a augmente de 0.001,
+ passant de 2 à
+
+132
+00:08:56,180 --> 00:09:01,095
+a= 2.001, f(a) augmente de la moitié de ça.
+
+133
+00:09:01,095 --> 00:09:04,980
+Le résultat augmente d'environ 0.0005.
+
+134
+00:09:04,980 --> 00:09:08,510
+Donc, si nous dessinons ce petit triangle,
+
+135
+00:09:08,510 --> 00:09:13,450
+sur l’axe horizontal, il fait 0.001 
+et sur l’axe vertical,
+
+136
+00:09:13,450 --> 00:09:18,217
+log(a) monte de la moitié de ça, 
+donc 0.0005.
+
+137
+00:09:18,217 --> 00:09:22,585
+Et donc ce 1/a, ou 1/2 dans ce cas,
+
+138
+00:09:22,585 --> 00:09:27,770
+quand a = 2, c’est juste la pente 
+de cette ligne quand a = 2.
+
+139
+00:09:27,770 --> 00:09:30,290
+Donc, c’est tout pour les dérivées.
+
+140
+00:09:30,290 --> 00:09:32,660
+Il n'y a que deux choses 
+à retenir de cette vidéo.
+
+141
+00:09:32,660 --> 00:09:36,800
+Tout d’abord, la dérivée d'une fonction 
+signifie simplement la pente de
+
+142
+00:09:36,800 --> 00:09:39,110
+la fonction et la pente d’une fonction
+
+143
+00:09:39,110 --> 00:09:41,830
+peut être différente 
+en différents points de la fonction.
+
+144
+00:09:41,830 --> 00:09:45,635
+Dans notre premier exemple où f (a) = 3 a,
+ c'était une ligne droite.
+
+145
+00:09:45,635 --> 00:09:47,400
+La dérivée était la même partout,
+
+146
+00:09:47,400 --> 00:09:48,885
+c’était 3 partout.
+
+147
+00:09:48,885 --> 00:09:52,790
+Pour d’autres fonctions comme
+ f (a) = a² ou f(a) = log(a),
+
+148
+00:09:52,790 --> 00:09:54,920
+la pente de la ligne varie.
+
+149
+00:09:54,920 --> 00:09:59,410
+Donc, la pente ou la dérivée peut être 
+différente en différents points sur la courbe.
+
+150
+00:09:59,410 --> 00:10:00,723
+C'est la première chose à retenir.
+
+151
+00:10:00,723 --> 00:10:03,150
+La dérivée signifie simplement
+ la pente de la ligne.
+
+152
+00:10:03,150 --> 00:10:06,930
+La deuxième chose à conserver, c’est que si vous 
+voulez trouver la dérivée d’une fonction,
+
+153
+00:10:06,930 --> 00:10:10,860
+vous pouvez ouvrir vos manuels de maths
+ ou chercher sur Wikipedia et
+
+154
+00:10:10,860 --> 00:10:15,160
+souvent, obtenir une formule pour la pente
+ de ces fonctions en différents points.
+
+155
+00:10:15,160 --> 00:10:20,645
+J’espère que vous avez 
+une compréhension intuitive des dérivées
+c'est à dire des pentes des lignes.
+
+156
+00:10:20,645 --> 00:10:21,862
+Continuons dans la prochaine vidéo.
+
+157
+00:10:21,862 --> 00:10:24,600
+Nous allons commencer à parler de
+ graphe de calcul et de comment
+
+158
+00:10:24,600 --> 00:10:27,620
+l'utiliser pour calculer les dérivées
+ de fonctions plus complexes.

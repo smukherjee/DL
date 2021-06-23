@@ -1,0 +1,361 @@
+1
+00:00:00,000 --> 00:00:03,116
+Birkaç sinir ağı çizdiğimi gördünüz.
+
+2
+00:00:03,116 --> 00:00:05,712
+Bu videoda, çizdiğimiz sinir ağlarının
+ tam olarak ne anlama geldiğini konuşacağız.
+
+3
+00:00:05,712 --> 00:00:06,728
+Diğer bir ifadeyle,
+
+4
+00:00:06,728 --> 00:00:11,235
+çizdiğimiz sinir ağlarının tam olarak neyi temsil ettiğini konuşacağız.
+
+5
+00:00:11,235 --> 00:00:15,014
+Ve sinir ağlarının bir yapısına odaklanarak başlayacağız
+
+6
+00:00:15,014 --> 00:00:17,290
+ki buna da tek gizli katman dendi.
+
+7
+00:00:17,290 --> 00:00:19,667
+Burada bir sinir ağı resmi görüyoruz.
+
+8
+00:00:19,667 --> 00:00:22,986
+Bu resmin farklı bölgelerine isimler verelim.
+
+9
+00:00:22,986 --> 00:00:27,447
+x1, x2 ve x3 adında dikey olarak konumlandırdığımız girdilerimiz var.
+
+10
+00:00:27,447 --> 00:00:30,694
+Bu sinir ağının girdi katmanı olarak adlandırılır.
+
+11
+00:00:30,694 --> 00:00:35,764
+bu nedenledir ki sinir ağı bu girdileri içerir.
+
+12
+00:00:35,764 --> 00:00:37,990
+Burada dairelerden oluşan başka bir katman var.
+
+13
+00:00:37,990 --> 00:00:41,663
+Ve bu katman sinir ağının gizli katmanı olarak adlandırılır.
+
+14
+00:00:41,663 --> 00:00:45,414
+Birazdan gizli kelimesinin ne anlama geldiğini konuşacağız.
+
+15
+00:00:45,414 --> 00:00:49,509
+Son katman burada tek bir düğüm tarafından temsil edilmiş.
+
+16
+00:00:49,509 --> 00:00:53,894
+Ve bu tek düğümlü katman çıkış katmanı olarak adlandırılır ve 
+
+17
+00:00:53,894 --> 00:00:56,059
+tahmin edilen y^ değerinin üretilmesinden sorumludur.
+
+18
+00:00:56,059 --> 00:00:59,932
+Denetimli öğrenme kullanılan bir yapay sinir ağı
+
+19
+00:00:59,932 --> 00:01:05,237
+x eğitim kümesini ve y sınıf değerlerini içerir.
+
+20
+00:01:05,237 --> 00:01:09,239
+Yani gizli katman terimi eğitim kümesinde aslında t ifade ederken
+
+21
+00:01:09,239 --> 00:01:12,702
+Bu nos için gerçek değerleri orta kısımda incelenmez.
+
+22
+00:01:12,702 --> 00:01:15,185
+Bu eğitim kümesi içerisinde görmeniz gereken bir şey değildir.
+
+23
+00:01:15,185 --> 00:01:16,640
+Siz girdilerin ne olduğunu
+
+24
+00:01:16,640 --> 00:01:18,094
+ve çıktıların ne olması gerektiğini görürsünüz.
+
+25
+00:01:18,094 --> 00:01:20,992
+Ama gizli katmanda yer alanlar eğitim kümesinde görülmez.
+
+26
+00:01:20,992 --> 00:01:25,542
+Bu bir nevi neden gizli olarak adlandırıldığını açıklar; 
+
+27
+00:01:25,542 --> 00:01:28,088
+çünkü eğitim kümesinde göremezsiniz.
+
+28
+00:01:28,088 --> 00:01:30,262
+Şimdi biraz daha ek açıklama ile yapalım
+
+29
+00:01:30,262 --> 00:01:35,542
+Daha öncesinde girdileri ve alternatif notasyonları belirtmek için
+
+30
+00:01:35,542 --> 00:01:37,226
+x vektörünü kullanıyorduk
+
+31
+00:01:37,226 --> 00:01:41,987
+bunlar a üstü parantez içinde sıfır eşittir x olarak ifade edilecek.
+
+32
+00:01:41,987 --> 00:01:44,934
+a terimi aynı zamanda aktivasyonu ve
+
+33
+00:01:44,934 --> 00:01:47,733
+sonradan gelen farklı katmanlardan geçen
+
+34
+00:01:47,733 --> 00:01:51,651
+sinir ağlarının değerleri anlamına gelir.
+
+35
+00:01:51,651 --> 00:01:55,998
+giriş katmanı x değerini gizli bir katmana gönderir, yani
+
+36
+00:01:55,998 --> 00:02:01,110
+böylece giriş katmanı etkinleşmelerine a üssü 0 diyeceğiz.
+
+37
+00:02:01,110 --> 00:02:05,990
+Bir sonraki katman, gizli bir katmanda aktivasyon dizisi oluşturur,
+
+38
+00:02:05,990 --> 00:02:09,601
+buradaki dikdörtgenin üzerine a üssü 1 yazacağım
+
+39
+00:02:09,601 --> 00:02:13,306
+Bunu özellikle, bu ilk birim veya bu ilk düğüm
+
+40
+00:02:13,306 --> 00:02:17,824
+a üssü köşeli parantez içinde 1 ve 
+
+41
+00:02:17,824 --> 00:02:20,735
+indis 1 olarak belirliyoruz
+
+42
+00:02:20,735 --> 00:02:23,311
+diğerlerinde de indis iki diye devam ediyoruz
+
+43
+00:02:23,311 --> 00:02:26,488
+bir a üssü köşeli parantez 1 
+
+44
+00:02:26,488 --> 00:02:30,120
+Python'da oluşturmak istediğimiz 4 boyutlu vektördür 
+
+45
+00:02:30,120 --> 00:02:34,707
+çünkü sütun vektörünün 4.1 matris i bu şekilde görünür.
+
+46
+00:02:34,707 --> 00:02:39,205
+bu 4 boyutludur çünkü bu uygulamada 4 nod
+
+47
+00:02:39,205 --> 00:02:42,684
+ya da 4 ünite ya da bu gizli katmanda gizli üniteler vardır.
+
+48
+00:02:42,684 --> 00:02:46,302
+Ve son olarak, açık katman a, 2 değerini yeniden oluşturur,
+
+49
+00:02:46,302 --> 00:02:47,948
+ki bu da reel bir sayıdır.
+
+50
+00:02:47,948 --> 00:02:51,658
+ve böylece y, a 2 değerini alacaktır. 
+
+51
+00:02:51,658 --> 00:02:55,885
+şimdi de bağlanımda (regression) şapkalı y nin nasıl a ya ve
+
+52
+00:02:55,885 --> 00:03:00,349
+yasayan bağlanımın sadece bu çıktı katmanına eşit olduğunu tahmin edelim
+
+53
+00:03:00,349 --> 00:03:03,583
+ki burada üssü köşeli parantez kullanmıyoruz.
+
+54
+00:03:03,583 --> 00:03:07,916
+ancak daha yeni ağ bağlantımızda hangi katmanın nereden
+
+55
+00:03:07,916 --> 00:03:11,653
+geldiğini açıkça görmek için üssü köşeli parantez kullanacağız
+
+56
+00:03:11,653 --> 00:03:15,468
+sinir ağlarındaki işaretleme düzeni ile ilgili komik olan şey 
+
+57
+00:03:15,468 --> 00:03:20,194
+gördüğünüz bu ağ iki katmanlı sinir ağı olarak adlandırılır.
+
+58
+00:03:20,194 --> 00:03:23,541
+sebebi de, sinir ağlarındaki katmanları saydığımızda 
+
+59
+00:03:23,541 --> 00:03:25,321
+giriş katmanını saymayız.
+
+60
+00:03:25,321 --> 00:03:28,858
+yani gizli katman, katman 1 ve çıktı katmanı katman 2 dir.
+
+61
+00:03:28,858 --> 00:03:32,661
+işaretleme düzenimizde girdi katmanına katman 0 diyoruz
+
+62
+00:03:32,661 --> 00:03:35,887
+teknik olarak bu sinir ağında üç katman olabilir
+
+63
+00:03:35,887 --> 00:03:39,649
+bunlar da girdi katmanı, gizli hatman ve çıkkış katmanıdır.
+
+64
+00:03:39,649 --> 00:03:43,357
+Ama geleneksel kullanımda, araştırma kağıtları okursanız ve buradaki diğer  kaynaklara 
+
+65
+00:03:43,357 --> 00:03:47,489
+baktığınızda bu sinir ağının iki katmanlı 
+sinir ağı olarak tanımlandığını görürsünüz. 
+
+66
+00:03:47,489 --> 00:03:51,602
+çünkü girdi katmanını görevli katman olarak saymayız.
+
+67
+00:03:51,602 --> 00:03:55,912
+Son olarak, daha sonra bahsedeceğimiz şey gizli katmandır
+
+68
+00:03:55,912 --> 00:03:59,670
+ve çıktı katmanları bunlara bağlı olarak parametreler alacaklar
+
+69
+00:03:59,670 --> 00:04:03,447
+böylece gizli katman w ve b parametrelerini buna bağlı olarak alacaktır
+
+70
+00:04:03,447 --> 00:04:08,218
+ve bunları gizli katmandaki katman 1 le ilişkili olarak
+
+71
+00:04:08,218 --> 00:04:12,395
+üssü köşeli parantez içinde yazacağım
+
+72
+00:04:12,395 --> 00:04:15,416
+daha sonra bu örnekte göreceğiz ki a, 4 e 3 
+
+73
+00:04:15,416 --> 00:04:18,016
+ve b 4 e 1 vektörlü bir matris olacak ki
+
+74
+00:04:18,016 --> 00:04:21,754
+eksen değeri 4 olan ilk nod, 4 nodu olan 
+
+75
+00:04:21,754 --> 00:04:24,503
+gizli birim ve a katmanından,
+
+76
+00:04:24,503 --> 00:04:28,120
+3 ise 3 girdi niteliği olmasından gelir.
+
+77
+00:04:28,120 --> 00:04:31,980
+Bu matrislerin boyutlarından daha sonra bahsedeceğiz
+
+78
+00:04:31,980 --> 00:04:33,844
+o zaman bunlar daha anlamlı gelecektir.
+
+79
+00:04:33,844 --> 00:04:37,813
+Ancak, buna bağlı çıktı katmanlarının bazılarında w parametresi
+
+80
+00:04:37,813 --> 00:04:41,663
+üssü köşeli parantez 2 ve  b üssü köşeli parantez 2 
+
+81
+00:04:41,663 --> 00:04:45,747
+bunların 1 e 4 ve 1 e bir boyutlarına çıkarılır
+
+82
+00:04:45,747 --> 00:04:49,297
+ve bu 1 e 4  de gizli katmanın 4 gizli birimi
+
+83
+00:04:49,297 --> 00:04:51,177
+ve çıktı katmanının 1 biriminden gelir.
+
+84
+00:04:51,177 --> 00:04:56,378
+Ancak bu matris ve vektörlerin boyutlarından daha sonra bahsedeceğiz
+
+85
+00:04:56,378 --> 00:04:59,839
+Şimdi iki katmanlı sinir ağının nasıl göründüğünü gördük
+
+86
+00:04:59,839 --> 00:05:03,108
+Bu bir gizli katmana sahip yapay sinir ağıdır.
+
+87
+00:05:03,108 --> 00:05:04,260
+Bir sonraki videoda,
+
+88
+00:05:04,260 --> 00:05:08,513
+bu sinir ağının nasıl hesaplama yaptığını tam olarak göreceğiz
+
+89
+00:05:08,513 --> 00:05:11,223
+bu sinir ağının x girdisini y çıktısını elde edene kadar olan sürecidir.
+
+90
+00:05:11,223 --> 00:05:14,169
+y çıktısını elde edene kadar olan sürecidir.

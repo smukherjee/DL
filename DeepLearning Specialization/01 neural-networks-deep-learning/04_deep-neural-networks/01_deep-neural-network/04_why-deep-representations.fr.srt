@@ -1,0 +1,798 @@
+1
+00:00:00,000 --> 00:00:03,339
+Nous avons tous entendu que les réseaux de
+ neurones profonds fonctionnent très bien pour
+
+2
+00:00:03,339 --> 00:00:07,073
+beaucoup de problèmes et qu'ils ne
+ doivent pas seulement être de gros
+ réseaux de neurones,
+
+3
+00:00:07,073 --> 00:00:10,718
+mais qu'ils doivent être profonds,
+ comporter beaucoup de couches cachées.
+
+4
+00:00:10,718 --> 00:00:12,208
+Alors pourquoi ?
+
+5
+00:00:12,208 --> 00:00:15,833
+Voyons quelques exemples pour essayer 
+d'avoir une compréhension intuitive de
+
+6
+00:00:15,833 --> 00:00:17,720
+pourquoi les réseaux profonds
+ peuvent fonctionner si bien.
+
+7
+00:00:17,720 --> 00:00:22,181
+Alors d’abord, que calcule 
+un réseau profond ?
+
+8
+00:00:22,181 --> 00:00:25,393
+Si vous construisez un système 
+de reconnaissance faciale ou
+
+9
+00:00:25,393 --> 00:00:29,631
+détection de visage, voici ce qu’un 
+réseau neuronal profond pourrait faire.
+
+10
+00:00:29,631 --> 00:00:35,059
+Peut-être que votre entrée est une photo 
+d’un visage, puis la première couche 
+du réseau neuronal,
+
+11
+00:00:35,059 --> 00:00:40,000
+vous pouvez peut-être la considérer 
+comme un détecteur de caractéristique 
+ou un détecteur d'arêtes.
+
+12
+00:00:40,000 --> 00:00:45,519
+Dans cet exemple, j'ai dessiné ce 
+qu’un réseau de neurones avec
+ peut-être 24 unités cachées,
+
+13
+00:00:45,519 --> 00:00:48,017
+pourrait essayer de calculer 
+sur cette image.
+
+14
+00:00:48,017 --> 00:00:52,357
+Les 24 unités cachées sont représentées
+ par ces petites cases carrées.
+
+15
+00:00:52,357 --> 00:00:57,325
+Ainsi, par exemple, cette visualisation 
+représente une unité cachée qui
+
+16
+00:00:57,325 --> 00:01:01,978
+essaye d'identifier les arêtes 
+ayant cette orientation dans l'image.
+
+17
+00:01:01,978 --> 00:01:06,110
+Et peut-être cette unité cachée 
+essaye de comprendre
+
+18
+00:01:06,110 --> 00:01:09,955
+où sont les arêtes horizontales
+ dans cette image.
+
+19
+00:01:09,955 --> 00:01:13,184
+Et quand nous parlerons de réseaux
+ convolutifs dans un autre cours,
+
+20
+00:01:13,184 --> 00:01:16,129
+cette visualisation particulière 
+aura un peu plus de sens,
+
+21
+00:01:16,129 --> 00:01:19,562
+mais vous pouvez considérer que la 
+première couche du réseau neuronal
+
+22
+00:01:19,562 --> 00:01:22,690
+regarde la photo et essaye de savoir 
+où sont les bords dans cette photo.
+
+23
+00:01:22,690 --> 00:01:27,050
+Maintenant, cherchons où sont les arêtes
+ dans cette photo en regroupant
+
+24
+00:01:27,050 --> 00:01:28,730
+des pixels pour former des bords.
+
+25
+00:01:28,730 --> 00:01:34,670
+Il peut alors
+ prendre les arêtes détectées et les
+ regrouper pour former des parties de visages.
+
+26
+00:01:34,670 --> 00:01:40,289
+Ainsi, par exemple, vous pouvez avoir un 
+neurone qui essaye de voir s'il trouve un œil,
+
+27
+00:01:40,289 --> 00:01:44,480
+ou un autre neurone qui essaye 
+de trouver cette partie du nez.
+
+28
+00:01:44,480 --> 00:01:47,463
+Et donc en mettant ensemble
+ beaucoup d'arêtes
+
+29
+00:01:47,463 --> 00:01:50,970
+il peut commencer à détecter 
+différentes parties du visage.
+
+30
+00:01:50,970 --> 00:01:56,035
+Et puis, enfin, en assemblant
+ différentes parties du visage,
+
+31
+00:01:56,035 --> 00:02:01,006
+comme un œil ou un nez ou des
+ oreilles, ou un menton, on peut alors
+
+32
+00:02:01,006 --> 00:02:03,564
+essayer de reconnaître ou
+de détecter différents types de visages.
+
+33
+00:02:03,564 --> 00:02:07,755
+De façon intuitive, vous pouvez
+ penser aux premières couches
+ d'un réseau de neurones comme
+
+34
+00:02:07,755 --> 00:02:10,190
+quelque chose qui détecte des fonctions
+ simples, comme les arêtes,
+
+35
+00:02:10,190 --> 00:02:14,573
+et qui les arrange ensemble dans les 
+couches suivantes du réseau de neurones
+
+36
+00:02:14,573 --> 00:02:17,625
+pour apprendre des fonctions
+ de plus en plus complexes.
+
+37
+00:02:17,625 --> 00:02:23,640
+Ces visualisations auront plus de sens 
+quand nous parlerons de réseaux convolutifs.
+
+38
+00:02:23,640 --> 00:02:26,203
+Et un détail technique de
+ cette visualisation,
+
+39
+00:02:26,203 --> 00:02:29,802
+les détecteurs d'arêtes fonctionnent
+ sur des zones relativement petite
+
+40
+00:02:29,802 --> 00:02:31,703
+d’une image, comme de très
+ petites régions comme ça.
+
+41
+00:02:31,703 --> 00:02:37,950
+Puis les détecteurs de visages
+ observent peut-être des zones beaucoup
+ plus grandes de l’image.
+
+42
+00:02:37,950 --> 00:02:41,308
+Mais l’intuition principale que vous 
+pouvez retenir, c'est juste de trouver
+
+43
+00:02:41,308 --> 00:02:43,675
+des choses simples comme
+ les arêtes et de construire sur ça,
+
+44
+00:02:43,675 --> 00:02:47,216
+les assembler pour détecter des choses 
+plus complexes comme un œil ou un nez,
+
+45
+00:02:47,216 --> 00:02:50,530
+puis d'assembler cela pour trouver 
+des choses encore plus complexes.
+
+46
+00:02:50,530 --> 00:02:55,665
+Et ce type de représentation
+ hiérarchique du simple au complexe,
+
+47
+00:02:55,665 --> 00:02:58,508
+ou représentation compositionnelle,
+
+48
+00:02:58,508 --> 00:03:04,114
+s’applique à d'autres types de données que
+ les images et la reconnaissance de visages.
+
+49
+00:03:04,114 --> 00:03:07,100
+Par exemple, si vous essayez de construire
+ un système de reconnaissance vocale,
+
+50
+00:03:07,100 --> 00:03:09,000
+il est difficile de visualiser la parole mais
+si votre entrée est un clip audio
+
+51
+00:03:09,000 --> 00:03:14,550
+alors peut-être que le premier niveau 
+d’un réseau de neurones peut
+
+52
+00:03:14,550 --> 00:03:20,863
+apprendre à détecter les caractéristiques 
+bas niveau des ondes sonores, telles que
+
+53
+00:03:20,863 --> 00:03:21,703
+Est ce qu'il va vers les graves ?
+
+54
+00:03:21,703 --> 00:03:26,869
+Est-ce un bruit blanc ou
+ un sifflement comme [SON].
+
+55
+00:03:26,869 --> 00:03:27,903
+Et quelle est sa hauteur ?
+
+56
+00:03:27,903 --> 00:03:31,124
+Pour cela, il faut détecter des formes
+ d'onde de bas niveaux comme ça.
+
+57
+00:03:31,124 --> 00:03:34,233
+Et puis par la composition
+ de formes d'onde de bas niveau,
+
+58
+00:03:34,233 --> 00:03:37,937
+peut-être que vous allez apprendre 
+à détecter les unités de base du son.
+
+59
+00:03:37,937 --> 00:03:40,297
+En linguistique, on les appelle phonèmes.
+
+60
+00:03:40,297 --> 00:03:45,098
+Par exemple, dans le mot cat, le C est
+ un phonème, le A est un phonème,
+
+61
+00:03:45,098 --> 00:03:46,787
+le T est un autre phonème.
+
+62
+00:03:46,787 --> 00:03:49,987
+Une fois qu'on a appris à reconnaître 
+les unités de base du son, en
+
+63
+00:03:49,987 --> 00:03:54,688
+composant tout ça ensemble, on apprend
+ à reconnaître des mots dans l’audio.
+
+64
+00:03:54,688 --> 00:03:58,270
+Et puis peut-être en composant
+ ceux-ci ensemble,
+
+65
+00:03:58,270 --> 00:04:02,912
+on peut reconnaître des expressions 
+ou des phrases entières.
+
+66
+00:04:02,912 --> 00:04:07,572
+Des réseaux de neurones profonds, 
+avec de multiples couches cachées 
+peuvent avoir les premières
+
+67
+00:04:07,572 --> 00:04:10,477
+couches qui apprennent ces 
+caractéristiques simples de bas niveau
+
+68
+00:04:10,477 --> 00:04:15,339
+et puis les couches plus profondes 
+assemblent ensuite ces éléments simples 
+qui ont été détectées
+
+69
+00:04:15,339 --> 00:04:19,392
+pour détecter des choses plus complexes 
+comme reconnaître des mots spécifiques
+
+70
+00:04:19,392 --> 00:04:21,040
+ou même des expressions
+ ou des phrases
+
+71
+00:04:21,040 --> 00:04:24,745
+que vous prononcez, afin de
+ faire de la reconnaissance vocale.
+
+72
+00:04:24,745 --> 00:04:30,168
+Et nous voyons que si les premières 
+couches calculent ce qui semble être
+
+73
+00:04:30,168 --> 00:04:35,673
+des fonctions relativement simples de 
+l’entrée comme où sont les arêtes, plus
+
+74
+00:04:35,673 --> 00:04:41,046
+vous allez profondément 
+dans le réseau, plus vous pouvez faire
+ des choses étonnamment complexes,
+
+75
+00:04:41,046 --> 00:04:44,876
+comme de la détection de visages 
+ou de la détection de mots ou
+ d'expressions ou de phrases.
+
+76
+00:04:44,876 --> 00:04:48,767
+Certains aiment faire une analogie 
+entre les réseaux neuronaux profond et
+
+77
+00:04:48,767 --> 00:04:52,656
+le cerveau humain, où, pensons-nous, 
+ou les neuroscientifiques pensent,
+
+78
+00:04:52,656 --> 00:04:57,162
+que le cerveau humain commence 
+également par détecter des choses 
+simples comme les arêtes dans ce que
+
+79
+00:04:57,162 --> 00:05:00,370
+vos yeux voient puis construisent à 
+partir de ça pour détecter des choses
+
+80
+00:05:00,370 --> 00:05:02,440
+plus complexes comme 
+les visages que vous voyez.
+
+81
+00:05:02,440 --> 00:05:05,038
+Je pense que les analogies entre 
+l'apprentissage profond et
+
+82
+00:05:05,038 --> 00:05:08,276
+le cerveau humain sont parfois
+ un peu dangereuses.
+
+83
+00:05:08,276 --> 00:05:13,301
+Mais il y a beaucoup de vérité, pour ce 
+qui est de la façon dont nous pensons
+ que le cerveau humain fonctionne et
+
+84
+00:05:13,301 --> 00:05:18,102
+que le cerveau humain détecte 
+sans doute des choses simples comme
+ les arêtes en premier et
+
+85
+00:05:18,102 --> 00:05:22,598
+puis les met ensemble pour former des
+ objets de plus et plus complexes et que
+
+86
+00:05:22,598 --> 00:05:27,430
+ça a servi plus ou moins d’inspiration 
+pour une partie de l'apprentissage profond.
+
+87
+00:05:27,430 --> 00:05:29,850
+Nous en dirons un peu plus 
+sur le cerveau humain ou
+
+88
+00:05:29,850 --> 00:05:33,065
+sur le cerveau biologique 
+dans une autre vidéo cette semaine.
+
+89
+00:05:35,534 --> 00:05:40,407
+L’autre intuition sur pourquoi
+ les réseaux profonds semblent
+
+90
+00:05:40,407 --> 00:05:42,756
+bien fonctionner est ceci.
+
+91
+00:05:42,756 --> 00:05:47,868
+Ce résultat vient de la théorie des circuits 
+qui porte sur la détermination
+
+92
+00:05:47,868 --> 00:05:50,260
+de quels types de fonctions
+ vous pouvez calculer avec
+
+93
+00:05:50,260 --> 00:05:53,760
+différentes portes ET, OU et NON,
+ les portes logiques de base.
+
+94
+00:05:53,760 --> 00:05:58,860
+Informellement, vous pouvez calculer des
+ fonctions avec un réseau de neurones
+ relativement petit mais profond,
+
+95
+00:05:58,860 --> 00:06:03,595
+et par petit, j'entends que le nombre
+ d’unités cachées est relativement faible,
+
+96
+00:06:03,595 --> 00:06:07,553
+mais si vous essayez de calculer la même 
+fonction avec un réseau peu profond,
+
+97
+00:06:07,553 --> 00:06:09,178
+alors, si il n’y a pas assez 
+de couches cachées,
+
+98
+00:06:09,178 --> 00:06:13,296
+alors, vous avez besoin d'un nombre
+ exponentiellement plus grand 
+d'unités cachées pour les calculer.
+
+99
+00:06:13,296 --> 00:06:18,109
+Laissez-moi vous donner un exemple et 
+illustrer cela de façon un peu informelle.
+
+100
+00:06:18,109 --> 00:06:21,423
+Disons que vous essayez
+ de calculer le OU exclusif, c'est à dire
+
+101
+00:06:21,423 --> 00:06:23,349
+la parité de toutes 
+vos caractéristiques d'entrée.
+
+102
+00:06:23,349 --> 00:06:26,200
+Si vous essayez de calculer
+ x1 XOR x2 XOR x3 XOR ... xn
+
+103
+00:06:26,200 --> 00:06:33,064
+x1 XOR x2 XOR x3 XOR ... xn 
+si vous avez n ou nx caractéristiques.
+
+104
+00:06:33,064 --> 00:06:39,924
+Donc, si vous construisez un arbre 
+de XOR comme ça, donc il calcule 
+le OU exclusif de x1 et x2,
+
+105
+00:06:39,924 --> 00:06:44,586
+puis il prend x3 et x4 et
+ calcule leur OU exclusif.
+
+106
+00:06:44,586 --> 00:06:48,650
+Et techniquement, si vous utilisez 
+seulement des portes ET, OU et NON, 
+vous pouvez avoir besoin de plusieurs
+
+107
+00:06:48,650 --> 00:06:54,196
+couches pour calculer la fonction
+ XOR plutôt qu’une seule couche, mais
+
+108
+00:06:54,196 --> 00:06:58,791
+avec un circuit relativement petit, vous 
+pouvez calculer le XOR et ainsi de suite.
+
+109
+00:06:58,791 --> 00:07:03,987
+Et puis vous pouvez construire, vraiment,
+ un arbre de XOR comme ceci,
+
+110
+00:07:03,987 --> 00:07:12,090
+jusqu'à ce que finalement, vous ayez ici un 
+circuit qui sorte, nous allons appeler ça Y.
+
+111
+00:07:12,090 --> 00:07:15,236
+La sortie ŷ égale à Y.
+
+112
+00:07:15,236 --> 00:07:18,398
+Le OU exclusif ou parité
+ de tous ces bits d’entrée.
+
+113
+00:07:18,398 --> 00:07:24,790
+Donc pour calculer le XOR, la profondeur 
+du réseau sera l’ordre de log(n).
+
+114
+00:07:24,790 --> 00:07:27,410
+Nous avons simplement un arbre de XOR.
+
+115
+00:07:27,410 --> 00:07:30,836
+Donc le nombre de nœuds ou 
+le nombre de composants du circuit ou
+
+116
+00:07:30,836 --> 00:07:33,929
+le nombre de portes dans 
+ce réseau n’est pas très grand.
+
+117
+00:07:33,929 --> 00:07:38,452
+Vous n’avez pas besoin de beaucoup 
+de portes afin de calculer ce OU exclusif.
+
+118
+00:07:38,452 --> 00:07:43,458
+Mais si vous ne pouvez pas utiliser 
+un réseau de neurones avec plusieurs
+
+119
+00:07:43,458 --> 00:07:48,203
+couches cachées avec, dans ce cas,
+de l'ordre de log(n) couches cachées,
+
+120
+00:07:48,203 --> 00:07:53,382
+si vous êtes obligé de calculer cette
+ fonction avec juste une couche cachée,
+
+121
+00:07:53,382 --> 00:07:57,912
+si vous avez toutes ces choses qui 
+vont dans une certaine unité cachée.
+
+122
+00:07:57,912 --> 00:08:02,116
+Et puis ces choses calculent la sortie Y.
+
+123
+00:08:02,116 --> 00:08:07,120
+Alors pour calculer cette fonction XOR,
+ cette couche cachée
+
+124
+00:08:07,120 --> 00:08:12,124
+devra être exponentiellement grande,
+ parce qu’essentiellement, vous devez
+
+125
+00:08:12,124 --> 00:08:18,397
+énumérer exhaustivement toutes 
+les 2 puissance n configurations possibles.
+
+126
+00:08:18,397 --> 00:08:23,139
+Donc, de l'ordre de 2 puissance n 
+configurations possibles des bits d'entrée
+
+127
+00:08:23,139 --> 00:08:27,898
+qui donnent au OU exclusif 
+la valeur 1 ou 0.
+
+128
+00:08:27,898 --> 00:08:32,213
+Vous avez donc besoin d’une couche cachée 
+qui est exponentiellement grande
+
+129
+00:08:32,213 --> 00:08:33,554
+par rapport au nombre de bits.
+
+130
+00:08:33,554 --> 00:08:38,229
+Je pense que techniquement, 
+vous pouvez faire cela avec 
+2 puissance n moins 1 unités cachées.
+
+131
+00:08:38,229 --> 00:08:43,948
+Mais c’est quand même de l'ordre de 
+2 puissance n, exponentiellement grand
+ par rapport au nombre de bits.
+
+132
+00:08:43,948 --> 00:08:49,149
+J’espère que cela vous permet de voir 
+qu’il y a des fonctions mathématiques
+
+133
+00:08:49,149 --> 00:08:55,275
+qui sont plus faciles à calculer 
+avec des réseaux profonds 
+qu’avec des réseaux peu profonds.
+
+134
+00:08:55,275 --> 00:09:01,028
+J'ai personnellement trouvé le résultat
+ de la théorie des circuits moins utile pour
+
+135
+00:09:01,028 --> 00:09:05,985
+avoir des intuitions, mais c'est un des
+ résultats que les gens citent souvent
+
+136
+00:09:05,985 --> 00:09:11,223
+pour expliquer l’importance d’avoir 
+des représentations très profondes.
+
+137
+00:09:11,223 --> 00:09:13,600
+Maintenant, en plus de ces raisons de
+
+138
+00:09:13,600 --> 00:09:17,400
+préférer les réseaux neuronaux profonds, 
+pour être vraiment honnête,
+
+139
+00:09:17,400 --> 00:09:22,204
+je pense qu'une autre raison pour 
+laquelle le terme apprentissage profond 
+est connu c'est parce que c'est un mot clé.
+
+140
+00:09:22,204 --> 00:09:26,776
+C'est comme ça que nous appelons
+ des réseaux neuronaux avec beaucoup
+ de couches cachées, mais
+
+141
+00:09:26,776 --> 00:09:31,198
+l’expression "apprentissage profond" est juste 
+un beau mot-clé, c’est tellement profond.
+
+142
+00:09:31,198 --> 00:09:36,284
+Je pense qu’une fois que ce terme a pris,
+ on a rebaptisé les réseaux de neurones ou
+
+143
+00:09:36,284 --> 00:09:39,622
+en tous cas les réseaux de neurones
+ avec beaucoup de couches cachées,
+
+144
+00:09:39,622 --> 00:09:42,970
+pour aider à capturer
+ l’imagination populaire.
+
+145
+00:09:42,970 --> 00:09:47,479
+Mais à part pour les relations publiques,
+ les réseaux profonds fonctionnent très bien.
+
+146
+00:09:47,479 --> 00:09:51,342
+Parfois, les gens en rajoutent et insistent pour 
+utiliser des tonnes de couches cachées.
+
+147
+00:09:51,342 --> 00:09:55,500
+Mais quand je commence sur un nouveau 
+problème, je commence souvent avec
+
+148
+00:09:55,500 --> 00:09:58,803
+simplement une régression logistique puis
+ j'essaye quelque chose avec une ou
+
+149
+00:09:58,803 --> 00:10:01,722
+deux couches cachées et
+ j’utilise ça comme un hyper paramètre,
+
+150
+00:10:01,722 --> 00:10:05,731
+Vous pouvez l'utiliser comme un paramètre
+ ou un hyper paramètre que 
+vous ajustez pour tenter de trouver
+
+151
+00:10:05,731 --> 00:10:07,935
+la bonne profondeur pour
+ votre réseau de neurones.
+
+152
+00:10:07,935 --> 00:10:12,800
+Mais au cours des dernières années, il y a
+ eu une tendance dans laquelle les gens,
+
+153
+00:10:12,800 --> 00:10:17,590
+pour certaines applications, trouvaient que
+ des réseaux de neurones très, très profonds,
+
+154
+00:10:17,590 --> 00:10:22,264
+avec plusieurs douzaines de couches,
+ peuvent parfois être
+ le meilleur modèle pour un problème.
+
+155
+00:10:22,264 --> 00:10:27,605
+Donc, c’est tout pour les intuitions 
+sur pourquoi l'apprentissage profond
+ semble bien fonctionner.
+
+156
+00:10:27,605 --> 00:10:31,411
+Nous allons maintenant jeter un œil
+ à la mécanique nécessaire pour
+ implémenter non seulement
+
+157
+00:10:31,411 --> 00:10:33,769
+la propagation directe, 
+mais aussi la rétro propagation.

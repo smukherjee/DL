@@ -1,0 +1,26 @@
+Merhaba, hoş geldiniz. Muhtemelen bildiğiniz gibi Derin öğrenme, İnternette arama ve reklamcılık gibi geleneksel
+internet işlerini değiştirdi. Ayrıca derin öğrenme, insanların yeni iş ve yeni ürünler
+oluşturmasına da yardımcı olur. Daha iyi bir sağlık hizmetinden tutun da, X-ray görüntülerini okumakta, kişiselleştirilmiş eğitimden, hassas tarıma ve hatta sürücüsüz araçlar ve dahasına kadar, derin öğrenme gerçekten iyi olmaya başladı. Eğer derin öğrenme araçlarını öğrenmek ve, bu araçlarla harika şeyler yapmak istiyorsanız, bunu yapmanızda yardımcı olmak istiyorum. Coursera'daki özelleşme olarak adlandırdığımız tüm dersleri bitirdiğinizde, derin öğrenmeyi güvenle öz geçmişinize ekleyebileceksiniz. önümüzdeki on yılda, Bence hepimiz yapay zekanın gücüyle harika bir dünya, harika bir toplum yaratma fırsatına sahibiz, ve umuyorum ki, yapay zeka ile güçlü toplumun
+için önemli bir rol oynayacaksınız. Haydi başlayalım. Yapay zekanın yeni elektrik olduğunu düşünüyorum. 100 yıl öncesinden itibaren, Toplumumuzun elektrik ile tanışması,
+her büyük sanayiyi, taşımacılık, üretim, sağlık, iletişim ve daha birçok alanı dönüştürdü. Ve günümüzde, yapay zekanın da
+böylesine büyük bir dönüşüm için şaşırtıcı şekilde net bir yol görebiliyoruz. Ve tabi ki, yapay zekanın hızla yükselen ve birçok gelişmeye yön veren kısmı derin öğrenmedir. Bugünlerde, derin öğrenme teknoloji dünyasında en çok rağbet gören özelliklerden biri. Bu ders ve sonrakiler ile birlikte, bu yetenekleri kazanmanız ve geliştirmenizde
+size yardımcı olmak istiyorum. İşte Coursera'da özelleşme olarak adlandırdığımız bu ders serilerinde öğrenecekleriniz: İlk derste, sinir ağlarının temellerini öğreneceksiniz, sinir ağları ve derin öğrenmeyi göreceksiniz. Şu an izlemekte olduğunuz bu video toplamda dört hafta sürecek ilk dersin bir parçası Özelleşme içindeki beş dersin her biri
+iki ile dört hafta arasında sürecek. aslında çoğu dört haftadan daha kısa olacak şekilde Bu ilk derste, derin sinir ağlarını içeren
+yeni bir ağı nasıl kuracağınızı ve bunu veri ile nasıl eğiteceğinizi öğreneceksiniz. Bu dersin sonunda, bir şeyleri tanıyan bir derin sinir ağı kurabileceksiniz, tahmin edin neyi? Kedileri, bazı sebepler yüzünden, derin öğrenme çevrelerinde kediler çok moda. ve bu yüzden, ilk ders süresince bu geleneği sürdüreceğiz. Kedi tanıyıcı yapacağız. Ardından ikinci derste, derin öğrenmenin pratik yönlerini öğreneceksiniz. kurmayı öğrendiğiniz ağlarınızın, nasıl daha iyi çalışacağını öğreneceksiniz. hiper parametre ayarlamayı ve regülarizasyon methodlarını, yanlılık (bias) ve değişinti (variance) tespitini ve, Momentum, RMSProp, Adam gibi ileri
+optimizasyon algoritmalarını öğreneceksiniz. Bazen bir sinir ağı kurarken fazlasıyla ayarlama ve hatta biraz da kara büyü varmış gibi görünüyor. Sadece üç hafta sürecek olan ikinci kurs, bu kara büyünün bazılarını açığa çıkaracak. Sadece iki hafta sürecek olan üçüncü kursta ise, makine öğrenmesi projelerinin
+nasıl yapılandıracağını öğreneceksiniz. Derin öğrenme çağında, bir makine öğrenmesi sistemini yaratma stratejisinin değiştiğini gösterecek. Örneğin, verileri eğitim, geçerleme ya da çapraz geçerleme (dev) ve test seti olarak ayırma yöntemi derin öğrenme ile birlikte değişti. Böylece, yeni en iyi uygulamaların bunu yapıp yapmadığı ve eğitim ve test setlerinizin farklı dağılımlardan gelip gelmediği, bu derin öğrenme çağında çok daha fazla gerçekleşiyor. Peki bunun nasıl üstesinden geleceğiz? Eğer uçtan uca derin öğrenmeyi
+duyduysanız, üçüncü derste bunun hakkında fazlasını ve, 
+ne zaman kullanılması gerektiğini ve belki ne zaman kullanılmaması
+gerektiğini öğreneceksiniz. Üçüncü dersin konusu nispeten eşsizdir. Birçok derin öğrenme ürününde kullandığım, yarattığım ve öğrendiğin
+çoğu şeyi sizlerle paylaşacağım. Bildiğim kadarıyla, bu konu çoğu üniversitedeki derin öğrenme derslerinde öğretilmeyen bir konu. Ama gerçekten derin öğrenme
+sisteminizin işe yaramasını umuyorum. Sonraki derste, genellikle CNN olarak kısaltılan evrişimli
+sinir ağları hakkında konuşacağız. Evrişimli ağlar veya evrişimli sinir ağları
+genellikle görüntüler için kullanılır. Bu modelleri nasıl kuracağınızı
+dördüncü derste öğreneceksiniz. Son olarak, beşinci derste, dizi modelleri ve bu modelleri doğal dil işleme ve diğer problemlere nasıl uygulayacağını öğreneceksiniz. Dizi modelleri, kısaltması RNN olan özyineli sinir ağları ve, LSTM modelleri (long short term models) gibi modelleri içerir. Bu terimlerin anlamlarını
+beşinci derste öğrenecek ve, bunları doğal dil işleme problemlerinde
+kullanabileceğinizi öğreneceksiniz. Beşinci derste bu modelleri ve
+sıralı veriye uygulamayı öğreneceksiniz. Örneğin, doğal dil sadece sıralı kelimelerdir, ayrıca bu modeller konuşma tanımaya
+veya müzik yaratımına, ve diğer problemlere nasıl
+uygulanabileceğini anlayacaksınız. Bu dersler süresince, derin öğrenme araçlarını öğreneceksiniz, harika şeyler yapabilir hale geleceksiniz, ve umuyorum ki, çoğunuz için
+kariyer basamağı da olacak. Evet, haydi başlayalım. Lütfen bir sonraki denetimli öğrenme için derin öğrenme konuştuğumuz
+bir sonraki video ile devam edin.

@@ -1,0 +1,88 @@
+Dans la précédente vidéo, vous avez vu comment vous pouvez utiliser 
+la vectorisation pour calculer les prédictions des petits a pour un set d'apprentissage
+ entier, tous en même temps. Dans cette vidéo, vous verrez comment 
+vous pouvez aussi utiliser la vectorisation pour effectuer les calculs de gradient pour
+ tous les m exemples d'apprentissage encore une fois, tous en même temps. Et puis à la fin de cette vidéo, Nous allons tout mettre ensemble et 
+montrer comment vous pouvez faire une implémentation très efficace
+ de la régression logistique. Vous vous souvenez peut-être que
+ pour le calcul du gradient, ce que nous avons fait est que nous avons
+ calculé dz1 pour le premier exemple, qui peut valoir a1 moins y1 
+et puis dz2 qui est égal à a2-y2 et ainsi de suite. Et ainsi de suite pour tous 
+les m exemples d'apprentissage. Donc, ce que nous allons faire est
+ définir une nouvelle variable, dZ majuscule qui va contenir
+ dz1, dz2, ... , dzm. Encore une fois, toutes les variables dz minuscule
+ empilées horizontalement. Donc, ce sera une matrice de 1 par m, 
+c'est à dire un vecteur ligne de dimension m. Maintenant, rappelons que 
+dans la diapositive précédente, Nous avions déjà calculé A majuscule
+ qui était a1 à am et nous avons défini Y majuscule 
+comme y1 à ym également empilés horizontalement. Donc, sur la base de ces définitions, peut-être que vous pouvez voir vous-même 
+que dZ peut être calculé comme simplement A moins Y
+ parce que ceci va être égal à a1 - y1 pour le premier élément, a2 - y2 pour le deuxième élément 
+et ainsi de suite. Et donc ce premier élément a1 - y1 
+est exactement la définition de dz1. Le deuxième élément est exactement
+ la définition de dz2 et ainsi de suite. Ainsi, avec une seule ligne de code, vous pouvez calculer tout cela en même temps. Maintenant, dans l’implémentation précédente, nous nous sommes déjà débarrassés d’une
+ boucle for, mais nous avons encore cette deuxième boucle for
+ sur les exemples d'entrainement. Donc, nous initialisons dw 
+à un vecteur de zéros. Mais ensuite nous devons encore boucler sur
+ les exemples d'entrainement où nous avons dw += x1*dz1 pour le premier exemple d'apprentissage, 
+dw += x2*dz2, et ainsi de suite. Donc nous faisons ça m fois puis nous divisons
+ le résultat par m et de même pour b, OK ? db est initialisé à 0 et db += dz1 db += dz2 jusqu'à dzm puis db /=m. Voilà donc ce que nous avions
+ dans l’implémentation précédente. Nous nous nous sommes déjà
+ débarrassés d’une boucle for, au moins, maintenant dw est un vecteur, 
+et nous allons mettre à jour séparément dw1, dw2 et ainsi de suite. Donc, nous nous sommes déjà débarrassés
+ de cela, mais nous avons encore la boucle for sur les m exemples 
+du set d'apprentissage. Alors, prenons ces opérations et vectorisons les. Voici ce que nous pouvons faire. Pour l'implémentation vectorisée de db, 
+ce qu'on faisait est simplement la somme de tous ces dz et on divisait ensuite par m. Donc db vaut fondamentalement 1/m fois la somme pour i de 1 à m des dzi Et tous les dz sont dans ce vecteur ligne
+ et donc en Python, ce que vous faites est d'implémenter 1/m fois np.sum(dZ) db = 1/m np.sum(dZ) On prend juste cette variable 
+et on appelle la fonction np.sum dessus et ça vous donne db. Et pour dW ? Je vais juste écrire l'équation correcte, vous pourrez vérifier 
+que c'est la bonne chose à faire. Et dW vaut 1 sur m fois la matrice X fois la transposée de dZ. Et, pour voir un peu pourquoi c’est le cas, c'est égal à 1/m puis la matrice X, x1 jusqu'à xm empilés en colonnes comme ça et transposée de dZ va être dz1
+ jusqu'à dzm comme ceci. Et donc, si vous calculez ce que vaut
+ cette matrice fois ce vecteur, vous trouvez qu'elle vaut 1/m * [x1*dz1+...+xm*dzm] Et ceci est un vecteur de n par 1
+ et c’est le résultat que vous obtenez pour dW parce que dW prenait les xi*dzi et les additionnait et
+ c’est exactement ce que fait cette multiplication
+ d'une matrice par un vecteur, Donc, de nouveau, avec une ligne de code, 
+vous pouvez calculer dW. Ainsi, l'implémentation vectorisée 
+des calculs dérivés est juste cela, vous utilisez cette ligne
+ pour implémenter db et cette ligne pour implémenter dW
+ et notez que, sans aucune boucle for
+ sur le set d'apprentissage, vous pouvez maintenant calculer les mises à jour
+ que vous voulez de vos paramètres. Alors maintenant, nous allons tout mettre 
+ensemble pour voir comment on implémente
+ efficacement la régression logistique. Voici donc notre implémentation d'origine, non vectorisée et très inefficace. La première chose que nous avons faite
+ dans la vidéo précédente a été de 
+se débarrasser de cette boucle for. Ainsi, au lieu d’une boucle sur dw1, dw2 et ainsi de suite, Nous avons remplacé cela par un vecteur dW,
+ donc on a dW += X(i), qui est maintenant un vecteur, fois dz(i). Mais maintenant, nous avons vu que, 
+en plus de la boucle du bas, nous pouvons également 
+nous débarrasser de cette boucle for. Voici comment le faire. Ainsi, en utilisant ce que nous avons vu
+dans les diapositives précédentes, c'est-à-dire Z = W.t * X + b 
+et le code vous écrivez est Z = np.dot(W.T, X) +b,
+ puis A = sigmoid(Z) Donc, vous avez maintenant calculé tout cela
+ pour toutes les valeurs de i. Ensuite, dans la diapositive précédente, nous avons dit qu'on calcule dZ égal à A - Y. Donc, maintenant vous avez calculé tout cela
+ pour toutes les valeurs de i. Puis, enfin dw est égal à 1/m * X * dZ.T et db vaut 1/m * np.sum(dZ) db = 1/m np.sum(dZ) Donc, vous venez de faire la propagation 
+vers l'avant et la rétro propagation, c'est à dire le calcul des prédictions
+ et des dérivées sur tous les m exemples d'apprentissage
+ sans utiliser de boucle for. Et ainsi la mise à jour de
+ la descente de gradient sera alors W est remplacé par 
+W moins le taux d'apprentissage fois dW dW a été calculé juste au-dessus et
+ b est mis à jour comme 
+b moins le taux d’apprentissage fois db. Parfois, on met des double points 
+pour noter une assignation mais je suppose que je n’ai pas été 
+totalement conforme à cette notation. Mais avec cela, vous venez d'implémenter une itération unique de descente de gradient
+ pour la régression logistique. Maintenant, je sais que j’ai dit que
+ nous devrions nous débarrasser des boucles for explicites à chaque fois que
+ vous le pouvez, mais si vous voulez implémenter plusieurs itérations de descente de gradient, il vous faut quand même
+ une boucle for sur le nombre d’itérations. Donc, si vous voulez avoir un millier
+ d'itérations de descente de gradient, vous avez encore besoin d'une boucle for
+ sur le nombre d’itération. Une boucle for qui englobe
+ tout le reste comme ça. Je ne pense pas qu’il y ait un moyen 
+de se débarrasser de cette boucle for. Mais je pense que c’est incroyablement cool
+ que vous puissiez implémenter au moins une itération de descente de gradient 
+sans avoir besoin d’utiliser une boucle for. Donc voilà, vous avez 
+maintenant une implémentation très vectorisée et très efficace de descente de
+ gradient pour la régression logistique. Il y a juste encore un détail dont
+ je veux parler dans la vidéo suivante, qui est dans notre description ici
+ j’ai brièvement fait allusion à 
+cette technique de broadcasting. Le broadcasting est
+ une technique que Python et numpy vous permettent d’utiliser pour améliorer
+ l'efficacité de certaines parties de votre code. Donc, nous allons voir plus de détails 
+sur le broadcasting dans la prochaine vidéo.

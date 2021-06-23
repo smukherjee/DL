@@ -1,0 +1,56 @@
+Bem-vindo a quarta semana desse curso. Por enquanto, você viu o contexto de
+ propagação para frente e para trás de redes neurais, com uma camada
+ oculta, bem como regressão logística e você também aprendeu sobre vetorização e quando é importante inicializar os pesos de forma randômica. Se você completou as tarefas
+das semanas passadas,
+ então você também implementou e viu algumas dessas ideias funcionando. Então, agora que você já viu a maior parte das ideias
+que precisa para
+ implementar uma rede neural profunda, o que faremos nessa semana é pegar essas ideias e
+ colocá-las todas juntas, de modo que você seja capaz de construir e implementar 
+sua própria rede neural profunda. Pelo fato do exercício dessa semana ser
+mais longo e exigir mais trabalho, eu mantive
+os videos dessa semana mais curtos, para permitir que você possa vê-los 
+mais rapidamente e tenha mais tempo para progredir com os exercícios e, 
+no final, espero que você se orgulhe da rede neural profunda
+que construiu. Então, o que é uma rede neural profunda? Você já viu essa figura de regressão logística e você também já viu uma rede neural com 
+uma única camada oculta. Assim, aqui está um exemplo de rede neural com
+2 camadas ocultas e uma rede neural com 5 camadas ocultas. Dizemos que a regressão logística
+é um modelo "raso" (superficial), enquanto esse aqui é um modelo
+bem mais profundo e, raso versus profundo é uma questão de grau. Então, uma rede neural de única camada oculta essa seria uma rede neural de 2 camadas. Lembre-se que quando contamos as camadas 
+em uma rede neural, nós não contamos
+a camada de entrada, contamos apenas as camadas ocultas
+e a camada de saída. Assim, essa seria uma rede neural
+de 2 camadas,ainda bem rasa, mas não tão rasa como a regressão logística. Tecnicamente, a regressão logística é uma rede neural
+de uma camada, mas nos últimos anos as comunidades de IA e de aprendizagem de máquina perceberam que
+existem funções, onde as redes neurais profundas podem aprender
+ o que modelos mais rasos geralmente não conseguem, embora para um problema em específico,
+se torna difícil predizer antecipadamente,
+quão profunda será sua rede neural. Assim, é razoável tentar regressão logística,
+tentar uma e então duas camadas ocultas e ver o número de
+ camadas escondidas como um outro hiper-parâmetro e que você pode tentar uma
+variedade de valores e calcular usando 
+o conjunto de validação de dados cruzados, ou usando 
+o conjunto de dados de desenvolvimento. Veremos mais disso mais adiante. Vejamos as notações que usaremos
+para descrever redes neurais profundas. Aqui temos uma rede neural com uma,
+duas, três, quatro camadas, sendo três camadas ocultas,
+e o número de unidades nessas camadas ocultas são 5, 5, 3 e
+uma unidade de saída. Então, na notação que usaremos, teremos a letra maiúscula L, para denotar
+o número de camadas na rede. Assim, nesse caso, L=4
+que é o número de camadas e vamos usar N elevado a [l]
+para denotar o número de nós ou o número de unidades
+na camada l minúscula. Então, se indexarmos isso,
+a entrada como camada "0". Essa é a camada 1, essa é a camada 2,
+essa é a camada 3 e essa é a camada 4. Então nós temos que, por exemplo,
+n[1] seria isso, a primeira camada igual a 5,
+porque temos 5 unidades ocultas lá. Para essa outra, nós temos n[2], e o nu´mero de unidades
+na segunda camada oculta também é igual a 5, n[3] = 3, e n[4] = n[L] = 1 esse é o número de saídas porque o L maiúsculo é igual a 4. Para se referir a camada de entrada n[0] = nx = 3. Então essa é a notação que usaremos para
+descrever o número de nós nas diferentes camadas Para cada camada L, usaremos a[l] para denotar ativações na camada l. E você verá mais tarde, que em propagação para frente, você calculou a[l] como ativação de g(z[l]) e talvez a ativação também esteja indexada pela camada l, e então usaremos W[l] para denotar os pesos para calcular os valores z[l] na camada l e, do mesmo modo, b[l] é usado para calcular z[l]. Finalmente, unindo as notações,
+a entrada de recursos é chamada de x, mas x é também a ativação
+da camada zero. Assim a[0] = x, e a ativação da camada final,
+a[L] = ŷ. Então, a[L] é igual a saída predita,
+da predição ŷ para a rede neural. Assim, agora você sabe com o que uma rede
+neural se parece, e essa é a notação que usaremos
+para descrever e calcular usando redes neurais. Eu sei que introduzimos uma série de notações
+nesse vídeo, mas se você por acaso esquecer o significado de alguns símbolos, também colocamos
+no site do curso uma planilha de notações ou um guia de notações, que você pode usar
+pare verificar o que esses símbolos significam. A seguir, eu gostaria de descrever o que
+significa propagação para frente nesse tipo de rede. Vamos para o próximo vídeo.

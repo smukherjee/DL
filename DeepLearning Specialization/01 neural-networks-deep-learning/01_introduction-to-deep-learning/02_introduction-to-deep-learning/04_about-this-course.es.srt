@@ -1,0 +1,203 @@
+1
+00:00:00,000 --> 00:00:02,610
+Estás a punto de llegar al final del
+
+2
+00:00:02,610 --> 00:00:06,165
+material de la primer semana del primer curso en esta especialización
+
+3
+00:00:06,165 --> 00:00:09,960
+Permíteme darte también una vista rápida de lo que aprenderás en las próximas semanas.
+
+4
+00:00:09,960 --> 00:00:12,000
+Como comenté en el primer video,
+
+5
+00:00:12,000 --> 00:00:15,150
+esta especialización está integrada por cinco cursos.
+
+6
+00:00:15,150 --> 00:00:17,250
+Y ahora nos encontramos en el primero de
+
+7
+00:00:17,250 --> 00:00:20,385
+estos cinco cursos, que debería enseñarte los fundamentos más importantes,
+
+8
+00:00:20,385 --> 00:00:23,745
+realmente los bloques más importantes que construyen al aprendizaje profundo.
+
+9
+00:00:23,745 --> 00:00:25,530
+Para el final de este primer curso,
+
+10
+00:00:25,530 --> 00:00:30,350
+sabrás como construir y hacer trabajar una red neuronal profunda.
+
+11
+00:00:30,350 --> 00:00:33,780
+Así que aquí están los detalles de lo que cubre este primer curso.
+
+12
+00:00:33,780 --> 00:00:35,725
+Este curso tiene cuatro semanas de material.
+
+13
+00:00:35,725 --> 00:00:37,620
+Y estás llegando al final de
+
+14
+00:00:37,620 --> 00:00:40,110
+la primer semana, donde viste una introducción al aprendizaje profundo.
+
+15
+00:00:40,110 --> 00:00:41,530
+Al final de cada semana,
+
+16
+00:00:41,530 --> 00:00:44,190
+también habrán 10 preguntas de opción múltiple que
+
+17
+00:00:44,190 --> 00:00:47,495
+puedes utilizar para asegurarte de que comprendiste bien el material.
+
+18
+00:00:47,495 --> 00:00:49,185
+Así que, cuando termines de ver este video,
+
+19
+00:00:49,185 --> 00:00:51,860
+espero que vayas a revisar esas preguntas.
+
+20
+00:00:51,860 --> 00:00:56,530
+En la segunda semana, aprenderás sobre las bases de programación de redes neuronales.
+
+21
+00:00:56,530 --> 00:00:58,420
+Aprenderás sobre la estructura de
+
+22
+00:00:58,420 --> 00:01:00,960
+lo que conocemos como los pasos de propagación hacia adelante y propagación hacia atrás
+
+23
+00:01:00,960 --> 00:01:06,030
+del algoritmo y cómo implementar redes neuronales eficientemente.
+
+24
+00:01:06,030 --> 00:01:07,405
+A partir de la segunda semana,
+
+25
+00:01:07,405 --> 00:01:10,125
+también harás un ejercicio de programación
+
+26
+00:01:10,125 --> 00:01:13,605
+que te permitirá practicar el material que habrás acabado de aprender,
+
+27
+00:01:13,605 --> 00:01:16,735
+implementar los algoritmos por tí mismo y verlos trabajar.
+
+28
+00:01:16,735 --> 00:01:19,550
+A mí me parece muy satisfactorio cuando aprendo un algoritmo,
+
+29
+00:01:19,550 --> 00:01:22,375
+lo programo y lo veo trabajar por mí mismo.
+
+30
+00:01:22,375 --> 00:01:24,080
+Así que espero que tú también lo disfrutes.
+
+31
+00:01:24,080 --> 00:01:28,140
+Habiendo aprendido el marco para la programación de redes neuronales en la tercer semana,
+
+32
+00:01:28,140 --> 00:01:32,050
+programarás una red neuronal de un sola capa.
+
+33
+00:01:32,050 --> 00:01:34,470
+Habrás aprendido todos los conceptos clave necesarios
+
+34
+00:01:34,470 --> 00:01:37,005
+para implementar una red neuronal y hacerla trabajar.
+
+35
+00:01:37,005 --> 00:01:38,485
+Finalmente, en la semana cuatro,
+
+36
+00:01:38,485 --> 00:01:41,175
+construirás una red neuronal profunda y una red neuronal con
+
+37
+00:01:41,175 --> 00:01:44,081
+varias capas, y la verás trabajar por ti mismo.
+
+38
+00:01:44,081 --> 00:01:47,930
+Así que, felicidades por haber terminado los videos incluyendo éste.
+
+39
+00:01:47,930 --> 00:01:51,600
+Espero que ahora tengas una buena visión de lo que está ocurriendo en aprendizaje profundo.
+
+40
+00:01:51,600 --> 00:01:53,610
+Y tal vez algunos de ustedes también
+
+41
+00:01:53,610 --> 00:01:57,355
+tienen algunas ideas de dónde quieren aplicar aprendizaje profundo.
+
+42
+00:01:57,355 --> 00:01:59,370
+Así que espero que, después de este video,
+
+43
+00:01:59,370 --> 00:02:03,850
+vayan a ver las 10 preguntas de opción múltiple que siguen a este video
+
+44
+00:02:03,850 --> 00:02:05,500
+en el sitio del curso y las usen
+
+45
+00:02:05,500 --> 00:02:08,760
+para verificar su comprensión del tema.
+
+46
+00:02:08,760 --> 00:02:11,199
+Y no es necesario que repases, no necesitas tener todas las respuestas correctas al primer intento,
+
+47
+00:02:11,199 --> 00:02:14,710
+puedes intentarlo una y otra vez hasta que las tengas todas bien.
+
+48
+00:02:14,710 --> 00:02:19,145
+A mí me parecieron útiles para asegurarme de que entendí bien todos los conceptos,
+
+49
+00:02:19,145 --> 00:02:21,465
+espero que a ti también te ayuden.
+
+50
+00:02:21,465 --> 00:02:24,000
+Con esto, felicidades otra vez por llegar hasta aquí
+
+51
+00:02:24,000 --> 00:02:27,670
+y espero verte para los videos de la semana dos.

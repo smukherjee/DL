@@ -1,0 +1,74 @@
+Dans une vidéo précédente, vous avez vu 
+comment calculer des dérivées et implémenter la descente de gradient par rapport à un seul 
+exemple pour la régression logistique. Maintenant, nous voulons le faire 
+pour m exemples d'apprentissage. Pour commencer, souvenez vous de
+ la définition de la fonction de coût J. La fonction de coût en W, b est la moyenne, 1 sur m fois la somme de 1 à m de la perte lorsque votre algorithme
+ retourne a(i) sur l’exemple y, où a(i) est la prédiction pour le i-ième 
+exemple d'apprentissage, c'est à dire sigma(z(i)) qui est égal à 
+sigma de W transpose fois x(i) + b Nous avons montré sur la diapositive précédente, 
+ pour chaque exemple d'apprentissage, comment calculer la dérivée quand 
+on n'a qu'un seul exemple d'apprentissage, c'est à dire dw1, dw2 et db, avec maintenant l’exposant i pour désigner ce qu'on obtient avec les calculs
+ de la diapositive précédente, mais en utilisant 
+un seul exemple d'apprentissage x(i), y(i), ah pardon il manque un (i) ici aussi. Vous remarquez que maintenant, la fonction
+ de coût générale est une somme, en fait une moyenne, à cause du terme 1/m, 
+des pertes individuelles. Il s'avère que la dérivée par rapport à, disons w1, de la fonction de coût 
+générale, va aussi être la moyenne des dérivées par rapport
+ à w1 des pertes individuelles. Nous avons déjà montré 
+comment calculer ce terme dw1(i), dans la diapositive précédente, nous avons montré comment calculer ça 
+sur un seul exemple d'apprentissage. Donc ce que vous avez à faire, c'est calculer ces dérivées comme nous l'avons montré, 
+sur chaque exemple d'apprentissage, et de les moyenner, ce qui vous donne le gradient général que vous pouvez 
+utiliser pour la descente de gradient. Je sais qu'il y a beaucoup de détails, mais prenons tout ça et récapitulons-le en un algorithme concret, celui que
+ vous devez implémenter pour que votre régression logistique 
+avec descente de gradient fonctionne. Alors, voici ce que vous pouvez faire.
+ Initialisons J = 0 dw1 = 0, dw2 = 0, db = 0. Et nous allons utiliser une boucle for
+ sur l’ensemble d'apprentissage, calculer les dérivées pour chaque exemple 
+d'apprentissage et les additionner. Voici ce que nous faisons : pour i de 1 à m, où m correspond au nombre<br />d'exemples d'apprentissage, nous calculons z(i) égal à 
+ W transpose fois x(i) + b et la prédiction a(i) = sigma(z(i)) et ensuite, ajoutons ça à J. J += y(i) log( a(i) ) + (1- y(i)) log( 1- a(i)), et mettons un signe moins devant tout ça, et puis, comme nous 
+l’avons vu précédemment, Nous avons dz(i), 
+qui est égal à a(i) moins y(i), et à dw1, on ajoute x1(i)*dz(i) dw2 += x2(i)*dz(i) Je fais ce calcul en supposant qu'on 
+n'a que deux caractéristiques, donc n = 2, sinon vous faites cela pour dw1, dw2, dw3 et ainsi de suite, et ensuite db += dz(i) et c'est la fin de la boucle for. Et après avoir fait ça pour
+ les m exemples d'apprentissage, il faut encore diviser par m, puisque 
+nous calculons des moyennes. Donc dw1 est divisé par m, dw2 /= m db /= m afin de calculer les moyennes. Avec tous ces calculs, vous venez de calculer les dérivées de
+ la fonction de coût J par rapport à chacun des paramètres w1, w2 et b. Quelques détails sur ce que nous faisons, Nous utilisons dw1, dw2 et db
+ en tant qu'accumulateurs, de façon à ce qu’après ce calcul, dw1 soit égal à la dérivée de votre fonction de coût générale par rapport à w1, 
+et de la même manière pour dw2 et db. Remarquez que dw1 et dw2
+ n'ont pas d'exposant i parce que nous les utilisons dans ce code comme des accumulateurs pour faire la somme 
+sur l'ensemble d'apprentissage entier. En revanche, dz(i) ici, c'est dz par rapport à 
+un seul exemple d'apprentissage, c'est pourquoi il a un exposant i 
+pour se référer au i-ième exemple d'apprentissage à partir duquel il est calculé. Avec tous ces calculs, pour implémenter une étape
+ de descente de gradient, vous implémentez w1, qui est mis à jour en w1 moins
+ le taux d'apprentissage fois dw1, w2 est mis à jour en w2 moins
+ le taux d'apprentissage fois dw2, et b est mis à jour en b moins
+ le taux d'apprentissage fois db, où dw_1, dw_2 et db ont été calculés là. Et finalement, J ici sera la valeur 
+correcte de votre fonction de coût. Ce qu'il y a sur ce slide implémente 
+une seule étape de descente de gradient, et vous devez donc répéter tout 
+ce qu'il y a sur cette diapositive plusieurs fois pour faire plusieurs étapes 
+de descente de gradient. Encore une fois, si ces détails 
+vous semblent trop compliqués, ne vous inquiétez pas, tout devrait devenir plus clair quand vous implémenterez ça 
+dans l'exercice de programmation. Mais il s’avère qu'il y a deux faiblesses avec la manière dont nous 
+avons implémenté ces calculs. Lorsque vous implémentez
+ la régression logistique de cette manière, vous devez écrire deux boucles for. La première est cette boucle for sur
+ les m exemples d'apprentissage, et la seconde est cette boucle 
+sur toutes les caractéristiques ici. Ainsi, dans cet exemple, nous n'avions que deux caractéristiques, n, ou nx, est égal à deux, mais si vous avez plus de caractéristiques vous vous retrouvez à écrire ici dw1, dw2, et vous avez des calculs
+, similaires pour dw3 et ainsi de suite jusqu'à dwn. Donc on dirait qu'il faut une 
+boucle for sur les n caractéristiques. Lorsque vous implémentez 
+des algorithmes d’apprentissage profond, l'utilisation de boucles for explicites dans le code rend votre algorithme
+ moins efficace. Et donc à l'ère du deep learning, nous brassons des ensembles de 
+données de plus en plus gros, et pouvoir implémenter un algorithme 
+sans utiliser de boucle for explicite est vraiment important pour pouvoir l'utiliser
+ sur des gros ensembles de données. Et il existe une série de techniques
+ appelées la vectorisation qui vous permettent de vous débarrasser 
+des boucles for explicites dans votre code. Je pense qu'avant l'ère 
+de l'apprentissage profond, c'est à dire avant l'avènement
+ de l'apprentissage profond, la vectorisation était plutôt optionnelle ça pouvait parfois accélérer
+ votre code, mais parfois pas. Mais à l'ère du deep learning, 
+la vectorisation, c'est à dire se débarrasser des boucles for, comme celle ci et celle ci, est devenu très important, parce que, de plus en plus, on fait de 
+l'apprentissage sur de très gros ensembles de données et on a
+ donc besoin d'un code très efficace. Dans les prochaines vidéos, nous parlerons donc de la vectorisation et de la manière d'implémenter 
+tout ça sans aucune boucle for. J'espère que vous avez 
+maintenant une bonne idée de la façon d'implémenter la descente de gradient 
+pour la régression logistique. Les choses seront plus claires lorsque vous 
+implémenterez l’exercice de programmation. Mais avant de faire
+ l'exercice de programmation, nous allons d’abord parler de vectorisation, 
+afin que vous puissiez implémenter tout cela, une itération de descente de gradient 
+sans avoir besoin d’utiliser de boucle for.

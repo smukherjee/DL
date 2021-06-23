@@ -1,0 +1,86 @@
+Dans une précédente vidéo, j’ai écrit une
+ formule pour la fonction de coût pour la régression logistique. Dans cette vidéo optionnelle, je veux vous 
+donner une justification rapide de pourquoi nous aimons utiliser cette fonction
+ de coût pour la régression logistique. Pour résumer rapidement, 
+en régression logistique, Nous avons la prédiction
+ y_chapeau (ŷ) qui est égale à 
+la sigmoïde de la transposée de W fois x + b, où la sigmoïde est cette fonction familière. Et nous avons dit que nous voulons
+ interpréter ŷ comme la 
+probabilité que y soit égal à 1, connaissant x. Donc, nous voulons que notre algorithme
+ sorte ŷ, c'est à dire la chance que y vaille 1, étant données 
+les caractéristiques d'entrée x. Une autre façon de dire ça,
+ c’est que si y est égal à 1, alors la plausibilité de
+ y sachant x est égale à ŷ. Et inversement si y est égal à 0, alors la probabilité que y soit 0 
+est de 1-ŷ, OK ? Donc, si ŷ est 
+une probabilité que y = 1, alors 1 - ŷ est
+ la probabilité que y = 0. Laissez-moi de prendre ces deux équations 
+et les copier sur la diapositive suivante. Donc ce que je vais faire est
+ prendre ces deux équations qui en fait définissent p(y|x)
+ dans les deux cas de y = 0 et y = 1. Je vais prendre ces deux équations 
+et les résumer en une seule équation. Et juste pour vous faire remarquer,
+ y doit être 0 ou 1, parce que 
+dans la classification binaire, y = 0 et y=1 sont
+ les deux seuls cas possibles. On peux prendre ces deux équations
+ et les résumer comme ceci. Je vais juste écrire à quoi ça ressemble,
+ après je vous expliquerai 
+pourquoi ça ressemble à ça. Donc (1 – ŷ) à la puissance (1 – y). Donc il se trouve que cette unique ligne
+ résume les deux équations au dessus. Laissez-moi vous expliquer pourquoi. Ainsi, dans le premier cas, 
+supposons que y = 1. Donc si y = 1, ce terme vaut ŷ, parce que c’est ŷ à la puissance 1. Ce terme vaut 1-ŷ puissance 1-1,
+ c’est-à-dire puissance 0. Mais, n'importe quoi à la puissance 0 
+est égal à 1, donc ça s'en va. Et donc, cette équation dit juste 
+p(y|x) = ŷ, quand y = 1. C’est exactement ce que nous voulions. Maintenant qu’en est-il du seconde cas, 
+que se passe-t-il si y = 0 ? Si y = 0, cette équation ci-dessus 
+est p(y|x) = ŷ puissance 0, mais quelque chose à la puissance 0 
+est égal à 1, alors ça c’est juste égal à 1, 
+fois 1-ŷ puissance 1-y. 1-y est 1-0, donc c’est juste 1. Et donc ceci est égal à 
+1 fois (1-ŷ) = 1-ŷ. Et donc ici nous avons que
+ si y = 0, p (y | x) = 1-ŷ, ce qui est exactement 
+ce que nous voulions. Donc ce que nous venons de montrer
+ est que cette équation est une définition correcte pour p(ylx). Enfin, puisque la fonction log
+ est une fonction strictement croissante, maximiser log( p(y|x) ) devrait 
+vous donner le même résultat qui si vous maximisez p(y|x) et si vous calculez
+ le logarithme de p(y|x), il vaut log de ŷ puissance y fois 
+1 - ŷ puissance 1 - y. Ce qui se simplifie en y log de ŷ plus 1 - y fois log de 1 - ŷ. Et c'est l'opposé de la fonction de perte que nous voulions trouver. Et il y a un signe moins là parce 
+qu’habituellement, quand vous entraînez un algorithme d'apprentissage, 
+vous voulez augmenter les probabilités tandis que, dans la régression logistique,
+ nous allons exprimer ça et nous voulons minimiser 
+la fonction de perte. Et minimiser la perte correspond à 
+maximiser le logarithme de la probabilité. Voici donc à quoi ressemble 
+la fonction de perte sur un seul exemple. Qu'en est il de la fonction de coût, la fonction de coût global sur les m 
+exemples du set d'apprentissage complet ? Voyons ça. La probabilité de toutes les étiquettes
+ dans le set d'apprentissage, je l'écris un peu informellement... Si l'on suppose que les exemples 
+d'apprentissage sont pris de façon
+ indépendante, IID : indépendants et
+ identiquement distribués alors la probabilité des exemples est 
+le produit des probabilités. Le produit d’i = 1 à m de
+ p(y(i)) sachant x(i). Et donc, si vous souhaitez procéder à 
+l’estimation du maximum de vraisemblance, alors vous voulez maximiser,
+ trouver les paramètres qui maximisent la probabilité de vos ensembles 
+d'apprentissage et d'observation. Mais maximiser ça c’est pareil 
+que maximiser son log, donc nous ajoutons un log des deux côtés. Donc le log de la probabilité des étiquettes 
+dans l'ensemble d’apprentissage est égal au log du produit, c'est à dire
+ la somme des log. C'est-à-dire somme de i = 1 à m 
+des log(p(y(i) sachant x(i)) Et nous avons vu 
+sur la diapositive précédente que ceci est - L(ŷ(i), y(i)) En statistiques, il y a un principe appelé 
+le principe d'estimation du maximum de vraisemblance, qui signifie simplement 
+choisir les paramètres 
+qui maximisent cette chose. Ou en d’autres termes, 
+qui maximisent cette chose : moins somme de i = 1 à m 
+de L(ŷ(i), y(i)), on a juste sorti le signe moins
+ de la somme. Donc cela justifie le coût 
+que nous avions pour la régression logistique qui est
+ J(W,b), égal à cela. Et parce que nous voulons 
+maintenant minimiser le coût plutôt 
+que de maximiser la vraisemblance, nous avons enlevé le signe moins. Et puis enfin pour plus de commodité,
+ nous nous assurons que 
+nos quantités sont plus à l'échelle, et nous ajoutons un facteur 
+de mise à l’échelle de 1/m là. Mais pour résumer, en minimisant 
+cette fonction de coût J(w,b), nous réalisation l’estimation 
+du maximum de vraisemblance avec
+ le modèle de la régression logistique, sous l’hypothèse que nos exemples 
+d'apprentissage étaient IID, c'est à dire indépendants et
+ identiquement distribués. Alors merci d'avoir regardé cette vidéo,
+ même si elle est facultative. J’espère que cela vous donne une idée de 
+pourquoi nous utilisons cette fonction de coût pour la régression logistique. Et avec cela, j’espère que vous allez
+ faire les exercices de programmation et les questions de quiz de cette semaine. Et bonne chance avec les quizz 
+et l’exercice de programmation.

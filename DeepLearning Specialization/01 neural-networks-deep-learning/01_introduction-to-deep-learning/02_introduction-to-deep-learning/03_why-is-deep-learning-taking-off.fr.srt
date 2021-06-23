@@ -1,0 +1,831 @@
+1
+00:00:00,320 --> 00:00:04,140
+Si les idées techniques de base
+ derrière l’apprentissage profond,
+
+2
+00:00:04,140 --> 00:00:07,110
+derrière les réseaux de neurones,
+ existent depuis des décennies,
+
+3
+00:00:07,110 --> 00:00:08,970
+Pourquoi décollent elles maintenant ?
+
+4
+00:00:08,970 --> 00:00:11,310
+Dans cette vidéo, nous 
+allons voir certains des
+
+5
+00:00:11,310 --> 00:00:14,690
+principaux facteurs derrière la montée de
+ l'apprentissage profond parce que
+
+6
+00:00:14,690 --> 00:00:17,540
+je pense que cela vous aidera à
+ repérer les meilleures occasions
+
+7
+00:00:17,540 --> 00:00:20,560
+d’appliquer ces outils au sein 
+de votre propre organisation.
+
+8
+00:00:20,560 --> 00:00:21,690
+Au cours de ces dernières années
+
+9
+00:00:21,690 --> 00:00:23,095
+beaucoup de gens m’ont demandé,
+
+10
+00:00:23,095 --> 00:00:25,880
+« Andrew, pourquoi est ce que, soudainement,
+ l’apprentissage profond fonctionne si bien ? »
+
+11
+00:00:25,880 --> 00:00:30,460
+Quand on me pose la question, 
+généralement, je dessine ceci.
+
+12
+00:00:30,460 --> 00:00:33,830
+Disons que nous traçons une
+ figure où, sur l’axe horizontal,
+
+13
+00:00:33,830 --> 00:00:37,675
+nous représentons la quantité de données
+ dont nous disposons pour une tâche.
+
+14
+00:00:37,675 --> 00:00:40,040
+et sur l’axe vertical,
+
+15
+00:00:40,040 --> 00:00:43,610
+nous traçons la performance de 
+notre algorithme d’apprentissage
+
+16
+00:00:43,610 --> 00:00:47,660
+par exemple la précision de 
+notre classificateur de spam,
+
+17
+00:00:47,660 --> 00:00:50,870
+ou de notre prédicteur de clic sur
+ une pub ou l’exactitude de
+
+18
+00:00:50,870 --> 00:00:55,980
+notre réseau de neurones pour
+ localiser les autres voitures
+ pour notre voiture autonome.
+
+19
+00:00:55,980 --> 00:01:00,680
+Si on trace la performance d’un 
+algorithme d’apprentissage traditionnel
+
+20
+00:01:00,680 --> 00:01:02,090
+comme les machines à 
+vecteurs de support (SVM)
+
+21
+00:01:02,090 --> 00:01:06,340
+ou la régression logistique en
+ fonction de la quantité de données,
+
+22
+00:01:06,340 --> 00:01:09,185
+on obtient une courbe 
+qui ressemble à ça,
+
+23
+00:01:09,185 --> 00:01:14,220
+où les performances s’améliorent 
+pendant un certain temps lorsque
+ vous ajoutez plus de données,
+
+24
+00:01:14,220 --> 00:01:17,565
+mais après un certain temps, 
+les performances stagnent.
+
+25
+00:01:17,565 --> 00:01:20,100
+C’est censé être une ligne horizontale,
+ je ne l'ai pas très bien dessinée.
+
+26
+00:01:20,100 --> 00:01:26,760
+C'est presque comme si ils ne savaient
+ pas quoi faire avec ces énormes 
+quantités de données.
+
+27
+00:01:26,760 --> 00:01:29,270
+Ce qui est arrivé 
+dans notre société au cours
+
+28
+00:01:29,270 --> 00:01:32,360
+des 20 dernières années est que,
+ pour beaucoup de problèmes,
+
+29
+00:01:32,360 --> 00:01:35,900
+nous sommes passés d'une quantité
+ de données relativement faible à,
+
+30
+00:01:35,900 --> 00:01:39,985
+souvent, une assez grande
+ quantité de données.
+
+31
+00:01:39,985 --> 00:01:43,430
+Beaucoup proviennent de la numérisation de
+
+32
+00:01:43,430 --> 00:01:48,020
+nos sociétés où une grande part de
+ l’activité humaine est maintenant
+ dans l’univers numérique.
+
+33
+00:01:48,020 --> 00:01:50,810
+Nous passons beaucoup de temps sur 
+nos ordinateurs, sur des sites web,
+
+34
+00:01:50,810 --> 00:01:56,475
+sur des applications mobiles, et les activités sur
+ des appareils numériques créent des données.
+
+35
+00:01:56,475 --> 00:01:59,720
+Grâce à l'arrivée des caméras bon marchés
+
+36
+00:01:59,720 --> 00:02:01,970
+dans nos téléphones portables, 
+des accéléromètres, de
+
+37
+00:02:01,970 --> 00:02:05,645
+toutes sortes de capteurs 
+dans l’Internet des objets,
+
+38
+00:02:05,645 --> 00:02:09,350
+nous avons également recueilli 
+de plus en plus de données.
+
+39
+00:02:09,350 --> 00:02:12,590
+Ainsi au cours des 20 dernières années 
+pour beaucoup d’applications,
+
+40
+00:02:12,590 --> 00:02:15,935
+nous avons accumulé 
+beaucoup plus de données
+
+41
+00:02:15,935 --> 00:02:20,015
+que ce que les algorithmes d’apprentissage
+ traditionnels peuvent utiliser efficacement.
+
+42
+00:02:20,015 --> 00:02:23,465
+Avec les réseaux de neurones, 
+il s’avère que si vous entraînez
+
+43
+00:02:23,465 --> 00:02:28,865
+un petit réseau de neurone, ses
+ performances peuvent ressembler à cela.
+
+44
+00:02:28,865 --> 00:02:31,765
+Si vous entraînez un réseau de
+ neurones un peu plus grand,
+
+45
+00:02:31,765 --> 00:02:34,840
+appelons-le réseau de taille moyenne,
+
+46
+00:02:34,840 --> 00:02:40,275
+la performance sera un peu meilleure, et
+ si vous entraînez un très grand réseau,
+
+47
+00:02:40,275 --> 00:02:43,750
+alors souvent, sa performance
+ s’améliore de plus en plus.
+
+48
+00:02:43,750 --> 00:02:45,965
+Alors, quelques observations.
+
+49
+00:02:45,965 --> 00:02:49,150
+Premièrement, si vous voulez atteindre
+ ce niveau de performance très élevé,
+
+50
+00:02:49,150 --> 00:02:50,720
+alors vous avez besoin de deux choses :
+
+51
+00:02:50,720 --> 00:02:53,660
+Tout d’abord, la plupart du temps
+ nous devons être en mesure d'entraîner
+
+52
+00:02:53,660 --> 00:02:56,540
+un réseau de neurones assez grand pour
+
+53
+00:02:56,540 --> 00:02:59,630
+profiter de l’énorme quantité
+ de données et d’autre part,
+
+54
+00:02:59,630 --> 00:03:01,760
+vous devez être ici sur l’axe des x,
+
+55
+00:03:01,760 --> 00:03:03,850
+vous avez besoin de beaucoup de données.
+
+56
+00:03:03,850 --> 00:03:09,590
+Donc nous disons souvent que l’échelle a 
+conduit le progrès de l’apprentissage profond.
+
+57
+00:03:09,590 --> 00:03:12,380
+Et par l'échelle, je veux dire à la fois
+ la taille du réseau neuronal,
+
+58
+00:03:12,380 --> 00:03:16,090
+c'est-à-dire un réseau de neurones 
+avec un grand nombre d’unités cachées, 
+beaucoup de paramètres et
+
+59
+00:03:16,090 --> 00:03:21,055
+un grand nombre de connexions 
+ainsi que l’échelle des données.
+
+60
+00:03:21,055 --> 00:03:25,190
+En fait, aujourd'hui,
+ un des moyens les plus fiables 
+pour obtenir de meilleures performances
+
+61
+00:03:25,190 --> 00:03:29,690
+pour un réseau de neurones consiste 
+souvent à entraîner un réseau plus grand
+ ou à lui donner plus de données.
+
+62
+00:03:29,690 --> 00:03:32,210
+Et ça ne fonctionne que 
+jusqu'à un certain point car
+
+63
+00:03:32,210 --> 00:03:35,510
+à un moment, vous n'avez plus de
+ données ou le réseau neuronal devient
+
+64
+00:03:35,510 --> 00:03:38,120
+tellement gros qu'il prend 
+trop de temps à entraîner, mais
+
+65
+00:03:38,120 --> 00:03:43,325
+simplement améliorer l’échelle 
+nous a vraiment fait beaucoup avancer dans
+ le monde de l’apprentissage profond.
+
+66
+00:03:43,325 --> 00:03:46,860
+Afin de rendre ce schéma
+ un peu plus précis techniquement,
+
+67
+00:03:46,860 --> 00:03:48,815
+permettez-moi d’ajouter
+ quelques petites choses.
+
+68
+00:03:48,815 --> 00:03:51,465
+J’ai écrit 'quantité de
+ données' sur l’axe des X.
+
+69
+00:03:51,465 --> 00:03:56,240
+Techniquement, c’est une quantité
+ de données étiquetées,
+
+70
+00:03:56,240 --> 00:04:02,795
+où par donnée étiquetée, j'entends
+ des exemples d'entraînement où nous avons 
+à la fois l’entrée x et l'étiquette y.
+
+71
+00:04:02,795 --> 00:04:07,500
+Je voudrais introduire un peu de la notation
+ que nous utiliserons plus tard dans ce cours.
+
+72
+00:04:07,500 --> 00:04:12,460
+Nous allons utiliser la lettre m minuscule pour
+ indiquer la taille de notre set d’apprentissage,
+
+73
+00:04:12,460 --> 00:04:17,390
+donc le nombre d’exemples d'apprentissage
+ est m minuscule. C’est l’axe horizontal.
+
+74
+00:04:17,390 --> 00:04:20,300
+Un autre détail sur cette figure est que,
+
+75
+00:04:20,300 --> 00:04:24,080
+dans ce régime où on a de petits
+ ensembles d'apprentissage,
+
+76
+00:04:24,080 --> 00:04:28,970
+l’ordre relatif des algorithmes
+ n'est en fait pas très bien défini.
+
+77
+00:04:28,970 --> 00:04:32,690
+Donc si vous n’avez pas beaucoup 
+de données d’apprentissage, c’est souvent
+
+78
+00:04:32,690 --> 00:04:37,120
+vos compétences à extraire 
+à la main des caractéristiques
+ qui détermine la performance.
+
+79
+00:04:37,120 --> 00:04:41,810
+Il est donc tout à fait possible qu'une
+ personne qui fait de l'apprentissage
+ avec des SVM et qui est plus motivée
+
+80
+00:04:41,810 --> 00:04:46,640
+pour extraire des caractéristiques 
+à la main obtienne de meilleurs résultats
+que quelqu'un qui utilise un grand réseau
+
+81
+00:04:46,640 --> 00:04:49,260
+de neurones, peut être, dans ce régime
+ des petits ensembles d'apprentissage,
+
+82
+00:04:49,260 --> 00:04:50,815
+les SVG peuvent être meilleurs.
+
+83
+00:04:50,815 --> 00:04:54,140
+Dans cette région à gauche de la figure,
+
+84
+00:04:54,140 --> 00:04:56,990
+l’ordre relatif des algorithmes
+ n'est en fait pas très bien défini.
+
+85
+00:04:56,990 --> 00:05:00,800
+Et la performance dépend bien plus
+de votre habilité à
+
+86
+00:05:00,800 --> 00:05:03,380
+extraire des caractéristiques à la main et 
+d’autres détails de bas niveau des algorithmes,
+
+87
+00:05:03,380 --> 00:05:07,700
+et c’est seulement dans ce régime de big data,
+
+88
+00:05:07,700 --> 00:05:09,080
+des ensembles d'apprentissage très grands,
+
+89
+00:05:09,080 --> 00:05:12,320
+avec des m de grande valeur,
+ ici à droite, que l'on voit
+
+90
+00:05:12,320 --> 00:05:16,960
+plus nettement les grands réseaux
+ neuronaux dominer les autres approches.
+
+91
+00:05:16,960 --> 00:05:21,315
+Donc si un de vos amis vous demande 
+pourquoi les réseaux de neurones décollent,
+
+92
+00:05:21,315 --> 00:05:24,820
+je vous encourage à
+ leur dessiner ce graphique.
+
+93
+00:05:24,820 --> 00:05:27,695
+Donc je dirais que dans les premiers jours,
+
+94
+00:05:27,695 --> 00:05:29,450
+au début de l'avènement du deep learning,
+
+95
+00:05:29,450 --> 00:05:33,395
+c'était l'échelle des données 
+et l'échelle des calculs,
+
+96
+00:05:33,395 --> 00:05:36,425
+la simple capacité d'entraîner 
+de très grands réseaux de neurones
+
+97
+00:05:36,425 --> 00:05:38,420
+que ce soit sur CPU ou GPU,
+
+98
+00:05:38,420 --> 00:05:41,555
+qui nous a permis 
+de faire beaucoup de progrès.
+
+99
+00:05:41,555 --> 00:05:44,320
+Mais, de plus en plus, surtout 
+dans les dernières années, nous avons vu
+
+100
+00:05:44,320 --> 00:05:47,980
+de formidables innovations 
+algorithmiques également.
+
+101
+00:05:47,980 --> 00:05:50,830
+Je ne veux pas minimiser cela.
+
+102
+00:05:50,830 --> 00:05:54,995
+Fait intéressant, bon nombre des
+ innovations algorithmiques ont
+
+103
+00:05:54,995 --> 00:06:00,285
+été faites en essayant d'accélérer les
+ calculs des réseaux de neurones.
+
+104
+00:06:00,285 --> 00:06:02,940
+Alors, comme exemple concret,
+
+105
+00:06:02,940 --> 00:06:05,210
+un des progrès énormes dans
+ les réseaux de neurones a été
+
+106
+00:06:05,210 --> 00:06:08,125
+de passer de la fonction sigmoïde,
+
+107
+00:06:08,125 --> 00:06:09,840
+qui ressemble à ça,
+
+108
+00:06:09,840 --> 00:06:13,535
+à une fonction ReLu, dont nous avons parlé
+
+109
+00:06:13,535 --> 00:06:17,855
+rapidement dans une vidéo
+ précédente, qui ressemble à ceci.
+
+110
+00:06:17,855 --> 00:06:22,010
+Si vous ne comprenez pas les détails
+ de ce que je vais dire, ne vous inquiétez pas.
+
+111
+00:06:22,010 --> 00:06:25,820
+Mais il s’avère que l’un des problèmes de 
+l’utilisation des fonctions sigmoïdes en
+
+112
+00:06:25,820 --> 00:06:29,980
+machine learning est qu’il y a ces régions ici 
+où la pente de la fonction,
+
+113
+00:06:29,980 --> 00:06:31,905
+où le gradient est presque nul.
+
+114
+00:06:31,905 --> 00:06:34,685
+Et donc l’apprentissage devient
+ vraiment lent. Parce que quand 
+
+115
+00:06:34,685 --> 00:06:37,945
+vous implémentez une descente de
+ gradient et que le gradient est nul,
+
+116
+00:06:37,945 --> 00:06:41,820
+les paramètres changent très lentement
+ et l'apprentissage est donc très lent.
+
+117
+00:06:41,820 --> 00:06:47,090
+Alors que, en changeant ce qui s’appelle 
+la fonction d’activation du réseau neuronal
+
+118
+00:06:47,090 --> 00:06:52,835
+pour utiliser cette fonction appelée la
+ fonction ReLU ou l’Unité Linéaire Rectifiée,
+
+119
+00:06:52,835 --> 00:06:58,350
+ReLU, le gradient est égal à un pour
+ toutes les valeurs positives de l’entrée.
+
+120
+00:06:58,350 --> 00:07:03,130
+Et le gradient a donc beaucoup moins 
+tendance à se réduire progressivement à zéro.
+
+121
+00:07:03,130 --> 00:07:05,720
+Et le gradient ici, la pente de cette
+ droite est égale à zéro sur la gauche,
+
+122
+00:07:05,720 --> 00:07:08,960
+mais il s’avère qu'en remplaçant simplement
+
+123
+00:07:08,960 --> 00:07:12,320
+la fonction sigmoïde par la fonction ReLU,
+
+124
+00:07:12,320 --> 00:07:16,380
+on a rendu l'algorithme appelé 
+descente de gradient beaucoup plus rapide.
+
+125
+00:07:16,380 --> 00:07:21,350
+Donc il s’agit d’un exemple d'une innovation
+ algorithmique relativement simple,
+
+126
+00:07:21,350 --> 00:07:26,755
+mais cette innovation algorithmique 
+a vraiment aidé à faire les calculs.
+
+127
+00:07:26,755 --> 00:07:29,765
+Donc il y a en fait eu beaucoup
+ d’exemples comme celui-ci où nous
+
+128
+00:07:29,765 --> 00:07:33,230
+avons modifié l’algorithme pour que le
+ code s’exécute beaucoup plus rapidement.
+
+129
+00:07:33,230 --> 00:07:37,400
+Et ça nous a permis d'entraîner des réseaux
+ beaucoup plus grands ou en un temps
+
+130
+00:07:37,400 --> 00:07:42,065
+raisonnable, même lorsque nous avons
+ un grand réseau ou beaucoup de données.
+
+131
+00:07:42,065 --> 00:07:47,060
+L’autre raison qui fait que calculer 
+rapidement est important
+
+132
+00:07:47,060 --> 00:07:52,525
+est que le processus d'entraîner 
+des réseaux de neurones est très itératif.
+
+133
+00:07:52,525 --> 00:07:54,050
+Souvent, vous avez une idée pour
+
+134
+00:07:54,050 --> 00:07:58,285
+une architecture de réseau neuronal et 
+vous implémentez votre idée dans le code,
+
+135
+00:07:58,285 --> 00:08:01,999
+l'implémentation de votre idée 
+vous permet de lancer une expérience,
+
+136
+00:08:01,999 --> 00:08:05,880
+qui vous donne la performance de 
+votre réseau neuronal, et à partir de ça,
+
+137
+00:08:05,880 --> 00:08:08,240
+vous retournez modifier les détails de
+
+138
+00:08:08,240 --> 00:08:13,190
+votre réseau de neurones et puis 
+vous parcourez ce cercle encore et encore.
+
+139
+00:08:13,190 --> 00:08:17,089
+Et quand votre réseau neuronal prend
+ beaucoup de temps à entraîner,
+
+140
+00:08:17,089 --> 00:08:21,140
+il faut beaucoup de temps pour
+ faire le tour de ce cercle. Et il y a
+
+141
+00:08:21,140 --> 00:08:27,215
+une grande différence 
+de productivité pour la construction 
+des réseaux neuronaux quand vous
+
+142
+00:08:27,215 --> 00:08:32,455
+pouvez avoir une idée et l’essayer et
+ voir si cela fonctionne en 10 minutes, ou
+
+143
+00:08:32,455 --> 00:08:38,570
+peut-être en un jour, par rapport à devoir 
+entraîner votre réseau pendant un mois.
+
+144
+00:08:38,570 --> 00:08:41,480
+Parfois ça arrive, parce que
+ quand vous obtenez
+
+145
+00:08:41,480 --> 00:08:44,630
+un résultat en 10 minutes ou en une journée,
+
+146
+00:08:44,630 --> 00:08:47,750
+vous pouvez essayer beaucoup plus d’idées 
+et avoir beaucoup plus de chances
+
+147
+00:08:47,750 --> 00:08:52,005
+de découvrir un réseau de neurones 
+qui fonctionne bien pour votre application.
+
+148
+00:08:52,005 --> 00:08:57,320
+Et donc des calculs rapides aident vraiment
+
+149
+00:08:57,320 --> 00:09:02,495
+à obtenir un résultat expérimental
+ plus rapidement.
+
+150
+00:09:02,495 --> 00:09:06,950
+Et cela a vraiment aidé à la fois les 
+utilisateurs des réseaux de neurones,
+
+151
+00:09:06,950 --> 00:09:10,550
+et les chercheurs travaillant sur
+ l'apprentissage profond à itérer
+
+152
+00:09:10,550 --> 00:09:14,530
+bien plus vite et à améliorer 
+leurs idées plus vite.
+
+153
+00:09:14,530 --> 00:09:17,570
+Donc, tout cela a été 
+un accélérateur incroyable pour
+
+154
+00:09:17,570 --> 00:09:22,390
+toute la communauté de recherche 
+sur l'apprentissage profond, qui a inventé
+
+155
+00:09:22,390 --> 00:09:27,470
+de nouveaux algorithmes et a
+ progressé en continu sur ce sujet.
+
+156
+00:09:27,470 --> 00:09:33,200
+Donc, voici certaines des forces
+ qui permettent la montée de l’apprentissage
+ profond, mais la bonne nouvelle est
+
+157
+00:09:33,200 --> 00:09:38,825
+que ces forces agissent encore
+ puissamment pour rendre
+ l’apprentissage profond encore meilleur.
+
+158
+00:09:38,825 --> 00:09:42,890
+Pour les données : La société produit 
+toujours plus de données numériques.
+
+159
+00:09:42,890 --> 00:09:47,630
+Pour la puissance de calcul :
+ Le matériel spécialisé comme les GPU 
+et un réseau plus rapide,
+
+160
+00:09:47,630 --> 00:09:49,595
+de nombreux types de matériels.
+
+161
+00:09:49,595 --> 00:09:54,260
+Je suis en fait assez confiant que notre capacité
+ à construire de très grands réseaux neuronaux
+
+162
+00:09:54,260 --> 00:09:59,300
+va continuer à s'améliorer, du point
+ de vue de la puissance de calcul.
+
+163
+00:09:59,300 --> 00:10:02,150
+Pour les algorithmes : Toute la communauté 
+de recherche sur l'apprentissage profond
+
+164
+00:10:02,150 --> 00:10:06,170
+continue à innover de façon phénoménale 
+en ce qui concerne les algorithmes.
+
+165
+00:10:06,170 --> 00:10:07,550
+Donc, pour cette raison,
+
+166
+00:10:07,550 --> 00:10:09,530
+je pense que nous pouvons 
+être très optimistes,
+
+167
+00:10:09,530 --> 00:10:11,720
+je le suis en tous cas, sur le fait
+ que l'apprentissage profond va
+
+168
+00:10:11,720 --> 00:10:14,570
+continuer à s'améliorer pendant
+ encore de nombreuses années.
+
+169
+00:10:14,570 --> 00:10:17,855
+Bien, sur ce, passons à la dernière
+ vidéo de cette semaine.
+
+170
+00:10:17,855 --> 00:10:21,200
+où nous parlerons un peu plus de
+ ce que vous apprendrez dans ce cours.

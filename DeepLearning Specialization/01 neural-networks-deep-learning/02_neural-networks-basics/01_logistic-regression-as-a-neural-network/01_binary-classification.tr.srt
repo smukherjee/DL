@@ -1,0 +1,495 @@
+1
+00:00:00,920 --> 00:00:02,860
+Merhaba, tekrar hoş geldiniz.
+
+2
+00:00:02,860 --> 00:00:08,860
+Bu hafta sinir ağ programlamanın
+temellerini gözden geçireceğiz.
+
+3
+00:00:08,860 --> 00:00:11,990
+Bir sinir ağını uygularken gerçekten
+
+4
+00:00:11,990 --> 00:00:16,260
+önemli olacak bazı teknikler ortaya çıkıyor.
+
+5
+00:00:16,260 --> 00:00:21,150
+Örneğin, eğer eğitim setiniz m tane
+eğitim örneğinden oluşuyorsa,
+
+6
+00:00:21,150 --> 00:00:25,110
+Eğitim örnekleriniz aracılığıyla bir for döngüsüne
+
+7
+00:00:25,110 --> 00:00:28,240
+sahip olarak eğitim setini işlemek için kullanılabilir.
+
+8
+00:00:28,240 --> 00:00:31,260
+Ancak görünen o ki bir sinir ağını uygularken,
+
+9
+00:00:31,260 --> 00:00:34,540
+genellikle tüm eğitim setinizin tamamını,
+tüm eğitim setinizin üzerinde
+
+10
+00:00:34,540 --> 00:00:39,040
+döngü içine döngü
+kullanmadan işlemek isteyebilirsiniz.
+
+11
+00:00:39,040 --> 00:00:42,940
+Böylece, bu haftaki materyallerde bunu
+nasıl yapacağınızı göreceksiniz.
+
+12
+00:00:42,940 --> 00:00:47,700
+Başka bir fikir ise, ağınızdaki
+hesaplamayı düzenlerken,
+
+13
+00:00:47,700 --> 00:00:51,670
+genellikle ileriye doğru duraklama veya
+ileri yayılma adımınız olur,
+
+14
+00:00:51,670 --> 00:00:56,100
+bunu ise geriye doğru bir duraklama ya da 
+geriye doğru yayılma adı verilen adım takip eder.
+
+15
+00:00:56,100 --> 00:01:00,010
+Ve böylece bu haftaki materyallerde,
+bir sinir ağının öğrenilmesinde,
+
+16
+00:01:00,010 --> 00:01:04,830
+yayılım ve ayrı bir geri yayılım
+için bu hesaplamalarda
+
+17
+00:01:04,830 --> 00:01:08,010
+neden düzenlenebileceğine dair
+bir giriş elde edersiniz.
+
+18
+00:01:09,100 --> 00:01:12,620
+Bu haftanın materyalleri için, fikirlerin
+anlaşılmasını kolaylaştırmak için
+
+19
+00:01:12,620 --> 00:01:16,170
+bu fikirleri lojistik regresyon kullanarak aktarmak istiyorum.
+
+20
+00:01:16,170 --> 00:01:19,970
+Fakat daha önce lojistik regresyon görseniz bile,
+
+21
+00:01:19,970 --> 00:01:23,845
+eminim bu haftaki materyalinde öğrenmek için yeni ve
+ilginç fikirler bulacaksınız.
+
+22
+00:01:23,845 --> 00:01:25,815
+Böylece bununla başlayalım.
+
+23
+00:01:25,815 --> 00:01:30,605
+Lojistik regresyon, ikili sınıflandırma 
+için bir algoritmadır.
+
+24
+00:01:30,605 --> 00:01:33,145
+O zaman sorunu belirterek başlayalım.
+
+25
+00:01:33,145 --> 00:01:36,925
+İşte bir ikili sınıflandırma
+probleminin bir örneği.
+
+26
+00:01:36,925 --> 00:01:41,545
+Bir resmin girişine sahip olabilirsiniz, bunun gibi
+
+27
+00:01:41,545 --> 00:01:47,260
+ve bu görüntüyü bir kedi olarak algılamak
+için bir etiket çıkarmak isteyebilirsiniz,
+
+28
+00:01:47,260 --> 00:01:52,140
+Bu durumda çıktı 1 veya kedi değil yani 0 olacak
+
+29
+00:01:52,140 --> 00:01:57,740
+ve çıkış etiketini göstermek için y kullanacağız.
+
+30
+00:01:57,740 --> 00:02:01,550
+Bir bilgisayarda bir görüntünün
+nasıl temsil edildiğine bakalım.
+
+31
+00:02:01,550 --> 00:02:05,680
+Bir görüntüyü saklamak için,
+bilgisayarınız bu görüntünün
+
+32
+00:02:05,680 --> 00:02:09,890
+kırmızı, yeşil ve mavi renk kanallarına
+karşılık gelen üç ayrı matrisi saklar.
+
+33
+00:02:10,990 --> 00:02:15,900
+Dolayısıyla, giriş resminiz 64 piksele 64 piksel ise,
+
+34
+00:02:15,900 --> 00:02:21,700
+resimleriniz için kırmızı, yeşil ve mavi piksel yoğunluk değerlerine
+
+35
+00:02:21,700 --> 00:02:27,230
+karşılık gelen 3 tane 64 x 64 matrisiniz olur.
+
+36
+00:02:27,230 --> 00:02:31,290
+Her ne kadar bu küçük slaytı yapmak için bu kadar küçük matrisler çizmiş olsam da,
+
+37
+00:02:31,290 --> 00:02:35,320
+bunlar aslında 5 x 4 değil 64 x 64 matristir.
+
+38
+00:02:35,320 --> 00:02:41,640
+Dolayısıyla, bu piksel yoğunluğu değerlerini
+bir özellik vektörüne döndürmek için,
+
+39
+00:02:41,640 --> 00:02:48,000
+yapacağımız şey bu piksel değerlerinin tümünü
+bir giriş özelliği vektörüne (x) döndürmektir.
+
+40
+00:02:48,000 --> 00:02:53,782
+Dolayısıyla, bu piksel yoğunluğu değerlerini bir özellik vektörüne döndürmek için,
+
+41
+00:02:53,782 --> 00:02:59,580
+yapacağımız şey aşağıdaki gibi bu görüntüye karşılık gelen bir özellik vektörünü (x) tanımlamaktır.
+
+42
+00:02:59,580 --> 00:03:03,960
+Sadece tüm piksel değerlerini 255, 231 vb. alacağız.
+
+43
+00:03:03,960 --> 00:03:10,827
+255, 231 ve tüm kırmızı pikseller listelenene kadar.
+
+44
+00:03:10,827 --> 00:03:15,737
+Ve sonunda 255 134 255, 134 ve böylece,
+
+45
+00:03:15,737 --> 00:03:20,952
+bu görüntünün tüm kırmızı, yeşil ve
+mavi piksel yoğunluk değerlerini
+
+46
+00:03:20,952 --> 00:03:25,570
+listeleyen uzun bir özellik vektör elde ederiz.
+
+47
+00:03:25,570 --> 00:03:31,043
+Eğer bu görüntü bir 64 x 64 görüntü ise
+
+48
+00:03:31,043 --> 00:03:36,401
+bu x vektörünün toplam boyutu 64 x 64 x 3 olacaktır,
+
+49
+00:03:36,401 --> 00:03:41,320
+çünkü bu tüm bu matrislerde sahip olduğumuz toplam sayılardır.
+
+50
+00:03:41,320 --> 00:03:44,097
+Bu durumda, 12.288 olur,
+
+51
+00:03:44,097 --> 00:03:47,330
+tüm bu sayıları çoğalırsanız
+elde edeceğiniz şey budur.
+
+52
+00:03:47,330 --> 00:03:51,870
+Ve böylece giriş özellik vektörü x'in boyutunu
+
+53
+00:03:51,870 --> 00:03:55,080
+temsil etmek için nx = 12288 kullanacağız.
+
+54
+00:03:55,080 --> 00:03:59,280
+Ve bazen kısa olması için, bu giriş özellik vektörünün
+
+55
+00:03:59,280 --> 00:04:02,720
+boyutunu göstermek için sadece 
+küçük harf n kullanacağım.
+
+56
+00:04:02,720 --> 00:04:07,510
+Yani, ikili sınıflandırmada amacımız, bu özellik vektörü x tarafından
+
+57
+00:04:07,510 --> 00:04:10,760
+temsil edilen bir görüntüyü
+girebilen bir sınıflandırıcıyı öğrenmektir.
+
+58
+00:04:10,760 --> 00:04:15,460
+Ve karşılık gelen etiketin 1 mi, yoksa 0 mı olduğunu,
+
+59
+00:04:15,460 --> 00:04:19,000
+yani bunun bir kedi resmi mi yoksa kedi olmayan bir görüntü mi olduğunu tahmin edin.
+
+60
+00:04:19,000 --> 00:04:21,560
+Şimdi bu dersin geri kalanında
+
+61
+00:04:21,560 --> 00:04:23,820
+kullanacağımız notasyonun bir kısmını belirleyelim.
+
+62
+00:04:23,820 --> 00:04:29,453
+Tek bir eğitim örneği bir çiftle temsil edilir (x, y),
+
+63
+00:04:29,453 --> 00:04:34,446
+burada x bir x-boyutlu özellik vektörüdür
+
+64
+00:04:34,446 --> 00:04:39,320
+ve y, ya 0 ya da 1'dir.
+
+65
+00:04:39,320 --> 00:04:44,550
+Eğitim setleriniz , küçük harf m eğitim
+örneklerinden oluşacaktır.
+
+66
+00:04:44,550 --> 00:04:50,320
+Ve böylece eğitim setleriniz yazılırsa, (x1, y1)
+
+67
+00:04:50,320 --> 00:04:55,370
+ilk eğitim örneğiniz için giriş ve çıkış, (x(2), y(2))
+
+68
+00:04:55,370 --> 00:05:01,980
+ikinci eğitim örneği için ve (xm, ym) 'e kadar olan son eğitim örneği.
+
+69
+00:05:01,980 --> 00:05:05,650
+Ve bunların tamamı eğitim setiniz.
+
+70
+00:05:05,650 --> 00:05:10,170
+Bu yüzden eğitim örneklerinin sayısını göstermek
+için küçük harf m kullanacağım.
+
+71
+00:05:10,170 --> 00:05:14,418
+Ve bazen bunun eğitim örneklerinin sayısı
+
+72
+00:05:14,418 --> 00:05:16,437
+olduğunu vurgulamak için bunu M = M train olarak yazabilirim.
+
+73
+00:05:16,437 --> 00:05:18,692
+Ve test seti hakkında konuştuğumuzda,
+
+74
+00:05:18,692 --> 00:05:24,430
+test örneklerinin sayısını göstermek için bazen M test olarak kullanabiliriz.
+
+75
+00:05:24,430 --> 00:05:27,430
+Yani bu test örneklerinin sayısı.
+
+76
+00:05:27,430 --> 00:05:33,440
+Son olarak, tüm eğitim örneklerini daha küçük bir notasyona
+
+77
+00:05:33,440 --> 00:05:36,840
+çıkarmak için, bir X matrisini tanımlayacağız.
+
+78
+00:05:36,840 --> 00:05:41,592
+Eğitim seti girişlerini x1,x2
+
+79
+00:05:41,592 --> 00:05:44,568
+ve bunları sütunlarda istifleyerek tanımlandığı gibi.
+
+80
+00:05:44,568 --> 00:05:49,958
+Bu yüzden x1'i alıp bu matrisin bir ilk sütunu olarak
+
+81
+00:05:49,958 --> 00:05:54,798
+x2, bunu ikinci bir sütun olarak ve xm'ye kadar koyduğumuzda,
+
+82
+00:05:54,798 --> 00:05:58,000
+bu X matrisidir.
+
+83
+00:05:58,000 --> 00:06:03,005
+Yani bu X matrisi M sütununa sahip olacaktır, burada M eğitim sayısı
+
+84
+00:06:03,005 --> 00:06:08,665
+ve sütun sayısıdır veya bu matrisin yüksekliği NX'dir.
+
+85
+00:06:08,665 --> 00:06:14,400
+Diğer nedenlerden dolayı, bu gibi satırlardaki eğitim örneklerini
+
+86
+00:06:14,400 --> 00:06:19,390
+sıralayarak tanımlanan X matrisinde
+
+87
+00:06:19,390 --> 00:06:23,940
+X1'in transpose'unun Xm'in transpose'una indirgendiğini görebiliriz.
+
+88
+00:06:23,940 --> 00:06:27,704
+Sol tarafta var olan bu kuralı kullanarak sinir ağlarını uygularken,
+
+89
+00:06:27,704 --> 00:06:32,218
+uygulamayı daha kolaylaştıracağı ortaya çıkıyor.
+
+90
+00:06:32,218 --> 00:06:37,171
+Tekrar edecek olursak, x, m boyutlu bir matrisle bir nx'dir
+
+91
+00:06:37,171 --> 00:06:40,404
+ve bunu Python'da uyguladığınızda,
+
+92
+00:06:40,404 --> 00:06:45,362
+x.shape'yi görürsünüz, bu matrisin şeklini
+
+93
+00:06:45,362 --> 00:06:50,325
+bulmak için kullanılan Python komutudur, bu bir (nx, m)'dir.
+
+94
+00:06:50,325 --> 00:06:53,255
+Bu sadece (nx,m) boyutlu bir matris olduğu anlamına gelir.
+
+95
+00:06:53,255 --> 00:06:58,785
+Yani eğitim örneklerini bu şekilde gruplandırırsanız, giriş değeri x'i matrise aktarırsınız.
+
+96
+00:06:58,785 --> 00:07:01,315
+Çıkış etiketleri Y nedir?
+
+97
+00:07:01,315 --> 00:07:04,815
+Bir sinir ağının uygulanmasını kolaylaştırmak için,
+
+98
+00:07:04,815 --> 00:07:10,030
+Y'nin sütunlarını da sıralamak uygun olacaktır.
+
+99
+00:07:10,030 --> 00:07:14,650
+Bu yüzden Y'yi Y1, Y2,..,Ym'e eşit olacak
+
+100
+00:07:14,650 --> 00:07:18,580
+şekilde tanımlayacağız.
+
+101
+00:07:18,580 --> 00:07:24,980
+Yani Y, (1,m) boyutlu bir matris olacaktır.
+
+102
+00:07:24,980 --> 00:07:30,530
+Ve yine, Python gösterimini Y şekliyle kullanmak için (1, m) olacaktır.
+
+103
+00:07:30,530 --> 00:07:34,810
+Bu sadece (1,m) matris olduğu anlamına gelir.
+
+104
+00:07:34,810 --> 00:07:39,660
+Ve ilerleyen bölümde sinir ağınızı uygularken bunun farklı
+
+105
+00:07:39,660 --> 00:07:43,630
+eğitim örnekleri ile ilişkili verileri almak için
+kullanışlı bir yöntem olduğunu göreceksiniz,
+
+106
+00:07:43,630 --> 00:07:48,580
+ve burada veriden kasıt x, y yahut ileride göreceğiniz başka değerler olacak.
+
+107
+00:07:48,580 --> 00:07:49,900
+Ancak farklı
+
+108
+00:07:49,900 --> 00:07:52,990
+eğitilmiş örnekler ile ilişkili verileri alıp farklı sütunlarda tutmak için
+
+109
+00:07:52,990 --> 00:07:57,430
+x ve y de yaptığımız gibi bu metot kullanılabilir.
+
+110
+00:07:58,450 --> 00:08:01,380
+Yani, bu lojistik regresyon ve bu dersin ilerleyen
+
+111
+00:08:01,380 --> 00:08:04,060
+dönemlerinde sinir ağları için kullanacağımız bir yöntemdir.
+
+112
+00:08:04,060 --> 00:08:07,430
+Eğer gösterimlerin ne anlama geldiğini unutursanız, M'nin ne olduğu ya da N'nin
+
+113
+00:08:07,430 --> 00:08:08,300
+ne olduğu gibi
+
+114
+00:08:08,300 --> 00:08:12,630
+aynı zamanda kurs web sitesinde herhangi bir gösterimin ne olduğunu hızlı
+
+115
+00:08:12,630 --> 00:08:17,430
+bir şekilde aramak için kullanabileceğiniz bir notasyon rehberi yayınladık.
+
+116
+00:08:17,430 --> 00:08:20,890
+Bu nedenle, bu gösterimi kullanarak lojistik regresyona
+
+117
+00:08:20,890 --> 00:08:23,190
+başlayacağımız bir sonraki videoya geçelim.

@@ -1,0 +1,515 @@
+1
+00:00:01,020 --> 00:00:05,960
+Bu videoda,yüksek matematik ve türevlerin
+ sezgisel bir anlayışını kazanmanıza
+
+2
+00:00:05,960 --> 00:00:07,370
+yardımcı olmak istiyorum.
+
+3
+00:00:07,370 --> 00:00:10,930
+Şimdi, belki de üniversite
+ yıllarından beridir yüksek matematik
+
+4
+00:00:10,930 --> 00:00:11,900
+görmediğini düşünüyorsun.
+
+5
+00:00:11,900 --> 00:00:15,290
+Ve belki de mezuniyetinizin üzerinden
+ oldukça uzun bir zaman geçti.
+
+6
+00:00:16,470 --> 00:00:19,120
+Şimdi eğer düşündüğün buysa,
+ endişelenme.
+
+7
+00:00:19,120 --> 00:00:24,090
+Sinir ağlarını ve derin öğrenmeyi
+ çok etkili bir şekilde uygulamak için derin bir
+
+8
+00:00:24,090 --> 00:00:26,500
+yüksek matematik anlayışına ihtiyacınız yoktur.
+
+9
+00:00:26,500 --> 00:00:29,240
+Bu yüzden eğer bu videoyu veya
+ sonraki videoların bazılarını izliyor,
+
+10
+00:00:29,240 --> 00:00:31,510
+merak ediyor ve "wow, bu yüksek matematik, 
+benim için gerçekten
+
+11
+00:00:31,510 --> 00:00:35,190
+karmaşık" diyorsanız size tavsiyem şudur.
+
+12
+00:00:35,190 --> 00:00:39,470
+Videoları izler, sonra ödevlerini yapabilir 
+ve programlama ödevini
+
+13
+00:00:39,470 --> 00:00:43,750
+başarılı bir şekilde tamamlarsanız, 
+derin öğrenmeyi uygulayabilirsiniz.
+
+14
+00:00:43,750 --> 00:00:46,230
+Aslında, daha sonra 
+4.haftada göreceğiniz,
+
+15
+00:00:46,230 --> 00:00:49,480
+Yüksek matematiğe göre yapılması gereken
+ şeyleri kapsüllemenizi
+
+16
+00:00:49,480 --> 00:00:52,835
+sağlayacak birkaç tür 
+fonksiyon tanımlayacağız.
+
+17
+00:00:52,835 --> 00:00:56,160
+Bu fonksiyonlar hakkında öğrendiğiniz İleri Yönlü Fonksiyonlar
+ ve Geriye Doğru Fonksiyonlar denen
+
+18
+00:00:56,160 --> 00:01:00,220
+yüksek matematik içindeki
+ bu fonksiyonlar hakkında bilmeniz gereken her şeyi
+bu işlevlere koymanızı sağlar
+
+19
+00:01:00,220 --> 00:01:04,300
+böylece artık bundan daha fazlası için 
+endişelenmenize gerek kalmaz.
+
+20
+00:01:04,300 --> 00:01:08,910
+Ama derin öğrenme için
+ bunu şu şekilde düşündüm, bu hafta
+
+21
+00:01:08,910 --> 00:01:13,140
+bu kutuyu açmalı ve yüksek matematiğin 
+detaylarına biraz daha dikkat etmeliyiz.
+
+22
+00:01:13,140 --> 00:01:17,080
+Ama gerçekten, ihtiyacınız olan tek şey
+bu algoritmayı oluşturmak ve
+
+23
+00:01:17,080 --> 00:01:19,850
+başarılı bir şekilde uygulamak için 
+sezgisel bir anlayış.
+
+24
+00:01:19,850 --> 00:01:24,380
+Son olarak, belki de yüksek matematikte
+uzman olan küçük bir gruba dahil iseniz,
+
+25
+00:01:24,380 --> 00:01:27,310
+yüksek matematik ve türevlere 
+çok aşina iseniz
+
+26
+00:01:27,310 --> 00:01:30,650
+bu videoyu atlamanız 
+muhtemelen iyi olacaktır.
+
+27
+00:01:30,650 --> 00:01:32,670
+Ama herkes için konunun 
+derinine doğru iniş yapalım ve
+
+28
+00:01:32,670 --> 00:01:36,100
+sezgisel bir türev anlayışı 
+elde etmeye çalışalım.
+
+29
+00:01:36,100 --> 00:01:41,340
+Burada f(a)=3a fonksiyonunu çizdim,
+bu sadece düz bir çizgiydi.
+
+30
+00:01:41,340 --> 00:01:45,470
+Türevler hakkında sezgisel bilgi almak
+için, bu fonksiyonda birkaç noktaya
+bakalım.
+
+31
+00:01:45,470 --> 00:01:48,066
+Diyelim ki a eşittir 2.
+
+32
+00:01:48,066 --> 00:01:52,890
+Bu durumda f 2'nin 3 katına
+ yani 6'ya eşittir.
+
+33
+00:01:52,890 --> 00:01:57,740
+Yani eğer a 2'ye eşitse, o zaman 
+a'nın değeri 6'ya eşit olacaktır.
+
+34
+00:01:57,740 --> 00:02:01,580
+Diyelim ki, a değerini bir miktar iteleyelim.
+
+35
+00:02:01,580 --> 00:02:06,720
+Değeri biraz yukarı çıkarıyorum, 
+böylece a şimdi 2.001 oldu.
+
+36
+00:02:06,720 --> 00:02:10,610
+Bu yüzden, sağa doğru
+ ufak bir miktar iteleyelim.
+
+37
+00:02:10,610 --> 00:02:17,087
+Yani şimdi, değerimiz 2.001
+ fakat grafiğimiz 2.001'e ölçekli değil.
+
+38
+00:02:17,087 --> 00:02:20,348
+0.001'lik fark grafikte gösterilemeyecek
+ kadar küçük ama
+
+39
+00:02:20,348 --> 00:02:22,427
+sağa doğru ufak bir miktar kayma oluşur.
+
+40
+00:02:22,427 --> 00:02:27,856
+Şimdi f (a) = 3a, 
+yani 6.003.
+
+41
+00:02:27,856 --> 00:02:30,140
+Öyleyse bunu buraya çizelim.
+
+42
+00:02:30,140 --> 00:02:33,610
+Bu ölçülü bir değer değil, 
+bu 6.003.
+
+43
+00:02:33,610 --> 00:02:38,010
+Yani burada vurguladığım 
+bu küçük yeşil üçgene bakarsanız
+
+44
+00:02:38,010 --> 00:02:42,810
+gördüğümüz şey şu olacaktır, 
+eğer a'ya sağa doğru 0.001'lik bir dürtme verirsek
+
+45
+00:02:42,810 --> 00:02:47,620
+f(a) 0.003 kadar yükselecektir.
+
+46
+00:02:47,620 --> 00:02:51,200
+F(a)'nın yükseldiği miktar, sağa doğru
+
+47
+00:02:51,200 --> 00:02:54,540
+yapılan itelemenin 3 katıdır.
+
+48
+00:02:54,540 --> 00:02:58,700
+Bu yüzden a 2'ye eşitken F(a) fonksiyonunun 
+türevi 3'tür. Ya da
+
+49
+00:02:59,820 --> 00:03:06,460
+eğim=3 iken a değeri 2 şeklinde ifade edebiliriz.
+
+50
+00:03:06,460 --> 00:03:09,330
+Ve türev terimi temelde eğim anlamına gelir.
+
+51
+00:03:09,330 --> 00:03:12,800
+Kendi başına türev kulağa ürkütücü
+ hatta çok göz korkutucu geliyor,
+
+52
+00:03:12,800 --> 00:03:16,900
+buna karşılık eğim türev kavramını 
+tanımlamak için dostça bir yöntemdir.
+
+53
+00:03:16,900 --> 00:03:20,530
+Her türev kelimesini duyduğunuzda 
+sadece fonksiyonun eğimi olduğunu düşünün.
+
+54
+00:03:20,530 --> 00:03:24,790
+Ve daha teknik olarak açıklamak gerekirse eğim, 
+küçük yeşil üçgenin
+
+55
+00:03:24,790 --> 00:03:29,330
+yüksekliğinin genişliğine bölümü olarak tanımlanır.
+
+56
+00:03:29,330 --> 00:03:33,961
+Bu yüzden 0.003 0.001'in üzerindedir.
+
+57
+00:03:33,961 --> 00:03:38,950
+Aslında eğimin ya da türevin 3'e eşit olması
+
+58
+00:03:38,950 --> 00:03:43,863
+a'yı sağa doğru 0.001 
+kadar az miktarda itelediğinizde
+
+59
+00:03:43,863 --> 00:03:47,903
+f(a)'nın yükseldiği miktar, 
+a'yı yatay yönde itelediğiniz miktarın
+
+60
+00:03:47,903 --> 00:03:52,390
+3 katı kadar büyük olduğu gerçeğini temsil eder.
+
+61
+00:03:52,390 --> 00:03:54,430
+Yani hepsi bir çizginin eğimidir.
+
+62
+00:03:54,430 --> 00:03:57,270
+Şimdi bu fonksiyona farklı bir noktadan bakalım.
+
+63
+00:03:57,270 --> 00:03:59,610
+Şimdi a'nın 5'e eşit olduğunu varsayalım.
+
+64
+00:03:59,610 --> 00:04:03,320
+Bu durumda, f(a)=3a, f(a)=15'e eşit olur.
+
+65
+00:04:03,320 --> 00:04:07,441
+Diyelim ki a'ya yine sağa doğru 
+küçük bir iteleme yapacağım,
+
+66
+00:04:07,441 --> 00:04:09,526
+Şimdi a'nın değeri 5.001'e çıktı.
+
+67
+00:04:09,526 --> 00:04:11,165
+F(a) a'nın 3 katına eşittir.
+
+68
+00:04:11,165 --> 00:04:15,267
+Bu yüzden f(a)=15.003 olur.
+
+69
+00:04:15,267 --> 00:04:18,332
+Ve bir kez daha a'yı sağa doğru çarptığımda
+
+70
+00:04:18,332 --> 00:04:23,430
+a sağa doğru 0.001 kadar itelenirken,
+ f(a) 3 kat daha fazla itelenir.
+
+71
+00:04:23,430 --> 00:04:28,160
+Yani, a=5'de eğim tekrar 3'tür.
+
+72
+00:04:28,160 --> 00:04:33,259
+Bu şekilde yazdığımız gibi 
+ f fonksiyonunun eğimi 3'e eşittir.
+
+73
+00:04:33,259 --> 00:04:37,750
+d f(a)/d a şeklinde söyleyebiliriz.
+
+74
+00:04:37,750 --> 00:04:41,760
+Ve bu sadece f(a) fonksiyonunun eğimi anlamına gelir,
+
+75
+00:04:41,760 --> 00:04:47,630
+a değişkenini küçük bir miktarda 
+itelediğimizde bile eğim 3'e eşittir.
+
+76
+00:04:47,630 --> 00:04:52,364
+Ve bu türev formülünün yazılmasının 
+alternatif bir yolu aşağıdaki gibidir.
+
+77
+00:04:52,364 --> 00:04:58,340
+Bunu ayrıca gösterildiği biçimde de yazabilirsiniz.
+
+78
+00:04:58,340 --> 00:05:02,190
+Öyleyse f(a)'yı üstüne koyup koymamanız 
+ya da yazıp yazmamanız
+
+79
+00:05:02,190 --> 00:05:03,310
+fark etmez.
+
+80
+00:05:03,310 --> 00:05:08,350
+Fakat bu denklemin anlamı şudur ki,
+eğer a'yı sağa doğru biraz bükersem
+
+81
+00:05:08,350 --> 00:05:12,300
+f(a)'nın küçük a değerini itelediğim kadarının 3 kat daha fazlasını
+
+82
+00:05:12,300 --> 00:05:14,700
+yükselmesini beklerim.
+
+83
+00:05:14,700 --> 00:05:19,874
+Şimdi bu video için, a değişkenini 0.001 kadar itelediğimizde
+
+84
+00:05:19,874 --> 00:05:25,498
+ne olacağını anlatan türevleri açıkladım.
+
+85
+00:05:25,498 --> 00:05:30,087
+Türevlerin biçimsel matematiksel tanınımı 
+istiyorsanız, türevler
+
+86
+00:05:30,087 --> 00:05:34,222
+a'yı sağa doğru en fazla ne kadar 
+itelediğinizin daha küçük bir 
+değeri ile tanımlanır.
+
+87
+00:05:34,222 --> 00:05:36,007
+Yani 0.001 değil
+
+88
+00:05:36,007 --> 00:05:38,409
+0.00000001 değil.
+
+89
+00:05:38,409 --> 00:05:42,735
+0,000000001 de değil.
+
+90
+00:05:42,735 --> 00:05:44,470
+Bundan bile daha küçük.
+
+91
+00:05:44,470 --> 00:05:49,140
+Ve türevin biçimsel tanımına göre
+ her ne zaman a'yı sonsuz küçüklükte
+
+92
+00:05:49,140 --> 00:05:54,030
+yani temel olarak küçük bir miktar 
+sağa doğru itelediğimizde
+
+93
+00:05:54,030 --> 00:05:58,970
+f(a) sağa itelenen sonsuz küçüklükte 
+yani temel olarak
+
+94
+00:05:58,970 --> 00:06:01,210
+küçük miktarın üç katı kadar mı yükselir?
+
+95
+00:06:01,210 --> 00:06:04,680
+Yani aslında bir türevin biçimsel tanımı budur.
+
+96
+00:06:04,680 --> 00:06:08,134
+Ama bizim sezgisel anlayışımızın 
+amaçları için
+
+97
+00:06:08,134 --> 00:06:12,716
+biz sadece a'yı sağa doğru küçük bir miktar, 
+0.001 kadar, hatta 0.001
+
+98
+00:06:12,716 --> 00:06:18,390
+tam olarak küçük değilse küçük sonsuz kadar itelemek hakkında konuşacağız.
+
+99
+00:06:18,390 --> 00:06:22,451
+Şimdi türevin bir özelliği olarak,
+ bu fonksiyonun eğimi her yerde eşittir,
+
+100
+00:06:22,451 --> 00:06:25,755
+yani fonksiyonun her noktasında 
+eğim 3'e eşittir.
+
+101
+00:06:25,755 --> 00:06:28,734
+A eşittir 2 veya a eşittir 5 fark etmez,
+
+102
+00:06:28,734 --> 00:06:31,728
+bu fonksiyonun eğimi 3'e eşittir.
+
+103
+00:06:31,728 --> 00:06:36,752
+Anlamı a'nın değeri ne olursa olsun, 
+onu 0.001 kadar arttırırsanız,
+
+104
+00:06:36,752 --> 00:06:40,560
+f(a)'nın değeri 3 kat kadar artar.
+
+105
+00:06:40,560 --> 00:06:42,770
+Yani bu fonksiyon her yerde 
+aynı eğime sahiptir.
+
+106
+00:06:42,770 --> 00:06:47,480
+Bunu görmenin bir yolu, 
+bu küçük üçgeni çizdiğiniz her yerde,
+
+107
+00:06:47,480 --> 00:06:52,920
+yüksekliğinin genişliğine olan oranının
+ her zaman üçte bir orana sahip olmasıdır.
+
+108
+00:06:52,920 --> 00:06:55,150
+Öyleyse bu, eğimin ne olduğu,
+
+109
+00:06:55,150 --> 00:06:58,540
+bir düz grafik için bir fonksiyonun türevinin
+
+110
+00:06:58,540 --> 00:07:02,440
+bu örnek için her yerde 3 olduğu konusunda fikir verir.
+
+111
+00:07:02,440 --> 00:07:06,440
+Bir sonraki videoda, fonksiyonun eğiminin 
+fonksiyon üzerindeki farklı noktalarda
+
+112
+00:07:06,440 --> 00:07:09,770
+farklı değerler alabileceği biraz 
+daha karmaşık örneğe bakalım.

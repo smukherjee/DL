@@ -1,0 +1,800 @@
+1
+00:00:00,000 --> 00:00:03,840
+Pekala, zannediyorum ki bu, heyecan verici bir video
+
+2
+00:00:01,800 --> 00:00:06,240
+olacak.Bu videoda, gradyan düşümü (gradient descent)
+
+3
+00:00:03,840 --> 00:00:08,730
+algoritmasının tek saklı katmanlı sinirsel ağınıza (neural network)
+
+4
+00:00:06,240 --> 00:00:10,530
+nasıl uygulanacağını göreceksiniz.
+
+5
+00:00:08,730 --> 00:00:12,809
+Bu videoda, size sadece ihtiyacınız olan
+
+6
+00:00:10,530 --> 00:00:14,639
+uygulanacak denklemleri vereceğim
+
+7
+00:00:12,809 --> 00:00:17,039
+ki gradyan düşümünün
+
+8
+00:00:14,639 --> 00:00:19,410
+geri yayılımı (back propagation) çalışabilsin. Ve sonra
+
+9
+00:00:17,039 --> 00:00:21,510
+bir sonraki videoda, neden özellikle
+
+10
+00:00:19,410 --> 00:00:24,150
+bu denklemlerin sinirsel ağınız için
+
+11
+00:00:21,510 --> 00:00:26,070
+eğimi hesaplamada ihtiyacınız olan en uygun yada
+
+12
+00:00:24,150 --> 00:00:27,630
+en doğru denklemler
+
+13
+00:00:26,070 --> 00:00:28,289
+olduğuyla ilgili
+
+14
+00:00:27,630 --> 00:00:30,090
+bilgi vereceğim.
+
+15
+00:00:28,289 --> 00:00:32,520
+Evet. Şimdilik sadece bir katmanı olan
+
+16
+00:00:30,090 --> 00:00:39,930
+basit sinirsel ağınızın
+
+17
+00:00:32,520 --> 00:00:44,760
+W1, V1, W2 VE B2 değişkenleri olacak ve
+
+18
+00:00:39,930 --> 00:00:50,399
+hatırlatma olarak, eğer ki nx yada bunun yerine
+
+19
+00:00:44,760 --> 00:00:56,640
+n0 girdi değişkeniniz varsa ve bir saklı
+
+20
+00:00:50,399 --> 00:00:59,149
+biriminiz ve n2 çıkış birimleri varsa 
+mesela bizim
+
+21
+00:00:56,640 --> 00:01:05,670
+örneğimizde şimdilik n2 ikiye eşit.
+
+22
+00:00:59,149 --> 00:01:08,880
+Böylece W1 matriksi, (n1, n0) olacak.
+
+23
+00:01:05,670 --> 00:01:11,250
+b1, n1 boyutunda bir vektör olacak.
+ Bu yüzden
+
+24
+00:01:08,880 --> 00:01:13,350
+onu (n1, 1) boyutunda
+
+25
+00:01:11,250 --> 00:01:16,500
+bir matriks olarak yazabiliriz, aslında bir sütun vektörü.
+
+26
+00:01:13,350 --> 00:01:20,750
+W2'nin boyutları (n2, n1) ve B2'nin boyutları
+
+27
+00:01:16,500 --> 00:01:26,759
+(n2,1) olacak. Evet, şimdiye kadar
+
+28
+00:01:20,750 --> 00:01:28,590
+yalnızca n2'nin 1'e eşit olduğu
+
+29
+00:01:26,759 --> 00:01:30,930
+örnekler gördük
+
+30
+00:01:28,590 --> 00:01:36,930
+ki burada yalnızca 1 saklı biriminiz
+
+31
+00:01:30,930 --> 00:01:39,570
+vardı. Evet, aynı zamanda bir de sinirsel ağlar için
+
+32
+00:01:36,930 --> 00:01:41,340
+maaliyet fonksiyonunuz (cost function) var.
+
+33
+00:01:39,570 --> 00:01:44,220
+Şimdilik, sizin ikili sınıflandırma
+
+34
+00:01:41,340 --> 00:01:48,659
+yaptığınızı farzedeceğim. Yani bu durumda
+
+35
+00:01:44,220 --> 00:01:51,740
+maaliyet fonksiyonunuzun değişkenleri
+
+36
+00:01:48,659 --> 00:01:57,090
+şöyle olacak: 
+1 bölü m çarpı
+
+37
+00:01:51,740 --> 00:01:59,969
+yitim fonksiyonunun (loss function) ortalaması. Ve buradaki L, 
+sinirsel ağınızı
+
+38
+00:01:57,090 --> 00:02:03,420
+ý 'yi doğru tahmin ederkenki yitimi (loss)
+
+39
+00:01:59,969 --> 00:02:06,240
+oluyor ki bu aslında
+
+40
+00:02:03,420 --> 00:02:07,649
+a2'dir eğer taban ý olarak sınıflandırılmışsa.
+
+41
+00:02:06,240 --> 00:02:09,629
+Eğer ikili sınıflandırma
+
+42
+00:02:07,649 --> 00:02:12,510
+yapıyorsanız, yitim fonksiyonu
+
+43
+00:02:09,629 --> 00:02:15,030
+önceden kullandığınız lojistik regresyonunki (logistic regression)
+
+44
+00:02:12,510 --> 00:02:18,420
+ile aynısı olabilir.
+Evet, Algoritmalarınızın değişkenlerini eğitmek için
+
+45
+00:02:15,030 --> 00:02:21,450
+gradyan düşümünü uygulamalısınız.
+
+46
+00:02:18,420 --> 00:02:23,189
+Sinirsel ağınızı eğitirken
+
+47
+00:02:21,450 --> 00:02:25,379
+değişkenlerin başlangıç değerlerini
+
+48
+00:02:23,189 --> 00:02:26,129
+hepsini sıfır yapmaktansa
+
+49
+00:02:25,379 --> 00:02:28,140
+rastegele atamak önemlidir.
+
+50
+00:02:26,129 --> 00:02:30,030
+Daha sonra neden böyle olduğunu göreceğiz. Ancak
+
+51
+00:02:28,140 --> 00:02:32,069
+başlangıç değerlerini herhangi bir değere
+
+52
+00:02:30,030 --> 00:02:34,140
+atadıktan sonra, gradyan düşümünün
+
+53
+00:02:32,069 --> 00:02:36,780
+her bir döngüsü tahminleri hesaplıyor olacak.
+
+54
+00:02:34,140 --> 00:02:42,359
+Yani, aslında i 1'den m'e giderken
+
+55
+00:02:36,780 --> 00:02:44,519
+ý(i)'ı hesaplıyorsunuz. Daha sonra
+
+56
+00:02:42,359 --> 00:02:49,440
+türevi hesaplamanız gerekiyor
+
+57
+00:02:44,519 --> 00:02:51,420
+bu yüzden dw(1)'ı hesaplamanız lazım ve bu da
+
+58
+00:02:49,440 --> 00:02:54,359
+görüyoruzki yitim fonksiyonunun türevi
+
+59
+00:02:51,420 --> 00:02:56,489
+w(1)' göre alınıyor. 
+Başka bir değer daha
+
+60
+00:02:54,359 --> 00:02:59,220
+hesaplamanız gerekiyor ki buna
+
+61
+00:02:56,489 --> 00:03:00,870
+db(1) diyeceğiz ki o da
+
+62
+00:02:59,220 --> 00:03:04,109
+yitim fonksiyonunun eğiminmin
+
+63
+00:03:00,870 --> 00:03:07,349
+b(1) değerine göre alınmış türevidir
+
+64
+00:03:04,109 --> 00:03:10,170
+vesayire. Aynı şekilde, diğer
+
+65
+00:03:07,349 --> 00:03:12,629
+değişkenler de: w(2) ve b(2).
+Ve sonunda,
+
+66
+00:03:10,170 --> 00:03:17,879
+gradyan düşümünün güncellemesi
+
+67
+00:03:12,629 --> 00:03:22,709
+w(1)'in w(1) eksi alfa
+
+68
+00:03:17,879 --> 00:03:26,129
+öğrenme oranı (learning rate) çarpı dw(1) ile güncellenmesi,
+
+69
+00:03:22,709 --> 00:03:31,620
+b1'in b1 eksi öğrenme oranı
+
+70
+00:03:26,129 --> 00:03:34,739
+çarpı db(1) olarak güncellenmesidir.
+Aynı w2 ve b2 için de olduğu gibi.
+
+71
+00:03:31,620 --> 00:03:36,299
+Bazen iki nokta üstüste
+
+72
+00:03:34,739 --> 00:03:38,489
+bazen de eşittir kullanıyorum,
+
+73
+00:03:36,299 --> 00:03:40,829
+iki sembol de doğru sayılıyor. Evet, bu 
+
+74
+00:03:38,489 --> 00:03:42,510
+gradyan düşümünün bir döngüsü oluyor ve
+
+75
+00:03:40,829 --> 00:03:44,280
+bunu
+birkaç kez tekrarlıyorsunuz
+
+76
+00:03:42,510 --> 00:03:46,079
+ta ki değişkenleriniz bir noktaya yöneliyormuş
+
+77
+00:03:44,280 --> 00:03:48,150
+gibi görünene kadar. Geçmiş videolarda,
+
+78
+00:03:46,079 --> 00:03:50,099
+nasıl tahminlerin hesaplandığından,
+
+79
+00:03:48,150 --> 00:03:51,629
+nasıl çıktıların hesaplandığından bahsettik
+
+80
+00:03:50,099 --> 00:03:54,060
+ve bunu nasıl
+
+81
+00:03:51,629 --> 00:03:56,269
+vektörlerle yapabileceğimizi de gördük. Önemli olan nokta
+
+82
+00:03:54,060 --> 00:04:00,180
+nasıl bu kısmi türevlerin hesaplandığını bilmek,
+
+83
+00:03:56,269 --> 00:04:04,079
+dw(1)'in, db(1)'in ve aynı zamanda
+
+84
+00:04:00,180 --> 00:04:06,780
+dw(2) ve db(2)'nin.
+
+85
+00:04:04,079 --> 00:04:09,419
+Evet, yapmak istediğim şey size yalnızca
+
+86
+00:04:06,780 --> 00:04:12,150
+türev hesaplamak için ihtiyacınız olacak denklemleri
+
+87
+00:04:09,419 --> 00:04:14,699
+vermek. Ve bir sonraki videoya erteleyeceğim
+
+88
+00:04:12,150 --> 00:04:17,430
+ki bu zorunlu olmayan bir video
+
+89
+00:04:14,699 --> 00:04:19,090
+bu formülleri nasıl bulduğumuz hakkında
+
+90
+00:04:17,430 --> 00:04:21,400
+Jeff'e geri döneceğiz.
+
+91
+00:04:19,090 --> 00:04:26,169
+Evet, o zaman tekrar
+
+92
+00:04:21,400 --> 00:04:33,250
+ileri yayılımın (forward propagation) denklemlerini özet geçelim.
+
+93
+00:04:26,169 --> 00:04:37,900
+Elinizde z(1) eşittir w(1)x artı b(1) var ve
+
+94
+00:04:33,250 --> 00:04:41,680
+a(1) eşittir 
+bu katmandaki
+
+95
+00:04:37,900 --> 00:04:49,690
+aktivasyon fonksiyonuna z(1)'in uygulanması,
+
+96
+00:04:41,680 --> 00:04:53,530
+ve z(2) eşittir w(2) A(1) artı b(2),
+
+97
+00:04:49,690 --> 00:04:55,180
+ve son olarak -tüm bunlar eğitme setinizde (training set)
+
+98
+00:04:53,530 --> 00:05:01,210
+vektörize edilmiş şekilde var-
+
+99
+00:04:55,180 --> 00:05:02,740
+a(2) eşittir g(2) fonksiyonunda z(2).
+
+100
+00:05:01,210 --> 00:05:04,870
+Yine dediğim gibi, eğer ikili
+
+101
+00:05:02,740 --> 00:05:06,610
+sınıflandırma yaptığınızı varsayarsak,
+bu aktivasyon
+
+102
+00:05:04,870 --> 00:05:08,560
+fonksiyonu aslında sigmoid fonksiyonu olmalıydı
+
+103
+00:05:06,610 --> 00:05:11,080
+bunu şimdilik buraya bırakıyorum. Evet, bu "ileri yayılım" yada
+
+104
+00:05:08,560 --> 00:05:13,870
+soldan sağa ilerleyen hesaplama
+
+105
+00:05:11,080 --> 00:05:15,729
+sinirsel ağınız için. Şimdi, haydi
+
+106
+00:05:13,870 --> 00:05:18,430
+sinirsel ağınız için
+
+107
+00:05:15,729 --> 00:05:24,750
+türevleri hesaplayalım. Evet, bu geri
+
+108
+00:05:18,430 --> 00:05:30,750
+yayılım adımı. Daha sonra
+dz(2) eşittir A(2) eksi gerçek y değeri
+
+109
+00:05:24,750 --> 00:05:33,610
+eşittir A(2) eksi gerçek y değeri
+
+110
+00:05:30,750 --> 00:05:36,580
+ve hatırlatma olarak söylüyorum ki
+
+111
+00:05:33,610 --> 00:05:41,289
+örnektekilerin hepsi vektörleştirilmiş.
+Evet, Y
+
+112
+00:05:36,580 --> 00:05:45,280
+m tane örneğinizin yatay olarak listelendiği
+1'e m boyutunda bir matris. Böylece
+
+113
+00:05:41,289 --> 00:05:51,370
+anlaşılıyorki dw(2) buna eşit. Aslına bakılırsa
+
+114
+00:05:45,280 --> 00:05:55,330
+Bu ilk üç denklem
+
+115
+00:05:51,370 --> 00:05:58,870
+Bu ilk üç denklem lojistik
+
+116
+00:05:55,330 --> 00:06:00,900
+lojistik regresonda gradyan düşümüne çok benzer.
+
+117
+00:05:58,870 --> 00:06:00,900
+çok benzer.
+
+118
+00:06:00,960 --> 00:06:12,610
+x eşittir 1 virgül keepdims eşittir
+
+119
+00:06:07,419 --> 00:06:15,580
+Doğru. Küçük bir ayrıntı, np.sum bir python numpy komutu.
+
+120
+00:06:12,610 --> 00:06:18,070
+bir python numpy komutu.
+
+121
+00:06:15,580 --> 00:06:21,100
+Bir matriste tek boyutta komut vermek için.
+Mesela bu örnekte, yatay yönde toplama yapmak.
+
+122
+00:06:18,070 --> 00:06:24,810
+yatay yönde toplama yapmak.
+
+123
+00:06:21,100 --> 00:06:27,600
+ve keepdims'in yaptığı ise python'ın bazı komik
+
+124
+00:06:24,810 --> 00:06:31,230
+bir dereceli diziler sonuç vermesine engel olmak 
+ki burada boyutlar
+
+125
+00:06:27,600 --> 00:06:34,650
+olmak ki burada boyutlar
+
+126
+00:06:31,230 --> 00:06:37,010
+bildiğiniz gibi (n, ). Dizilişi doğru şekilde tutarak python'ın
+
+127
+00:06:34,650 --> 00:06:41,280
+şekilde tutarak python'ın
+
+128
+00:06:37,010 --> 00:06:44,580
+db(2)'yu (n,1) boyutunda bir vektör olarak çıkartması
+garantileniyor. Teknik olarak bu
+
+129
+00:06:41,280 --> 00:06:47,820
+sanırım (n(2), 1). Bu durumda
+
+130
+00:06:44,580 --> 00:06:50,130
+(n(2), 1) bu durumda
+
+131
+00:06:47,820 --> 00:06:53,520
+bu sadece 1'e 1'lik bir sayı ve belkide önemli değil.
+Ama daha sonra
+
+132
+00:06:50,130 --> 00:06:56,790
+Ama daha sonra ne zaman
+
+133
+00:06:53,520 --> 00:06:58,500
+ne zaman önemli olacağını göreceğiz. 
+Evet, şimdiye kadar yaptıklarımız
+
+134
+00:06:56,790 --> 00:07:01,320
+lojistik regresyona çok benziyor. Ama şimdi,
+
+135
+00:06:58,500 --> 00:07:03,919
+benziyor. Ama şimdi,
+
+136
+00:07:01,320 --> 00:07:14,370
+geri yayılımı çalıştırmaya devam ettikçe, şunu
+hesaplayacaksınız. dz(2) çarpı z(1)'e göre g(1)'in türevi
+
+137
+00:07:03,919 --> 00:07:19,380
+dz(2) çarpı z(1)'e göre g(1)'in türevi
+
+138
+00:07:14,370 --> 00:07:20,880
+Buradaki g(1)', saklı katmanınızda hangi aktivasyon fonsksiyonu
+
+139
+00:07:19,380 --> 00:07:22,919
+hangi aktivasyon fonsksiyonu
+
+140
+00:07:20,880 --> 00:07:25,770
+kullanılıyorsanız onun türevi. Ve çıkış katmanı için
+
+141
+00:07:22,919 --> 00:07:27,030
+Ve çıkış katmanı için
+
+142
+00:07:25,770 --> 00:07:29,400
+tahminimce
+sigmoid fonksiyonu ile ikili sınıflandırma yapıyorsunuz.
+
+143
+00:07:27,030 --> 00:07:30,780
+ikili sınıflandırma yapıyorsunuz.
+
+144
+00:07:29,400 --> 00:07:34,620
+ki bu zaten dz(2) için yazılan formülle uygulandı
+
+145
+00:07:30,780 --> 00:07:39,090
+ve bu sefer, bu her bir elemana göre çarpma işlemi.
+Evet, burası
+
+146
+00:07:34,620 --> 00:07:43,050
+çarpma işlemi.
+Evet, burası
+
+147
+00:07:39,090 --> 00:07:46,950
+n(1)'e m boyutunda bir matris
+
+148
+00:07:43,050 --> 00:07:48,990
+ve burası bu
+
+149
+00:07:46,950 --> 00:07:52,680
+elemana göre türev de n(1)'e m boyutunda bir matris olacak.
+Bu sefer,
+
+150
+00:07:48,990 --> 00:07:54,720
+burası, elemana göre iki
+
+151
+00:07:52,680 --> 00:07:59,669
+burası, elemana göre iki
+
+152
+00:07:54,720 --> 00:08:08,490
+matrisin çarpı. Son olarak, dw(1) buna eşit ve
+db(1) şuna eşit ve 
+
+153
+00:07:59,669 --> 00:08:18,950
+ eşit ve
+db(1) şuna eşit ve
+
+154
+00:08:08,490 --> 00:08:21,900
+np.sum(dz(1), axis=1, keepdims = True).
+Evet,
+
+155
+00:08:18,950 --> 00:08:23,430
+keepdims = True).
+Evet,
+
+156
+00:08:21,900 --> 00:08:27,210
+bundan önce, n2 bire eşit olduğunda
+
+157
+00:08:23,430 --> 00:08:28,590
+keepdims parametresi daha az önemliydi. Yani aslında
+
+158
+00:08:27,210 --> 00:08:35,729
+1'e 1'lik şey bir gerçek sayı
+
+159
+00:08:28,590 --> 00:08:38,370
+Burada, db(1) n(1)'e 1'lik bir dizi (vektör)
+
+160
+00:08:35,729 --> 00:08:40,110
+yani, python
+
+161
+00:08:38,370 --> 00:08:43,110
+np.sum fonksiyonunun bu boyutlarda
+
+162
+00:08:40,110 --> 00:08:46,529
+bir çıktı vermesini istersiniz.
+Bu boyutlarda 
+
+163
+00:08:43,110 --> 00:08:48,360
+ilerideki hesaplamalarınızı bozacak
+
+164
+00:08:46,529 --> 00:08:50,580
+saçma bir dizin vermesini değil.
+
+165
+00:08:48,360 --> 00:08:53,310
+Başka bir yol, 
+
+166
+00:08:50,580 --> 00:08:56,910
+keepdims parametresini kullanmadan
+
+167
+00:08:53,310 --> 00:09:00,060
+doğrudan reshape fonksiyonunu çağırmak
+
+168
+00:08:56,910 --> 00:09:04,400
+böylece np.sum'ın sonucunu bu boyutlara
+
+169
+00:09:00,060 --> 00:09:08,310
+yeniden boyutlandırmak için.
+
+170
+00:09:04,400 --> 00:09:11,339
+Evet bu, 4 denklemde ileri yayılım
+(forward propagation)
+
+171
+00:09:08,310 --> 00:09:14,310
+ve 6 denklemde 
+
+172
+00:09:11,339 --> 00:09:16,680
+geri yayılım (back propagation). 
+Sadece denklemleri
+
+173
+00:09:14,310 --> 00:09:18,870
+yazdığımın farkındayım ama bir sonraki
+
+174
+00:09:16,680 --> 00:09:22,050
+zorunlu olmayan videoda,
+
+175
+00:09:18,870 --> 00:09:23,940
+geri yayılımın 6 denkleminde
+
+176
+00:09:22,050 --> 00:09:25,830
+nasıl türev alındığının iyice üzerinden
+
+177
+00:09:23,940 --> 00:09:27,750
+geçeriz. 
+İzleyip izlememekte serbest olduğunuzu
+
+178
+00:09:25,830 --> 00:09:30,000
+olduğunuzu bilin ama iki türlü de eğer bu iki
+
+179
+00:09:27,750 --> 00:09:32,730
+algoritmayı uygularsanız, ileri ve
+
+180
+00:09:30,000 --> 00:09:34,650
+geri yayılımın
+uygulamalarına sahip olmuş olacaksınız
+
+181
+00:09:32,730 --> 00:09:36,750
+ve sinirsel ağınızdaki parametreleri
+
+182
+00:09:34,650 --> 00:09:39,029
+öğrenmek için ihtiyacınız olan
+
+183
+00:09:36,750 --> 00:09:41,520
+gradyan düşümününün türevlerini
+
+184
+00:09:39,029 --> 00:09:43,680
+hesaplayabileceksiniz.
+
+185
+00:09:41,520 --> 00:09:45,209
+Bu algoritmayı uygulamak ve kavramak
+
+186
+00:09:43,680 --> 00:09:47,130
+yüksek matematiği derinden anlamaya
+
+187
+00:09:45,209 --> 00:09:50,520
+gerek kalmadan mümkün. Birçok başarılı
+
+188
+00:09:47,130 --> 00:09:52,320
+derin öğrenme uygulayacısı böyle yapıyor.
+
+189
+00:09:50,520 --> 00:09:54,180
+Ama eğer isterseniz bir sonraki videoyu izleyebilirsiniz.
+
+190
+00:09:52,320 --> 00:09:56,580
+Sadece bu denklemlerin türevleri hakkında
+
+191
+00:09:54,180 --> 00:09:58,820
+daha fazla anlayışınız/bilginiz olabilsin diye.
+
+192
+00:09:56,580 --> 00:09:58,820
+olabilsin diye.

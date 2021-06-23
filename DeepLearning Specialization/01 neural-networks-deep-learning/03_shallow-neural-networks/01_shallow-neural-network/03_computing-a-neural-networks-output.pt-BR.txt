@@ -1,0 +1,136 @@
+No último vídeo vimos como uma rede 
+neural de camada oculta única se parece. Neste vídeo, veremos os detalhes de 
+como exatamente esta rede neural calcula suas saídas. É como uma regressão logística
+, mas repetidas muitas vezes. Vamos analisar. Então isto é o que uma Rede Neural de 
+duas camadas parece. Vamos aprofundar em o que esta
+ rede neural calcula exatamente. Dissemos anteriormente que a regressão logística, que o círculo na regressão logística, realmente 
+representa duas etapas de cálculo. Primeiro, você pode calcular z do seguinte 
+modo e, em seguida, você calcula a ativação como uma 
+função sigmoide de z. Então ,uma Rede Neural apenas faz isto 
+muito mais vezes. Vamos começar centrando em apenas 
+um dos nós na camada oculta, e então vamos olhar para o primeiro nó na 
+camada oculta. Deixei em segundo plano, em cinza, os outros nós por agora. Semelhante à regressão logística à esquerda, estes nós na camada oculta realizam
+duas etapas de cálculo. O primeiro passo e você pensa 
+na metade esquerda do nó, ela calcula z = w transposto vezes x + b e 
+a notação que usaremos é, todas essas quantidades associadas 
+com a primeira camada oculta, 
+por isso é que nós temos um bando de colchetes lá, e este é o 
+primeiro nó na camada oculta. Por isso é que nós vamos ter
+ o subscrito 1 ali. Então, primeiro ele faz isso, e em seguida, o segundo passo é 
+calcular a[1]1 = sigmoide de z[1]1,
+ dessa forma. Então para ambos z e a, a notação 
+convencional é que a [l] i, o l sobrescrito aqui em colchete é seu primeiro
+ número da camada, e o i subscrito aqui refere-se ao nó 
+ dentro daquela camada. Assim o nó que temos visto é camada um, 
+que é uma camada oculta, nó um, então é por isso que os sobrescritos e subscritos
+ foram ambos 1,1. Portanto, aquele pequeno círculo, o primeiro 
+nó da Rede Neural representa a realização destas duas etapas de cálculo. Agora, vamos olhar para o segundo nó 
+na camada oculta da Rede Neural. Semelhante à unidade de regressão logística, 
+à esquerda, Este círculo inferior representa dois 
+passos do cálculo. O primeiro passo é calcular z, esta ainda é 
+a camada um, mas agora é o segundo nó = W [1] 2 Transposto vezes X + b [1] 2, 
+e então, a[1] 2 = sigmoide de (z [1], 2) e, 
+novamente, sinta-se livre para pausar o vídeo se quiser, mas você pode 
+verificar que a notação sobrescrita e subscrita é consistente com 
+o que escrevemos aqui em cima em roxo. Então, vamos falar sobre as duas primeiras
+ unidades escondidas na Rede Neural, já que as unidades ocultas três e quatro também 
+representam cálculos similares. Agora, deixe-me pegar este par de equações, e este par de equações e vamos copiá-los 
+para o próximo slide. Então, aqui está a nossa Rede Neural e, aqui, 
+está a primeira e aqui está a segunda equação que trabalhávamos, para a primeira 
+e a segunda unidades ocultas. Se você for adiante e escrever todas as 
+equações correspondentes para a terceira e quarta unidades ocultas, você vai obter
+ o seguinte, e apenas certifique-se que esta notação
+ é clara, este é o vetor, w [1] 1, este é um vetor, transposto vezes x, certo? É isso o que representa o sobrescrito T lá, 
+este é o vetor transposto. Agora, como deve ter adivinhado, se você 
+realmente está implementando 
+uma Rede Neural, fazer isso num laço de repetição "for..." parece 
+muito ineficiente. Assim, o que vamos fazer é pegar estas 
+quatro equações e vetorizá-las. Então, vamos começar mostrando como 
+calcular z como um vetor e acontece que, você pode fazê-lo da seguinte maneira. Deixe-me tirar estes w e empilhá-los 
+em uma matriz. Então, você tem w [1] 1, transposto, 
+então é um vetor de linha, ou este é um vector coluna, quando transposto 
+vira um vetor linha. Então w [1], 2 transposto, w [1], 3 transposto, 
+w [1], 4 transposto, e assim, empilhando aqueles 4 vetores w
+ juntos, acaba montando uma matriz. Outra maneira de pensar nisto é que temos 
+quatro unidades de regressão logística e cada uma destas unidades de regressão 
+logística tem um vetor parâmetro 
+correspondente w, e empilhando os quatro vetores juntos, você fica com essa matriz (4,3). Portanto, se você pegar esta matriz 
+e multiplicar isso pelas 
+características de entrada, que são x1, x2, x3, descobre,como funciona a 
+multiplicação de matrizes, você descobre W1 [1] transposto vezes x, 
+W2 [1] transposto vezes x, W3 [1] transposto vezes x, W4 [1] transposto vezes x e, 
+não nos esqueçamos dos b's. Assim, agora adicionamos tudo a este vetor 
+b [1] 1; b [1] 2 b [1] 3; b [1] 4, então, basicamente, é isso. Em seguida, este b [1] 1; b [1] 2; b [1] 3 e 
+b [1] 4 e assim por diante. Veja que cada uma das quatro linhas deste 
+resultado, corresponde exatamente a cada uma dessas quatro linhas, de cada uma 
+destas quatro somas que tivemos acima. Então, em outras palavras, nós apenas 
+mostramos que essa coisa é, portanto,
+ igual a z [1] 1, z [1] 2, z [1] 3, z [1] 4, tal como definido 
+aqui, e talvez, não surpreendentemente, vamos
+ chamar tudo isso de "vetor z [1]", que é calculado empilhando cada um destes Z's no vetor coluna. Quando estamos vetorizando, dentre as
+ regras gerais que podem ajudá-lo a 
+navegar nisto é que, quando temos nós diferentes na 
+camada, iremos empilhá-los verticalmente. Por isso é que, quando você tinha
+ Z [1] 1 a Z [1] 4, aqueles correspondem a quatro diferentes 
+nós na camada oculta, e então nós empilhados estes quatro números 
+verticalmente para formar o vetor z [1], e usando mais um pouco de notação, 
+esta matriz (4,3) aqui, que obtemos empilhando as minúsculas 
+w [1] 1; w [1] 2, e assim por diante, iremos chamar esta matriz
+ W [1] maiúscula, e da mesma forma, este vetor Vamos chamar de b sobrescrito [1], 
+e então é um vetor (4,1). Agora, nós já calculamos z usando notação 
+de matriz vetor. A última coisa que precisamos fazer é
+ calcular também esses valores de a, assim provavelmente não vai se surpreender ao ver
+ que vamos definir a[1] como esses valores de 
+ativação a[1] 1até a[1] 4 empilhados juntos. Pegue esses quatro valores e empilhe-os 
+juntos no vetor chamado a[1], e isto será sigmoide de (z[1]), onde esta agora foi uma implementação da 
+função sigmoide que absorve os quatro elementos de z e aplica a
+ função sigmoide elemento-a-elemento a ela. Recapitulando: já 
+descobrimos que z [1] = W [1] vezes vetor x + b [1] e que a[1] é a sigmoide de z[1]. Vamos apenas copiar isto para o próximo 
+slide, e o que vemos é que, para a primeira camada da Rede Neural, 
+dada uma entrada x, temos que z [1] = W [1] x + b [1], e que a[1] = sigmoide (z[1]) e as dimensões destas são vetores (4,1) = (4,3) x (3,1) + (4.1), e isto é um vetor (4,1), mesma dimensão 
+como no fim, e lembre-se do que dissemos x = a sobrescrito [0], 
+e da mesma forma, ŷ = a sobrescrito[2]. Então se quiser, pode pegar esta camada
+ zero de entrada e substituí-la por a[0],
+ já que a sobrescrito [0] é apenas um apelido, um aliás, 
+para o vetor de características 
+de entrada x. Agora, através de uma derivação semelhante, 
+você pode descobrir que a representação para a próxima camada também pode ser escrita 
+de forma similar, onde a 
+camada de saída que faz isto, ela está associada a isso, então a 
+principal diz, w [2] e b [2]. Assim, w[2] neste caso será uma 
+matriz (1,4) e b [2] é apenas um número real num vetor (1,1), e então, z[2] será um número real que é 
+escrito como uma matriz (1,1). Isto sera uma coisa (1,4) , vezes 'a' que 
+é (4,1), mais b (1,1), e isto te dá apenas um número real, e se 
+você acha que esta última unidade de saída apenas como uma análoga à regressão
+logística, que tinha parâmetros w e b. W realmente desempenha um papel análogo 
+ao W[2] transposto, ou W[2] é realmente w transposto e 
+b é igual a b[2]. Então estávamos cobrindo a esquerda 
+desta rede e agora, ignore tudo isso, então isto é apenas, esta última unidade 
+superior é muito parecida com 
+uma regressão logística, Exceto que em vez de escrever os 
+parâmetros como w e b, estamos escrevendo-os como W [2] e b [2], 
+com dimensões (1,4) e (1,1). Então recapitulando, na
+ regressão logística, para implementar a saída, ou para 
+implementar a previsão, você calcularia o 
+z = w transposto vezes x + b 
+e ŷ = a = sigmoide de (z). Quando temos uma unidade 
+de Rede Neural, com uma camada oculta,
+ o que precisamos implementar para calcular esta saída são 
+essas quatro equações, e você pode pensar nelas como uma implementação vetorizada 
+do cálculo da saída destas primeiras quatro unidades de regressão logística na camada 
+oculta, que é que é feito, e então isto, que é a regressão na 
+camada de saída, que é o que isto faz. Espero que essa descrição faça sentido, 
+mas o mais importante é calcular a saída desta rede neural, tudo que você precisa 
+são essas quatro linhas de código. Portanto, agora você já viu como dado um
+ único vetor com as características de entrada x, você pode com quatro linhas de código, 
+calcular a saída dessa rede neural. Semelhante ao que fizemos para a regressão 
+logística, nós também queremos vetorizar nossas várias amostras de treinamento
+ e conseguiremos isso, empilhando um 
+máximo de três exemplos em diferentes colunas, na matriz, 
+com um ligeira modificação nela. Você também, parecido ao que você já viu 
+na regressão logística, é capaz de calcular a saída 
+dessa rede neural, Não apenas em um exemplo de cada vez, 
+mas digo em seu conjunto de treinamento inteiro 
+de uma só vez. Então, veremos os detalhes disso 
+no próximo vídeo. 
+Tradução: Bruno Alexandre Freitas | Revisão: Carlos Lage.

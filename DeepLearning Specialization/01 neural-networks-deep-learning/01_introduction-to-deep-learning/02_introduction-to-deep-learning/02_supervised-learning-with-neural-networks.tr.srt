@@ -1,0 +1,572 @@
+1
+00:00:03,320 --> 00:00:05,850
+Yapay sinir ağları yoğun bir şekilde halkın ilgisini çekmekte.
+
+2
+00:00:05,850 --> 00:00:10,170
+ne kadar iyi çalıştıklarına bakılırsa bu haklı bir ilgi.
+
+3
+00:00:10,170 --> 00:00:11,220
+Sonuçta,
+
+4
+00:00:11,220 --> 00:00:15,710
+yapay sinir ağları tarafından ekonomik olarak yaratılan tüm değerler
+
+5
+00:00:15,710 --> 00:00:18,970
+denetimli öğrenme de denilen makine öğrenmesinin bir tipinden kaynaklanıyor.
+
+6
+00:00:18,970 --> 00:00:22,120
+Bakalım bu (denetimli öğrenme) nedir öğrenelim ve bazı örnekler görelim.
+
+7
+00:00:22,120 --> 00:00:26,030
+Denetimli öğrenmede, senin girdi olarak bir x girdin var ve
+
+8
+00:00:26,030 --> 00:00:30,210
+bu girdiyi y çıktısına ulaştıran fonksiyou öğrenmek istiyorsun.
+
+9
+00:00:30,210 --> 00:00:34,890
+Örnek olarak, bir evin özelliklerini girdi olarak kullanıldığı ve
+
+10
+00:00:34,890 --> 00:00:40,850
+y çıktısı olarak fiyat tahmini yapan
+ev fiyat tahmini uygulamasını görmüştük
+
+11
+00:00:40,850 --> 00:00:45,180
+Şimdiyse, sinir ağlarının
+uygulandığı diğer örneklere bakalım.
+
+12
+00:00:45,180 --> 00:00:46,940
+öğrenmiştik.
+
+13
+00:00:46,940 --> 00:00:51,180
+Muhtemelen bugünlerde en kazançlı
+derin öğrenme uygulaması
+
+14
+00:00:51,180 --> 00:00:56,150
+internet reklamcılığı,
+çok ilham verici olmasa da, kesinlikle çok kazançlı
+
+15
+00:00:56,150 --> 00:01:02,770
+göstermek istediği internet sayfasını ve
+kullanıcıdan aldığı bazı bilgileri
+
+16
+00:01:02,770 --> 00:01:07,020
+kullanarak, sinir ağları o reklama tıklayıp
+
+17
+00:01:07,020 --> 00:01:10,700
+tıklamayacağınızı
+çok iyi bir şekilde tahmin edebilir.
+
+18
+00:01:10,700 --> 00:01:11,770
+Birçok şirkette,
+
+19
+00:01:11,770 --> 00:01:15,800
+size, yani kullanıcılarına, tıklanması
+en muhtemel reklamları gösteren,
+
+20
+00:01:15,800 --> 00:01:20,830
+akıl almaz derecede kazançlı sinir ağları uygulamalardı
+
+21
+00:01:20,830 --> 00:01:24,040
+Çünkü tıklanması en muhtemel reklamları
+sizlere gösterebilme yetisi,
+
+22
+00:01:24,040 --> 00:01:26,690
+bazı büyük internet reklamcılığı şirketlerinin
+
+23
+00:01:26,690 --> 00:01:29,200
+net gelirlerine direkt bir biçimde etki eder.
+
+24
+00:01:30,630 --> 00:01:35,150
+Bilgisayarla görü, son birkaç yılda
+büyük ölçüde, derin öğrenme
+
+25
+00:01:35,150 --> 00:01:37,050
+sayesinde, büyük bir gelişim gösterdi.
+
+26
+00:01:37,050 --> 00:01:41,140
+Bir resmi seçip, seçilen bu resmin
+
+27
+00:01:41,140 --> 00:01:45,290
+1000 farklı resimden hangisi olduğunu belirten
+
+28
+00:01:45,290 --> 00:01:47,300
+1 ile 1000 arasında bir indeks çıktısı isteyebilirsiniz.
+
+29
+00:01:47,300 --> 00:01:50,500
+Resim etiketleyebilirsiniz.
+
+30
+00:01:50,500 --> 00:01:54,520
+Bir ses klibini sinir ağına girdi olarak verip, yazıya dökülmüş halini çıktı olarak veren
+
+31
+00:01:54,520 --> 00:01:57,910
+konuşma tanıma alanındaki son gelişmelerin
+
+32
+00:01:57,910 --> 00:02:00,930
+çok heyecan verici olduğunu düşünüyorum.
+
+33
+00:02:00,930 --> 00:02:05,400
+İngilizce bir cümlenin sinir ağına girdi olarak verilebildiği
+ve direkt olarak Çince bir cümlenin
+
+34
+00:02:05,400 --> 00:02:09,400
+çıktı olarak alınabildiği, makine çevirisi,
+derin öğrenme sayesinde,
+
+35
+00:02:09,400 --> 00:02:11,010
+büyük bir gelişme gösterdi.
+
+36
+00:02:11,010 --> 00:02:15,930
+Ve sürücüsüz araçlar. Bir görüntüyü girdi olarak seçip,
+radar için olduğu gibi,
+
+37
+00:02:15,930 --> 00:02:20,600
+arabanızın önündekinin ne olduğunu bulabilir,
+
+38
+00:02:20,600 --> 00:02:25,080
+ve buna dayanarak, belki de yoldaki diğer
+araçların pozisyonunu belirtmesi için
+
+39
+00:02:25,080 --> 00:02:26,100
+sinir ağları eğitilebilir.
+
+40
+00:02:26,100 --> 00:02:30,870
+Ve bu, sürücüsüz araç sistemleri için
+kilit bir parça haline gelir.
+
+41
+00:02:30,870 --> 00:02:35,730
+Yani, x'in ne olması gerektiğini seçerken
+ve sizin belirli probleminiz için
+
+42
+00:02:35,730 --> 00:02:39,360
+y'nin ne olması gerektiğini akıllıca seçerek,
+ardından bu denetimli öğrenme bileşenini
+
+43
+00:02:39,360 --> 00:02:45,000
+genellikle sürücüsüz araçlar gibi daha
+büyük sistemlere uygulayarak,
+
+44
+00:02:45,000 --> 00:02:48,660
+sinir ağları ile bir çok değer yaratılabilir.
+
+45
+00:02:48,660 --> 00:02:52,880
+Farklı uygulamalar için,
+farklı tiplerde sinir ağlarının
+
+46
+00:02:52,880 --> 00:02:54,960
+kullanışlı olduğu ortaya çıkıyor.
+
+47
+00:02:54,960 --> 00:03:00,100
+Örneğin, bir önceki videoda
+gördüğümüz gayrimenkul uygulamasında
+
+48
+00:03:00,100 --> 00:03:04,520
+evrensel standart bir sinir ağı
+mimarisi kullanıyoruz, değil mi?
+
+49
+00:03:04,520 --> 00:03:08,510
+Belki de emlak ve internet reklamcılığı
+için daha önce
+
+50
+00:03:08,510 --> 00:03:11,620
+gördüklerimiz gibi nispeten standart
+bir sinir ağı olabilir.
+
+51
+00:03:13,410 --> 00:03:19,120
+Görüntü uygulamaları için genellikle,
+sinir ağları üzerinde
+
+52
+00:03:19,120 --> 00:03:20,680
+evrişim yöntemini kullanırız. (kısaltması CNN)
+
+53
+00:03:21,730 --> 00:03:24,000
+Ve sıralı veri tipleri için.
+
+54
+00:03:24,000 --> 00:03:27,840
+Örneğin, ses zamana bağlıdır, değil mi?
+
+55
+00:03:27,840 --> 00:03:32,990
+Ses zaman içerisinde çalınır,
+bu yüzden de ses en doğal şekilde
+
+56
+00:03:32,990 --> 00:03:38,110
+1 boyutlu zaman serisi olarak (time/temporal) gösterilir.
+
+57
+00:03:38,110 --> 00:03:42,420
+Ve sıralı veri tipleri için,
+genellikle RNN kullanırsın.
+
+58
+00:03:42,420 --> 00:03:45,810
+özyineli sinir ağı.
+
+59
+00:03:45,810 --> 00:03:50,270
+dil, İngilizce ve Çince gibi,
+alfabeler ya da kelimeler art arda sıralanır.
+
+60
+00:03:50,270 --> 00:03:54,820
+Bu yüzden dil de en doğal şekilde
+sıralı veri olarak gösterilir.
+
+61
+00:03:54,820 --> 00:04:00,700
+Ve RNN'lerin daha kompleks versiyonları
+bu uygulamalarda kullanılır.
+
+62
+00:04:00,700 --> 00:04:04,360
+Ve daha sonra, evrişimli sinir ağı mimarisinde
+
+63
+00:04:04,360 --> 00:04:09,200
+fazlasını sunan resim ile, biraz daha farklı olan
+
+64
+00:04:09,200 --> 00:04:12,480
+radar verisini içeren sürücüsüz araçlar gibi
+daha da karmaşık uygulamalar için,
+
+65
+00:04:12,480 --> 00:04:15,360
+Daha özel ya da daha karmaşık,
+
+66
+00:04:15,360 --> 00:04:19,880
+karma sinir ağ mimarisi kullanabilirsiniz.
+
+67
+00:04:20,880 --> 00:04:26,100
+Standart CNN ve RNN mimarileri hakkında
+
+68
+00:04:26,100 --> 00:04:27,950
+daha somut olmak adına,
+
+69
+00:04:27,950 --> 00:04:32,790
+Literatürde, şu resmi görmüş olabilirsiniz.
+
+70
+00:04:32,790 --> 00:04:34,740
+İşte bu standart sinir ağıdır.
+
+71
+00:04:34,740 --> 00:04:36,800
+Şu resmi de görmüşsünüzdür.
+
+72
+00:04:36,800 --> 00:04:41,830
+Bu da, evrişimli sinir ağına bir örnektir,
+ve sonraki derslerde
+
+73
+00:04:41,830 --> 00:04:45,950
+bu resmin tam olarak ne anlama geldiğini 
+ve nasıl uygulandığını göreceğiz.
+
+74
+00:04:45,950 --> 00:04:51,560
+Fakat, evrişimli ağlar genellikle resimler için kullanılır.
+
+75
+00:04:51,560 --> 00:04:54,100
+Ayrıca, şu resmi de görmüş olabilirsiniz.
+
+76
+00:04:54,100 --> 00:04:57,590
+Bunun da nasıl uygulandığını
+sonraki derslerde öğreneceksiniz.
+
+77
+00:04:57,590 --> 00:05:00,180
+Özyineli sinir ağlar, zamana bağlı değişen
+
+78
+00:05:00,180 --> 00:05:06,220
+tek boyutlu sıralı veri tipi için çok uygundur.
+
+79
+00:05:06,220 --> 00:05:10,310
+Makine öğreniminin hem yapılandırılmış veriye
+
+80
+00:05:10,310 --> 00:05:14,000
+hem de yapılandırılmamış verilere için
+uygulamalarını duymuş olabilirsiniz.
+
+81
+00:05:14,000 --> 00:05:14,960
+İşte terimlerin anlamları:
+
+82
+00:05:14,960 --> 00:05:18,620
+Yapılandırılmış veri temelde veritabanlarıdır.
+
+83
+00:05:19,910 --> 00:05:25,010
+Örneğin, ev fiyatı tahmini uygulamasındaki
+
+84
+00:05:25,010 --> 00:05:28,140
+yatak odası sayısını ve büyüklüğünü gösteren
+kolonlar ya da veritabanları gibi
+
+85
+00:05:28,140 --> 00:05:33,460
+Bu, yapılandırılmış veridir, ya da hava tahmini,
+ya da reklama tıklamayacak
+
+86
+00:05:33,460 --> 00:05:37,330
+kullanıcıların tahmini gibi, kullanıcı hakkında,
+yaşı gibi, bilgilere sahip olabilirsin,
+
+87
+00:05:37,330 --> 00:05:41,590
+reklam hakkında bazı bilgilerle birlikte,
+tahmin etmek istediğin etiketlere de.
+
+88
+00:05:41,590 --> 00:05:46,470
+Bu, iyi derecede tanımlanmış,
+
+89
+00:05:46,470 --> 00:05:49,740
+evin büyüklüğü, yatak odası sayısı
+veya kullanıcının yaşı gibi
+
+90
+00:05:49,740 --> 00:05:54,530
+özellikleri olan yapılandırılmış verilerdir.
+
+91
+00:05:54,530 --> 00:06:00,520
+Aksine, yapılandırılmamış veriler, resimde ya da yazıda
+
+92
+00:06:00,520 --> 00:06:05,790
+tanımak isteyeceğiniz ses, ham ses
+ya da resimler gibi şeyleri tanımlar.
+
+93
+00:06:05,790 --> 00:06:09,230
+Mesela, bir resimdeki piksel değerleri ya da
+
+94
+00:06:09,230 --> 00:06:12,190
+bir yazı kısmındaki bir kelime, özellikleri oluşturabilir.
+
+95
+00:06:12,190 --> 00:06:14,330
+Tarih boyunca, bilgisayarlar için yapılandırılmamış verileri
+
+96
+00:06:14,330 --> 00:06:19,480
+anlamlandırmak yapılandırılmış verilerle
+karşılaştırıldığında hep zor olmuştur.
+
+97
+00:06:19,480 --> 00:06:24,270
+İnsanoğlunun, ses parçalarının yanı sıra görüntülerin de
+
+98
+00:06:24,270 --> 00:06:26,270
+anlaşılmasında çok iyi olmasına evrildiği de bir gerçektir.
+
+99
+00:06:26,270 --> 00:06:28,390
+ve sonrasında yazı daha yeni bir icattı, fakat
+
+100
+00:06:28,390 --> 00:06:31,760
+insanlar yapılandırılmamış veriyi
+yorumlarken de gayet iyidir.
+
+101
+00:06:31,760 --> 00:06:36,800
+Sinir ağlarının yükselişiyle ilgili
+en heyecan verici şeylerden biri de,
+
+102
+00:06:36,800 --> 00:06:41,280
+derin öğrenme sayesinde, sinir ağları sayesinde,
+bilgisayarlar, birkaç yıl öncesine göre
+
+103
+00:06:41,280 --> 00:06:46,320
+yapılandırılmamış verileri yorumlarken
+artık çok daha iyi olması.
+
+104
+00:06:46,320 --> 00:06:51,240
+Ve bu da konuşma tanıma,
+resim tanıma, doğal dil işleme gibi
+
+105
+00:06:51,240 --> 00:06:55,220
+heyecan verici yeni uygulamalar için
+iki üç yıl önce bile mümkün olandan
+
+106
+00:06:56,230 --> 00:07:00,180
+çok daha fazlasını sunan birçok fırsat yaratıyor.
+
+107
+00:07:00,180 --> 00:07:03,940
+Bence, insanların yapılandırılmamış verileri
+anlamada doğal bir empatiye sahip
+
+108
+00:07:03,940 --> 00:07:08,250
+olmasından ötürü, sinir ağlarının
+yapılandırılmamış verilerdeki başarısını medyada
+
+109
+00:07:08,250 --> 00:07:13,060
+daha fazla duyabilirsiniz çünkü sinir ağları
+bir kediyi tanıdığında çok havalıdır.
+
+110
+00:07:13,060 --> 00:07:15,750
+Böyleyiz, ve bunun ne anlama geldiğini biliriz.
+
+111
+00:07:15,750 --> 00:07:19,290
+Fakat daha iyi reklamcılık sistemleri,
+daha iyi kar önerileri ve
+
+112
+00:07:19,290 --> 00:07:24,270
+birçok şirketin doğru tahminler
+yapmak zorunda olduğu
+
+113
+00:07:24,270 --> 00:07:28,690
+devasa veritabanlarını daha iyi işleyebilmek gibi,
+
+114
+00:07:28,690 --> 00:07:33,730
+sinir ağlarının yarattığı çok sayıda
+kısa vadeli ekonomik değer,
+
+115
+00:07:33,730 --> 00:07:37,290
+yapılandırılmış veriler ile ortaya konmuştu.
+
+116
+00:07:37,290 --> 00:07:41,230
+Bu kursta, hem yapılandırılmış,
+hem de yapılandırılmamış
+
+117
+00:07:41,230 --> 00:07:44,690
+veriler ile birçok teknik uygulayacağız.
+
+118
+00:07:44,690 --> 00:07:46,970
+Algoritmaları açıklamak amacıyla,
+
+119
+00:07:46,970 --> 00:07:52,210
+yapılandırılmamış verileri kullanan
+örnekler kullanacağız.
+
+120
+00:07:52,210 --> 00:07:56,280
+Fakat kendi ekibinizin yapay sinir ağları
+uygulamaları için,
+
+121
+00:07:56,280 --> 00:08:01,360
+hem yapılandırılmış hem de yapılandırılmamış verileri
+ kullanacağınızı umuyorum.
+
+122
+00:08:02,590 --> 00:08:06,390
+Böylelikle, sinir ağları, denetimli
+öğrenmeye dönüştü ve,
+
+123
+00:08:06,390 --> 00:08:09,500
+muazzam bir ekonomik değer yaratıyor.
+
+124
+00:08:09,500 --> 00:08:12,910
+Yine de, sinir ağlarının arkasındaki
+temel teknik fikirlerin
+
+125
+00:08:12,910 --> 00:08:16,520
+çoğunluka, on yıllardır,
+etrafta olduğu ortaya çıkıyor.
+
+126
+00:08:16,520 --> 00:08:20,980
+Peki neden şimdilerde iyi çalışmaya başladı?
+
+127
+00:08:20,980 --> 00:08:24,970
+Bir sonraki videoda, sinir ağlarının,
+kullanabileceğiniz inanılmaz güçlü bir araç haline
+
+128
+00:08:24,970 --> 00:08:28,940
+gelmesinin neden sadece son
+zamanlarda olduğunu anlatacağız.

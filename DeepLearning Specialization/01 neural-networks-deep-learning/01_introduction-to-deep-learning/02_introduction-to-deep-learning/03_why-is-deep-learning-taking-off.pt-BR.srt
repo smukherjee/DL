@@ -1,0 +1,1032 @@
+1
+00:00:00,329 --> 00:00:05,700
+Se as ideias técnicas básicas por trás das
+
+2
+00:00:03,060 --> 00:00:07,470
+redes de Aprendizagem Profunda 
+tem estado
+
+3
+00:00:05,700 --> 00:00:09,870
+por ai, por décadas, 
+então porque
+
+4
+00:00:07,470 --> 00:00:12,090
+somente agora estão decolando? 
+Nesse vídeo
+
+5
+00:00:09,870 --> 00:00:14,130
+vamos ver as 
+principais causas por trás
+
+6
+00:00:12,090 --> 00:00:16,170
+do aumento do 
+aprendizado profundo, porque
+
+7
+00:00:14,130 --> 00:00:18,090
+acho que 
+isso vai ajudar você a ver
+
+8
+00:00:16,170 --> 00:00:20,850
+as melhores oportunidades 
+dentro da sua própria
+
+9
+00:00:18,090 --> 00:00:22,439
+organização pra aplicar 
+essa ferramenta. Nos últimos
+
+10
+00:00:20,850 --> 00:00:24,240
+anos, muitas pessoas tem
+
+11
+00:00:22,439 --> 00:00:26,820
+me perguntado: Andrew 
+porque o aprendizado profundo
+
+12
+00:00:24,240 --> 00:00:28,949
+tem funcionado tão bem? E pra responder
+
+13
+00:00:26,820 --> 00:00:31,109
+essa pergunta, essa é a
+
+14
+00:00:28,949 --> 00:00:33,210
+figura que eu desenho. Veja essa
+
+15
+00:00:31,109 --> 00:00:36,180
+figura que eu desenho, onde no eixo horizontal
+
+16
+00:00:33,210 --> 00:00:39,270
+eu coloco a quantidade de dados que temos
+
+17
+00:00:36,180 --> 00:00:42,570
+para uma tarefa. E digamos que no eixo vertical
+
+18
+00:00:39,270 --> 00:00:44,430
+nos colocamos a performance
+
+19
+00:00:42,570 --> 00:00:48,180
+do algorítimo de aprendizado, ou seja, a precisão
+
+20
+00:00:44,430 --> 00:00:51,960
+de nosso classificador de spams ou predição do
+
+21
+00:00:48,180 --> 00:00:53,969
+clique em anúncio 
+ou a precisão de nossa rede neural
+
+22
+00:00:51,960 --> 00:00:56,399
+em predizer a posição dos
+
+23
+00:00:53,969 --> 00:00:58,440
+outros carros a partir de um carro sem motorista.
+
+24
+00:00:56,399 --> 00:01:00,270
+Assim, se você plotar a performance de
+
+25
+00:00:58,440 --> 00:01:02,460
+um algorítimo de aprendizado tradicional como
+
+26
+00:01:00,270 --> 00:01:04,710
+suporte a maquina vetorizada ou regressão logística
+
+27
+00:01:02,460 --> 00:01:07,619
+como uma função da quantidade de
+
+28
+00:01:04,710 --> 00:01:09,720
+dados que você tem, você pode ter uma curva
+
+29
+00:01:07,619 --> 00:01:11,670
+parecida com essa, onde
+
+30
+00:01:09,720 --> 00:01:14,280
+a performance melhora a medida que você
+
+31
+00:01:11,670 --> 00:01:16,200
+adiciona mais dados. Mas, depois de um tempo
+
+32
+00:01:14,280 --> 00:01:18,630
+em que a performance esteja num platô
+
+33
+00:01:16,200 --> 00:01:21,180
+como uma linha horizontal
+
+34
+00:01:18,630 --> 00:01:25,320
+(não desenhei muito bem)
+
+35
+00:01:21,180 --> 00:01:28,140
+e não se sabe o que fazer com tantos dados.
+
+36
+00:01:25,320 --> 00:01:30,689
+E o que acontece em nossa
+
+37
+00:01:28,140 --> 00:01:32,850
+sociedade, talvez nos últimos 20 anos
+
+38
+00:01:30,689 --> 00:01:34,820
+é que para muitos problemas
+
+39
+00:01:32,850 --> 00:01:38,610
+nós saímos dessa frequente pouca quantidade de dados
+
+40
+00:01:34,820 --> 00:01:40,979
+para uma quantidade muito grande
+
+41
+00:01:38,610 --> 00:01:43,979
+de dados. E devemos agradecer muito
+
+42
+00:01:40,979 --> 00:01:46,979
+a digitalização de nossa sociedade
+
+43
+00:01:43,979 --> 00:01:48,720
+onde muitas atividades humanas estão agora
+
+44
+00:01:46,979 --> 00:01:51,180
+digitalizadas. Gastamos muito tempo em
+
+45
+00:01:48,720 --> 00:01:54,320
+computadores, websites, app de celulares e
+
+46
+00:01:51,180 --> 00:01:57,960
+atividades com dispositivos digitais
+
+47
+00:01:54,320 --> 00:02:00,360
+que criam dados. E obrigado ao aumento de
+
+48
+00:01:57,960 --> 00:02:02,369
+câmeras baratas embutidas em nosso celulares
+
+49
+00:02:00,360 --> 00:02:05,909
+e também acelerômetros e toda sorte de sensores
+
+50
+00:02:02,369 --> 00:02:07,890
+para Internet das Coisas.
+
+51
+00:02:05,909 --> 00:02:11,129
+Também, nos últimos 20 anos,
+
+52
+00:02:07,890 --> 00:02:12,870
+temos coletado cada vez mais dados
+
+53
+00:02:11,129 --> 00:02:13,560
+para uma série de aplicações, onde apenas
+
+54
+00:02:12,870 --> 00:02:16,319
+acumulamos cada vez
+
+55
+00:02:13,560 --> 00:02:17,550
+mais dados, mais do que algoritmos de aprendizado
+
+56
+00:02:16,319 --> 00:02:20,520
+tradicional são capazes de manipular com eficiência.
+
+57
+00:02:17,550 --> 00:02:22,560
+Então, onde uma nova rede
+
+58
+00:02:20,520 --> 00:02:26,310
+rede neural nos leva,
+
+59
+00:02:22,560 --> 00:02:28,470
+parece ser que se você treina uma pequena
+
+60
+00:02:26,310 --> 00:02:31,349
+onde a performance pode parecer assim.
+
+61
+00:02:28,470 --> 00:02:34,590
+E se você treina uma grande rede neural,
+
+62
+00:02:31,349 --> 00:02:36,330
+que podemos chamar de rede neural de tamanho médio
+
+63
+00:02:34,590 --> 00:02:39,900
+que tem uma performance bem melhor.
+
+64
+00:02:36,330 --> 00:02:42,180
+E se você treina uma rede neural bem grande,
+
+65
+00:02:39,900 --> 00:02:44,580
+pode ver que a performance vai se
+
+66
+00:02:42,180 --> 00:02:46,890
+tornando cada vez melhor.
+
+67
+00:02:44,580 --> 00:02:49,410
+Algumas observações: se você deseja atingir
+
+68
+00:02:46,890 --> 00:02:52,620
+um alto nível de performance, então você precisa
+
+69
+00:02:49,410 --> 00:02:54,420
+de duas coisas: primeiro, você precisa ser
+
+70
+00:02:52,620 --> 00:02:57,360
+capaz de conseguir treinar uma rede neural
+
+71
+00:02:54,420 --> 00:02:59,670
+bem grande para conseguir 
+a vantagem de poder usar
+
+72
+00:02:57,360 --> 00:03:02,010
+uma grande quantidade de dados e segundo,
+
+73
+00:02:59,670 --> 00:03:05,430
+você precisa estar nessa posição do eixo x para
+
+74
+00:03:02,010 --> 00:03:07,799
+ter uma grande quantidade de dados. Assim,
+
+75
+00:03:05,430 --> 00:03:10,860
+dizemos que a escala tem guiado o progresso do
+
+76
+00:03:07,799 --> 00:03:12,900
+aprendizado profundo e, por escala eu quero dizer
+
+77
+00:03:10,860 --> 00:03:15,150
+tanto o tamanho da rede neural, o que significa uma
+
+78
+00:03:12,900 --> 00:03:17,069
+rede neural com uma série de unidades escondidas,
+
+79
+00:03:15,150 --> 00:03:21,480
+uma série de parâmetros, uma série de conexões e
+
+80
+00:03:17,069 --> 00:03:23,910
+também uma escala dos dados. De fato, atualmente um
+
+81
+00:03:21,480 --> 00:03:25,440
+dos melhores meios de melhorar a performance
+
+82
+00:03:23,910 --> 00:03:27,390
+em uma rede neural
+
+83
+00:03:25,440 --> 00:03:29,940
+é treinar uma rede neural grande ou
+
+84
+00:03:27,390 --> 00:03:31,829
+adicionar more data a rede.
+
+85
+00:03:29,940 --> 00:03:33,359
+Mas isso só funciona ate um certo ponto
+
+86
+00:03:31,829 --> 00:03:35,640
+já que, eventualmente, você não tem mais dados ou
+
+87
+00:03:33,359 --> 00:03:37,769
+então sua rede está tão grande que leva
+
+88
+00:03:35,640 --> 00:03:40,200
+muito tempo para treinar. Mas
+
+89
+00:03:37,769 --> 00:03:42,690
+melhorando a escala, atualmente tem
+
+90
+00:03:40,200 --> 00:03:45,810
+nos levado a um longo caminho no mundo do
+
+91
+00:03:42,690 --> 00:03:48,060
+aprendizado. Para fazer esse diagrama um
+
+92
+00:03:45,810 --> 00:03:49,920
+pouco mais preciso, vou apenas adicionar
+
+93
+00:03:48,060 --> 00:03:53,040
+mais algumas poucas coisas. Eu escrevei Quantidade de dados
+
+94
+00:03:49,920 --> 00:03:57,900
+aqui no eixo x. Tecnicamente, essa é uma quantidade
+
+95
+00:03:53,040 --> 00:04:00,180
+de dados rotulados, onde dado rotulado
+
+96
+00:03:57,900 --> 00:04:03,630
+significa treinar exemplos onde temos tanto
+
+97
+00:04:00,180 --> 00:04:05,910
+a entrada X e o rótulo y. Eu vou
+
+98
+00:04:03,630 --> 00:04:07,709
+introduzir uma notação que vamos
+
+99
+00:04:05,910 --> 00:04:10,769
+utilizar mais tarde nesse curso. Vamos
+
+100
+00:04:07,709 --> 00:04:12,540
+utilizar a letra m minuscula para
+
+101
+00:04:10,769 --> 00:04:13,739
+denotar o tamanho do conjunto dos dados de treino
+
+102
+00:04:12,540 --> 00:04:15,690
+ou o número de exemplos de treino.
+
+103
+00:04:13,739 --> 00:04:18,989
+Isso com a letre minuscula m. Então
+
+104
+00:04:15,690 --> 00:04:20,310
+esse é o eixo horizontal. Mais alguns detalhes
+
+105
+00:04:18,989 --> 00:04:23,340
+sobre essa figura:
+
+106
+00:04:20,310 --> 00:04:26,970
+nesse área de conjuntos de dados pequenos,
+
+107
+00:04:23,340 --> 00:04:29,700
+a ordem relativa dos algorítimos não
+
+108
+00:04:26,970 --> 00:04:31,590
+é muito bem definida. Assim, se você não
+
+109
+00:04:29,700 --> 00:04:34,500
+tem uma grande quantidade de dados,
+
+110
+00:04:31,590 --> 00:04:36,510
+então vai depender dos conhecimentos técnicos
+
+111
+00:04:34,500 --> 00:04:39,090
+para manipular as características, 
+que determinam a performance.
+
+112
+00:04:36,510 --> 00:04:41,910
+Então é bem possível que se alguém treinar
+
+113
+00:04:39,090 --> 00:04:44,070
+com SVM esteja apenas mais motivado
+
+114
+00:04:41,910 --> 00:04:46,320
+a manipular a engenharia das características e
+
+115
+00:04:44,070 --> 00:04:48,300
+se alguém treinar uma rede neural enorme,
+
+116
+00:04:46,320 --> 00:04:50,730
+que talvez nessa área o SVM possa
+
+117
+00:04:48,300 --> 00:04:53,130
+dar melhores resultados.
+
+118
+00:04:50,730 --> 00:04:55,020
+Então, nessa região do lado esquerdo da figura,
+
+119
+00:04:53,130 --> 00:04:57,090
+a ordem relativa entre os algoritmos
+
+120
+00:04:55,020 --> 00:04:59,550
+não é bem definida.
+
+121
+00:04:57,090 --> 00:05:01,919
+E a performance depende muito mais
+
+122
+00:04:59,550 --> 00:05:03,389
+dos seus conhecimentos sobre manipular as características
+
+123
+00:05:01,919 --> 00:05:05,970
+no sentido de diminuir os detalhes sobre
+
+124
+00:05:03,389 --> 00:05:08,850
+algoritmos. E nessa região de
+
+125
+00:05:05,970 --> 00:05:12,000
+de muitos dados ou conjuntos muito grandes de
+
+126
+00:05:08,850 --> 00:05:14,669
+dados de treinamentos m, na figura a direita,
+
+127
+00:05:12,000 --> 00:05:17,639
+onde mais consistentemente vemos grandes
+
+128
+00:05:14,669 --> 00:05:19,560
+redes neurais dominando.
+
+129
+00:05:17,639 --> 00:05:21,600
+Assim, se algum colega seu perguntar
+
+130
+00:05:19,560 --> 00:05:23,700
+porque as redes neurais estão decolando,
+
+131
+00:05:21,600 --> 00:05:26,729
+eu sugiro que você mostre essa figura.
+
+132
+00:05:23,700 --> 00:05:28,890
+Então, eu diria que
+
+133
+00:05:26,729 --> 00:05:29,310
+Então eu diria que atualmente o aumento do
+
+134
+00:05:28,890 --> 00:05:32,070
+quando aprendendo
+
+135
+00:05:29,310 --> 00:05:34,919
+foram dados escalonados e computação
+
+136
+00:05:32,070 --> 00:05:36,330
+em escala, com habilidade de treinar
+
+137
+00:05:34,919 --> 00:05:39,479
+redes neurais muito grandes
+
+138
+00:05:36,330 --> 00:05:41,850
+e tanto CPUs como GPUs nos habilitam
+
+139
+00:05:39,479 --> 00:05:43,590
+a fazer uma serie de progressos, mas
+
+140
+00:05:41,850 --> 00:05:45,800
+incrivelmente, especialmente nos últimos anos,
+
+141
+00:05:43,590 --> 00:05:48,360
+temos visto incríveis inovações
+
+142
+00:05:45,800 --> 00:05:50,539
+nos algoritmos. Eu também
+
+143
+00:05:48,360 --> 00:05:53,700
+não entendo que
+
+144
+00:05:50,539 --> 00:05:56,940
+muitas das inovações em algoritmos
+
+145
+00:05:53,700 --> 00:06:01,139
+em feito com que
+
+146
+00:05:56,940 --> 00:06:03,510
+as redes neurais rodem bem mais rápido.
+
+147
+00:06:01,139 --> 00:06:05,310
+Assim, como exemplo concreto, um
+
+148
+00:06:03,510 --> 00:06:08,729
+dos paradigmas em redes neurais tem
+
+149
+00:06:05,310 --> 00:06:12,330
+sido a mudança do uso da função sigmoid que
+
+150
+00:06:08,729 --> 00:06:14,760
+se parece com isso, para a função ReLU
+
+151
+00:06:12,330 --> 00:06:18,479
+que já comentamos antes e que
+
+152
+00:06:14,760 --> 00:06:20,190
+se parece com isso. Não se
+
+153
+00:06:18,479 --> 00:06:22,260
+preocupe se ainda não entende
+
+154
+00:06:20,190 --> 00:06:24,389
+os detalhes, mas
+
+155
+00:06:22,260 --> 00:06:26,010
+um dos problemas de usar
+
+156
+00:06:24,389 --> 00:06:27,870
+a função sigmoid em aprendizado
+
+157
+00:06:26,010 --> 00:06:29,520
+de máquina é que nessa região
+
+158
+00:06:27,870 --> 00:06:30,280
+onde a inclinação da função
+
+159
+00:06:29,520 --> 00:06:32,920
+o gradiente
+
+160
+00:06:30,280 --> 00:06:35,350
+seria zero e assim o aprendizado
+
+161
+00:06:32,920 --> 00:06:37,060
+se torna muito lento, porque
+
+162
+00:06:35,350 --> 00:06:39,639
+quando você implementa o gradiente descendente
+
+163
+00:06:37,060 --> 00:06:41,470
+e o gradiente é zero, os parâmetros mudam
+
+164
+00:06:39,639 --> 00:06:44,740
+muito devagar, fazendo o aprendizado ser muito lento.
+
+165
+00:06:41,470 --> 00:06:46,450
+Ao passo que, mudando o que
+
+166
+00:06:44,740 --> 00:06:48,600
+chamamos de função de ativação da
+
+167
+00:06:46,450 --> 00:06:52,060
+rede neural para usar essa função chamada ReLU
+
+168
+00:06:48,600 --> 00:06:54,970
+ou função linear retificadora,
+
+169
+00:06:52,060 --> 00:06:57,070
+o gradiente é igual a um
+
+170
+00:06:54,970 --> 00:07:00,220
+para todos os valores positivos de entrada
+
+171
+00:06:57,070 --> 00:07:03,100
+E assim o gradiente é muito menos
+
+172
+00:07:00,220 --> 00:07:04,750
+provável tender para zero
+
+173
+00:07:03,100 --> 00:07:07,300
+e o gradiente aqui, a inclinação
+
+174
+00:07:04,750 --> 00:07:09,520
+é zero a esquerda, mas mudando de
+
+175
+00:07:07,300 --> 00:07:12,580
+função sigmoid pra
+
+176
+00:07:09,520 --> 00:07:14,410
+função ReLU tem feito
+
+177
+00:07:12,580 --> 00:07:16,960
+o algoritmo chamado gradiente
+
+178
+00:07:14,410 --> 00:07:19,169
+descendente trabalhar bem mais rápido.
+
+179
+00:07:16,960 --> 00:07:22,030
+E nesse simples exemplo
+
+180
+00:07:19,169 --> 00:07:23,860
+o algoritmo equivale.
+
+181
+00:07:22,030 --> 00:07:27,520
+O impacto de inovação que esse algoritmo
+
+182
+00:07:23,860 --> 00:07:29,080
+fez foi uma grande melhora computacional.
+
+183
+00:07:27,520 --> 00:07:31,240
+Assim, existem vários outros exemplos como
+
+184
+00:07:29,080 --> 00:07:33,340
+esse onde mudamos o algoritmo
+
+185
+00:07:31,240 --> 00:07:35,140
+para permitir que o código rode bem mais
+
+186
+00:07:33,340 --> 00:07:37,479
+rápido o que permite treinar
+
+187
+00:07:35,140 --> 00:07:39,520
+redes neurais bem maiores ou fazer isso
+
+188
+00:07:37,479 --> 00:07:42,250
+quando temos grandes redes neurais
+
+189
+00:07:39,520 --> 00:07:45,810
+ou uma grande quantidade de dados.
+
+190
+00:07:42,250 --> 00:07:48,610
+A outra razão do porque computação rápida
+
+191
+00:07:45,810 --> 00:07:51,070
+é importante é porque o processo de treinar
+
+192
+00:07:48,610 --> 00:07:53,710
+uma rede neural é muito iterativo.
+
+193
+00:07:51,070 --> 00:07:56,350
+Geralmente você tem uma ideia para
+
+194
+00:07:53,710 --> 00:07:58,020
+o seu arquiteto de redes e assim você
+
+195
+00:07:56,350 --> 00:08:01,060
+implemente a ideia em código
+
+196
+00:07:58,020 --> 00:08:02,830
+implementando assim, sua ideia.
+Então isso permite que você execute
+
+197
+00:08:01,060 --> 00:08:05,050
+um experimento que mostra a você o que
+
+198
+00:08:02,830 --> 00:08:07,510
+sua rede neural faz e então você analisando
+
+199
+00:08:05,050 --> 00:08:10,030
+você muda alguns detalhes
+
+200
+00:08:07,510 --> 00:08:12,930
+da sua rede neural e
+
+201
+00:08:10,030 --> 00:08:15,880
+volta para esse circulo várias vezes.
+
+202
+00:08:12,930 --> 00:08:18,550
+E quando sua rede neural leva muito
+
+203
+00:08:15,880 --> 00:08:21,400
+tempo para treinar, também vai levar
+
+204
+00:08:18,550 --> 00:08:24,039
+tempo para completar um ciclo. Então,
+
+205
+00:08:21,400 --> 00:08:26,740
+tem uma diferença muito grande em sua produtividade
+
+206
+00:08:24,039 --> 00:08:29,560
+ao construir sua rede neural, quando você pode
+
+207
+00:08:26,740 --> 00:08:34,169
+ter uma ideia e testá-la em
+
+208
+00:08:29,560 --> 00:08:36,370
+10 minutos ou ao longo do dia e ver se funciona,
+
+209
+00:08:34,169 --> 00:08:39,490
+versus se você treina uma rede neural por um mês,
+
+210
+00:08:36,370 --> 00:08:40,590
+o que, às vezes
+
+211
+00:08:39,490 --> 00:08:42,570
+acontece
+
+212
+00:08:40,590 --> 00:08:44,670
+porque você tem o resultado em
+
+213
+00:08:42,570 --> 00:08:47,250
+10 minutos ou talvez um dia e
+
+214
+00:08:44,670 --> 00:08:49,170
+você pode ainda tentar várias ideias
+
+215
+00:08:47,250 --> 00:08:50,610
+para tentar descobrir se
+
+216
+00:08:49,170 --> 00:08:53,720
+sua rede neural da bons resultados
+
+217
+00:08:50,610 --> 00:08:57,900
+para sua aplicação. 
+Assim, a computação rápida
+
+218
+00:08:53,720 --> 00:08:59,730
+tem realmente ajudado 
+muito em termos de acelerar
+
+219
+00:08:57,900 --> 00:09:02,610
+a taxa de retorno de resultados
+
+220
+00:08:59,730 --> 00:09:05,400
+experimentais e isso tem realmente ajudado
+
+221
+00:09:02,610 --> 00:09:07,550
+tanto os que trabalham com
+
+222
+00:09:05,400 --> 00:09:10,650
+redes neurais, como também os pesquisadores
+
+223
+00:09:07,550 --> 00:09:13,320
+de aprendizado profundo, tornando essa interação
+
+224
+00:09:10,650 --> 00:09:16,589
+mais rápida, o que alavanca suas ideias mais
+
+225
+00:09:13,320 --> 00:09:18,570
+rapidamente. Assim, tudo isso tem
+
+226
+00:09:16,589 --> 00:09:21,029
+contribuído para esta explosão 
+que ocorre na comunidade
+
+227
+00:09:18,570 --> 00:09:23,370
+de pesquisas de aprendizado profundo, o que tem
+
+228
+00:09:21,029 --> 00:09:25,620
+resultado em incríveis novos
+
+229
+00:09:23,370 --> 00:09:28,920
+algoritmos, promovendo um contínuo
+
+230
+00:09:25,620 --> 00:09:30,990
+progresso na área. Assim, essa são
+
+231
+00:09:28,920 --> 00:09:33,570
+algumas das forças que reforçam o
+
+232
+00:09:30,990 --> 00:09:36,000
+aumento do aprendizado profundo. Mas a boa notícia
+
+233
+00:09:33,570 --> 00:09:38,490
+é que essas forças ainda estão operando fortemente
+
+234
+00:09:36,000 --> 00:09:41,130
+para fazer o aprendizado profundo ser cada vez melhor.
+
+235
+00:09:38,490 --> 00:09:43,800
+Dados digitais: a sociedade está cada vez mais
+
+236
+00:09:41,130 --> 00:09:45,660
+gerando dados digitais, o que demanda computação
+
+237
+00:09:43,800 --> 00:09:48,300
+com o aumento de hardware especializado como
+
+238
+00:09:45,660 --> 00:09:50,940
+GPUs, redes rápidas ou diferentes tipos de
+
+239
+00:09:48,300 --> 00:09:53,250
+hardware. Eu acredito que nossa
+
+240
+00:09:50,940 --> 00:09:55,140
+habilidade de construir grandes redes neurais
+
+241
+00:09:53,250 --> 00:09:57,320
+em adição aos níveis de computação,
+
+242
+00:09:55,140 --> 00:10:00,360
+vão continuar melhorando e
+
+243
+00:09:57,320 --> 00:10:02,880
+as comunidades que pesquisam os algoritmos
+
+244
+00:10:00,360 --> 00:10:05,070
+vão continuar apresentando
+
+245
+00:10:02,880 --> 00:10:07,680
+fenomenais descobertas no campo dos algoritmos.
+
+246
+00:10:05,070 --> 00:10:09,839
+Sendo assim, acho que
+
+247
+00:10:07,680 --> 00:10:11,370
+podemos ser otimistas.
+
+248
+00:10:09,839 --> 00:10:13,650
+Eu sou otimista que o aprendizado profundo
+
+249
+00:10:11,370 --> 00:10:14,120
+continuará melhorando cada vez mais nos próximos
+
+250
+00:10:13,650 --> 00:10:17,100
+anos.
+
+251
+00:10:14,120 --> 00:10:18,540
+Assim, vamos ao último vídeo dessa sessão
+
+252
+00:10:17,100 --> 00:10:20,280
+onde vou falar um pouco
+
+253
+00:10:18,540 --> 00:10:22,610
+mais sobre o que você aprendeu
+
+254
+00:10:20,280 --> 00:10:22,610
+nesse curso. 
+[Tradução: Carlos Roberto| Revisão: Carlos Lage]

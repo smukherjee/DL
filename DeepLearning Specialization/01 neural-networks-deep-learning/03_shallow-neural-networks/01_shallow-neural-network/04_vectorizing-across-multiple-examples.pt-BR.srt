@@ -1,0 +1,551 @@
+1
+00:00:00,360 --> 00:00:04,530
+No último vídeo, você viu como calcular 
+a previsão em uma rede neural,
+
+2
+00:00:04,530 --> 00:00:06,610
+dado um único exemplo de treinamento.
+
+3
+00:00:06,610 --> 00:00:11,520
+Neste vídeo, você verá como usar vetorização 
+em múltiplos exemplos de treinamento.
+
+4
+00:00:11,520 --> 00:00:15,350
+E o resultado será muito parecido com 
+que você viu em regressão logística,
+
+5
+00:00:15,350 --> 00:00:19,050
+em que, ao empilhar diversos exemplos 
+de treinamento em diferentes colunas da
+
+6
+00:00:19,050 --> 00:00:23,630
+matriz, você seria capaz de pegar as 
+equações que você viu no vídeo anterior,
+
+7
+00:00:23,630 --> 00:00:27,860
+e com pouquíssimas modificações, 
+mudá-las para que a rede neural calcule
+
+8
+00:00:27,860 --> 00:00:32,340
+os resultados de todos os 
+exemplos ao mesmo tempo.
+
+9
+00:00:32,340 --> 00:00:35,080
+Então, vamos ver os 
+detalhes de como fazer isso.
+
+10
+00:00:35,080 --> 00:00:40,192
+Essas eram as quatro equações que nós 
+tínhamos no vídeo anterior de como calcular z'¹',
+
+11
+00:00:40,192 --> 00:00:41,348
+a'¹', z'²' e a'²'.
+
+12
+00:00:41,348 --> 00:00:46,867
+E eles lhe dizem como, dado um 
+conjunto de características vetor x,
+
+13
+00:00:46,867 --> 00:00:53,810
+você pode usá-los para gerar a'²' = ŷ 
+para um único exemplo de treinamento.
+
+14
+00:00:54,920 --> 00:01:00,050
+Agora, se você tem "m" exemplos de treinamento, 
+você precisa repetir este processo para
+
+15
+00:01:00,050 --> 00:01:01,870
+o primeiro exemplo de treinamento
+
+16
+00:01:01,870 --> 00:01:06,600
+x⁽¹⁾
+ para calcular
+
+17
+00:01:06,600 --> 00:01:11,062
+ŷ⁽¹⁾ que é a previsão no seu 
+primeiro exemplo de treinamento.
+
+18
+00:01:11,062 --> 00:01:16,537
+Então, x⁽²⁾, usamos isso 
+para gerar a previsão ŷ⁽²⁾.
+
+19
+00:01:16,537 --> 00:01:23,050
+E assim por diante até x⁽m⁾ 
+para gerar a previsão ŷ⁽m⁾.
+
+20
+00:01:23,050 --> 00:01:28,349
+E então, em todas essas 
+notações de ativação,
+
+21
+00:01:28,349 --> 00:01:31,669
+eu vou escrever a'²'⁽¹⁾.
+
+22
+00:01:31,669 --> 00:01:36,676
+E essa é a'²'⁽²⁾,
+
+23
+00:01:36,676 --> 00:01:40,640
+e a'²'⁽m⁾.
+
+24
+00:01:40,640 --> 00:01:46,830
+Então, essa notação a'²'⁽ⁱ⁾,
+
+25
+00:01:46,830 --> 00:01:52,520
+o parêneses ⁽ⁱ⁾ refere-se 
+ao exemplo de treinamento i,
+
+26
+00:01:52,520 --> 00:01:57,220
+e o colchete '²' refere-se 
+a camada 2. Ok.
+
+27
+00:01:58,530 --> 00:02:02,460
+Então, é assim que funcionam os 
+índices com parênteses e colchetes.
+
+28
+00:02:04,170 --> 00:02:07,920
+E então, para sugerir que, se você tem 
+uma implementação não-vetorizada e
+
+29
+00:02:07,920 --> 00:02:11,000
+quer calcular as previsões de 
+todos os exemplos de treinamento,
+
+30
+00:02:11,000 --> 00:02:15,630
+você precisa fazer um laço de repetição:
+for i = 1 to m
+
+31
+00:02:15,630 --> 00:02:18,260
+Então, basicamente implementar 
+essas quatro equações, certo?
+
+32
+00:02:18,260 --> 00:02:24,162
+Você precisa fazer
+z'¹'⁽ⁱ⁾
+
+33
+00:02:24,162 --> 00:02:30,064
+z'¹'⁽ⁱ⁾ = W'¹' x⁽ⁱ⁾ + b'¹'
+
+34
+00:02:30,064 --> 00:02:38,253
+a'¹'⁽ⁱ⁾ = σ(z'¹'⁽ⁱ⁾).
+
+35
+00:02:38,253 --> 00:02:43,683
+z'²'⁽ⁱ⁾ = w'²' a'¹'⁽ⁱ⁾ + b'²'
+
+36
+00:02:43,683 --> 00:02:50,099
+z'²'⁽ⁱ⁾ = w'²' a'¹'⁽ⁱ⁾ + b'²'
+a'²'⁽ⁱ⁾ = σ(z'²'⁽ⁱ⁾)
+
+37
+00:02:50,099 --> 00:02:56,686
+a[2](i) = σ z([2](i)).
+
+38
+00:02:56,686 --> 00:03:03,172
+Então, são basicamente essas quatro equações 
+no topo com o i dentro dos parênteses
+
+39
+00:03:03,172 --> 00:03:08,788
+para todas as variáveis 
+dependentes dos exemplos de treinamento.
+
+40
+00:03:08,788 --> 00:03:12,612
+Então, adicione o parênteses 
+"i" para "x", "z" e "a"
+
+41
+00:03:12,612 --> 00:03:18,570
+se quiser calcular todos os resultados 
+nos seus "m" exemplos de treinamento.
+
+42
+00:03:18,570 --> 00:03:23,930
+O que gostaríamos de fazer é vetorizar todo esse 
+cálculo, para eliminarmos este laço de repetição "for...".
+
+43
+00:03:23,930 --> 00:03:27,680
+E por falar isso, caso pareça que 
+eu esteja trazendo muita álgebra
+
+44
+00:03:27,680 --> 00:03:31,170
+linear complicada, resulta 
+que saber implementar isso
+
+45
+00:03:31,170 --> 00:03:34,580
+corretamente é importante na 
+era da aprendizagem profunda.
+
+46
+00:03:34,580 --> 00:03:38,160
+E nós, na verdade, escolhemos as notações 
+com muito cuidado para esse curso e
+
+47
+00:03:38,160 --> 00:03:41,460
+fizemos essas etapas de 
+vetorização o mais fácil possível.
+
+48
+00:03:41,460 --> 00:03:46,140
+Então, espero que essa chatice ajude-o a
+
+49
+00:03:46,140 --> 00:03:49,750
+chegar mais rapidamente à 
+implementação correta desses algoritmos.
+
+50
+00:03:51,060 --> 00:03:56,210
+Ok! Então deixe-me copiar este bloco 
+inteiro de código para o próximo slide e
+
+51
+00:03:56,210 --> 00:03:57,880
+então veremos como vetorizar isso.
+
+52
+00:03:59,130 --> 00:04:02,154
+Então, aqui está o que obtivemos 
+do slide anterior com o laço
+
+53
+00:04:02,154 --> 00:04:04,324
+de repetição "for..."
+nos nossos "m" exemplos.
+
+54
+00:04:04,324 --> 00:04:09,769
+Então, recapitulando 
+que definimos a matriz X =
+
+55
+00:04:09,769 --> 00:04:16,860
+aos nossos exemplos de treinamento 
+empilhadas nessas colunas, desta forma.
+
+56
+00:04:16,860 --> 00:04:20,180
+Então, pegue os exemplos de 
+treinamento e empilhe-os em colunas.
+
+57
+00:04:20,180 --> 00:04:23,220
+Então, isso torna-se um "n" ou
+
+58
+00:04:23,220 --> 00:04:27,860
+talvez uma matriz de 
+dimensão "nₓ" por "m".
+
+59
+00:04:29,198 --> 00:04:32,630
+Eu vou revelar o grande final e 
+dizer o que você precisa fazer
+
+60
+00:04:32,630 --> 00:04:35,760
+para ter uma implementação 
+vetorizada deste laço "for...".
+
+61
+00:04:35,760 --> 00:04:41,394
+Resulta que, o que você 
+precisa fazer é calcular
+
+62
+00:04:41,394 --> 00:04:46,035
+Z'¹' = W'¹' X + b'¹'
+
+63
+00:04:46,035 --> 00:04:50,692
+A'¹' = σ(Z'¹').
+
+64
+00:04:50,692 --> 00:04:56,157
+Depois, Z'²' = W'²' A'¹' + b'²'
+
+65
+00:04:56,157 --> 00:05:01,348
+Z'²' = W'²' A'¹' + b'²'
+
+66
+00:05:01,348 --> 00:05:10,100
+então, A'²' = σ(Z'²').
+
+67
+00:05:10,100 --> 00:05:16,440
+Então, se quiser, a analogia é 
+que passamos de vetores x
+
+68
+00:05:16,440 --> 00:05:23,480
+para a matriz X (maiúscula) empilhando 
+os vetores x (minúsculos) em diferentes colunas.
+
+69
+00:05:23,480 --> 00:05:28,494
+Se você fizer a mesma 
+coisa para zs, por exemplo,
+
+70
+00:05:28,494 --> 00:05:33,509
+se você pegar z'¹'⁽¹⁾, 
+z'¹'⁽²⁾, e assim por diante,
+
+71
+00:05:33,509 --> 00:05:40,290
+e esses são todos vetores 
+coluna, até z'¹'⁽m⁾, certo?
+
+72
+00:05:40,290 --> 00:05:46,270
+Então, empilhe essa primeira 
+quantidade m em colunas.
+
+73
+00:05:46,270 --> 00:05:50,045
+Então, este empilhamento resulta na matriz Z'¹'.
+
+74
+00:05:50,045 --> 00:05:55,299
+E, igualmente, você olha, 
+digamos, esta quantidade e
+
+75
+00:05:55,299 --> 00:06:00,957
+pega a'¹'⁽¹⁾, a'¹'⁽²⁾ 
+e assim por diante e
+
+76
+00:06:00,957 --> 00:06:06,980
+a'¹'⁽m⁾, e os empilha em colunas.
+
+77
+00:06:06,980 --> 00:06:11,610
+Então, assim como 
+fomos do x para o X, e
+
+78
+00:06:11,610 --> 00:06:13,280
+do z para o Z.
+
+79
+00:06:13,280 --> 00:06:20,920
+Este vai do a, que 
+são vetores para esta matriz A'¹'
+
+80
+00:06:20,920 --> 00:06:26,685
+está ali, e da mesma 
+forma para Z'²' e A'²'.
+
+81
+00:06:26,685 --> 00:06:30,141
+Bem, eles também são 
+obtidos pegando esses vetores e
+
+82
+00:06:30,141 --> 00:06:32,016
+os empilhando horizontalmente.
+
+83
+00:06:32,016 --> 00:06:37,326
+E pegando esses vetores e 
+os empilhando horizontalmente,
+
+84
+00:06:37,326 --> 00:06:40,840
+de forma a obter Z'²' e A'²'.
+
+85
+00:06:40,840 --> 00:06:44,042
+Uma das propriedades desta 
+notação que pode ajudar
+
+86
+00:06:44,042 --> 00:06:47,391
+você a pensar é que 
+estas matrizes Z e A,
+
+87
+00:06:47,391 --> 00:06:51,420
+horizontalmente, nós vamos indexá-las 
+através dos exemplos de treinamento.
+
+88
+00:06:51,420 --> 00:06:55,631
+Então, isso é porque o índice horizontal 
+corresponde a diferentes exemplos de treinamento,
+
+89
+00:06:55,631 --> 00:06:59,730
+quando você vai da esquerda para direita, 
+você está varrendo as células de treinamento.
+
+90
+00:06:59,730 --> 00:07:04,617
+E verticalmente, este índice vertical 
+corresponde a diferentes nós na
+
+91
+00:07:04,617 --> 00:07:06,130
+rede neural.
+
+92
+00:07:06,130 --> 00:07:11,077
+Então, por exemplo, este nó, 
+este valor no topo superior,
+
+93
+00:07:11,077 --> 00:07:16,554
+no canto esquerdo superior 
+da média corresponde à ativação
+
+94
+00:07:16,554 --> 00:07:21,633
+da primeira unidade de posição 
+do primeiro exemplo de treinamento.
+
+95
+00:07:21,633 --> 00:07:25,812
+Um valor abaixo corresponde à 
+ativação na segunda unidade oculta no
+
+96
+00:07:25,812 --> 00:07:27,525
+primeiro exemplo de treinamento,
+
+97
+00:07:27,525 --> 00:07:31,505
+então a terceira unidade na primeira 
+amostra de treinamento e assim por diante.
+
+98
+00:07:31,505 --> 00:07:37,540
+Então, conforme você faz a varredura, 
+este é o seu índice do número de unidades ocultas.
+
+99
+00:07:39,670 --> 00:07:42,564
+Em que, se você se mover horizontalmente, 
+você irá partir da primeira unidade oculta.
+
+100
+00:07:42,564 --> 00:07:45,450
+E o primeiro exemplo de treinamento 
+para, agora, a primeira unidade oculta e
+
+101
+00:07:45,450 --> 00:07:48,240
+a segunda amostra de treinamento, 
+o terceiro exemplo de treinamento,
+
+102
+00:07:48,240 --> 00:07:53,718
+e assim por diante até que este nó 
+aqui corresponda à ativação da primeira
+
+103
+00:07:53,718 --> 00:07:59,030
+unidade oculta no exemplo de treinamento 
+final, o enésimo exemplo de treinamento.
+
+104
+00:08:00,760 --> 00:08:07,663
+OK, então a matriz A horizontal vai 
+sobre os diferentes exemplos de treinamento.
+
+105
+00:08:10,150 --> 00:08:14,195
+E verticalmente, os diferentes 
+índices na matriz A
+
+106
+00:08:14,195 --> 00:08:17,589
+correspondem a diferentes unidades ocultas.
+
+107
+00:08:22,342 --> 00:08:26,870
+E uma intuição semelhante aplica-se 
+para a matriz Z, assim como para
+
+108
+00:08:26,870 --> 00:08:31,840
+X onde a horizontal corresponde 
+aos diferentes exemplos de treinamento,
+
+109
+00:08:31,840 --> 00:08:36,227
+e verticalmente corresponde as 
+diferentes caraterísticas de entrada
+
+110
+00:08:36,227 --> 00:08:41,180
+que são os diferentes nós 
+da camada de entrada da rede neural.
+
+111
+00:08:42,750 --> 00:08:46,600
+Então, você já sabe como implementar 
+estas equações em sua rede
+
+112
+00:08:46,600 --> 00:08:51,320
+com vetorização através de múltiplos exemplos.
+
+113
+00:08:51,320 --> 00:08:55,130
+No próximo vídeo quero mostrar a 
+você um pouco mais sobre o porquê
+
+114
+00:08:55,130 --> 00:08:59,070
+esta é uma implementação 
+correta deste tipo de vetorização.
+
+115
+00:08:59,070 --> 00:09:03,468
+Resulta que esta explicação será 
+similar à que você já viu em regressão logística.
+
+116
+00:09:03,468 --> 00:09:05,300
+Vamos para o próximo vídeo.
+Tradução: Renato Barata Gomes | Revisão: Carlos Lage.

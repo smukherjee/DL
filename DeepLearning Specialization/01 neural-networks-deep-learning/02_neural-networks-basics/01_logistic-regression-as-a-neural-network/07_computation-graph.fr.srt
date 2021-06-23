@@ -1,0 +1,238 @@
+1
+00:00:00,000 --> 00:00:03,000
+Vous m’avez entendu dire que
+ les calculs d’un réseau de neurones
+
+2
+00:00:03,000 --> 00:00:07,253
+comprennent une passe vers l'avant,
+ ou propagation vers l’avant,
+
+3
+00:00:07,253 --> 00:00:10,005
+dans laquelle nous calculons 
+la sortie du réseau neuronal,
+
+4
+00:00:10,005 --> 00:00:13,310
+suivie d’une passe vers l’arrière
+ ou rétro propagation,
+
+5
+00:00:13,310 --> 00:00:16,137
+que nous utilisons pour calculer les gradients,
+ c'est à dire calculer les dérivées.
+
+6
+00:00:16,137 --> 00:00:21,540
+Le graphe de calcul explique 
+le pourquoi de cette organisation.
+
+7
+00:00:21,540 --> 00:00:24,375
+Dans cette vidéo, nous allons voir un exemple.
+
+8
+00:00:24,375 --> 00:00:28,060
+Afin d’illustrer le graphe de calcul,
+
+9
+00:00:28,060 --> 00:00:34,260
+nous allons utiliser un exemple 
+plus simple que la régression logistique
+ ou qu'un réseau de neurones complet.
+
+10
+00:00:34,260 --> 00:00:37,200
+Disons que nous essayons 
+de calculer une fonction, J,
+
+11
+00:00:37,200 --> 00:00:39,510
+qui est fonction de trois variables a, b et c,
+
+12
+00:00:39,510 --> 00:00:44,900
+et disons que la fonction est 3*(a+b*c).
+
+13
+00:00:44,900 --> 00:00:49,260
+Le calcul de cette fonction se fait
+ en trois étapes distinctes.
+
+14
+00:00:49,260 --> 00:00:51,799
+A la première vous devez calculer la valeur
+
+15
+00:00:51,799 --> 00:00:55,195
+b fois c. Disons que nous stockons cette valeur
+dans une variable que nous appelons u.
+
+16
+00:00:55,195 --> 00:00:59,117
+Alors u = b*c et ensuite vous pouvez calculer v
+
+17
+00:00:59,117 --> 00:01:06,060
+v = a + u. Donc disons que ceci est v. Et finalement
+
+18
+00:01:06,060 --> 00:01:09,380
+votre résultat J vaut 3*v.
+
+19
+00:01:09,380 --> 00:01:15,555
+Ceci est donc votre fonction finale J 
+que vous essayez de calculer.
+
+20
+00:01:15,555 --> 00:01:20,970
+Nous pouvons prendre ces trois étapes et les 
+dessiner dans un graphe de calcul comme ceci.
+
+21
+00:01:20,970 --> 00:01:26,400
+Disons que je dessine
+ nos trois variables a, b et c ici.
+
+22
+00:01:26,400 --> 00:01:31,825
+Donc la première chose que nous avons faite
+ a été de calculer u = bc.
+
+23
+00:01:31,825 --> 00:01:35,015
+Donc je vais mettre une boîte 
+rectangulaire autour de cela.
+
+24
+00:01:35,015 --> 00:01:39,030
+Et les entrées de ça sont b et c. Et puis
+
+25
+00:01:39,030 --> 00:01:41,505
+vous avez v =
+
+26
+00:01:41,505 --> 00:01:47,440
+v = a + u. Avec les entrées de ceci,
+
+27
+00:01:47,440 --> 00:01:56,645
+v. Donc les entrées de ceci sont u, que 
+nous venons de calculer et a.
+
+28
+00:01:56,645 --> 00:02:04,205
+Et puis enfin, nous avons J = 3v.
+
+29
+00:02:04,205 --> 00:02:07,235
+Donc un exemple concret, si a = 5,
+
+30
+00:02:07,235 --> 00:02:10,040
+b = 3 et c = 2 
+
+31
+00:02:10,040 --> 00:02:15,967
+c = 2 alors u = bc vaut 6, puis a + u vaut 
+
+32
+00:02:15,967 --> 00:02:22,310
+5 + 6 = 11, et J est 3 fois cela, 
+donc J = 33. Et en effet, vous pouvez vérifier
+
+33
+00:02:22,310 --> 00:02:29,520
+que ceci vaut 3*(5 + 3*2),
+
+34
+00:02:29,520 --> 00:02:30,865
+et si vous développez cela,
+
+35
+00:02:30,865 --> 00:02:34,390
+vous obtenez 33 comme valeur de J.
+
+36
+00:02:34,390 --> 00:02:38,060
+Donc, le graphe de calcul 
+est très pratique lorsqu’il y a
+
+37
+00:02:38,060 --> 00:02:41,790
+une variable spécifique, une variable de sortie
+
+38
+00:02:41,790 --> 00:02:43,940
+comme J dans le cas présent,
+
+39
+00:02:43,940 --> 00:02:46,215
+que vous souhaitez optimiser.
+
+40
+00:02:46,215 --> 00:02:48,755
+Et dans le cas d’une régression logistique,
+
+41
+00:02:48,755 --> 00:02:53,260
+J est bien sûr la fonction de coût 
+que nous essayons de minimiser.
+
+42
+00:02:53,260 --> 00:02:56,615
+Et ce que nous voyons 
+dans ce petit exemple est que,
+
+43
+00:02:56,615 --> 00:02:58,666
+par une passe de gauche à droite,
+
+44
+00:02:58,666 --> 00:03:01,075
+vous pouvez calculer la valeur de J.
+
+45
+00:03:01,075 --> 00:03:05,993
+Et ce que nous verrons dans les prochaines
+ diapositives est que, pour calculer les dérivées,
+
+46
+00:03:05,993 --> 00:03:10,010
+il y aura une passe de droite à gauche comme ça,
+
+47
+00:03:10,010 --> 00:03:14,380
+on ira dans la direction opposée 
+par rapport aux flèches bleues.
+
+48
+00:03:14,380 --> 00:03:17,205
+Ce sera assez naturel 
+pour calculer les dérivées.
+
+49
+00:03:17,205 --> 00:03:20,015
+Donc pour résumer, le graphe de calcul organise
+
+50
+00:03:20,015 --> 00:03:24,250
+un calcul avec ces flèches bleues, 
+des calculs de gauche à droite.
+
+51
+00:03:24,250 --> 00:03:26,510
+Nous allons voir dans la prochaine vidéo 
+comment vous pouvez faire
+
+52
+00:03:26,510 --> 00:03:31,710
+le calcul des dérivées de droite à gauche,
+ vers l’arrière avec les flèches rouges.
+
+53
+00:03:31,710 --> 00:03:33,000
+Passons à la vidéo suivante.

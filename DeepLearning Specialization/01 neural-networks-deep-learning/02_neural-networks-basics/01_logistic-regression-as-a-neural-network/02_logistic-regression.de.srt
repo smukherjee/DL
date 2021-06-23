@@ -1,0 +1,371 @@
+1
+00:00:00,000 --> 00:00:03,475
+In diesem Video wollen wir die Logistische Regression behandeln.
+
+2
+00:00:03,475 --> 00:00:07,080
+Die Logistische Regression ist ein Lernalgorithmus, welcher benutzt werden kann falls beim
+
+3
+00:00:07,080 --> 00:00:10,690
+überwachten Lernen (= supervised learning) alle Ausgabebezeichnungen stets "0" (= falsch) oder "1" (= wahr) sind;
+
+4
+00:00:10,690 --> 00:00:13,600
+also für binäre Klassifikationsprobleme.
+
+5
+00:00:13,600 --> 00:00:18,350
+Gegeben sei ein Eigenschaftsvektor X als Eingabe, z.B. entsprechend
+
+6
+00:00:18,350 --> 00:00:23,150
+einem Bild, das Sie entweder als Katzenbild oder als kein Katzenbild erkennen möchten.
+
+7
+00:00:23,150 --> 00:00:26,525
+Sie benötigen also einen Algorithmus, der eine Prognose stellen kann, welche
+
+8
+00:00:26,525 --> 00:00:28,254
+- nennen wir sie "Y Dach" -
+
+9
+00:00:28,254 --> 00:00:31,130
+man als eine Schätzung von Y auffassen kann.
+
+10
+00:00:31,130 --> 00:00:35,896
+Formaler: Man möchte, dass "Y Dach" die Wahrscheinlichkeit ausdrückt inwiefern Y gleich
+
+11
+00:00:35,896 --> 00:00:40,630
+"1" ist, bei einem als Eingabe gegebenen Eigenschaftsvektor X.
+
+12
+00:00:40,630 --> 00:00:43,880
+Oder mit anderen Worten: Wenn X ein Bild ist,
+
+13
+00:00:43,880 --> 00:00:45,530
+wie wir es im vorhergehenden Video gesehen haben,
+
+14
+00:00:45,530 --> 00:00:47,300
+möchten Sie von "Y Dach" wissen wie groß
+
+15
+00:00:47,300 --> 00:00:49,820
+die Chance ist, dass es sich um ein Katzenbild handelt.
+
+16
+00:00:49,820 --> 00:00:53,420
+Also X, wie schon im vorhergehenden Video gesagt,
+
+17
+00:00:53,420 --> 00:00:56,960
+ist ein nx-dimensionaler Vektor
+
+18
+00:00:56,960 --> 00:01:02,000
+mit den gegebenen Parametern der Logistischen Regression
+
+19
+00:01:02,000 --> 00:01:07,745
+W, welcher ebenfalls ein nx-dimensionaler Vektor ist,
+
+20
+00:01:07,745 --> 00:01:11,670
+zusammen mit b, welches einfach eine reelle Zahl ist.
+
+21
+00:01:11,670 --> 00:01:16,055
+Folglich, gegeben die Eingabe X und die Parameter W und b:
+
+22
+00:01:16,055 --> 00:01:20,595
+Wie können wir die Ausgabe "Y Dach" generieren?
+
+23
+00:01:20,595 --> 00:01:22,970
+Nun, eine Möglichkeit wie man es versuchen könnte, die aber nicht funktioniert,
+
+24
+00:01:22,970 --> 00:01:27,590
+wäre: "Y Dach" ist gleich W transponiert mal X plus b
+
+25
+00:01:27,590 --> 00:01:33,045
+in der Art einer linearen Funktion auf die Eingabe X.
+
+26
+00:01:33,045 --> 00:01:37,145
+Und in der Tat, das ist was Sie anwenden würden, falls Sie eine Lineare Regression durchführten.
+
+27
+00:01:37,145 --> 00:01:41,345
+Doch dies ist kein sehr guter Algorithmus für die binäre Klassifikation,
+
+28
+00:01:41,345 --> 00:01:45,575
+weil Sie durch "Y Dach" die Wahrscheinlichkeit ausdrücken möchten, dass Y gleich 1 ist.
+
+29
+00:01:45,575 --> 00:01:50,480
+Daher sollte der Wert von "Y Dach" wirklich zwischen 0 und 1 liegen;
+
+30
+00:01:50,480 --> 00:01:54,697
+und es ist schwierig dies zu erzwingen, weil "W transponiert mal X plus b"
+
+31
+00:01:54,697 --> 00:01:58,475
+viel größer als "1" oder sogar negativ sein kann,
+
+32
+00:01:58,475 --> 00:02:00,905
+was jedoch für eine Wahrscheinlichkeit keinen Sinn ergibt;
+
+33
+00:02:00,905 --> 00:02:03,620
+man möchte ja, dass die Wahrscheinlichkeit zwischen 0 und 1 ausgedrückt wird.
+
+34
+00:02:03,620 --> 00:02:07,670
+Bei der logischen Regression wird daher auf unsere Ausgabegröße die Sigmoidfunktion
+
+35
+00:02:07,670 --> 00:02:12,050
+angewendet, was nun "Y Dach" ergibt.
+
+36
+00:02:12,050 --> 00:02:14,850
+Die Sigmoidfunktion sieht so aus:
+
+37
+00:02:14,850 --> 00:02:24,000
+Wenn ich auf der horizontalen Achse "Z "darstelle, dann sieht die Funktion "Sigmoid" auf "Z" etwa so aus.
+
+38
+00:02:24,000 --> 00:02:28,050
+Sie geht kontinuierlich von "0" auf "1".
+
+39
+00:02:28,050 --> 00:02:30,120
+Ich möchte die Achsen hier beschriften.
+
+40
+00:02:30,120 --> 00:02:34,915
+Hier ist "0" ... und sie kreuzt die vertikale Achse bei 0.5
+
+41
+00:02:34,915 --> 00:02:41,305
+So, das wäre also wie Sigmoid auf "Z" aussieht und wir wollen "Z" benutzen für die Größe
+
+42
+00:02:41,305 --> 00:02:43,020
+"W transponiert mal X plus b".
+
+43
+00:02:43,020 --> 00:02:46,230
+Nun also die Formel für die Sigmoidfunktion:
+
+44
+00:02:46,230 --> 00:02:49,380
+Sigmoid von Z - wobei Z eine reelle Zahl ist -
+
+45
+00:02:49,380 --> 00:02:52,510
+ist gleich '1 dividiert durch (1 plus "e" hoch minus Z)'.
+
+46
+00:02:52,510 --> 00:02:54,695
+Beachten Sie dabei einige Dinge:
+
+47
+00:02:54,695 --> 00:03:01,255
+Wenn Z sehr groß ist, wird "e" hoch minus Z nahezu "0".
+
+48
+00:03:01,255 --> 00:03:03,420
+So, dass Sigmoid von Z ungefähr
+
+49
+00:03:03,420 --> 00:03:07,255
+"eins geteilt durch (eins plus etwas, was sehr nahe bei Null ist)" wird,
+
+50
+00:03:07,255 --> 00:03:11,280
+da "e" hoch minus eine sehr große Zahl praktisch "0" sein wird
+
+51
+00:03:11,280 --> 00:03:13,505
+und so ist dies nahezu "1".
+
+52
+00:03:13,505 --> 00:03:16,255
+Und in der Tat, betrachtet man den Graphen links
+
+53
+00:03:16,255 --> 00:03:20,475
+wird Sigmoid - falls Z sehr groß ist - nahezu "1".
+
+54
+00:03:20,475 --> 00:03:24,105
+Umgekehrt, falls Z sehr klein
+
+55
+00:03:24,105 --> 00:03:28,970
+oder eine sehr große negative Zahl,
+
+56
+00:03:29,180 --> 00:03:39,640
+dann wird Sigmoid von "Z" 'eins über (eins plus "e" hoch die negative Zahl Z)'
+
+57
+00:03:39,640 --> 00:03:42,565
+und das wird eine riesige Nummer,
+
+58
+00:03:42,565 --> 00:03:47,944
+so das dies - denken Sie dabei an "eins plus eine Nummer, die sehr,
+
+59
+00:03:47,944 --> 00:03:54,473
+sehr groß ist" und damit
+
+60
+00:03:54,473 --> 00:03:56,570
+dies nahezu zu Null wird.
+
+61
+00:03:56,570 --> 00:04:00,325
+Und, in der Tat können Sie sehen, dass wenn Z eine sehr große negative Zahl wird,
+
+62
+00:04:00,325 --> 00:04:03,505
+Sigmoid von Z gegen null strebt.
+
+63
+00:04:03,505 --> 00:04:06,070
+Wenn Sie also eine Logistische Regression implementieren,
+
+64
+00:04:06,070 --> 00:04:10,350
+besteht Ihre Aufgabe darin zu versuchen, dass die Parameter "W" und "b" so gelernt
+
+65
+00:04:10,350 --> 00:04:15,220
+werden, dass "Y Dach" eine gute Schätzung für 'Y gleich 1' wird.
+
+66
+00:04:15,220 --> 00:04:18,955
+Bevor wir weiterfahren, eine weiterer Hinweis zur Notation:
+
+67
+00:04:18,955 --> 00:04:20,830
+Wenn wir Neuronale Netzwerke programmieren,
+
+68
+00:04:20,830 --> 00:04:26,855
+behandeln wir den Parameter W und den Parameter b separat,
+
+69
+00:04:26,855 --> 00:04:30,000
+wobei hier "b" einem Abfänger (= interceptor) resp. einem Offset entspricht.
+
+70
+00:04:30,000 --> 00:04:31,295
+In einigen anderen Kursen,
+
+71
+00:04:31,295 --> 00:04:35,110
+haben Sie möglicherweise eine Notation gesehen, welche dies unterschiedlich handhabt.
+
+72
+00:04:35,110 --> 00:04:42,205
+In einigen Konventionen definiert mein eine extra Eigenschaft, man nennt sie X[0], und setzt
+
+73
+00:04:42,205 --> 00:04:47,250
+sie auf "1"; so dass X nun in R ist mit 'nx plus 1'.
+
+74
+00:04:47,250 --> 00:04:53,865
+And dann definiert man "Y Dach" gleich Sigma von Theta transponiert mal X.
+
+75
+00:04:53,865 --> 00:04:56,685
+In dieser alternativen, konventionellen Notation
+
+76
+00:04:56,685 --> 00:05:00,510
+hat man einen Vektorparameter Theta mit
+
+77
+00:05:00,510 --> 00:05:03,175
+Theta[0], Theta[1], Theta[2],
+
+78
+00:05:03,175 --> 00:05:09,520
+bis runter nach Theta [nx] und somit
+
+79
+00:05:09,520 --> 00:05:11,723
+übernimmt Theta[0] die Rolle von b,
+
+80
+00:05:11,723 --> 00:05:13,663
+welche einfach einer reellen Zahl entspricht.
+
+81
+00:05:13,663 --> 00:05:18,505
+und Theta[1] bis runter nach Theta[nx] spielen dann die Rolle von W. Es stellt sich heraus:
+
+82
+00:05:18,505 --> 00:05:20,350
+Wenn man ein Neuronales Netzwerk implementiert,
+
+83
+00:05:20,350 --> 00:05:26,145
+wird es einfacher, wenn man "b" und "W" als eigenständige Parameter beibehaltet.
+
+84
+00:05:26,145 --> 00:05:27,430
+And daher werden wir in dieser Klasse
+
+85
+00:05:27,430 --> 00:05:32,087
+die Konvention der Notation, welche ich soeben in rot geschrieben habe, NICHT verwenden.
+
+86
+00:05:32,087 --> 00:05:36,330
+Falls Sie diese Notation in anderen Kursen noch nicht gesehen haben - kümmern Sie sich einfach nicht darum.
+
+87
+00:05:36,330 --> 00:05:39,610
+Es ist einfach für diejenigen unter Ihnen, die diese Notation bereits gesehen haben und
+
+88
+00:05:39,610 --> 00:05:43,730
+ich wollte einfach nur explizit erwähnen, dass wir diese Notation in diesem Kurs NICHT verwenden.
+
+89
+00:05:43,730 --> 00:05:45,235
+Doch falls sie dies zuvor noch nicht gesehen haben,
+
+90
+00:05:45,235 --> 00:05:48,430
+ist es nicht wichtig und Sie brauchen sich keine Gedanken zu darum zu machen.
+
+91
+00:05:48,430 --> 00:05:52,465
+Alles in allem, haben Sie nun gesehen wie das Modell der Logistischen Regression aussieht.
+
+92
+00:05:52,465 --> 00:05:57,140
+Um als nächstes die Parameter W und b zu trainieren, benötigen Sie eine Kostenfunktion (= cost function).
+
+93
+00:05:57,140 --> 00:05:58,830
+Das machen wir im nächsten Video.

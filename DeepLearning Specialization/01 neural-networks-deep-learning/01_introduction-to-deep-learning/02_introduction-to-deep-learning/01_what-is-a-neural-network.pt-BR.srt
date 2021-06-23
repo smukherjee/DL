@@ -1,0 +1,522 @@
+1
+00:00:01,050 --> 00:00:03,840
+O termo Aprendizagem Profunda
+refere-se ao treinamento de Redes Neurais,
+
+2
+00:00:03,840 --> 00:00:06,050
+em certos casos, a enormes Redes Neurais.
+
+3
+00:00:06,050 --> 00:00:08,400
+Então o que é exatamente uma Rede Neural?
+
+4
+00:00:08,400 --> 00:00:11,340
+Neste vídeo, vamos tentar dar-lhe 
+algumas das intuições básicas.
+
+5
+00:00:12,850 --> 00:00:16,540
+Comecemos pelo exemplo
+ da Predição de Preço de Imóveis.
+
+6
+00:00:16,540 --> 00:00:20,599
+Digamos que você tenha uma tabela de dados
+de seis imóveis, contendo o tamanho deles
+
+7
+00:00:20,599 --> 00:00:24,478
+em pés quadrados ou em metros quadrados e
+ o preço deles e que você deseja
+
+8
+00:00:24,478 --> 00:00:28,501
+ajustar uma função para predizer o preço
+das casas, em função do tamanho delas.
+
+9
+00:00:28,501 --> 00:00:33,509
+Então se você estiver familiarizado com a 
+regressão linear você pode dizer, bem, vamos
+
+10
+00:00:33,509 --> 00:00:38,450
+desenhar uma linha reta sobre estes dados
+uma reta assim.
+
+11
+00:00:38,450 --> 00:00:41,850
+Podemos dizer que
+o preço das casas
+
+12
+00:00:41,850 --> 00:00:43,770
+nunca poderá ser negativo, certo?
+
+13
+00:00:43,770 --> 00:00:48,050
+Então, em vez da linha reta ajustada 
+que eventualmente se tornará negativa,
+
+14
+00:00:48,050 --> 00:00:49,960
+dobramos a curva aqui.
+
+15
+00:00:49,960 --> 00:00:51,530
+Assim aqui acabará no zero.
+
+16
+00:00:51,530 --> 00:00:56,770
+Então esta linha azul grossa 
+acaba sendo sua função para
+
+17
+00:00:56,770 --> 00:00:59,760
+predizer o preço das casas
+ em função do tamanho delas.
+
+18
+00:00:59,760 --> 00:01:03,310
+Aqui vai um zero e então temos a
+linha reta ajustada à direita.
+
+19
+00:01:04,408 --> 00:01:08,735
+Então, podemos pensar nesta função que
+você acabou de ajustar os preços das casas
+
+20
+00:01:08,735 --> 00:01:11,880
+como sendo uma rede neural muito simples.
+
+21
+00:01:11,880 --> 00:01:14,230
+É uma rede neural
+quase tão simples quanto possível.
+
+22
+00:01:14,230 --> 00:01:15,000
+Deixe-me desenhá-la aqui.
+
+23
+00:01:17,220 --> 00:01:22,170
+Temos como entrada para a rede neural 
+o tamanho de uma casa, que chamamos de x.
+
+24
+00:01:22,170 --> 00:01:26,791
+Ele vai para esse nó, 
+esse pequeno círculo e
+
+25
+00:01:26,791 --> 00:01:30,940
+em seguida, ele produz o preço que chamamos de y.
+
+26
+00:01:30,940 --> 00:01:37,183
+Então este pequeno círculo, o qual é 
+um único neurônio numa rede neural,
+
+27
+00:01:37,183 --> 00:01:41,830
+implementa esta função
+que desenhamos à esquerda.
+
+28
+00:01:43,350 --> 00:01:48,940
+E tudo o que o neurônio faz é 
+pegar o tamanho como entrada, calcular esta função linear,
+
+29
+00:01:48,940 --> 00:01:51,960
+pegar um máximo de zero, e
+ então gerar o preço estimado.
+
+30
+00:01:53,190 --> 00:01:58,230
+E a propósito, na literatura sobre rede neural, 
+essa função é muito vista.
+
+31
+00:01:58,230 --> 00:02:00,992
+Essa função que resulta zero, algumas vezes, e
+
+32
+00:02:00,992 --> 00:02:03,550
+depois, torna-se esta linha reta que sobe.
+
+33
+00:02:03,550 --> 00:02:09,108
+Esta função é chamada de ReLU, que quer dizer
+
+34
+00:02:09,108 --> 00:02:17,620
+Unidade Linear Retificada.
+
+35
+00:02:17,620 --> 00:02:18,252
+Portanto, R-E-L-U.
+
+36
+00:02:18,252 --> 00:02:22,520
+Retificada significa, que ela pega o máximo
+de zero em certos trechos, o que resulta
+em uma função como essa.
+
+37
+00:02:23,640 --> 00:02:25,550
+Não se preocupe com 
+ unidades ReLU agora,
+
+38
+00:02:25,550 --> 00:02:30,200
+pois, voltaremos a elas
+mais adiante neste curso.
+
+39
+00:02:30,200 --> 00:02:33,790
+Assim, se este é um único neurônio
+em sua rede neural,
+
+40
+00:02:33,790 --> 00:02:38,870
+numa rede neural realmente muito pequena,
+uma rede neural maior, então,
+
+41
+00:02:38,870 --> 00:02:44,520
+é formada por muitos neurônios únicos
+empilhados.
+
+42
+00:02:44,520 --> 00:02:50,700
+Então, se você pensar neste neurônio como 
+sendo uma simples peça de Lego®, você então
+
+43
+00:02:50,700 --> 00:02:55,270
+obtém uma rede neural maior conectando
+ muitas destas peças de Lego®.
+
+44
+00:02:55,270 --> 00:02:56,110
+Vamos ver um exemplo:
+
+45
+00:02:57,260 --> 00:03:02,220
+Digamos que ao invés de predizer
+ o preço de uma casa apenas a partir de seu tamanho,
+
+46
+00:03:02,220 --> 00:03:04,330
+agora você tem outras características.
+
+47
+00:03:04,330 --> 00:03:08,164
+Você sabe, outras coisas sobre a casa
+como o número de quartos,
+
+48
+00:03:08,164 --> 00:03:13,630
+e você pode pensar que uma das coisas
+
+49
+00:03:13,630 --> 00:03:18,820
+que realmente afeta o preço de
+ uma casa é o tamanho da família, certo?
+
+50
+00:03:18,820 --> 00:03:21,882
+Então, esta casa acomoda sua família
+de três, ou de quatro, ou
+
+51
+00:03:21,882 --> 00:03:22,687
+de cinco pessoas?
+
+52
+00:03:22,687 --> 00:03:26,351
+E ela é realmente baseada no tamanho
+em pés quadrados ou metros quadrados, e
+
+53
+00:03:26,351 --> 00:03:28,960
+no número de quartos
+que determinamos,
+
+54
+00:03:28,960 --> 00:03:31,462
+se a casa acomoda ou não 
+ o tamanho da sua família.
+
+55
+00:03:31,462 --> 00:03:34,909
+E então, talvez você saiba
+os números dos CEPs.
+
+56
+00:03:34,909 --> 00:03:40,520
+Em vários países, ele é chamado de código postal.
+(Código de Endereçamento Postal).
+
+57
+00:03:40,520 --> 00:03:48,820
+E o CEP, como característica, talvez lhe diga
+a facilidade de andar a pé pela vizinhança.
+
+58
+00:03:48,820 --> 00:03:51,434
+Então, nesta vizinhança fica tudo muito próximo?
+
+59
+00:03:51,434 --> 00:03:53,635
+Posso ir caminhando ao armazém?
+
+60
+00:03:53,635 --> 00:03:54,194
+Ir caminhando até a escola?
+
+61
+00:03:54,194 --> 00:03:55,250
+Ou tenho que ir de carro?
+
+62
+00:03:55,250 --> 00:03:57,870
+Algumas pessoas preferem vizinhanças acessíveis,
+onde se pode fazer muitas coisas a pé.
+
+63
+00:03:57,870 --> 00:04:06,145
+Então o CEP, bem como 
+a aparência do bairro talvez lhe diga...
+
+64
+00:04:06,145 --> 00:04:09,200
+Certamente nos EUA, mas 
+também em alguns outros países,
+
+65
+00:04:09,200 --> 00:04:13,590
+isso lhes diga o quão boa é a qualidade da escola.
+
+66
+00:04:13,590 --> 00:04:17,820
+Então cada um destes pequenos círculos que estou
+desenhando pode ser uma daquelas ReLU,
+
+67
+00:04:17,820 --> 00:04:22,670
+unidade linear retificada ou
+alguma outra função ligeiramente não linear.
+
+68
+00:04:22,670 --> 00:04:24,936
+Então, baseado no tamanho e no
+número de quartos,
+
+69
+00:04:24,936 --> 00:04:28,420
+pode-se estimar o tamanho da família;
+ no CEP, a praticidade de caminhar;
+
+70
+00:04:28,420 --> 00:04:32,050
+baseado no CEP e na aparência
+pode-se estimar a qualidade da escola.
+
+71
+00:04:32,050 --> 00:04:35,660
+E, finalmente, podemos pensar muito bem
+no modo como as pessoas decidem o quanto estão
+
+72
+00:04:35,660 --> 00:04:38,880
+dispostas a pagar por uma casa, analisando
+as coisas que realmente importam para elas.
+
+73
+00:04:38,880 --> 00:04:43,060
+Neste caso, o tamanho da família,
+ a proximidade do entorno e a qualidade da escola,
+
+74
+00:04:43,060 --> 00:04:45,210
+ajudam a predizer o preço da casa.
+
+75
+00:04:46,330 --> 00:04:51,740
+Portanto, neste exemplo,
+'x' vem de todas estas quatro entradas.
+
+76
+00:04:53,470 --> 00:04:56,460
+E 'y' é o preço que você está
+tentando predizer.
+
+77
+00:04:57,960 --> 00:05:03,350
+Então, empilhando alguns daqueles
+neurônios únicos ou preditores únicos
+
+78
+00:05:03,350 --> 00:05:07,360
+que vimos no slide anterior, agora 
+temos uma rede neural ligeiramente maior.
+
+79
+00:05:07,360 --> 00:05:10,850
+Toda mágica da sua rede neural 
+é que quando a implementa,
+
+80
+00:05:10,850 --> 00:05:15,860
+você precisa apenas fornecer a entrada 'x' e
+
+81
+00:05:15,860 --> 00:05:20,740
+a saída 'y' para o número de
+exemplos no seu conjunto de treinamento e
+
+82
+00:05:20,740 --> 00:05:23,580
+todas essas coisas no meio,
+elas se resolverão por elas mesmas.
+
+83
+00:05:25,435 --> 00:05:29,225
+O que você realmente implementa é isto.
+
+84
+00:05:29,225 --> 00:05:32,055
+Aqui temos uma rede neural
+com quatro entradas.
+
+85
+00:05:32,055 --> 00:05:35,455
+Então as características poderiam ser o tamanho
+o número de quartos,
+
+86
+00:05:35,455 --> 00:05:40,365
+o CEP ou código postal, e
+a aparência do bairro.
+
+87
+00:05:40,365 --> 00:05:44,805
+Assim, dadas estas características de entrada,
+
+88
+00:05:44,805 --> 00:05:50,200
+o trabalho da rede neural
+será predizer o preço y.
+
+89
+00:05:50,200 --> 00:05:55,942
+Observe também que cada um destes círculos
+aqui é chamado de unidade oculta na
+
+90
+00:05:55,942 --> 00:06:02,310
+rede neural; que cada um deles
+pega cada uma das quatro características como entrada.
+
+91
+00:06:02,310 --> 00:06:08,139
+Assim, por exemplo, em vez de dizer que 
+estes primeiros nós representam o tamanho da família e
+
+92
+00:06:08,139 --> 00:06:12,056
+que o tamanho da família depende apenas
+das características X₁ e X₂,
+
+93
+00:06:12,056 --> 00:06:15,302
+ao invés disso, diremos que, bem, rede neural,
+
+94
+00:06:15,302 --> 00:06:18,200
+você decide, como quiser,
+o que é este nó.
+
+95
+00:06:18,200 --> 00:06:21,070
+E nós lhe daremos todas as quatro características
+ para você calcular o que quiser.
+
+96
+00:06:21,070 --> 00:06:26,170
+Então, sobre as camadas, 
+esta camada de entrada e
+
+97
+00:06:26,170 --> 00:06:28,960
+esta aqui no meio da rede
+neural estão densamente conectadas.
+
+98
+00:06:28,960 --> 00:06:31,740
+Porque cada característica de entrada (X₁...X₄)
+está conectada a cada um
+
+99
+00:06:31,740 --> 00:06:33,980
+dos círculos aqui no meio.
+
+100
+00:06:33,980 --> 00:06:38,630
+E o que é notável sobre redes neurais é que, 
+tendo dados suficientes sobre x e y...
+
+101
+00:06:38,630 --> 00:06:43,290
+x e y, fornecendo exemplos de treinamento suficientes
+para ambos x e y, as redes neurais
+
+102
+00:06:43,290 --> 00:06:47,450
+são notavelmente boas para determinar
+ funções que, com precisão, mapeiam de x para y.
+
+103
+00:06:48,990 --> 00:06:51,680
+Isso é, então, o básico
+sobre redes neurais [artificiais].
+
+104
+00:06:51,680 --> 00:06:54,290
+Acontece que à medida que você
+constrói suas próprias redes neurais,
+
+105
+00:06:54,290 --> 00:06:57,130
+provavelmente, você perceberá que elas são mais úteis,
+mais poderosas,
+
+106
+00:06:57,130 --> 00:07:01,620
+para atribuições em aprendizado supervisionado, implicando
+que você está pegando uma entrada x e
+
+107
+00:07:01,620 --> 00:07:06,980
+mapeando em alguma saída y, como vimos
+no exemplo da previsão de preço de imóveis.
+
+108
+00:07:06,980 --> 00:07:11,490
+No próximo vídeo, analisaremos mais alguns
+exemplos de aprendizado supervisionado e
+
+109
+00:07:11,490 --> 00:07:15,670
+alguns exemplos de onde podemos encontrar
+grande utilidade para suas redes neurais,
+
+110
+00:07:15,670 --> 00:07:16,670
+bem como para as suas aplicações.
+[Tradução: Carlos Lage | Revisão: Julia R. Yuri]

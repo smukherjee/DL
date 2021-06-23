@@ -1,0 +1,332 @@
+1
+00:00:00,000 --> 00:00:02,190
+Bienvenue. Cette semaine,
+
+2
+00:00:02,190 --> 00:00:04,530
+vous apprendrez comment implémenter
+ un réseau de neurones.
+
+3
+00:00:04,530 --> 00:00:06,885
+Avant d'aborder les détails techniques
+ plus en profondeur,
+
+4
+00:00:06,885 --> 00:00:08,070
+je veux, dans cette vidéo,
+
+5
+00:00:08,070 --> 00:00:12,000
+vous donner un bref aperçu de ce que 
+nous verrons dans les vidéos de cette semaine.
+
+6
+00:00:12,000 --> 00:00:14,910
+Si vous ne suivez pas
+ tous les détails de cette vidéo,
+
+7
+00:00:14,910 --> 00:00:18,810
+ne vous inquiétez pas, nous verrons
+ les détails techniques dans une autre vidéo.
+
+8
+00:00:18,810 --> 00:00:23,490
+Mais pour l’instant, voici un bref aperçu
+ de la façon dont vous implémentez 
+un réseau de neurones.
+
+9
+00:00:23,490 --> 00:00:26,250
+La semaine dernière, on a parlé 
+de la régression logistique et
+
+10
+00:00:26,250 --> 00:00:31,965
+nous avons vu comment ce modèle 
+correspond à ce graphe de calculs,
+
+11
+00:00:31,965 --> 00:00:35,640
+où vous entrez les caractéristiques x
+ et les paramètres
+
+12
+00:00:35,640 --> 00:00:40,140
+W et b qui vous permettent de calculer z,
+ qui est ensuite utilisé pour calculer a,
+
+13
+00:00:40,140 --> 00:00:43,280
+et nous utilisons de façon
+ interchangeable a et
+
+14
+00:00:43,280 --> 00:00:48,065
+la sortie ŷ, puis vous pouvez 
+calculer la fonction de perte L.
+
+15
+00:00:48,065 --> 00:00:51,390
+Un réseau de neurones ressemble à ça.
+
+16
+00:00:51,390 --> 00:00:53,415
+Comme je l'avais déjà mentionné,
+
+17
+00:00:53,415 --> 00:00:58,640
+on obtint un réseau de neurones en empilant
+ beaucoup de ces unités sigmoïdes.
+
+18
+00:00:58,640 --> 00:01:03,785
+Alors qu’auparavant, ce nœud correspondait
+ à deux étapes de calculs,
+
+19
+00:01:03,785 --> 00:01:05,975
+la première pour calculer la valeur z,
+
+20
+00:01:05,975 --> 00:01:08,630
+la seconde pour calculer cette valeur a,
+
+21
+00:01:08,630 --> 00:01:10,460
+dans ce réseau de neurones,
+
+22
+00:01:10,460 --> 00:01:16,565
+cette pile de nœuds correspondra à 
+un calcul de z comme celui là,
+
+23
+00:01:16,565 --> 00:01:20,165
+ainsi qu'à un calcul de a comme celui là.
+
+24
+00:01:20,165 --> 00:01:26,270
+Puis ce nœud correspond à 
+un autre calcul de z et de a.
+
+25
+00:01:26,270 --> 00:01:30,380
+Et donc la notation, dont nous
+ reparlerons, ressemblera à ça.
+
+26
+00:01:30,380 --> 00:01:33,365
+D'abord nous mettons 
+en entrée les caractéristiques x,
+
+27
+00:01:33,365 --> 00:01:36,190
+avec des paramètres W et b,
+
+28
+00:01:36,190 --> 00:01:39,840
+et cela va nous permettre de calculer z[1].
+
+29
+00:01:39,840 --> 00:01:43,625
+Donc la nouvelle notation
+ qu'on introduit est
+
+30
+00:01:43,625 --> 00:01:47,060
+cet exposant 1 entre crochets qui se réfère
+
+31
+00:01:47,060 --> 00:01:51,185
+aux quantités associées à cette pile 
+de nœuds, qu'on appelle une couche.
+
+32
+00:01:51,185 --> 00:01:54,080
+puis, ensuite, nous allons utiliser
+ l'exposant 2 entre crochets
+
+33
+00:01:54,080 --> 00:01:58,355
+pour se référer aux quantités 
+associées à ce nœud,
+
+34
+00:01:58,355 --> 00:02:01,445
+qui forme une autre couche 
+du réseau de neurones.
+
+35
+00:02:01,445 --> 00:02:03,680
+Et ces exposants entre crochets
+
+36
+00:02:03,680 --> 00:02:05,135
+que nous avons ici,
+
+37
+00:02:05,135 --> 00:02:06,905
+ne doivent ne pas être confondus avec
+les exposants entre parenthèses 
+
+38
+00:02:06,905 --> 00:02:12,980
+que nous utilisons pour nous référer à 
+des exemples d'apprentissage particuliers.
+
+39
+00:02:12,980 --> 00:02:17,885
+Donc x exposant i entre parenthèses
+ se réfère à l'exemple d'apprentissage i,
+
+40
+00:02:17,885 --> 00:02:23,180
+alors que l'exposant entre crochet 1 ou 2
+ se réfère aux différentes couches;
+
+41
+00:02:23,180 --> 00:02:27,530
+la couche 1 et la couche 2, 
+dans ce réseau de neurones.
+
+42
+00:02:27,530 --> 00:02:33,920
+En continuant ainsi, après avoir calculé z[1], de la même 
+façon que pour la régression logistique,
+
+43
+00:02:33,920 --> 00:02:37,715
+on aura un calcul de a[1],
+
+44
+00:02:37,715 --> 00:02:40,970
+et c’est juste sigmoïde de z[1], et puis
+
+45
+00:02:40,970 --> 00:02:51,530
+vous calculez z[2] à l’aide d’une autre 
+équation linéaire et vous calculez a[2].
+
+46
+00:02:51,530 --> 00:02:55,325
+Et a[2] est le résultat final
+
+47
+00:02:55,325 --> 00:02:59,270
+du réseau de neurones 
+et sera également appelé ŷ.
+
+48
+00:02:59,270 --> 00:03:02,390
+Je sais qu'il y a beaucoup de détails,
+ mais l'intuition clé
+
+49
+00:03:02,390 --> 00:03:05,925
+qu'il faut retenir est que, comme
+ pour la régression logistique,
+
+50
+00:03:05,925 --> 00:03:09,435
+on a ce calcul de z puis de a et
+
+51
+00:03:09,435 --> 00:03:10,665
+dans ce réseau de neurones,
+
+52
+00:03:10,665 --> 00:03:12,830
+on le fait simplement plusieurs fois.
+
+53
+00:03:12,830 --> 00:03:14,870
+Ici on calcule z puis a et
+
+54
+00:03:14,870 --> 00:03:17,745
+ici on calcule un autre z puis un autre a.
+
+55
+00:03:17,745 --> 00:03:21,590
+et puis finalement, vous calculez la perte.
+
+56
+00:03:21,590 --> 00:03:24,200
+Vous vous souvenez que 
+pour la régression logistique,
+
+57
+00:03:24,200 --> 00:03:27,800
+on avait ces rétro-calculations
+pour calculer
+
+58
+00:03:27,800 --> 00:03:32,045
+les dérivées, c'est à dire pour calculer da,
+
+59
+00:03:32,045 --> 00:03:33,365
+dz et ainsi de suite.
+
+60
+00:03:33,365 --> 00:03:34,805
+De la même façon,
+
+61
+00:03:34,805 --> 00:03:38,990
+dans un réseau de neurones, 
+on fait un calcul vers l'arrière comme ceci :
+
+62
+00:03:38,990 --> 00:03:47,370
+vous calculez da[2],
+
+63
+00:03:47,370 --> 00:03:51,060
+dz[2] et cela vous permet de calculer dW[2],
+
+64
+00:03:51,060 --> 00:03:56,130
+db[2] et ainsi de suite,
+
+65
+00:03:56,130 --> 00:04:04,060
+dans un calcul de droite à gauche 
+illustré par les flèches rouges.
+
+66
+00:04:04,060 --> 00:04:08,750
+Donc cela vous donne un bref
+ résumé de ce à quoi ressemble
+un réseau de neurones.
+
+67
+00:04:08,750 --> 00:04:12,470
+Ca consiste essentiellement à prendre une 
+régression logistique et à la répéter deux fois.
+
+68
+00:04:12,470 --> 00:04:14,780
+Je sais que ça fait beaucoup
+ de nouvelles notations,
+
+69
+00:04:14,780 --> 00:04:16,910
+de détails, ne vous inquiétez
+ pas si vous n'avez
+
+70
+00:04:16,910 --> 00:04:21,575
+pas tout suivi, nous reverrons ces détails
+ plus lentement dans quelques vidéos.
+
+71
+00:04:21,575 --> 00:04:23,060
+Continuons sur la prochaine vidéo.
+
+72
+00:04:23,060 --> 00:04:26,270
+Nous allons commencer à parler de
+ la représentation du réseau neuronal.

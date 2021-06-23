@@ -1,0 +1,52 @@
+Avec tout ce que vous avez appris, 
+vous êtes presque prêts à vous attaquer à votre premier
+ exercice de programmation. Avant de le faire, permettez-moi 
+de vous faire faire un tour rapide 
+des notebooks iPython dans Coursera. Ici vous voyez un Jupyter iPython notebood
+auquel vous pouvez accéder sur Coursera. Laissez moi vous montrer rapidement 
+quelques-unes de ses fonctionnalités. Les instructions sont écrites ici dans le texte
+ dans le notebook iPython. Et ces longs blocs gris clairs
+ sont des blocs de code. De temps en temps, vous verrez dans ces blocs quelque chose qui va dire 
+START CODE HERE et END CODE HERE. Pour faire votre exercice, assurez-vous que vous écrivez votre code entre 
+le START CODE HERE et le END CODE HERE. Ainsi, par exemple,
+ print Hello world. Et puis pour exécuter un bloc de code, vous appuyez sur Maj + Entrée, 
+ce qui va exécuter ce bloc de code, qui contient seulement print("Hello world"). Et ça écrit Hello World. Pour exécuter une cellule, vous pouvez également, pour exécuter
+ l’une de ces cellules de blocs de code, vous pouvez également cliquer sur cell 
+et puis run cell. Et ça exécute ceci. Il est possible que sur votre ordinateur, le raccourci clavier pour exécuter la cellule puisse être différent
+ de Maj + Entrée. Mais sur mon Mac ainsi que sur mon PC,
+ c'est Maj + entrée, alors ça peut être la même chose pour vous. Quand vous lisez les instructions, si vous double-cliquez 
+accidentellement dessus, vous pouvez vous retrouver avec
+ ce texte en langage markdown. Si vous vous retrouvez
+ avec ce genre de texte bizarre, pour le reconvertir en joli texte,
+ il suffit d’exécuter cette cellule. Donc vous pouvez aller à cell, run cell
+ ou je vais Appuyez sur Maj + Entrée et ça exécute simplement le markdown 
+et le retransforme en joli texte. Quelques autres astuces. Lorsque vous exécutez le code comme ceci, il s'exécute en fait sur un noyau, sur un morceau de code 
+qui s’exécute sur le serveur. Si vous exécutez un calcul 
+trop gros ou si vous quittez votre ordinateur pendant très 
+longtemps, ou si quelque chose tourne mal, votre connexion internet 
+ou quelque chose comme ça, il y a une petite chance que le noyau 
+sur le serveur principal puisse mourir, dans ce cas, il suffit de cliquer sur
+ kernel et puis restart kernel. Et si tout va bien, ça va redémarrer le
+ noyau et le faire fonctionner à nouveau. Ca ne devrait pas arriver
+ si vous lancez seulement des calculs relativement petits et que 
+vous venez de lancer le notebook iPython. Si vous voyez un message d’erreur
+ comme quoi le noyau est mort 
+ou quelque chose comme ça, vous pouvez essayer kernel, restart. Enfin, dans le notebook iPython, comme ça, il peut y avoir 
+plusieurs blocs de code. Ainsi, même si un bloc de code antérieur 
+ne contient pas de code saisi par vous, veillez à exécuter ce bloc de code parce que, dans cet exemple, 
+il importe numpy as np et ainsi de suite, et met en place certaines des variables 
+dont vous pourriez avoir besoin afin d'exécuter des blocs de code plus bas. Donc n’oubliez pas d’exécuter ceux 
+d'en haut, même si on ne vous demande pas
+ d'y écrire du code. Et enfin, lorsque vous avez terminé
+ d'implémenter vos solutions, Il y a ce bouton bleu 'submit assignment'
+ en haut à droite et il faut cliquer dessus pour soumettre
+ vos solutions pour la notation. J’ai constaté que la nature interactive
+ de la console de commande des notebooks iPython est très utile
+ pour apprendre rapidement. Implémenter quelques lignes de code, voir un résultat, 
+apprendre et ajouter très rapidement. Et j’espère donc que les exercices 
+de programmation dans Coursera, et les notebooks Jupyter iPython 
+vous aideront à apprendre rapidement à expérimenter et à voir comment
+ implémenter ces algorithmes. Il y a encore une vidéo après celle-là. C'est une vidéo optionnelle qui parle de la fonction de coût pour la régression
+ logistique. Vous pouvez la regarder ou pas. Comme vous préférez. Mais quoi qu’il en soit, bonne chance avec les
+ exercices de programmation de la semaine 2. Et j’ai hâte de vous voir 
+au début de la troisième semaine.

@@ -1,0 +1,80 @@
+Dans la précédente vidéo, nous avons vu comment, 
+avec vos exemples d'apprentissage empilés
+ horizontalement dans la matrice X, vous pouvez avoir une implémentation
+ vectorisée de la propagation directe
+ dans votre réseau de neurones. Nous allons donner un peu plus de
+ justifications pour montrer que les équations
+ que nous avons écrites sont une application correcte de la vectorisation
+ sur de multiples exemples. Donc refaisons une partie du calcul de la 
+propagation directe pour quelques exemples. Disons que pour le premier 
+exemple d'apprentissage, vous calculez ceci : w[1] * x(1) + b[1], puis pour
+ le deuxième exemple d'apprentissage, vous calculez w[1] * x(2) + b[1] alors pour le troisième 
+exemple d'apprentissage : vous calculez w[1] * x(3) + b[1] Donc, juste pour simplifier l’explication
+ sur cette diapositive, je vais ignorer b. Alors disons juste que, pour simplifier un
+ peu cette justification, b est égal à zéro. Mais l’argument que nous allons
+ utiliser sera aussi valable avec un tout petit changement si b est non nul. Cela simplifie juste un peu 
+la description de cette diapositive. Maintenant, w1 va être une matrice, OK ? J’ai donc un certain nombre 
+de lignes dans cette matrice. Donc, si vous regardez ce calcul x(1), ce que vous avez est que w[1] fois x(1) vous donne un vecteur
+ colonne que je vais dessiner comme ça. Et de la même façon, 
+si vous regardez ce vecteur x(2), vous avez w[1]*x(2) qui vous donne
+ un autre vecteur colonne, ok ? Et cela vous donne ce z[1](2). Et enfin, si vous regardez x(3), vous avez w[1] fois x(3), qui vous donne un troisième 
+vecteur colonne, qui est ce z[1](3). Alors maintenant, si vous considérez
+ le set d'apprentissage X majuscule, que nous formons en empilant ensemble
+ tous nos exemples d'apprentissage. Donc la matrice X majuscule 
+est formée en prenant le vecteur x(1) et en l'empilant avec x(2) et puis aussi x(3). Ca c’est si nous avons seulement
+ trois exemples d'apprentissage. Si vous en avez plus, vous continuez à 
+les empiler horizontalement comme ça. Mais si vous prenez cette matrice X et que vous
+ la multipliez par W, vous vous retrouvez avec, si vous repensez à comment fonctionne
+ la multiplication des matrices, vous vous retrouvez avec
+ la première colonne qui contient ces mêmes valeurs que j’avais 
+dessinées là-haut en violet. La deuxième colonne sera 
+ces quatre mêmes valeurs. Et la troisième colonne sera 
+ces valeurs oranges, quelles que soient finalement ces valeurs. Mais bien sûr, c’est juste égal à
+ z[1](1) exprimé en un vecteur colonne suivi de z[1](2) 
+en un vecteur colonne, suivi de z[1](3), également exprimé comme un vecteur colonne. Et ça c’est si vous avez 
+trois exemples d'apprentissage. Si vous avez plus d’exemples, 
+alors il y aura plus de colonnes. Et donc, c’est juste 
+notre matrice Z[1] majuscule. Alors j’espère que cela donne une justification
+ de pourquoi nous avions auparavant w[1] fois x(i) égal à z[1](i) lorsque nous regardons 
+un seul exemple à la fois. Lorsqu'on a pris les différents 
+exemples d'apprentissage et qu'on les a 
+empilés dans les différentes colonnes, alors le résultat est que vous vous retrouvez avec les z aussi empilés en colonnes. Et je ne le montre pas, mais vous pouvez vous
+ convaincre qu’avec le broadcasting de Python, si vous ajoutez ces valeurs de b, 
+les résultats sont toujours corrects. Et ce qui se passe en fait, c’est que,
+ avec le broadcasting de Python, vous ajoutez b[i] individuellement à chacune
+ des colonnes de cette matrice. Donc sur cette diapositive,
+ j’ai seulement justifié que Z[1] = W[1] * X + b[1] est une vectorisation correcte de la première étape des quatre étapes que 
+nous avions dans la diapositive précédente, mais une analyse similaire vous permet de montrer que les autres étapes
+ fonctionnent également en utilisant une logique très similaire où, si vous empilez les entrées 
+en colonnes, alors, après l’équation, vous obtenez les sorties correspondantes 
+également empilées en colonnes. Enfin, récapitulons juste tout ce dont
+ nous avons parlé dans cette vidéo. Si ceci est votre réseau de neurones, Nous avons dit que ceci est ce que
+ vous devez faire pour implémenter 
+la propagation vers l'avant, un exemple d'apprentissage à la fois en
+ allant de i = 1 à i = m. Et puis nous avons dit, si nous empilons les exemples d'apprentissage
+ en colonnes comme ceci, et
+ pour chacune des valeurs z[1], a[1], z[2], a[2], nous les empilons
+ en colonnes comme ceci. Voilà un exemple pour A[1],
+ mais c'est pareil pour Z[1], A[1], Z[2] et A[2]. Ce que nous montrons sur 
+la diapositive précédente était que cette ligne vous permet de vectoriser cela 
+sur tous les m exemples en même temps. Et, avec un raisonnement semblable, vous pouvez montrer que
+ toutes les autres lignes sont des vectorisations correctes 
+de chacune de ces lignes de code. Et juste pour rappel, puisque X est aussi égal à A[0]
+ car n’oubliez pas que le vecteur de caractéristiques d’entrée x
+ est égal à a[0], alors x(i) est égal a[0](i). Il y a donc une certaine symétrie dans ces équations, puisque cette première
+ équation peut également être écrite Z[1] = W[1]A[0] + b[1] Et donc, vous voyez que cette paire 
+d’équations et cette paire d'équations se ressemblent beaucoup, simplement
+ tous les indices ont été avancés de 1. Ceci montre un peu que les différentes
+ couches d’un réseau de neurones font à peu près la même chose, elles font
+ le même type de calculs encore et encore. Ici nous avons un réseau de neurones 
+à deux couches, mais nous aurons un réseau de neurones beaucoup plus profond
+ dans les vidéos de la semaine prochaine. Vous verrez que même les réseaux de
+ neurones encore plus profonds font en fait ces deux étapes et les font juste 
+plus de fois que vous voyez ici. Voilà donc comment vous pouvez
+ vectoriser votre réseau de neurones
+ pour de multiples exemples d'apprentissage. Ensuite, nous avons jusqu'à présent
+ utilisé les fonctions sigmoïdes dans 
+tous nos réseaux de neurones. Il s’avère que ce n’est en fait
+ pas le meilleur choix. Dans la vidéo suivante, nous allons plonger un peu plus loin dans la façon dont vous pouvez utiliser
+les différentes fonctions d'activation, comme on les appelle, et la fonction sigmoïde 
+n'est qu'un des choix possibles.

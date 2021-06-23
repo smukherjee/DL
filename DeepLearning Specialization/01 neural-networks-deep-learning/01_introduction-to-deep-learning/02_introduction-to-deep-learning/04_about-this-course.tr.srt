@@ -1,0 +1,203 @@
+1
+00:00:00,000 --> 00:00:02,610
+Bu uzmanlık alanındaki ilk dersin birinci hafta materyallerinin
+
+2
+00:00:02,610 --> 00:00:06,165
+sonuna yaklaşmak üzeresiniz.
+
+3
+00:00:06,165 --> 00:00:09,960
+Önümüzdeki birkaç haftalık süreçte neler öğreneceğiniz hızlı bir fikir vereyim.
+
+4
+00:00:09,960 --> 00:00:12,000
+İlk videoda bahsettiğim gibi
+
+5
+00:00:12,000 --> 00:00:15,150
+bu uzmanlık alanı beş dersten oluşuyor.
+
+6
+00:00:15,150 --> 00:00:17,250
+Ve şu anda bu beş dersten ilkinde,
+
+7
+00:00:17,250 --> 00:00:20,385
+derin öğrenmenin yapı taşlarını
+
+8
+00:00:20,385 --> 00:00:23,745
+ve gerçekten en önemli temellerini öğreneceğimiz dersteyiz.
+
+9
+00:00:23,745 --> 00:00:25,530
+Bu dersin sonunda, bir derin sinir ağı kurmayı ve
+
+10
+00:00:25,530 --> 00:00:30,350
+derin sinir ağları ile çalışmayı öğreneceksiniz.
+
+11
+00:00:30,350 --> 00:00:33,780
+Ders içeriğinin detaylarına bakalım:
+
+12
+00:00:33,780 --> 00:00:35,725
+Bu ders dört haftalık materyal içerir.
+
+13
+00:00:35,725 --> 00:00:37,620
+Derin öğrenmeye giriş kısmını gördüğünüzde ilk haftanın
+
+14
+00:00:37,620 --> 00:00:40,110
+sonuna gelmiş oluyorsunuz.
+
+15
+00:00:40,110 --> 00:00:41,530
+Her haftanın sonunda,
+
+16
+00:00:41,530 --> 00:00:44,190
+Ders materyallerini anlama düzeyinizi kontrol etmenizi sağlayacak
+
+17
+00:00:44,190 --> 00:00:47,495
+10 çoktan seçmeli soru bulunmaktadır.
+
+18
+00:00:47,495 --> 00:00:49,185
+Bu videoyu izlemeyi tamamladığınızda
+
+19
+00:00:49,185 --> 00:00:51,860
+Umarım bu sorulara bir göz atarsınız.
+
+20
+00:00:51,860 --> 00:00:56,530
+İkinci hafta konularında, Sinir Ağı Programlamanın temelleri konusunu öğreneceksiniz.
+
+21
+00:00:56,530 --> 00:00:58,420
+Algoritmalarda ileri ve geri yayılım dediğimiz aşamaları
+
+22
+00:00:58,420 --> 00:01:00,960
+ve sinir ağlarının etkili bir şekilde
+
+23
+00:01:00,960 --> 00:01:06,030
+uygulanması konularını da öğreneceksiniz.
+
+24
+00:01:06,030 --> 00:01:07,405
+İkinci haftadan itibaren,
+
+25
+00:01:07,405 --> 00:01:10,125
+materyallerden öğrendiklerinizi pratik yapmanıza ve
+
+26
+00:01:10,125 --> 00:01:13,605
+algoritmaları kendiniz uygulayıp çalıştırmanıza izin verecek
+
+27
+00:01:13,605 --> 00:01:16,735
+programlama egzersizlerimiz olacak.
+
+28
+00:01:16,735 --> 00:01:19,550
+Bir algoritma öğrenip onu kodladığımda
+
+29
+00:01:19,550 --> 00:01:22,375
+ve kendim çalıştırabildiğimde gerçekten tatmin edici oluyor.
+
+30
+00:01:22,375 --> 00:01:24,080
+Umarım siz de bundan zevk alacaksınız.
+
+31
+00:01:24,080 --> 00:01:28,140
+Üçüncü haftada sinir ağı programlama çatısını öğrendiğimizde
+
+32
+00:01:28,140 --> 00:01:32,050
+tek katmanlı bir sinir ağı kodlayacaksınız.
+
+33
+00:01:32,050 --> 00:01:34,470
+Sinir ağlarını uygulama ve çalıştırma ile ilgili
+
+34
+00:01:34,470 --> 00:01:37,005
+anahtar kavramları öğreneceksiniz.
+
+35
+00:01:37,005 --> 00:01:38,485
+Son olarak dördüncü haftada,
+
+36
+00:01:38,485 --> 00:01:41,175
+derin ve çok katmanlı bir sinir ağı inşa edecek
+
+37
+00:01:41,175 --> 00:01:44,081
+ve kendiniz çalıştıracaksınız.
+
+38
+00:01:44,081 --> 00:01:47,930
+Evet, bundan sonraki videoları bitirmede başarılar.
+
+39
+00:01:47,930 --> 00:01:51,600
+Umarım derin öğrenmede neler olduğu ile ilgili üst seviye bir bilgiye erişmişsinizdir.
+
+40
+00:01:51,600 --> 00:01:53,610
+Belki de bazılarınız kendi derin öğrenme fikirlerinizi
+
+41
+00:01:53,610 --> 00:01:57,355
+geliştirmeye ve uygulamaya dair fikirler edinmişsinizdir.
+
+42
+00:01:57,355 --> 00:01:59,370
+Umarım bu videonun sonrasında
+
+43
+00:01:59,370 --> 00:02:03,850
+ders sayfasındaki 10 çoktan seçmeli
+
+44
+00:02:03,850 --> 00:02:05,500
+soruyu inceler ve
+
+45
+00:02:05,500 --> 00:02:08,760
+öğrendiklerinizi kontrol edersiniz.
+
+46
+00:02:08,760 --> 00:02:11,199
+Ve unutmayın, ilk seferde tüm soruları doğru cevaplayamayabilirsiniz
+
+47
+00:02:11,199 --> 00:02:14,710
+ancak hepsini eksiksiz anladığınıza emin olana kadar tekrar çözebilirsiniz.
+
+48
+00:02:14,710 --> 00:02:19,145
+Ben bu soruları kavramları doğru anladığımdan emin olmak açısından yararlı buluyorum.
+
+49
+00:02:19,145 --> 00:02:21,465
+Umarım siz de böyle düşünüyorsunuzdur.
+
+50
+00:02:21,465 --> 00:02:24,000
+Evet, bununla birlikte, buraya kadar gelebildiğiniz için
+
+51
+00:02:24,000 --> 00:02:27,670
+hepinizi tebrik ediyor ve ikinci hafta konularında tekrar görüşmeyi diliyorum.

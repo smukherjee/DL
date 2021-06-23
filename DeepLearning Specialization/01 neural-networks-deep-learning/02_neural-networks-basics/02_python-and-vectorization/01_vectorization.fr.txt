@@ -1,0 +1,62 @@
+Bonjour. 
+La vectorisation est fondamentalement l’art de débarrasser votre code
+ des boucles for explicites. A l'ère de l'apprentissage profond et 
+en particulier dans sa mise en pratique, vous avez souvent à entraîner sur des
+ ensembles de données relativement importants, parce que c’est là que les algorithmes 
+d’apprentissage profond ont tendance à briller. Et il est donc important que votre code 
+s'exécute rapidement parce que sinon, si vous entraînez sur 
+un grand ensemble de données, votre code peut prendre beaucoup de temps
+ à calculer, vous vous retrouverez à attendre très longtemps
+ pour obtenir le résultat. Je pense qu'à l'ère du deep learning la capacité à effectuer la vectorisation 
+est devenue une compétence clé. Commençons par un exemple. Donc, qu'est-ce que la vectorisation ? Dans la régression logistique, vous deviez 
+calculer z égal à transposée de w * x + b, où w est ce vecteur colonne
+ et x est ce vecteur. ça peux être de très grands vecteurs si vous
+ avez un grand nombre de caractéristiques. Donc, w et x appartiennent à R nx,
+ ils sont de dimension nx Pour calculer la transposée de w par x, si vous avez une implémentation non vectorisée, vous ferez quelque chose comme z = 0, et puis for i in range(nx) : donc pour i de 1 à nx, z += w[i] * x[i] Et puis peut-être à la fin z += b Ceci est une implémentation non vectorisée. Vous verrez que cela va être vraiment lent. En revanche, une implémentation vectorisée
+ calculerait directement la transposée de w par x. En Python avec numpy, la commande que vous utilisez pour cela est
+ z = np.dot(w, x) ceci calcule la transposée de w, x. Et vous pouvez y ajouter b directement. Et vous verrez que c’est beaucoup plus rapide. Nous allons en fait illustrer ceci 
+avec une petite démo. Voici donc mon notebook Jupyter, 
+dans lequel je vais écrire du code Python. Alors, tout d’abord, je vais importer
+ la librairie numpy. import numpy as np Par exemple, je peux créer 
+un tableau a, comme ceci. Puis print(a) Après avoir écrit ce morceau de code, si j'appuie sur Maj+Entrée, il exécute le code. Donc il a créé la tableau a et il l'a affiché. Maintenant, nous allons faire 
+la démonstration de la vectorisation. Je vais importer la librairie time, puisque nous allons l'utiliser pour mesurer le temps que prennent
+ les différentes opérations. Je vais créer un tableau a np.random.rand(1000000) Cela crée une tableau de taille 1 million 
+avec des valeurs aléatoires. b = np.random.rand(1000000) Un autre tableau de taille 1 million. Et, maintenant, tic=time.time(),
+ donc stockons la date actuelle c = np.dot (a, b). toc = time.time(). Et puis affichons, C’est la version vectorisée. Donc, version vectorisée. Et affichons le temps écoulé c'est à dire (toc - tic ) * 1000 afin que ce soit en millisecondes. Ainsi, ms est pour millisecondes. Je vais appuyer sur Maj + Entrée. Ainsi, ce code a mis environ 3 millisecondes
+ ou cette fois 1.5, environ entre 1.5 et 3,5 millisecondes
+ cette fois. ça varie un peu à chaque fois que je l'exécute, mais on dirait qu'en moyenne il met 
+quelque chose comme 1,5 millisecondes, peut-être deux millisecondes,
+ quand j'exécute ceci. Très bien. Nous allons continuer ce bloc de code. Nous allons implémenter 
+la version non vectorisée. Voyons voir, c = 0, puis tic = time.time() Maintenant, nous allons
+ implémenter une boucle for. for i in range(1 million) : je vérifie que j'ai le bon nombre de zéros. c += a[i] * b[i] et puis toc = time.time(). et enfin afficher, pour la boucle for explicite Le temps qu’il faut est ceci 
+1000 *( toc -tic) + " ms " pour montrer que ce sont des millisecondes. Nous allons faire encore une chose. Nous allons juste afficher 
+la valeur de c que nous calculons pour nous assurer que
+ c’est la même valeur dans les deux cas. Je vais appuyer sur Maj + Entrée 
+pour exécuter et vérifier cela. Dans les deux cas, la version vectorisée et la version non-vectorisée
+ ont calculé les mêmes valeurs, comme vous le voyez
+, 2 5 0 2 8 6 point 99 et ainsi de suite. La version vectorisée a mis 1,5 millisecondes. La version non-vectorisée avec 
+la boucle for explicite a mis 
+environ 400, presque 500 millisecondes. Donc la version non-vectorisée a mis
+ quelque chose comme 300 fois plus de temps que la version vectorisée. Avec cet exemple, vous voyez que si 
+vous prenez la peine de vectoriser votre code, votre code tourne plus de 300 fois plus vite. Nous allons l'exécuter à nouveau. Et encore. Oui. Version vectorisée : 1,5 millisecondes
+ et la boucle for 481 millisecondes, encore une fois, c'est environ 300 fois plus lent 
+de faire la boucle for explicite. Donc, 300 fois plus lent, c’est la différence entre votre code prenant
+ peut-être une minute pour s'exécuter par rapport à environ 5 heures. Et lorsque vous implémentez 
+des algorithmes d’apprentissage profond, vous pouvez vraiment obtenir 
+un résultat plus rapidement. Ce sera beaucoup plus rapide 
+si vous vectorisez votre code. Certains d'entre vous ont
+ peut-être entendu dire que beaucoup d'implémentations évolutive 
+d’apprentissage profond se font sur 
+un GPU ou une unité de traitement graphique. Mais toutes les démos que j’ai faites tout à l’heure 
+dans le notebook Jupyter sont faites sur le CPU. Et il s’avère que le GPU et le CPU ont
+ des instructions de parallélisation, qui sont parfois appelées instructions SIMD. Cela signifie Single Instruction Multiple Data 
+ (une seule instruction, données multiples) Mais ce que cela signifie est que, Si vous utilisez les fonctions intégrées comme la fonction np.dot ou d'autres fonctions
+ qui ne nécessitent pas d'implémenter
+ explicitement une boucle for, ça permet à numpy de tirer un bien meilleur avantage du parallélisme pour faire 
+vos calculs beaucoup plus rapidement. Et cela vaut aussi bien pour les calculs sur les
+ processeurs que sur les cartes graphiques. C’est juste que les GPU sont 
+remarquablement bons pour ces calculs SIMD mais 
+le CPU n'est pas trop mauvais non plus, simplement pas aussi bon que le GPU. Vous avez vu comment la vectorisation peut 
+accélérer considérablement votre code. La règle à retenir est, dès que c'est possible, évitez d’utiliser des boucles for explicites. Rendez vous dans la vidéo suivante 
+pour voir d’autres exemples de vectorisation et aussi commencer 
+à vectoriser la régression logistique.

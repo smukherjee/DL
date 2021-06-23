@@ -1,0 +1,99 @@
+Quand j’implémente un réseau 
+de neurones profond, l’un des outils 
+de débogage que j’utilise souvent pour vérifier que mon code est correct est
+ de prendre un bout de papier, et de simplement vérifier les dimensions des
+ matrices avec lesquelles je travaille. Alors laissez-moi vous montrer comment
+ faire cela, car j’espère que cela vous facilitera l'implémentation de vos réseaux profonds. Donc grand L est égal à 5, on peux compter
+ rapidement, sans compter la couche d’entrée, il y a cinq couches ici, donc quatre couches 
+cachées et une couche de sortie. Et donc, si vous implémentez
+ une propagation directe, la première étape sera z1 = w1*x + b1, 
+avec x la caractéristique d'entrée Nous allons ignorer le termes de biais b pour
+ l’instant et nous concentrer sur le paramètres w. Cette première couche cachée a trois 
+unités cachées, ça c’est la couche 0, couche 1, couche 2, couche 3,
+ couche 4 et couche 5. Donc, en utilisant la notation que nous avions
+ dans la vidéo précédente, nous avons n1, qui est le nombre d’unités cachées
+ dans la couche 1, est égal à 3. Et ici, nous avons n2 égal à 5, n3 est égal à 4, n4 est égal à 2,
+ et n5 est égal à 1. Et jusqu'à maintenant nous avons seulement
+ vu des réseaux neuronaux avec une seule 
+unité de sortie, mais plus tard dans d'autres cours, nous parlerons de réseaux
+ de neurones avec plusieurs unités de sortie. Et enfin, pour la couche d’entrée, Nous avons également n0 = nx = 2. Alors maintenant, réfléchissons
+ aux dimensions de z, w et x. z est le vecteur d’activations pour cette première couche cachée, 
+donc z va être 3 par 1, ça va être un vecteur de dimension 3. Donc je vais l'écrire comme
+ un vecteur de dimension n1 par 1, une matrice de dimension n1 par 1, 
+ok, donc 3 par 1 dans ce cas. Maintenant pour les caractéristiques d’entrée x, 
+nous avons deux caractéristiques d’entrée. x est donc dans cet exemple 2 par 1, mais
+ plus généralement, il serait n0 par 1. Donc pour la matrice W1, nous avons besoin 
+de quelque chose qui nous donne un vecteur n1 par 1 quand nous 
+lui multiplions un vecteur n0 par 1, ok ? Ainsi vous avez en quelque sorte 
+un vecteur à trois dimensions égal à quelque chose fois 
+un vecteur à deux dimensions. Et donc, par les règles de
+ multiplication des matrices, ceci doit être une matrice de 3 par 2. En effet, une matrice de 3 par 2
+ fois une matrice de 2 par 1, ou fois un vecteur de 2 par 1, 
+vous donne un vecteur de 3 par 1. Et, plus généralement, cela va être
+ une matrice de dimensions n1 par n0. Donc, ce que nous avons vu ici est que les dimensions de W1 doivent être n1 par n0. Et plus généralement, les dimensions 
+de WL doivent être nL par n(L-1). Ainsi, par exemple, les dimensions de W2, ici, devront être 5 par 3, c'est à dire n2 par n1. Parce que nous allons calculer z2 comme W2 fois a1 et, encore une fois, nous allons ignorer le biais pour l’instant. cela va être 3 par 1, et nous avons besoin que ceci
+ soit 5 par 1 et donc cela devra être 5 par 3. Et de même, W3 est vraiment
+ (dimension de la couche suivante, virgule, dimension de la couche précédente), donc cela va être 4 par 5, W4 va être 2 par 4, et W5 va être 1 par 2, OK ? Donc, la formule générale à vérifier lorsque vous implémentez
+ la matrice pour la couche L, est que la dimension de cette matrice 
+doit être nL par n(L-1). Maintenant regardons la dimension
+ de ce vecteur b. Cela va être un vecteur de 3 par 1, 
+donc pour l'additionner, il faut un autre vecteur 3 par 1 afin d’obtenir 
+un vecteur 3 par 1 en sortie. Ou dans cet exemple, il faut l'ajouter à cela,
+ cela qui est 5 par 1, donc ça va être un autre vecteur de 5 par 1, pour pouvoir additionner 
+ces deux choses que j’ai encadrées ce qui donnera également 
+un vecteur de 5 par 1. Donc, la règle plus générale est que
+ dans l’exemple à gauche, b1 est n1 par 1, c’est-à-dire 3 par 1, et dans le deuxième exemple,
+ ceci est n2 par 1. Et donc le cas plus général est que bL doit être de dimensions nL par 1. Donc ces deux équations peuvent vous
+ permettre de vérifier que les dimensions de vos matrices W, ainsi que vos vecteurs b,
+ ont les bonnes dimensions. Et bien sûr, si vous implémentez 
+la rétro propagation, alors les dimensions de dW devraient
+ être les mêmes que les dimensions de W. dW doit donc avoir
+ la même dimension que W, et db doit avoir la même dimension que b. Maintenant l’autre jeu de quantités dont
+ les dimensions sont à vérifier sont ces z, x, ainsi que a[L],
+ dont nous n'avons pas trop parlé ici. Mais parce que le z[L] est égal à g(a[L]),
+ appliqué élément par élément, alors z et a doivent avoir la même dimension 
+dans ces types de réseaux. Maintenant nous allons voir ce qui arrive quand
+ vous avez une implémentation vectorisée qui prend en compte 
+plusieurs exemples à la fois. Même pour une implémentation vectorisée, bien sûr, les dimensions de W, b, dw 
+et db resteront les mêmes. Mais les dimensions de Z, A, comme de X vont changer un peu 
+dans votre implémentation vectorisée. Donc, précédemment, Nous avions z1 = W1*x + b1 où ceci était n1 par 1, et ceci était n1 par n0, x était n0 par 1, 
+et b était n1 par 1. Maintenant, dans une implémentation vectorisée, vous aurez Z1 = W1*X + b1. Où maintenant 
+Z1 est obtenu en prenant les z1 pour les exemples individuels,
+ donc il y a z[1](1), z[1](2), jusqu'à z[1](m) et en les empilant 
+comme ceci et cela vous donne Z1. Ainsi, la dimension de Z1,
+ au lieu d’être n1 par 1, se retrouve à être n1 par m et 
+m est la taille du set d'apprentissage. Les dimensions de W1 restent les mêmes,
+ c'est toujours n1 par n0. Et X, au lieu d’être n0 par 1, est maintenant tous vos exemples d'apprentissage 
+empilés horizontalement. C’est donc maintenant n0 par m. 
+Et vous pouvez remarquer que
+ lorsque vous prenez une matrice n1 par n0 et que vous la
+ multipliez par une matrice n0 par m, ça vous donne effectivement une matrice
+ de dimensions n1 par m, comme attendu. Maintenant, le détail final est que b1
+ est toujours n1 par 1, mais lorsque vous prenez ceci et l'ajoutez à b,
+ puis par l’intermédiaire 
+du broadcasting de Python, cela va être dupliqué et changé en une matrice
+ n1 par m, puis ajouté élément par élément. Ainsi, sur la diapositive précédente,
+ nous avons parlé des dimensions de
+ W, b, dW et db. Ici, ce que nous voyons est que,
+ tandis que z[L] comme a[L] sont de dimension nL par 1, Nous avons maintenant Z[L] et A[L]
+ qui sont nL par m. avec un cas particulier 
+quand L est égal à 0, dans ce cas A[0] est juste égal à votre set d'apprentissage,
+ les caractéristiques d’entrée X, qui va être égal à n0 par m comme prévu. Et bien sûr quand vous implémentez cela
+ en rétro-propagation, nous verrons plus tard que 
+vous calculez dZ ainsi que dA. Et ceux-ci auront bien sûr les mêmes dimensions que Z et A. Alors j’espère que ce petit exercice a aidé
+ à clarifier les dimensions des différentes matrices 
+avec lesquelles vous allez travailler. Lorsque vous implémentez la rétro-propagation
+ pour un réseau de neurones profond, le fait de vérifier votre code et de vous assurer 
+que les dimensions de toutes les matrices 
+sont compatibles, devrait vous aider à éliminer un certain nombre 
+de bugs éventuels. J’espère donc que l’exercice de déterminer 
+les dimensions des matrices avec lesquelles vous allez travailler a été utile. Lorsque vous implémentez un réseau 
+neuronal profond, si vous faites attention aux dimensions des différentes matrices
+ et vecteurs que vous manipulez, ça devrait vous aider à éliminer
+ certaines causes d’éventuels bugs, cela m’aide certainement 
+à obtenir un code juste. Pour la suite, nous avons vu maintenant 
+une partie de la mécanique de la façon de faire la propagation directe 
+dans un réseau de neurones. Mais pourquoi les réseaux de neurones
+ profonds sont ils si efficaces, et pourquoi font-ils mieux que
+ les représentations peu profondes ? Nous allons passer quelques minutes 
+dans la prochaine vidéo à en discuter.

@@ -1,0 +1,46 @@
+Bu videoda lojistik regresyon(bağlanım)
+ üzerinden gideceğiz. Bu, denetlenen bir öğrenme problemindeki 
+çıktı etiketleri Y'nin ya 0 ya da 1 olması durumunda 
+kullandığınız bir öğrenme algoritmasıdır. Yani ikili sınıflandırma problemleri için. X bir giriş özelliği göz önüne alındığında kedi resmi veya kedi resmi olarak 
+tanımak istediğiniz bir görüntüde, Bir öngörü(tahmin) verebilecek 
+bir algoritma istiyorsun, buna y üstü şapka diyeceğiz öngürü olan y için Daha formüle olarak, Y üssü şapka'ın , 
+X giriş özellikleri verildiğinde Y'nin 1'e eşit olma olasılığını isteriz. Yani başka bir deyişle, eğer X bir resim ise, son videoda gördüğümüz gibi, Y üssü şapka'nın, Bunun bir kedi resmi olma ihtimali nedir? sorusuna cevap 
+vermesini istersin. Yani X, önceki videoda dediğimiz gibi, X boyutlu vektördür, lojistik regresyon parametrelerinin
+ W olması ve aynı zamanda sadece bir gerçek sayı olan b ile birlikte bir X boyutlu vektör bir 
+olduğu göz önüne alınmıştır. Yani bir girdi X , W ve b parametreleri çıkış olan Y üssü şapka'yı nasıl üretir? Deneyeceğim bir şey var, işe yaramadı
+ şu şekilde Y üssü şapka W transpoz X artı B olmalı X girişinin doğrusal bir işlev 
+olduğunu biliyorsunuz. Ve aslında, lineer regresyon yapıyorsanız
+ bunu kullanın. Ama bu ikili sınıflandırma için 
+çok iyi bir algoritma değil çünkü Y üssü şapkanın Y'nin 1'e eşit olma olasılığını istiyorsun. Yani Y üssü şapka gerçekten sıfır ile
+ bir arasında olmalı ve bunu uygulamak zordur, çünkü W transpoze X artı B daha büyük olabilir ya da negatif olabilir bu olasılık için anlam ifade etmez, sıfır ile bir arasında olmasını istiyorsun. Böylece lojistik regresyon çıktımız 
+Y üssü şapka: bu miktara uygulanan sigma
+ fonksiyonuna eşittir. Bu sigma fonksiyounu neye benziyor: Yatay eksende Z'yi çizersem,
+ Z'nin sigmoid fonksiyonuna benziyor. Yani 0 'dan 1'e kadar yumuşak
+ bir şekilde gider. Burada eksenlerimi etiketleyeyim bu sıfır ve dikey ekseni 0,5 olarak kesiyor. Yani bu Z'nin sigmoidinin(sigma) 
+neye benzediğidir ve bu değeri W transpoze X artı B 
+göstermek için Z 'yi kullanacağız. İşte sigma fonksiyonunun formülü: Sigma z, z bir gerçek sayı olmak üzere 1 bölü 1 bir artı e üzeri negatif z (1/(1+e^-z) Bir kaç şeyi göz ardı etmeyelim Z çok büyükse e üzeri negatif z(e^-z) 
+ifadesi 0'a yakın olacaktır. Sigmoid Z yaklaşık olarak 1 bölü 1 + 0 olacak çünkü e üzeri(e^-*) çok büyük bir negatif 
+sayı 0'a yakın olacaktır. Yani buda 1'e yakın olur ve gerçekten de eğer soldaki
+ çizime bakarsanız eğer Z çok büyükse, Z'nin sigmoidi
+ 1'e çok yakındır. Tersi durumda, eğer Z çok küçükse veya çok büyük bir negatif sayıysa, sigmoid z , 1 bölü 1 + e üzeri negatif z 
+(1/(1+e^-z) büyük bir sayı olur. böylece bu, 1 bölü 1 + çok büyük 
+bir sayı olarak düşünülür böylece bu 0'a yakın olur. Ve gerçekten, Z'nin çok büyük bir negatif
+ sayıya dönüştüğünü Z'nin sigmoidinin sıfıra çok yakın
+ olduğunu görüyorsunuz. Bu nedenle lojistik regresyon 
+uyguladığınızda, işiniz W ve B parametrelerini
+ öğrenmeye çalışmaktır, böylece Y üssü şapka Y'nin bire eşit 
+olma olasılığının iyi bir tahmini(öngörü) olur. Devam etmeden önce, sinir ağlarını
+ programladığımız notasyondaki bir başka not, genellikle W parametresini ve B
+ parametresini ayrı tutarız B, bir inter-spektruma karşılık gelir. Diğer bazı derslerde, bunu farklı şekilde ele alan bir notasyon
+ görmüş olabilirsiniz. Bazı düzenlemelerde, X0 adında bir ekstra
+ özellik tanımlarsınız ve bu da 1'e eşittir. Yani şimdi X, NX artı bir R'de(R üssü nx+1)
+ ve sonra, Y üssü şapkanın teta transpoz X'in 
+sigmalarına eşit olacak şekilde tanımlarsınız. Bu alternatif notasyonel düzenlemede Vektör parametreleri teta, teta0 ,teta1,teta2, teta nx'e doğru Ve buradaki teta0, sadece bir gerçek sayı olan B satırını yerleştirir. ve teta1'den tetanx' e doğru gidenler 
+W'nun rolünü alır Sinir ağınızı uygularken, B ve W'yi ayrı parametreler olarak 
+tutmak daha kolay olacaktır. Ve böylece, bu sınıfta, sadece kırmızıyla yazdığım bu notasyon
+ düzenlemerlini kullanmayacağız. Bu notu diğer derslerde daha önce
+ görmediyseniz, endişelenmeyin. Sadece bu gösterimi görmüş olanlarınız için bu derste bu notasyonu kullanmadığımızı 
+açıkça belirtmek istedim. Ancak bunu daha önce görmediyseniz, önemli değil ve bunun için endişelenmenize
+ gerek yok. Şimdi, lojistik regresyon modelinin neye 
+benzediğini gördünüz. W ve B parametrelerini değiştirmek için
+ bir maliyet fonksiyonu tanımlamanız gerekir. bir sonraki videoda bunu yapalım.

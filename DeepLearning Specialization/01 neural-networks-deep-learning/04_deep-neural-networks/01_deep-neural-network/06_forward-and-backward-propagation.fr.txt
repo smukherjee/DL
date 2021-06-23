@@ -1,0 +1,105 @@
+Dans la précédente vidéo, vous avez vu les bases de la construction 
+ d'un réseau de neurones. Chaque couche est composée d'une étape 
+ de propagation directe, vers l'avant et d'une étape de rétropropagation,
+ vers l'arrière. Nous allons voir comment 
+implémenter ces étapes. Commençons avec la propagation directe. Rappelons que nous allons avoir 
+a[l-1] en entrée et a[l] en sortie et nous mettrons z[l] en cache. Et nous venons de dire que
+ du point de vue de l'implémentation, nous mettrons en cache
+ W[l] et b[l] également, juste pour faciliter l'appel des fonctions
+ dans l'exercice de programmation. Les équations devraient
+ vous rappeler quelque chose. Pour implémenter la fonction vers l'avant, 
+on fait juste ceci égal à W[l] * a[l-1] + b[l], et puis a[l] = la fonction
+ d'activation appliquée à z. Et si vous voulez 
+l'implémentation vectorisée, alors c'est juste ça fois A[l-1] + b, b utilisant le broadcasting de Python. Et A[l] = g appliqué élément par élément à Z. Et, souvenez vous sur le diagramme,
+ pour l'étape directe, quand nous avions cette chaîne de boîtes, vous initialisez ça en mettant en entrée A[0], qui est égal à X. Vous initialisez ça, quelle est l'entrée de la première ?
+ C'est a[0], c'est à dire les caractéristiques d'entrées,
+ soit pour un exemple d'apprentissage si vous faites un exemple à la fois, ou A[0] majuscule, 
+le set d'apprentissage entier, si vous traitez tout 
+le set d'apprentissage d'un coup. Donc, c’est l’entrée de la première fonction 
+vers l'avant de la chaîne, et puis simplement répéter
+ cela vous permet de calculer la propagation directe, 
+de gauche à droite. Ensuite, nous allons parler de l’étape
+ de rétropropagation. Ici, votre but est d’entrer da[l], et d'avoir en sortie da[l-1], dW[l] et db, Laissez moi écrire
+ les différentes étape des calculs. dz[l] est égal au produit élément
+ par élément de da[l] fois g[l]' de z[l] et ensuite on calcule les dérivées dW[l] = dz[l] fois a[l - 1] Je ne mets pas explicitement ceci
+ en cache, mais en fait on en a besoin aussi. Et puis, db [l] = dz [l] et enfin, da [l-1] = W[l] _transpose fois dz [l], OK ? Et, je ne veux pas passer par 
+les calculs détaillés des dérivées, mais si vous prenez la définition de da 
+et que vous la remplacez là-dedans, vous obtenez la même formule que 
+nous avons eue la semaine précédente, pour le calcul de dz[l] 
+en fonction du précédent dz[l]. Si je remplace juste ça ici, vous vous retrouvez avec dz [l] = 
+W[l+1]_transpose * (dz[l+1] * g[l]'(z [l]) ). Et je sais qu'il semble y avoir 
+beaucoup d'algèbre, vous pouvez vérifier vous même que c'est bien l'équation que nous avions écrite pour la rétropropagation
+ la semaine dernière, quand nous faisions un réseau de neurones
+ avec une seule couche cachée. Rappelez vous bien, ce * est 
+un produit élément par élément, et donc vous n'avez besoin que de
+ ces quatre équations pour implémenter 
+votre fonction vers l'arrière. Et puis finalement, je vais écrire 
+ la version vectorisée. La première ligne devient dZ[l] = dA[l] * g [l]' (Z[l]) Rien de surprenant. dW [l] devient 1/m dZ[l] fois
+ transposée de A[l-1], puis, db [l] devient 1/m np.sum (dZ [l], axis = 1, keepdims = True) Nous avons parlé de l’utilisation de np.sum 
+dans la semaine précédente pour calculer db. Et puis finalement, 
+dA [l-1] = W [l] _transpose fois dZ [l]. Cela nous permet d'avoir 
+en entrée cette quantité da et en sortie dW[l], db[l], les dérivées dont vous avez besoin, ainsi que da[l-1], comme ceci. Voilà donc comment vous implémentez
+ la fonction vers l’arrière. Bien, pour résumer, on prend l’entrée X, vous avez la première couche, qui utilise peut-être 
+une fonction d’activation ReLU, vous allez à la deuxième couche, qui a peut-être autre
+ fonction d’activation ReLU. On passe à la troisième couche,
+ qui a peut-être une fonction d’activation sigmoïde,
+ si vous faites de la classification binaire, et cela renvoie ŷ. Et puis, avec ŷ, vous pouvez calculer la perte, et cela vous permet de démarrer
+ votre itération vers l'arrière. Je vais dessiner les flèches d'abord, ok ? Pour éviter de changer 
+de stylos tout le temps. Ensuite, vous avez la rétropropagation,
+ pour calculer les dérivées, pour calculer dW[3], db[3], dW[2], db[2], dW[1], db[1], et dans le processus, vous calculez le cache va transférer z[1], z[2], z[3], et vous passez vers l'arrière da[2] et da[1]. On pourrait calculer da[0], mais nous n’utiliserons pas ça. Alors vous pouvez simplement ignorer ça. Voici comment implémenter la propagation 
+vers l'avant et la rétropropagation pour un réseau de neurones à trois couches. Il y a juste un dernier détail,
+ que je n'ai pas mentionné, qui est que pour la récursion vers l'avant, nous initialisons avec
+ les données d’entrée X. Et pour la récursion vers l'arrière ? Eh bien, il s’avère que da[l], lorsque vous utilisez
+ la régression logistique, quand vous faites de
+ la classification binaire, est égal à -y/a + (1-y)/(1-a). Donc il s’avère que la dérivée
+ de la fonction de perte, par rapport à la sortie, par rapport à ŷ, 
+on peut montrer que c'est ça. Si vous savez calculer les dérivées, si vous prenez la fonction de perte L, et que vous la dérivez par rapport
+ à ŷ, par rapport à a, vous pouvez montrer que 
+vous obtenez cette formule. C’est elle que vous devez utiliser pour da
+ pour la dernière couche, L majuscule. Et bien sûr, pour une
+ implémentation vectorisée, alors vous initialisez 
+la récursion vers l'arrière pas avec cela, mais 
+avec dA pour la couche L, qui va être la même chose
+ pour les différents exemples, -y/a pour le premier 
+exemple d'apprentissage, +(1-y)/(1-a) pour le premier 
+exemple d'apprentissage, +(1-y)/(1-a) pour le premier 
+exemple d'apprentissage, trois petits points, jusqu'au
+ m-ième exemple d'apprentissage. Voilà donc comment vous 
+implémentez la version vectorisée. Voilà comment vous initialisez la
+ version vectorisée de la rétropropagation. Bien, vous avez vu maintenant 
+les blocs de construction de base des propagations vers l'avant
+ et vers l'arrière, Maintenant,
+ si vous implémentez ces équations, vous aurez
+ une implémentation correcte de la propagation vers l'avant et vers l'arrière pour 
+avoir les dérivées dont vous avez besoin. Vous pouvez penser "ça fait 
+beaucoup d’équations, Je suis un peu confus, je ne suis pas sûr
+ que je voie comment cela fonctionne." Et si vous vous sentez comme ça, 
+mon conseil est, Quand vous ferez l'exercice de 
+programmation de cette semaine, vous pourrez implémenter ça vous-même, et ce sera beaucoup plus concret. Et je sais qu'il y a beaucoup d’équations, et peut-être que certaines équations
+ vous semblent obscures, mais si vous faites les dérivées et l’algèbre linéaire, ce qui n’est pas facile, n’hésitez pas à essayer, mais c’est en fait une des dérivations les plus
+ difficiles en apprentissage automatique. Les équations deviennent complexes, les équations pour calculer les dérivées, 
+en particulier pour la rétropropagation. Mais encore une fois, si cela 
+vous semble un peu abstrait, un peu mystérieux, je vous conseille d'aller faire 
+l'exercice de programmation qui rendra les choses un peu plus concrètes. Et je dois aussi dire que, même aujourd'hui, quand j’implémente un algorithme
+ d’apprentissage, parfois, même moi je suis surpris quand mon implémentation de l'algorithme 
+d'apprentissage fonctionne, parce que beaucoup de la complexité de l'apprentissage 
+automatique vient des données
+ plutôt que du code. Alors parfois, vous pensez que vous n'avez implémenté que
+ quelques lignes de code, vous n'êtes pas trop sûr de ce que ça a fait, mais cela fonctionne presque
+ comme par magie, parce que beaucoup de la magie n’est pas
+ réellement dans le code que vous écrivez, qui n’est souvent pas très long. Il n’est pas vraiment simple, mais ce n’est pas dix mille, cent mille lignes de code, mais vous y entrez tellement 
+de données que parfois, même si j’ai travaillé en apprentissage
+ automatique pendant longtemps, parfois, ça me surprend encore un peu
+ quand mon algorithme d’apprentissage fonctionne parce que beaucoup
+ de la complexité de
+ votre algorithme d’apprentissage provient des données plutôt 
+que de la nécessité d'écrire des milliers et
+ des milliers de lignes de code. Très bien. Donc voici comment implémenter 
+des réseaux de neurones profonds. Et encore une fois, ça va devenir
+ plus concret quand vous aurez
+ fait l’exercice de programmation. Avant de passer à la suite, 
+dans la prochaine vidéo, Je veux parler des hyper paramètres 
+et des paramètres. Il s’avère que quand vous entraînez
+ des réseaux profonds, savoir bien organiser vos hyper paramètres vous aidera à être plus efficace 
+dans l’élaboration de vos réseaux. Dans la vidéo suivante, nous allons voir
+ ce que cela signifie exactement.

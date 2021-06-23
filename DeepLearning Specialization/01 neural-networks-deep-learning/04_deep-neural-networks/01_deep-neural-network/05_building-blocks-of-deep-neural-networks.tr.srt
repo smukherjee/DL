@@ -1,0 +1,487 @@
+1
+00:00:00,000 --> 00:00:02,705
+Bu haftanın önceki videolarında da
+
+2
+00:00:02,705 --> 00:00:05,735
+son birkaç haftadaki videolarda olduğu gibi,
+
+3
+00:00:05,735 --> 00:00:08,075
+temel yapı taşlarını gördünüz,
+
+4
+00:00:08,075 --> 00:00:10,456
+ileri ve geri yayılım algoritmalarının
+
+5
+00:00:10,456 --> 00:00:14,090
+bir derin sinir ağını uygulamanız için gereken anahtar bileşenleri
+
+6
+00:00:14,090 --> 00:00:18,303
+Derin bir ağ oluşturmak için bu bileşenleri nasıl bir araya getirebileceğinizi görelim.
+
+7
+00:00:18,303 --> 00:00:20,333
+İşte birkaç katmandan oluşan bir ağ.
+
+8
+00:00:20,333 --> 00:00:27,290
+Hadi bir katman seçin ve şimdilik sadece bu katman üzerindeki hesaplamalara odaklanın.
+
+9
+00:00:27,290 --> 00:00:33,410
+L katmanı için WL ve BL parametrelerine sahipsiniz
+
+10
+00:00:33,410 --> 00:00:35,645
+ve ileri yayılım için
+
+11
+00:00:35,645 --> 00:00:42,180
+bir önceki katmanın AL-1 etkilenimlerini girdi olarak alacaksınız
+
+12
+00:00:42,180 --> 00:00:48,895
+ve çıktı olarak AL üretileceksiniz.
+
+13
+00:00:48,895 --> 00:01:00,105
+Bu daha önce yaptığımızda şu şekilde yapmıştık: siz ZL = WL x AL - 1 + BL'i hesaplamıştınız
+
+14
+00:01:00,105 --> 00:01:08,025
+daha sonra da AL=G_of_ZL'i hesaplamıştınız değil mi?
+
+15
+00:01:08,025 --> 00:01:12,990
+İşte böyle AL-1 girdisinden AL çıkışına gidersiniz.
+
+16
+00:01:12,990 --> 00:01:15,330
+Ve o daha sonra kullanılmak üzere çıkıyor
+
+17
+00:01:15,330 --> 00:01:20,640
+ZL değerini de ön belleğe almak yararlı olacaktır.
+
+18
+00:01:20,640 --> 00:01:24,060
+Bu ön belleği de dahil edeyim
+
+19
+00:01:24,060 --> 00:01:28,170
+çünkü ZL değerini saklamak geriye doğrular için faydalı olacaktır
+
+20
+00:01:28,170 --> 00:01:31,290
+daha sonra geriye yayılım adımı için faydalı olacaktır ve daha sonra
+
+21
+00:01:31,290 --> 00:01:32,745
+geriye doğru adımı için,
+
+22
+00:01:32,745 --> 00:01:34,785
+geriye yayılım adımı için, tekrar,
+
+23
+00:01:34,785 --> 00:01:37,390
+L katmanı için hesaplamalara odaklanarak,
+
+24
+00:01:37,390 --> 00:01:41,635
+DAL'yi girdisi alan ve
+
+25
+00:01:41,635 --> 00:01:51,840
+DAL-1 çıktısını veren fonksiyonu uygulayacaksınız.
+
+26
+00:01:51,840 --> 00:01:53,650
+Sadece detayları ortaya çıkarmak için
+
+27
+00:01:53,650 --> 00:01:56,050
+girdi aslında DAL'di
+
+28
+00:01:56,050 --> 00:01:59,130
+hem de ön bellektir,
+
+29
+00:01:59,130 --> 00:02:04,040
+bu yüzden sizin hesapladığınız ZL değeri de senin elinde kullanılabilir durumda
+
+30
+00:02:04,040 --> 00:02:06,755
+ve sonra DAL-1 çıktısına ek olarak
+
+31
+00:02:06,755 --> 00:02:09,940
+siz istediğiniz eğimlerin çıktılarını da üreteceksiniz
+
+32
+00:02:09,940 --> 00:02:14,025
+öğrenme için eğim inişini uygulamak amacıyla.
+
+33
+00:02:14,025 --> 00:02:19,772
+İleriye doğru adımın nasıl uyguladığının temel yapısı budur.
+
+34
+00:02:19,772 --> 00:02:22,680
+ben onu ileriye doğru fonksiyonu olarak adlandıracağım
+
+35
+00:02:22,680 --> 00:02:24,970
+aynı zamanda geriye doğru adımı da geriye doğru fonksiyonu olarak adlandırmalıyız.
+
+36
+00:02:24,970 --> 00:02:27,535
+sadece özetlemek gerekirse L katmanında
+
+37
+00:02:27,535 --> 00:02:32,650
+siz ileriye doğru adıma ya da ileriye doğru yayılıma ya da ileriye doğru fonksiyonuna sahip olacaksınız.
+
+38
+00:02:32,650 --> 00:02:38,986
+girdisi AL-1 ve çıktısı AL
+
+39
+00:02:38,986 --> 00:02:42,070
+ve bu hesaplamayı yapmak amacıyla
+
+40
+00:02:42,070 --> 00:02:45,650
+WL ve BL değerlerini kullanmanız gerekecek
+
+41
+00:02:45,650 --> 00:02:54,185
+Ayrıca ZL değerini içeren bir önbellek çıktısı verir ve sonra geriye doğru fonksiyonu
+
+42
+00:02:54,185 --> 00:02:56,357
+geriye doğru yayılımı kullanarak
+
+43
+00:02:56,357 --> 00:03:01,650
+DAL i girdi olarak alan ve çıktı olarak DAL-1 üreten
+
+44
+00:03:01,650 --> 00:03:08,065
+başka bir fonksiyon olacak
+
+45
+00:03:08,065 --> 00:03:13,820
+Bu size söyler ki, bu etkilenimlere göre türevler verildiğinde,
+
+46
+00:03:13,820 --> 00:03:16,950
+ki o da DAL'dir. Türevler nelerdir?
+
+47
+00:03:16,950 --> 00:03:20,400
+Ne kadar AL-1 değişikliği istiyorum?
+
+48
+00:03:20,400 --> 00:03:24,590
+Önceki katmanın etkilenimlerine göre türevleri hesapla
+
+49
+00:03:24,590 --> 00:03:29,870
+Bu kutu içerisinde WL ve BL değerlerini kullanmalısınız
+
+50
+00:03:29,870 --> 00:03:31,200
+ve yol boyunca ortaya çıktı ki
+
+51
+00:03:31,200 --> 00:03:34,144
+DZL değerini hesaplamayla neticelendi.
+
+52
+00:03:34,144 --> 00:03:36,400
+ve sonra bu kutu
+
+53
+00:03:36,400 --> 00:03:43,515
+Bu geriye doğru fonksiyonu ayrıca DWL ve DBL çıktılarını üretir.
+
+54
+00:03:43,515 --> 00:03:47,740
+Bazı zamanlar ben geriye doğru hesaplamaları belirtmek için kırmızı oku kullanırım.
+
+55
+00:03:47,740 --> 00:03:51,668
+Siz de tercih ederseniz bu okları kırmızı ile doldurabiliriz.
+
+56
+00:03:51,668 --> 00:03:55,305
+Eğer bu iki fonksiyonu uygularsanız,
+
+57
+00:03:55,305 --> 00:03:59,390
+sinir ağının temel hesaplaması aşağıdaki gibi olacaktır.
+
+58
+00:03:59,390 --> 00:04:02,453
+Sen A0 girdi özniteliğini alacaksın
+
+59
+00:04:02,453 --> 00:04:07,710
+Bunun ile besle, ve bu ilk katmanın aktivasyonlarını hesaplayacaktır
+
+60
+00:04:07,710 --> 00:04:09,624
+Hadi bunu A1 olarak adlandıralım.
+
+61
+00:04:09,624 --> 00:04:14,535
+Bunu yapmak için sizin W1 ve B1 değerine ihtiyacınız vardı.
+
+62
+00:04:14,535 --> 00:04:21,090
+ve sonra Z1 değerini saklayacağız.
+
+63
+00:04:21,090 --> 00:04:22,475
+Şimdi bunu yaparken
+
+64
+00:04:22,475 --> 00:04:25,290
+bunun ile ikinci katmanı besledin
+
+65
+00:04:25,290 --> 00:04:28,026
+ve sonra W2 ve B2 değerini kullanarak
+
+66
+00:04:28,026 --> 00:04:32,355
+Sonraki katmanın aktivasyonlarını yani A2 değerini hesap edeceksiniz,
+
+67
+00:04:32,355 --> 00:04:36,475
+ve AL çıktısınız üretene kadar
+
+68
+00:04:36,475 --> 00:04:40,065
+bu böyle devam eder.
+
+69
+00:04:40,065 --> 00:04:42,655
+Bu da Y^ eşittir.
+
+70
+00:04:42,655 --> 00:04:51,595
+Tüm bu yol boyunca biz tüm Z değerlerini sakladık,
+
+71
+00:04:51,595 --> 00:04:55,161
+sonuç olarak bu işlem ileri yayılım adımıdır.
+
+72
+00:04:55,161 --> 00:04:57,585
+Şimdi geri yayılım adımı için,
+
+73
+00:04:57,585 --> 00:05:03,220
+Yapacağımız şey, geriye doğru gideceğimiz
+
+74
+00:05:03,220 --> 00:05:12,200
+ve eğimleri hesaplayacağımız bir geri dönüş dizisi olacaktır.
+
+75
+00:05:12,200 --> 00:05:17,350
+O buradan beslenecek, DAL,
+
+76
+00:05:17,350 --> 00:05:21,674
+ve sonra bu kutu bize DAL-1 değerini verecek,
+
+77
+00:05:21,674 --> 00:05:30,424
+ve bu böyle biz DA2, DA1 değerine ulaşana kadar devam eder.
+
+78
+00:05:30,424 --> 00:05:35,500
+Aslında DA0 değerini hesaplamak için bir tane daha çıktı alabilirsiniz.
+
+79
+00:05:35,500 --> 00:05:40,250
+fakat senin girdi özniteliklerine göre bu türevi almak
+
+80
+00:05:40,250 --> 00:05:46,237
+en azından bu gözetimli sinir ağlarının ağırlıklarının eğitimi için hiç faydalı değil.
+
+81
+00:05:46,237 --> 00:05:48,160
+Sonuç olarak bu noktada durabilirsin.
+
+82
+00:05:48,160 --> 00:05:54,365
+Yol boyunca geriye yayılım ayrıca DWL, DBL çıktıları üretmiştir.
+
+83
+00:05:54,365 --> 00:05:58,800
+sadece WL ve BL parametrelerini kullanalım
+
+84
+00:05:58,800 --> 00:06:04,810
+bu DW3, DB3 üretecek
+
+85
+00:06:04,810 --> 00:06:09,238
+ve böyle devam eder.
+
+86
+00:06:09,238 --> 00:06:16,660
+Böylece ihtiyacın olan tüm türevleri hesaplamış olacaksınız.
+
+87
+00:06:16,660 --> 00:06:21,235
+Sadece belki bunun yapısını biraz daha doldurmak amacıyla
+
+88
+00:06:21,235 --> 00:06:28,500
+bu kutular da bu parametreleri kullanır, WL,
+
+89
+00:06:28,500 --> 00:06:34,560
+BL, sonra göreceğimiz gibi bu kutuların içinde de
+
+90
+00:06:34,560 --> 00:06:37,460
+biz DZ değerlerini hesaplayacağız.
+
+91
+00:06:37,460 --> 00:06:43,305
+Bir sinir ağının eğitimin ilk yenilemesi A0 ile başlamayı içerir, ki o da X değeridir.
+
+92
+00:06:43,305 --> 00:06:46,725
+ve ileri yayılım geçimi şu şekildedir,
+
+93
+00:06:46,725 --> 00:06:50,715
+Y^ değerini hesaplama ve sonra bu değeri kullanarak bunu hesaplama
+
+94
+00:06:50,715 --> 00:06:55,680
+ve sonra geri yayılım, bunu yapmak suretiyle
+
+95
+00:06:55,680 --> 00:06:59,880
+Şimdi siz tüm türev değişkenlerine sahipsiniz.
+
+96
+00:06:59,880 --> 00:07:08,830
+Ve böylece her bir katman için W değeri, W eksi öğrenme oranı çarpı dw olarak güncellenecektir
+
+97
+00:07:08,830 --> 00:07:12,570
+ve benzer şekilde B için de
+
+98
+00:07:12,570 --> 00:07:17,757
+Şimdi geri yayılımı hesapla ve tüm türevlere sahip ol.
+
+99
+00:07:17,757 --> 00:07:21,845
+Bu işte sizin sinir ağınızın tek bir yinelemesidir.
+
+100
+00:07:21,845 --> 00:07:25,125
+Devam etmeden önce, sadece bir tane daha uygulama detayı
+
+101
+00:07:25,125 --> 00:07:29,665
+Kavramsal olarak, ön belleği burada Z değerlerini geriye doğru fonksiyonu
+
+102
+00:07:29,665 --> 00:07:34,361
+için saklamak olarak düşünmek yararlı olur
+
+103
+00:07:34,361 --> 00:07:35,635
+fakat sen bunu uyguladığın zaman,
+
+104
+00:07:35,635 --> 00:07:38,496
+ve bunu önceki programlama egzersizlerinde de görüyorsun, biz bunu uyguluyoruz.
+
+105
+00:07:38,496 --> 00:07:40,840
+W1, B1 parametrelerinin bu değerinin de
+
+106
+00:07:40,840 --> 00:07:43,730
+geriye doğru fonksiyona getirilmesi için
+
+107
+00:07:43,730 --> 00:07:46,648
+saklamanın uygun bir yol olduğunu görürsünüz.
+
+108
+00:07:46,648 --> 00:07:47,868
+Eski alıştırmalar da,
+
+109
+00:07:47,868 --> 00:07:49,795
+siz aslında Z değerini kendi ön belliğinizde sakladınız,
+
+110
+00:07:49,795 --> 00:07:52,239
+aynı şekilde W ve B değerlerini de,
+
+111
+00:07:52,239 --> 00:07:57,715
+sonuç olarak sadece Z2, W2, B2 değerlerini depola.
+
+112
+00:07:57,715 --> 00:07:59,860
+Bir uygulama açısından bakıldığında
+
+113
+00:07:59,860 --> 00:08:04,120
+Sadece kopyalanan parametreleri almanın uygun bir yolunu buldum
+
+114
+00:08:04,120 --> 00:08:08,975
+Geri yayılımı hesaplarken bunları daha sonra kullanmanız gerekir.
+
+115
+00:08:08,975 --> 00:08:15,446
+Bu sadece programlama alıştırmasını yaptığınızda gördüğünüz uygulama detayıdır.
+
+116
+00:08:15,446 --> 00:08:20,061
+Artık derin bir sinir ağını uygulamak için gerekli temel yapı taşlarından birini gördünüz.
+
+117
+00:08:20,061 --> 00:08:21,640
+Her bir katman için, bir ileri yayılım adımı var,
+
+118
+00:08:21,640 --> 00:08:24,260
+ve buna karşılık gelen bir geri yayılım adımı var
+
+119
+00:08:24,260 --> 00:08:27,675
+ve bilgileri birinden diğerine aktarmak için bir önbellek var.
+
+120
+00:08:27,675 --> 00:08:28,930
+Bir sonraki videoda,
+
+121
+00:08:28,930 --> 00:08:32,250
+Bu yapı taşlarını gerçekte nasıl uygulayacağınız hakkında konuşacağız.
+
+122
+00:08:32,250 --> 00:08:33,500
+Hadi bir sonrakine gidelim.

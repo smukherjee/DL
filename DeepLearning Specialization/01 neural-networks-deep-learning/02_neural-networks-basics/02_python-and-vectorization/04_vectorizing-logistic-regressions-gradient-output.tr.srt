@@ -1,0 +1,511 @@
+1
+00:00:00,000 --> 00:00:01,440
+Bir önceki videoda 
+
+2
+00:00:01,440 --> 00:00:05,700
+tahminlerini hesaplamak için vektörleştirmeyi nasıl kullanabileceğinizi gördünüz.
+
+3
+00:00:05,700 --> 00:00:11,485
+Küçük a aynı zamanda O eğitim setine de girer.
+
+4
+00:00:11,485 --> 00:00:15,030
+Bu videoda, tüm M eğitim örnekleri için eğim (gradyan) hesaplamaları gerçekleştirmede
+
+5
+00:00:15,030 --> 00:00:19,205
+vektörleştirmeyi nasıl kullanabileceğinizi görüyorsunuz.
+
+6
+00:00:19,205 --> 00:00:21,380
+Yine, aynı zamanda tüm sıralama.
+
+7
+00:00:21,380 --> 00:00:22,890
+Ve sonra bu videonun sonunda,
+
+8
+00:00:22,890 --> 00:00:26,175
+hepsini bir araya getireceğiz ve lojistik regresyonun (s biçimli bağlanım)
+
+9
+00:00:26,175 --> 00:00:29,730
+çok verimli bir şekilde nasıl uygulanabileceğini göstereceğiz.
+
+10
+00:00:29,730 --> 00:00:32,505
+Gradyan hesaplaması için bunu hatırlayabilirsiniz,
+
+11
+00:00:32,505 --> 00:00:36,910
+ilk örnek için dz1'i hesaplamıştık.
+
+12
+00:00:36,910 --> 00:00:43,870
+dz1 = a1 - y1 ve
+
+13
+00:00:43,870 --> 00:00:52,134
+dz2 = a2 - y2
+
+14
+00:00:52,134 --> 00:00:56,425
+ve tüm M eğitim örnekleri için böyle devam eder.
+
+15
+00:00:56,425 --> 00:01:01,218
+Yapacağımız şey yeni bir değişken tanımlamaktır,
+
+16
+00:01:01,218 --> 00:01:08,595
+dZ = dz1, dz2, ..dzm.
+
+17
+00:01:08,595 --> 00:01:13,910
+Tüm d küçük harf z (dz) değişkenleri yatay olarak yığılmıştır.
+
+18
+00:01:13,910 --> 00:01:21,200
+Yani bu 1xm'lik matris veya m boyutlu bir sıra vektör olacaktır.
+
+19
+00:01:21,200 --> 00:01:23,520
+Şimdi, bir önceki slayttan hatırlayın,
+
+20
+00:01:23,520 --> 00:01:28,405
+Büyük A'nın nasıl hesaplanacağını göstermiştik, a1'den am'e
+
+21
+00:01:28,405 --> 00:01:36,735
+ve büyük Y'yi y1'den ym'e bulmuştuk.
+
+22
+00:01:36,735 --> 00:01:39,200
+Yatay olarak yığıldığını zaten biliyorsunuz.
+
+23
+00:01:39,200 --> 00:01:42,780
+Dolayısıyla, bu tanımlara dayanarak,
+
+24
+00:01:42,780 --> 00:01:46,770
+dz'nin sadece A - Y olarak hesaplanabileceğini göreceksiniz
+
+25
+00:01:46,770 --> 00:01:52,750
+çünkü ilk elemanı a1 - y1 ve
+
+26
+00:01:52,750 --> 00:01:55,670
+ikinci elemanı a2 - y2 diye devam eden
+
+27
+00:01:55,670 --> 00:01:59,980
+matrise eşit olacak.
+
+28
+00:01:59,980 --> 00:02:06,115
+Yani, ilk eleman olan a1 - y1 tam olarak dz1'in tanımıdır.
+
+29
+00:02:06,115 --> 00:02:11,670
+İkinci eleman ise dz2'nin tanımıdır ve böyle devam eder.
+
+30
+00:02:11,670 --> 00:02:13,965
+Yani, sadece bir kod satırı ile
+
+31
+00:02:13,965 --> 00:02:20,095
+tüm bunları aynı anda hesaplayabilirsiniz.
+
+32
+00:02:20,095 --> 00:02:24,010
+Şimdi, önceki uygulamada,
+
+33
+00:02:24,010 --> 00:02:27,695
+tam bir döngüden kurtulduk ama hala
+
+34
+00:02:27,695 --> 00:02:31,600
+eğitim örnekleri üzerinde döngü için bu ikinci vardı.
+
+35
+00:02:31,600 --> 00:02:35,440
+Bu yüzden dw'yi sıfırlar vektörü için sıfırdan başlattık.
+
+36
+00:02:35,440 --> 00:02:38,905
+Fakat yine de, dw + = x1 çarpı dz1'e sahip olduğumuz
+
+37
+00:02:38,905 --> 00:02:43,015
+eğitim örnekleri üzerinde,
+
+38
+00:02:43,015 --> 00:02:50,440
+ilk eğitim örneğinde dw + = x2 çarpı dz2, öyle devam ediyor.
+
+39
+00:02:50,440 --> 00:02:56,980
+m kere yaparız yani dw / = m olur. Aynı db gibi, değil mi?
+
+40
+00:02:56,980 --> 00:03:03,370
+db'de sıfırdan başlatıldı ve sonra db + = dz1.
+
+41
+00:03:03,370 --> 00:03:09,120
+db + = dz2 ve aynı şekilde devam ediyor.
+
+42
+00:03:09,120 --> 00:03:16,835
+db + = dzm ve en son db / = m. Yani önceki uygulamada sahip olduğumuz şey buydu.
+
+43
+00:03:16,835 --> 00:03:18,700
+Tam bir döngüden zaten kurtulduk.
+
+44
+00:03:18,700 --> 00:03:25,045
+Yani, en azından şu anda dw bir vektördür. Ve biz onu d1, dw2 vb
+
+45
+00:03:25,045 --> 00:03:26,850
+şeklinde ayrıştırdık.
+
+46
+00:03:26,850 --> 00:03:29,860
+Yani, bundan zaten kurtulmuştuk fakat
+
+47
+00:03:29,860 --> 00:03:33,630
+eğitim setindeki M örnekleri üzerinde hala tam bir döngü var.
+
+48
+00:03:33,630 --> 00:03:36,290
+Hadi bu işlemleri yapalım ve onları düzenleyelim.
+
+49
+00:03:36,290 --> 00:03:38,380
+Yapabileceğimiz şey,
+
+50
+00:03:38,380 --> 00:03:42,745
+db'nin uygulanmasının vektörize edilmesi için temel olarak toplanması,
+
+51
+00:03:42,745 --> 00:03:47,940
+bu dz'lerin tümünün daha sonra m ile bölünmesidir.
+
+52
+00:03:47,940 --> 00:03:51,580
+db temel olarak 1 üzeri m'dir.
+
+53
+00:03:51,580 --> 00:03:56,530
+i = 1'den m'e kadar dzi'lerin toplamı ve
+
+54
+00:03:56,530 --> 00:04:03,055
+bütün dz'ler bu satır vektöründedir. Python'da
+
+55
+00:04:03,055 --> 00:04:04,765
+nasıl uygulayacağını biliyorsun,
+
+56
+00:04:04,765 --> 00:04:08,155
+1 üzeri m çarpı np
+
+57
+00:04:08,155 --> 00:04:12,210
+çarpı dz'lerin toplamı.
+
+58
+00:04:12,210 --> 00:04:15,115
+Yani, bu değişkeni al ve np ile çarp.
+
+59
+00:04:15,115 --> 00:04:19,195
+Sonuç olarak bu denklem size db'yi verecektir.
+
+60
+00:04:19,195 --> 00:04:22,330
+Dw ya da yazdığın başka bir şey için
+
+61
+00:04:22,330 --> 00:04:26,375
+kanıtlanabilir doğru denklemler, yapılacak doğru şeydir.
+
+62
+00:04:26,375 --> 00:04:28,164
+Dw matrisi, bir üzeri m çarpı
+
+63
+00:04:28,164 --> 00:04:34,485
+X matrisi çarpı dz'nin tanspozesi haline dönüyor.
+
+64
+00:04:34,485 --> 00:04:37,990
+Bu denklik, 1 üzeri m çarpı X matrisi,
+
+65
+00:04:37,990 --> 00:04:41,806
+Eşitlik, 1 üzeri m çarpı X matrisi
+
+66
+00:04:41,806 --> 00:04:48,325
+(x1'den xm'e kadar sütunlarda yığılı olan) ve sonra
+
+67
+00:04:48,325 --> 00:04:56,040
+dz'nin transpozesi (dz1'den dzm'e aşağı doğru).
+
+68
+00:04:56,040 --> 00:05:00,900
+Böylece, bu matris ve bu vektörün ne zaman çalıştığını anlarsanız
+
+69
+00:05:00,900 --> 00:05:05,585
+1 üzeri m çarpı x1, dz1
+
+70
+00:05:05,585 --> 00:05:12,523
+artı ...... artı xm, dzm'e dönüşür.
+
+71
+00:05:12,523 --> 00:05:21,405
+yani, bu nx1'lik bir vektördür ve aslında dw ile biter.
+
+72
+00:05:21,405 --> 00:05:24,725
+çünkü biliyorsunuz ki dw bunları alıyordu
+
+73
+00:05:24,725 --> 00:05:27,710
+xi, dzi ve bunların toplamları. Yani tam olarak bu
+
+74
+00:05:27,710 --> 00:05:32,300
+matris vektör çarpımı yapıyor. Ve tekrardan belirtmek gerekirse
+
+75
+00:05:32,300 --> 00:05:35,655
+dw'yi tek satır kod ile hesaplayabilirsiniz.
+
+76
+00:05:35,655 --> 00:05:40,010
+Bu nedenle, türev hesaplamalarının vektörize uygulaması sadece bu,
+
+77
+00:05:40,010 --> 00:05:44,540
+db uygulaması için bu satırı
+
+78
+00:05:44,540 --> 00:05:50,540
+dw uygulaması için bu satırı kullanın ve eğitim seti üzerindeki tüm döngüde
+
+79
+00:05:50,540 --> 00:05:55,265
+istediğiniz parametreyi güncelleyerek hesaplama yapabilirsiniz.
+
+80
+00:05:55,265 --> 00:06:01,185
+Şimdi, hep birlikte lojistik regresyonunu gerçekte nasıl uygulayacağınıza bir bakalım.
+
+81
+00:06:01,185 --> 00:06:02,550
+Bu bizim orijinal,
+
+82
+00:06:02,550 --> 00:06:07,866
+oldukça verimsiz vektörize olmamış uygulamamız.
+
+83
+00:06:07,866 --> 00:06:11,775
+Burası önceki videoda ilk kurtulduğumuz kısımdı değil mi?
+
+84
+00:06:11,775 --> 00:06:14,400
+Yani, dw1 dw2 ve benzerleri üzerinden
+
+85
+00:06:14,400 --> 00:06:15,755
+döngü yapmak yerine,
+
+86
+00:06:15,755 --> 00:06:23,595
+bunu dw + = xi çarpı dzi olan bir vektör
+
+87
+00:06:23,595 --> 00:06:28,775
+değeri ile değiştirdik.
+
+88
+00:06:28,775 --> 00:06:32,000
+Ama şimdi, sadece satırın altındaki bir döngüden değil,
+
+89
+00:06:32,000 --> 00:06:36,670
+aynı zamanda bu tam döngüden de kurtulabileceğimizi göreceğiz.
+
+90
+00:06:36,670 --> 00:06:38,654
+Yani, işte böyle yapıyorsun.
+
+91
+00:06:38,654 --> 00:06:42,925
+Önceki slaytlardan elde ettiğimiz bilgileri kullanarak,
+
+92
+00:06:42,925 --> 00:06:46,085
+şunu söyleyebiliriz ki, büyük Z
+
+93
+00:06:46,085 --> 00:06:57,625
+w'nun transpozesi çarpı X artı b' ye eşittir ve koda, Z eşittir
+
+94
+00:06:57,625 --> 00:07:07,315
+np çarpı w'nun transpozesi çarpı X artı b ve sonra A eşittir Z'nin sigmoidi.
+
+95
+00:07:07,315 --> 00:07:12,710
+Yani, şimdi tüm bunları ve tüm bunları, i'nin tüm değerleri için hesapladınız.
+
+96
+00:07:12,710 --> 00:07:14,715
+Bir önceki slaytta,
+
+97
+00:07:14,715 --> 00:07:21,070
+dz'yi A - Y ile hesaplayabileceğinizi söylemiştik.
+
+98
+00:07:21,070 --> 00:07:24,460
+Yani, şimdi tüm bunları i'nin bütün değerleri için hesapladınız.
+
+99
+00:07:24,460 --> 00:07:31,495
+Son olarak dw eşittir 1/m çarpı X,
+
+100
+00:07:31,495 --> 00:07:39,700
+çarpı dz'nin transpozesi ve db eşittir 1/m çarpı np
+
+101
+00:07:39,700 --> 00:07:43,328
+çarpı dz'lerin toplamı
+
+102
+00:07:43,328 --> 00:07:49,120
+Yani, sadece ileri yayılım ve geri yayılım yaptınız,
+
+103
+00:07:49,120 --> 00:07:53,030
+gerçekten tam bir döngü kullanmadan tüm M eğitim örneklerinde
+
+104
+00:07:53,030 --> 00:07:57,340
+tahmin hesaplamalarını ve türev hesaplamalarını yapıyorsunuz.
+
+105
+00:07:57,340 --> 00:08:00,835
+Böylece degrede iniş güncellemesinde W'nun, w eksi öğrenme oranı
+
+106
+00:08:00,835 --> 00:08:04,462
+çarpı dw (yukarıda hesaplanan) olarak güncelleneceğini
+
+107
+00:08:04,462 --> 00:08:12,020
+biliyor olacaksınız. Ve b ise b eksi öğrenme oranı çarpı db olarak güncellenecek.
+
+108
+00:08:12,020 --> 00:08:17,341
+(burayı anlamadım) bazen görev olarak göstermek için kolonları yerleştirirdim
+
+109
+00:08:17,341 --> 00:08:21,675
+ama sanırım o notasyonla tamamen tutarlı olmadım.
+
+110
+00:08:21,675 --> 00:08:25,450
+Ancak bununla birlikte, lojistik regresyon için
+
+111
+00:08:25,450 --> 00:08:29,635
+tek bir yükseliş gradyanı gerçekleştirdiniz.
+
+112
+00:08:29,635 --> 00:08:32,308
+Şimdi, biliyorum her zaman
+
+113
+00:08:32,308 --> 00:08:35,260
+açık tam döngülerden kurtulmamız gerektiğini söylüyordum ama
+
+114
+00:08:35,260 --> 00:08:38,230
+ama bir gradyan kökenli olarak çoklu ayarlamayı
+
+115
+00:08:38,230 --> 00:08:42,880
+uygulamak istiyorsanız, yineleme sayısı üzerinde hala bir döngüye ihtiyacınız var.
+
+116
+00:08:42,880 --> 00:08:47,860
+Yani, degrade inişinin bin iterasyonunu istiyorsanız, 
+
+117
+00:08:47,860 --> 00:08:53,675
+yineleme sayısı üzerinden hala bir döngüye ihtiyaç duyabilirsiniz.
+
+118
+00:08:53,675 --> 00:08:55,870
+Bunun gibi en dışta tam bir döngü var,
+
+119
+00:08:55,870 --> 00:08:59,210
+o yüzden bu for döngüsünden kurtulmanın bir yolu olduğunu düşünmüyorum.
+
+120
+00:08:59,210 --> 00:09:02,390
+Ancak, inanılmaz derecede güzel olduğunu düşünüyorum
+
+121
+00:09:02,390 --> 00:09:07,117
+çünkü bir for döngüsü kullanmadan en az bir degrade iniş yinelemesi gerçekleştirebilirsiniz.
+
+122
+00:09:07,117 --> 00:09:09,880
+Yani, şu anda lojistik regresyon için son derece vektörize
+
+123
+00:09:09,880 --> 00:09:14,745
+ve yüksek verimli bir degrade iniş uygulamanız var.
+
+124
+00:09:14,745 --> 00:09:18,850
+Bir sonraki videoda konuşmak istediğim bir detay daha var.
+
+125
+00:09:18,850 --> 00:09:24,155
+Tanımına burada kısaca değineceğim tekniğe broadcasting (yayın) deniyor.
+
+126
+00:09:24,155 --> 00:09:28,240
+Broadcasting, Python ve numpy'nin kodunuzun
+
+127
+00:09:28,240 --> 00:09:32,915
+belirli bölümlerini daha verimli hale getirmek için kullanmanıza izin verdiği bir teknik olarak ortaya çıkmaktadır.
+
+128
+00:09:32,915 --> 00:09:37,090
+Öyleyse, bir sonraki videoda broadcasting hakkında daha fazla ayrıntı görelim.

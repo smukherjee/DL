@@ -1,0 +1,97 @@
+Dans cette vidéo, je vais vous montrer<br /> un exemple légèrement plus complexe dans lequel la pente de la fonction
+ pourra être différente à 
+différents points de la fonction. Commençons par un exemple. Ici, j'ai tracé la fonction f(a) = a². Regardons de nouveau au point a = 2. Donc a², c'est à dire f (a) = 4. Décalons a un petit peu vers la droite, 
+soit maintenant a = 2.001. f(a) c'est-à-dire a² va
+ être environ 4.004. Il s’avère que la valeur exacte, si vous sortez la calculatrice,
+vous trouverez que c'est en fait 4.004001. Je vais me contenter de dire 4.004,
+ ce qui est assez proche. Donc ce que cela signifie,
+ c'est que lorsque a = 2, ... dessinons ça sur le graphe. Donc ce que nous disons est que, si a = 2, alors f (a) = 4 et ici les axes x et y
+ ne sont pas dessinés à l’échelle. Techniquement, cette distance verticale
+ devrait être beaucoup plus grande que cette distance horizontale donc les axes 
+x et y ne sont pas à la même échelle. Mais si je décale a à 2.001,
+alors f(a) devient à peu près 4.004. Donc, si nous dessinons
+ ce petit triangle encore une fois, ça signifie que si je décale a
+ de 0.001 vers la droite, f(a) augmente quatre fois plus, de 0.004. Ainsi, dans le langage 
+du calcul infinitésimal, Nous disons que la pente
+ qui est la dérivée de f (a) à a = 2 est 4 ou, pour l'écrire 
+en notation mathématique, On dit que d/da de f(a) = 4 lorsque a = 2. Maintenant, une chose à propos
+ de la fonction f (a) = a² est que la pente est différente
+ pour différentes valeurs de a. Ce qui est différent de l’exemple que 
+nous avons vu sur la diapositive précédente. Nous allons donc regarder 
+un point différent. Si a = 5 au lieu de 2, si a = 5, alors a² = 25, c'est f(a). Si je décale de nouveau a vers la droite, un tout petit changement de a, maintenant a = 5.001,
+ alors f (a) vaudra environ 25.010. Donc, ce qu'on voit est
+ qu’en décalant a de 0.001, f(a) augmente 10 fois plus. Donc nous avons que
+ d/da de f (a) = 10 lorsque a = 5 parce que
+ f (a) augmente 10 fois plus que a quand je décale un tout petit peu a. Donc une façon de voir pourquoi la 
+dérivée est différente en différents points est que si vous dessinez ce petit triangle
+ à différents endroits sur le graphe, vous verrez que le rapport 
+entre la hauteur du triangle et la largeur du triangle est très différent
+ en différents points sur la courbe. Donc ici, la pente vaut 4 lorsque a = 2, 
+elle vaut 10 quand a = 5. Maintenant, si vous ouvrez 
+un manuel d'analyse fonctionnelle, vous y trouerez que d/da de f(a), f (a) = a², donc d/da a² L'une des formules vous trouverez dans 
+le manuel d'analyse, est que cette chose, la pente de cette fonction a², est égale à 2a. Je ne vais pas prouver cela,
+ mais vous pouvez ouvrir un manuel d'analyse fonctionnelle, trouver le tableau des formules et vous 
+trouverez que la dérivée de a² est égale à 2a. Et c’est d’ailleurs cohérent avec
+ ce que nous avons trouvé. À savoir, lorsque a = 2, la pente de
+ la fonction en a est 2 x a = 2 x 2 = 4. Et quand a = 5, alors la pente de la fonction
+ est 2 x a qui vaut 2 x 5 = 10. Donc si vous ouvrez 
+un manuel d'analyse fonctionnelle, 
+et que vous voyez cette formule, que la dérivée de a² est égale à 2 a, ce que cela signifie c’est que 
+pour une valeur donnée de a, si vous augmentez a de 0,001, 
+vous le décalez d'une toute petite valeur, alors f(a) augmentera de 2 a fois plus. C'est à dire de la pente, de la dérivée fois la petite valeur dont vous avez décalé a. Maintenant un tout petit détail, J’ai utilisé ce symbole approximativement
+ égal ici, ce n’était pas exactement 4.004, il y avait un 001 en plus à droite. Il se trouve que ce 001 supplémentaire, cette minuscule valeur est là parce que 
+nous avons décalé a de 0.001, si nous l'avions décalé à droite d'une valeur infiniment petite,
+ alors ce 001 en plus disparaît et vous trouvez que le décalage 
+de f(a) est exactement égal à la dérivée fois le montant 
+dont vous déplacez a vers la droite. Et si nous n'avions pas exactement 4.004,
+ c'est parce que les dérivées sont définies en utilisant des décalages infinitésimaux,
+ ce que 0.001 n'est pas. 0.001 est petit, mais il n’est pas infiniment petit. C'est pourquoi le décalage de f(a)
+ n'était pas exactement celui donné par la formule mais seulement 
+une approximation de la dérivée. Pour conclure cette vidéo, voyons quelques autres exemples rapides. L’exemple que vous avez déjà vu
+ est que, si f (a) = a², alors le tableau des formules du manuel vous 
+donne que la dérivée de a² est égale à 2a. Dans l’exemple que nous avons vu,
+quand a = 2, f(a) = 4, et si on décale a, f(a) est un tout petit peu supérieur,
+ mais environ égal à 4.004 et donc f (a) a augmenté quatre fois plus,
+ et en effet quand a = 2, la dérivée est égale à 4. Regardons quelques autres exemples. Disons maintenant que f(a) = a³. Si vous prenez le manuel et 
+regardez les formules du tableau, vous verrez que la pente de 
+cette fonction, encore une fois, la dérivée de cette fonction est égale à 3a². Vous pouvez trouver cette formule 
+dans le manuel d'analyse fonctionnelle. Donc qu'est ce que cela signifie ? Il faut interpréter ça comme ceci. Prenons à nouveau l'exemple de a = 2. Donc f (a) ou a³ = 8, 
+c’est deux à la puissance 3. Si vous décalez un peu a, vous trouvez que f (a) est environ 8.012, 
+n’hésitez pas à le vérifier en calculant 2.001 à la puissance 3. Vous trouverez que c'est 
+très proche de 8.012. Et en effet, lorsque a = 2,
+ ceci vaut 3 x 2² qui est égal à 3 x 4, qui vaut 12. Donc la formule de la dérivée dit que 
+si vous décalez a un petit peu à droite, f (a) va augmenter 12 fois plus. En effet, c’est vrai, 
+quand a a augmenté de 0.001, f (a) a augmenté 12 fois plus, de 0.012. Juste un dernier exemple, 
+avant de conclure. Supposons que f (a) soit égal 
+à la fonction logarithme. Donc je vais écrire log(a) et je vais utiliser le logarithme de base e. Certaines personnes l'écrivent ln(a).
+[logarithme népérien] Dans votre manuel d'analyse fonctionnelle, vous trouvez que lorsque vous
+ prenez la dérivée de log(a). C’est une fonction qui ressemble à ça, la pente de cette fonction 
+est donnée par 1/a. On interprète ça comme ça :
+ quelque soit la valeur de a, continuons avec a = 2 par exemple, 
+si vous la décalez à droite de 0.001, vous pouvez vous attendre 
+à ce que f(a) augmente de 1/a, c’est-à-dire la valeur de la dérivée, 
+fois le montant de l'augmentation de a. Donc si vous sortez une calculatrice, vous trouvez que si a = 2, f (a) vaut environ 0.69315 et si vous augmentez a à 2.001 
+alors f (a) vaut 0.69365, il a augmenté de 0.0005. Et en effet, si vous regardez la formule
+ pour la dérivée, lorsque a = 2, d/da f(a) = 1/2. Donc la formule de la dérivée dit que 
+si vous décalez a de 0.001 vers la droite, vous vous attendez à ce que
+ f(a) augmente de seulement 
+la moitié de ça, et 1/2 de 0.001 c'est 0.0005, ce qui est exactement
+ ce que nous avons trouvé. Donc, quand a augmente de 0.001,
+ passant de 2 à a= 2.001, f(a) augmente de la moitié de ça. Le résultat augmente d'environ 0.0005. Donc, si nous dessinons ce petit triangle, sur l’axe horizontal, il fait 0.001 
+et sur l’axe vertical, log(a) monte de la moitié de ça, 
+donc 0.0005. Et donc ce 1/a, ou 1/2 dans ce cas, quand a = 2, c’est juste la pente 
+de cette ligne quand a = 2. Donc, c’est tout pour les dérivées. Il n'y a que deux choses 
+à retenir de cette vidéo. Tout d’abord, la dérivée d'une fonction 
+signifie simplement la pente de la fonction et la pente d’une fonction peut être différente 
+en différents points de la fonction. Dans notre premier exemple où f (a) = 3 a,
+ c'était une ligne droite. La dérivée était la même partout, c’était 3 partout. Pour d’autres fonctions comme
+ f (a) = a² ou f(a) = log(a), la pente de la ligne varie. Donc, la pente ou la dérivée peut être 
+différente en différents points sur la courbe. C'est la première chose à retenir. La dérivée signifie simplement
+ la pente de la ligne. La deuxième chose à conserver, c’est que si vous 
+voulez trouver la dérivée d’une fonction, vous pouvez ouvrir vos manuels de maths
+ ou chercher sur Wikipedia et souvent, obtenir une formule pour la pente
+ de ces fonctions en différents points. J’espère que vous avez 
+une compréhension intuitive des dérivées
+c'est à dire des pentes des lignes. Continuons dans la prochaine vidéo. Nous allons commencer à parler de
+ graphe de calcul et de comment l'utiliser pour calculer les dérivées
+ de fonctions plus complexes.

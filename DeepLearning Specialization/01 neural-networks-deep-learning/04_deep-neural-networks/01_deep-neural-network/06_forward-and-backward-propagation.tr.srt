@@ -1,0 +1,713 @@
+1
+00:00:00,000 --> 00:00:01,350
+Bir önceki videoda 
+
+2
+00:00:01,350 --> 00:00:05,065
+derin sinir ağını uygulamanın 
+basit yapılarını gördünüz.
+
+3
+00:00:05,065 --> 00:00:07,696
+İleri yayılım her katmanda
+ bir basamaktır
+
+4
+00:00:07,696 --> 00:00:09,975
+ve buna karşılık bir geri yayılım 
+basamağı vardır
+
+5
+00:00:09,975 --> 00:00:12,370
+Hadi bu basamakları 
+nasıl uygulayacağız görelim
+
+6
+00:00:12,370 --> 00:00:14,230
+İleri yayılım ile başlıyoruz.
+
+7
+00:00:14,230 --> 00:00:20,045
+Hatırlayın ki bunun girdi 
+a[L-1] ve çıktı a[l] ile ne ilişkisi var
+
+8
+00:00:20,045 --> 00:00:21,795
+ve ön bellekteki z[L] ile
+
+9
+00:00:21,795 --> 00:00:24,615
+Ve kodlamadaki bakış açısını az önce açıkladık
+
+10
+00:00:24,615 --> 00:00:28,145
+belki ön bellekde w[L] ve
+ b[L] de birlikte tutulabilir,
+
+11
+00:00:28,145 --> 00:00:31,585
+bu, problem çözümü sırasında 
+fonksiyonları hızlıca çağırmaya yarar.
+
+12
+00:00:31,585 --> 00:00:35,438
+Ve dahası bu iş için kullanılan
+ denklemler 
+ tanıdık görünmelidir
+
+13
+00:00:35,438 --> 00:00:46,813
+İleri yayılımı kodlamanın bir yolu budur 
+ w[L] ile aL] çarpımına 
+b[L] eklenmesine eşittir,
+
+14
+00:00:46,813 --> 00:00:53,620
+ve sonra a[L] aktivasyon 
+fonksiyonunun 
+z'ye uygulanmasına eşittir.
+
+15
+00:00:53,620 --> 00:00:57,250
+Eğer bu notasyonu açıklamasını vektörize
+ yapmak isterseniz
+
+16
+00:00:57,250 --> 00:01:06,218
+A[L-1] ile W[L] çarpımına b[L] eklenmesidir.
+
+17
+00:01:06,218 --> 00:01:09,930
+B'yi eklemek hiper yayınlamaktır ve
+
+18
+00:01:09,930 --> 00:01:15,296
+A[L], G'nin z'deki her eleman üzerine dağılımıdır.
+
+19
+00:01:15,296 --> 00:01:20,128
+Hatırladığınız üzere, ileri basamak için olan diyagramda
+
+20
+00:01:20,128 --> 00:01:22,565
+ileri giden kutu zincirleri vardı
+
+21
+00:01:22,565 --> 00:01:26,775
+dolayısıyla bunu başlatıp, a[o]'ı besliyorsunuz
+
+22
+00:01:26,775 --> 00:01:29,305
+ve bu X'e eşit oluyor.
+
+23
+00:01:29,305 --> 00:01:31,440
+Yani bunu başlatınca
+
+24
+00:01:31,440 --> 00:01:33,380
+İlk baştakinin girdisi nedir?
+
+25
+00:01:33,380 --> 00:01:40,207
+Bu gerçekten a[0]'dır, tek eğitim örneğinde bu girdi özellikleridir.
+
+26
+00:01:40,207 --> 00:01:42,255
+Bir anda tek örnek yapıyorsan
+
+27
+00:01:42,255 --> 00:01:45,800
+veya A[0], tüm eğitim seti, 
+
+28
+00:01:45,800 --> 00:01:48,215
+eğer tüm eğitim setini işliyorsan,
+
+29
+00:01:48,215 --> 00:01:51,990
+Bu zincirdeki ilk dört fonksiyonun girdisidir
+
+30
+00:01:51,990 --> 00:01:53,970
+ve bunu tekrar etmek size
+
+31
+00:01:53,970 --> 00:01:57,085
+ileri yayılımı soldan sağa hesaplama kolaylığı sağlar.
+
+32
+00:01:57,085 --> 00:02:00,110
+Sonraki adımda, geri yayılım basamağı hakkında konuşalım,
+
+33
+00:02:00,110 --> 00:02:03,585
+Hedefiniz girdi olan da[L],
+
+34
+00:02:03,585 --> 00:02:08,040
+ve çıktı da[L-1] ve dW[L] ve db.
+
+35
+00:02:08,040 --> 00:02:16,240
+İzin verin tüm bunları hesaplamada ihtiyaç duyacağınız 
+ tüm basamakları yazayım, 
+dz[L] = da[L]
+
+36
+00:02:16,240 --> 00:02:23,866
+g[L] ile z[L]'nin elemanlarının çarpımı 
+
+37
+00:02:23,866 --> 00:02:27,405
+ve türevleri hesaplamak için
+
+38
+00:02:27,405 --> 00:02:34,420
+dW[l] = dz[l] * a[l - 1].
+
+39
+00:02:34,420 --> 00:02:37,445
+Bunu açıkça ön belleğe atmadım ama sonuçta
+
+40
+00:02:37,445 --> 00:02:39,114
+buna da ihtiyacınız var.
+
+41
+00:02:39,114 --> 00:02:47,560
+Ve sonra db[l] = dz[l] sonuçta
+
+42
+00:02:47,560 --> 00:02:59,089
+da[l-1] = w[l]_transpoz * dz[l], tamam mı?
+
+43
+00:02:59,089 --> 00:03:02,310
+Ve bunun nasıl türediği ile ilgili detaylı 
+açıklama yapmayacağım,
+
+44
+00:03:02,310 --> 00:03:06,605
+ancak bu tanımı alıp burada uygularsanız
+
+45
+00:03:06,605 --> 00:03:10,260
+sonrasında önceki hafta elde ettiğimiz 
+aynı formülü elde edersiniz.
+
+46
+00:03:10,260 --> 00:03:16,617
+dz[L]'yi önceki dz[L]'nin bir fonksiyonu olarak 
+nasıl hesaplayacağımıza gelirsek, aslında
+
+47
+00:03:16,617 --> 00:03:18,135
+Burada uygularsam,
+
+48
+00:03:18,135 --> 00:03:33,817
+sonuçta dz[l] = w[l+1]_transpoz dz[l+1] * g[l]` z[l]. çıkar.
+
+49
+00:03:33,817 --> 00:03:36,165
+Biliyorum bu çok fazla cebir gibi görünüyor,
+
+50
+00:03:36,165 --> 00:03:38,360
+bu konude kendiniz için sağlama yapabilirsiniz
+
+51
+00:03:38,360 --> 00:03:40,820
+Bu bizim yazdığımız denklemdir 
+.
+
+52
+00:03:40,820 --> 00:03:43,055
+geçen hafta geri yayılım için 
+ ne zaman biz‑
+
+53
+00:03:43,055 --> 00:03:45,930
+tek saklı katmanlı bir yapay sinir ağı yaparken
+
+54
+00:03:45,930 --> 00:03:48,602
+hatırlatmam gerekir ki şu an bu elemanların çarpımıdır
+
+55
+00:03:48,602 --> 00:03:54,950
+ve geri yayılımı hesaplamak için bu dört denkleme ihtiyaç vardır.
+
+56
+00:03:54,950 --> 00:03:58,735
+Son olarak bunların vektör halini de yazacağım, 
+
+57
+00:03:58,735 --> 00:04:04,135
+Birinci satır dz[l] = dA[l] olacak,
+
+58
+00:04:04,135 --> 00:04:11,045
+g[l]` of z[l].'nin elemanlarının çarpımı.
+
+59
+00:04:11,045 --> 00:04:13,060
+Belki burada bir sürpriz yok,
+
+60
+00:04:13,060 --> 00:04:23,715
+dW[l] 1/m, dz[l] * a[l-1]_transpoz olur ve sonra 
+
+61
+00:04:23,715 --> 00:04:30,844
+db[l]  1/m np.sum dz[l],(numpy ile toplama) olur.
+
+62
+00:04:30,844 --> 00:04:37,970
+sonra eksen = 1 olur, boyutlar sabit, 
+keepdims = true
+
+63
+00:04:37,970 --> 00:04:44,095
+Geçtiğimiz hafta np.sum üzerinde konuştuk,
+ şimdi bunu db'yi hesaplamakta kullanacağız.
+
+64
+00:04:44,095 --> 00:04:56,155
+Ve sonra nihayet, dA [l-1] W [l] _transpoz * dz [l].
+
+65
+00:04:56,155 --> 00:05:02,435
+Sonuçta bu durum girdi olarak bu değeri 
+vermenize olanak sağlar, tam burada
+
+66
+00:05:02,435 --> 00:05:07,950
+ve çıktı da[L-1] ve dW[L] ve db.
+
+67
+00:05:07,950 --> 00:05:10,100
+ihtiyaç duyulan türevler
+
+68
+00:05:10,100 --> 00:05:16,022
+dA yanı sıra [l-1], değil mi? Aşağıdaki gibi.
+
+69
+00:05:16,022 --> 00:05:18,905
+bu geri fonksiyonu nasıl hesapladığımızı gösterir.
+
+70
+00:05:18,905 --> 00:05:20,560
+Yani özetlemek gerekirse,
+
+71
+00:05:20,560 --> 00:05:23,585
+X girdisini alıp 
+
+72
+00:05:23,585 --> 00:05:25,060
+ilk katman olabilir
+
+73
+00:05:25,060 --> 00:05:28,445
+belki bu katmanın ReLu aktivasyon fonksiyonu olabilir
+
+74
+00:05:28,445 --> 00:05:30,570
+Ve sonra ikinci katmanda
+
+75
+00:05:30,570 --> 00:05:33,340
+belki diğer ReLU aktivasyon fonksiyonu var
+
+76
+00:05:33,340 --> 00:05:35,175
+üçüncü çüncü katmana gider,
+
+77
+00:05:35,175 --> 00:05:39,595
+ve bunun çıktısı y_hatdb[l] becomes 1/m np.sum dz[l] yaklaşımı.
+
+78
+00:05:39,595 --> 00:05:41,875
+ve bu y_hat verir.
+
+79
+00:05:41,875 --> 00:05:43,890
+Ve bu y_hat'i kullanarak,
+
+80
+00:05:43,890 --> 00:05:46,265
+kayıp fonksiyonunu hesaplayabilirsiniz.
+
+81
+00:05:46,265 --> 00:05:49,685
+bundan sonra geri iterasyona başlamak mümkün olur.
+
+82
+00:05:49,685 --> 00:05:51,775
+Önce okları çizeceğim, tamam mı?
+
+83
+00:05:51,775 --> 00:05:54,320
+Çok fazla kalem değiştirmeme gerek kalmayacak.
+
+84
+00:05:54,320 --> 00:06:03,430
+Elimizde geri yayılımı hesaplamak için türevleri hesaplamalıyız,
+
+85
+00:06:03,430 --> 00:06:16,063
+dW[3], db[3], dW[2], db[2], dW[1], db[1],
+
+86
+00:06:16,063 --> 00:06:18,865
+ve bu süreçte hesaplıyor olacağız
+
+87
+00:06:18,865 --> 00:06:24,820
+Sanırım, önbellekte z [1], [2] z, z [3] trasferi olacak,
+
+88
+00:06:24,820 --> 00:06:32,250
+ve burada duraklayalım, geriye doğru da [2] da [1].
+
+89
+00:06:32,250 --> 00:06:34,730
+Bu da [0], hesaplar
+
+90
+00:06:34,730 --> 00:06:35,880
+ama bunu kullanmayacağız.
+
+91
+00:06:35,880 --> 00:06:37,935
+Sonuçta bunu yok sayabilirsiniz, tamam mı?
+
+92
+00:06:37,935 --> 00:06:40,785
+Artık ileri ve geri yayılım nasıl uygulanır, 
+
+93
+00:06:40,785 --> 00:06:44,040
+üç katmanlı yapay sinir ağı için biliyorsunuz.
+
+94
+00:06:44,040 --> 00:06:46,140
+Şimdi size daha önce söylemediğim
+ son bir detaydan bahsedeyim
+
+95
+00:06:46,140 --> 00:06:48,735
+bu ileri öz yinelemedir,
+
+96
+00:06:48,735 --> 00:06:52,420
+girdi olan veri X ile başlatacağız.
+
+97
+00:06:52,420 --> 00:06:54,090
+Geri öz-yineleme nasıl olacak?
+
+98
+00:06:54,090 --> 00:06:59,235
+Şey, Görünüşe göre o da [l],
+
+99
+00:06:59,235 --> 00:07:01,065
+lojistik regresyon yaparken,
+
+100
+00:07:01,065 --> 00:07:02,977
+ikili sınıflama yaparken
+
+101
+00:07:02,977 --> 00:07:09,685
+y eşittir / + 1-y/1-a.
+
+102
+00:07:09,685 --> 00:07:12,575
+Bu yüzden, kayıp fonksiyonunun türevi
+
+103
+00:07:12,575 --> 00:07:14,180
+çıktıya göre
+
+104
+00:07:14,180 --> 00:07:17,475
+y_hat'e göre, bu şekilde gösterilir
+ ve bu da böyledir.
+
+105
+00:07:17,475 --> 00:07:19,105
+eğer calculus bilgisine aşinaysanız
+
+106
+00:07:19,105 --> 00:07:21,328
+L kayıp fonksiyonuna bir bakın,
+
+107
+00:07:21,328 --> 00:07:24,150
+ve sonra a ve y_hat'e göre türevlerini alın,
+
+108
+00:07:24,150 --> 00:07:26,505
+Bu formülü nasıl elde ettiğinizi gösterebilirsiniz.
+
+109
+00:07:26,505 --> 00:07:31,350
+Son katman için büyük harf L için da'nin formülü bu şekildedir.
+
+110
+00:07:31,350 --> 00:07:35,715
+Ve tabi ki elinizde vektör halindeki uygulama olmuş olsaydı,
+
+111
+00:07:35,715 --> 00:07:38,351
+sonra geri öz yinelemeyi başlatmak için 
+
+112
+00:07:38,351 --> 00:07:43,706
+bu değil dA (büyük A ile) L. katman için
+
+113
+00:07:43,706 --> 00:07:48,465
+bu farklı örnekteki aynı şey olacaktır.
+
+114
+00:07:48,465 --> 00:07:54,011
+ilk eğitim örneği üzerinde, 1-y,
+
+115
+00:07:54,011 --> 00:07:55,285
+ilk eğitim örneği için,
+
+116
+00:07:55,285 --> 00:07:58,153
+1-a üzerinde, ilk eğitim örneği için 
+(bu nasıl bir tekrar aşkı!)
+
+117
+00:07:58,153 --> 00:08:05,185
+en sondaki örneğe kadar, sonuçta 1-a[m]
+
+118
+00:08:05,185 --> 00:08:09,423
+Vektör halini de nasıl uygulayacağınızı anlattık.
+
+119
+00:08:09,423 --> 00:08:13,055
+Vektörize geri yayılımın nasıl başlatılacağını gösterdik.
+
+120
+00:08:13,055 --> 00:08:16,100
+Şimdiye kadar basit temel taşlarını gördünüz,
+
+121
+00:08:16,100 --> 00:08:20,030
+hem ileri hem de geri yayılım algoritmalarının.
+
+122
+00:08:20,030 --> 00:08:22,340
+Şimdi bu denklemleri kodlarsanız/uygularsanız
+
+123
+00:08:22,340 --> 00:08:24,530
+doğru kodlamayı elde edersiniz.
+
+124
+00:08:24,530 --> 00:08:27,640
+ileri yayılım ve geri yayılım için türevler tüm ihtiyaç duyduğunuz şeylerdir.
+
+125
+00:08:27,640 --> 00:08:29,660
+Çok fazla denklem olduğunu düşünebilirsiniz, ki haklısınız
+
+126
+00:08:29,660 --> 00:08:32,080
+Kafam karışık, bunlar nasıl işliyor anlayamıyorum diyebilirsiniz.
+
+127
+00:08:32,080 --> 00:08:34,645
+Eğer böyle hissediyorsanız benim önerim,
+
+128
+00:08:34,645 --> 00:08:37,205
+bu haftanın kodlama ödevine başladığınızda
+
+129
+00:08:37,205 --> 00:08:40,175
+kendiniz bu denklemleri kendiniz kodlayabileceksiniz
+
+130
+00:08:40,175 --> 00:08:42,020
+ve bu çok daha somut olacak.
+
+131
+00:08:42,020 --> 00:08:43,805
+Ve biliyorum çok fazla denklem var,
+
+132
+00:08:43,805 --> 00:08:46,265
+ve belki de bazı denklemler tam mantıklı gelmeyecek,
+
+133
+00:08:46,265 --> 00:08:49,055
+ama calculus üzerinde çalışırsanız
+
+134
+00:08:49,055 --> 00:08:50,905
+ve lineer cebir çalışırsanız, ki bunlar kolay olmayacaktır
+
+135
+00:08:50,905 --> 00:08:52,430
+en azından denemeye özen gösterin
+
+136
+00:08:52,430 --> 00:08:56,390
+Ama aslında makine öğrenmesindeki en zor türev işlemlerini içerir.
+
+137
+00:08:56,390 --> 00:08:57,950
+Denklemler çığ gibi büyüyor,
+
+138
+00:08:57,950 --> 00:09:02,685
+veya türev almak için kalkulus denklemleri özellikle geri yayılım üzerinde
+
+139
+00:09:02,685 --> 00:09:04,750
+Ama yine de, bu size soyut gelebilir, 
+
+140
+00:09:04,750 --> 00:09:06,400
+biraz gizemliymiş gibi olabilir,
+
+141
+00:09:06,400 --> 00:09:09,108
+benim önerim, ilk ödevi yaptığınızda
+
+142
+00:09:09,108 --> 00:09:11,465
+biraz daha somut gelecektir.
+
+143
+00:09:11,465 --> 00:09:14,120
+Buna rağmen, bugün bile söylemeliyim ki
+
+144
+00:09:14,120 --> 00:09:16,805
+ben bir öğrenme algoritmasını kodlarken, bazen
+
+145
+00:09:16,805 --> 00:09:18,000
+ben bile şaşırabiliyorum
+
+146
+00:09:18,000 --> 00:09:21,170
+kodlamalarım çalıştığı zaman, çünkü çok fazla
+
+147
+00:09:21,170 --> 00:09:25,670
+makine öğrenmesi karmaşıklığı kodların satırlarından ziyade,
+ verinin yapısından gelir, 
+
+148
+00:09:25,670 --> 00:09:27,095
+Bazen siz de
+
+149
+00:09:27,095 --> 00:09:28,685
+çok az kod yazıyor gibi hissedebilirsiniz
+
+150
+00:09:28,685 --> 00:09:30,110
+ne yaptığınızdan emin olamayabilirsiniz,
+
+151
+00:09:30,110 --> 00:09:31,625
+ama bu neredeyse sihirli bir şekilde çalışır.
+
+152
+00:09:31,625 --> 00:09:35,296
+tüm bu sihir yüzünden çalışır, yazdığınız kod parçası değil
+
+153
+00:09:35,296 --> 00:09:37,090
+ki bu çoğunlukla çok uzun değildir.
+
+154
+00:09:37,090 --> 00:09:38,705
+Çok da basit değildir
+
+155
+00:09:38,705 --> 00:09:40,730
+ama on bin 
+
+156
+00:09:40,730 --> 00:09:42,115
+yüz bin satırlarca kod değildir.
+
+157
+00:09:42,115 --> 00:09:44,750
+Ama bazen çok fazla veriyle beslersen, 
+
+158
+00:09:44,750 --> 00:09:46,850
+ben bile makine öğrenmesiyle ilgili
+ çok uzun zamandır çalışmama rağmen
+
+159
+00:09:46,850 --> 00:09:49,400
+Bazen, hala beni şaşırtıyor biraz 
+
+160
+00:09:49,400 --> 00:09:53,274
+benim öğrenme algoritmamın 
+bu kadar karmaşıklıkla
+ başa çıkarak çalışabilmesi
+
+161
+00:09:53,274 --> 00:09:55,970
+ki bu karmaşa veriden gelir, 
+
+162
+00:09:55,970 --> 00:10:01,020
+mutlaka binlerce binlerce kod satırı yazmaktan ziyade
+
+163
+00:10:01,020 --> 00:10:05,935
+Anlaşıldı. Derin sinir ağlarını nasıl
+ uygulanacağını gördünüz. 
+
+164
+00:10:05,935 --> 00:10:10,325
+Ve yine ödevdeki ilk örneği yaparken 
+herşey daha da somutlaşacak anlayacaksınız.
+
+165
+00:10:10,325 --> 00:10:14,220
+İlerlemeden önce, önümüzdeki videoda,
+
+166
+00:10:14,220 --> 00:10:17,480
+Hiper parametre ve parametre 
+kavramlarını konuşmak istiyorum.
+
+167
+00:10:17,480 --> 00:10:19,681
+Derin ağları eğitirken sonuçta, 
+
+168
+00:10:19,681 --> 00:10:22,225
+hiper parametreleri iyice düzenleyebilmek
+
+169
+00:10:22,225 --> 00:10:25,400
+ağı geliştirirken daha etkili olabilmenizi sağlar.
+
+170
+00:10:25,400 --> 00:10:29,000
+Sonraki videoda tam olarak bu ne demektir konuşacağız.

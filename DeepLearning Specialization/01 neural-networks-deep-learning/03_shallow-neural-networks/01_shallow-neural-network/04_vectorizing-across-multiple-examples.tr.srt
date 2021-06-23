@@ -1,0 +1,463 @@
+1
+00:00:00,360 --> 00:00:04,530
+Son videoda, tek bir eğitim örneği verilen bir sinir ağındaki tahminin
+
+2
+00:00:04,530 --> 00:00:06,610
+nasıl hesaplanacağını gördünüz.
+
+3
+00:00:06,610 --> 00:00:11,520
+Bu videoda, birden fazla eğitim örneğinde vector nasıl vektörelleştirileceğini görüyorsunuz.
+
+4
+00:00:11,520 --> 00:00:15,350
+Ve sonuç lojistik regresyon için gördüğünüz ile oldukça benzer olacaktır.
+
+5
+00:00:15,350 --> 00:00:19,050
+Matrisin farklı sütunlarındaki farklı antrenmanları örnekleyerek,
+
+6
+00:00:19,050 --> 00:00:23,630
+önceki videodan elde ettiğiniz denklemleri alabileceksiniz.
+
+7
+00:00:23,630 --> 00:00:27,860
+Ve çok az modifikasyonla, nöral ağın tüm örneklerin çıktılarını
+
+8
+00:00:27,860 --> 00:00:32,340
+hemen hemen aynı anda hesaplaması için bunları değiştirin.
+
+9
+00:00:32,340 --> 00:00:35,080
+Öyleyse bunu nasıl yapacağımızın detaylarına geçelim.
+
+10
+00:00:35,080 --> 00:00:40,192
+Bunlar, bir önceki videodan aldığımız dört denklem idi hesapladığınız z1
+
+11
+00:00:40,192 --> 00:00:41,348
+a1 z2 ve a2 'dir.
+
+12
+00:00:41,348 --> 00:00:46,867
+Ve size giriş özelliği verilmiş x'e nasıl geri döneceğinizi söyler,
+
+13
+00:00:46,867 --> 00:00:53,810
+bunları tek bir eğitim örneği için a^[2] = y^ oluşturmak için kullanabilirsiniz.
+
+14
+00:00:54,920 --> 00:01:00,050
+Şimdi, m tane eğitim örneğiniz var ise, bu işlemi
+
+15
+00:01:00,050 --> 00:01:01,870
+ilk eğitim örneği için tekrar etmeniz gerekiyor.
+
+16
+00:01:01,870 --> 00:01:06,600
+x^(1)
+
+17
+00:01:06,600 --> 00:01:11,062
+y^(1)'i hesaplamak için training ilk eğitim örneğinizde bir tahmin yapar.
+
+18
+00:01:11,062 --> 00:01:16,537
+Sonra x^(2), y^ (2) tahmini üretmek için kullanılır.
+
+19
+00:01:16,537 --> 00:01:23,050
+Ve böylece x ^(m) 'ye kadar bir tahmin y^ (m) üretir.
+
+20
+00:01:23,050 --> 00:01:28,349
+Ve böylece tüm bu aktivasyonda fonksiyon gösterimde de
+
+21
+00:01:28,349 --> 00:01:31,669
+bunu a^[2](1) olarak yazacağım.
+
+22
+00:01:31,669 --> 00:01:36,676
+Ve bu a^[2](2),
+
+23
+00:01:36,676 --> 00:01:40,640
+ve a(2)(m), böylece
+
+24
+00:01:40,640 --> 00:01:46,830
+Bu gösterim a[2](i).
+
+25
+00:01:46,830 --> 00:01:52,520
+Parantez i ,i örneklerinin öğrenilmesini ifade eder,
+
+26
+00:01:52,520 --> 00:01:57,220
+ve [2] ,katman 2 'yi ifade eder. 
+
+27
+00:01:58,530 --> 00:02:02,460
+Yani bu nasıl köşeli ayraç ve parantez ayracı belirteçlerinin çalıştığıdır.
+
+28
+00:02:04,170 --> 00:02:07,920
+Ve düşünün ki, eğer unvectorized implementatione sahipseniz ve
+
+29
+00:02:07,920 --> 00:02:11,000
+tüm tahminleri hesaplamak istiyorsanız
+
+30
+00:02:11,000 --> 00:02:15,630
+i= 1 için m yapmak gerekir
+
+31
+00:02:15,630 --> 00:02:18,260
+Sonra temel olarak bu dört denklemi uygulayın
+
+32
+00:02:18,260 --> 00:02:24,162
+Z^[1](i) =
+
+33
+00:02:24,162 --> 00:02:30,064
+=W^(1)*x^(i) +b^(1),
+
+34
+00:02:30,064 --> 00:02:38,253
+a^[1](i) =sigma (Z^[1](1))
+
+35
+00:02:38,253 --> 00:02:43,683
+Z^[2](i) = W^[2]*a^[1](i)
+
+36
+00:02:43,683 --> 00:02:50,099
++b^[2] 
+
+37
+00:02:50,099 --> 00:02:56,686
+a^[2](i) = sigma (Z^[2](i))
+
+38
+00:02:56,686 --> 00:03:03,172
+Yani temel olarak bu dört denklem (i) üzeri ekleyerek
+
+39
+00:03:03,172 --> 00:03:08,788
+(i) üzeri eğitim örneğine bağlı olan tüm değişkenlere eklemektir.
+
+40
+00:03:08,788 --> 00:03:12,612
+a 'ya üstel [z](i) ekleyin,
+
+41
+00:03:12,612 --> 00:03:18,570
+eğer tüm eğitim çıktılarını training antrenman örneklerindeki örneklerle hesaplamak istiyorsanız.
+
+42
+00:03:18,570 --> 00:03:23,930
+Bundan kurtulmak için yapacağımız şey, bütün hesaplamayı vektörize etmektir.
+
+43
+00:03:23,930 --> 00:03:27,680
+Ve bu arada,lineer algebranın özünü anlatıyor gibi görüyorsa olsam da ,
+
+44
+00:03:27,680 --> 00:03:31,170
+bunu doğru uygulamak
+
+45
+00:03:31,170 --> 00:03:34,580
+deep derin öğrenme döneminde önemlidir
+
+46
+00:03:34,580 --> 00:03:38,160
+Ve aslında bu ders için notasyonu çok dikkatli bir şekilde seçtik
+
+47
+00:03:38,160 --> 00:03:41,460
+ve bu vektörü mümkün olduğunca kolay hale getirdik.
+
+48
+00:03:41,460 --> 00:03:46,140
+Bu yüzden, bu konunun özünün üzerinden geçmenin 
+
+49
+00:03:46,140 --> 00:03:49,750
+aslında bu algoritmaların doğru uygulamalarını daha hızlı gerçekleştirebilmenizi umuyoruz.
+
+50
+00:03:51,060 --> 00:03:56,210
+Pekala, bu kod bloğunu bir sonraki slayta kopyalamama izin verin 
+
+51
+00:03:56,210 --> 00:03:57,880
+ve sonra bunu nasıl düzenleyeceğimizi görelim.
+
+52
+00:03:59,130 --> 00:04:02,154
+Yani, burada önceki slaytlardan elde ettiklerimiz
+
+53
+00:04:02,154 --> 00:04:04,324
+m döngülerimizin üzerinden geçmesi içindir.
+
+54
+00:04:04,324 --> 00:04:09,769
+Bu yüzden,hatırlayın 
+
+55
+00:04:09,769 --> 00:04:16,860
+bu sütunlarda yığılmış eğitim örneklerimize eşit olacak şekilde x matrisini tanımladık.
+
+56
+00:04:16,860 --> 00:04:20,180
+Bu yüzden eğitim örneklerini alın ve columns bunları sütunlara yerleştirin.
+
+57
+00:04:20,180 --> 00:04:23,220
+Yani bu bir n olur veya 
+
+58
+00:04:23,220 --> 00:04:27,860
+(nx,m) boyutlu matrix
+
+59
+00:04:29,198 --> 00:04:32,630
+Can alıcı nokta vereceğim ve
+
+60
+00:04:32,630 --> 00:04:35,760
+bu döngü için vektörize edilmiş bir uygulama yapmak için ne yapmanız gerektiğini söyleyeceğim.
+
+61
+00:04:35,760 --> 00:04:41,394
+Yapmanız gereken şey hesaplama yapmaktır.
+
+62
+00:04:41,394 --> 00:04:46,035
+Z^[1] = W^[1]*X+b^[1]
+
+63
+00:04:46,035 --> 00:04:50,692
+A^[1] =sigma(Z^[1])
+
+64
+00:04:50,692 --> 00:04:56,157
+Sonra, Z^[2] =W^[2]*
+
+65
+00:04:56,157 --> 00:05:01,348
+A^[1] +b^[2]
+
+66
+00:05:01,348 --> 00:05:10,100
+ve sonra, A^[2] =sigma (Z^[2])
+
+67
+00:05:10,100 --> 00:05:16,440
+Yani eğer benzetmeyi istiyorsan, o zaman küçük harf vektör eksenlerinden,
+
+68
+00:05:16,440 --> 00:05:23,480
+küçük harf eksenlerini farklı sütunlarda biriktirerek sadece büyük harf X matrisine gittik.
+
+69
+00:05:23,480 --> 00:05:28,494
+Aynı şeyi z için yaparsanız, örneğin
+
+70
+00:05:28,494 --> 00:05:33,509
+eğer Z^[1](1),Z^[1](2),ve daha fazlası
+
+71
+00:05:33,509 --> 00:05:40,290
+Z^[1](m) ' e kadar bunlar sutün vektörüdür.
+
+72
+00:05:40,290 --> 00:05:46,270
+Yani, bu ilk miktar, bunların tüm tüm m 'ler, ve bunları sütunlara yerleştirir.
+
+73
+00:05:46,270 --> 00:05:50,045
+Sonra sadece matris Z^[1] 'i verir.
+
+74
+00:05:50,045 --> 00:05:55,299
+Ve benzer bir şekilde, bu miktarda ve
+
+75
+00:05:55,299 --> 00:06:00,957
+a^[1](1),a^[1](2),ve daha fazlası
+
+76
+00:06:00,957 --> 00:06:06,980
+ve a^[1](m) ,ve bunları sütunda yığarız.
+
+77
+00:06:06,980 --> 00:06:11,610
+Daha sonra, küçük harf x’den büyük harf X’e gittiğimiz gibi, ve
+
+78
+00:06:11,610 --> 00:06:13,280
+küçük harf z’den büyük harf Z’e
+
+79
+00:06:13,280 --> 00:06:20,920
+Bu, küçük harf a'dan büyük A^[1] 'a gider,
+
+80
+00:06:20,920 --> 00:06:26,685
+ve benzer şekilde Z^[2] ve A^[2]
+
+81
+00:06:26,685 --> 00:06:30,141
+Ayrıca, bu vektörleri alarak
+
+82
+00:06:30,141 --> 00:06:32,016
+ve yatay olarak istifleyerek de elde edilirler.
+
+83
+00:06:32,016 --> 00:06:37,326
+Ve bu vektörleri alarak ve onları yatay olarak istifleyerek,
+
+84
+00:06:37,326 --> 00:06:40,840
+Z^[2] ve E^[2] 'yi elde etmek için
+
+85
+00:06:40,840 --> 00:06:44,042
+Bu gösterimlerden biri yardımcı olabilir.
+
+86
+00:06:44,042 --> 00:06:47,391
+Bu konuda düşünmeniz gereken şey bu matrisler Z ve A olduğunu söylemektir.
+
+87
+00:06:47,391 --> 00:06:51,420
+eğitim örnekleri arasında yatay olarak indexliyoruz.
+
+88
+00:06:51,420 --> 00:06:55,631
+Bu yüzden yatay indeks farklı eğitim örneğine karşılık gelir,
+
+89
+00:06:55,631 --> 00:06:59,730
+Soldan sağa süpürdüğünüzde eğitim hücrelerini tarayabilirsiniz.
+
+90
+00:06:59,730 --> 00:07:04,617
+Ve bu dikey indeks diğer düğümlerle de ,
+
+91
+00:07:04,617 --> 00:07:06,130
+sinir ağında uyumludur.
+
+92
+00:07:06,130 --> 00:07:11,077
+Örneğin, bu düğüm, top bu değer en tepede,
+
+93
+00:07:11,077 --> 00:07:16,554
+ortalamanın en sol üst köşesinde bu değer aktivasyona karşılık gelir
+
+94
+00:07:16,554 --> 00:07:21,633
+ilk yönlendirme ünitesinin ilk eğitim örneğindeki aktivasyonuna karşılık gelir.
+
+95
+00:07:21,633 --> 00:07:25,812
+Bir değer aşağı ilk eğitim örneğindeki ikinci gizli ünitedeki aktivasyonuna karşılık gelir,
+
+96
+00:07:25,812 --> 00:07:27,525
+ilk eğitim örneği için,
+
+97
+00:07:27,525 --> 00:07:31,505
+Daha sonra üçüncü başlık birimi ilk eğitim örneği vb.
+
+98
+00:07:31,505 --> 00:07:37,540
+Bu yüzden,bunu tarandığınız zaman , gizli birimler numarasına indekslemenizdir.
+
+99
+00:07:39,670 --> 00:07:42,564
+Eğer yatay hareket ederseniz, o zaman hidden ilk gizli üniteden gidersiniz.
+
+100
+00:07:42,564 --> 00:07:45,450
+Ve ilk eğitim örneği, şimdi ilk gizli birim ve
+
+101
+00:07:45,450 --> 00:07:48,240
+İkinci eğitim örneği, third üçüncü eğitim örneği.
+
+102
+00:07:48,240 --> 00:07:53,718
+Ve buradaki bu düğüm, çıkış katmanının 
+
+103
+00:07:53,718 --> 00:07:59,030
+ilk saklı birimine ve m. eğitim örneğine denk gelmektedir.
+
+104
+00:08:00,760 --> 00:08:07,663
+Tamam, yatay olarak, matris A, farklı eğitim örneklerinden geçer.
+
+105
+00:08:10,150 --> 00:08:14,195
+Ve dikey olarak matrisin A'daki farklı indeksleri 
+
+106
+00:08:14,195 --> 00:08:17,589
+farklı gizli birimlere karşılık gelir.
+
+107
+00:08:22,342 --> 00:08:26,870
+Ve benzer bir öngörü, matrisi Z'nin yanı sıra 
+
+108
+00:08:26,870 --> 00:08:31,840
+X için farklı eğitim örneklerine yatay olarak karşılık gelen X için de geçerlidir.
+
+109
+00:08:31,840 --> 00:08:36,227
+Ve dikey olarak farklı giriş özelliklerine karşılık gelir.
+
+110
+00:08:36,227 --> 00:08:41,180
+sinir ağının giriş katmanından gerçekten farklı olan
+
+111
+00:08:42,750 --> 00:08:46,600
+Bu denklemler dolayısıyla,vectorization ile artık ağınızda nasıl uygulanacağını biliyorsunuz.
+
+112
+00:08:46,600 --> 00:08:51,320
+yani çoklu örneklerde vektörizasyon.
+
+113
+00:08:51,320 --> 00:08:55,130
+Bir sonraki videoda size, bu tür bir vektörleştirmenin neden doğru bir uygulaması 
+
+114
+00:08:55,130 --> 00:08:59,070
+olduğuna dair biraz daha fazla haklı göstermek istiyorum.
+
+115
+00:08:59,070 --> 00:09:03,468
+Gerekçenin ortaya çıkması,neye gördüğünüze benzediği
+
+116
+00:09:03,468 --> 00:09:05,300
+Bir sonraki videoya geçelim.

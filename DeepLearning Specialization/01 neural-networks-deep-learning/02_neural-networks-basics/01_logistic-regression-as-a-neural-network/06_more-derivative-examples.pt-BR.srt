@@ -1,0 +1,733 @@
+1
+00:00:00,000 --> 00:00:03,105
+Neste vídeo, mostrarei um 
+exemplo um pouco mais complexo,
+
+2
+00:00:03,105 --> 00:00:06,870
+onde a inclinação da função pode ser 
+diferente em pontos diferentes da função.
+
+3
+00:00:06,870 --> 00:00:08,125
+E nós veremos isso em mais detalhes.
+Vamos começar com um exemplo:
+
+4
+00:00:08,125 --> 00:00:11,888
+Você plotou a função f(a) = a².
+
+5
+00:00:11,888 --> 00:00:15,975
+Vamos dar uma olhada no ponto a = 2.
+
+6
+00:00:15,975 --> 00:00:19,107
+Então, a² ou f(a) = 4.
+
+7
+00:00:19,107 --> 00:00:24,490
+Vamos empurrar "a" um pouquinho 
+para a direita. Agora a = 2,001.
+
+8
+00:00:24,490 --> 00:00:31,580
+f(a), que é a² ficará 
+aproximadamente 4,004.
+
+9
+00:00:31,580 --> 00:00:33,585
+Resulta que o valor exato,
+
+10
+00:00:33,585 --> 00:00:39,140
+você liga a calculadora e descobre
+que é na verdade 4,004001.
+
+11
+00:00:39,140 --> 00:00:42,120
+Direi que 4,004 é próximo o suficiente.
+
+12
+00:00:42,120 --> 00:00:44,430
+Então, o que isso significa 
+é que quando a=2,
+
+13
+00:00:44,430 --> 00:00:46,825
+vamos desenhar isto no gráfico.
+
+14
+00:00:46,825 --> 00:00:49,320
+Então, o que estamos 
+dizendo é que se a=2,
+
+15
+00:00:49,320 --> 00:00:56,225
+f(a) = 4, e aqui, o eixo "x" e "y" 
+não são desenhados em escala.
+
+16
+00:00:56,225 --> 00:00:59,480
+Tecnicamente, a altura vertical 
+deveria ser muito maior do que
+
+17
+00:00:59,480 --> 00:01:03,540
+esta dimensão horizontal, então o 
+"x" e "y" não estão na mesma escala.
+
+18
+00:01:03,540 --> 00:01:10,865
+Mas se agora eu empurrar "a" para 2,001, 
+então f(a) torna-se aproximadamente 4,004.
+
+19
+00:01:10,865 --> 00:01:13,864
+Se desenharmos este pequeno 
+triângulo novamente,
+
+20
+00:01:13,864 --> 00:01:18,675
+o que isso significa é que, se eu 
+mover 0,001 para a direita,
+
+21
+00:01:18,675 --> 00:01:23,238
+f(a) sobre 4 vezes mais, 
+para 0,004.
+
+22
+00:01:23,238 --> 00:01:25,170
+Então, na linguagem de cálculo,
+
+23
+00:01:25,170 --> 00:01:30,880
+nós dizemos que a inclinação, 
+que é a derivada de f(a) em
+
+24
+00:01:30,880 --> 00:01:36,840
+a=2 é 4 ou, para escrever isso de 
+acordo com a nossa notação de cálculo,
+
+25
+00:01:36,840 --> 00:01:42,750
+dizemos que d/da f(a) = 4 
+quando a=2.
+
+26
+00:01:42,750 --> 00:01:45,200
+Agora, uma coisa sobre 
+esta função f(a) = a²
+
+27
+00:01:45,200 --> 00:01:49,530
+é que a inclinação é diferente 
+para diferentes valores de "a".
+
+28
+00:01:49,530 --> 00:01:52,970
+Isto é diferente do que o exemplo 
+que vimos no slide anterior.
+
+29
+00:01:52,970 --> 00:01:55,650
+Vamos dar uma olhada 
+em um ponto diferente.
+
+30
+00:01:55,650 --> 00:01:58,721
+Se a=5, ao invés de a=2,
+
+31
+00:01:58,721 --> 00:02:04,880
+e agora a=5, então a²=25, 
+então esta é f(a).
+
+32
+00:02:04,880 --> 00:02:07,205
+Se movermos "a" novamente à direita,
+
+33
+00:02:07,205 --> 00:02:09,129
+um pequeno empurrãozinho no "a",
+
+34
+00:02:09,129 --> 00:02:18,555
+agora a=5,001, e então f(a) será 
+aproximadamente 25,010.
+
+35
+00:02:18,555 --> 00:02:23,550
+O que vemos é que se 
+empurrarmos "a" 0,001,
+
+36
+00:02:23,550 --> 00:02:25,620
+f(a) aumentará 10 vezes este valor.
+
+37
+00:02:25,620 --> 00:02:30,960
+Então, temos que 
+d/da f(a) = 10, quando
+
+38
+00:02:30,960 --> 00:02:33,690
+a=5 porque f(a) aumenta 10 vezes mais
+
+39
+00:02:33,690 --> 00:02:36,910
+quando eu dou um pequeno 
+empurrãozinho no "a".
+
+40
+00:02:36,910 --> 00:02:41,040
+Uma maneira de ver porque as derivadas 
+são diferentes em pontos diferentes, é
+
+41
+00:02:41,040 --> 00:02:45,285
+desenhando aquele pequeno 
+triângulo nos diferentes pontos,
+
+42
+00:02:45,285 --> 00:02:49,080
+e você verá que a razão
+entre a altura e a
+
+43
+00:02:49,080 --> 00:02:53,280
+a largura (altura sobre largura) do triângulo é muito 
+diferente em pontos diferentes da curva.
+
+44
+00:02:53,280 --> 00:02:59,880
+Então aqui, a inclinação é igual a 4 
+quando a=2, e igual a 10 quando a=5.
+
+45
+00:02:59,880 --> 00:03:02,670
+Agora, se você pegar 
+um livro de cálculo,
+
+46
+00:03:02,670 --> 00:03:06,867
+ele dirá: 
+d/dₐ vezes f(a),
+
+47
+00:03:06,867 --> 00:03:08,259
+então, f(a) = a²,
+
+48
+00:03:08,259 --> 00:03:09,929
+assim, d/da a².
+
+49
+00:03:09,929 --> 00:03:13,410
+Uma das fórmulas que você encontra 
+nos livros de cálculo é que esta coisa,
+
+50
+00:03:13,410 --> 00:03:16,740
+a inclinação da função, a² = 2a.
+
+51
+00:03:16,740 --> 00:03:19,200
+Agora, vou fazer a prova, na 
+verdade você encontra isso
+
+52
+00:03:19,200 --> 00:03:22,170
+quando abre um livro de cálculo nas
+
+53
+00:03:22,170 --> 00:03:28,135
+tabelas de fórmulas e eles lhe 
+dizem que a derivada de a² = 2a.
+
+54
+00:03:28,135 --> 00:03:31,575
+E de fato, isto está consistente 
+com o que nós fizemos.
+
+55
+00:03:31,575 --> 00:03:39,460
+Ou seja, quando a=2, a inclinação 
+da função de "a" é 2x2=4.
+
+56
+00:03:39,460 --> 00:03:46,243
+E quando a=5, a inclinação da função 2a                              
+é 2 x 5 = 10.                              
+
+57
+00:03:46,243 --> 00:03:50,430
+Se você pegar um livro de 
+cálculo e você ver esta fórmula
+
+58
+00:03:50,430 --> 00:03:54,270
+que a derivada de a² = 2a,
+
+59
+00:03:54,270 --> 00:03:57,615
+o que isso significa é que para 
+qualquer valor de "a",
+
+60
+00:03:57,615 --> 00:04:04,695
+se você move para cima 0,001, 
+este minúsculo valor,
+
+61
+00:04:04,695 --> 00:04:09,550
+você espera que f(a) suba para 2a.
+
+62
+00:04:09,550 --> 00:04:12,700
+É a inclinação ou a derivada multiplicada
+
+63
+00:04:12,700 --> 00:04:16,660
+por quanto você empurrou 
+o valor de "a" para a direita.
+
+64
+00:04:16,660 --> 00:04:18,540
+Agora, um pequeno detalhe.
+
+65
+00:04:18,540 --> 00:04:23,130
+Uso estes símbolos aproximados 
+aqui e isso não era exatamente 4,004,
+
+66
+00:04:23,130 --> 00:04:26,515
+há uma 0,001 extra ali.
+
+67
+00:04:26,515 --> 00:04:29,226
+Resulta que este 0,001 extra,
+
+68
+00:04:29,226 --> 00:04:34,370
+esta coisinha aqui é porque nós estávamos 
+empurrando "a" 0,001 para a direita.
+
+69
+00:04:34,370 --> 00:04:37,530
+Se ao invés, tivéssemos 
+empurrando para a direita,
+
+70
+00:04:37,530 --> 00:04:43,290
+este pequeno valor infinitesimal, 
+então este termo extra vai
+
+71
+00:04:43,290 --> 00:04:48,060
+sumir e você verá que o montante 
+de f(a) é exatamente igual
+
+72
+00:04:48,060 --> 00:04:53,335
+ao da derivada multiplicada pelo valor que 
+você empurra "a" para a direita.
+
+73
+00:04:53,335 --> 00:04:59,295
+E o motivo de porque não é exatamente 4,004 
+é porque derivadas são definidas usando
+
+74
+00:04:59,295 --> 00:05:05,774
+estas alterações em "a" infinitesimalmente 
+pequenas, ao invés de 0,001 que não o é.
+
+75
+00:05:05,774 --> 00:05:08,070
+Embora 0,001 seja pequeno,
+
+76
+00:05:08,070 --> 00:05:09,865
+ele não é infinitesimalmente pequeno.
+
+77
+00:05:09,865 --> 00:05:13,730
+Por isso é que a quantidade que 
+f(a) aumentou não é exatamente
+
+78
+00:05:13,730 --> 00:05:17,720
+o valor resultado pela fórmula, mas isso é 
+apenas uma aproximação dada pela derivada.
+
+79
+00:05:17,720 --> 00:05:19,034
+Para encerrar este vídeo,
+
+80
+00:05:19,034 --> 00:05:21,945
+vamos percorrer mais 
+alguns exemplos rápidos.
+
+81
+00:05:21,945 --> 00:05:27,980
+O exemplo que você já viu é que se f(a) = a²,
+
+82
+00:05:27,980 --> 00:05:34,460
+a fórmula das tabelas dos livros de 
+cálculo dizem que a derivada é igual a 2a.
+
+83
+00:05:34,460 --> 00:05:38,300
+E o exemplo que fizemos 
+foi que se a = 2,
+
+84
+00:05:38,300 --> 00:05:41,930
+f(a) = 4, e nós deslocamos "a",
+
+85
+00:05:41,930 --> 00:05:45,350
+uma vez que é um pouquinho maior, 
+f(a) é aproximadamente
+
+86
+00:05:45,350 --> 00:05:51,160
+4,004 e assim f(a) subiu 4 vezes mais 
+e, de fato, quando a = 2,
+
+87
+00:05:51,160 --> 00:05:53,660
+a derivada é igual a 4.
+
+88
+00:05:53,660 --> 00:05:55,600
+Vejamos alguns outros exemplos.
+
+89
+00:05:55,600 --> 00:05:58,880
+Digamos que f(a) = a³.
+
+90
+00:05:58,880 --> 00:06:03,380
+Se você pegar este livro e 
+olhar as tabelas de fórmulas.
+
+91
+00:06:03,380 --> 00:06:06,070
+você vê que a inclinação desta 
+função, novamente,
+
+92
+00:06:06,070 --> 00:06:10,000
+a derivada desta função é igual a 3a².
+
+93
+00:06:10,000 --> 00:06:14,335
+Você pode pegar esta fórmula 
+de um livro de cálculo.
+
+94
+00:06:14,335 --> 00:06:16,850
+Mas o que isso significa?
+
+95
+00:06:16,850 --> 00:06:19,430
+A maneira de interpretar isso é como segue.
+
+96
+00:06:19,430 --> 00:06:21,725
+Vamos pegar a = 2 como exemplo novamente.
+
+97
+00:06:21,725 --> 00:06:27,560
+Então, f(a) ou a³ = 8,
+ que é 2 elevado ao cubo.
+
+98
+00:06:27,560 --> 00:06:30,570
+Então damos um pequeno empurrãozinho,
+
+99
+00:06:30,570 --> 00:06:37,160
+você vê que f(a) é aproximadamente 
+8,012 e fique à vontade para verificar isso.
+
+100
+00:06:37,160 --> 00:06:40,070
+Pegue 2,001 elevado ao cubo.
+
+101
+00:06:40,070 --> 00:06:41,330
+Veja que o resultado está
+muito próximo de 8,012.
+
+102
+00:06:41,330 --> 00:06:49,463
+E de fato, quando a = 2, então 3 x 2², 
+que é igual a 3 x 4,
+
+103
+00:06:49,463 --> 00:06:50,750
+veja que é 12.
+
+104
+00:06:50,750 --> 00:06:55,255
+Então, a fórmula da derivada prevê que se 
+você mover "a" um pouquinho para a direita,
+
+105
+00:06:55,255 --> 00:06:58,464
+f(a) deveria aumentar 12 vezes este valor.
+
+106
+00:06:58,464 --> 00:07:01,950
+E da fato isto é verdade, 
+quando "a" aumentou 0,001,
+
+107
+00:07:01,950 --> 00:07:06,447
+f(a) aumentou 12 vezes mais, para 0,012.
+
+108
+00:07:06,447 --> 00:07:08,960
+Apenas um último exemplo 
+e depois encerramos.
+
+109
+00:07:08,960 --> 00:07:12,190
+Digamos que f(a) é igual a função log.
+
+110
+00:07:12,190 --> 00:07:14,690
+Então, log(a),
+
+111
+00:07:14,690 --> 00:07:17,595
+Vou usar esta como o logaritmo de base "e",
+logaritmo neperiano.
+
+112
+00:07:17,595 --> 00:07:20,755
+Algumas pessoas escrevem como log base e de a,
+ou ln(a).
+
+113
+00:07:20,755 --> 00:07:22,420
+Se você pegar um livro de cálculo,
+
+114
+00:07:22,420 --> 00:07:26,465
+encontrará que quando
+calculamos a derivada de ln(a),
+
+115
+00:07:26,465 --> 00:07:30,005
+esta é uma função que parece desta forma,
+
+116
+00:07:30,005 --> 00:07:34,645
+a inclinação desta função é dada por 1/a.
+
+117
+00:07:34,645 --> 00:07:40,430
+Então, a forma de interpretar isso é que, se 
+"a" tem qualquer valor, então vamos continuar
+
+118
+00:07:40,430 --> 00:07:46,865
+usando a = 2 como exemplo, e você 
+empurra "a" 0,001 para a direita,
+
+119
+00:07:46,865 --> 00:07:51,005
+você espera que f(a) suba para
+
+120
+00:07:51,005 --> 00:07:56,470
+1/a que é da derivada, multiplicada
+pela quantidade que você aumentou "a".
+
+121
+00:07:56,470 --> 00:08:00,380
+Então, na verdade, se você 
+pegar uma calculadora,
+
+122
+00:08:00,380 --> 00:08:02,795
+verá que, se a = 2,
+
+123
+00:08:02,795 --> 00:08:10,850
+f(a) é aproximadamente 0,69315, 
+e se você
+
+124
+00:08:10,850 --> 00:08:21,617
+aumentar "f" e se você aumentar "a" para 2,001, 
+então f(a) é aproximadamente 0,69365,
+
+125
+00:08:21,617 --> 00:08:27,220
+isto subiu para 0,0005.
+
+126
+00:08:27,220 --> 00:08:32,150
+E de fato, se você olhar a fórmula 
+da derivada quando a = 2,
+
+127
+00:08:32,150 --> 00:08:36,280
+d/da f(a) = 1/2.
+
+128
+00:08:36,280 --> 00:08:41,720
+Esta fórmula de derivada prevê 
+que se você aumentar "a" 0,001,
+
+129
+00:08:41,720 --> 00:08:46,230
+você esperaria que f(a) subisse 
+apenas 1/2 deste valor e 1/2 de 0,001
+
+130
+00:08:46,230 --> 00:08:51,250
+é 0,0005 o que é exatamente 
+o que obtivemos.
+
+131
+00:08:51,250 --> 00:08:56,180
+Então, quando "a" aumenta 0,001, 
+indo de a = 2 para
+
+132
+00:08:56,180 --> 00:09:01,095
+a = 2,001, 
+f(a) aumenta a metade de 0,001.
+
+133
+00:09:01,095 --> 00:09:04,980
+Então, as respostas estão aumentando 
+aproximadamente 0,0005.
+
+134
+00:09:04,980 --> 00:09:08,510
+Se desenharmos aquele 
+pequeno triângulo, no
+
+135
+00:09:08,510 --> 00:09:13,450
+no eixo horizontal sobe 
+apenas 0,001, no eixo vertical
+
+136
+00:09:13,450 --> 00:09:18,217
+ln(a) aumenta a metade disso, então 0,0005.
+
+137
+00:09:18,217 --> 00:09:22,585
+Então, 1/a ou 1/2 neste caso,
+
+138
+00:09:22,585 --> 00:09:27,770
+é a inclinação desta linha quando a = 2.
+
+139
+00:09:27,770 --> 00:09:30,290
+Então, finalizamos derivadas.
+
+140
+00:09:30,290 --> 00:09:32,660
+Deste vídeo, há duas mensagens 
+para levarmos para casa.
+
+141
+00:09:32,660 --> 00:09:36,800
+Primeiro é que a derivada da 
+função é a inclinação
+
+142
+00:09:36,800 --> 00:09:39,110
+de uma função e a inclinação de uma função
+
+143
+00:09:39,110 --> 00:09:41,830
+pode ser diferente em 
+diferentes pontos da função.
+
+144
+00:09:41,830 --> 00:09:45,635
+No nosso primeiro exemplo onde 
+f(a) = 3a, foi uma linha reta.
+
+145
+00:09:45,635 --> 00:09:47,400
+A derivada foi a mesma em todos os pontos.
+
+146
+00:09:47,400 --> 00:09:48,885
+Foi 3 em todos os pontos.
+
+147
+00:09:48,885 --> 00:09:52,790
+Para as outras funções, tais como 
+f(a) = a² ou f(a) = ln(a),
+
+148
+00:09:52,790 --> 00:09:54,920
+a inclinação da linha varia.
+
+149
+00:09:54,920 --> 00:09:59,410
+Então, a inclinação ou a derivada pode 
+ser diferente em pontos diferentes da curva.
+
+150
+00:09:59,410 --> 00:10:00,723
+Esta é primeira mensagem 
+para levar para casa.
+
+151
+00:10:00,723 --> 00:10:03,150
+Derivada significa apenas 
+a inclinação da curva.
+
+152
+00:10:03,150 --> 00:10:06,930
+Segunda mensagem para levar para casa é que 
+se você quer procurar a derivada de uma função,
+
+153
+00:10:06,930 --> 00:10:10,860
+você pode abrir um livro de cálculo 
+ou olhar na Wikipedia e
+
+154
+00:10:10,860 --> 00:10:15,160
+geralmente obter uma fórmula para a 
+inclinação destas funções em diferentes pontos.
+
+155
+00:10:15,160 --> 00:10:20,645
+Espero que agora você tenha um entendimento 
+intuitivo de derivadas ou inclinação das retas.
+
+156
+00:10:20,645 --> 00:10:21,862
+Vamos para o próximo vídeo.
+
+157
+00:10:21,862 --> 00:10:24,600
+Começaremos a falar sobre 
+o desenho gráfico do cálculo (do processamento) e como
+
+158
+00:10:24,600 --> 00:10:27,620
+usar isso para calcular derivadas de maior 
+complexidade. [Tradução: Renato Barata Gomes 
+| Revisão: Carlos Lage]

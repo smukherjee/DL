@@ -1,0 +1,480 @@
+1
+00:00:00,450 --> 00:00:04,786
+A capacidade do python para 
+permitir a utilização de "broadcasting" e,
+
+2
+00:00:04,786 --> 00:00:09,944
+de forma mais ampla, a grande flexibilidade da 
+linguagem de programação python/numpy é,
+
+3
+00:00:09,944 --> 00:00:14,748
+penso, tanto uma força como também 
+uma fraqueza da linguagem de programação.
+
+4
+00:00:14,748 --> 00:00:18,393
+Penso que é uma força porque eles 
+criam a expressividade da linguagem.
+
+5
+00:00:18,393 --> 00:00:22,547
+Uma grande flexibilidade da linguagem é que ela 
+permite que você faça muita coisa com apenas
+
+6
+00:00:22,547 --> 00:00:24,165
+uma linha de código.
+
+7
+00:00:24,165 --> 00:00:28,530
+Mas é também uma fraqueza 
+porque com "broadcasting" e esta grande
+
+8
+00:00:28,530 --> 00:00:32,610
+flexibilidade, às vezes, é possível 
+você introduzir bugs muito sutis ou
+
+9
+00:00:32,610 --> 00:00:36,530
+bugs muito estranhos, se você não está 
+familiarizado com todos os meandros de
+
+10
+00:00:36,530 --> 00:00:39,800
+"broadcasting" e suas características.
+
+11
+00:00:39,800 --> 00:00:44,500
+Por exemplo, se você pegar um vetor coluna 
+e adicionar isso a um vetor linha,
+
+12
+00:00:44,500 --> 00:00:48,700
+espera-se um erro de incompatibilidade de 
+dimensão ou algum tipo de erro deste tipo.
+
+13
+00:00:48,700 --> 00:00:52,620
+Mas você realmente pode obter uma matriz 
+como uma soma de um vetor linha e
+
+14
+00:00:52,620 --> 00:00:54,030
+um vetor coluna.
+
+15
+00:00:54,030 --> 00:00:58,370
+Então, há uma lógica interna 
+para estes efeitos estranhos do Python.
+
+16
+00:00:58,370 --> 00:01:03,370
+Mas se você não está familiarizado com Python, 
+eu já vi estudantes que acham bem estranho,
+
+17
+00:01:03,370 --> 00:01:05,680
+bem difícil de encontrar bugs.
+
+18
+00:01:05,680 --> 00:01:09,380
+O que eu quero fazer neste vídeo é 
+compartilhar com vocês algumas dicas e
+
+19
+00:01:09,380 --> 00:01:12,800
+truques que têm sido bem 
+úteis para mim, para eliminar,
+
+20
+00:01:12,800 --> 00:01:17,320
+simplificar e acabar como todos 
+estes bugs estranhos no meu código.
+
+21
+00:01:17,320 --> 00:01:19,280
+E espero que, com todos 
+estas dicas e truques,s
+
+22
+00:01:19,280 --> 00:01:24,193
+você também será capaz de escrever um código 
+python/numpy sem bugs, muito mais facilmente.
+
+23
+00:01:25,430 --> 00:01:30,200
+Para ilustrar um dos efeitos 
+menos intuitivos do Python-Numpy,
+
+24
+00:01:30,200 --> 00:01:34,990
+especialmente como construir vetores em Python-Numpy, 
+deixe-me fazer uma demonstração rápida.
+
+25
+00:01:34,990 --> 00:01:40,817
+Vamos definir a = np.random.randn(5),
+
+26
+00:01:40,817 --> 00:01:45,699
+então isso cria cinco variáveis gaussianas
+
+27
+00:01:45,699 --> 00:01:49,640
+aleatórias armazenadas na matriz a.
+
+28
+00:01:49,640 --> 00:01:55,420
+Então, vamos fazer print(a) 
+e agora resulta que
+
+29
+00:01:55,420 --> 00:02:02,740
+print(a.shape), quando você faz 
+isso, é essa estrutura de cinco colunas (5,).
+
+30
+00:02:02,740 --> 00:02:06,320
+E então, isso é chamado de 
+uma matriz de ordem 1 em Python e
+
+31
+00:02:06,320 --> 00:02:09,750
+não é nem um vetor 
+linha nem um vetor coluna.
+
+32
+00:02:09,750 --> 00:02:12,570
+E isso leva-o a ter 
+efeitos não muito intuitivos.
+
+33
+00:02:12,570 --> 00:02:17,180
+Por exemplo, se eu imprimir "a Transposta",
+acaba parecendo igual a "a".
+
+34
+00:02:17,180 --> 00:02:20,220
+Então "a" e "a" transposta 
+acabam parecendo o mesmo.
+
+35
+00:02:20,220 --> 00:02:25,800
+E se imprimir o produto interno entre "a" 
+e "a" transposto, você poderia pensar que
+
+36
+00:02:25,800 --> 00:02:30,190
+"a" vezes "a" transposto é, talvez, o produto 
+externo e deveria dar-lhe talvez uma matriz.s
+
+37
+00:02:30,190 --> 00:02:34,170
+Mas se eu fizer isso, você 
+obterá um número.
+
+38
+00:02:34,170 --> 00:02:39,612
+Então, o que eu recomendo é que 
+quando você está programando redes neurais,
+
+39
+00:02:39,612 --> 00:02:46,115
+que você não utilize estrutura de dados, onde 
+a forma é 5, ou n, ou uma matriz de ordem 1.
+
+40
+00:02:46,115 --> 00:02:52,134
+Ao invés, se você definir "a" como (5,1),sq
+
+41
+00:02:52,134 --> 00:02:58,764
+então isso faz de "a" um vetor coluna (5,1).s
+
+42
+00:02:58,764 --> 00:03:02,399
+E enquanto previamente, "a" 
+e "a" transposto eram iguais,s
+
+43
+00:03:02,399 --> 00:03:06,590
+agora ela tornou-se uma transposição, 
+agora "a" transposto é um vetor linha.
+
+44
+00:03:06,590 --> 00:03:08,437
+Note uma diferença sútil.\
+
+45
+00:03:08,437 --> 00:03:12,213
+Nesta estrutura de dados, existem dois 
+colchetes quando imprimimos o "a" transposto.
+
+46
+00:03:12,213 --> 00:03:14,460
+Em que previamente, 
+havia apenas um colchete.
+
+47
+00:03:14,460 --> 00:03:19,393
+Então essa é a diferença 
+entre uma matriz 1 x 5,
+
+48
+00:03:19,393 --> 00:03:23,481
+versus uma matriz de ordem 1.
+
+49
+00:03:23,481 --> 00:03:28,129
+E se você imprimir, digamos, o 
+produto entre "a" e "a" transposto,
+
+50
+00:03:28,129 --> 00:03:32,444
+então isso lhe dá o produto 
+externo de um vetor, certo?
+
+51
+00:03:32,444 --> 00:03:35,795
+E então, o produto externo 
+de um vetor lhe dá uma matriz.
+
+52
+00:03:35,795 --> 00:03:40,305
+Então, vamos analisar mais 
+detalhadamente o que acabamos de ver aqui.
+
+53
+00:03:40,305 --> 00:03:43,185
+O primeiro comando que 
+rodamos, agora, foi esse.
+
+54
+00:03:43,185 --> 00:03:47,839
+E isso criou uma estrutura de dados com
+
+55
+00:03:47,839 --> 00:03:52,930
+a.shape, esta coisa engraçada (5,)
+ então
+
+56
+00:03:52,930 --> 00:03:57,270
+isso é chamado uma matriz de ordem 1.
+
+57
+00:03:57,270 --> 00:03:58,960
+E essa é uma estrutura de dados bem engraçada.
+
+58
+00:03:58,960 --> 00:04:04,000
+Ela não tem um comportamento consistente 
+como um vetor linha e nem como um vetor coluna,
+
+59
+00:04:04,000 --> 00:04:06,750
+o que faz alguns de 
+seus efeitos não intuitivos.
+
+60
+00:04:06,750 --> 00:04:10,770
+Então, o que vou recomendar é que 
+quando você estiver fazendo seus exercícios
+
+61
+00:04:10,770 --> 00:04:14,050
+de programação, ou de fato, quando 
+estiver implementando regressão logística ou
+
+62
+00:04:14,050 --> 00:04:19,740
+redes neurais, que você não 
+utilize estas matrizes de ordem 1.
+
+63
+00:04:21,020 --> 00:04:24,098
+Em vez disso, toda vez 
+que você criar uma matriz,
+
+64
+00:04:24,098 --> 00:04:27,500
+faça ou um vetor coluna, isso
+
+65
+00:04:27,500 --> 00:04:32,360
+cria um vetor (5,1), 
+ou faça um vetor linha,
+
+66
+00:04:32,360 --> 00:04:36,670
+assim o comportamento dos seus 
+vetores serão mais fáceis de entender.
+
+67
+00:04:36,670 --> 00:04:43,115
+Neste caso, a.shape 
+será igual a (5,1).
+
+68
+00:04:43,115 --> 00:04:48,510
+Assim, isso comporta-se muito parecido com "a", 
+mas na verdade, isso é um vetor coluna.
+
+69
+00:04:48,510 --> 00:04:53,233
+E é por isso que você pode pensar nisso como 
+uma matriz (5,1), onde na verdade é um vetor coluna.
+
+70
+00:04:53,233 --> 00:04:56,880
+E aqui, a.shape será (1,5),
+
+71
+00:04:56,880 --> 00:05:01,000
+e isso comporta-se 
+consistentemente como um vetor linha.
+
+72
+00:05:02,150 --> 00:05:06,258
+Então, quando você precisar de um 
+vetor, eu diria use ou isso ou isso, mas
+
+73
+00:05:06,258 --> 00:05:07,538
+não um matriz de ordem 1.
+
+74
+00:05:07,538 --> 00:05:12,061
+Uma outra coisa que eu faço bastante no 
+meu código é, se eu não tenho certeza qual
+
+75
+00:05:12,061 --> 00:05:17,029
+a dimensão de um dos meus vetores, 
+eu geralmente colocarei uma declaração "assert",
+
+76
+00:05:17,029 --> 00:05:21,720
+como esta, para ter certeza, 
+que este é um vetor (5,1).
+
+77
+00:05:21,720 --> 00:05:23,730
+Então, este é um vetor coluna.
+
+78
+00:05:23,730 --> 00:05:26,900
+Não custa muito para 
+executar estas afirmações, e
+
+79
+00:05:26,900 --> 00:05:30,250
+elas ajudam a servir como 
+documentação para o seu código.
+
+80
+00:05:30,250 --> 00:05:34,160
+Então, não hesite em colocar declarações 
+de "assert" como esta, sempre que
+
+81
+00:05:34,160 --> 00:05:35,320
+quiser.
+
+82
+00:05:35,320 --> 00:05:39,510
+Finalmente, se por algum motivo, você acabe 
+tendo que usar uma matriz de ordem 1,
+
+83
+00:05:39,510 --> 00:05:43,960
+você pode remodelar isso, a = a.reshape
+
+84
+00:05:43,960 --> 00:05:48,900
+em digamos uma matriz (5,1) ou (1,5), para
+
+85
+00:05:48,900 --> 00:05:53,750
+que ela se comporte mais consistentemente 
+como um vetor coluna ou um vetor linha.
+
+86
+00:05:53,750 --> 00:05:57,626
+Às vezes, eu vejo alunos com 
+dificuldade de rastrear bugs
+
+87
+00:05:57,626 --> 00:06:01,119
+por causa dos efeitos não 
+intuitivos de matrizes de ordem 1.
+
+88
+00:06:01,119 --> 00:06:06,246
+Eliminando matrizes de ordem 1 no 
+meu código, ele torna-se mais simples.
+
+89
+00:06:06,246 --> 00:06:09,463
+E eu não acho isso restritivo 
+em termos de coisas que eu poderia
+
+90
+00:06:09,463 --> 00:06:10,335
+expressar no código.
+
+91
+00:06:10,335 --> 00:06:12,469
+E, simplesmente, nunca uso uma matriz de ordem 1.
+
+92
+00:06:12,469 --> 00:06:17,090
+Então, as dicas que ficam são: simplifique 
+o seu código, não use matrizes de ordem 1.
+
+93
+00:06:17,090 --> 00:06:19,437
+Sempre use matrizes n x 1,
+
+94
+00:06:19,437 --> 00:06:24,510
+basicamente vetores colunas, ou 
+matrizes 1 x n, basicamente vetores linha.
+
+95
+00:06:24,510 --> 00:06:26,599
+Fique à vontade para 
+incluir declarações "assert",
+
+96
+00:06:26,599 --> 00:06:29,590
+para confirmar as dimensões 
+de suas matrizes e vetores.
+
+97
+00:06:29,590 --> 00:06:34,480
+E também, não tenha vergonha de chamar a 
+operação "reshape", para assegurar-se que suas
+
+98
+00:06:34,480 --> 00:06:38,780
+matrizes ou seus vetores 
+sejam da dimensão que você precisa.
+
+99
+00:06:38,780 --> 00:06:39,420
+De forma que,
+
+100
+00:06:39,420 --> 00:06:44,770
+espero que este conjunto de sugestões 
+o ajudem a eliminar a causa dos bugs
+
+101
+00:06:44,770 --> 00:06:48,840
+no código Python, e torne os exercícios mais 
+fáceis de serem completados por você. 
+[Tradução: Renato Barata Gomes | Revisão: Carlos Lage.]

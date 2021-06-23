@@ -1,0 +1,130 @@
+No vídeo passado,
+mencionei que "broadcasting" é outra técnica que você pode usar para fazer
+ seu código Python rodar mais rápido Nesse vídeo, vamos investigar como
+"broadcasting" em Python funciona de fato. Vamos incentivar o uso de "broadcasting" 
+ através de um exemplo. Nessa matriz, temos o número de 
+calorias em carboidratos, proteínas e gorduras em 100 gramas de
+quatro diferentes alimentos. Então, por exemplo, 100 gramas de maçã,
+têm 56 calorias de carboidratos, e muito menos calorias de 
+proteínas e gorduras. Enquanto que, em contraste, 100 gramas de carne
+têm 104 calorias de proteínas e 135 calorias de gordura. Agora, digamos que seu objetivo é
+calcular a percentagem de calorias de carboidratos, proteínas e gorduras
+para cada um dos quatro alimentos. Então, por exemplo,
+ se você olhar para essa coluna e adicionar os números naquela coluna
+ você vê que 100 gramas de maçã tem 56 + 1.2 + 1.8 então
+são 59 calorias. E, então, em valores
+ percentuais, a porcentagem de calorias de carboidratos
+em maçãs seriam 56 de 59, que é aproximadamente 94.9%. Então, a maioria das calorias da maçã é de
+ carboidratos, enquanto que, em contraste, a maioria das calorias da carne é de
+proteínas e de gordura e assim por diante. Então o cálculo que você quer é realmente
+somar cada uma das quatro colunas dessa matriz para obter o número total de
+calorias em 100 gramas de maçãs, carne, ovos, e batatas. E então para dividir através da matriz, a fim de obter o percentual de calorias de
+ carboidratos, proteínas e gorduras para cada um dos quatro alimentos. Então a questão é, você pode fazer isso
+sem um laço "for..." 
+(for-loop)? Vejamos 
+como você pode fazer isso. O que farei é
+mostrar como você pode definir, digamos, essa matriz igual a
+uma matriz A de dimensão três por quatro. E então com uma linha de código Python
+iremos somar as colunas. Então nós obteremos quatro números
+correspondentes ao total de números de calorias nesses quatro
+tipos de alimentos, 100 gramas desses quatro
+ tipos de alimentos. E usarei um segundo código
+Python, para dividir cada uma das quatro colunas pela
+soma correspondente delas. Se esta descrição verbal
+não foi muito clara, espero que fique mais claro em instantes
+quando olharmos o código Python. Então, aqui estamos no ambiente do 
+'Jupyter Notebook'. Eu já escrevi esse primeiro fragmento
+ de código para pré-popular a matriz A com os números que vimos h´a pouco,
+então pressionamos "shift enter" e executamos o código, então aí está a matriz A. E agora aqui estão as duas
+linhas de código Python Primeiramente, vamos computar
+cal = A.sum(axis=0) (axis=0), significa pra somar verticalmente. Falaremos mais sobre isso em breve. E então,
+print(cal) Então, vamos somar verticalmente. Veja, 59 é o número total de calorias na maçã, 
+239 é o número total de calorias na carne
+e os ovos e batatas, e assim por diante. Então, calculando a porcentagem, percentage = A/cal.reshape (1,4) Na verdade queremos porcentagem
+portanto multiplique por 100 aqui e então vamos imprimir a porcentagem:
+print(percentage) Vamos rodar isso. E então como aquele comando
+nós pegamos a matriz A e a dividimos por esta matriz um por quatro. E isso nos dá
+uma matriz de porcentagens. Então, conforme resolvemos
+ meio que na mão , agora na maçã tinha uma primeira coluna 94.9% das
+calorias são de carboidratos. Voltemos aos slides. Apenas para repetir as duas
+linhas de código que vimos, isso é o que codificamos
+no 'Jupyter notebook'. Detalhando um pouco mais,
+esse parâmetro, (axis = 0), significa que você
+quer que o Python some verticalmente. Então esse é o eixo 0, significa
+ para somar verticalmente. onde o eixo horizontal é 1, assim, podemos escrever (axis=1) para somar
+horizontalmente ao invés de somar verticalmente. E então esse comando aqui, isso é um exemplo de "broadcasting"em Python
+onde você pega a matriz A. Essa é uma matriz de três por quatro e 
+você a divide por uma matriz de um por quatro E tecnicamente, depois dessa primeira linha
+ de códigos cal, a variável cal,s já é uma matriz de um por quatro. Então, tecnicamente, você não precisa invocar
+reshape aqui novamente, assim, na verdade, isso é um pouco redundante. Mas quando eu estou escrevendo códigos
+ Python, se não tenho certeza da matriz, de quais são as dimensões da matriz, eu, muitas vez,
+ chamaria o comando reshape apenas para ter certeza que é o vetor coluna certo
+ou o vetor linha ou qualquer coisa que você quer que seja. O comando reshape é um constante multiplicadora. É uma operação de primeira ordem
+cuja chamada custa pouco para executar. Então não se acanhe, use o comando
+reshape para ter certeza que suas matrizes são do tamanho que você precisa que sejam. Agora, vamos explicar em maiores detalhes
+como esse tipo de operação funciona, certo? Tínhamos uma matriz de três por quatro
+e a dividimos por uma matriz de um por quatro então, como você pode dividir uma matriz
+de três por quatro por uma de um por quatro? ou por um vetor de um por quatro? Vamos analisar mais alguns exemplos
+de broadcasting Se você pegar um vetor 4 por 1 e
+adicionar isso a um número, o Python pegará esse número e 
+o expandirá automaticamente em um vetor de 4 por 1 também, como segue. E então o vetor[1,2,3,4] mais o número 100 resultará
+naquele vetor na direita. Você está adicionando 100 a cada elemento
+e de fato usamos essa forma de broadcasting onde aquela constante era
+o parâmetro b num vídeo anterior. E esse tipo de broadcasting funciona com
+ambos vetores coluna e vetores linha, e em fato usamos uma forma parecida 
+de broadcasting anteriormente com a constante que estamos adicionando a um vetor: 
+o parâmetro b em uma regressão lógica. Aqui está outro exemplo. Digamos que você tenha uma matriz
+de dois por três e você a adicionou a essa matriz de um por n. Então o caso geral seria se você tivesse alguma matriz (m, n) aqui
+ e você a adicionasse a uma matriz(1,n). O que o Python fará nestes casos: 
+copiará a matriz (1,n) m vezes para torna-lá uma matriz de m por n,
+ então ao invés dessa matriz um por três, ele vai copia-lá duas vezes 
+ nesse exemplo, para torna-lá, também uma matriz 2 por 3 e adicionaremos esses para
+ que você obtenha a soma na direita,
+certo? Então você pegou
+adicionou 100 à primeira coluna, e 200 à segunda coluna
+adicionou 300 à terceira coluna. E isso é basicamente o que fizemos
+nos slides anteriores, exceto que usamos uma operação de
+divisão, ao invés de uma operação de adição. Um último exemplo,
+ mesmo que você tenha uma matriz(m,n) e você a adiciona em um vetor (m,1)
+ a uma matriz(m,1). Então apenas copie isso n vezes horizontalmente e você terminará com uma matriz(m,n). Então como você pode imaginar você a copia
+horizontalmente três vezes. E adiciona aqueles. Então você os adiciona e
+ chega nisso. Então adicionamos 100 à primeira linha
+e adicionamos 200 à segunda linha Este é o principio mais geral
+ de broadcasting em Python! Se você tem uma matriz(m,n) e você adiciona ou subtrai ou multiplica
+ou divide por uma matriz (1,n), então isso a copiará n vezes
+ tornando-a uma matriz(m.n). E então aplicará a operação de adição, subtração, multiplicação ou divisão
+para cada elemento da matriz. Se por outro lado, você pegasse a
+matriz(m,n) e adicionasse, subtraísse, multiplicasse, dividisse por uma matriz(m,1)
+então isso também copiaria n vezes. E a transformaria em uma matriz(m,n) para então,
+aplicar a operação elemento por elemento. Só mais uma forma de broadcasting,
+ que é quando temos uma matriz (m,1), na verdade esse é um vetor coluna, com
+1 na primeira linha, 2 na segunda linha e 3 na terceira,
+ e então adicionamos, subtraímos, multiplicamos, ou
+dividimos por um número real. Então talvez uma matriz de 1 por 1. Como esta, somada a 100
+, então você acaba copiando esse número real n vezes até
+conseguir outra matriz(n,1). E então você executa a operação como
+ a adição neste exemplo. E algo similar também funciona para
+ vetores de linha. A versão completa de "broadcasting"
+pode realizar um pouco mais do que isso. Se você está interessado você pode
+ler a documentação para NumPy, e buscar por broadcasting
+nessa documentação. Isso lhe dará uma definição um pouco mais
+genérica de broadcasting. Mas as que estão no slide são as formas
+principais que você acabará precisando usar quando você
+implementar uma rede neural. Antes de concluirmos, 
+apenas um último comentário, que é para aqueles de vocês que são acostumados
+a programação em MATLAB ou Octave, se vice alguma vez usou MATLAB ou 
+função bsxfun do Octave em redes neurais programar bsxfun realiza
+algo semelhante, mas não idêntico. Mas muitas vezes é usado para uma finalidade 
+similar como o que usamos 
+em Python para broadcasting. Mas isso é apenas para
+usuários muito avançados em MATLAB e Octave, se você nunca ouviu falar disso
+ não se preocupe. Você não precisar saber sobre quando
+está programando redes neurais em Python. Bom, isso é broadcasting em Python. Eu espero que, quando você realizar as tarefas
+ de programação, que broadcasting o permita a não apenas fazer seu código ser executado 
+mais rapidamente, mas também te ajude a realizar o que quer
+com menos linhas de códigos. Antes de você mergulhe nas tarefas de
+ programação, eu gostaria de compartilhar 
+com você apenas mais um conjunto de ideias,
+que há algumas dicas e truques que eu encontrei que reduz o número
+de bugs no meu código Python e que eu espero que te ajude também. Então sobre isso, falaremos no próximo vídeo.
+[Tradução: Guilherme F. Niederauer | Revisão: Carlos Lage]

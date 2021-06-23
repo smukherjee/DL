@@ -1,0 +1,500 @@
+1
+00:00:00,000 --> 00:00:01,530
+Bir önceki videoda,
+
+2
+00:00:01,530 --> 00:00:04,227
+lojistik bağlanım(regresyon) modelini gördünüz.
+
+3
+00:00:04,227 --> 00:00:07,526
+Lojistik regresyon modelinin W ve B parametrelerini eğitmek için,
+
+4
+00:00:07,526 --> 00:00:10,570
+Bir maliyet fonksiyonu tanımlamanız gerekir.
+
+5
+00:00:10,570 --> 00:00:14,430
+Lojistik regresyonu eğitmek için kullanabileceğiniz maliyet fonksiyonuna bir göz atalım.
+
+6
+00:00:14,430 --> 00:00:18,195
+Tekrarlamak için, önceki slayttan bulmamız gereken şey bu.
+
+7
+00:00:18,195 --> 00:00:20,792
+Yani çıkış y-şapka(hat) w'nin sigmoidi
+
+8
+00:00:20,792 --> 00:00:24,690
+Z'nin bir sigmoidinin burada tanımlandığı gibi x artı b'yi aktarın.
+
+9
+00:00:24,690 --> 00:00:27,600
+Yani, modelinizdeki parametreleri öğrenmeniz için size
+
+10
+00:00:27,600 --> 00:00:31,200
+m eğitim örneklerinden oluşan bir eğitim seti verilir ve
+
+11
+00:00:31,200 --> 00:00:34,060
+W ve B parametrelerini bulmak istemeniz doğal görünür,
+
+12
+00:00:34,060 --> 00:00:37,781
+böylece en azından eğitim setinde çıktılara sahip olursunuz.
+
+13
+00:00:37,781 --> 00:00:40,225
+Eğitim setinde sahip olduğunuz tahminler,
+
+14
+00:00:40,225 --> 00:00:43,260
+-bizim sadece y-şapka (i) olarak yazdığımız-
+
+15
+00:00:43,260 --> 00:00:47,720
+eğitim setindeki kesin referans etiketleri y_i'ye yakın olacak. 
+
+16
+00:00:47,720 --> 00:00:52,110
+Üstteki denklem için biraz daha ayrıntı eklemek için,
+
+17
+00:00:52,110 --> 00:00:56,205
+y-şapka'nın yukarıda tanımlandığı gibi olduğunu söyledik,
+
+18
+00:00:56,205 --> 00:01:00,930
+alıştırma örneği olarak x ve elbette her bir alıştırma örneği için,
+
+19
+00:01:00,930 --> 00:01:03,240
+bu üstyazıları indekslemek ve örnekleri ayırt etmek için
+
+20
+00:01:03,240 --> 00:01:07,710
+ parantez içeren parantezlerle kullanırız.
+
+21
+00:01:07,710 --> 00:01:12,870
+Y-şapka (i) olan eğitim örneğindeki (i) tahmininiz
+
+22
+00:01:12,870 --> 00:01:18,835
+sigmoid fonksiyonunu alarak ve onu W transpoze X'e uygulayarak elde edilir,
+
+23
+00:01:18,835 --> 00:01:25,905
+(i) alıştırma örneğinin girdisi artı V ve ayrıca Z (i)'yi aşağıda belirtildiği gibi tanımlayabilirsiniz.
+
+24
+00:01:25,905 --> 00:01:30,110
+Z (i), W aktarılmış x (i) artı b'ye eşittir.
+
+25
+00:01:30,110 --> 00:01:31,350
+Bu ders boyunca,
+
+26
+00:01:31,350 --> 00:01:33,966
+üstyazı (i)'nin datayı işaret ettiği 
+
+27
+00:01:33,966 --> 00:01:41,605
+bu notasyon evrişimini kullanacağız.
+
+28
+00:01:41,605 --> 00:01:47,615
+X veya Y veya Z veya i'ninci alıştırma örneğiyle ilişkili başka bir şey,
+
+29
+00:01:47,615 --> 00:01:50,885
+i'ninci örnekle ilişkilidir.
+
+30
+00:01:50,885 --> 00:01:54,840
+Üstyazı (i)'nin anlamı budur.
+
+31
+00:01:54,840 --> 00:01:57,630
+Şimdi, algoritmamızın ne kadar iyi çalıştığını ölçmek için
+
+32
+00:01:57,630 --> 00:02:01,315
+hangi kayıp fonksiyonunu ya da hata fonksiyonunu kullanabileceğimizi görelim.
+
+33
+00:02:01,315 --> 00:02:06,015
+Yapabileceğiniz bir şey, algoritmanız y-şapkayı ve doğru etiketi Y olarak çıkardığında
+
+34
+00:02:06,015 --> 00:02:12,320
+belki kare hatası veya bir yarım kare hatası olduğunda kaybı tanımlamaktır.
+
+35
+00:02:12,320 --> 00:02:14,975
+Bunu yapabileceğiniz ortaya çıkar,
+
+36
+00:02:14,975 --> 00:02:17,670
+ama lojistik regresyonda insanlar genellikle bunu yapmazlar
+
+37
+00:02:17,670 --> 00:02:21,000
+çünkü parametreleri öğrendiğinizde,
+
+38
+00:02:21,000 --> 00:02:25,682
+ daha sonra konuştuğumuz optimizasyon probleminin konveks olmadığına karar verirsiniz.
+
+39
+00:02:25,682 --> 00:02:30,105
+Yani, birden çok yerel optima ile optimizasyon problemi ile sonuçlanırsınız.
+
+40
+00:02:30,105 --> 00:02:33,285
+Yani dereceli alçalma küresel optimumu bulamayabilir.
+
+41
+00:02:33,285 --> 00:02:35,580
+Son birkaç yorumu anlamadıysanız.
+
+42
+00:02:35,580 --> 00:02:38,320
+Bunun için endişelenmeyin, daha sonraki videoda bundan bahsedeceğiz.
+
+43
+00:02:38,320 --> 00:02:40,990
+Ancak, uzaklaşmanın sezgisi, 
+
+44
+00:02:40,990 --> 00:02:44,620
+L olarak adlandırılan bu kayıp fonksiyonu sizin
+
+45
+00:02:44,620 --> 00:02:51,265
+gerçek etiket y olduğunda çıktı y-şapka'nın ne kadar iyi olduğunu ölçmek için tanımlamanız gereken bir fonksiyondur.
+
+46
+00:02:51,265 --> 00:02:54,345
+Kare hatası makul bir seçim gibi görünse de
+
+47
+00:02:54,345 --> 00:02:58,160
+ Gradyan düşümünü iyi çalıştırmaz.
+
+48
+00:02:58,160 --> 00:03:00,500
+Yani lojistik regresyonda, aslında 
+
+49
+00:03:00,500 --> 00:03:05,695
+bize dışbükey olan bir optimizasyon sorunu verecek,
+
+50
+00:03:05,695 --> 00:03:08,910
+ kare hatasıyla benzer bir rol oynayan farklı bir kayıp işlevini tanımlayacağız.
+
+51
+00:03:08,910 --> 00:03:13,530
+Ve böylece daha sonraki videoların optimize edilmesini daha kolay hale geldiğini göreceğiz.
+
+52
+00:03:13,530 --> 00:03:17,310
+Yani, lojistik regresyonda kullandığımız şey aslında
+
+53
+00:03:17,310 --> 00:03:21,795
+sıradaki kayıp fonksiyonudur, şu an burada olduğu gibi
+
+54
+00:03:21,795 --> 00:03:31,740
+negatif y log y-şapka artı bir eksi y log, 
+
+55
+00:03:31,740 --> 00:03:34,600
+bir eksi y-şapka'dır.
+
+56
+00:03:34,600 --> 00:03:38,785
+Bu kayıp fonksiyonunun neden mantıklı olduğuna dair bazı sezgiler var.
+
+57
+00:03:38,785 --> 00:03:41,285
+Kare hatası kullanırsak,
+
+58
+00:03:41,285 --> 00:03:45,820
+karenin hatalarının olabildiğince küçük olmasını istediğinizi unutmayın.
+
+59
+00:03:45,820 --> 00:03:48,680
+ Ve bu lojistik regresyon kaybı fonksiyonuyla,
+
+60
+00:03:48,680 --> 00:03:51,495
+bunun da mümkün olduğunca küçük olmasınıisteyeceğiz.
+
+61
+00:03:51,495 --> 00:03:53,508
+Bunun neden mantıklı olduğunu anlamak için,
+
+62
+00:03:53,508 --> 00:03:55,260
+iki örneğe bakalım,
+
+63
+00:03:55,260 --> 00:03:56,570
+İlk durumda,
+
+64
+00:03:56,570 --> 00:03:59,430
+Y'nin bire eşit olduğunu varsayalım,
+
+65
+00:03:59,430 --> 00:04:05,415
+ o zaman kayıp fonksiyonu y-şapka virgül y, bu negatif işaretin yazılması için uygundur.
+
+66
+00:04:05,415 --> 00:04:08,735
+Eğer y bire eşitse
+
+67
+00:04:08,735 --> 00:04:10,770
+negatif log y-şapkadır. Çünkü eğer y bire eşitse, 
+
+68
+00:04:10,770 --> 00:04:14,070
+o zaman ikinci terim bir eksi Y sıfıra eşittir.
+
+69
+00:04:14,070 --> 00:04:19,880
+Yani, eğer y eşittirse, negatif log y-şapka'nın mümkün olduğunca büyük olmasını istersiniz.
+
+70
+00:04:19,880 --> 00:04:26,040
+Öyleyse, y-şapka'nın büyük olmasını istiyorsunuz,
+
+71
+00:04:26,040 --> 00:04:32,935
+mümkün olduğunca büyük olmasını ve bu y-şapka'nın büyük olmasını istediğiniz anlamına gelir.
+
+72
+00:04:32,935 --> 00:04:35,170
+Ama y-şapka,
+
+73
+00:04:35,170 --> 00:04:38,440
+sigmoid fonksiyonu olduğu için, asla birinden büyük olamaz.
+
+74
+00:04:38,440 --> 00:04:41,850
+Demek ki, eğer y bire eşitse,
+
+75
+00:04:41,850 --> 00:04:44,050
+Y-şapkanın mümkün olduğunca büyük olmasını istiyorsunuz.
+
+76
+00:04:44,050 --> 00:04:48,220
+Ama asla birinden daha büyük olamaz, o yüzden de y-şapkasının da bire yakın olmasını istiyoruz.
+
+77
+00:04:48,220 --> 00:04:50,740
+ Diğer durum da y eşittir sıfırdır.
+
+78
+00:04:50,740 --> 00:04:55,375
+Y, sıfıra eşitse, kayıp fonksiyonundaki bu ilk terim sıfıra eşittir,
+
+79
+00:04:55,375 --> 00:05:01,290
+çünkü y sıfır ve daha sonra ikinci terim, kayıp fonksiyonunu tanımlar.
+
+80
+00:05:01,290 --> 00:05:07,210
+Böylece kayıp negatif log bir eksi y-hat olur.
+
+81
+00:05:07,210 --> 00:05:11,480
+Ve eğer öğrenme sürecinizde kayıp fonksiyonunu küçük yapmaya çalışırsanız,
+
+82
+00:05:11,480 --> 00:05:19,450
+Bunun nedeni, bir eksi y-hatın büyük olmasını istemeniz.
+
+83
+00:05:19,450 --> 00:05:22,050
+Ve orada negatif bir işaret olduğu için
+
+84
+00:05:22,050 --> 00:05:24,660
+ve benzer bir sebepten dolayı 
+
+85
+00:05:24,660 --> 00:05:30,870
+bu kayıp fonksiyonunun y-şapkayı olabildiğince küçük yapmaya çalıştığı sonucuna varabilirsiniz.
+
+86
+00:05:30,870 --> 00:05:34,320
+Ve yine y-şapka sıfır ile bir arasında olması gerektiğinden.
+
+87
+00:05:34,320 --> 00:05:38,155
+ Bu, y sıfıra eşitse, 
+
+88
+00:05:38,155 --> 00:05:43,790
+kayıp fonksiyonunuzun, y-şapkayı mümkün olduğunca sıfıra yakın hale getirmek için parametreleri zorlayacağını söyler.
+
+89
+00:05:43,790 --> 00:05:48,305
+Şimdi, Rafidah'ın etkisiyle çok fazla fonksiyonlar var, eğer y bire eşitse,
+
+90
+00:05:48,305 --> 00:05:52,950
+ y-şapkası büyük yapmaya çalışıyoruz ve eğer Y eşitse, y-şapkası küçük yapmaya çalışıyoruz.
+
+91
+00:05:52,950 --> 00:05:55,150
+Burayı sadece yeşil olarak verdik
+
+92
+00:05:55,150 --> 00:05:59,920
+ Bu kayıp fonksiyonu için gayri resmi bir gerekçe sunacak
+
+93
+00:05:59,920 --> 00:06:03,970
+daha sonra isteğe bağlı bir video ile, 
+
+94
+00:06:03,970 --> 00:06:08,500
+lojistik regresyonda neden bu özel formla kayıp işlevini kullanmak istediğimize dair daha resmi bir gerekçe sunacaktır.
+
+95
+00:06:08,500 --> 00:06:13,630
+Son olarak, kayıp fonksiyonu tek bir eğitim örneğine göre tanımlandı.
+
+96
+00:06:13,630 --> 00:06:16,760
+Tek bir eğitim örneğinde ne kadar iyi yaptığınızı ölçer.
+
+97
+00:06:16,760 --> 00:06:21,148
+Şimdi maliyet fonksiyonu olarak adlandırılan bir şey tanımlayacağım,
+
+98
+00:06:21,148 --> 00:06:24,690
+tüm eğitim setini ne kadar iyi yaptığınızı ölçen bir şey.
+
+99
+00:06:24,690 --> 00:06:28,660
+Yani, W ve B parametrelerinize uygulanan maliyet fonksiyonu J
+
+100
+00:06:28,660 --> 00:06:33,130
+alıştırma örneklerinin her birine uygulanan kayıp fonksiyonunun
+toplamının m'lerinden biriyle ortalama olacak
+
+101
+00:06:33,130 --> 00:06:43,270
+ve dönecek.
+
+102
+00:06:43,270 --> 00:06:45,435
+Burada y-şapka elbette
+
+103
+00:06:45,435 --> 00:06:49,570
+belirli bir W ve B parametre seti kullanan 
+
+104
+00:06:49,570 --> 00:06:52,430
+lojistik regresyon algoritmanızın tahmini çıktısıdır, 
+
+105
+00:06:52,430 --> 00:06:54,480
+Ve sadece bunu genişletmek için,
+
+106
+00:06:54,480 --> 00:06:58,010
+ bu eksi bir bölü m'ye eşittir
+
+107
+00:06:58,010 --> 00:07:03,550
+ toplam i eşittir birden m ye kadar kayıp fonksiyonunun tanımıdır.
+
+108
+00:07:03,550 --> 00:07:07,530
+Yani bu y (i) Log y-şapka 
+
+109
+00:07:07,530 --> 00:07:14,530
+(i) artı bir eksi (i) bir eksi y-şapkadır (i).
+
+110
+00:07:14,530 --> 00:07:17,880
+ Sanırım buraya köşeli parantezler koyabilirim.
+
+111
+00:07:17,880 --> 00:07:20,945
+Yani eksi işareti her şeyin dışında.
+
+112
+00:07:20,945 --> 00:07:23,665
+Bu yüzden kullanacağım terminoloji,
+
+113
+00:07:23,665 --> 00:07:29,120
+kayıp fonksiyonunun sadece tek bir eğitim örneğine uygulanmasıdır.
+
+114
+00:07:29,120 --> 00:07:33,010
+Ve maliyet fonksiyonu parametrelerinizin maliyetidir.
+
+115
+00:07:33,010 --> 00:07:36,115
+Bu nedenle lojistik regresyon modelinizi eğitirken
+
+116
+00:07:36,115 --> 00:07:38,980
+Altta yazılı olan genel maliyet fanksiyonu J'yi en aza indiren
+
+117
+00:07:38,980 --> 00:07:43,475
+ W ve B parametrelerini bulmaya çalışacağız.
+
+118
+00:07:43,475 --> 00:07:48,040
+Yani, az önce lojistik regresyon algoritması kurulumunu,
+
+119
+00:07:48,040 --> 00:07:50,770
+ eğitim örneği için kayıp fonksiyonunu ve, 
+
+120
+00:07:50,770 --> 00:07:54,190
+algoritmanızın parametreleri için genel maliyet fonksiyonunu gördünüz.
+
+121
+00:07:54,190 --> 00:07:59,485
+Lojistik regresyonun çok küçük bir sinir ağı olarak görülebileceği ortaya çıkıyor.
+
+122
+00:07:59,485 --> 00:08:01,905
+Bir sonraki videoda bunun üzerine gideceğiz,
+
+123
+00:08:01,905 --> 00:08:04,965
+böylece sinir ağlarının ne yaptığına dair sezgiler kazanmaya başlayabilirsiniz.
+
+124
+00:08:04,965 --> 00:08:08,230
+ Bu yüzden, bir sonraki videoya,
+
+125
+00:08:08,230 --> 00:08:11,630
+ lojistik regresyonun çok küçük bir sinir ağı olarak nasıl görüntüleneceğine bakalım.

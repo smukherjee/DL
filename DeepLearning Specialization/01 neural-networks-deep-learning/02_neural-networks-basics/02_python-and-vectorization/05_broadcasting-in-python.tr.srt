@@ -1,0 +1,643 @@
+1
+00:00:00,210 --> 00:00:03,240
+Bir önceki videoda, bu yayından (broadcasting) bahsetmiştik,
+
+2
+00:00:03,240 --> 00:00:07,040
+Yayınlama (broadcasting) Python kodunuzun daha hızlı çalışmasını sağlamak için kullanabileceğiniz başka bir tekniktir.
+
+3
+00:00:07,040 --> 00:00:11,860
+Bu videoda, Python'da yayınlamanın aslında nasıl çalıştığını öğreneceğiz.
+
+4
+00:00:11,860 --> 00:00:14,240
+Bugün bir örnekle yayınlama (broadcasting) ni anlayalım.
+
+5
+00:00:14,240 --> 00:00:18,730
+Matriste 100 gramlık dört farklı gıdanın karbonhidrat,
+
+6
+00:00:18,730 --> 00:00:22,320
+protein ve yağdan olan kalori sayısını göstermektedir.
+
+7
+00:00:22,320 --> 00:00:25,380
+Yani örneğin, 100 gram elmada
+
+8
+00:00:25,380 --> 00:00:29,690
+56 kalori karbonhidrat bulunmaktadır. Bu sayı protein ve yağdan daha fazla.
+
+9
+00:00:29,690 --> 00:00:35,110
+Buna karşılık, 100 gramlık bir sığır etinde 104 kalori protein ve
+
+10
+00:00:35,110 --> 00:00:37,620
+135 kalori yağ bulunmaktadır.
+
+11
+00:00:37,620 --> 00:00:43,330
+Şimdi, amacımız dört farklı gıdanın her biri için karbonhidrat,
+
+12
+00:00:43,330 --> 00:00:48,440
+protein ve yağ kalori yüzdesini hesaplamak.
+
+13
+00:00:48,440 --> 00:00:52,338
+Örneğimizdeki bu sütuna bakarsanız,
+
+14
+00:00:52,338 --> 00:00:57,697
+sütundaki sayıları topladığımızda, 100 gramlık elma
+
+15
+00:00:57,697 --> 00:01:02,580
+56+1.2+1.8 yani toplam 59 kalori vardır.
+
+16
+00:01:02,580 --> 00:01:06,806
+Yüzdesel olarak baktığımızda,
+
+17
+00:01:06,806 --> 00:01:11,800
+bir elmadaki karbonhidratlardan elde edilen kalorinin oranı
+
+18
+00:01:11,800 --> 00:01:16,932
+59 üzerinden 56 olur, bu da yaklaşık olarak %94.9'dur.
+
+19
+00:01:16,932 --> 00:01:22,399
+Yani bir elmadaki kalorilerin çoğu karbonhidratlardan gelirken, aksine
+
+20
+00:01:22,399 --> 00:01:27,630
+sığır etindeki kalorilerin çoğu protein ve yağdan gelir.
+
+21
+00:01:27,630 --> 00:01:33,630
+Bizim istediğimiz hesaplama, dört sütunun her birindeki
+
+22
+00:01:33,630 --> 00:01:38,740
+100 gramlık elma, sığır eti, yumurta ve patatesteki toplam kalori miktarı olan
+
+23
+00:01:38,740 --> 00:01:40,920
+dört sütununu işlemek.
+
+24
+00:01:40,920 --> 00:01:45,090
+Ve daha sonra matrisi bölerek
+
+25
+00:01:47,230 --> 00:01:51,230
+dört gıdanın her biri için karbonhidrat,
+
+26
+00:01:51,230 --> 00:01:54,870
+protein ve yağın kalori yüzdesini hesaplayacağız.
+
+27
+00:01:54,870 --> 00:02:01,370
+Soru şu ki, bunu for döngüsü olmadan nasıl yapabiliriz?
+
+28
+00:02:01,370 --> 00:02:03,290
+Bunu nasıl yapabileceğimize bir bakalım.
+
+29
+00:02:04,450 --> 00:02:08,602
+İlk olarak yapacağımız şey,
+
+30
+00:02:08,602 --> 00:02:12,990
+bu matrisi nasıl eşit dört A matrisine böleceğimize karar vermektir.
+
+31
+00:02:12,990 --> 00:02:18,300
+Daha sonra Python koduyla sütunların içlerini dolduracağız.
+
+32
+00:02:18,300 --> 00:02:22,078
+Toplam sayıya karşılık gelen dört sayıyı,
+
+33
+00:02:22,078 --> 00:02:25,046
+toplam kalori sayısına karşılık gelen
+
+34
+00:02:25,046 --> 00:02:28,095
+dört farklı gıdadan 100'er olarak gram alacağız.
+
+35
+00:02:28,095 --> 00:02:32,113
+Ve dört sütunun her birini toplama karşılık gelmesi için
+
+36
+00:02:32,113 --> 00:02:35,390
+ikinci bir satır Python kodu yazacağız.
+
+37
+00:02:35,390 --> 00:02:37,250
+Eğer bu sözel açıklama çok açıklayıcı değilse
+
+38
+00:02:37,250 --> 00:02:40,670
+yazılan Python koduna baktığımızda daha net olacaktır.
+
+39
+00:02:40,670 --> 00:02:42,460
+Editör olarak Jüpiter kullanıyoruz
+
+40
+00:02:42,460 --> 00:02:46,150
+İlk kod parçasını daha önceden yazdım.
+
+41
+00:02:46,150 --> 00:02:49,860
+A matrisini değerler ile doldurdum. Kodumuzu Enter tuşuna basarak çalıştırıyoruz,
+
+42
+00:02:49,860 --> 00:02:51,220
+çalıştı ve A matrisi ekrana yazıldı.
+
+43
+00:02:51,220 --> 00:02:55,080
+Şimdi buraya ikinci Python kod satırını yazıyoruz.
+
+44
+00:02:55,080 --> 00:02:59,983
+İlk olarak, (kalori) hesaplanacak. Kalori eşittir A çarpı sum. Parantez içindeki
+
+45
+00:02:59,983 --> 00:03:02,280
+axis=0 in anlamı dikey(sütun) toplamıdır.
+
+46
+00:03:02,280 --> 00:03:05,280
+Bunun hakkında birazdan daha ayrıntılı konuşacağız.
+
+47
+00:03:05,280 --> 00:03:06,076
+Ve cal değişkenini ekrana yazdırıyoruz.
+
+48
+00:03:06,076 --> 00:03:07,825
+Dikey toplamı(her bir sütunün toplamını) elde ettik.
+
+49
+00:03:07,825 --> 00:03:13,735
+59 elmadaki toplam kalori sayısıdır. 239 ise
+
+50
+00:03:13,735 --> 00:03:19,575
+sığır etinin toplam kalori sayısı iken yumurta ve patatesteki toplam kalori miktarı da matriste gösterildiği gibi.
+
+51
+00:03:19,575 --> 00:03:25,151
+Hesaplama yüzdesi=
+
+52
+00:03:25,151 --> 00:03:30,733
+A/cal.reshape (1,4) (Ek bilgi kodun anlamı: A matrisini cal değerlerine göre 4 parçalı olacak şekilde yeniden şekillendirdi.)
+
+53
+00:03:30,733 --> 00:03:33,927
+Yüzdeyi istediğimiz için de 100 ile çarpıyoruz.
+
+54
+00:03:35,913 --> 00:03:38,860
+Hesaplama yüzdesini ekrana yazdırıyoruz.
+
+55
+00:03:40,800 --> 00:03:41,950
+Kodumuz çalıştı.
+
+56
+00:03:41,950 --> 00:03:46,870
+Böylece bu kod ile A matrisini aldık
+
+57
+00:03:46,870 --> 00:03:50,820
+ve 1x4 matrisine böldük,
+
+58
+00:03:50,820 --> 00:03:52,672
+ve bu bize matrisin yüzdesini verdi.
+
+59
+00:03:52,672 --> 00:03:57,327
+Yaptığımız çalışmada elimizdeki elmanın
+
+60
+00:03:57,327 --> 00:04:02,480
+kalorisi ilk sütunda görüldüğü gibi %94,9 karbonhidrattan geliyor.
+
+61
+00:04:02,480 --> 00:04:04,000
+Slaytlara geri dönelim.
+
+62
+00:04:04,000 --> 00:04:06,310
+Yazdığımız 2 satır kodun
+
+63
+00:04:06,310 --> 00:04:09,940
+Jupiter editöründe yazılı olan karşılığı buydu.
+
+64
+00:04:09,940 --> 00:04:13,306
+(axis=0) parametresinin anlamı
+
+65
+00:04:13,306 --> 00:04:18,540
+Python'da dikey toplamdır. (sütunların toplamı)
+
+66
+00:04:18,540 --> 00:04:21,567
+Yani eğer bu eksen 0 eşitse, dikey eksen toplamıdır,
+
+67
+00:04:21,567 --> 00:04:24,029
+yatay eksen ise birdir.
+
+68
+00:04:24,029 --> 00:04:28,050
+Böyle dikey olarak toplam yerine eksen 1 veya toplamı yazılabilir
+
+69
+00:04:28,050 --> 00:04:30,670
+Buradaki bu komut
+
+70
+00:04:30,670 --> 00:04:35,210
+A matrisinin Python yayınlama (broadcasting) örneğidir.
+
+71
+00:04:35,210 --> 00:04:43,330
+Yani bu 3x4 lük matrisi,1x4 lük matrise bölebilirsiniz.
+
+72
+00:04:43,330 --> 00:04:47,370
+Teknik olarak, bu ilk satır kodundan sonra cal, değişken olan cal
+
+73
+00:04:47,370 --> 00:04:49,590
+zaten 1x4 lük matristi.
+
+74
+00:04:49,590 --> 00:04:52,616
+Yani teknik olarak yeniden şekillendirmek(reshape) gerekmez bu yüzden
+
+75
+00:04:52,616 --> 00:04:54,722
+aslında bu işlem biraz fazlalık.
+
+76
+00:04:54,722 --> 00:04:59,140
+Fakat, Python kodlarken matrisin ne olduğundan
+
+77
+00:04:59,140 --> 00:05:04,056
+veya boyutundan emin değilsem reshape komutunu kullanıp vektörün
+
+78
+00:05:04,056 --> 00:05:07,833
+satırını ya da sütununu
+
+79
+00:05:07,833 --> 00:05:09,500
+ne yapmak istiyorsam onu yapabilirim.
+
+80
+00:05:09,500 --> 00:05:11,840
+Yeniden şekillendirme komutu(reshape) sabittir.
+
+81
+00:05:11,840 --> 00:05:15,150
+Bu basit ve ucuz bir işlemdir.
+
+82
+00:05:15,150 --> 00:05:18,404
+Boyutundan emin olmak için yeniden şekillendirme komutunu kullanma konusunda çekingen olmayın çünkü
+
+83
+00:05:18,404 --> 00:05:20,830
+matrislerinizin olması gereken bir büyüklükleri vardır.
+
+84
+00:05:21,920 --> 00:05:27,272
+Şimdi, bu tür işlemlerin nasıl çalıştığını daha ayrıntılı olarak açıklayalım, değil mi?
+
+85
+00:05:27,272 --> 00:05:33,780
+3x4 lük bir matrisimiz vardı ve biz bunu 1x4 lük matrise böldük.
+
+86
+00:05:33,780 --> 00:05:37,840
+Peki 3x4 lük bir matrisi 1x4 lük matrise nasıl bölebiliriz buna bakalım ?
+
+87
+00:05:37,840 --> 00:05:38,860
+veya 1x4 lük vektöre?
+
+88
+00:05:40,130 --> 00:05:43,160
+Birkaç broadcasting(yayin) örneği inceleyelim.
+
+89
+00:05:43,160 --> 00:05:47,920
+Eğer 4x1'lik vektöre bir sayi eklemek isterseniz
+
+90
+00:05:47,920 --> 00:05:53,011
+Python'un yapacağı şey şudur sayıyı alır ve otomatik olarak büyütür.
+
+91
+00:05:53,011 --> 00:05:58,180
+aşağıdaki gibi 4x1lik
+
+92
+00:05:58,180 --> 00:06:00,257
+vektörü [bir,iki,üç,dört]
+
+93
+00:06:00,257 --> 00:06:04,450
+100 ile toplayarak sonucu yazarız.
+
+94
+00:06:04,450 --> 00:06:09,280
+Her bir ögeye 100 değeri eklenir.
+
+95
+00:06:09,280 --> 00:06:14,365
+ve aslında bu yayın biçimini daha önceki bir videoda b parametresinin sabit olduğu yerde kullanıyoruz.
+
+96
+00:06:14,365 --> 00:06:19,414
+Ve bu tür yayınlar hem sütun vektörleri hem de satır vektörleri ile çalışır,
+
+97
+00:06:19,414 --> 00:06:24,157
+aslında benzer bir yayınlama biçimi daha önce kullandığımız sabit olan
+
+98
+00:06:24,157 --> 00:06:29,330
+vektör lojistik regresyon parametresi olarak ekliyoruz.
+
+99
+00:06:29,330 --> 00:06:31,610
+Sonuçların doğruluğunun, tüm önermeler doğru olduğunda garanti edilmesini isteriz.
+
+100
+00:06:31,610 --> 00:06:35,900
+Diyelim ki 2x3 lük bir matrisimiz var ve
+
+101
+00:06:35,900 --> 00:06:39,420
+bu matrise 1xn lik matris ekleniyor.
+
+102
+00:06:40,950 --> 00:06:45,682
+Genel olarak
+
+103
+00:06:45,682 --> 00:06:50,583
+(m,n) matrisiniz varsa ve ona
+
+104
+00:06:50,583 --> 00:06:55,330
+(1,n) matrisini ekliyorsanız
+
+105
+00:06:55,330 --> 00:06:58,667
+Python'un yapacağı şey m matrisini tekrardan yazmaktır,
+
+106
+00:06:58,667 --> 00:07:03,672
+bunu mxn matrisine dönüştürmek için
+
+107
+00:07:03,672 --> 00:07:09,980
+1x3 matrisindeki ögeleri yeniden ikinci kez yazıyoruz.
+
+108
+00:07:09,980 --> 00:07:14,092
+Ayrıca, 2x3 lük matrisi buna ekleyeceğiz.
+
+109
+00:07:14,092 --> 00:07:18,270
+Toplama sonucumuz sağdaki gibi olacak. Tamam mı?
+
+110
+00:07:18,270 --> 00:07:21,583
+(m,n) matrisimizden aldığımız ilk sütuna 100,
+
+111
+00:07:21,583 --> 00:07:25,812
+ikinci sütuna 200, üçüncü sütunu da 300 ekledik.
+
+112
+00:07:25,812 --> 00:07:28,796
+Temel olarak bir önceki slaytta yaptığımız şey
+
+113
+00:07:28,796 --> 00:07:32,810
+toplama işlemi yerine bölme işlememi kullanmamız dışında
+
+114
+00:07:34,180 --> 00:07:40,402
+En son örneğimizde, (m,n) matrisimize
+
+115
+00:07:40,402 --> 00:07:46,260
+(m,1) vektörü, (m,1) matris eklendiğinde
+
+116
+00:07:47,310 --> 00:07:50,760
+sadece matrisi n kere yatay olarak kopyalamaktır.
+
+117
+00:07:50,760 --> 00:07:53,510
+Sonuçta elde edeceğimiz matris (m,n) lik matristir.
+
+118
+00:07:53,510 --> 00:07:56,990
+Matris tahmin edebileceğiniz gibi yatay olarak 3 kez kopyalandığında
+
+119
+00:07:56,990 --> 00:07:58,650
+ve ilk matristeki değerleri eklediğimizde
+
+120
+00:07:58,650 --> 00:08:01,070
+sağdaki sonucu elde ederiz.
+
+121
+00:08:01,070 --> 00:08:06,890
+İlk satıra 100 ve ikinci satıra 200 ekliyoruz.
+
+122
+00:08:08,270 --> 00:08:12,061
+İşte Python da genel bir yayın ilkesi.
+
+123
+00:08:12,061 --> 00:08:17,353
+Eğer (m,n) bir matrisiniz varsa ve
+
+124
+00:08:17,353 --> 00:08:24,409
+bir (1,n) matrisi ekliyor , çıkarıyor , çarpıyor veya bölüyorsanız
+
+125
+00:08:24,409 --> 00:08:31,177
+o zaman n kere (m,n) matrisini kopyalayın.
+
+126
+00:08:31,177 --> 00:08:33,781
+Ve daha sonra bölme ögesinin toplanması, çıkarılması ve
+
+127
+00:08:33,781 --> 00:08:36,140
+çarpılmasını uygulayın.
+
+128
+00:08:37,250 --> 00:08:42,250
+Aksi taktirde (m,n) matrisini alıp (m,1) matrisiyle toplama,çıkarma ve bölme
+
+129
+00:08:42,250 --> 00:08:49,060
+yaparsan bu matrisi n defa kopyalar.
+
+130
+00:08:49,060 --> 00:08:54,740
+Ve bunu (m,n) matrisine dönüştürün ve operation işlem ögesini uygulayın.
+
+131
+00:08:54,740 --> 00:09:00,327
+Sadece yayınlardan(broadcasting) biri yani (m,1) matrisiniz varsa,
+
+132
+00:09:00,327 --> 00:09:05,175
+bu bir sütun vektörüdür [bir,iki,üç] gibi ve,
+
+133
+00:09:05,175 --> 00:09:08,482
+ekleme ,çıkarma,çarpama veya bölme işlemini satır numarasına göre yaparsınız.
+
+134
+00:09:08,482 --> 00:09:11,080
+(1,1) matrisi örneğin
+
+135
+00:09:11,080 --> 00:09:16,117
+100 gibi değerle işleme girecekse, o zaman başka bir
+
+136
+00:09:16,117 --> 00:09:23,512
+(n,1) matrisi elde edene kadar gerçek sayı n kere kopyalanır,
+
+137
+00:09:23,512 --> 00:09:29,700
+ve sonra bu örnekte olduğu gibi ekleme işlemi gerçekleşir.
+
+138
+00:09:29,700 --> 00:09:35,823
+Benzer bir durumda satır vektörleri için gerçekleşir.
+
+139
+00:09:38,281 --> 00:09:43,730
+Yayının(broadcasting) tamamen genel sürümü bundan biraz daha fazlasını bile yapabilir.
+
+140
+00:09:43,730 --> 00:09:49,080
+Eğer bu konu ile ilgilenirseniz,
+
+141
+00:09:49,080 --> 00:09:52,240
+NumPy belgelerini okuyabilir ve bu belgede yayınlara bakabilirsiniz.
+
+142
+00:09:52,240 --> 00:09:56,380
+Bu döküman biraz daha genel bir yayın(broadcasting) tanımı verir.
+
+143
+00:09:56,380 --> 00:10:00,140
+Ancak slaytta bahsettiklerimiz, bir sinir ağını uygularken
+
+144
+00:10:00,140 --> 00:10:02,560
+kullanmamız gereken ana yayın biçimleridir.
+
+145
+00:10:03,890 --> 00:10:06,840
+Paketlemeden önce, son bir yorum yapmak gerekirse,
+
+146
+00:10:06,840 --> 00:10:10,210
+programlama yaparken kullandığımız MATLAB yada Oktave (octave) daki
+
+147
+00:10:10,210 --> 00:10:15,760
+bsxfun fonksiyonu
+
+148
+00:10:15,760 --> 00:10:20,590
+yapay sinir ağlarındaki bsxfun ile benzer çalışır tamamen aynı çalışmaz.
+
+149
+00:10:20,590 --> 00:10:25,750
+Fakat genellikle benzer amaç için kullanılır. Python'da yayın kullandığımız gibi.
+
+150
+00:10:25,750 --> 00:10:28,505
+Ama bu ileri düzey Matlab ve Octave kullanıcıları içindir,
+
+151
+00:10:28,505 --> 00:10:31,600
+eğer bunu bilmiyorsanız endişe etmeyin.
+
+152
+00:10:31,600 --> 00:10:35,524
+Python'da sinir ağlarını kodlarken bunu bilmenize gerek yok.
+
+153
+00:10:35,524 --> 00:10:38,720
+Yani kullanmasanız da Python'da yayın (broadcasting) yapabilirsiniz.
+
+154
+00:10:38,720 --> 00:10:42,360
+Umarım programlama yaptığınızda, broadcasting'in
+
+155
+00:10:42,360 --> 00:10:44,580
+sadece kodu daha hızlı çalışmasını sağlamasından ziyade
+
+156
+00:10:44,580 --> 00:10:48,920
+aynı zamanda da daha az kod satırıyla ne yapmak istediğinize yardımcı olacağını deneyimlersiniz.
+
+157
+00:10:50,360 --> 00:10:53,630
+Programlama ile ilgili alıştırmalara geçmeden önce sizinle
+
+158
+00:10:53,630 --> 00:10:56,290
+sizinle bir takım fikirleri paylaşmak istiyorum, Python kodunda
+
+159
+00:10:56,290 --> 00:11:00,700
+bulduğum bazı ipuçları ve püf noktaları var.
+
+160
+00:11:00,700 --> 00:11:02,640
+umarım yardımcı olabilirim.
+
+161
+00:11:02,640 --> 00:11:05,550
+Bir sonraki videoda bununla ilgili konuşalım.

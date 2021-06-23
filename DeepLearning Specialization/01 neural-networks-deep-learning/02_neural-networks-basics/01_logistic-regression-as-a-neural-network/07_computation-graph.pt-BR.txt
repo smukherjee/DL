@@ -1,0 +1,38 @@
+Você me ouviu dizer que os cálculos
+de uma rede neural são organizados em termos de um passe para frente
+ou uma etapa de propagação para frente, na qual calculamos o resultado da rede neural, seguidos de um passe para trás
+ou uma etapa de propagação para trás, a qual usamos para calcular
+gradientes ou derivadas. O gráfico (ou desenho) do cálculo explica
+por que isso é organizado assim. Neste vídeo, veremos um exemplo. Para desenhar como o cálculo ocorre,
+usaremos um exemplo mais simples do que uma regressão logística
+ou do que uma rede neural inteira. Digamos que estejamos tentando
+calcular uma função J, que é uma função com três variáveis: a, b, c. Digamos que essa função seja 
+3 vezes ( a + (b vezes c ) ). O cálculo desta função, na verdade, tem três etapas. A primeira é que você tem que calcular o que é 
+b multiplicado por c e guardar o resultado
+ em uma variável chamada u. Ou seja, u = bc.
+ A segunda, agora, você pode calcular: é V = a + u. Então, digamos que isto seja V
+e, finalmente, o resultado de J = 3V. Então esta é a sua função J final,
+que você estava tentando calcular. Podemos pegar estas três etapas
+e criar um desenho do cálculo. Desenho suas três variáveis: a, b, c
+ aqui. Então, a primeira coisa que fazemos é calcular
+ u = b * c Vou por um retângulo em torno disso. E as entradas para isso são 
+b, c Podemos ter 
+V = a + u Logo, as entradas para V são essas. As entradas para V são:
+a variável u, que acabamos de calcular e
+a variável a. E, finalmente, temos 
+J = 3V Assim, num exemplo concreto, 
+para a = 5, b = 3
+c = 2
+então u = bc seria 6, pois, a + u seria 5 + 6 que dá 11,
+J é três vezes isso, então J = 33. Espero que consiga verificar que isso é 
+três vezes (cinco mais (três vezes dois)).
+[NT: lembre-se da precedência, em matemática] E se você expandir isso, você chega a 33, que é o valor de J. Desta forma, o gráfico do cálculo se torna útil quando há um resultado distinto
+ou alguma variável de saída especial, como é, neste caso, J, que você quer otimizar. E no caso de uma regressão logística, J, claro, é a função custo
+que estamos tentando minimizar. E o que estamos vendo neste pequeno exemplo é que passando
+da esquerda para a direita, você pode calcular o valor de J. E o que veremos nos próximos slides
+é que para calcular derivadas, haverá uma passagem
+da esquerda para direita como essa, indo em direção oposta às setas azuis. Seria assim, mais natural para calcular as derivadas. Então, recapitulando,
+o gráfico do cálculo organiza com esta seta azul,
+ o cálculo da esquerda para a direita. Já no próximo vídeo, veremos como podemos calcular no sentido contrário, da direita para a esquerda,
+ as derivadas (setas vermelhas). Vamos para o próximo vídeo.
+Tradução: Diogo dos Santos Farias | Revisão: Carlos Lage.

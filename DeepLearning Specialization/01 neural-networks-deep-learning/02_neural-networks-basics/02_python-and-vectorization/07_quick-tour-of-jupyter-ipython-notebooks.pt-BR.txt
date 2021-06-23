@@ -1,0 +1,42 @@
+Com tudo que você aprendeu, deve estar pronto para resolver seu primeiro exercício de programação. Antes disso, deixe-me dar um rápido tour
+pelos notebooks iPython no Coursera Aqui você vê o Jupyter iPython Notebook
+que você consegue no Coursera. Deixe-me mostrar rapidamente algumas características dele. As instruções estão escritas aqui
+no texto do iPython Notebook. E esses grandes blocos cinza são blocos de códigos. Então, eventualmente, você verá nesses blocos algo similar a isso: '###CÓDIGO INICIAL AQUI### e ###CÓDIGO FINAL AQUI###'
+Para fazer seu exercício, por favor, tenha certeza de escrever seu código entre [as linhas]
+'###CÓDIGO INICIAL AQUI### e ###CÓDIGO FINAL AQUI###' Então, por exemplo: ' print  ("Olá mundo") '. E, então, para executar um bloco de códigos, você pode apertar shift+enter e, então,
+executar este bloco de códigos. Nós apenas escrevemos: ' print  ("Olá mundo") '. Então, imprimirá "Olá mundo". Para executar uma célula, você pode também executar um desses
+blocos de códigos, clicando em 'Cell' e 'Run Cells'.
+Então, isso é executado. É possível que no seu computador, a tecla de atalho para 'Cell' (célula) e 'Run Cells' (executar células) sejam 
+diferentes do 'shift+enter', mas tanto no meu Mac 
+quanto no meu PC é 'shift+enter'. Então, pode ser igual para você também. Agora, quando você 
+estiver lendo as instruções, se você, acidentalmente,
+der um duplo clique sobre ela, poderá ter esta linguagem – "Markdown" –
+como resultado. Se você obtiver este texto estranho, para convertê-lo de volta para o texto bonito,
+apenas execute esta célula. Então, você pode ir em 'Cell' > 'Run Cells',
+ou pode apertar shift+enter. E isso, basicamente, executa o 'markdown'
+e retorna ao código de aparência agradável. Apenas mais algumas dicas. Quando você executa código como esse, na verdade, ele roda em um núcleo
+do sistema operacional ("kernel"), em um pedaço de código,
+que é executado no servidor. Se você está executando um 
+trabalho excessivamente grande ou se você deixar um computador por um 
+tempo muito longo ou se algo der errado com a sua conexão de internet ou algo assim, há uma chance pequena de um
+"kernel" parar de funcionar no "back-end". Nesse caso, basta clicar 'Kernel' 
+e então o 'Restart'. Espero que isso reinicie o "kernel"
+e ele volte a funcionar. Então, isto não deve acontecer
+se você estiver executando trabalhos relativamente pequenos e se você 
+estiver apenas iniciando o iPython Notebook. Se você vir uma mensagem de erro 
+que o "Kernel" parou ou algo assim, você pode tentar 'Kernel', 'Restart'. Finalmente, no iPython Notebook como este, pode haver
+múltiplos blocos de códigos. Então, mesmo que, como em bloco de código anterior,
+não tenha qualquer código criado, assegure-se de executar 
+este bloco de código porque, neste exemplo, os seus
+"import numpy as np", etc, inicializa algumas variáveis 
+que você poderá precisar para executar os blocos de códigos abaixo. Então, certifique-se de executar os blocos acima, mesmo que
+não tenha pedidos para escrever algum código neles. E finalmente, quando você terminar 
+a implementação de suas soluções, há este botão de enviar aqui 
+no canto superior direito, e nós clicamos nele para enviar as soluções para avaliações. Eu achei a natureza 
+shell de comandos interativos do iPython notebook muito 
+úteis para você implementar poucas linhas de códigos, ver a saída e aprender bem rapidamente. E assim, eu espero que esses 
+exercícios de Jupyter iPython Notebook do Coursera o ajude a aprender rapidamente, experimentar e ver como 
+implementar esses algoritmos. Há mais um vídeo depois deste. É um vídeo opcional que fala sobre a função custo de regressão logística. 
+Você pode assisti-lo ou não. Qualquer forma escolhida está ok. Mas de qualquer forma,
+boa sorte com as atividades da 'semana 2'. E eu espero vê-lo no início da semana três. 
+[Tradução: Renato Barata Gomes | Revisão: Julia Yuri]

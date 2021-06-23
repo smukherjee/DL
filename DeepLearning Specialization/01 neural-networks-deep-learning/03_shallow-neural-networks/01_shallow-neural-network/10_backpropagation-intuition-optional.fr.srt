@@ -1,0 +1,1008 @@
+1
+00:00:00,000 --> 00:00:01,230
+Dans la dernière vidéo,
+
+2
+00:00:01,230 --> 00:00:03,720
+vous avez vu
+ les équations de rétro-propagation.
+
+3
+00:00:03,720 --> 00:00:06,900
+Dans cette vidéo, je vais vous donner
+ quelques intuitions de
+
+4
+00:00:06,900 --> 00:00:10,515
+comment ces équations ont été dérivées
+ en utilisant le graphe de calculs.
+
+5
+00:00:10,515 --> 00:00:12,385
+Cette vidéo est entièrement facultative.
+
+6
+00:00:12,385 --> 00:00:14,106
+Donc vous pouvez choisir
+ de la regarder ou non.
+
+7
+00:00:14,106 --> 00:00:16,360
+Vous devriez être capable de faire 
+les devoirs dans les deux cas.
+
+8
+00:00:16,360 --> 00:00:19,410
+Ainsi, rappelons que lorsque nous parlons
+ de la régression logistique,
+
+9
+00:00:19,410 --> 00:00:23,685
+Nous avons ce passage direct
+ où nous calculons z,
+
+10
+00:00:23,685 --> 00:00:26,145
+puis a puis la perte.
+
+11
+00:00:26,145 --> 00:00:27,445
+Et puis pour dériver,
+
+12
+00:00:27,445 --> 00:00:32,520
+Nous avons cette passe inverse où 
+nous pouvons calculer d’abord da,
+
+13
+00:00:32,520 --> 00:00:35,400
+et puis continuer et calculer dz,
+
+14
+00:00:35,400 --> 00:00:40,720
+et puis continuer et calculer dw et db.
+
+15
+00:00:40,720 --> 00:00:46,970
+La définition de la perte était L(a, y)
+
+16
+00:00:46,970 --> 00:00:52,655
+L(a,y) = -y*log(a) - (1-y)*log(1-a)
+
+17
+00:00:52,655 --> 00:00:57,440
+L(a,y) = -y*log(a) - (1-y)*log(1-a)
+
+18
+00:00:57,440 --> 00:00:59,750
+Donc, si vous êtes familier avec
+
+19
+00:00:59,750 --> 00:01:03,600
+l'analyse et que vous prenez la dérivée
+ de cela par rapport à a,
+
+20
+00:01:03,600 --> 00:01:06,156
+ça vous donne la formule pour da
+
+21
+00:01:06,156 --> 00:01:09,060
+Donc, la da est égal à ça.
+
+22
+00:01:09,060 --> 00:01:12,750
+Et si nous faisons le calcul
+ on peux montrer que c’est
+
+23
+00:01:12,750 --> 00:01:18,808
+-y/a + (1-y)/(1-a)
+
+24
+00:01:18,808 --> 00:01:23,040
+Vous pouvez calculer ça
+ en prenant la dérivée de ceci.
+
+25
+00:01:23,040 --> 00:01:26,680
+Il s’avère que lorsque vous reculez
+ d'un autre pas pour calculer dz,
+
+26
+00:01:26,680 --> 00:01:32,430
+nous avons trouvé que dz est égal à
+ a moins y. J’ai expliqué pourquoi auparavant,
+
+27
+00:01:32,430 --> 00:01:37,920
+mais il s’avère que d'après les règles
+ de l'analyse, dz est égal
+
+28
+00:01:37,920 --> 00:01:45,425
+à da*g'(z)
+
+29
+00:01:45,425 --> 00:01:50,535
+Où ici g de z est égal à sigmoïde de z.
+
+30
+00:01:50,535 --> 00:01:56,245
+C'est notre fonction d’activation pour l'unité
+ de sortie dans la régression logistique
+
+31
+00:01:56,245 --> 00:02:00,570
+Alors, n’oubliez pas qu'il s’agit toujours de 
+régression logistique où nous avons x1, x2,
+
+32
+00:02:00,570 --> 00:02:05,757
+x3 et puis juste une unité sigmoïde 
+ qui nous donne a,
+
+33
+00:02:05,757 --> 00:02:07,400
+qui nous donne ŷ.
+
+34
+00:02:07,400 --> 00:02:11,400
+Donc ici, la fonction d’activation
+ était une fonction sigmoïde.
+
+35
+00:02:11,400 --> 00:02:12,960
+Et soit dit en passant,
+
+36
+00:02:12,960 --> 00:02:17,205
+seulement pour ceux qui sont familiers 
+avec les règles de dérivation en chaîne,
+
+37
+00:02:17,205 --> 00:02:22,520
+la raison est que a est égal à sigmoïde de z.
+
+38
+00:02:22,520 --> 00:02:29,310
+Et donc, la dérivée partielle de L par rapport à z
+ est égale à la dérivée partielle de
+
+39
+00:02:29,310 --> 00:02:36,800
+L par rapport à a * da/dz.
+
+40
+00:02:36,800 --> 00:02:39,611
+Si a est égal à sigmoïde de z,
+
+41
+00:02:39,611 --> 00:02:42,970
+Cela équivaut à d / dz
+
+42
+00:02:42,970 --> 00:02:49,080
+de g de z, qui correspond à g' de z.
+
+43
+00:02:49,080 --> 00:02:54,060
+Donc, c’est pourquoi cette expression 
+qui est dz dans notre code est égale
+
+44
+00:02:54,060 --> 00:02:59,484
+à cette expression,
+ qui est da dans notre code * g prime de z.
+
+45
+00:02:59,484 --> 00:03:05,860
+Et donc, ceci est juste cela.
+
+46
+00:03:05,860 --> 00:03:09,172
+Donc, cette dernière dérivée
+ n'aura de sens pour vous que si
+
+47
+00:03:09,172 --> 00:03:13,510
+vous connaissez l'analyse et plus
+ précisément les règles de dérivées chaînées.
+
+48
+00:03:13,510 --> 00:03:15,325
+Mais si ce n'est pas le cas,
+ ne vous inquiétez pas.
+
+49
+00:03:15,325 --> 00:03:18,853
+Je vais tenter d’expliquer l’intuition
+ partout où c’est nécessaire.
+
+50
+00:03:18,853 --> 00:03:22,315
+Et puis enfin, après avoir calculé dz 
+pour la régression logistique,
+
+51
+00:03:22,315 --> 00:03:26,335
+on calculera dw qui vaut
+
+52
+00:03:26,335 --> 00:03:31,470
+dz * x et db, qui vaut juste dz quand
+ vous avez un seul exemple d'apprentissage
+
+53
+00:03:31,470 --> 00:03:33,822
+Donc, ça c'était la régression logistique.
+
+54
+00:03:33,822 --> 00:03:36,700
+Donc, ce que nous allons faire lors du calcul de
+
+55
+00:03:36,700 --> 00:03:40,090
+rétro-propagation d’un réseau de neurones
+ c'est un calcul très semblable
+
+56
+00:03:40,090 --> 00:03:46,995
+mais nous allons le faire deux fois
+ parce que maintenant nous n’avons plus x
+ qui va dans une unité de sortie,
+
+57
+00:03:46,995 --> 00:03:50,930
+mais x va dans une couche masquée,
+ qui va dans l'unité de sortie.
+
+58
+00:03:50,930 --> 00:03:58,405
+Et ainsi, au lieu d'avoir un calcul en 
+une seule étape, comme nous l’avons ici,
+
+59
+00:03:58,405 --> 00:04:04,483
+il nous faudra deux étapes ici dans ce genre 
+de réseau de neurones avec deux couches.
+
+60
+00:04:04,483 --> 00:04:08,586
+Donc, dans ce réseau neuronal à deux
+ couches, nous avons la couche d’entrée,
+
+61
+00:04:08,586 --> 00:04:10,138
+une couche masquée, puis la couche de sortie.
+
+62
+00:04:10,138 --> 00:04:12,070
+Rappelez vous les étapes du calcul.
+
+63
+00:04:12,070 --> 00:04:17,210
+Vous calculez d’abord z1 
+à l’aide de cette équation,
+
+64
+00:04:17,210 --> 00:04:22,177
+puis vous calculez a1 et
+ puis vous calculez z2.
+
+65
+00:04:22,177 --> 00:04:25,505
+Et notez que z2 dépend également
+ des paramètres W2 et b2.
+
+66
+00:04:25,505 --> 00:04:27,530
+Puis, à partir de z2,
+
+67
+00:04:27,530 --> 00:04:32,815
+on calcule a2 et enfin 
+cela vous donne la perte.
+
+68
+00:04:32,815 --> 00:04:41,560
+La rétro-propagation va dans
+ l'autre sens pour calculer da2 puis dz2
+
+69
+00:04:41,560 --> 00:04:48,805
+et puis vous revenez pour calculer dW2 et db2,
+
+70
+00:04:48,805 --> 00:04:53,232
+revenez en arrière pour calculer da1,
+
+71
+00:04:53,232 --> 00:04:57,278
+dz1 et ainsi de suite.
+
+72
+00:04:57,278 --> 00:05:00,290
+Nous n'avons pas besoin de 
+prendre la dérivée par rapport
+
+73
+00:05:00,290 --> 00:05:03,745
+à l'entrée X puisque, dans l'apprentissage
+ supervisé, l'entrée X est fixée.
+
+74
+00:05:03,745 --> 00:05:07,845
+Nous n'essayons pas d'optimiser X, 
+donc nous n'avons pas besoin de la dérivée,
+
+75
+00:05:07,845 --> 00:05:09,655
+au moins pour l’apprentissage supervisé,
+
+76
+00:05:09,655 --> 00:05:15,605
+par rapport à X. 
+Je vais sauter le calcul explicite de da2.
+
+77
+00:05:15,605 --> 00:05:18,110
+Si vous voulez, 
+vous pouvez calculer
+
+78
+00:05:18,110 --> 00:05:20,750
+da2 et ensuite l’utiliser pour calculer dz2 
+mais, en pratique,
+
+79
+00:05:20,750 --> 00:05:25,760
+vous pouvez faire ces deux étapes en
+ une seule étape,
+ et vous vous retrouvez
+
+80
+00:05:25,760 --> 00:05:31,715
+avec dz2 = a2-y, comme avant.
+
+81
+00:05:31,715 --> 00:05:33,620
+Et vous avez aussi
+
+82
+00:05:33,620 --> 00:05:38,615
+Je vais écrire en bas dW2 et db2.
+
+83
+00:05:38,615 --> 00:05:46,700
+Vous avez dW2 = dz2 * a1.T
+
+84
+00:05:46,700 --> 00:05:52,040
+a1 transposée et db2 = dz2.
+
+85
+00:05:52,040 --> 00:05:55,990
+Cette étape est assez similaire à la régression
+ logistique où nous avons eu
+
+86
+00:05:55,990 --> 00:06:03,550
+dW = dz * x sauf que maintenant,
+
+87
+00:06:03,550 --> 00:06:08,770
+a1 joue le rôle de x et il y a une transposition
+ supplémentaire là parce que dans la
+
+88
+00:06:08,770 --> 00:06:14,125
+relation entre la matrice W et 
+nos paramètres individuels w,
+
+89
+00:06:14,125 --> 00:06:16,660
+Il y a une transposition, n'est ce pas ?
+
+90
+00:06:16,660 --> 00:06:24,370
+Parce que W est un vecteur ligne dans le cas de la 
+régression logistique avec une seule sortie.
+
+91
+00:06:24,370 --> 00:06:26,980
+dW2 est comme ça, alors que
+
+92
+00:06:26,980 --> 00:06:32,440
+W était un vecteur colonne,
+ c’est pourquoi il y a une transposition
+ supplémentaire pour a1,
+
+93
+00:06:32,440 --> 00:06:36,980
+alors qu'il n'y en avait pas pour X
+ pour la régression logistique.
+
+94
+00:06:36,980 --> 00:06:40,335
+Ceci termine la moitié 
+de la rétro-propagation.
+
+95
+00:06:40,335 --> 00:06:44,045
+Alors, encore une fois, vous pouvez 
+calculer da1 si vous le souhaitez
+
+96
+00:06:44,045 --> 00:06:49,440
+bien que, dans la pratique, 
+le calcul de da1 et
+
+97
+00:06:49,440 --> 00:06:52,330
+dz1 sont généralement faits
+ en une seule étape et donc
+
+98
+00:06:52,330 --> 00:06:57,130
+vous implémenterez en fait
+ dz1 = (W2.T*dz2) .* (g1'(z1))
+
+99
+00:06:57,130 --> 00:07:03,480
+dz1 = (W2.T*dz2) .* (g1'(z1))
+avec une multiplication élément par éléments
+
+100
+00:07:03,480 --> 00:07:10,383
+dz1 = (W2.T*dz2) .* (g1'(z1))
+entre W2.T*dz2 et g1'(z1)
+
+101
+00:07:10,383 --> 00:07:13,960
+Et, juste pour vérifier les dimensions, ok ?
+
+102
+00:07:13,960 --> 00:07:19,510
+Si vous avez un réseau neuronal 
+qui ressemble à ceci,
+
+103
+00:07:19,510 --> 00:07:23,000
+qui produit ŷ en sortie.
+
+104
+00:07:23,000 --> 00:07:28,265
+Si vous avez n[0],
+ nx = n[0] dimensions en entrée,
+
+105
+00:07:28,265 --> 00:07:30,230
+n[1] neurones masqués
+
+106
+00:07:30,230 --> 00:07:34,275
+et n[2]
+
+107
+00:07:34,275 --> 00:07:36,740
+n[2], dans notre cas
+
+108
+00:07:36,740 --> 00:07:38,565
+est juste une unité de sortie
+
+109
+00:07:38,565 --> 00:07:48,795
+alors la matrice W2 est 
+de dimensions (n[2], n[1]),
+
+110
+00:07:48,795 --> 00:07:57,490
+z2 et, par conséquent, dz2 vont être
+ de dimensions (n[2], 1),
+
+111
+00:07:57,490 --> 00:07:59,850
+ce qui va en fait être (1,1) quand on fait
+ de la classification binaire
+
+112
+00:07:59,850 --> 00:08:04,750
+et z1 et par conséquent aussi
+
+113
+00:08:04,750 --> 00:08:10,045
+dz1 vont être de dimensions (n[1], 1), ok ?
+
+114
+00:08:10,045 --> 00:08:16,115
+Notez que, pour toute variable, foo et dfoo
+ vont toujours avoir les mêmes dimensions.
+
+115
+00:08:16,115 --> 00:08:20,850
+C’est pourquoi W et dW ont toujours 
+les mêmes dimensions et de même
+
+116
+00:08:20,850 --> 00:08:23,680
+pour b et db et z et dz
+ et ainsi de suite.
+
+117
+00:08:23,680 --> 00:08:26,895
+Pour s’assurer que les dimensions 
+de tout ça correspondent
+
+118
+00:08:26,895 --> 00:08:35,430
+nous avons  :
+ dz1 = W2 transpose fois dz2,
+
+119
+00:08:35,430 --> 00:08:44,490
+puis, ceci est un produit élément 
+par élément, fois g1'(z1),
+
+120
+00:08:44,490 --> 00:08:47,040
+donc pour accorder les dimensions ci-dessus,
+
+121
+00:08:47,040 --> 00:08:52,575
+cela va être n[1] par un 
+est égal à W2 transpose,
+
+122
+00:08:52,575 --> 00:08:57,945
+nous transposons cela donc ça va être
+ de dimensions (n[1], n[2]),
+
+123
+00:08:57,945 --> 00:09:05,790
+dz2 va être de dimensions (n[2], 1), puis
+
+124
+00:09:05,790 --> 00:09:07,230
+ceci de la même dimension que z1.
+
+125
+00:09:07,230 --> 00:09:11,820
+Ceci est aussi de dimensions (n[1], 1), 
+donc produit élément par élément.
+
+126
+00:09:11,820 --> 00:09:14,350
+Donc les dimensions font sens, n'est ce pas ?
+
+127
+00:09:14,350 --> 00:09:18,330
+Un vecteur de dimensions (n[1], 1)
+ peut être obtenu par
+
+128
+00:09:18,330 --> 00:09:23,520
+une matrice de dimensions (n[1], n[2]) * une 
+matrice de dimensions (n[2], 1), car le produit
+
+129
+00:09:23,520 --> 00:09:28,890
+de ces deux choses vous donne une matrice de
+ dimensions (n[1], 1) et donc cela devient
+
+130
+00:09:28,890 --> 00:09:34,618
+le produit élément par élément
+ de deux vecteurs de dimensions (n[1], 1),
+
+131
+00:09:34,618 --> 00:09:36,060
+et donc les dimensions correspondent.
+
+132
+00:09:36,060 --> 00:09:40,620
+Un conseil lorsque vous implémentez
+ une rétro-propagation.
+
+133
+00:09:40,620 --> 00:09:44,790
+Si vous vous assurez simplement que les 
+dimensions de vos matrices correspondent,
+
+134
+00:09:44,790 --> 00:09:47,190
+si vous réfléchissez à 
+quelles sont les dimensions des
+
+135
+00:09:47,190 --> 00:09:50,430
+diverses matrices dont W1, W2, z1,
+
+136
+00:09:50,430 --> 00:09:54,180
+z2, a1, a2 et ainsi de suite et que
+ vous vous assurez juste que
+
+137
+00:09:54,180 --> 00:09:58,642
+les dimensions de ces opérations 
+matricielles sont bonnes,
+
+138
+00:09:58,642 --> 00:10:03,390
+parfois, cela élimine déjà pas mal 
+de bugs dans la rétro-propagation.
+
+139
+00:10:03,390 --> 00:10:06,960
+Très bien.
+ Ceci nous donne dz1 et puis enfin,
+
+140
+00:10:06,960 --> 00:10:12,160
+juste pour conclure dW1 et db1,
+
+141
+00:10:12,160 --> 00:10:13,965
+nous devrions les écrire ici je pense,
+
+142
+00:10:13,965 --> 00:10:17,200
+mais puisque je manque de place,
+ je vais les écrire à droite du slide,
+
+143
+00:10:17,200 --> 00:10:21,965
+dW1 et db1 sont donnés 
+par les formules suivantes.
+
+144
+00:10:21,965 --> 00:10:25,950
+Cela va être égal à dz1 * la transposée de X
+
+145
+00:10:25,950 --> 00:10:28,905
+et cela va être égal à dz1.
+
+146
+00:10:28,905 --> 00:10:34,045
+Vous pouvez remarquer une similitude entre
+ ces équations et ces équations,
+
+147
+00:10:34,045 --> 00:10:37,095
+ce qui n’est pas vraiment un hasard car X
+
+148
+00:10:37,095 --> 00:10:41,660
+joue le rôle de a0 donc la transposée de X
+ est la transposée de a0.
+
+149
+00:10:41,660 --> 00:10:45,484
+Ces équations sont vraiment très similaires.
+
+150
+00:10:45,484 --> 00:10:50,260
+Cela donne une idée de comment
+ la rétro-propagation est dérivée.
+
+151
+00:10:50,260 --> 00:10:54,530
+Nous avons six équations principales 
+ici pour dz2, dW2,
+
+152
+00:10:54,530 --> 00:11:00,190
+db2, dz1, dW1 et db1.
+
+153
+00:11:00,190 --> 00:11:05,767
+Permettez-moi de prendre ces six équations
+ et de les copier sur la diapositive suivante.
+ Les voici.
+
+154
+00:11:05,767 --> 00:11:08,950
+Jusqu’ici, nous avons dérivé
+ la rétro-propagation
+
+155
+00:11:08,950 --> 00:11:13,959
+pour le cas où vous entrainez sur un seul
+ exemple d'apprentissage à la fois,
+
+156
+00:11:13,959 --> 00:11:21,530
+mais ça ne doit pas vous étonner si, plutôt
+ que de travailler sur un seul exemple à la fois,
+
+157
+00:11:21,530 --> 00:11:27,810
+nous préférons vectoriser sur les 
+différents exemples d'apprentissage.
+
+158
+00:11:27,810 --> 00:11:30,971
+Nous nous souvenons que 
+pour la propagation directe
+
+159
+00:11:30,971 --> 00:11:33,545
+lorsque nous travaillons sur
+ un exemple à la fois,
+
+160
+00:11:33,545 --> 00:11:41,665
+Nous avions des équations comme ceci :
+ a1 = g1 (z1).
+
+161
+00:11:41,665 --> 00:11:43,655
+Pour vectoriser,
+
+162
+00:11:43,655 --> 00:11:51,260
+Nous avons pris par exemple les z 
+et nous les avons alignés
+
+163
+00:11:51,260 --> 00:12:00,775
+en colonnes comme ceci. C'est z1m. 
+Et nous avons appelé ceci grand Z1.
+
+164
+00:12:00,775 --> 00:12:04,960
+Puis nous avons constaté qu'en
+ alignant les choses en colonnes
+
+165
+00:12:04,960 --> 00:12:10,240
+et en définissant la version majuscule de ceci
+
+166
+00:12:10,240 --> 00:12:17,093
+nous avons juste eu Z1 = W1 X + b1
+
+167
+00:12:17,093 --> 00:12:24,700
+et A1 = g1(Z1), ok ?
+
+168
+00:12:24,700 --> 00:12:28,645
+Nous définissons la notation avec beaucoup 
+d’attention dans ce cours pour s’assurer que
+
+169
+00:12:28,645 --> 00:12:35,550
+l'empilage des exemples dans différentes
+ colonnes d’une matrice fait que tout fonctionne.
+
+170
+00:12:35,550 --> 00:12:40,105
+Il s’avère que si vous faites 
+les maths soigneusement,
+
+171
+00:12:40,105 --> 00:12:46,645
+la même astuce fonctionne également pour la
+ rétro-propagation donc les équations
+ vectorisées sont comme cela.
+
+172
+00:12:46,645 --> 00:12:52,250
+Tout d’abord, si vous prenez ces dz pour
+ les différents exemples d'apprentissages
+ et que vous les alignez
+
+173
+00:12:52,250 --> 00:12:58,339
+comme les différentes colonnes
+ d’une matrice et la même chose pour cela
+ et la même chose pour cela,
+
+174
+00:12:58,339 --> 00:13:03,070
+alors voici l'implémentation vectorisée.
+Et voilà la définition pour
+
+175
+00:13:03,070 --> 00:13:05,569
+ou plutôt voilà comment 
+vous pouvez calculer dW2.
+
+176
+00:13:05,569 --> 00:13:11,130
+Il y a ce 1/m en plus parce que
+ la fonction de coût J
+
+177
+00:13:11,130 --> 00:13:18,410
+J = 1/m fois somme jusqu'à n des pertes.
+
+178
+00:13:18,410 --> 00:13:20,615
+Lors du calcul des dérivées,
+
+179
+00:13:20,615 --> 00:13:23,885
+nous avons ce terme supplémentaire 1/m,
+ tout comme quand nous l'avions
+
+180
+00:13:23,885 --> 00:13:27,982
+quand nous avons calculé la mise à jour 
+des poids pour la régression logistique.
+
+181
+00:13:27,982 --> 00:13:31,790
+puis ceci
+ est la modification que vous avez pour db2.
+
+182
+00:13:31,790 --> 00:13:40,640
+Encore une fois, la somme des dZs,
+ puis avec un 1/m et puis dZ1
+ est calculée comme ceci.
+
+183
+00:13:40,640 --> 00:13:49,109
+Encore une fois,
+ c’est un produit élément par élément.
+ Seulement, alors que précédemment,
+
+184
+00:13:49,109 --> 00:13:56,595
+sur la diapositive précédente,
+ nous avons vu qu’il s’agissait d’un vecteur
+ de dimensions (n[1], 1)
+
+185
+00:13:56,595 --> 00:14:03,185
+maintenant, il s’agit d’une matrice
+ de dimensions (n[1], m).
+
+186
+00:14:03,185 --> 00:14:09,045
+Ces deux là sont également 
+de dimensions (n[1], m).
+
+187
+00:14:09,045 --> 00:14:19,310
+C’est pourquoi cette astérisque est un produit 
+élément par élément. Et puis enfin,
+
+188
+00:14:19,310 --> 00:14:21,454
+les deux mises à jour restantes.
+
+189
+00:14:21,454 --> 00:14:25,836
+Elles ne devraient pas être trop surprenantes.
+
+190
+00:14:25,836 --> 00:14:29,510
+J’espère que cela vous donne quelques
+ intuitions sur la façon dont l’algorithme
+ de rétro-propagation est calculé.
+
+191
+00:14:29,510 --> 00:14:32,205
+Dans l’ensemble
+ de l’apprentissage automatique,
+
+192
+00:14:32,205 --> 00:14:34,820
+je pense que la dérivation de l’algorithme 
+de propagation inverse
+
+193
+00:14:34,820 --> 00:14:38,465
+est en fait une des parties
+ mathématiquement les plus complexes
+ que j'aie vues.
+
+194
+00:14:38,465 --> 00:14:42,470
+Il faut connaître
+ à la fois l'algèbre linéaire et
+
+195
+00:14:42,470 --> 00:14:46,830
+la dérivée de matrices pour tout re-calculer
+ à partir des principes premiers.
+
+196
+00:14:46,830 --> 00:14:50,165
+Si vous êtes un expert en analyse matricielle,
+
+197
+00:14:50,165 --> 00:14:54,255
+grâce à ce processus, vous pourriez calculer
+ l’algorithme de dérivation vous-même,
+
+198
+00:14:54,255 --> 00:14:57,500
+mais je pense qu’il y a en fait beaucoup 
+de pratiquants de l’apprentissage profond
+
+199
+00:14:57,500 --> 00:15:01,060
+qui ont vu la dérivation 
+au niveau où vous l'avez
+
+200
+00:15:01,060 --> 00:15:04,100
+vue dans cette vidéo et sont déjà en mesure d’avoir
+
+201
+00:15:04,100 --> 00:15:08,580
+toutes les bonnes intuitions pour pouvoir
+ mettre en œuvre cet algorithme
+ très efficacement.
+
+202
+00:15:08,580 --> 00:15:10,070
+Si vous êtes un expert en analyse,
+
+203
+00:15:10,070 --> 00:15:13,395
+voyez si vous pouvez dériver 
+le tout à partir de zéro.
+
+204
+00:15:13,395 --> 00:15:15,665
+C’est un des calculs mathématiques 
+les plus difficiles,
+
+205
+00:15:15,665 --> 00:15:20,010
+l’une des dérivées les plus compliquées
+ que j’ai vues dans l’ensemble de
+ l’apprentissage automatique.
+
+206
+00:15:20,010 --> 00:15:22,861
+De toute façon, si vous implémentez ça,
+
+207
+00:15:22,861 --> 00:15:27,260
+cela va fonctionner, et je pense
+ que vous avez assez d'intuitions pour le régler
+ et le faire fonctionner.
+
+208
+00:15:27,260 --> 00:15:30,830
+Il n’y a juste un dernier détail,
+ que je veux
+
+209
+00:15:30,830 --> 00:15:34,190
+partager avec vous avant d’implémenter
+ votre réseau de neurones,
+
+210
+00:15:34,190 --> 00:15:37,720
+qui est de savoir comment initialiser
+ les poids de votre réseau de neurones.
+
+211
+00:15:37,720 --> 00:15:40,600
+Il s’avère qu’initialiser vos paramètres,
+
+212
+00:15:40,600 --> 00:15:42,560
+pas à zéro mais au hasard,
+
+213
+00:15:42,560 --> 00:15:45,515
+s’avère très important pour l'apprentissage
+ de votre réseau de neurones.
+
+214
+00:15:45,515 --> 00:15:48,000
+Dans la vidéo suivante, 
+vous allez voir pourquoi.

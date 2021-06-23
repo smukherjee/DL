@@ -1,0 +1,61 @@
+Pour implémenter la rétro propagation pour
+ votre réseau de neurones, vous devez pouvoir calculer la pente, ou la dérivée
+ des fonctions d’activation. Jetons un œil à nos choix
+ de fonctions d’activation, et à comment vous pouvez calculer
+ la pente de ces fonctions. Voici la fonction d’activation sigmoïde
+ que vous connaissez déjà. Pour une valeur donnée de z, par exemple cette valeur de z, cette fonction aura une pente 
+ou une dérivée, correspondant à, si vous dessinez une petite ligne ici, la hauteur divisée par
+ la largeur de ce petit triangle ici. Donc, si g(z) est la fonction sigmoïde, alors la pente de la fonction est d/dz de g(z) Et nous savons, en analyse,
+ que c’est la pente de g(x) à z. Et si vous connaissez l'analyse et 
+que vous savez calculer les dérivées, si vous prenez la dérivée de la fonction sigmoïde, il est possible de montrer 
+qu’elle est égale à cette formule. Je ne vais pas faire les étapes du calcul. Si vous connaissez le calcul infinitésimal, n’hésitez pas à mettre la vidéo en pause et
+ à essayer de prouver ça vous-même. Et donc ceci est égal à g(z) * (1 - g(z)). Vérifions rapidement que
+ cette expression a du sens. Tout d’abord, si z est très grand, disons z = 10, Alors g(z) sera proche de 1 et donc la formule que nous avons sur la gauche
+ nous dit que dg/dz doit être proche de g(z), c'est à dire presque 1, fois (1 - 1) qui est donc très proche de 0. Et c'est en effet correct, 
+parce que quand z est très grand, la pente est proche de 0. À l’inverse, si z est très petit, disons z =-10, on est plus loin par là, Alors g(z) sera proche de 0. la formule que nous avons sur la gauche
+ nous dit que dg/dz sera proche de g(z), qui vaut 0, fois 1-0. C'est également très proche de 0,
+ ce qui est correct. Enfin, si z est égal à 0, alors g(z) est égal à 1/2, c’est la fonction sigmoïde ici. Et donc la dérivée est égale à 
+0.5 * (1 - 0.5) ce qui est égal à un quart. Et c'est en effet la valeur 
+correcte de la dérivée, de la pente de la fonction,
+ quand z est égal à 0. Enfin, juste pour introduire 
+une nouvelle notation. Parfois, au lieu d’écrire cette chose, le raccourci pour la dérivée est g'(z). Donc g'(z), en analyse, est 
+une forme abrégée, l'apostrophe se dit prime, g'(z) est une forme abrégée pour la dérivée de la fonction de g,
+ par rapport à la variable d’entrée z. Dans un réseau de neurones, Nous avons a = g(z), alors cette formule 
+se simplifie en a * (1 - a) Parfois, dans l'implémentation, vous pouvez voir quelque chose comme
+ g'(z) = a * (1-a). Et ça se réfère seulement à l’observation que g', c'est à dire la dérivée, est égal à ceci ici. Et l’avantage de cette formule, c’est que
+ si vous avez déjà calculé la valeur de a, en utilisant cette expression, vous pouvez très rapidement calculer 
+la valeur de la pente pour g'. Très bien, donc ça c'était pour
+ la fonction d’activation sigmoïde. Nous allons maintenant étudier
+ la fonction d’activation tanh. Comme ce que nous avions auparavant, la définition de d/dz g(z) est la pente de g(z) pour un z donné. Et si vous regardez la formule de 
+la fonction tangente hyperbolique, et si vous connaissez le calcul infinitésimal, vous pouvez prendre les dérivés et 
+montrer que cela se simplifie en cette formule et en utilisant la même abréviation qu'avant, 
+nous allons appeler ça g'(z). Si vous le souhaitez, vous pouvez
+ vérifier que cette formule a du sens. Par exemple, si z est égal à 10, tanh(z) sera proche de 1. Cela va de + 1 à -1. et g'(z), suivant cette formule, vaudra environ 1 moins 1 au carré, donc très proche de 0. Donc si z est très grand, la pente est proche de 0. Au contraire, si z est très petit, disons z = -10, alors tanh(z) sera proche de -1. Et donc g'(z) sera proche de
+ 1 moins -1 au carré, ce qui est proche de 1-1, qui est aussi proche de 0. Enfin, si z est égal à 0, alors tanh de z est égal à 0, Et la pente est en fait égale à 1, qui est effectivement
+ la pente lorsque z est égal à 0. Bien, pour résumer, si a est égal à g(z), donc si a = tanh(z), alors la dérivée g'(z) = 1 - a² Encore une fois, si vous avez
+ déjà calculé la valeur de a, vous pouvez utiliser cette formule 
+pour calculer très rapidement la dérivée. Enfin, voici comment vous calculez
+ les dérivées pour les fonctions d'activation ReLU et leaky ReLU. Pour la ReLU, g(z) = max(0, z), donc la dérivée est égale à, elle est égale à 0 si z est inférieur à 0 
+et à 1 si z est supérieur à 0. Et elle est techniquement indéfinie
+ si z est égal à exactement 0. Mais si vous l'implémentez
+ dans un programme, ce n'est peut être pas 100 % 
+mathématiquement correct, mais ça fonctionne très bien si,
+ quand z est exactement 0, vous définissez la dérivée comme 
+égale à 1. Ou vous pouvez choisir 0,
+ ça n'a pas vraiment d'importance. Si vous êtes un expert en
+ optimisation, techniquement, g' devient ce qu’on appelle un
+ sous gradient de la fonction d’activation g(z), c’est pourquoi la descente 
+de gradient fonctionne toujours. Vous pouvez voir ça comme la probabilité que z soit égal
+ à exactement 0.0000000... est si petite, qu'elle n'a pas
+ vraiment d'importance donc vous pouvez choisir la dérivée 
+égale à 1, ou égale à 0. Dans la pratique, c’est donc ce que les gens
+ implémentent pour la dérivée de z. Et enfin, si vous entraînez 
+un réseau de neurones avec la fonction d'activation Leaky ReLU, alors g(z) 
+va être, disons, max(0.01z , z) . Et donc g prime de z est égal
+ à 0.01 si z est négatif, si z est inférieur à 0 
+et à 1 si z est supérieur à 0. A nouveau, le gradient n’est techniquement 
+pas défini lorsque z est exactement égal à 0, Mais si vous implémentez un morceau 
+de code qui définit la dérivée g' à 0.01 ou à 1 en 0, cela n'a pas vraiment d'importance. Lorsque z est exactement 0,
+ votre code fonctionnera quand même. Donc, avec ces formules, vous devriez pouvoir calculer la pente, ou la dérivée
+ des fonctions d’activation. Maintenant que vous avez ce bloc de base, vous êtes prêts à implémenter la descente 
+de gradient pour votre réseau de neurones. Allons dans la vidéo suivante pour voir ça.

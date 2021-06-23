@@ -1,0 +1,149 @@
+Muito obrigado, Pieter por juntar-se a mim, hoje. Eu acho que muitas pessoas conhecem você como um renomado pesquisador sobre
+aprendizagem de máquina e robótica. Gostaria que as pessoas ouvissem
+um pouco sobre a sua história Como você acabou fazendo
+o trabalho que você faz, atualmente? É uma boa pergunta, que se tivesse sido feita
+quando eu tinha 14 anos de idade, o que eu gostaria de ser, provavelmente não seria o que faço agora. De fato, naquela época, eu pensava que ser um jogador profissional
+de basquete, seria o caminho a seguir. E eu não acho que seria capaz de segui-lo. Acho que aprendizagem de máquina teve mais sorte, já que a ideia do basquete não funcionou. Sim, não funcionou. Era muito divertido jogar basquete, mas não funcionou tentar tornar isso uma carreira. Então, o que eu realmente gostava
+na escola era de física e de matemática. Então, daí parecia completamente natural, estudar engenharia, que é a aplicação de 
+física e matemática no mundo real. E, na verdade, depois de minha
+graduação em engenharia elétrica, eu realmente não estava certo sobre o que fazer, porque, literalmente, qualquer coisa em engenharia,
+parecia interessante para mim. Entender, como qualquer coisa funcionava,
+parecia interessante. Tentar construir qualquer coisa, é interessante. E, de alguma forma, inteligência artificial venceu porque parecia que, de alguma forma,
+ela ajudaria todas as disciplinas. E também, parecia, de alguma forma, no centro de tudo. Você pensa sobre como uma máquina pode pensar, então, talvez esteja mais, no centro de qualquer coisa
+do que escolher alguma disciplina específica. Venho dizendo que IA é a nova eletricidade, soa como se a sua versão de "14 anos" tinha uma visão antecipada disso. Você sabe, nos últimos anos, você tem
+trabalhado com aprendizagem profunda por reforço. O que está acontecendo? Por que a 
+aprendizagem profunda por reforço, de repente está decolando? Antes de trabalhar com aprendizagem profunda por reforço, eu trabalhei bastante na aprendizagem por reforço; na verdade, com você e Durant em Stanford, com certeza. E então, trabalhamos no voo autônomo do helicóptero, então, mais tarde em Berkeley, 
+com alguns de meus alunos que trabalhavam na construção de um robô que aprendesse a dobrar roupas. E, de alguma forma, a caracterização do trabalho era uma combinação de aprendizado, que proporcionaria coisas
+que não seriam possíveis sem o aprendizado, mas também, muito domínio da expertise, em combinação
+com a aprendizagem, para fazer isso funcionar. E isso era muito interessante porque, você precisava dominar a expertise que, era divertida obter mas, ao mesmo tempo, consumia muito tempo para
+qualquer nova aplicação funcionar bem; você precisava dominar o assunto além 
+da expertise em aprendizagem de máquina. E, para mim foi em 2012 com, os resultados das importantes descobertas
+do grupo de Geoff Hinton, no ImageNet, em Toronto, AlexNet, mostrando que o 
+aprendizado supervisionado, de repente, poderia ser feito com menos 
+"engenharia" para dominar do assunto. Havia muito pouca "engenharia" na visão em AlexNet. Isto me fez pensar que nós realmente deveríamos revisitar a aprendizagem por reforço
+sob o mesmo prisma e ver se podíamos fazer o desvio da aprendizagem por reforço
+ funcionar e fazer coisas igualmente interessantes, da mesma forma 
+que aconteceu na aprendizagem profunda supervisionada. Parece que você identificou, antes da maioria das pessoas, o potencial
+da aprendizagem profunda por reforço. E agora, olhando para o futuro, O que você vê, na sequência? Quais são as suas previsões para os próximos caminhos a serem trabalhados
+na aprendizagem profunda por reforço? Então, eu penso que o que é interessante
+sobre aprendizagem profunda por reforço é que, de alguma forma, há muito mais perguntas
+do que no aprendizado supervisionado. Aprendizado supervisionado, é sobre aprender
+e mapear as entradas e saídas. Mas aprendizagem por reforço, existe a noção de: 
+De onde mesmo vêm os dados? Então, este é o problema exploratório. Quando você tem os dados, como credita as atribuições? Como você entende que ações tomou antes
+para conseguir o resultado depois? E então, há questões de segurança. Quando você tem um sistema, 
+coletando dados autonomamente, é, na verdade, mais perigoso
+na maioria dos casos. Imagine uma empresa de
+carros autoconduzidos que diz, nós executaremos só
+aprendizagem profunda por reforço. É bem provável que este carro
+se envolva em um monte de acidentes, antes de fazer algo útil. Você, precisava de exemplos negativos disso,
+certo? Sim, de alguma forma você
+precisa mesmo de exemplos negativos; e positivos também, ainda bem. Então, acho que ainda temos muitos desafios na aprendizagem profunda por reforço
+em termos de trabalhar nos detalhes de
+como colocar as coisas para funcionar. Então, a parte mais profunda é a representação, mas então, a aprendizagem por reforço, 
+por si só tem ainda muitas questões. E o que eu penso é que, com os avanços em aprendizagem profunda, de alguma forma, uma parte do quebra-cabeças
+na aprendizagem por reforço tem sido amplamente abordada, que é a parte da representação. Então, se há um padrão, podemos provavelmente representá-lo numa
+rede de aprendizagem profunda e capturá-lo. E, como separar estes padrões, continua sendo
+um grande desafio na aprendizagem por reforço. Então eu acho que os grandes desafios são, como conseguir que os sistemas funcionem
+num horizonte de longo prazo. Então, agora mesmo, muitos dos sucessos em aprendizagem profunda por reforço
+estão num horizonte de curto prazo. Existem problemas onde, se você age adequadamente em um horizonte de 5 segundos, você age adequadamente sobre o problema como um todo. E então, uma escala de 5 segundos é algo
+bem diferente de uma escala de um dia inteiro, ou, a habilidade de viver a vida como um robô
+ou como um agente de software. Então, acho que ainda temos muitos desafios. Acho que segurança tem
+vários desafios em termos de como aprender de forma segura e também de como você continua aprendendo, uma vez que você é razoavelmente bom? Então, para dar, novamente, um exemplo que muita gente estaria familiarizada,
+com carros autoconduzidos, para um carro autoconduzido ser melhor
+que um dirigido por um ser humano, os motoristas talvez se envolvam em acidentes graves
+ a cada 5 milhões de Km, aproximadamente. E então, leva muito tempo para ver os dados negativos; uma vez que você é, tão bom quanto um motorista "humano". Mas você quer que o seu carro autoconduzido 
+seja melhor que um motorista "humano". E então, naquele ponto, a coleção de dados
+torna-se realmente difícil obter aqueles dados que interessam
+para fazer seu sistema melhorar. Então, são muitos desafios relacionados à exploração,
+ que encontram-se interconectados. Mas, uma das coisas que me deixa
+mais animado, agora, é ver se podemos, realmente, dar um passo atrás
+e também aprender sobre o algoritmo de aprendizagem por reforço. Então, o reforço é muito complexo, atribuição de crédito é muito complexa,
+exploração é muito complexa. E então, talvez, como aprendizagem profunda na aprendizagem supervisionada
+ era capaz de substituir uma grande quantidade do domínio prático, talvez possamos ter programas que sejam aprendidos, que sejam programas de aprendizagem por reforço
+ que façam tudo isso, em vez de nós termos que projetar os detalhes. Durante a função de recompensa
+ou durante o programa todo? Então, isso seria aprender todo o programa de aprendizagem por reforço. Então, seria, imagine, você ter um programa de aprendizagem por reforço
+, o que quer que isso signifique, e você descarta algum problema e então vê,
+ quanto tempo leva para aprender. Então, você diz, bem, demorou um pouco. Agora, deixe um outro programa modificar este programa de aprendizagem por reforço. Após a modificação, veja o quão rápido ele aprende. Se ele aprende mais rapidamente, significa que foi uma boa modificação e que 
+deva ser mantida e melhorada a partir deste ponto. Bem, entendo, certo. Sim direcionamento ambicioso. Eu acho que isso tem tudo a ver com, talvez a quantidade de processamento
+ que está sendo disponibilizada. Então, estaria rodando o programa 
+aprendizagem por reforço num laço de repetição interno. Para nós, agora, rodamos o programa de 
+aprendizagem por reforço como última coisa. E então, quanto mais processamento conseguimos, mais possibilita para, talvez, executar algo como a aprendizagem por reforço, 
+no laço de repetição interno de um algoritmo maior. Começando pelos seus 14 anos, você vem trabalhando em Inteligência Artificial,
+por algo além de 20 anos, até agora. Então, me fale um pouco sobre como o
+seu entendimento sobre IA evoluiu neste período. Quando comecei a pesquisar sobre IA, foi muito interessante porque, na realidade coincidiu com a minha ida para Stanford, 
+para fazer meu mestrado lá, e haviam alguns ícones, como John McCarthy,
+com quem conversei, mas que tinha uma abordagem bem diferente, e no ano 2000, para o que a maioria das pessoas 
+estava fazendo naquele momento. E também conversando com Daphne Koller. E acho que, muito do meu entendimento inicial, 
+sobre IA foi moldado pelo pensamento de Daphne. Sua aula sobre IA, sua aula 
+sobre modelos gráficos probabilísticos. me deixaram intrigado sobre como a simples distribuição de suas muitas
+variáveis randômicas e, então, ser capaz de condicionar alguns subconjuntos de variáveis e tirar conclusões sobre outras poderiam na verdade, nos dar muito, se você puder,
+de alguma forma, torná-la computacionalmente atrativa, o que era, definitivamente o desafio de 
+torná-la possível de se calcular. E a partir dai, quando comecei meu doutorado, e você chegou em Stanford e acho que você me deu um 
+excelente choque de realidade, de que não seria a métrica certa
+para avaliar o trabalho, e de, realmente tentar ver a conexão com o que você está trabalhando e que 
+impacto eles realmente podem ter, que mudança pode causar, mais do que 
+a matemática que foi usada para que pudesse acontecer. Certo. Isso é incrível. Eu não me dei conta, me esqueci disso. Sim, na verdade é uma das coisas, 
+que mais frequentemente as pessoas pedem, se você citar, somente uma coisa que 
+você aprendeu, dos conselhos de Andrew, é estar certo de ver a conexão de 
+onde isto realmente vai atuar. Você teve, e continuará tendo, 
+uma carreira surpreendente na IA. Então, para algumas das pessoas que 
+estão assistindo você em vídeo, agora, se eles quiserem entrar e seguir carreira na IA, que conselho você daria para eles? Penso que é realmente uma boa hora 
+para entrar em Inteligência Artificial. Se você olha a demanda por pessoas, é muito alta, há muitas oportunidades de trabalho, tantas coisas que pode fazer, pesquisas, construir novas empresas e por ai em diante. Então, eu diria que sim, é, definitivamente uma
+decisão inteligente em termos de ir adiante. Muito disso, você pode estudar por si mesmo, esteja, você ou não na escola. Há uma grande quantidade de cursos on line, por exemplo, seu curso sobre Aprendizagem de Máquina, há também, por exemplo, curso de Aprendizagem Profunda 
+de Andrej Karpathy, que tem vídeos on line, que é uma grande maneira de começar, Berkeley, que tem um curso de 
+Aprendizagem Profunda por Reforço, que tem todas as palestras, on line. Então, existem todos estes bons lugares para começar. Acho que uma grande parte do que é 
+importante é estar certo de tentar coisas por você mesmo. Então, não somente ler ou assistir vídeos mas, experimentar. com estruturas como TensorFlow, Chainer, Theano, PyTorch e assim por diante, Quero dizer, qualquer que seja o seu favorito, é muito fácil ir adiante e criar alguma coisa
+e fazê-la rodar muito rapidamente. Para você mesmo praticar, certo? Implementando e vendo o que funciona e o que não funciona. Então, a semana passada, houve um artigo no Mashable sobre um adolescente de 16 anos, no Reino Unido, que é um dos líderes na competição de Kaggle. E ele simplesmente disse, que tinha ido e aprendido coisas, que descobriu coisas on line, 
+aprendeu tudo sozinho e na verdade, nunca fez um curso formal. E há um adolescente de 16 anos, sendo muito competitivo no torneio de Kaggle, então, é definitivamente possível. Vivemos em bons tempos. Se as pessoas querem aprender. Absolutamente. Uma pergunta que eu aposto deve surgir sempre é, se alguém quer entrar para IA, Aprendizagem de
+máquina e Aprendizagem profunda, deveria se candidatar a um programa de doutorado ou deveria conseguir um emprego em uma grande empresa? Acho que muito disso, tem a ver, talvez, com a 
+quantidade de mentoring você pode ter. Então, em um programa de doutorado, você tem a garantia, o trabalho do professor, que é seu conselheiro, que é de cuidar de você. Tentar fazer com você tudo o que eles puderem fazer, para de alguma forma, formá-lo, ajudá-lo a tornar-se mais forte no que quer
+que você decida fazê-lo, por exemplo, IA. E então, há uma pessoa claramente dedicada 
+a você, algumas vezes, duas pessoas. E isso é, literalmente, o trabalho deles,
+e é por isso que são professores, o que eles mais gostam em serem 
+professores, normalmente, é ajudar formar os estudantes para serem 
+mais capazes nas áreas. Agora, isto não significa não ser possível nas companhias, e muitas empresas realmente têm 
+bons mentores e têm pessoas que adoram ajudar a educar pessoas que entram, 
+fortalecê-las e assim por diante. Apenas, pode não ser uma garantia e um dado concreto, comparado com aplicar-se a um 
+programa de doutorado, ou será uma farsa o programa é que, você irá aprender 
+e alguém irá a ajudar você a aprender. Então, isto realmente depende da empresa 
+e depende do programa de doutorado. Com certeza sim, mas penso que a questão central 
+é que você pode aprender muito, por conta própria. Mas acho que você pode aprender mais rapidamente
+ se você tiver alguém que seja mais experiente, que, na realidade o apoia como, sua responsabilidade, passar o tempo com você 
+e ajudar a acelerar o seu progresso. Então, você tem sido um dos mais visíveis lideres 
+na aprendizagem profunda por reforço, o que são as coisas nas quais a aprendizagem profunda por reforço 
+está realmente funcionando? Acho que se procurar por sucessos 
+na aprendizagem profunda por reforço, é muito, muito intrigante. Por exemplo, aprender a jogar 
+jogos Atari através dos pixels, processando estes pixels, que 
+são apenas números que estão sendo processados e, de alguma forma, 
+transformados em ações de joystick. Então, por exemplo, um dos trabalhos 
+que fizemos em Berkeley foi ter estimulado a invenção de um robô 
+que andasse e, a recompensa que foi dada foi tão simples quanto: 
+quanto mais você vai para o norte, melhor e quanto menos duro for o seu impacto no chão, melhor. E, de alguma forma, decide que 
+a corrida a pé é algo a ser inventado, considerando que, ninguém mostrou o que andar ou correr é. Ou robôs brincando com histórias infantis 
+e aprender um jeito de colocá-los juntos, colocar um bloco em uma 
+abertura correspondente, e assim por diante E então, eu acho que é realmente interessante que, 
+em tudo isso, é possível aprender. de entrada por sensores, em estado 
+natural até controles, também em estado natural, Por exemplo, os "torques" nos motores. Mas, ao mesmo tempo, é muito interessante que você, 
+possa ter um único algoritmo. Por exemplo, você sabe que impulsão 
+é espontâneo e você pode aprender, pode ter um robô que aprenda a correr, pode ter um robô que aprenda a levantar-se, pode ter, invés de um robô de duas pernas, você pode trocar por um robô de quatro pernas Você executa o mesmo algoritmo 
+de reforço e ele ainda aprende a executar. E então, não há mudança no algoritmo de reforço. É muito genérico. O mesmo que os jogos de Atari. O DQN era o mesmo DQN para todos os jogos. Mas então, quando realmente começa a bater nas fronteiras do que ainda não é possível, bem como é bom aprender a partir do zero para cada uma destas tarefas mas, seria melhor ainda
+ se ele reutilizasse as coisas aprendidas no passado; para aprender ainda mais rapidamente para a próxima a tarefa. E isto é algo que está 
+na fronteira do que ainda não possível. Sempre começa do zero, essencialmente. Quão rapidamente, você acha, que verá a aprendizagem profunda por reforço, implantada 
+nos robôs, à nossa volta, os robôs que estão sendo 
+desenvolvidos no nosso mundo atual? Acho que, na prática o cenário realista é aquele onde começa com o aprendizado supervisionado, comportamento clonado; os humanos fazem o trabalho. E eu acho que vários negócios serão construídos desta forma, onde é um ser humano que 
+está na retaguarda, fazendo um monte de trabalho. Imagine o assistente do Facebook Messenger. Assistente que poderia ser construído 
+com um ser humano na retaguarda fazendo um monte de atividades e a máquina aprendendo, de acordo com que o ser humano 
+faz e começa a dar sugestões para o ser humano, de tal modo que, os humanos tenham 
+um pequeno número de opções e possam apenas clicar e selecionar. E depois, ao longo do tempo, à medida que vai melhorando, você está começando a unir, algum 
+aprendizado por reforço, onde você fornece seus objetivos atuais, Não apenas de modo a corresponder 
+ao ser humano na retaguarda mas, dando objetivos de realização, como, talvez, quão rapidamente, estas duas pessoas 
+foram capazes de planejar sua reunião? Ou, quão rapidamente foram 
+capazes de reservar o seu voo? Ou coisas deste tipo. Quanto tempo levou? O quão contentes ficaram com isto? Mas provavelmente 
+teria que ser reiniciado muitas vezes com o comportamento clonado dos seres humanos, 
+mostrando como poderia ser feito. Então, parece com clonagem comportamental,
+ apenas com a aprendizagem supervisionada para imitar o que as pessoas estão fazendo 
+e então, gradualmente, mais tarde a aprendizagem por reforço para que ele reflita num horizonte de tempo maior? É um resumo adequado? Eu diria que sim. apenas porque, ir do zero à aprendizagem por reforço 
+é realmente divertido de assistir. É super intrigante e poucas coisas 
+são mais divertidas de ver do que o reforço de aprendizagem de um robô, 
+começando do zero e inventando coisas. Mas toma muito tempo e, nem sempre é seguro. Muito obrigado. Foi fascinante. Estou muito contente por termo tido a chance de conversar. Bem, Andrew, obrigado por me receber. Gostei muito.
+[Tradução: Humberto Souza | Revisão: Carlos Lage]

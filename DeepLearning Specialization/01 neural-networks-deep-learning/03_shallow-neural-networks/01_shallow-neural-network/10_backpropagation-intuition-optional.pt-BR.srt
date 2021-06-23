@@ -1,0 +1,997 @@
+1
+00:00:00,000 --> 00:00:01,230
+No último video,
+
+2
+00:00:01,230 --> 00:00:03,720
+você viu as equações para retropropagação.
+
+3
+00:00:03,720 --> 00:00:06,900
+Neste vídeo, vamos praticar um pouco de intuição
+
+4
+00:00:06,900 --> 00:00:10,515
+usando a computação gráfica
+para ver como aquelas equações foram derivadas.
+
+5
+00:00:10,515 --> 00:00:12,385
+Este vídeo é completamente opcional.
+
+6
+00:00:12,385 --> 00:00:14,106
+Portanto, sinta-se livre para vê-lo ou não.
+
+7
+00:00:14,106 --> 00:00:16,360
+Você deve ser capaz de fazer todo o trabalho,
+de qualquer forma.
+
+8
+00:00:16,360 --> 00:00:19,410
+Lembrando-se de que quando falamos
+sobre regressão logística,
+
+9
+00:00:19,410 --> 00:00:23,685
+nós tivemos isto, passando adiante,
+onde computamos o 'z',
+
+10
+00:00:23,685 --> 00:00:26,145
+então 'a', e depois
+a função perda [ ʆ (a,y) ].
+
+11
+00:00:26,145 --> 00:00:27,445
+Então, para usar as derivadas,
+
+12
+00:00:27,445 --> 00:00:32,520
+temos este passo reverso,
+onde poderíamos computar primeiro o dₐ
+
+13
+00:00:32,520 --> 00:00:35,400
+e então, computamos o dz,
+
+14
+00:00:35,400 --> 00:00:40,720
+depois computamos o 'dw' e o 'db'.
+
+15
+00:00:40,720 --> 00:00:46,970
+Assim, a definição para a perda foi:
+
+16
+00:00:46,970 --> 00:00:52,655
+ʆ (a,y) = -y log a
+
+17
+00:00:52,655 --> 00:00:57,440
+-(1-y) log(1-a)
+
+18
+00:00:57,440 --> 00:00:59,750
+Se você é habituado com Cálculo
+
+19
+00:00:59,750 --> 00:01:03,600
+e usar a derivada disso em relação a 'a',
+d [ʆ (a,y)]/dₐ
+
+20
+00:01:03,600 --> 00:01:06,156
+isso lhe daria a fórmula para o dₐ.
+
+21
+00:01:06,156 --> 00:01:09,060
+Assim:
+dₐ = d[ʆ (a,y)] / dₐ = - y log a - (1-y).log (1-a)
+
+22
+00:01:09,060 --> 00:01:12,750
+E se resolvermos a fórmula,
+podemos mostrar que isso é:
+
+23
+00:01:12,750 --> 00:01:18,808
+dₐ = - ( y / a ) + [ (1-y) / (1-a) ]
+
+24
+00:01:18,808 --> 00:01:23,040
+Você apenas os dividiu por meio do Cálculo
+usando as derivadas.
+
+25
+00:01:23,040 --> 00:01:26,680
+Isso ocorre quando você retrocede
+mais um passo para computar o 'dz'.
+
+26
+00:01:26,680 --> 00:01:32,430
+Nós tínhamos que 'dz = a - y'.
+Eu expliquei o porquê anteriormente,
+
+27
+00:01:32,430 --> 00:01:37,920
+mas acontece que
+da regra de cadeia do Cálculo,
+
+28
+00:01:37,920 --> 00:01:45,425
+dz = dₐ . g'(z)
+
+29
+00:01:45,425 --> 00:01:50,535
+Onde: g(z) = σ(z)
+
+30
+00:01:50,535 --> 00:01:56,245
+que é a nossa função de ativação para esta unidade
+ de saída em regressão logística, certo?
+
+31
+00:01:56,245 --> 00:02:00,570
+Então, só para lembrar:
+isso ainda é regressão logística, onde temos
+
+32
+00:02:00,570 --> 00:02:05,757
+x₁ , x₂ e x₃ 
+E depois, apenas um σ (sigma),
+
+33
+00:02:05,757 --> 00:02:07,400
+que nos dá 'a' que nos dará 'ŷ'.
+[ ŷ = a ]
+
+34
+00:02:07,400 --> 00:02:11,400
+Então, aqui, a nossa função de ativação
+foi uma função sigmoide.
+
+35
+00:02:11,400 --> 00:02:12,960
+E em particular,
+
+36
+00:02:12,960 --> 00:02:17,205
+somente àqueles que estão acostumados
+com a regra da cadeia em Cálculo,
+
+37
+00:02:17,205 --> 00:02:22,520
+a razão para isso é porque
+a = σ(z)
+
+38
+00:02:22,520 --> 00:02:29,310
+E assim:
+
+39
+00:02:29,310 --> 00:02:36,800
+∂ʆ / ∂z = (∂ʆ / ∂a) . (dₐ / dz)
+ [' ∂ ' = derivada parcial]
+
+40
+00:02:36,800 --> 00:02:39,611
+Isso é
+ a = σ(z)
+
+41
+00:02:39,611 --> 00:02:42,970
+                                      isto é igual a
+
+42
+00:02:42,970 --> 00:02:49,080
+(d/dz) g(z) = g'(z)
+
+43
+00:02:49,080 --> 00:02:54,060
+Então, é por isso que esta expressão [∂ʆ /∂z]
+que é dz em nosso código
+
+44
+00:02:54,060 --> 00:02:59,484
+é igual a esta expressão [∂ʆ /∂a]
+que é dₐ em nosso código, vezes g'(z).
+
+45
+00:02:59,484 --> 00:03:05,860
+[dz = dₐ . g'(z)]
+Então é isso.
+
+46
+00:03:05,860 --> 00:03:09,172
+Então, essa última derivada
+faria sentido, somente,
+
+47
+00:03:09,172 --> 00:03:13,510
+se você é familiarizado com Cálculo
+e especificamente com a regra da cadeia.
+
+48
+00:03:13,510 --> 00:03:15,325
+Caso contrário, não se preocupe com isso.
+
+49
+00:03:15,325 --> 00:03:18,853
+Tentarei explicar a 'intuição'
+sempre que for necessário.
+
+50
+00:03:18,853 --> 00:03:22,315
+E finalmente, tendo computado o 'dz'
+para essa regressão logística,
+
+51
+00:03:22,315 --> 00:03:26,335
+vamos calcular o 'dw', que era:
+
+52
+00:03:26,335 --> 00:03:31,470
+dw = dz.x   e   db = dz
+quando você tem um único exemplo de treinamento.
+
+53
+00:03:31,470 --> 00:03:33,822
+Então, isso foi regressão logística.
+
+54
+00:03:33,822 --> 00:03:36,700
+Assim, o que nós faremos,
+quando estivermos calculando
+
+55
+00:03:36,700 --> 00:03:40,090
+a retropropagação para uma rede neural,
+é um cálculo bem similar a esse,
+
+56
+00:03:40,090 --> 00:03:46,995
+mas faremos isso duas vezes, porque agora
+nós não temos um 'x' indo para uma unidade de saída,
+
+57
+00:03:46,995 --> 00:03:50,930
+mas temos 'x' indo para uma camada oculta,
+e depois, indo para a unidade de saída.
+
+58
+00:03:50,930 --> 00:03:58,405
+Então, em vez de o cálculo ter um passo,
+tal como tivemos aqui,
+
+59
+00:03:58,405 --> 00:04:04,483
+teremos duas etapas aqui,
+neste tipo de rede neural, com duas camadas.
+
+60
+00:04:04,483 --> 00:04:08,586
+Assim, nesta rede neural de duas camadas,
+temos: a camada de entrada;
+
+61
+00:04:08,586 --> 00:04:10,138
+uma camada oculta;
+e a camada de saída.
+
+62
+00:04:10,138 --> 00:04:12,070
+Lembre-se das etapas
+do processo de cálculos.
+
+63
+00:04:12,070 --> 00:04:17,210
+Primeiro, você calcula z'¹'
+usando esta equação.
+
+64
+00:04:17,210 --> 00:04:22,177
+Depois, calcula  a'¹'.
+E depois,  o z'²'.
+
+65
+00:04:22,177 --> 00:04:25,505
+Note que o z'²' depende, também,
+dos parâmetros   W'²' e  b'²'.
+
+66
+00:04:25,505 --> 00:04:27,530
+E Então, com base em  z'²',
+
+67
+00:04:27,530 --> 00:04:32,815
+calcule a'²'.
+E finalmente, isso lhe dará a perda.
+
+68
+00:04:32,815 --> 00:04:41,560
+A retropropagação fará o reverso
+para calcular o  dₐ'²'  e, depois, o  dz'²'.
+
+69
+00:04:41,560 --> 00:04:48,805
+E então, você retornará
+para calcular o  dW'²'  e  db'²'.
+
+70
+00:04:48,805 --> 00:04:53,232
+Retornará para calcular o  dₐ'¹'
+
+71
+00:04:53,232 --> 00:04:57,278
+dz'¹'  e assim,
+sucessivamente.
+
+72
+00:04:57,278 --> 00:05:00,290
+Não precisamos usar as derivadas
+com relação ao dado de entrada 'x',
+
+73
+00:05:00,290 --> 00:05:03,745
+pois o 'x' relaciona-se
+com o aprendizado supervisionado.
+
+74
+00:05:03,745 --> 00:05:07,845
+Não estamos tentando otimizar o 'x'. Assim,
+não nos preocuparemos com as derivadas.
+
+75
+00:05:07,845 --> 00:05:09,655
+Pelo menos para o aprendizado supervisionado,
+
+76
+00:05:09,655 --> 00:05:15,605
+com relação a 'x'. Vou pular,
+explicitamente, o cálculo do  dₐ'²'.
+
+77
+00:05:15,605 --> 00:05:18,110
+Se você quiser, na verdade,
+poderá calculá-lo.
+
+78
+00:05:18,110 --> 00:05:20,750
+E então, use-o para computar o dz'²',
+mas na prática
+
+79
+00:05:20,750 --> 00:05:25,760
+você pode compactá-los em uma etapa.
+Assim, você acabará tendo:
+
+80
+00:05:25,760 --> 00:05:31,715
+dz'²' = a'²' - y
+igual ao resultado anterior.
+
+81
+00:05:31,715 --> 00:05:33,620
+E você terá também...
+
+82
+00:05:33,620 --> 00:05:38,615
+Vou escrever aqui embaixo:
+dW'²'  e  db'²'
+
+83
+00:05:38,615 --> 00:05:46,700
+Você tem: dW'²' = dz'²' . a'¹'⸆ 
+[ ⸆ = 'transposto' ]
+
+84
+00:05:46,700 --> 00:05:52,040
+e  db'²' = dz'²'
+
+85
+00:05:52,040 --> 00:05:55,990
+Esse passo é bem similar à regressão logística,
+onde tínhamos
+
+86
+00:05:55,990 --> 00:06:03,550
+dw = dz . x,
+exceto que agora
+
+87
+00:06:03,550 --> 00:06:08,770
+a'¹' faz o papel de 'x'
+e há uma transposição aí por causa
+
+88
+00:06:08,770 --> 00:06:14,125
+da relação entre a matriz W (maiúsculo)
+e o nosso parâmetro individual w (minúsculo).
+
+89
+00:06:14,125 --> 00:06:16,660
+Há uma transposição aí, certo?
+
+90
+00:06:16,660 --> 00:06:24,370
+Porque w = [---] (matriz linha) no caso da
+regressão logística, com uma saída simples.
+
+91
+00:06:24,370 --> 00:06:26,980
+dw'²' é assim,
+
+92
+00:06:26,980 --> 00:06:32,440
+enquanto o W aqui era uma matriz coluna.
+Por isso há uma transposição extra para a'¹',
+
+93
+00:06:32,440 --> 00:06:36,980
+enquanto que para o 'x' aqui, para a regressão logística,
+nós não tivemos isso.
+
+94
+00:06:36,980 --> 00:06:40,335
+Então, isso conclui
+ metade sobre a retropropagação.
+
+95
+00:06:40,335 --> 00:06:44,045
+Novamente, você pode calcular o dₐ'¹' se quiser.
+
+96
+00:06:44,045 --> 00:06:49,440
+Apesar de que, na prática, os cálculos
+
+97
+00:06:49,440 --> 00:06:52,330
+de dₐ'¹' e dz'¹' são, normalmente,
+compactados em uma etapa
+
+98
+00:06:52,330 --> 00:06:57,130
+e assim, o que você vai obter, na verdade, é que:
+
+99
+00:06:57,130 --> 00:07:03,480
+dz'¹' = W'²' ⸆ . dz'²'
+ e então, vezes um elemento,
+
+100
+00:07:03,480 --> 00:07:10,383
+Produto de Hadamard ('element wise product'),
+de g'¹' ' z'¹'.
+ [∴  dz'¹' = W'²' ⸆ . dz'²' . g'¹' ' z'¹' ]
+
+101
+00:07:10,383 --> 00:07:13,960
+Apenas para fazer uma checagem
+das dimensões:
+
+102
+00:07:13,960 --> 00:07:19,510
+Se você tem uma rede neural como esta...
+
+103
+00:07:19,510 --> 00:07:23,000
+resultando em ŷ.
+
+104
+00:07:23,000 --> 00:07:28,265
+Se você tem nₓ = n'⁰' características de entrada,
+
+105
+00:07:28,265 --> 00:07:30,230
+n'¹'  unidade oculta,
+
+106
+00:07:30,230 --> 00:07:34,275
+e  n'²'  até agora...
+
+107
+00:07:34,275 --> 00:07:36,740
+n'²' , em nosso caso,
+
+108
+00:07:36,740 --> 00:07:38,565
+apenas uma unidade de saída.
+
+109
+00:07:38,565 --> 00:07:48,795
+Então, a matriz W'²' é  ( n'²' ₓ n'¹' )
+dimensional
+
+110
+00:07:48,795 --> 00:07:57,490
+z'²'  ∴  dz'²'  será  ( n'²' ₓ 1 )
+dimensional
+
+111
+00:07:57,490 --> 00:07:59,850
+Isso será, na verdade, um por um
+
+112
+00:07:59,850 --> 00:08:04,750
+quando fazemos classificação binária.
+
+113
+00:08:04,750 --> 00:08:10,045
+z'¹', portanto também o dz'¹' serão  ( n'¹' ₓ 1 )
+dimensional.
+
+114
+00:08:10,045 --> 00:08:16,115
+Note que para qualquer variável,
+'foo' e 'dfoo' terão sempre a mesma dimensão.
+
+115
+00:08:16,115 --> 00:08:20,850
+Por isso W e dW terão sempre a mesma dimensão e,
+da mesma forma,
+
+116
+00:08:20,850 --> 00:08:23,680
+b e db;
+ z e dz; etc.
+
+117
+00:08:23,680 --> 00:08:26,895
+Para se certificar de que as dimensões
+de todos eles são iguais,
+
+118
+00:08:26,895 --> 00:08:35,430
+temos:
+dz'¹' = W'²' ⸆ . dz'²'
+
+119
+00:08:35,430 --> 00:08:44,490
+e então, isso é um Produto de Hadamard,
+vezes (g'¹') ' (z'¹').
+
+120
+00:08:44,490 --> 00:08:47,040
+[ dz'¹' = W'²' ⸆ . dz'²' * g'¹' ' z'¹' ]
+Então, igualando-se as dimensões acima,
+
+121
+00:08:47,040 --> 00:08:52,575
+isto (dz'¹')  será  (n'¹' ₓ 1) = W'²' ⸆
+
+122
+00:08:52,575 --> 00:08:57,945
+a transposição disso que será
+(n¹ ₓ n²) dimensional
+
+123
+00:08:57,945 --> 00:09:05,790
+dz'²' será  (n² ₓ 1) dimensional e então, este...
+
+124
+00:09:05,790 --> 00:09:07,230
+este [ (g'¹') ' (z'¹') ]
+tem a mesma dimensão do z'¹'.
+
+125
+00:09:07,230 --> 00:09:11,820
+Então, isso será, também,
+ * (n¹ ₓ 1) dimensional.
+
+126
+00:09:11,820 --> 00:09:14,350
+Assim, as dimensões fazem sentido. Certo?
+
+127
+00:09:14,350 --> 00:09:18,330
+(n'¹' ₓ 1), vetor dimensional pode ser obtido
+
+128
+00:09:18,330 --> 00:09:23,520
+por (n'¹' ₓ n'²'), matriz dimensional, vezes (n'²' ₓ 1), porque
+
+129
+00:09:23,520 --> 00:09:28,890
+essas duas coisas dá-lhe
+uma matriz dimensional (n'¹' ₓ 1),
+
+130
+00:09:28,890 --> 00:09:34,618
+e isso se torna o Produto de Hadamard
+de 2 vetores dimensionais (n'¹' ₓ 1).
+
+131
+00:09:34,618 --> 00:09:36,060
+E assim, as dimensões são iguais.
+
+132
+00:09:36,060 --> 00:09:40,620
+Uma dica para a implementação
+de uma retropropagação:
+
+133
+00:09:40,620 --> 00:09:44,790
+Se você se certifica de que
+as dimensões das suas matrizes são iguais,
+
+134
+00:09:44,790 --> 00:09:47,190
+então, considere quais são as dimensões
+
+135
+00:09:47,190 --> 00:09:50,430
+das várias matrizes, incluindo W'¹', W'²', z'¹',
+
+136
+00:09:50,430 --> 00:09:54,180
+z'²', a'¹', a'²', etc.
+E certifique-se
+
+137
+00:09:54,180 --> 00:09:58,642
+de que as dimensões
+dessas operações matriciais são iguais.
+
+138
+00:09:58,642 --> 00:10:03,390
+Às vezes, isso já eliminará bastante,
+um monte de 'bugs' em uma retropropagação.
+
+139
+00:10:03,390 --> 00:10:06,960
+Ok. Então, isso nos deu o dz'¹' e, finalmente,
+
+140
+00:10:06,960 --> 00:10:12,160
+apenas para completar.
+dW'¹' e db'¹'...
+
+141
+00:10:12,160 --> 00:10:13,965
+Devemos anotá-los aqui, eu acho, mas
+
+142
+00:10:13,965 --> 00:10:17,200
+visto que estou indo para o lado direito da tela...
+
+143
+00:10:17,200 --> 00:10:21,965
+dW'¹' e db'¹' são dados
+pelas seguintes fórmulas:
+
+144
+00:10:21,965 --> 00:10:25,950
+dW'¹' = dz'¹'. x⸆
+
+145
+00:10:25,950 --> 00:10:28,905
+e db'¹' = dz'¹'
+
+146
+00:10:28,905 --> 00:10:34,045
+Você pode notar a similaridade
+entre essas equações e estas, de cima.
+
+147
+00:10:34,045 --> 00:10:37,095
+Na verdade, não é coincidência, porque
+
+148
+00:10:37,095 --> 00:10:41,660
+x faz o papel de a⁰.
+Portanto, x⸆  é  a⁰ ⸆
+
+149
+00:10:41,660 --> 00:10:45,484
+Essas equações
+são muito similares.
+
+150
+00:10:45,484 --> 00:10:50,260
+Assim, isso dá a ideia de como
+a retropropagação é derivada.
+
+151
+00:10:50,260 --> 00:10:54,530
+Nós temos aqui 6 equações principais
+para: dz'²', dW'²',
+
+152
+00:10:54,530 --> 00:11:00,190
+db'²', dz'¹', dW'¹' e db'¹'.
+
+153
+00:11:00,190 --> 00:11:05,767
+Deixe-me apenas copiar
+estas 6 equações no próximo slide.
+
+154
+00:11:05,767 --> 00:11:08,950
+Até agora, definimos
+derivadas de retropropagação
+
+155
+00:11:08,950 --> 00:11:13,959
+para o caso de você estar treinando
+um único exemplo por vez,
+
+156
+00:11:13,959 --> 00:11:21,530
+mas é natural que, em vez de trabalhar em
+um único exemplo por vez,
+
+157
+00:11:21,530 --> 00:11:27,810
+gostaríamos de vetorizar
+uma diversidade de exemplos de treinamento.
+
+158
+00:11:27,810 --> 00:11:30,971
+Então, lembre-se de que
+para a propagação para frente,
+
+159
+00:11:30,971 --> 00:11:33,545
+quando estamos trabalhando
+com um exemplo por vez,
+
+160
+00:11:33,545 --> 00:11:41,665
+temos equações como esta:
+a'¹' = g'¹'(z'¹')
+
+161
+00:11:41,665 --> 00:11:43,655
+Com a finalidade de vetorizar,
+
+162
+00:11:43,655 --> 00:11:51,260
+pegamos, digamos,
+os z's e nós os agrupamos
+
+163
+00:11:51,260 --> 00:12:00,775
+em colunas como estas...
+E vamos denominá-los Z, maiúsculo.
+
+164
+00:12:00,775 --> 00:12:04,960
+E assim, descobrimos que
+ao agruparmos os valores em colunas
+
+165
+00:12:04,960 --> 00:12:10,240
+e definindo as versões deles, em letras maiúsculas,
+
+166
+00:12:10,240 --> 00:12:17,093
+temos:
+Z'¹' = W'¹' X + b'¹'
+
+167
+00:12:17,093 --> 00:12:24,700
+e  A'¹' = g'¹'(Z'¹')
+
+168
+00:12:24,700 --> 00:12:28,645
+Definimos as notações cuidadosamente neste curso
+ para termos a certeza de que
+
+169
+00:12:28,645 --> 00:12:35,550
+os exemplos de agrupamentos, em diferentes colunas
+de uma matriz, fazem com que tudo isso funcione.
+
+170
+00:12:35,550 --> 00:12:40,105
+Isso faz com que, se você empregar
+a matemática com atenção,
+
+171
+00:12:40,105 --> 00:12:46,645
+o mesmo artifício serve para a retropropagação.
+Portanto, as equações vetoriais são as seguintes:
+
+172
+00:12:46,645 --> 00:12:52,250
+Primeiro, se você pegar estes dz's
+para diferentes exemplos de treinamentos
+
+173
+00:12:52,250 --> 00:12:58,339
+e agrupá-los em diferentes colunas de uma matriz... 
+O mesmo para este (a'²') e este (y)...
+
+174
+00:12:58,339 --> 00:13:03,070
+Então esta é a implementação vetorial (dZ'²' = A'²' - Y)
+e aqui está a definição para...
+
+175
+00:13:03,070 --> 00:13:05,569
+ou seja, você pode calcular dW'²'
+dW'²' = 1/m [dZ'²'(A'¹')⸆]
+
+176
+00:13:05,569 --> 00:13:11,130
+Há um '1/m' extra porque a função custo 'J' é...
+
+177
+00:13:11,130 --> 00:13:18,410
+= 1/m ∑ (para i=1 até n) de função perda ʆ (ŷ ,y)
+
+178
+00:13:18,410 --> 00:13:20,615
+Quando calculamos as derivadas,
+
+179
+00:13:20,615 --> 00:13:23,885
+temos o termo '1/m' extra,
+tal como tivemos quando
+
+180
+00:13:23,885 --> 00:13:27,982
+calculamos a atualização dos pesos
+para a regressão logística.
+
+181
+00:13:27,982 --> 00:13:31,790
+Então esta é a atualização
+que você obtém pra o db'²'.
+
+182
+00:13:31,790 --> 00:13:40,640
+Soma-se os dz's novamente e então, com o '1/m' e depois,
+o dz'¹' é calculado, como segue.
+
+183
+00:13:40,640 --> 00:13:49,109
+Novamente, isto é um Produto de Hadamard.
+Somente que...
+
+184
+00:13:49,109 --> 00:13:56,595
+Vimos no slide anterior que
+isto era um vetor dimensional (n'¹' ₓ 1).
+
+185
+00:13:56,595 --> 00:14:03,185
+Agora isto é uma matriz dimensional (n'¹' ₓ m).
+
+186
+00:14:03,185 --> 00:14:09,045
+Estes dois termos são, também, (n'¹' ₓ m),
+dimensional.
+
+187
+00:14:09,045 --> 00:14:19,310
+É por isso que o asterisco é
+um Produto de Hadamard.
+
+188
+00:14:19,310 --> 00:14:21,454
+Enfim, as duas atualizações restantes.
+
+189
+00:14:21,454 --> 00:14:25,836
+Talvez, isso não seja tão assombroso.
+
+190
+00:14:25,836 --> 00:14:29,510
+Espero que isso tenha dado alguma percepção
+sobre como é a derivada do algoritmo da retropropagação.
+
+191
+00:14:29,510 --> 00:14:32,205
+Em todos os aprendizados de máquina,
+
+192
+00:14:32,205 --> 00:14:34,820
+eu acho que a derivada
+do algoritmo da retropropagação
+
+193
+00:14:34,820 --> 00:14:38,465
+é, na verdade, uma das partes mais complicadas
+da matemática que eu conheço.
+
+194
+00:14:38,465 --> 00:14:42,470
+E isso exige o conhecimento
+tanto da álgebra linear
+
+195
+00:14:42,470 --> 00:14:46,830
+quanto das derivadas de matrizes
+para reaplicar as derivadas desde o princípio.
+
+196
+00:14:46,830 --> 00:14:50,165
+Se você é um expert em cálculo de matriz,
+
+197
+00:14:50,165 --> 00:14:54,255
+poderá provar a derivada do algoritmo
+usando esse processo,
+
+198
+00:14:54,255 --> 00:14:57,500
+mas acho que existem muitos profissionais
+da aprendizagem profunda
+
+199
+00:14:57,500 --> 00:15:01,060
+que têm visto as derivadas
+no nível próximo do que você viu
+
+200
+00:15:01,060 --> 00:15:04,100
+neste vídeo, e você já está apto
+
+201
+00:15:04,100 --> 00:15:08,580
+para ter todas essas intuições
+e para implementar esses algoritmos efetivamente.
+
+202
+00:15:08,580 --> 00:15:10,070
+Se você é um expert em Cálculo,
+
+203
+00:15:10,070 --> 00:15:13,395
+veja se consegue calcular
+as derivadas desde o princípio.
+
+204
+00:15:13,395 --> 00:15:15,665
+É uma das partes mais difíceis da matemática.
+
+205
+00:15:15,665 --> 00:15:20,010
+Uma das operações de derivadas mais difíceis
+ que eu tenho conhecimento,
+dentro de toda a aprendizagem de máquina.
+
+206
+00:15:20,010 --> 00:15:22,861
+De qualquer forma,
+se você colocar isso em prática,
+
+207
+00:15:22,861 --> 00:15:27,260
+ela funcionará e acho que você tem
+ intuições suficientes para adaptá-la e usá-la.
+
+208
+00:15:27,260 --> 00:15:30,830
+Há apenas mais um detalhe
+
+209
+00:15:30,830 --> 00:15:34,190
+que eu quero compartilhar,
+ antes de você implementar a sua rede neural, que é:
+
+210
+00:15:34,190 --> 00:15:37,720
+como inicializar os pesos de sua rede neural.
+
+211
+00:15:37,720 --> 00:15:40,600
+Acontece que inicializar seus parâmetros,
+
+212
+00:15:40,600 --> 00:15:42,560
+não do zero, mas aleatoriamente,
+
+213
+00:15:42,560 --> 00:15:45,515
+revela-se muito importante
+para o treinamento da sua rede neural.
+
+214
+00:15:45,515 --> 00:15:48,000
+No próximo vídeo,
+ você verá o motivo.
+[Tradução: Julia R. Yuri | Revisão: Carlos Lage.]

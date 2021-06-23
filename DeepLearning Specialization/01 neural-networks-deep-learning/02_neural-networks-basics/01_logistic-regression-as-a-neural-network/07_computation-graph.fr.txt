@@ -1,0 +1,28 @@
+Vous m’avez entendu dire que
+ les calculs d’un réseau de neurones comprennent une passe vers l'avant,
+ ou propagation vers l’avant, dans laquelle nous calculons 
+la sortie du réseau neuronal, suivie d’une passe vers l’arrière
+ ou rétro propagation, que nous utilisons pour calculer les gradients,
+ c'est à dire calculer les dérivées. Le graphe de calcul explique 
+le pourquoi de cette organisation. Dans cette vidéo, nous allons voir un exemple. Afin d’illustrer le graphe de calcul, nous allons utiliser un exemple 
+plus simple que la régression logistique
+ ou qu'un réseau de neurones complet. Disons que nous essayons 
+de calculer une fonction, J, qui est fonction de trois variables a, b et c, et disons que la fonction est 3*(a+b*c). Le calcul de cette fonction se fait
+ en trois étapes distinctes. A la première vous devez calculer la valeur b fois c. Disons que nous stockons cette valeur
+dans une variable que nous appelons u. Alors u = b*c et ensuite vous pouvez calculer v v = a + u. Donc disons que ceci est v. Et finalement votre résultat J vaut 3*v. Ceci est donc votre fonction finale J 
+que vous essayez de calculer. Nous pouvons prendre ces trois étapes et les 
+dessiner dans un graphe de calcul comme ceci. Disons que je dessine
+ nos trois variables a, b et c ici. Donc la première chose que nous avons faite
+ a été de calculer u = bc. Donc je vais mettre une boîte 
+rectangulaire autour de cela. Et les entrées de ça sont b et c. Et puis vous avez v = v = a + u. Avec les entrées de ceci, v. Donc les entrées de ceci sont u, que 
+nous venons de calculer et a. Et puis enfin, nous avons J = 3v. Donc un exemple concret, si a = 5, b = 3 et c = 2 c = 2 alors u = bc vaut 6, puis a + u vaut 5 + 6 = 11, et J est 3 fois cela, 
+donc J = 33. Et en effet, vous pouvez vérifier que ceci vaut 3*(5 + 3*2), et si vous développez cela, vous obtenez 33 comme valeur de J. Donc, le graphe de calcul 
+est très pratique lorsqu’il y a une variable spécifique, une variable de sortie comme J dans le cas présent, que vous souhaitez optimiser. Et dans le cas d’une régression logistique, J est bien sûr la fonction de coût 
+que nous essayons de minimiser. Et ce que nous voyons 
+dans ce petit exemple est que, par une passe de gauche à droite, vous pouvez calculer la valeur de J. Et ce que nous verrons dans les prochaines
+ diapositives est que, pour calculer les dérivées, il y aura une passe de droite à gauche comme ça, on ira dans la direction opposée 
+par rapport aux flèches bleues. Ce sera assez naturel 
+pour calculer les dérivées. Donc pour résumer, le graphe de calcul organise un calcul avec ces flèches bleues, 
+des calculs de gauche à droite. Nous allons voir dans la prochaine vidéo 
+comment vous pouvez faire le calcul des dérivées de droite à gauche,
+ vers l’arrière avec les flèches rouges. Passons à la vidéo suivante.

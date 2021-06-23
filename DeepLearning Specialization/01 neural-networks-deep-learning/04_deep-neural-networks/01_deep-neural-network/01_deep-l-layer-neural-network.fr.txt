@@ -1,0 +1,75 @@
+Bienvenue dans la quatrième
+ semaine de ce cours. Vous avez vu la propagation directe et
+ la rétro propagation dans le contexte d’un réseau de neurones
+ avec une seule couche cachée, ainsi que
+ la régression logistique, et vous avez appris la vectorisation et quand il est important 
+d’initialiser les poids au hasard. Si vous avez fait les devoirs de ces dernières 
+semaines, vous avez également implémenté et vu fonctionner certaines de
+ ces idées par vous-même. Maintenant, vous avez vu concrètement la plupart
+ des idées permettant d'implémenter
+ un réseau de neurones profond. Cette semaine, nous allons prendre ces idées
+ et les mettre ensemble pour vous permettre d'implémenter
+ votre propre réseau de neurones profond. Comme l'exercice de programmation 
+de cette semaine est plus long, ça vous fait plus de travail, 
+donc les vidéos de cette semaine seront plus courtes pour que vous puissiez 
+les voir un peu plus rapidement, et avoir plus de temps pour ensuite 
+faire un exercice de programmation 
+important, qui, je l’espère, vous permettra d'avoir construit vous même 
+un réseau de neurones profond, 
+ce dont vous pourrez être fier. Qu'est ce qu'un réseau de neurones profond ? Vous avez vu cette image
+ pour la régression logistique et vous avez également vu les réseaux de 
+neurones avec une seule couche cachée. Alors, voici un exemple d’un réseau
+ de neurones avec deux couches cachées et un réseau de neurones avec 5 couches cachées. Nous disons que la régression logistique 
+est un modèle très peu profond, alors que ce modèle ici est un modèle
+ beaucoup plus profond, et ce qu'on appelle la profondeur
+ est une question de degré. Ici un réseau de neurones avec 
+une seule couche cachée, ici un réseau de neurones à 2 couches. Rappelez-vous quand nous comptons
+ les couches dans un réseau de neurones,
+ nous ne comptons pas la couche d’entrée, nous comptons seulement les couches 
+cachées et la couche de sortie. Donc, ceci serait un réseau de neurones à 2
+ couches, ce qui est encore assez peu profond, mais un peu plus profond
+ que la régression logistique. Techniquement, la régression logistique est 
+un réseau de neurones à une seule couche. Au cours des dernières années, 
+l’IA, la communauté de l'apprentissage automatique, 
+a réalisé qu’il y a des fonctions qui peuvent être apprises par des réseaux de neurones
+ très profonds, alors que les modèles moins
+ profonds n'y parviennent souvent pas. Même si, pour un problème donné, il 
+peut être difficile de prévoir exactement quelle profondeur il faut pour votre réseau. Et il est donc raisonnable d’essayer
+ la régression logistique, puis d'essayer des réseaux à une puis deux couches cachées,
+ et de voir le nombre de couches cachées comme un autre hyper paramètre dont vous 
+pouvez tester plusieurs valeurs et évaluer globalement avec l’ensemble de données
+ de validation, ou celui de développement. Nous en dirons plus à ce propos plus tard. Nous allons maintenant voir 
+la notation que nous utilisons pour décrire
+ les réseaux neuronaux profonds. Voici un réseau de neurones à 
+une, deux, trois, quatre couches, avec trois couches cachées, et le nombre
+ d’unités dans ces couches cachées est 5, 5 et 3, et il y a 
+une seule unité de sortie. La notation que nous allons utiliser : On va utiliser L majuscule, pour désigner 
+le nombre de couches du réseau. Dans ce cas, L = 4, et c'est
+ le nombre de couches, et nous allons utiliser n exposant [l] pour
+ désigner le nombre de nœuds, ou le nombre d’unités 
+dans la couche l minuscule. Donc, si nous numérotons cela,
+ l’entrée est la couche 0 Voici la couche 1, la couche 2,
+ la couche 3, et la couche 4. Alors nous avons, par exemple, n [1], 
+ce serait cela, la première couche cachée, qui est égal à 5, parce que 
+nous avons 5 unités cachées là. Pour celle-ci, nous avons n [2],
+le nombre d’unités de la deuxième couche cachée
+, qui vaut aussi 5. n [3] = 3, et n [4] = n [L], le nombre d'unités
+ de sorties est égal à 1, puisqu'ici, L majuscule est égal à 4. Et nous avons aussi ici que pour la couche d’entrée, n [0] = nx = 3. Nous utilisons cette notation pour décrire
+ le nombre de nœuds dans les différentes couches. Pour chaque couche L, 
+nous allons également utiliser un [l] pour désigner
+ les activations dans la couche l. Alors nous verrons plus tard que 
+pour la propagation directe, on calcule a[l] = g(z[l]), 
+g étant la fonction d'activation et l’activation peut être aussi
+ indexée par la couche l et puis nous utiliserons W [l] 
+pour désigner les poids pour calculer les valeurs z [l] dans la couche l, et de même, b [l] est utilisé pour calculer z [l]. Enfin, juste pour conclure sur la notation, 
+les caractéristiques d’entrée sont appelées x, mais x est également les activations 
+de la couche zéro, donc a [0] = x, et l’activation de la couche finale,
+ a [L] = ŷ. Donc a [L] est égal à la prédiction ŷ
+ en sortie du réseau de neurones. Donc vous savez maintenant à quoi ressemble
+ un réseau de neurones profond, ainsi que la notation
+ que nous utiliserons pour décrire
+ et calculer avec les réseaux profonds. Je sais que nous avons présenté beaucoup de 
+notations dans cette vidéo, mais si vous oubliez ce qu'un symbole signifie, nous avons aussi mis
+ sur le site de cours un guide des notations qui vous permet de retrouver 
+la signification des différents symboles. Ensuite, je voudrais vous montrer
+ à quoi ressemble la propagation directe dans ce type de réseau. Continuons dans la prochaine vidéo.

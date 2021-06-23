@@ -1,0 +1,386 @@
+1
+00:00:00,000 --> 00:00:02,389
+Bem-vindo a quarta semana desse curso.
+
+2
+00:00:02,389 --> 00:00:06,354
+Por enquanto, você viu o contexto de
+ propagação para frente e para trás
+
+3
+00:00:06,354 --> 00:00:10,807
+de redes neurais, com uma camada
+ oculta, bem como regressão logística e
+
+4
+00:00:10,807 --> 00:00:13,064
+você também aprendeu sobre vetorização e
+
+5
+00:00:13,064 --> 00:00:15,936
+quando é importante inicializar os pesos de forma randômica.
+
+6
+00:00:15,936 --> 00:00:19,417
+Se você completou as tarefas
+das semanas passadas,
+ então você também implementou e
+
+7
+00:00:19,417 --> 00:00:21,378
+viu algumas dessas ideias funcionando.
+
+8
+00:00:21,378 --> 00:00:21,977
+Então, agora
+
+9
+00:00:21,977 --> 00:00:26,718
+que você já viu a maior parte das ideias
+que precisa para
+ implementar uma rede neural profunda,
+
+10
+00:00:26,718 --> 00:00:30,453
+o que faremos nessa semana é pegar essas ideias e
+ colocá-las todas juntas, de modo que
+
+11
+00:00:30,453 --> 00:00:33,669
+você seja capaz de construir e implementar 
+sua própria rede neural profunda.
+
+12
+00:00:33,669 --> 00:00:36,406
+Pelo fato do exercício dessa semana ser
+mais longo
+
+13
+00:00:36,406 --> 00:00:39,457
+e exigir mais trabalho, eu mantive
+os videos dessa semana
+
+14
+00:00:39,457 --> 00:00:43,784
+mais curtos, para permitir que você possa vê-los 
+mais rapidamente e
+
+15
+00:00:43,784 --> 00:00:48,107
+tenha mais tempo para progredir com os exercícios e, 
+no final, espero que você
+
+16
+00:00:48,107 --> 00:00:52,537
+se orgulhe da rede neural profunda
+que construiu.
+
+17
+00:00:52,537 --> 00:00:55,576
+Então, o que é uma rede neural profunda?
+
+18
+00:00:55,576 --> 00:00:59,225
+Você já viu essa figura de regressão logística e
+
+19
+00:00:59,225 --> 00:01:03,439
+você também já viu uma rede neural com 
+uma única camada oculta.
+
+20
+00:01:03,439 --> 00:01:07,925
+Assim, aqui está um exemplo de rede neural com
+2 camadas ocultas e
+
+21
+00:01:07,925 --> 00:01:10,661
+uma rede neural com 5 camadas ocultas.
+
+22
+00:01:10,661 --> 00:01:15,744
+Dizemos que a regressão logística
+é um modelo "raso" (superficial),
+
+23
+00:01:15,744 --> 00:01:19,947
+enquanto esse aqui é um modelo
+bem mais profundo e,
+
+24
+00:01:19,947 --> 00:01:23,585
+raso versus profundo é uma questão de grau.
+
+25
+00:01:23,585 --> 00:01:26,952
+Então, uma rede neural de única camada oculta
+
+26
+00:01:26,952 --> 00:01:30,052
+essa seria uma rede neural de 2 camadas.
+
+27
+00:01:30,052 --> 00:01:34,880
+Lembre-se que quando contamos as camadas 
+em uma rede neural, nós não contamos
+a camada de entrada,
+
+28
+00:01:34,880 --> 00:01:38,076
+contamos apenas as camadas ocultas
+e a camada de saída.
+
+29
+00:01:38,076 --> 00:01:42,849
+Assim, essa seria uma rede neural
+de 2 camadas,ainda bem rasa,
+
+30
+00:01:42,849 --> 00:01:45,961
+mas não tão rasa como a regressão logística.
+
+31
+00:01:45,961 --> 00:01:50,086
+Tecnicamente, a regressão logística é uma rede neural
+de uma camada,
+
+32
+00:01:50,086 --> 00:01:53,536
+mas nos últimos anos as comunidades de IA
+
+33
+00:01:53,536 --> 00:01:58,561
+e de aprendizagem de máquina perceberam que
+existem funções, onde
+
+34
+00:01:58,561 --> 00:02:03,590
+as redes neurais profundas podem aprender
+ o que modelos mais rasos geralmente não conseguem,
+
+35
+00:02:03,590 --> 00:02:08,119
+embora para um problema em específico,
+se torna difícil predizer antecipadamente,
+quão
+
+36
+00:02:08,119 --> 00:02:10,163
+profunda será sua rede neural.
+
+37
+00:02:10,163 --> 00:02:14,305
+Assim, é razoável tentar regressão logística,
+tentar uma e então
+
+38
+00:02:14,305 --> 00:02:19,200
+duas camadas ocultas e ver o número de
+ camadas escondidas como um outro hiper-parâmetro
+
+39
+00:02:19,200 --> 00:02:22,739
+e que você pode tentar uma
+variedade de valores e
+
+40
+00:02:22,739 --> 00:02:27,515
+calcular usando 
+o conjunto de validação de dados cruzados, ou usando 
+o conjunto de dados de desenvolvimento.
+
+41
+00:02:27,515 --> 00:02:29,447
+Veremos mais disso mais adiante.
+
+42
+00:02:29,447 --> 00:02:33,998
+Vejamos as notações que usaremos
+para descrever redes neurais profundas.
+
+43
+00:02:33,998 --> 00:02:39,147
+Aqui temos uma rede neural com uma,
+duas, três, quatro camadas,
+
+44
+00:02:40,974 --> 00:02:45,729
+sendo três camadas ocultas,
+e o número de unidades nessas
+
+45
+00:02:45,729 --> 00:02:50,842
+camadas ocultas são 5, 5, 3 e
+uma unidade de saída.
+
+46
+00:02:50,842 --> 00:02:52,731
+Então, na notação que usaremos,
+
+47
+00:02:52,731 --> 00:02:56,591
+teremos a letra maiúscula L, para denotar
+o número de camadas na rede.
+
+48
+00:02:56,591 --> 00:03:03,881
+Assim, nesse caso, L=4
+que é o número de camadas e
+
+49
+00:03:03,881 --> 00:03:11,880
+vamos usar N elevado a [l]
+para denotar o número de nós
+
+50
+00:03:11,880 --> 00:03:17,101
+ou o número de unidades
+na camada l minúscula.
+
+51
+00:03:17,101 --> 00:03:22,501
+Então, se indexarmos isso,
+a entrada como camada "0".
+
+52
+00:03:22,501 --> 00:03:28,950
+Essa é a camada 1, essa é a camada 2,
+essa é a camada 3 e essa é a camada 4.
+
+53
+00:03:28,950 --> 00:03:33,822
+Então nós temos que, por exemplo,
+n[1] seria isso,
+
+54
+00:03:33,822 --> 00:03:39,529
+a primeira camada igual a 5,
+porque temos 5 unidades ocultas lá.
+
+55
+00:03:39,529 --> 00:03:43,623
+Para essa outra, nós temos n[2],
+
+56
+00:03:43,623 --> 00:03:48,810
+e o nu´mero de unidades
+na segunda camada oculta
+
+57
+00:03:48,810 --> 00:03:53,315
+também é igual a 5, n[3] = 3, e
+
+58
+00:03:53,315 --> 00:03:59,459
+n[4] = n[L] = 1 esse é o número de saídas
+
+59
+00:03:59,459 --> 00:04:04,101
+porque o L maiúsculo é igual a 4.
+
+60
+00:04:04,101 --> 00:04:08,878
+Para se referir a camada de entrada
+
+61
+00:04:08,878 --> 00:04:13,003
+n[0] = nx = 3.
+
+62
+00:04:13,003 --> 00:04:17,879
+Então essa é a notação que usaremos para
+descrever o número de nós
+
+63
+00:04:17,879 --> 00:04:18,463
+nas diferentes camadas
+
+64
+00:04:18,463 --> 00:04:23,913
+Para cada camada L, usaremos a[l]
+
+65
+00:04:23,913 --> 00:04:30,196
+para denotar ativações na camada l.
+
+66
+00:04:30,196 --> 00:04:34,669
+E você verá mais tarde, que em propagação para frente,
+
+67
+00:04:34,669 --> 00:04:40,791
+você calculou a[l] como ativação de g(z[l]) e
+
+68
+00:04:40,791 --> 00:04:46,440
+talvez a ativação também esteja indexada pela camada l,
+
+69
+00:04:46,440 --> 00:04:51,736
+e então usaremos W[l] para denotar os pesos para
+
+70
+00:04:51,736 --> 00:04:55,973
+calcular os valores z[l] na camada l e,
+
+71
+00:04:55,973 --> 00:05:00,714
+do mesmo modo, b[l] é usado para calcular z[l].
+
+72
+00:05:00,714 --> 00:05:07,114
+Finalmente, unindo as notações,
+a entrada de recursos é chamada de x,
+
+73
+00:05:07,114 --> 00:05:12,215
+mas x é também a ativação
+da camada zero. Assim a[0] = x,
+
+74
+00:05:12,215 --> 00:05:17,133
+e a ativação da camada final,
+a[L] = ŷ.
+
+75
+00:05:17,133 --> 00:05:25,275
+Então, a[L] é igual a saída predita,
+da predição ŷ para a rede neural.
+
+76
+00:05:25,275 --> 00:05:28,200
+Assim, agora você sabe com o que uma rede
+neural se parece,
+
+77
+00:05:28,200 --> 00:05:32,427
+e essa é a notação que usaremos
+para descrever e calcular usando redes neurais.
+
+78
+00:05:32,427 --> 00:05:36,457
+Eu sei que introduzimos uma série de notações
+nesse vídeo, mas se você por acaso esquecer
+
+79
+00:05:36,457 --> 00:05:40,916
+o significado de alguns símbolos, também colocamos
+no site do curso uma planilha de notações ou
+
+80
+00:05:40,916 --> 00:05:45,089
+um guia de notações, que você pode usar
+pare verificar o que esses símbolos significam.
+
+81
+00:05:45,089 --> 00:05:48,958
+A seguir, eu gostaria de descrever o que
+significa propagação para frente
+
+82
+00:05:48,958 --> 00:05:49,620
+nesse tipo de rede.
+
+83
+00:05:49,620 --> 00:05:51,019
+Vamos para o próximo vídeo.

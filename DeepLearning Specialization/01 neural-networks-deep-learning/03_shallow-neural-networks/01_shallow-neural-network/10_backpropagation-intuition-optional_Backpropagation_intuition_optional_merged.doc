@@ -1,0 +1,423 @@
+<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:w10="urn:schemas-microsoft-com:office:word" xmlns:m="http://schemas.microsoft.com/office/omml/2004/12/core" xmlns:ve="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:o12="http://schemas.microsoft.com/office/2004/7/core" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:wp="http://schemas.openxmlformats.org/drawingml/2006/3/wordprocessingDrawing" xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/3/main" xmlns="http://www.w3.org/TR/REC-html40">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <head>
+    <style>style</style>
+  </head>
+  <body>
+    <div class="Section1">
+      <p>
+        <b>
+          <u>
+            <span style="font-size:20.0pt">Backpropagation intuition (optional)</span>
+          </u>
+        </b>
+      </p>
+      <p>
+(SPEECH)        <br/>
+In        <br/>
+      </p>
+      <p>
+(DESCRIPTION)        <br/>
+Text, Deep learning dot AI. One hidden layer Neural Network. Backpropagation intuition (Optional). A man speaks to camera        <br/>
+      </p>
+      <p>
+(SPEECH)        <br/>
+the last video, you saw the equations for back propagation.        <br/>
+      </p>
+      <p>
+In this video, let's go over some intuition using the computation graph for how those equations were derived.        <br/>
+      </p>
+      <p>
+This video is completely optional.        <br/>
+      </p>
+      <p>
+So, feel free to watch or not.        <br/>
+      </p>
+      <p>
+You should be able to do the whole work either way.        <br/>
+      </p>
+      <p>
+So, recall that when we talk about logistic regression, we had this forward pass where we compute Z, then A and then the loss.        <br/>
+      </p>
+      <p>
+And        <br/>
+      </p>
+      <p>
+(DESCRIPTION)        <br/>
+Text, Computing gradients. Logistic regression. A flow chart with x, w, b feeding into z equals w raised to the t times x plus b. Next step, a equals sigma of z. Next step, L of a comma y        <br/>
+      </p>
+      <p>
+(SPEECH)        <br/>
+then to take the derivatives, we had this backward pass where we could first compute DA, and then go on to compute DZ, and then go on to compute DW and DB.        <br/>
+      </p>
+      <p>
+(DESCRIPTION)        <br/>
+Backwards arrow from L of a comma y to a equals sigma of z. D.a. underneath. Arrow back to previous step, z equals w to the t times x plus b, with dz underneath. Arrows back from there to dw and db.        <br/>
+      </p>
+      <p>
+(SPEECH)        <br/>
+So, the definition for the loss was L of A, Y equals negative Y log A minus one, minus Y times log one minus A.        <br/>
+      </p>
+      <p>
+So, if you are familiar with calculus and you take the derivative of this with respect to A, that would give you the formula for DA.        <br/>
+      </p>
+      <p>
+So, DA is equal to that.        <br/>
+      </p>
+      <p>
+And if we actually figure out the calculus you could show that this is negative Y over A plus one minus Y over one minus A.        <br/>
+      </p>
+      <p>
+You just kind of divide that from calculus by taking derivatives of this.        <br/>
+      </p>
+      <p>
+It turns out when you take another step backwards to compute DZ, we did work out that DZ is equal to A minus Y. I did explain why previously, but it turns out that from the chamber of calculus DZ is equal to DA times G prime of Z.        <br/>
+      </p>
+      <p>
+Where here G of Z equals sigmoid of Z is our activation function for this output unit in logistic regression, right?        <br/>
+      </p>
+      <p>
+So, just remember this is still logistic regression where we have X1, X2, X3 and then just one sigmoid unit and that gives us A, will gives us Y end.        <br/>
+      </p>
+      <p>
+(DESCRIPTION)        <br/>
+Flow chart with x1, x2, x3 flowing to sigma flowing to y hat, which is equal to a.        <br/>
+      </p>
+      <p>
+(SPEECH)        <br/>
+So, here are the activation function was a sigmoid function.        <br/>
+      </p>
+      <p>
+And as an aside, only for those of you familiar with the chamber of calculus the reason for this is because A is equal to sigmoid of Z.        <br/>
+      </p>
+      <p>
+And so, partial of L with respect to Z is equal to partial of L with respect to A times DA, DZ.        <br/>
+      </p>
+      <p>
+This is A is equal to sigmoid of Z, this is equal to DDZ, G of Z, which is equal to G prime of Z.        <br/>
+      </p>
+      <p>
+So, that's why this expression which is DZ in our code is equal to this expression which is DA in our code times G prime of Z.        <br/>
+      </p>
+      <p>
+And so this is just that.        <br/>
+      </p>
+      <p>
+So, that last derivation would made sense only if you're familiar with calculus and specifically the chamber from calculus.        <br/>
+      </p>
+      <p>
+But if not don't worry about it.        <br/>
+      </p>
+      <p>
+I'll try to explain the intuition wherever it's needed.        <br/>
+      </p>
+      <p>
+And then finally having computed DZ for this regression, we will compute DW which turns out was DZ times X and DB which is just DZ when you have a single training example.        <br/>
+      </p>
+      <p>
+So, that was logistic regression.        <br/>
+      </p>
+      <p>
+So, what we're going to do when computing back propagation for a neural network is a calculation a lot like this but only we'll do it twice because now we have not X going to an output unit, but X going to a hidden layer and then going to an output unit.        <br/>
+      </p>
+      <p>
+And so instead of this computation being sort of one step as we have here, we'll have you two steps here in this kind of a neural network with two layers.        <br/>
+      </p>
+      <p>
+(DESCRIPTION)        <br/>
+Neural network gradients        <br/>
+      </p>
+      <p>
+(SPEECH)        <br/>
+So, in this two layer neural network that is we have the input layer, a hidden layer and then output layer.        <br/>
+      </p>
+      <p>
+Remember the steps of a computation.        <br/>
+      </p>
+      <p>
+(DESCRIPTION)        <br/>
+Flow chart. X, w1, b1 feed into z1 equals w1x plus b1. Next step, a1 equals sigma of z1. W2 and b2 join the next step, z2 equals w2 times a1 plus b2. Next step, a2 equals sigma of z2. Final step, L of a2 comma y        <br/>
+      </p>
+      <p>
+(SPEECH)        <br/>
+First you compute Z1 using this equation, and then compute A1 and then you compute Z2.        <br/>
+      </p>
+      <p>
+And notice Z2 also depends on the parameters W2 and B2.        <br/>
+      </p>
+      <p>
+And then based on Z2, compute A2 and then finally that gives you the loss.        <br/>
+      </p>
+      <p>
+What backpropagation does is it will go backward to compute DA2 and then DZ2, and then you go back to compute DW2 and DP2, go backwards to compute DA1, DZ1 and so on.        <br/>
+      </p>
+      <p>
+We don't need to take the riveter as respect to the input X since the input X for supervised learning suffix.        <br/>
+      </p>
+      <p>
+We're not trying to optimize X so we won't bother to take the riveters.        <br/>
+      </p>
+      <p>
+At least, for supervised learning, we respect X. I'm going to skip explicitly computing DA2.        <br/>
+      </p>
+      <p>
+If you want, you can actually compute DA2 and then use that to compute DZ2 but, in practice, you could collapse both of these steps into one step so you end up at DZ2= A2-Y, same as before.        <br/>
+      </p>
+      <p>
+And, you have also, I'm going to write DW2 and DB2 down here below.        <br/>
+      </p>
+      <p>
+You have that DW2=DZ2*A1, transpose, and DB2=DZ2.        <br/>
+      </p>
+      <p>
+This step is quite similar for logistic regression where we had that DW=DZ*X except that now, A1 plays the role of X and there's an extra transpose there because the relationship between the capital matrix W and our individual parameters W, there's a transpose there, right?        <br/>
+      </p>
+      <p>
+Because W=[---] in the case of the logistic regression with a single output.        <br/>
+      </p>
+      <p>
+DW2 is like that, whereas, W here was a column vector so that's why it has an extra transpose for A1, whereas, we didn't for X here for logistic regression.        <br/>
+      </p>
+      <p>
+This completes half of backpropagation.        <br/>
+      </p>
+      <p>
+Then, again, you can compute DA1 if you wish.        <br/>
+      </p>
+      <p>
+Although, in practice, the computation for DA1 and the DZ1 are usually collapsed into one step and so what you'll actually implement is that DZ1=W2, transpose *DZ2, and then times an element Y's product of G1 prime of Z1.        <br/>
+      </p>
+      <p>
+And, just to do a check on the dimensions, right?        <br/>
+      </p>
+      <p>
+If you have a new network that looks like this, I'll put Y if so.        <br/>
+      </p>
+      <p>
+If you have N0, NX=N0 input features, N1 head in units, and N2 so far.        <br/>
+      </p>
+      <p>
+N2, in our case, just one output unit, then the matrix W2 is (N2,N1) dimensional, Z2 and therefore DZ2 are going to be (N2,N1) by one dimensional.        <br/>
+      </p>
+      <p>
+This really is going to be a one by one when we are doing binary classification, and Z1 and therefore also DZ1 are going to be N1 by one dimensional, right?        <br/>
+      </p>
+      <p>
+Note that for any variable foo and D foo always have the same dimension.        <br/>
+      </p>
+      <p>
+That's why W and DW always have the same dimension and similarly, for B and DB and Z and DZ and so on.        <br/>
+      </p>
+      <p>
+To make sure that the dimensions of this all match up, we have that DZ1=W2 transpose times DZ2 and then this is an element Y's product times G1 prime of Z1.        <br/>
+      </p>
+      <p>
+Matching the dimensions from above, this is going to be N1 by one=W2 transpose, we transpose of this so there's going to be N1 by N2 dimensional.        <br/>
+      </p>
+      <p>
+DZ2 is going to be N2 by one dimensional and then this, this is the same dimension as Z1.        <br/>
+      </p>
+      <p>
+This is also N1 by one dimensional so element Y's product.        <br/>
+      </p>
+      <p>
+The dimensions do make sense, right?        <br/>
+      </p>
+      <p>
+N1 by one dimensional vector can be obtained by N1 by N2 dimensional matrix times N2 by N1 because the product of these two things gives you an N1 by one dimensional matrix and so this becomes the element Y's product of two N1 by one dimensional vectors, and so the dimensions do match.        <br/>
+      </p>
+      <p>
+One tip when implementing a back prop.        <br/>
+      </p>
+      <p>
+If you just make sure that the dimensions of your matrices match up, so you think through what are the dimensions of the various matrices including W1, W2, Z1, Z2, A1, A2 and so on and just make sure that the dimensions of these matrix operations match up, sometimes that will already eliminate quite a lot of bugs in back prop.        <br/>
+      </p>
+      <p>
+All right. This gives us the DZ1 and then finally, just to wrap up DW1 and DB1, we should write them here I guess, but since I'm running of the space right on the right of the slight, DW1 and DB1 are given by the following formulas.        <br/>
+      </p>
+      <p>
+(DESCRIPTION)        <br/>
+dW1        <br/>
+      </p>
+      <p>
+(SPEECH)        <br/>
+This is going to be equal to the DZ1 times X transpose and        <br/>
+      </p>
+      <p>
+(DESCRIPTION)        <br/>
+db1        <br/>
+      </p>
+      <p>
+(SPEECH)        <br/>
+this is going to be equal to DZ.        <br/>
+      </p>
+      <p>
+You might notice a similarity between these equations and these equations, which is really no coincidence because X plays the role of A0 so X transpose is A0 transpose.        <br/>
+      </p>
+      <p>
+Those equations are actually very similar.        <br/>
+      </p>
+      <p>
+That gives a sense for how backpropagation is derived.        <br/>
+      </p>
+      <p>
+We have six key equations here for DZ2, DW2, DB2, DZ1,DW1 and D1.        <br/>
+      </p>
+      <p>
+Let me just take these six equations and copy them over to the next slide. Here they are.        <br/>
+      </p>
+      <p>
+(DESCRIPTION)        <br/>
+Summary of gradient descent. dz2 equals a2 minus y. dw2 equals dz2 times a1 transposed. db2 equals dz2. dz1 equals W2 transposed times dz2 times g1 prime of z1. dW2 equals dz1 times x transposed. db1 equals dz1.        <br/>
+      </p>
+      <p>
+(SPEECH)        <br/>
+So far, we have to write backpropagation, for if you are training on a single training example at the time, but it should come as no surprise that rather than working on a single example at a time, we would like to vectorize across different training examples.        <br/>
+      </p>
+      <p>
+(DESCRIPTION)        <br/>
+Vectorized implementation        <br/>
+      </p>
+      <p>
+(SPEECH)        <br/>
+We remember that for propagation, when we're operating on one example at a time, we had equations like this as was say A1=G1 of Z1.        <br/>
+      </p>
+      <p>
+(DESCRIPTION)        <br/>
+z1 equals w1 times x plus b1. a1 equals g1 of z1.        <br/>
+      </p>
+      <p>
+(SPEECH)        <br/>
+In order to vectorize, we took say the Zs and stacked them up in columns like this onto Z1M and call this capital Z.        <br/>
+      </p>
+      <p>
+(DESCRIPTION)        <br/>
+Capital Z1 is lowercase z1 1, lowercase z1 2, through to lowercase z 1 m        <br/>
+      </p>
+      <p>
+(SPEECH)        <br/>
+Then we found that by stacking things up in columns and defining the capital uppercase version of this, we then just had Z1=W1 X + B and A1=G1 of Z1, right?        <br/>
+      </p>
+      <p>
+(DESCRIPTION)        <br/>
+Capital Z1, capital W1, capital X, capital A        <br/>
+      </p>
+      <p>
+(SPEECH)        <br/>
+We define the notation very carefully in this course to make sure that stacking examples into different columns of a matrix makes all this work out.        <br/>
+      </p>
+      <p>
+It turns out that if you go through the math carefully, the same trick also works for backpropagation so the vectorize equations are as follows.        <br/>
+      </p>
+      <p>
+First, if you take these DZs for different training examples and stack them as the different columns of a matrix and the same for this and the same for this, then this is the vectorize implementation and        <br/>
+      </p>
+      <p>
+(DESCRIPTION)        <br/>
+all capital letters. dZ 2 equals A2 minus Y        <br/>
+      </p>
+      <p>
+(SPEECH)        <br/>
+then here's the definition for, or here's how you can compute DW2.        <br/>
+      </p>
+      <p>
+There        <br/>
+      </p>
+      <p>
+(DESCRIPTION)        <br/>
+d capital W2 equals 1 over m times d capital Z 2 times capital A1 transposed        <br/>
+      </p>
+      <p>
+(SPEECH)        <br/>
+is this extra 1/M because the cost function J is this 1/M of sum for Y = one through M of the losses.        <br/>
+      </p>
+      <p>
+(DESCRIPTION)        <br/>
+J equals 1 over m of sum for y equals 1 of the losses for y hat, comma y        <br/>
+      </p>
+      <p>
+(SPEECH)        <br/>
+When computing the riveters, we have that extra 1/M term just as we did when we were computing the wait up days for the logistic regression.        <br/>
+      </p>
+      <p>
+That's the update you get for DB2.        <br/>
+      </p>
+      <p>
+(DESCRIPTION)        <br/>
+d b 2 equals 1 over m times np dot sum of d capital Z2, axis equals 1, keepdims equals True        <br/>
+      </p>
+      <p>
+(SPEECH)        <br/>
+Again, some of the DZs and then with a 1/M and then DZ1 is computed as follows.        <br/>
+      </p>
+      <p>
+(DESCRIPTION)        <br/>
+d capital Z 1 equals capital W2 transposed times d capital Z2 times g1 prime of capital Z1        <br/>
+      </p>
+      <p>
+(SPEECH)        <br/>
+Once again, this is an element Y's product only whereas previously, we saw on the previous slide that this was an N1 by one dimensional vector.        <br/>
+      </p>
+      <p>
+Now,        <br/>
+      </p>
+      <p>
+(DESCRIPTION)        <br/>
+Underlines both d lowercase z1 and d capital Z1        <br/>
+      </p>
+      <p>
+(SPEECH)        <br/>
+this is a N1 by M dimensional matrix.        <br/>
+      </p>
+      <p>
+(DESCRIPTION)        <br/>
+Underlines capital W2 times d capital Z2 and g1 prime of capital Z1, the two parts of d capital Z of 1        <br/>
+      </p>
+      <p>
+(SPEECH)        <br/>
+Both of these are also N1 by M dimensional.        <br/>
+      </p>
+      <p>
+That's why that asterisk is element Y's product and then finally, the remaining two updates.        <br/>
+      </p>
+      <p>
+(DESCRIPTION)        <br/>
+d capital W 1 equals 1 over m dimtes d capital Z 1 times capital X transposed. db1 equals 1 over m times np dot sum of d capital Z1, axis equals 1, keepdims equals True        <br/>
+      </p>
+      <p>
+(SPEECH)        <br/>
+Perhaps it shouldn't look too surprising.        <br/>
+      </p>
+      <p>
+I hope that gives you some intuition for how the backpropagation algorithm is derived.        <br/>
+      </p>
+      <p>
+In all of machine learning, I think the derivation of the backpropagation algorithm is actually one of the most complicated pieces of math I've seen, and it requires knowing both linear algebra as well as the derivative of matrices to re-derive it from scratch from first principles.        <br/>
+      </p>
+      <p>
+If you are an expert in matrix calculus, using this process, you might prove the derivative algorithm yourself, but I think there are actually plenty of deep learning practitioners that have seen the derivation at about the level you've seen in this video and are already able to have all the very intuitions and be able to implement this algorithm very effectively.        <br/>
+      </p>
+      <p>
+If you are an expert in calculus, do see if you can derive the whole thing from scratch.        <br/>
+      </p>
+      <p>
+It is one of the very hardest pieces of math.        <br/>
+      </p>
+      <p>
+One of the very hardest derivations that I've seen in all of machine learning.        <br/>
+      </p>
+      <p>
+Either way, if you implement this, this will work and I think you have enough intuitions to tune and get it to work.        <br/>
+      </p>
+      <p>
+There's just one last detail I want to share with you before you implement your neural network, which is how to initialize the weights of your neural network.        <br/>
+      </p>
+      <p>
+It turns out that initializing your parameters, not to zero but randomly, turns out to be very important for training your neural network.        <br/>
+      </p>
+      <p>
+In the next video, you'll see why.        <br/>
+      </p>
+    </div>
+  </body>
+</html>

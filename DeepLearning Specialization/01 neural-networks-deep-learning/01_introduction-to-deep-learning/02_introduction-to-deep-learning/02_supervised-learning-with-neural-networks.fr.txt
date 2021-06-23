@@ -1,0 +1,121 @@
+- Il y a eu beaucoup de bruit autour 
+des réseaux de neurones, et sans doute qu'une partie
+ de ce bruit est justifié au vu de leurs performances. 
+Mais en fait, jusqu'ici, toute la valeur économique 
+qu'ils ont créée l'a été avec un seul type d'apprentissage automatique
+ appelé apprentissage supervisé. Voyons ce que cela signifie avec quelques
+ exemples. En apprentissage supervisé, vous avez des entrées x et vous
+ voulez apprendre une fonction qui les fasse correspondre à des sorties y. 
+Nous venons de voir par exemple l'application de prédiction des prix
+ immobiliers, où vous entrez les
+ caractéristiques d'une maison et elle estime le prix y. 
+Voici d'autres exemples où les réseaux de neurones ont été très efficaces. L'application 
+probablement la plus lucrative de l'apprentissage profond aujourd'hui 
+est la publicité en ligne, peut être pas la plus inspirante, mais
+ certainement la plus rentable. Lorsque l'on entre des informations sur une pub qu'un 
+site web envisage d'afficher, et quelques informations sur l'utilisateur, les réseaux 
+de neurones sont devenus très bons pour prédire si vous allez cliquer dessus ou non. 
+Et montrer à l'utilisateur les pubs sur lesquelles il est susceptibles de cliquer
+ s'est révélé une application très lucrative des réseaux de neurones 
+dans de nombreuses entreprises. Parce que la possibilité de 
+vous montrer des pubs sur
+ lesquelles vous êtes le plus susceptible de cliquer a un impact direct
+ sur les revenus des compagnies de publicité en ligne.
+ La vision par ordinateur a aussi avancé à grands pas ces dernières années principalement grâce à 
+l'apprentissage profond. 
+Vous avez une image en entrée et vous voulez en sortie 
+un index, disons de 1 à 1000 qui vous dit si cette image représente l'une des
+ 1000 images différentes. Vous pouvez utiliser ça pour identifier les
+ photos. Je pense que les progrès récents en reconnaissance vocale sont aussi
+ enthousiasmants. Vous pouvez entrer un clip audio dans
+ un réseau de neurones et avoir en sortie la transcription du texte. 
+La traduction automatique a aussi fait beaucoup de progrès grâce à 
+l'apprentissage profond. Vous pouvez
+ donner une phrase en anglais à un réseau de neurones et, directement, obtenir cette phrase en chinois.
+ Et dans la conduite autonome, vous pouvez entrer une image de
+ ce qui est devant votre voiture et des données d'un radar, et
+ à partir de ça, un réseau de neurones peux être entraîné à vous donner la position des autres voitures sur
+ la route. Ca devient un composant clé dans les systèmes de conduite autonome. 
+Donc beaucoup de la valeur créée par des réseaux de neurones l'a été 
+en choisissant intelligemment x et y pour votre problème et en intégrant ce composant d'apprentissage 
+supervisé dans un système plus grand, comme un véhicule autonome.
+ Il se trouve que des réseaux de neurones légèrement différents sont utiles pour d'autres applications.
+ Dans l'exemple immobilier de la première vidéos, 
+nous avons utilisé une architecture relativement standard pour 
+un réseau de neurones, de même que pour la publicité en ligne, 
+on utilise des réseaux assez standards, comme celui qu'on a vu. Pour les 
+applications avec des images, on utilise souvent des réseaux de neurones convolutifs, en abrégé CNN.
+[Convolutional Neural Networks] Et pour les données séquentielles,
+ par exemple l'audio, on a une composante temporelle, 
+l'audio est joué dans le temps, donc l'audio est naturellement représenté
+ par une série à 1 dimension temporelle, c'est à dire une séquence temporelle
+ à une dimension. Et pour les données séquentielles, 
+on utilise souvent des RNNs, des réseaux de neurones récurrents
+[Recurrent Neural Network].
+Pour le langage, l'anglais, le chinois, les lettres ou les mots viennent un par un,
+ donc le langage est aussi naturellement
+ représenté comme des données séquentielles Et des versions plus complexes des RNNs
+ sont souvent utilisées pour ces applications. Puis, pour des applications plus complexes comme la conduite autonome, où vous avez une image, plus complexes comme la conduite 
+autonome, où vous traitez des images, on utilise plutôt une structure CNN, 
+réseau de neurone convolutif et pour les infos radar, qui sont 
+des données assez particulières, on peux utiliser des réseaux plus
+ spécifiques, ou une architecture plus complexe ou hybride. 
+Pour être un peu plus concret sur ce que sont les architectures CNN et RNN standard,
+ dans la littérature, vous trouvez des images comme celle-ci. Ceci est un
+ réseau de neurones standard. Vous avez peut être vu ce genre 
+d'image, c'est un exemple de réseau de neurones convolutif, et 
+nous verrons dans un prochain cours exactement ce que cette image signifie
+ et comment implémenter ça.
+ Les réseaux convolutifs sont souvent utilisés quand les données 
+sont des images, et vous verrez aussi des images 
+comme celle ci et vous apprendrez comment implémenter ça 
+dans un autre cours. Les réseaux de neurones récurrents
+ sont très efficaces pour ce genre de 
+données séquentielles à une dimension, qui ont peut être une composante
+ temporelle. Vous avez peut être entendu parler d'applications de l'apprentissage
+ automatique avec des données structurées ou non structurées. Voici ce que
+ ces termes signifient. Les données structurées sont en fait des bases
+ de données. Dans l'exemple immobilier, vous avez une base de données 
+avec une colonne pour le nombre ou la taille des chambres. 
+Ce sont des données structurées. Pour prédire si un utilisateur 
+va cliquer sur une pub, vous connaissez par exemple son age, vous avez
+ des informations sur la publicité, et puis les étiquettes y que vous essayez de
+ prédire. Ce sont des données structurées, c'est à dire que chaque caractéristique, telle la taille de la maison, le nombre 
+de chambre, l'âge de l'utilisateur, a une signification bien définie.
+ Au contraire, les données non structurées sont des choses comme de l'audio brut, ou
+ une image et vous essayez de reconnaître ce qu'elle représente, ou du texte.
+ Ici, les caractéristiques peuvent être les valeurs 
+des pixels d'une image ou chacun des mots d'un texte. Historiquement, c'était beaucoup plus 
+difficile pour les ordinateurs de comprendre les données non structurées, 
+par rapport aux données structurées.
+ Et en fait, les humains ont évolué jusqu'à devenir
+ très bons pour comprendre des signaux audio et des images. Le texte est une invention
+ plus récente, mais nous sommes vraiment bons pour interpréter
+ des données non structurées. Et une des
+ choses plus plus enthousiasmantes dans la montée de l'apprentissage automatique,
+ c'est qu'il permet, l'apprentissage profond permet aux ordinateur d'interpréter beaucoup
+ mieux les données non structurées, par rapport à ce qu'on pouvait faire il y a
+ quelques années. Et cela crée des opportunités pour beaucoup de nouvelles applications,
+ comme la reconnaissance vocale, reconnaissance des images, traitement du langage
+ naturel sur du texte, qu'on ne savait pas faire il y a encore 2 ou 3 ans.
+ Je pense que, parce que les gens ont une empathie naturelle pour comprendre les
+ données non structurées, vous entendrez plus parler dans les médias des succès des réseaux de
+ neurones sur des données non structurées parce que c'est juste cool quand 
+un réseau de neurone reconnait un chat. Nous aimons cela et nous 
+comprenons ce que ça signifie. Mais beaucoup de la valeur économique créée 
+par les réseaux de neurones l'a aussi été sur des données structurées, 
+comme un meilleur ciblage publicitaire, de meilleures recommandations de 
+produits et une meilleure capacité à exploiter les bases de données géantes
+ de beaucoup d'entreprises pour en sortir des prédictions justes.
+ Donc, dans ce cours, beaucoup des techniques que nous
+ allons voir s'appliquent à la fois sur des données structurées 
+et non structurées, dans le but d'expliquer les algorithmes,
+ nous utiliserons plus d'exemples avec des données non structurées. Mais 
+quand vous chercherez des applications de réseaux de neurones avec votre équipe, 
+je pense que vous saurez les appliquer sur des données structurées 
+aussi bien que non structurées. Les réseaux de neurones ont 
+transformé l'apprentissage supervisé, en créant énormément de valeur économique. En fait, les idées de base derrière les 
+réseaux de neurones existent depuis longtemps, parfois des décennies. 
+Alors pourquoi cette technique ne décolle-t-elle que maintenant, si elle
+ est si efficace ? Dans la prochaine vidéo, nous expliquerons pourquoi cet outil formidable
+ ne s'est développé que récemment.

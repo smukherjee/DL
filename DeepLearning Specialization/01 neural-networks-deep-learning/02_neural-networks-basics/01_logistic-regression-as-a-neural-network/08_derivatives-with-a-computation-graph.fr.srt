@@ -1,0 +1,894 @@
+1
+00:00:00,510 --> 00:00:01,280
+Dans la dernière vidéo,
+
+2
+00:00:01,280 --> 00:00:06,130
+nous avons vu l’utilisation d’un graphe
+ de calcul pour calculer une fonction J.
+
+3
+00:00:06,130 --> 00:00:09,311
+Maintenant, reprenons une version
+ propre de ce graphe de calcul
+
+4
+00:00:09,311 --> 00:00:13,990
+et voyons comment on peux l’utiliser
+ pour comprendre les calculs de dérivées pour
+
+5
+00:00:13,990 --> 00:00:15,252
+cette fonction J.
+
+6
+00:00:15,252 --> 00:00:17,292
+Donc, voici un graphe de calcul.
+
+7
+00:00:17,292 --> 00:00:22,280
+Disons que vous voulez calculer 
+la dérivée de J par rapport à v.
+
+8
+00:00:23,440 --> 00:00:24,126
+De quoi s'agit-il ?
+
+9
+00:00:24,126 --> 00:00:27,800
+Bien, ceci dit, si nous prenons 
+cette valeur de v et
+
+10
+00:00:27,800 --> 00:00:32,360
+que nous la changeons un peu, comment
+ la valeur de J va-t-elle changer ?
+
+11
+00:00:32,360 --> 00:00:37,553
+Eh bien, J est défini comme 3 fois v.
+
+12
+00:00:37,553 --> 00:00:42,895
+Et maintenant, v = 11.
+
+13
+00:00:42,895 --> 00:00:48,348
+Donc, si nous augmentons un peu v
+ par exemple jusqu'à 11.001,
+
+14
+00:00:48,348 --> 00:00:52,524
+alors J, qui est 3v, donc actuellement 33,
+
+15
+00:00:52,524 --> 00:00:56,130
+augmentera jusqu'à 33,003.
+
+16
+00:00:56,130 --> 00:00:59,123
+Donc ici, nous avons augmenté v de 0,001,
+
+17
+00:00:59,123 --> 00:01:03,640
+et le résultat est que
+ J augmente 3 fois plus.
+
+18
+00:01:03,640 --> 00:01:08,099
+Donc la dérivée de J 
+par rapport à v est égale à 3,
+
+19
+00:01:08,099 --> 00:01:12,590
+parce que l’augmentation J est
+ 3 fois l’augmentation de v.
+
+20
+00:01:12,590 --> 00:01:18,221
+Et en fait, c’est très semblable à l’exemple
+
+21
+00:01:18,221 --> 00:01:24,670
+que nous avions dans la vidéo précédente,
+ où nous avions f(a) = 3a,
+
+22
+00:01:24,670 --> 00:01:30,765
+que nous avons dérivé pour obtenir
+ df(a)/da, ou 
+
+23
+00:01:30,765 --> 00:01:36,740
+écrit sous une forme un peu simplifiée, 
+ df/da, était égal à 3.
+
+24
+00:01:36,740 --> 00:01:41,829
+Donc au lieu de cela, nous avons ici J = 3v,
+
+25
+00:01:41,829 --> 00:01:44,825
+et donc dJ/dv = 3.
+
+26
+00:01:44,825 --> 00:01:51,713
+Avec ici, J jouant le rôle de f, et
+
+27
+00:01:51,713 --> 00:01:58,323
+v jouant le rôle du a 
+de l'exemple de la vidéo précédente.
+
+28
+00:01:58,323 --> 00:02:03,595
+Donc en terme de rétro-propagation,
+nous voyons ici que 
+
+29
+00:02:03,595 --> 00:02:09,617
+si nous voulons calculer la dérivée 
+de cette variable de sortie finale,
+
+30
+00:02:09,617 --> 00:02:13,475
+qui est généralement la variable 
+qui nous intéresse le plus,
+
+31
+00:02:13,475 --> 00:02:18,790
+par rapport à v, alors nous avons fait 
+un pas de rétro-propagation,
+
+32
+00:02:18,790 --> 00:02:22,240
+un pas en arrière dans ce graphe.
+
+33
+00:02:22,240 --> 00:02:24,280
+Prenons un autre exemple.
+
+34
+00:02:24,280 --> 00:02:28,180
+Que vaut dJ/da ?
+En d’autres termes, si nous modifions
+
+35
+00:02:28,180 --> 00:02:33,670
+ la valeur de a, comment cela
+ affecte-t-il la valeur de J ?
+
+36
+00:02:35,420 --> 00:02:39,965
+Calculons sur cet exemple. Ici, a = 5,
+
+37
+00:02:39,965 --> 00:02:42,850
+augmentons le à 5.001
+
+38
+00:02:42,850 --> 00:02:48,790
+Le résultat de cela est que v, qui est égal à
+ a + u, et valait précédemment 11,
+
+39
+00:02:48,790 --> 00:02:52,359
+va augmenter à 11.001.
+
+40
+00:02:52,359 --> 00:02:57,224
+Et puis, nous avons déjà vu,
+ comme ci-dessus, que
+
+41
+00:02:57,224 --> 00:03:01,672
+J va monter à 33.003
+
+42
+00:03:01,672 --> 00:03:07,591
+Donc, ce que nous voyons, c’est que si nous
+ augmentons a de 0,001, J augmente de 0,003.
+
+43
+00:03:07,591 --> 00:03:11,751
+Et augmenter a, cela signifie
+ prendre cette valeur de 5 et
+
+44
+00:03:11,751 --> 00:03:14,100
+la remplacer par une autre valeur.
+
+45
+00:03:14,100 --> 00:03:17,954
+Puis le changement de a va se propager
+ vers la droite du graphe de calculs
+
+46
+00:03:17,954 --> 00:03:19,832
+jusqu'à ce que J vaille finalement 33,003.
+
+47
+00:03:19,832 --> 00:03:28,110
+Et donc l’augmentation de J est
+ 3 fois l’augmentation de a.
+
+48
+00:03:28,110 --> 00:03:31,520
+Ce qui signifie que 
+cette dérivée est égale à 3.
+
+49
+00:03:31,520 --> 00:03:37,400
+Une manière de décomposer ceci
+ est de dire que si vous changez a,
+
+50
+00:03:37,400 --> 00:03:38,910
+cela va changer v.
+
+51
+00:03:40,130 --> 00:03:43,967
+Et ce changement de v va changer J.
+
+52
+00:03:43,967 --> 00:03:49,554
+Et donc la variation nette de la valeur de J 
+quand on augmente un peu la valeur,
+
+53
+00:03:49,554 --> 00:03:54,313
+quand vous décalez un 
+petit peu la valeur de a, c’est,
+
+54
+00:03:57,699 --> 00:04:02,561
+en augmentant a, vous finissez
+ par augmenter v.
+
+55
+00:04:02,561 --> 00:04:05,850
+Et de combien v augmente-t-il ?
+
+56
+00:04:05,850 --> 00:04:11,709
+Il augmente d’une quantité
+ déterminée par dv/da.
+
+57
+00:04:11,709 --> 00:04:19,802
+Et puis le changement de v entraînera
+ l'augmentation de la valeur de J.
+
+58
+00:04:19,802 --> 00:04:27,064
+Donc, en analyse, c’est ce qu'on appelle
+ la composition des dérivées, 
+
+59
+00:04:27,064 --> 00:04:32,023
+le fait que a affecte v qui affecte J, donc
+ la variation de J quand vous modifiez a
+
+60
+00:04:32,023 --> 00:04:36,866
+est le produit de la variation 
+de v quand vous modifiez a
+
+61
+00:04:36,866 --> 00:04:42,165
+multiplié par la variation 
+de J quand vous modifiez v.
+
+62
+00:04:42,165 --> 00:04:46,225
+En analyse, on appelle ça
+ la composition des dérivées.
+
+63
+00:04:46,225 --> 00:04:52,140
+Et ce que nous avons montré avec ce calcul, 
+c’est que si vous augmentez a de 0,001,
+
+64
+00:04:52,140 --> 00:04:55,250
+v change de la même quantité.
+
+65
+00:04:55,250 --> 00:04:59,650
+Donc dv/da = 1.
+
+66
+00:04:59,650 --> 00:05:07,774
+Donc si nous reprenons ce que nous 
+avons développé précédemment, dv/dJ = 3
+
+67
+00:05:07,774 --> 00:05:11,700
+et dv/da = 1,
+
+68
+00:05:11,700 --> 00:05:14,160
+alors le produit de 3 par 1
+
+69
+00:05:14,160 --> 00:05:18,350
+vous donne la bonne valeur, 
+c'est à dire que dJ/da = 3.
+
+70
+00:05:18,350 --> 00:05:24,963
+Cette petite illustration montre 
+comment, en ayant calculé dJ/dv,
+
+71
+00:05:24,963 --> 00:05:30,183
+c'est à dire la dérivée
+ par rapport à cette variable,
+
+72
+00:05:30,183 --> 00:05:34,030
+vous pouvez calculer dJ/da.
+
+73
+00:05:34,030 --> 00:05:37,270
+Et voilà donc une autre étape 
+de ce calcul vers l'arrière.
+
+74
+00:05:39,900 --> 00:05:44,115
+Je veux juste présenter 
+une nouvelle convention de notation.
+
+75
+00:05:44,115 --> 00:05:50,005
+Quand vous écrirez le code pour 
+implémenter la rétro-propagation,
+
+76
+00:05:50,005 --> 00:05:54,675
+il y aura habituellement une variable 
+de sortie qui vous intéresse vraiment,
+
+77
+00:05:54,675 --> 00:06:01,065
+une variable de sortie finale
+ que vous voudrez optimiser.
+
+78
+00:06:01,065 --> 00:06:04,100
+Dans ce cas, cette variable 
+de sortie finale est J.
+
+79
+00:06:04,100 --> 00:06:07,460
+C’est le dernier nœud 
+dans votre graphe de calcul.
+
+80
+00:06:07,460 --> 00:06:11,870
+Et donc beaucoup de calculs vont 
+servir à calculer la dérivée de cette
+
+81
+00:06:11,870 --> 00:06:13,343
+variable de sortie finale.
+
+82
+00:06:13,343 --> 00:06:17,100
+Donc d de cette variable de sortie finale 
+par rapport à une autre variable,
+
+83
+00:06:17,100 --> 00:06:23,319
+nous allons appeler ça dvar.
+
+84
+00:06:23,319 --> 00:06:27,909
+Beaucoup des calculs que vous ferez seront 
+pour calculer la dérivée de cette variable
+
+85
+00:06:27,909 --> 00:06:32,164
+de sortie finale, J dans ce cas, par rapport
+ à diverses variables intermédiaires,
+
+86
+00:06:32,164 --> 00:06:34,520
+comme a, b, c, u ou v.
+
+87
+00:06:34,520 --> 00:06:41,280
+Et lorsque vous implémentez ceci, 
+quel nom donnez vous à ces variables ?
+
+88
+00:06:41,280 --> 00:06:44,208
+Une chose que vous
+ pourriez faire, en Python
+
+89
+00:06:44,208 --> 00:06:50,280
+vous pourriez donner un nom de variable 
+très long comme dVarSortieFinaleSurdvar.
+
+90
+00:06:50,280 --> 00:06:51,766
+Mais c’est un nom de variable très long.
+
+91
+00:06:51,766 --> 00:06:55,018
+On pourrait l'appeler, je suppose, dJdvar.
+
+92
+00:06:55,018 --> 00:06:58,929
+Mais puisque vous dérivez
+ toujours par rapport à dJ,
+
+93
+00:06:58,929 --> 00:07:03,173
+cette variable de sortie finale, 
+je vais introduire une nouvelle notation.
+
+94
+00:07:03,173 --> 00:07:09,635
+Dans le code, lorsque vous calculerez ceci, 
+dans le code que vous écrirez
+
+95
+00:07:09,635 --> 00:07:16,936
+nous allons utiliser le nom de variable 
+d-v-a-r pour représenter cette quantité.
+
+96
+00:07:16,936 --> 00:07:21,459
+Donc d-v-a-r dans votre code, 
+représentera la dérivée de
+
+97
+00:07:21,459 --> 00:07:25,444
+la variable de sortie finale qui
+ vous intéresse, par exemple J,
+
+98
+00:07:25,444 --> 00:07:29,938
+ou parfois la perte L, par rapport 
+aux différentes quantités intermédiaires
+
+99
+00:07:29,938 --> 00:07:31,795
+que vous calculez dans votre code.
+
+100
+00:07:31,795 --> 00:07:38,380
+Donc dans votre code, vous utiliserez dv
+ pour désigner cette valeur.
+
+101
+00:07:38,380 --> 00:07:42,453
+Donc dv sera égal à 3.
+
+102
+00:07:42,453 --> 00:07:46,635
+Et dans votre code, 
+vous représentez cela par da,
+
+103
+00:07:46,635 --> 00:07:51,185
+et nous avons calculé
+ que c'est aussi égal à 3.
+
+104
+00:07:51,185 --> 00:07:58,018
+Donc, nous avons fait la rétro-propagation 
+partiellement avec ce graphe de calcul.
+
+105
+00:07:58,018 --> 00:08:02,130
+Voyons le reste de cet exemple 
+sur la diapositive suivante.
+
+106
+00:08:02,130 --> 00:08:06,293
+Donc, revenons à une copie nettoyée 
+du graphe de calcul.
+
+107
+00:08:06,293 --> 00:08:09,846
+Et juste pour rappel, 
+ce que nous avons fait jusqu'ici,
+
+108
+00:08:09,846 --> 00:08:14,743
+c'est d’aller en arrière ici 
+et calculer que dv = 3.
+
+109
+00:08:14,743 --> 00:08:18,783
+Et encore une fois, la définition de dv, 
+c’est juste un nom de variable,
+
+110
+00:08:18,783 --> 00:08:20,844
+qui représente dJ/dv.
+
+111
+00:08:20,844 --> 00:08:24,303
+Nous avons calculé que da = 3.
+Et encore une fois, 
+
+112
+00:08:24,303 --> 00:08:30,470
+da est le nom de la variable dans votre 
+code et c’est en fait la valeur dJ/da.
+
+113
+00:08:32,332 --> 00:08:39,410
+Et nous avons vu à peu près comment faire 
+le chemin vers l'arrière par ces deux flèches.
+
+114
+00:08:39,410 --> 00:08:41,262
+Continuons à calculer les dérivées.
+
+115
+00:08:41,262 --> 00:08:44,129
+Maintenant regardons la valeur u.
+
+116
+00:08:44,129 --> 00:08:47,473
+Alors, que vaut dJ/du ?
+
+117
+00:08:47,473 --> 00:08:52,153
+Eh bien, grâce à un calcul semblable
+ à ce que nous avons fait avant,
+
+118
+00:08:52,153 --> 00:08:54,430
+nous commençons avec u = 6.
+
+119
+00:08:54,430 --> 00:08:57,913
+Si vous décalez u à 6.001, alors v,
+
+120
+00:08:57,913 --> 00:09:02,700
+qui valait 11, devient 11.001.
+
+121
+00:09:02,700 --> 00:09:07,978
+Et donc J change de 33 à 33,003.
+
+122
+00:09:07,978 --> 00:09:12,190
+Et ainsi l’augmentation de J
+ est de 3x, donc ceci vaut 3.
+
+123
+00:09:12,190 --> 00:09:16,760
+Et l’analyse pour u est très similaire 
+à l’analyse que nous avons faite pour a.
+
+124
+00:09:16,760 --> 00:09:23,884
+On le calcule comme dJ/dv fois dv/du,
+
+125
+00:09:23,884 --> 00:09:30,186
+où nous avons déjà vu que ça valait 3.
+
+126
+00:09:30,186 --> 00:09:33,800
+Et cela s’avère être égal à 1.
+
+127
+00:09:33,800 --> 00:09:36,950
+Donc nous avons fait une étape
+ de plus de rétro-propagation.
+
+128
+00:09:36,950 --> 00:09:42,920
+Nous avons calculé que 
+du est aussi égal à 3.
+
+129
+00:09:42,920 --> 00:09:47,240
+Et du est, bien sûr, juste ce dJ/du.
+
+130
+00:09:47,240 --> 00:09:51,570
+Maintenant nous allons juste voir 
+un dernier exemple dans le détail.
+
+131
+00:09:51,570 --> 00:09:54,137
+Que vaut dJ/db ?
+
+132
+00:09:54,137 --> 00:09:57,255
+Donc, imaginez, si vous pouvez
+ changer la valeur de b,
+
+133
+00:09:57,255 --> 00:10:01,585
+et que vous souhaitez modifier
+ un peu b afin de minimiser ou
+
+134
+00:10:01,585 --> 00:10:04,040
+de maximiser la valeur de J.
+
+135
+00:10:04,040 --> 00:10:05,340
+Alors, quelle est la dérivée,
+
+136
+00:10:05,340 --> 00:10:10,860
+quelle est la pente de cette fonction J lorsque
+ vous modifiez un peu la valeur de b ?
+
+137
+00:10:11,880 --> 00:10:15,257
+Il s’avère qu'en utilisant la règle
+ de composition des dérivées,
+
+138
+00:10:15,257 --> 00:10:18,416
+ceci peut être écrit comme
+ le produit de deux choses.
+
+139
+00:10:18,416 --> 00:10:24,720
+Ceci vaut dJ/du fois du/db.
+
+140
+00:10:24,720 --> 00:10:30,390
+Et le raisonnement est que 
+si vous modifiez b un petit peu,
+
+141
+00:10:30,390 --> 00:10:34,275
+disons que b change de 3 à 3.001,
+
+142
+00:10:34,275 --> 00:10:38,041
+cela va affecter J parce que 
+cela va d'abord affecter u.
+
+143
+00:10:38,041 --> 00:10:40,120
+Alors, de combien cela affecte-t-il u ?
+
+144
+00:10:40,120 --> 00:10:44,100
+Eh bien, u est défini comme b fois c.
+
+145
+00:10:44,100 --> 00:10:48,073
+Donc cela va changer de 6,
+
+146
+00:10:48,073 --> 00:10:53,238
+lorsque b = 3, à 6.002 maintenant,
+
+147
+00:10:53,238 --> 00:10:59,560
+parce que c = 2 dans notre exemple ici.
+
+148
+00:10:59,560 --> 00:11:05,150
+Et donc cela nous indique que du/db = 2.
+
+149
+00:11:05,150 --> 00:11:10,490
+Parce que quand on augmente b de 0,001,
+ u augmente deux fois plus.
+
+150
+00:11:10,490 --> 00:11:15,360
+du/db est donc égal à 2.
+
+151
+00:11:15,360 --> 00:11:21,430
+Maintenant, nous savons que u a augmenté
+ deux fois plus que ce que b a augmenté.
+
+152
+00:11:21,430 --> 00:11:24,460
+Et que vaut dJ/du ?
+
+153
+00:11:24,460 --> 00:11:27,447
+Nous avons déjà calculé que c'est égal à 3.
+
+154
+00:11:27,447 --> 00:11:32,850
+Et en multipliant ces deux valeurs,
+ nous trouvons que dJ/db = 6.
+
+155
+00:11:32,850 --> 00:11:36,274
+Et encore une fois, voici le raisonnement 
+pour la deuxième partie de l’argument.
+
+156
+00:11:36,274 --> 00:11:43,370
+Nous voulons savoir, quand u augmente 
+de 0,002, comment cela affecte-t-il J ?
+
+157
+00:11:43,370 --> 00:11:48,746
+Le fait que dJ/du = 3, qui nous dit que
+
+158
+00:11:48,746 --> 00:11:54,310
+quand u augmente de 0,002, 
+J augmente 3 fois plus.
+
+159
+00:11:54,310 --> 00:11:59,943
+Donc J devrait augmenter de 0,006.
+
+160
+00:11:59,943 --> 00:12:05,670
+Cela vient du fait que dJ/du = 3.
+
+161
+00:12:05,670 --> 00:12:09,351
+Et si vous vérifiez les maths en détail,
+
+162
+00:12:09,351 --> 00:12:13,891
+vous trouverez que si b devient 3.001,
+
+163
+00:12:13,891 --> 00:12:20,190
+alors u devient 6.002, v devient 11,002.
+
+164
+00:12:20,190 --> 00:12:24,064
+ceci vaut a + u, donc c’est 5 + u.
+
+165
+00:12:24,064 --> 00:12:28,450
+Et puis J, qui est égal à 3 fois v,
+
+166
+00:12:28,450 --> 00:12:33,101
+est finalement égal à 33.006.
+
+167
+00:12:33,101 --> 00:12:37,695
+Et donc c’est comme ça que
+ vous obtenez que dJ/db = 6.
+
+168
+00:12:37,695 --> 00:12:43,738
+Et pour remplir ça, si nous revenons
+ en arrière, ici, db = 6.
+
+169
+00:12:43,738 --> 00:12:50,347
+Et db est en réalité le nom de la
+ variable du code Python pour dJ/db.
+
+170
+00:12:50,347 --> 00:12:53,565
+Et je ne ferai pas le dernier exemple en détail,
+
+171
+00:12:53,565 --> 00:13:00,423
+mais si vous calculez dJ/dc,
+
+172
+00:13:00,423 --> 00:13:05,748
+qui vaut dJ/du fois du/dc,
+
+173
+00:13:05,748 --> 00:13:09,987
+vous trouverez 9, vous trouverez 3 fois 3.
+
+174
+00:13:09,987 --> 00:13:11,950
+Je ne vais pas le faire en détail.
+
+175
+00:13:11,950 --> 00:13:18,720
+Dans cette dernière étape, il est possible 
+de montrer que dc est égal à 9.
+
+176
+00:13:20,060 --> 00:13:24,634
+Donc, ce qu'il faut retenir de cette vidéo, 
+de cet exemple, est que, lors du calcul
+
+177
+00:13:24,634 --> 00:13:29,347
+de toutes ces dérivées,
+ la façon la plus efficace est
+
+178
+00:13:29,347 --> 00:13:34,221
+de calculer de droite à gauche 
+en suivant les flèches rouges.
+
+179
+00:13:34,221 --> 00:13:37,780
+Dans ce cas particulier, nous allons tout 
+d’abord calculer la dérivée par rapport à v.
+
+180
+00:13:37,780 --> 00:13:40,530
+Puis nous allons l'utiliser pour
+
+181
+00:13:40,530 --> 00:13:45,410
+calculer la dérivée par rapport à a
+ et la dérivée par rapport à u.
+
+182
+00:13:45,410 --> 00:13:48,070
+Et puis la dérivée par rapport à u,
+
+183
+00:13:48,070 --> 00:13:52,020
+ce terme ici et celui là,
+
+184
+00:13:52,020 --> 00:13:55,430
+on les utilise à leur tour pour
+ calculer les dérivées
+
+185
+00:13:55,430 --> 00:13:57,610
+par rapport à b et c.
+
+186
+00:13:57,610 --> 00:14:02,370
+Donc voilà pour le graphe de calcul et 
+comment faire un calcul vers l'avant,
+
+187
+00:14:02,370 --> 00:14:07,620
+c'est à dire de gauche à droite, 
+pour calculer la fonction de coût J
+ que vous voulez optimiser.
+
+188
+00:14:07,620 --> 00:14:12,940
+Et un calcul vers l'arrière, de droite à 
+gauche, permet de calculer les dérivées.
+
+189
+00:14:12,940 --> 00:14:15,422
+Si vous n'êtes pas à l'aise avec la composition
+ des dérivées et l'analyse fonctionnelle,
+
+190
+00:14:15,422 --> 00:14:18,382
+je sais que nous sommes allés
+ très vite sur beaucoup de détails,
+
+191
+00:14:18,382 --> 00:14:21,500
+mais ne vous inquiétez pas si
+ vous n'avez pas suivi les détails.
+
+192
+00:14:21,500 --> 00:14:22,567
+Dans la prochaine vidéo,
+
+193
+00:14:22,567 --> 00:14:26,251
+nous allons revoir tout ça dans
+ le cadre de la régression logistique.
+
+194
+00:14:26,251 --> 00:14:30,337
+et je vous montrerai exactement ce que vous
+ devez faire pour implémenter les calculs
+
+195
+00:14:30,337 --> 00:14:33,780
+de dérivées nécessaires pour 
+le modèle de la régression logistique.

@@ -1,0 +1,631 @@
+1
+00:00:03,320 --> 00:00:05,850
+-
+
+2
+00:00:05,850 --> 00:00:10,170
+Il y a eu beaucoup de bruit autour 
+des réseaux de neurones,
+
+3
+00:00:10,170 --> 00:00:11,220
+et sans doute qu'une partie
+ de ce bruit est justifié
+
+4
+00:00:11,220 --> 00:00:15,710
+au vu de leurs performances. 
+Mais en fait, jusqu'ici,
+
+5
+00:00:15,710 --> 00:00:18,970
+toute la valeur économique 
+qu'ils ont créée l'a été avec
+
+6
+00:00:18,970 --> 00:00:22,120
+un seul type d'apprentissage automatique
+ appelé apprentissage supervisé.
+
+7
+00:00:22,120 --> 00:00:26,030
+Voyons ce que cela signifie avec quelques
+ exemples. En apprentissage supervisé,
+
+8
+00:00:26,030 --> 00:00:30,210
+vous avez des entrées x et vous
+ voulez apprendre une fonction qui
+
+9
+00:00:30,210 --> 00:00:34,890
+les fasse correspondre à des sorties y. 
+Nous venons de voir par exemple
+
+10
+00:00:34,890 --> 00:00:40,850
+l'application de prédiction des prix
+ immobiliers, où vous entrez les
+ caractéristiques d'une maison
+
+11
+00:00:40,850 --> 00:00:45,180
+et elle estime le prix y. 
+Voici d'autres exemples
+
+12
+00:00:45,180 --> 00:00:46,940
+où les réseaux de neurones ont été
+
+13
+00:00:46,940 --> 00:00:51,180
+très efficaces. L'application 
+probablement la plus lucrative
+
+14
+00:00:51,180 --> 00:00:56,150
+de l'apprentissage profond aujourd'hui 
+est la publicité en ligne,
+
+15
+00:00:56,150 --> 00:01:02,770
+peut être pas la plus inspirante, mais
+ certainement la plus rentable. Lorsque l'on entre
+
+16
+00:01:02,770 --> 00:01:07,020
+des informations sur une pub qu'un 
+site web envisage d'afficher, et quelques
+
+17
+00:01:07,020 --> 00:01:10,700
+informations sur l'utilisateur, les réseaux 
+de neurones sont devenus très bons
+
+18
+00:01:10,700 --> 00:01:11,770
+pour prédire si
+
+19
+00:01:11,770 --> 00:01:15,800
+vous allez cliquer dessus ou non. 
+Et montrer à l'utilisateur les pubs
+
+20
+00:01:15,800 --> 00:01:20,830
+sur lesquelles il est susceptibles de cliquer
+ s'est révélé une application très lucrative
+
+21
+00:01:20,830 --> 00:01:24,040
+des réseaux de neurones 
+dans de nombreuses entreprises.
+
+22
+00:01:24,040 --> 00:01:26,690
+Parce que la possibilité de 
+vous montrer des pubs sur
+ lesquelles vous êtes le plus susceptible
+
+23
+00:01:26,690 --> 00:01:29,200
+de cliquer a un impact direct
+ sur les revenus
+
+24
+00:01:30,630 --> 00:01:35,150
+des compagnies de publicité en ligne.
+ La vision par ordinateur a aussi
+
+25
+00:01:35,150 --> 00:01:37,050
+avancé à grands pas ces dernières
+
+26
+00:01:37,050 --> 00:01:41,140
+années principalement grâce à 
+l'apprentissage profond. 
+Vous avez une image en entrée
+
+27
+00:01:41,140 --> 00:01:45,290
+et vous voulez en sortie 
+un index, disons de 1 à 1000
+
+28
+00:01:45,290 --> 00:01:47,300
+qui vous dit si
+
+29
+00:01:47,300 --> 00:01:50,500
+cette image représente l'une des
+ 1000 images différentes.
+
+30
+00:01:50,500 --> 00:01:54,520
+Vous pouvez utiliser ça pour identifier les
+ photos. Je pense que les progrès récents
+
+31
+00:01:54,520 --> 00:01:57,910
+en reconnaissance vocale sont aussi
+ enthousiasmants. Vous pouvez
+
+32
+00:01:57,910 --> 00:02:00,930
+entrer un clip audio dans
+ un réseau de neurones et avoir
+
+33
+00:02:00,930 --> 00:02:05,400
+en sortie la transcription du texte. 
+La traduction automatique a aussi
+
+34
+00:02:05,400 --> 00:02:09,400
+fait beaucoup de progrès grâce à 
+l'apprentissage profond. Vous pouvez
+ donner une phrase en anglais
+
+35
+00:02:09,400 --> 00:02:11,010
+à un réseau de neurones et, directement,
+
+36
+00:02:11,010 --> 00:02:15,930
+obtenir cette phrase en chinois.
+ Et dans la conduite autonome,
+
+37
+00:02:15,930 --> 00:02:20,600
+vous pouvez entrer une image de
+ ce qui est devant votre voiture et
+
+38
+00:02:20,600 --> 00:02:25,080
+des données d'un radar, et
+ à partir de ça, un réseau de neurones
+
+39
+00:02:25,080 --> 00:02:26,100
+peux être entraîné à vous donner
+
+40
+00:02:26,100 --> 00:02:30,870
+la position des autres voitures sur
+ la route. Ca devient un composant clé
+
+41
+00:02:30,870 --> 00:02:35,730
+dans les systèmes de conduite autonome. 
+Donc beaucoup de la valeur créée
+
+42
+00:02:35,730 --> 00:02:39,360
+par des réseaux de neurones l'a été 
+en choisissant intelligemment
+
+43
+00:02:39,360 --> 00:02:45,000
+x et y pour votre problème et en intégrant
+
+44
+00:02:45,000 --> 00:02:48,660
+ce composant d'apprentissage 
+supervisé dans un système
+
+45
+00:02:48,660 --> 00:02:52,880
+plus grand, comme un véhicule autonome.
+ Il se trouve que des réseaux de neurones
+
+46
+00:02:52,880 --> 00:02:54,960
+légèrement différents sont utiles
+
+47
+00:02:54,960 --> 00:03:00,100
+pour d'autres applications.
+ Dans l'exemple immobilier
+
+48
+00:03:00,100 --> 00:03:04,520
+de la première vidéos, 
+nous avons utilisé une architecture
+
+49
+00:03:04,520 --> 00:03:08,510
+relativement standard pour 
+un réseau de neurones,
+
+50
+00:03:08,510 --> 00:03:11,620
+de même que pour la publicité en ligne, 
+on utilise des réseaux assez standards,
+
+51
+00:03:13,410 --> 00:03:19,120
+comme celui qu'on a vu. Pour les 
+applications avec des images, on utilise
+
+52
+00:03:19,120 --> 00:03:20,680
+souvent des réseaux de neurones convolutifs,
+
+53
+00:03:21,730 --> 00:03:24,000
+en abrégé CNN.
+[Convolutional Neural Networks]
+
+54
+00:03:24,000 --> 00:03:27,840
+Et pour les données séquentielles,
+ par exemple l'audio,
+
+55
+00:03:27,840 --> 00:03:32,990
+on a une composante temporelle, 
+l'audio est joué dans le temps, donc
+
+56
+00:03:32,990 --> 00:03:38,110
+l'audio est naturellement représenté
+ par une série à 1 dimension temporelle,
+
+57
+00:03:38,110 --> 00:03:42,420
+c'est à dire une séquence temporelle
+ à une dimension. Et pour
+
+58
+00:03:42,420 --> 00:03:45,810
+les données séquentielles, 
+on utilise souvent des RNNs,
+
+59
+00:03:45,810 --> 00:03:50,270
+des réseaux de neurones récurrents
+[Recurrent Neural Network].
+Pour le langage, l'anglais, le chinois,
+
+60
+00:03:50,270 --> 00:03:54,820
+les lettres ou les mots viennent un par un,
+ donc le langage est aussi naturellement
+ représenté comme des données séquentielles
+
+61
+00:03:54,820 --> 00:04:00,700
+Et des versions plus complexes des RNNs
+ sont souvent utilisées pour ces applications.
+
+62
+00:04:00,700 --> 00:04:04,360
+Puis, pour des applications plus complexes comme la conduite autonome, où vous avez une image,
+
+63
+00:04:04,360 --> 00:04:09,200
+plus complexes comme la conduite 
+autonome, où vous traitez des images,
+
+64
+00:04:09,200 --> 00:04:12,480
+on utilise plutôt une structure CNN, 
+réseau de neurone convolutif
+
+65
+00:04:12,480 --> 00:04:15,360
+et pour les infos radar, qui sont 
+des données assez particulières,
+
+66
+00:04:15,360 --> 00:04:19,880
+on peux utiliser des réseaux plus
+ spécifiques, ou une architecture
+
+67
+00:04:20,880 --> 00:04:26,100
+plus complexe ou hybride. 
+Pour être un peu plus concret sur
+
+68
+00:04:26,100 --> 00:04:27,950
+ce que sont les architectures
+
+69
+00:04:27,950 --> 00:04:32,790
+CNN et RNN standard,
+ dans la littérature, vous trouvez
+
+70
+00:04:32,790 --> 00:04:34,740
+des images comme
+
+71
+00:04:34,740 --> 00:04:36,800
+celle-ci. Ceci est un
+ réseau de neurones standard.
+
+72
+00:04:36,800 --> 00:04:41,830
+Vous avez peut être vu ce genre 
+d'image, c'est un exemple de
+
+73
+00:04:41,830 --> 00:04:45,950
+réseau de neurones convolutif, et 
+nous verrons dans un prochain cours
+
+74
+00:04:45,950 --> 00:04:51,560
+exactement ce que cette image signifie
+ et comment implémenter ça.
+ Les réseaux convolutifs sont souvent
+
+75
+00:04:51,560 --> 00:04:54,100
+utilisés quand les données 
+sont des images,
+
+76
+00:04:54,100 --> 00:04:57,590
+et vous verrez aussi des images 
+comme celle ci et vous apprendrez
+
+77
+00:04:57,590 --> 00:05:00,180
+comment implémenter ça 
+dans un autre cours.
+
+78
+00:05:00,180 --> 00:05:06,220
+Les réseaux de neurones récurrents
+ sont très efficaces pour ce genre de 
+données séquentielles à une dimension,
+
+79
+00:05:06,220 --> 00:05:10,310
+qui ont peut être une composante
+ temporelle. Vous avez peut être entendu
+
+80
+00:05:10,310 --> 00:05:14,000
+parler d'applications de l'apprentissage
+ automatique avec des données
+
+81
+00:05:14,000 --> 00:05:14,960
+structurées ou
+
+82
+00:05:14,960 --> 00:05:18,620
+non structurées. Voici ce que
+ ces termes signifient.
+
+83
+00:05:19,910 --> 00:05:25,010
+Les données structurées sont en fait des bases
+ de données. Dans l'exemple immobilier,
+
+84
+00:05:25,010 --> 00:05:28,140
+vous avez une base de données 
+avec une colonne pour
+
+85
+00:05:28,140 --> 00:05:33,460
+le nombre ou la taille des chambres. 
+Ce sont des données structurées.
+
+86
+00:05:33,460 --> 00:05:37,330
+Pour prédire si un utilisateur 
+va cliquer sur une pub, vous connaissez
+
+87
+00:05:37,330 --> 00:05:41,590
+par exemple son age, vous avez
+ des informations sur la publicité,
+
+88
+00:05:41,590 --> 00:05:46,470
+et puis les étiquettes y que vous essayez de
+ prédire. Ce sont des données structurées,
+
+89
+00:05:46,470 --> 00:05:49,740
+c'est à dire que chaque caractéristique,
+
+90
+00:05:49,740 --> 00:05:54,530
+telle la taille de la maison, le nombre 
+de chambre, l'âge de l'utilisateur,
+
+91
+00:05:54,530 --> 00:06:00,520
+a une signification bien définie.
+ Au contraire, les données non structurées
+
+92
+00:06:00,520 --> 00:06:05,790
+sont des choses comme de l'audio brut, ou
+ une image et vous essayez de reconnaître
+
+93
+00:06:05,790 --> 00:06:09,230
+ce qu'elle représente, ou du texte.
+ Ici, les caractéristiques
+
+94
+00:06:09,230 --> 00:06:12,190
+peuvent être les valeurs 
+des pixels d'une image ou
+
+95
+00:06:12,190 --> 00:06:14,330
+chacun des mots d'un texte.
+
+96
+00:06:14,330 --> 00:06:19,480
+Historiquement, c'était beaucoup plus 
+difficile pour les ordinateurs de comprendre
+
+97
+00:06:19,480 --> 00:06:24,270
+les données non structurées, 
+par rapport aux données structurées.
+ Et en fait, les humains
+
+98
+00:06:24,270 --> 00:06:26,270
+ont évolué jusqu'à devenir
+ très bons pour comprendre
+
+99
+00:06:26,270 --> 00:06:28,390
+des signaux audio et
+
+100
+00:06:28,390 --> 00:06:31,760
+des images. Le texte est une invention
+ plus récente, mais nous sommes
+
+101
+00:06:31,760 --> 00:06:36,800
+vraiment bons pour interpréter
+ des données non structurées. Et une des
+ choses plus plus enthousiasmantes
+
+102
+00:06:36,800 --> 00:06:41,280
+dans la montée de l'apprentissage automatique,
+ c'est qu'il permet, l'apprentissage profond permet
+
+103
+00:06:41,280 --> 00:06:46,320
+aux ordinateur d'interpréter beaucoup
+ mieux les données non structurées,
+
+104
+00:06:46,320 --> 00:06:51,240
+par rapport à ce qu'on pouvait faire il y a
+ quelques années. Et cela crée des opportunités
+
+105
+00:06:51,240 --> 00:06:55,220
+pour beaucoup de nouvelles applications,
+ comme la reconnaissance vocale,
+
+106
+00:06:56,230 --> 00:07:00,180
+reconnaissance des images, traitement du langage
+ naturel sur du texte, qu'on ne savait pas faire
+
+107
+00:07:00,180 --> 00:07:03,940
+il y a encore 2 ou 3 ans.
+ Je pense que, parce que les gens
+
+108
+00:07:03,940 --> 00:07:08,250
+ont une empathie naturelle pour comprendre les
+ données non structurées, vous entendrez plus parler
+
+109
+00:07:08,250 --> 00:07:13,060
+dans les médias des succès des réseaux de
+ neurones sur des données non structurées
+
+110
+00:07:13,060 --> 00:07:15,750
+parce que c'est juste cool quand 
+un réseau de neurone reconnait un chat.
+
+111
+00:07:15,750 --> 00:07:19,290
+Nous aimons cela et nous 
+comprenons ce que ça signifie. Mais
+
+112
+00:07:19,290 --> 00:07:24,270
+beaucoup de la valeur économique créée 
+par les réseaux de neurones l'a aussi été
+
+113
+00:07:24,270 --> 00:07:28,690
+sur des données structurées, 
+comme un meilleur ciblage publicitaire,
+
+114
+00:07:28,690 --> 00:07:33,730
+de meilleures recommandations de 
+produits et une meilleure capacité à
+
+115
+00:07:33,730 --> 00:07:37,290
+exploiter les bases de données géantes
+ de beaucoup d'entreprises
+
+116
+00:07:37,290 --> 00:07:41,230
+pour en sortir des prédictions justes.
+ Donc, dans ce cours,
+
+117
+00:07:41,230 --> 00:07:44,690
+beaucoup des techniques que nous
+ allons voir s'appliquent à la fois
+
+118
+00:07:44,690 --> 00:07:46,970
+sur des données structurées 
+et non structurées,
+
+119
+00:07:46,970 --> 00:07:52,210
+dans le but d'expliquer les algorithmes,
+ nous utiliserons plus d'exemples
+
+120
+00:07:52,210 --> 00:07:56,280
+avec des données non structurées. Mais 
+quand vous chercherez des applications
+
+121
+00:07:56,280 --> 00:08:01,360
+de réseaux de neurones avec votre équipe, 
+je pense que vous saurez les appliquer
+
+122
+00:08:02,590 --> 00:08:06,390
+sur des données structurées 
+aussi bien que non structurées.
+
+123
+00:08:06,390 --> 00:08:09,500
+Les réseaux de neurones ont 
+transformé l'apprentissage supervisé,
+
+124
+00:08:09,500 --> 00:08:12,910
+en créant énormément de valeur économique.
+
+125
+00:08:12,910 --> 00:08:16,520
+En fait, les idées de base derrière les 
+réseaux de neurones existent depuis
+
+126
+00:08:16,520 --> 00:08:20,980
+longtemps, parfois des décennies. 
+Alors pourquoi cette technique
+
+127
+00:08:20,980 --> 00:08:24,970
+ne décolle-t-elle que maintenant, si elle
+ est si efficace ? Dans la prochaine vidéo,
+
+128
+00:08:24,970 --> 00:08:28,940
+nous expliquerons pourquoi cet outil formidable
+ ne s'est développé que récemment.

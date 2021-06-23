@@ -1,0 +1,103 @@
+Neste vídeo, mostrarei um 
+exemplo um pouco mais complexo, onde a inclinação da função pode ser 
+diferente em pontos diferentes da função. E nós veremos isso em mais detalhes.
+Vamos começar com um exemplo: Você plotou a função f(a) = a². Vamos dar uma olhada no ponto a = 2. Então, a² ou f(a) = 4. Vamos empurrar "a" um pouquinho 
+para a direita. Agora a = 2,001. f(a), que é a² ficará 
+aproximadamente 4,004. Resulta que o valor exato, você liga a calculadora e descobre
+que é na verdade 4,004001. Direi que 4,004 é próximo o suficiente. Então, o que isso significa 
+é que quando a=2, vamos desenhar isto no gráfico. Então, o que estamos 
+dizendo é que se a=2, f(a) = 4, e aqui, o eixo "x" e "y" 
+não são desenhados em escala. Tecnicamente, a altura vertical 
+deveria ser muito maior do que esta dimensão horizontal, então o 
+"x" e "y" não estão na mesma escala. Mas se agora eu empurrar "a" para 2,001, 
+então f(a) torna-se aproximadamente 4,004. Se desenharmos este pequeno 
+triângulo novamente, o que isso significa é que, se eu 
+mover 0,001 para a direita, f(a) sobre 4 vezes mais, 
+para 0,004. Então, na linguagem de cálculo, nós dizemos que a inclinação, 
+que é a derivada de f(a) em a=2 é 4 ou, para escrever isso de 
+acordo com a nossa notação de cálculo, dizemos que d/da f(a) = 4 
+quando a=2. Agora, uma coisa sobre 
+esta função f(a) = a² é que a inclinação é diferente 
+para diferentes valores de "a". Isto é diferente do que o exemplo 
+que vimos no slide anterior. Vamos dar uma olhada 
+em um ponto diferente. Se a=5, ao invés de a=2, e agora a=5, então a²=25, 
+então esta é f(a). Se movermos "a" novamente à direita, um pequeno empurrãozinho no "a", agora a=5,001, e então f(a) será 
+aproximadamente 25,010. O que vemos é que se 
+empurrarmos "a" 0,001, f(a) aumentará 10 vezes este valor. Então, temos que 
+d/da f(a) = 10, quando a=5 porque f(a) aumenta 10 vezes mais quando eu dou um pequeno 
+empurrãozinho no "a". Uma maneira de ver porque as derivadas 
+são diferentes em pontos diferentes, é desenhando aquele pequeno 
+triângulo nos diferentes pontos, e você verá que a razão
+entre a altura e a a largura (altura sobre largura) do triângulo é muito 
+diferente em pontos diferentes da curva. Então aqui, a inclinação é igual a 4 
+quando a=2, e igual a 10 quando a=5. Agora, se você pegar 
+um livro de cálculo, ele dirá: 
+d/dₐ vezes f(a), então, f(a) = a², assim, d/da a². Uma das fórmulas que você encontra 
+nos livros de cálculo é que esta coisa, a inclinação da função, a² = 2a. Agora, vou fazer a prova, na 
+verdade você encontra isso quando abre um livro de cálculo nas tabelas de fórmulas e eles lhe 
+dizem que a derivada de a² = 2a. E de fato, isto está consistente 
+com o que nós fizemos. Ou seja, quando a=2, a inclinação 
+da função de "a" é 2x2=4. E quando a=5, a inclinação da função 2a                              
+é 2 x 5 = 10. Se você pegar um livro de 
+cálculo e você ver esta fórmula que a derivada de a² = 2a, o que isso significa é que para 
+qualquer valor de "a", se você move para cima 0,001, 
+este minúsculo valor, você espera que f(a) suba para 2a. É a inclinação ou a derivada multiplicada por quanto você empurrou 
+o valor de "a" para a direita. Agora, um pequeno detalhe. Uso estes símbolos aproximados 
+aqui e isso não era exatamente 4,004, há uma 0,001 extra ali. Resulta que este 0,001 extra, esta coisinha aqui é porque nós estávamos 
+empurrando "a" 0,001 para a direita. Se ao invés, tivéssemos 
+empurrando para a direita, este pequeno valor infinitesimal, 
+então este termo extra vai sumir e você verá que o montante 
+de f(a) é exatamente igual ao da derivada multiplicada pelo valor que 
+você empurra "a" para a direita. E o motivo de porque não é exatamente 4,004 
+é porque derivadas são definidas usando estas alterações em "a" infinitesimalmente 
+pequenas, ao invés de 0,001 que não o é. Embora 0,001 seja pequeno, ele não é infinitesimalmente pequeno. Por isso é que a quantidade que 
+f(a) aumentou não é exatamente o valor resultado pela fórmula, mas isso é 
+apenas uma aproximação dada pela derivada. Para encerrar este vídeo, vamos percorrer mais 
+alguns exemplos rápidos. O exemplo que você já viu é que se f(a) = a², a fórmula das tabelas dos livros de 
+cálculo dizem que a derivada é igual a 2a. E o exemplo que fizemos 
+foi que se a = 2, f(a) = 4, e nós deslocamos "a", uma vez que é um pouquinho maior, 
+f(a) é aproximadamente 4,004 e assim f(a) subiu 4 vezes mais 
+e, de fato, quando a = 2, a derivada é igual a 4. Vejamos alguns outros exemplos. Digamos que f(a) = a³. Se você pegar este livro e 
+olhar as tabelas de fórmulas. você vê que a inclinação desta 
+função, novamente, a derivada desta função é igual a 3a². Você pode pegar esta fórmula 
+de um livro de cálculo. Mas o que isso significa? A maneira de interpretar isso é como segue. Vamos pegar a = 2 como exemplo novamente. Então, f(a) ou a³ = 8,
+ que é 2 elevado ao cubo. Então damos um pequeno empurrãozinho, você vê que f(a) é aproximadamente 
+8,012 e fique à vontade para verificar isso. Pegue 2,001 elevado ao cubo. Veja que o resultado está
+muito próximo de 8,012. E de fato, quando a = 2, então 3 x 2², 
+que é igual a 3 x 4, veja que é 12. Então, a fórmula da derivada prevê que se 
+você mover "a" um pouquinho para a direita, f(a) deveria aumentar 12 vezes este valor. E da fato isto é verdade, 
+quando "a" aumentou 0,001, f(a) aumentou 12 vezes mais, para 0,012. Apenas um último exemplo 
+e depois encerramos. Digamos que f(a) é igual a função log. Então, log(a), Vou usar esta como o logaritmo de base "e",
+logaritmo neperiano. Algumas pessoas escrevem como log base e de a,
+ou ln(a). Se você pegar um livro de cálculo, encontrará que quando
+calculamos a derivada de ln(a), esta é uma função que parece desta forma, a inclinação desta função é dada por 1/a. Então, a forma de interpretar isso é que, se 
+"a" tem qualquer valor, então vamos continuar usando a = 2 como exemplo, e você 
+empurra "a" 0,001 para a direita, você espera que f(a) suba para 1/a que é da derivada, multiplicada
+pela quantidade que você aumentou "a". Então, na verdade, se você 
+pegar uma calculadora, verá que, se a = 2, f(a) é aproximadamente 0,69315, 
+e se você aumentar "f" e se você aumentar "a" para 2,001, 
+então f(a) é aproximadamente 0,69365, isto subiu para 0,0005. E de fato, se você olhar a fórmula 
+da derivada quando a = 2, d/da f(a) = 1/2. Esta fórmula de derivada prevê 
+que se você aumentar "a" 0,001, você esperaria que f(a) subisse 
+apenas 1/2 deste valor e 1/2 de 0,001 é 0,0005 o que é exatamente 
+o que obtivemos. Então, quando "a" aumenta 0,001, 
+indo de a = 2 para a = 2,001, 
+f(a) aumenta a metade de 0,001. Então, as respostas estão aumentando 
+aproximadamente 0,0005. Se desenharmos aquele 
+pequeno triângulo, no no eixo horizontal sobe 
+apenas 0,001, no eixo vertical ln(a) aumenta a metade disso, então 0,0005. Então, 1/a ou 1/2 neste caso, é a inclinação desta linha quando a = 2. Então, finalizamos derivadas. Deste vídeo, há duas mensagens 
+para levarmos para casa. Primeiro é que a derivada da 
+função é a inclinação de uma função e a inclinação de uma função pode ser diferente em 
+diferentes pontos da função. No nosso primeiro exemplo onde 
+f(a) = 3a, foi uma linha reta. A derivada foi a mesma em todos os pontos. Foi 3 em todos os pontos. Para as outras funções, tais como 
+f(a) = a² ou f(a) = ln(a), a inclinação da linha varia. Então, a inclinação ou a derivada pode 
+ser diferente em pontos diferentes da curva. Esta é primeira mensagem 
+para levar para casa. Derivada significa apenas 
+a inclinação da curva. Segunda mensagem para levar para casa é que 
+se você quer procurar a derivada de uma função, você pode abrir um livro de cálculo 
+ou olhar na Wikipedia e geralmente obter uma fórmula para a 
+inclinação destas funções em diferentes pontos. Espero que agora você tenha um entendimento 
+intuitivo de derivadas ou inclinação das retas. Vamos para o próximo vídeo. Começaremos a falar sobre 
+o desenho gráfico do cálculo (do processamento) e como usar isso para calcular derivadas de maior 
+complexidade. [Tradução: Renato Barata Gomes 
+| Revisão: Carlos Lage]

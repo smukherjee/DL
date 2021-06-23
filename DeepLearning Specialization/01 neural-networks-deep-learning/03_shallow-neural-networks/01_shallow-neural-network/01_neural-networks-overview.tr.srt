@@ -1,0 +1,287 @@
+1
+00:00:00,000 --> 00:00:02,190
+Tekrar hoş geldiniz. Bu hafta içinde
+
+2
+00:00:02,190 --> 00:00:04,530
+Yapay sinir ağı oluşturmayı öğreneceğiz.
+
+3
+00:00:04,530 --> 00:00:06,885
+Teknik detaylara değinmeden önce,
+
+4
+00:00:06,885 --> 00:00:08,070
+Bu video da,
+
+5
+00:00:08,070 --> 00:00:12,000
+bu hafta ne göreceklerimiz ile ilgili kısaca gözden geçirmek istiyorum.
+
+6
+00:00:12,000 --> 00:00:14,910
+Eğer detaylı bir şekilde takip edemezseniz,
+
+7
+00:00:14,910 --> 00:00:18,810
+endişelenmeyin, sonraki videolarımızda teknik detaylarına değineceğiz.
+
+8
+00:00:18,810 --> 00:00:23,490
+Fakat şimdi, sinir ağını nasıl uygulandığını kısaca gözden geçirelim
+
+9
+00:00:23,490 --> 00:00:26,250
+Geçen hafta, yapısal bağıntı hakkında konuştuk,
+
+10
+00:00:26,250 --> 00:00:31,965
+ve biz bu modelin nasıl bu hesaplama taslağı ile tekabül ettiğini gördük,
+
+11
+00:00:31,965 --> 00:00:35,640
+öznitelik x ve parametreleri yerleştirmiyorduk
+
+12
+00:00:35,640 --> 00:00:40,140
+"w" ve "b", "z" yi hesaplamada kullanılıyordu ve z de a'yı hesaplarken kullanılıyordu,
+
+13
+00:00:40,140 --> 00:00:43,280
+"a" yı değiştirilebilir bir şekilde,
+
+14
+00:00:43,280 --> 00:00:48,065
+"y_hat" ile kullanıyorduk ve sonra yitim fonksiyonunu (L) hesaplıyorduk.
+
+15
+00:00:48,065 --> 00:00:51,390
+Sinir ağı şuna benzer.
+
+16
+00:00:51,390 --> 00:00:53,415
+Daha öncede değindiğim gibi,
+
+17
+00:00:53,415 --> 00:00:58,640
+Sinir ağını, bir sürü işlevi kullanarak oluşturabiliyorduk.
+
+18
+00:00:58,640 --> 00:01:03,785
+Buna karşılık, bu düğüm 2 adımı olan hesaplamaya tekabül ediyor.
+
+19
+00:01:03,785 --> 00:01:05,975
+İlk olarak "z" değerini hesaplıyoruz,
+
+20
+00:01:05,975 --> 00:01:08,630
+ikinci olarak, "a" değerini hesaplıyoruz.
+
+21
+00:01:08,630 --> 00:01:10,460
+Bu sinir ağında
+
+22
+00:01:10,460 --> 00:01:16,565
+Bu not yığını "z" değerini hesaplamaya tekabül ediyor,
+
+23
+00:01:16,565 --> 00:01:20,165
+Hemde "a" değerini hesaplarken de.
+
+24
+00:01:20,165 --> 00:01:26,270
+Sonra, bu düğüm bir sonraki "z" ve "a" değerlerine tekabül ediyor.
+
+25
+00:01:26,270 --> 00:01:30,380
+Bizim bir sonraki takdim edeceğimiz notasyon şöyle.
+
+26
+00:01:30,380 --> 00:01:33,365
+İlk olarak, "x", öznitelik değerini girdi olarak vereceğiz,
+
+27
+00:01:33,365 --> 00:01:36,190
+"w" ve "b" parametreleri ile beraber,
+
+28
+00:01:36,190 --> 00:01:39,840
+ve bu "z1" değerini hesaplamamızı sağlayacak.
+
+29
+00:01:39,840 --> 00:01:43,625
+Yeni göstereceğimiz ve kullanacağımız notasyon
+
+30
+00:01:43,625 --> 00:01:47,060
+üst indis köşeli ayraç
+
+31
+00:01:47,060 --> 00:01:51,185
+düğün yığınları ile ilişkili miktarları temsil ediyor ve buna katman deniyor.
+
+32
+00:01:51,185 --> 00:01:54,080
+Sonra bu üst indis köşeli ayracını kullanarak
+
+33
+00:01:54,080 --> 00:01:58,355
+bu düğüm ile ilişkili olduğunu gösteriyor.
+
+34
+00:01:58,355 --> 00:02:01,445
+Buna sinir ağının bir başka katmanı olarak isimlendiriliyor.
+
+35
+00:02:01,445 --> 00:02:03,680
+Üst indis parantez,
+
+36
+00:02:03,680 --> 00:02:05,135
+burada olduğu gibi,
+
+37
+00:02:05,135 --> 00:02:06,905
+dikkat etmeniz gereken
+
+38
+00:02:06,905 --> 00:02:12,980
+üst indis köşeli ayraç ile eğitim setinindeki örnekleri göstermek için kullandığımız üst indis parantez karıştırılmamalıdır.
+
+39
+00:02:12,980 --> 00:02:17,885
+eğitim örneği "i"yi temsil eden üst indis parantez
+
+40
+00:02:17,885 --> 00:02:23,180
+ve köşeli ayraç 2 farklı katmanı temsil ediyor;
+
+41
+00:02:23,180 --> 00:02:27,530
+katman bir ve katman iki, bu sinir ağında.
+
+42
+00:02:27,530 --> 00:02:33,920
+"z_1" yapısal bağıntıya benzer bir şekilde hesapladıktan sonra
+
+43
+00:02:33,920 --> 00:02:37,715
+"a_1"i hesaplamak için hesap yapmak gerekiyor,
+
+44
+00:02:37,715 --> 00:02:40,970
+ve bu "z_1" in işlevi,
+
+45
+00:02:40,970 --> 00:02:51,530
+ve sonra "z_2" yi hesaplamak için başka bir doğrusal bağıntı kullanarak hesaplıyoruz, sonra a_2 yi hesaplıyoruz.
+
+46
+00:02:51,530 --> 00:02:55,325
+"A_2" bu sinir ağının son çıktısı
+
+47
+00:02:55,325 --> 00:02:59,270
+ve aynı zamanda "y_hat" ile beraber kullanılır.
+
+48
+00:02:59,270 --> 00:03:02,390
+Bunun çok fazla detay olduğunu biliyorum fakat öğrenilmesi
+
+49
+00:03:02,390 --> 00:03:05,925
+gereken ana kısım yapısal bağıntıya karşılık,
+
+50
+00:03:05,925 --> 00:03:09,435
+"z" den sonra "a" nın hesaplanmasıdır.
+
+51
+00:03:09,435 --> 00:03:10,665
+Bu sinir ağında
+
+52
+00:03:10,665 --> 00:03:12,830
+burda birçok kez yaptığımız,
+
+53
+00:03:12,830 --> 00:03:14,870
+"z" den sonra "a" nın hesaplanması,
+
+54
+00:03:14,870 --> 00:03:17,745
+"z" den sonra "a" nın hesaplanması,
+
+55
+00:03:17,745 --> 00:03:21,590
+ve en sonunda yitimin hesaplanmasıdır.
+
+56
+00:03:21,590 --> 00:03:24,200
+Yapısal bağıntıdan hatırladığınız gibi,
+
+57
+00:03:24,200 --> 00:03:27,800
+geriye doğru hesaplama sırası
+
+58
+00:03:27,800 --> 00:03:32,045
+türevlerin hesaplanması veya "da" nın hesaplanması,
+
+59
+00:03:32,045 --> 00:03:33,365
+d z ile devam eder.
+
+60
+00:03:33,365 --> 00:03:34,805
+Aynı şekilde,
+
+61
+00:03:34,805 --> 00:03:38,990
+sinir ağı, geriye doğru hesaplama ile sonlanır.
+
+62
+00:03:38,990 --> 00:03:47,370
+Bu da_2 nin hesaplanması ile sonlanır,
+
+63
+00:03:47,370 --> 00:03:51,060
+dz_2, ve bu dw_2 hesaplanmasını sağlar,
+
+64
+00:03:51,060 --> 00:03:56,130
+db_2 ile devam eder.
+
+65
+00:03:56,130 --> 00:04:04,060
+Bu soldan sağa geriye doğru hesaplama kırmızı ok ile belirtilmiştir.
+
+66
+00:04:04,060 --> 00:04:08,750
+Sinir ağının ne olduğu ile ilgili kısa bir gözden geçirdik.
+
+67
+00:04:08,750 --> 00:04:12,470
+Yapısal bağıntının iki defa tekrar etmesi ile oluşuyor.
+
+68
+00:04:12,470 --> 00:04:14,780
+Çok fazla notasyon kavramlarının olduğunu biliyorum,
+
+69
+00:04:14,780 --> 00:04:16,910
+yeni detaylar, hatırlamak konusunda endişelenmeyin,
+
+70
+00:04:16,910 --> 00:04:21,575
+herşeyi takip edin, sonraki videolarda detayları açıklayacağız.
+
+71
+00:04:21,575 --> 00:04:23,060
+Bir sonraki videoya bakalım.
+
+72
+00:04:23,060 --> 00:04:26,270
+Sinir ağları yapısı hakkında konuşacağız.

@@ -1,0 +1,227 @@
+1
+00:00:00,000 --> 00:00:03,050
+Evet, derin öğrenmenin beyin ile ne ilgisi var?
+
+2
+00:00:03,050 --> 00:00:05,005
+Vurucu noktayı açık etme riskine rağmen,
+
+3
+00:00:05,005 --> 00:00:06,885
+diyorum k, pek de ilgisi yok.
+
+4
+00:00:06,885 --> 00:00:09,750
+Ancak, haydi insanların neden derin öğrenme ve insan beyini
+
+5
+00:00:09,750 --> 00:00:13,185
+arasında bir benzerlik kurmaya devam ettiklerine hızlıca bir bakalım.
+
+6
+00:00:13,185 --> 00:00:15,345
+Bir sinir ağı oluştururken,
+
+7
+00:00:15,345 --> 00:00:16,470
+yaptığınız şey,
+
+8
+00:00:16,470 --> 00:00:18,270
+ileri yayılım ve geri yayılımdır.
+
+9
+00:00:18,270 --> 00:00:21,930
+Bence, bu denklemlerin neler yaptığı konusunda , oldukça karmaşık bir fonksiyonda
+
+10
+00:00:21,930 --> 00:00:26,850
+grandyan inişi gibi, sezgileri aktarmak zor olduğundan
+
+11
+00:00:26,850 --> 00:00:29,940
+beyin gibi olduğu benzetmesi
+
+12
+00:00:29,940 --> 00:00:34,365
+ne yaptığı konusunda oldukça kolaylaştırılmış bir açıklama oldu,
+
+13
+00:00:34,365 --> 00:00:40,010
+ancak bu kolaylık insanlar için bunu herkesin önünde yapmak konusunda baştan çıkarıcı yapıyor,
+
+14
+00:00:40,010 --> 00:00:42,275
+aynı zamanda medya için raporlama sunmak konusunda,
+
+15
+00:00:42,275 --> 00:00:44,825
+ve kesinlikle popüler hayal gücünü de yakaladı.
+
+16
+00:00:44,825 --> 00:00:48,020
+Örneğin yapısal bağıntı ile işlevli etkilenim fonkisyonu
+
+17
+00:00:48,020 --> 00:00:53,315
+arasında oldukça gevşek bir benzerlik var,
+
+18
+00:00:53,315 --> 00:00:58,130
+ve burada beyindeki tek bir nöronun karikatürü var.
+
+19
+00:00:58,130 --> 00:01:02,555
+Bu resimde biyolojik nöron
+
+20
+00:01:02,555 --> 00:01:03,905
+beyninizdeki bir hücredir,
+
+21
+00:01:03,905 --> 00:01:07,945
+diğer nöronlarınızdan elektrik sinyallerini alır,
+
+22
+00:01:07,945 --> 00:01:11,100
+X_1, X_2, X_3 ve belki de diğer nöronlardan A_1, A_2,
+
+23
+00:01:11,100 --> 00:01:14,595
+A_3, basıt bir eşikleme hesaplaması yapıyor,
+
+24
+00:01:14,595 --> 00:01:17,110
+ve sonra eğer bu nöron ateşlerse,
+
+25
+00:01:17,110 --> 00:01:20,150
+akson dan aşağıya bir elektrik akımı gönderiyor
+
+26
+00:01:20,150 --> 00:01:23,330
+bu uzun kablo üzerinden belki de diğer nöronlara.
+
+27
+00:01:23,330 --> 00:01:27,540
+Yani, bir sinir ağındaki tek bir nöron ile
+
+28
+00:01:27,540 --> 00:01:34,540
+sağda gösterildiği gibi biyolojik nöron arasında oldukça basitleştirilmiş bir benzerlik var,
+
+29
+00:01:34,540 --> 00:01:37,865
+ama bence bugün nörologların bile tek bir nöronun 
+
+30
+00:01:37,865 --> 00:01:41,390
+ne yaptığı konusunda neredeyse hiç fikirleri yok. 
+
+31
+00:01:41,390 --> 00:01:44,120
+Tek bir nöron bizim nöroloji ile karakterize 
+
+32
+00:01:44,120 --> 00:01:47,545
+edebileceğimizden çok daha karmaşık, 
+
+33
+00:01:47,545 --> 00:01:52,595
+ve yaptıklarının bir kısmı bir nebze yapısal bağıntı ile benzerlik gösterse de,
+
+34
+00:01:52,595 --> 00:01:58,795
+tek bir nöronun yaptığı ve hiçbir insanın anlayamadığı oldukça fazla şey var.
+
+35
+00:01:58,795 --> 00:02:02,210
+Örneğin, insan beynindeki nöronların tam olarak nasıl öğrendiği,
+
+36
+00:02:02,210 --> 00:02:05,155
+halen oldukça gizemli bir süreç.
+
+37
+00:02:05,155 --> 00:02:09,410
+İnsan beyninin bir algoritma kullanıp kullanmadığı, geri yayılım veya
+
+38
+00:02:09,410 --> 00:02:12,590
+gradyan inişi benzeri birşey yapıp yapmadığı veya aslen oldukça
+
+39
+00:02:12,590 --> 00:02:17,915
+farklı bir öğrenme prensibi kullanıp kullanmadığı bugün halen tamamen belirsizdir.
+
+40
+00:02:17,915 --> 00:02:20,635
+Yani, derin öğrenme hakkında düşündüğüm zaman,
+
+41
+00:02:20,635 --> 00:02:25,160
+oldukça esnek fonksiyonları öğrenmek konusunda çok iyi olduğunu düşünüyorum,
+
+42
+00:02:25,160 --> 00:02:29,090
+X'in Y'ye eşlemesi konusunda oldukça karmaşık fonksiyonlar,
+
+43
+00:02:29,090 --> 00:02:32,320
+yöntemi olarak düşünüyorum.
+
+44
+00:02:32,320 --> 00:02:35,199
+Bu beyini andırıyor gibi görünse de,
+
+45
+00:02:35,199 --> 00:02:36,965
+belki de bir zamanlar faydalıydı.
+
+46
+00:02:36,965 --> 00:02:40,040
+Bence bu alan artık benzerliğin kırılmaya başladığı bir noktaya
+
+47
+00:02:40,040 --> 00:02:45,135
+ilerledi ve ben artık bu benzerliği pek kullanmıyorum.
+
+48
+00:02:45,135 --> 00:02:48,620
+Evet, sinir ağları ve beyin hakkında bu kadar.
+
+49
+00:02:48,620 --> 00:02:51,830
+Bilgisayar vizyonunun diğer disiplinlere kıyasla derin öğrenmede 
+
+50
+00:02:51,830 --> 00:02:54,455
+insan beyninden daha fazla ilham aldığı
+
+51
+00:02:54,455 --> 00:02:57,290
+görüşündeyim, ama kişisel oalrak
+
+52
+00:02:57,290 --> 00:03:02,465
+insan beyni benzetmesini eskiden olduğundan daha az kullanıyorujm.
+
+53
+00:03:02,465 --> 00:03:05,090
+Evet, bu video için bu kadar.
+
+54
+00:03:05,090 --> 00:03:07,940
+Artık ileri yayılım ve geri yayılımı ve
+
+55
+00:03:07,940 --> 00:03:10,940
+gradyan inişi derin sinir ağlarına bile nasıl uygulayacağınızı biliyorsunuz.
+
+56
+00:03:10,940 --> 00:03:12,905
+Problem alıştırmanızda başarılar dilerim,
+
+57
+00:03:12,905 --> 00:03:17,130
+ve ikinci kursta bu fikirlerden daha fazlasını sizlerle paylaşmayı dört gözle bekliyorum.
